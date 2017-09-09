@@ -16,12 +16,11 @@
 
 Game::GameState Game::_gameState = Splash;
 sf::RenderWindow Game::_mainWindow;
+const int gameWidth = 1080;
+const int gameHeight = 1080;
 
 void Game::Start(void)
 {
-
-    const int gameWidth = 1920;
-    const int gameHeight = 1080;
 
     sf::Image icon;
     icon.loadFromFile("resources/icon.png");
@@ -49,49 +48,46 @@ void Game::GameLoop()
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
+    sf::Texture texture;
+    if (!texture.loadFromFile("resources/player_model.png"))
+    {
+        _mainWindow.close();
+    }
+
+    sf::Sprite ship(texture);
+    ship.setOrigin(ship.getGlobalBounds().width/2,ship.getGlobalBounds().height/2);
+    ship.setPosition(gameWidth/2, gameHeight/2);
+
     if (_gameState == Game::Splash)
     {
         ShowSplashScreen();
     }
     while (_gameState == Game::Playing)
+    {
+        //Check for events since last frame
+        while (_mainWindow.pollEvent(event))
         {
-            //Check for events since last frame
-            while (_mainWindow.pollEvent(event))
+            switch (event.type)
             {
-                switch (event.type)
+                case sf::Event::Closed :_gameState = Game::Exiting;
+                    break;
+
+                case sf::Event::KeyPressed :
                 {
-                    case sf::Event::Closed :
-                        _gameState = Game::Exiting;
-                        break;
-
-                    case sf::Event::KeyPressed :
-                        if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
-                            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-                                || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-                            {
-                                _gameState = Game::Exiting;
-                                break;
-                            }
-                        if ((event.key.code == sf::Keyboard::A) || (event.key.code == sf::Keyboard::Left))
-                            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-                                || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-                                color.r = 0;
-                        if (color.r < 255)
-                            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
-                                || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
-                                color.r += 5;
-                            else
-                                color.r += 1;
-
-                        if ((event.key.code == sf::Keyboard::D) || (event.key.code == sf::Keyboard::Right))
-                                color.b = 255;
-                        if (event.key.code == sf::Keyboard::Space)
+                    if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
+                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
+                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
                         {
-                            color.r = 255;
-                            color.g = 255;
-                            color.b = 255;
+                            _gameState = Game::Exiting;
+                            break;
                         }
-                        break;
+                    if ((event.key.code == sf::Keyboard::A) || (event.key.code == sf::Keyboard::Left))
+                        ship.move(-5, 0);
+
+                    if ((event.key.code == sf::Keyboard::D) || (event.key.code == sf::Keyboard::Right))
+                        ship.move(5, 0);
+
+                    break;
                 }
             }
 
@@ -99,8 +95,10 @@ void Game::GameLoop()
             clock.restart();
 
             _mainWindow.clear(color);
+            _mainWindow.draw(ship);
             _mainWindow.display();
         }
+    }
 }
 
 void Game::ShowSplashScreen()
