@@ -9,11 +9,14 @@
 //
 // Copyright (c) 2017 Tyson Cross, Wits University, All rights reserved.
 //--------------------------------------------------------------------------
+
 #ifndef PROJECT_GAME_HPP
 #define PROJECT_GAME_HPP
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
+#include <map>
 
+using key_map = std::map<int,bool>; // perhaps should be unordered_set?? The boolean value is redundant
 class Game
 {
 public:
@@ -27,6 +30,7 @@ private:
 
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;
+    static key_map _keysPressed;
 };
 
 #endif //PROJECT_GAME_HPP

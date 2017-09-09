@@ -11,18 +11,22 @@
 //--------------------------------------------------------------------------
 
 #include <iostream>
-#include "Game.hpp"
-#include "SplashScreen.hpp"
 #include <cmath>
 
+#include "Game.hpp"
+#include "SplashScreen.hpp"
+#include "InputHandler.hpp"
+
 Game::GameState Game::_gameState = Splash;
+key_map Game::_keysPressed;
 sf::RenderWindow Game::_mainWindow;
 
 const int gameWidth = 1920;
 const int gameHeight = 1080;
 const float pi = 3.1415;
 
-void Game::Start()
+void
+Game::Start()
 {
     sf::Image icon;
     icon.loadFromFile("resources/icon.png");
@@ -36,8 +40,6 @@ void Game::Start()
     _mainWindow.setFramerateLimit(60);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
-    _gameState = Splash;
-
     while (_gameState != Game::Exiting)
     {
         GameLoop();
@@ -45,10 +47,13 @@ void Game::Start()
     _mainWindow.close();
 }
 
-void Game::GameLoop()
+void
+Game::GameLoop()
 {
+    //---------------------------------------------
+    // SHIP CREATION
     int shipAngle = 0;
-    const auto shipPathRadius = (gameHeight/2)-(gameHeight*0.1);
+    const auto shipPathRadius = (gameHeight / 2) - (gameHeight * 0.1);
     sf::Event event;
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
@@ -60,8 +65,14 @@ void Game::GameLoop()
     }
 
     sf::Sprite ship(texture);
-    ship.setScale(0.5,0.5);
-    ship.setOrigin(ship.getGlobalBounds().width/2,ship.getGlobalBounds().height/2);
+    ship.setScale(0.5, 0.5);
+    ship.setOrigin(ship.getGlobalBounds().width / 2, ship.getGlobalBounds().height / 2);
+
+    // SHIP CREATION
+    //---------------------------------------------
+
+    //Game Handler
+    InputHandler inputHandler;
 
     if (_gameState == Game::Splash)
     {
@@ -72,67 +83,89 @@ void Game::GameLoop()
         //Check for events since last frame
         while (_mainWindow.pollEvent(event))
         {
-            switch (event.type)
+
+            if (event.type == sf::Event::Closed)
             {
-                case sf::Event::Closed :_gameState = Game::Exiting;
-                    break;
+                _gameState = Game::Exiting;
+            }
 
-                case sf::Event::KeyPressed :
+            if (event.type == sf::Event::EventType::KeyPressed)
+            {
+                if (_keysPressed.count(event.key.code) == 0) //optimisation: should we check against expected/allowed keys
                 {
-                    if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
-                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-                        {
-                            _gameState = Game::Exiting;
-                            break;
-                        }
-                    if ((event.key.code == sf::Keyboard::A) || (event.key.code == sf::Keyboard::Left))
-                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
-                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
-                            shipAngle -= 5;
-                        else
-                            shipAngle -= 2;
-
-                    if ((event.key.code == sf::Keyboard::D) || (event.key.code == sf::Keyboard::Right))
-                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
-                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
-                            shipAngle += 5;
-                        else
-                            shipAngle += 2;
-
-                    if (event.key.code == sf::Keyboard::Space)
-                    {
-                        shipAngle = 0;
-                    }
-
-                    break;
+                    _keysPressed[event.key.code] = true;
                 }
             }
+
+            if (event.type == sf::Event::EventType::KeyReleased)
+            {
+                if (_keysPressed.count(event.key.code) > 0)
+                {
+                    _keysPressed.erase(event.key.code);
+
+                }
+            }
+//                    if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
+//                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
+//                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+//                        {
+//                            _gameState = Game::Exiting;
+//                            break;
+//                        }
+//                    if ((event.key.code == sf::Keyboard::A) || (event.key.code == sf::Keyboard::Left))
+//                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
+//                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+//                            shipAngle -= 5;
+//                        else
+//                            shipAngle -= 2;
+//
+//                    if ((event.key.code == sf::Keyboard::D) || (event.key.code == sf::Keyboard::Right))
+//                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
+//                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+//                            shipAngle += 5;
+//                        else
+//                            shipAngle += 2;
+//
+//                    if (event.key.code == sf::Keyboard::Space)
+//                    {
+//                        shipAngle = 0;
+//                    }
+
         } // End of input polling
 
-            std::cout << "Angle is: " << shipAngle << " and position: (" << ship.getPosition().x << ", " << ship.getPosition().y << ")";
-            std::cout << " Elapsed time since last frame: " << clock.getElapsedTime().asMicroseconds() << std::endl;
-            clock.restart();
+        //std::cout << "Angle: " << shipAngle;
+        // std::cout << " Position: (" << ship.getPosition().x << ", " << ship.getPosition().y << ")";
+        //std::cout << " Time between frame: " << clock.getElapsedTime().asMicroseconds();
+        //std::cout << std::endl;
 
-            shipAngle = shipAngle % 360;
-            if(shipAngle<0)shipAngle+=360;
-            //Rotate coordinate system by 90 degrees
-            ship.setPosition(shipPathRadius*sin(shipAngle*(pi/180))+gameWidth/2,shipPathRadius*cos(shipAngle*(pi/180))+gameHeight/2);
-            ship.setRotation(-shipAngle);
+        //---------------------------------------------
+        // Ship movement
+        clock.restart();
 
-            //Send all inputs to the inputController
+        shipAngle = shipAngle % 360;
+        if (shipAngle < 0)
+            shipAngle += 360;
+        //Rotate coordinate system by 90 degrees
+        ship.setPosition(shipPathRadius * sin(shipAngle * (pi / 180)) + gameWidth / 2,
+                         shipPathRadius * cos(shipAngle * (pi / 180)) + gameHeight / 2);
+        ship.setRotation(-shipAngle);
+        //---------------------------------------------
 
-            //Get all objects to be drawn
+        //Send all inputs to the inputController
+        inputHandler.resolveKeyMapping(_keysPressed);
 
-            _mainWindow.clear(color);
-            _mainWindow.draw(ship);
-            _mainWindow.display();
-        }
+        //Get all objects to be drawn
+
+        _mainWindow.clear(color);
+        _mainWindow.draw(ship);
+        _mainWindow.display();
     }
+}
 
-void Game::ShowSplashScreen()
+void
+Game::ShowSplashScreen()
 {
-        SplashScreen splashScreen;
-        splashScreen.Show(_mainWindow);
-        _gameState = Playing;
+    SplashScreen splashScreen;
+    splashScreen.Show(_mainWindow);
+    _gameState = Playing;
 }
