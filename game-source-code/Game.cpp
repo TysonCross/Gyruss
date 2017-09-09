@@ -45,17 +45,16 @@ void Game::Start(void)
 
 void Game::GameLoop()
 {
+    sf::Event event;
+    sf::Clock clock;
+    sf::Color color(sf::Color::Black);
+
     if (_gameState == Game::Splash)
     {
         ShowSplashScreen();
     }
     while (_gameState == Game::Playing)
         {
-            sf::Event event;
-            sf::Clock clock;
-
-            sf::Color color(sf::Color::Black);
-
             //Check for events since last frame
             while (_mainWindow.pollEvent(event))
             {
@@ -74,7 +73,16 @@ void Game::GameLoop()
                                 break;
                             }
                         if ((event.key.code == sf::Keyboard::A) || (event.key.code == sf::Keyboard::Left))
-                                color.r = 255;
+                            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
+                                || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+                                color.r = 0;
+                        if (color.r < 255)
+                            if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
+                                || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
+                                color.r += 5;
+                            else
+                                color.r += 1;
+
                         if ((event.key.code == sf::Keyboard::D) || (event.key.code == sf::Keyboard::Right))
                                 color.b = 255;
                         if (event.key.code == sf::Keyboard::Space)
