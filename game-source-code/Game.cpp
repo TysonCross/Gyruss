@@ -35,7 +35,6 @@ Game::Start()
                        sf::Style::Titlebar | sf::Style::Close);
     _mainWindow.setKeyRepeatEnabled(true);
     _mainWindow.setMouseCursorVisible(false);
-    //_mainWindow.setMouseCursorGrabbed(true);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setFramerateLimit(60);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
