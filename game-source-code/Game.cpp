@@ -1,37 +1,33 @@
 //--------------------------------------------------------------------------
 // Student  1239448
 // @file    Game.cpp
-// @author  Tyson Cross
+// @author  Tyson Cross and Chris Maree
 // @date    2017/09/09
 // @brief   Main Game controller implementation
 //
 // Implements the Game loop, and game states
 //
-// Copyright (c) 2017 Tyson Cross, Wits University, All rights reserved.
+// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
 //--------------------------------------------------------------------------
 
 #include <iostream>
-#include <cmath>
-
 #include "Game.hpp"
 #include "SplashScreen.hpp"
 #include "InputHandler.hpp"
-#include "PlayerShip.hpp"
 
 Game::GameState Game::_gameState = Splash;
 key_map Game::_keysPressed;
 sf::RenderWindow Game::_mainWindow;
 
-void
-Game::Start()
+void Game::Start()
 {
     sf::Image icon;
     icon.loadFromFile("resources/icon.png");
 
-    _mainWindow.create(sf::VideoMode(gameWidth, gameHeight, 32), "Gyruss",
+    _mainWindow.create(sf::VideoMode(resolution.x, resolution.y, 32), "Gyruss",
                        sf::Style::Titlebar | sf::Style::Close);
     //_mainWindow.setKeyRepeatEnabled(true);
-    //_mainWindow.setMouseCursorVisible(false);
+    _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setFramerateLimit(60);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
@@ -50,7 +46,7 @@ Game::InitializeGameLoop()
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
-    const auto shipPathRadius = (gameHeight / 2) - (gameHeight * 0.1f);
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * 0.1f);
     PlayerShip playerShip(shipPathRadius, 0, 0.25);
 
     //Game Handler
@@ -74,7 +70,6 @@ Game::InitializeGameLoop()
 
             // During the current polling period, key-presses are detected
             // if pressed added to the map, and removed if the key is released
-
             if (event.type == sf::Event::EventType::KeyPressed)
             {
                 if (_keysPressed.count(event.key.code) == 0)

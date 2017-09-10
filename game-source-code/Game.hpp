@@ -1,25 +1,21 @@
 //--------------------------------------------------------------------------
 // Student  1239448
 // @file    Game.hpp
-// @author  Tyson Cross
+// @author  Tyson Cross and Chris Maree
 // @date    2017/09/09
 // @brief   Main Game controller.
 //
 // Handles the Game loop, and game states
 //
-// Copyright (c) 2017 Tyson Cross, Wits University, All rights reserved.
+// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
 //--------------------------------------------------------------------------
 
 #ifndef PROJECT_GAME_HPP
 #define PROJECT_GAME_HPP
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
+#include "common.hpp"
 #include <map>
-
-const int gameWidth = 1920;
-const int gameHeight = 1080;
-const float pi = 3.1415;
-
 using key_map = std::map<int, bool>; // perhaps should be unordered_set?? The boolean value is redundant
 
 class Game
