@@ -1,16 +1,17 @@
 //--------------------------------------------------------------------------
 // Student  1239448
 // @file    PlayerShip.cpp
-// @author  Tyson Cross
+// @author  Tyson Cross and Chris Maree
 // @date    2017/09/09
 // @brief   Description of file in project Project.
 //
 // Detailed description of file.
 //
-// Copyright (c) 2017 Tyson Cross, Wits University, All rights reserved.
+// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
 //--------------------------------------------------------------------------
 #include "PlayerShip.hpp"
 #include <iostream>
+
 
 float degreeToRad(float degree) {
     return degree * (pi / 180);
@@ -38,15 +39,16 @@ PlayerShip::PlayerShip(float distanceFromCentre,
     _sprite.setScale(_scale, _scale);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     //Initialised position at bottom of play area, not screen origin top-left
-    move(0, gameWidth, gameHeight);
+    move(0);
 }
 
-void PlayerShip::move(int angle, unsigned int width, unsigned int height) {
+void PlayerShip::move(int angle)
+{
     _angle += angle;
     _angle = eulerFilter(_angle);
     //Rotate coordinate system by 90 degrees
-    _sprite.setPosition(_distanceFromCentre * sin(degreeToRad(_angle)) + width / 2,
-                        _distanceFromCentre * cos(degreeToRad(_angle)) + height / 2);
+    _sprite.setPosition(_distanceFromCentre * sin(degreeToRad(_angle)) + resolution.x / 2,
+                        _distanceFromCentre * cos(degreeToRad(_angle)) + resolution.y / 2);
     _sprite.setRotation(-1 * _angle);
 }
 
