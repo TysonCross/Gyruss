@@ -46,18 +46,16 @@ Game::Start()
 void
 Game::GameLoop()
 {
-    //---------------------------------------------
-    // SHIP CREATION
-    int shipAngle = 0;
-    const auto shipPathRadius = (gameHeight / 2) - (gameHeight * 0.1);
+
     sf::Event event;
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
+    //Todo: the sprite and texture should be created by and in the playerShip object
     sf::Texture shipTexture;
     sf::Sprite shipSprite;
-
-    PlayerShip playerShip(shipSprite, shipTexture, (gameHeight / 2) - (gameHeight * 0.1),0,0.5);
+    const auto shipPathRadius = (gameHeight / 2) - (gameHeight * 0.1f);
+    PlayerShip playerShip(shipSprite, shipTexture, shipPathRadius,0 , 0.25);
 
     //Game Handler
     InputHandler inputHandler;
@@ -77,10 +75,12 @@ Game::GameLoop()
                 _gameState = Game::Exiting;
             }
 
+            // During the current polling period, key-presses are detected
+            // if pressed added to the map, and removed if the key is released
 
             if (event.type == sf::Event::EventType::KeyPressed)
             {
-                if (_keysPressed.count(event.key.code) == 0) //optimisation: should we check against expected/allowed keys
+                if (_keysPressed.count(event.key.code) == 0)
                 {
                     _keysPressed[event.key.code] = true;
                 }
@@ -94,34 +94,18 @@ Game::GameLoop()
 
                 }
             }
-            if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
-            {
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-                    || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-                {
-                    _gameState = Game::Exiting;
-                    break;
-                }
-            }
-            if (event.key.code == sf::Keyboard::Left)
-                playerShip.move(-2, gameWidth, gameHeight);
 
-            if (event.key.code == sf::Keyboard::Right)
-                playerShip.move(2, gameWidth, gameHeight);
 
         } // End of input polling
 
-        playerShip.move(0,gameWidth,gameHeight);
-
-        //Send all inputs to the inputController
-        inputHandler.resolveKeyMapping(_keysPressed);
+        inputHandler.resolveKeyMapping(_keysPressed, playerShip);
 
         //Get all objects to be drawn
 
         clock.restart();
 
         _mainWindow.clear(color);
-        _mainWindow.draw(shipSprite);
+        _mainWindow.draw(playerShip.getSprite());
         _mainWindow.display();
     }
 }

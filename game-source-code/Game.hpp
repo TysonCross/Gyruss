@@ -20,7 +20,7 @@ const int gameWidth = 1920;
 const int gameHeight = 1080;
 const float pi = 3.1415;
 
-using key_map = std::map<int,bool>; // perhaps should be unordered_set?? The boolean value is redundant
+using key_map = std::map<int, bool>; // perhaps should be unordered_set?? The boolean value is redundant
 
 class Game
 {
@@ -31,7 +31,7 @@ private:
     static void GameLoop();
     static void ShowSplashScreen();
 
-    enum GameState {Splash, Playing, Exiting};
+    enum GameState { Splash, Playing, Exiting };
 
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;

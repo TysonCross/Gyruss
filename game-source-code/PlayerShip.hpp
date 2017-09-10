@@ -18,14 +18,14 @@
 class PlayerShip
 {
 public:
-    PlayerShip(sf::Sprite& sprite, sf::Texture& texture, float distanceFromCentre, int angle, float scale);
+    PlayerShip(sf::Sprite &sprite, sf::Texture &texture, float distanceFromCentre, int angle, float scale);
     void move(int angle, unsigned int _windowWidth, unsigned int _windowHeight);
-    sf::Sprite& getSprite();
+    sf::Sprite &getSprite();
     sf::Texture getTexture();
 
 private:
-    sf::Sprite& _sprite;
-    sf::Texture& _texture;
+    sf::Sprite &_sprite;
+    sf::Texture &_texture;
     float _distanceFromCentre;
     int _angle;
     float _scale;

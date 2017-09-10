@@ -13,6 +13,7 @@
 #ifndef PROJECT_INPUTHANDLER_HPP
 #define PROJECT_INPUTHANDLER_HPP
 #include "Game.hpp"
+#include "PlayerShip.hpp"
 #include <map>
 
 //using keyMapping =  std::map<int,enum>; //Research tuples, dictionary, or enum?>
@@ -20,8 +21,9 @@
 class InputHandler
 {
 public:
-    void resolveKeyMapping(const key_map& keys_pressed); //Todo: add object passed to use the mapped key actions
+    void resolveKeyMapping(const key_map &keys_pressed,
+                           PlayerShip &playerShip); //Todo: abstract object passed to use the mapped key actions
 private:
-//    std::map keyMapping{}
+
 };
 #endif //PROJECT_INPUTHANDLER_HPP

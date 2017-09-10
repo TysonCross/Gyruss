@@ -12,11 +12,13 @@
 
 #include "SplashScreen.hpp"
 
-void SplashScreen::Show(sf::RenderWindow & renderWindow)
+void SplashScreen::Show(sf::RenderWindow &renderWindow)
 {
     sf::Texture splashScreen;
-    if(!splashScreen.loadFromFile("resources/splash.png"))
+    if (!splashScreen.loadFromFile("resources/splash.png"))
+    {
         return;
+    }
 
     sf::Sprite splash(splashScreen);
 
@@ -24,13 +26,13 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
     renderWindow.display();
 
     sf::Event event;
-    while(true)
+    while (true)
     {
-        while(renderWindow.pollEvent(event))
+        while (renderWindow.pollEvent(event))
         {
-            if(event.type == sf::Event::KeyPressed ||
+            if (event.type == sf::Event::KeyPressed ||
                 event.type == sf::Event::MouseButtonPressed ||
-                event.type ==  sf::Event::Closed )
+                event.type == sf::Event::Closed)
             {
                 return;
             }

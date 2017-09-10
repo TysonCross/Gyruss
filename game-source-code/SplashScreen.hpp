@@ -14,7 +14,7 @@
 class SplashScreen
 {
 public:
-    void Show(sf::RenderWindow& window);
+    void Show(sf::RenderWindow &window);
 };
 
 #endif //PROJECT_SPLASHSCREEN_H
