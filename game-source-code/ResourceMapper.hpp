@@ -5,22 +5,24 @@
 #ifndef PROJECT_RESOURCEMAPPER_H
 #define PROJECT_RESOURCEMAPPER_H
 
-
-
 #include <string>
 #include <vector>
 #include <map>
 
+using resourceMap = std::map<std::string, std::vector<std::string> >;
+//template<class Type>
+//    using resourceMap = std::map<std::string, std::vector<Type>>;
 
 class ResourceMapper
 {
 public:
     ResourceMapper();
-    const std::map<std::string, std::vector<std::string>> getResourceMap() const;
+    const resourceMap getResourceMap() const;
+    const std::vector<std::string> getResourceValues(std::string) const;
     const std::string getResource(std::string) const;
 
 private:
-    std::map<std::string, std::vector<std::string>> _resourceMap;
+    resourceMap _resourceMap;
 };
 
 #endif //PROJECT_RESOURCEMAPPER_H

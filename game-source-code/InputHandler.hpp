@@ -12,12 +12,10 @@
 //--------------------------------------------------------------------------
 #ifndef PROJECT_INPUTHANDLER_HPP
 #define PROJECT_INPUTHANDLER_HPP
+
 #include "Game.hpp"
 #include "PlayerShip.hpp"
 #include <map>
-
-//Todo: abstract object passed to use the mapping key actions
-//using keyMapping =  std::map<int,enum>; //Research tuples, dictionary, or enum?>
 
 class InputHandler
 {

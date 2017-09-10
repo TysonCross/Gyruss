@@ -11,19 +11,18 @@
 //--------------------------------------------------------------------------
 #ifndef PROJECT_PLAYERSHIP_HPP
 #define PROJECT_PLAYERSHIP_HPP
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "Game.hpp"
 #include "common.hpp"
 #include "ResourceMapper.hpp"
 
-class TextureNotFound{};
-
 class PlayerShip
 {
 public:
 
-    PlayerShip(float distanceFromCentre,const ResourceMapper& resourceMapper, int angle, float scale);
+    PlayerShip(const ResourceMapper &resourceMapper, float distanceFromCentre, int angle, float scale);
     void move(int angle);
 
     sf::Sprite &getSprite();

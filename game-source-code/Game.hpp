@@ -12,10 +12,12 @@
 
 #ifndef PROJECT_GAME_HPP
 #define PROJECT_GAME_HPP
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "common.hpp"
 #include <map>
+
 using key_map = std::map<int, bool>; // perhaps should be unordered_set?? The boolean value is redundant
 
 class Game

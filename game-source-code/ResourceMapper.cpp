@@ -7,14 +7,23 @@
 
 ResourceMapper::ResourceMapper() {
     _resourceMap = {
-            {"SplashBackground", {"resources/splash.png"}},
-            {"ShipSprite",       {"resources/player_model.png"}}
+            {"Resolution",      {"1920","1080"}},
+            {"WindowIcon",      {"resources/icon.png"}},
+            {"Star",            {"resources/star.png"}},
+            {"SplashScreen",    {"resources/splash.png"}},
+            {"PlayerShip",      {"resources/player_model.png"}}
+
     };
 }
 
-const std::map<std::string, std::vector<std::string>> ResourceMapper::getResourceMap() const
+const resourceMap ResourceMapper::getResourceMap() const
 {
     return _resourceMap;
+}
+
+const std::vector<std::string> ResourceMapper::getResourceValues(std::string resourceName) const
+{
+    return _resourceMap.at(resourceName);
 };
 
 const std::string ResourceMapper::getResource(std::string resourceName) const

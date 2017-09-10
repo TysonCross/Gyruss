@@ -12,8 +12,8 @@
 #include <utility>
 
 //GLOBAL VARIABLES
-const float pi = 3.1415;
-const float phi = 1.618;
+static const float pi = 3.1415;
+//static const float phi = 1.618;
 
 //USEFUL FUNCTIONS
 struct Resolution
@@ -22,8 +22,7 @@ struct Resolution
     unsigned int y;
 };
 
-
 //TEMP GLOBAL VARIABLES
-const Resolution resolution = {1920,1080}; //BAD!!! Todo: Add resolution to resource mapper instead
+const Resolution resolution = {1920, 1080}; //BAD!!! Todo: Add resolution to resource mapper instead
 
 #endif //PROJECT_COMMON_HPP
