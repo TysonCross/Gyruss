@@ -147,6 +147,9 @@ Temporary Items
 #Hide CmakeLists.txt
 CmakeLists.txt
 
+#Conceal the doctest framework and folder
+test-source-code/doctest.h
+
 #Conceal the Project Brief
 docs/elen3009-project-2017.pdf
 docs/elen3009-project-assessment-form-2017.pdf
