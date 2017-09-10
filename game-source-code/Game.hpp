@@ -1,18 +1,21 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    Game.hpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Main Game controller.
-//
-// Handles the Game loop, and game states
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    Game.hpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/09
+/// \brief   Main Game controller
+///
+/// Handles the Game loop, and game states
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_GAME_HPP
 #define PROJECT_GAME_HPP
 
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "common.hpp"

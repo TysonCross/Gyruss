@@ -1,20 +1,37 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    SplashScreen.h
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Simple Splash Screen.
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    SplashScreen.hpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/10
+/// \brief   Simple Splash Screen
+///
+/// Implementation of showing a splash screen
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
+
 #ifndef PROJECT_SPLASHSCREEN_H
 #define PROJECT_SPLASHSCREEN_H
+
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include "common.hpp"
 
+////////////////////////////////////////////////////////////
+/// \brief A Splashscreen, with information on how to play
+/// the game, titles, controls and version information
+///
+////////////////////////////////////////////////////////////
 class SplashScreen
 {
 public:
+
+////////////////////////////////////////////////////////////
+/// \brief Shows the Splash screen
+///
+////////////////////////////////////////////////////////////
     int Show(sf::RenderWindow &window);
 };
 

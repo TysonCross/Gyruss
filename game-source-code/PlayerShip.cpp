@@ -1,22 +1,31 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    PlayerShip.cpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Description of file in project Project.
-//
-// Detailed description of file.
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    PlayerShip.cpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/09
+/// \brief   Description of file in project Project.
+///
+/// Detailed description of file.
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
+
 #include "PlayerShip.hpp"
 #include <iostream>
 
+////////////////////////////////////////////////////////////
+/// \brief Converts an angle from degrees to radians
+///
+////////////////////////////////////////////////////////////
 float degreeToRad(float degree)
 {
     return degree * (pi / 180);
 }
 
+////////////////////////////////////////////////////////////
+/// \brief Ensures that the angle is always between 0 and 360
+///
+////////////////////////////////////////////////////////////
 int eulerFilter(int angle)
 {
     angle = angle % 360;
@@ -27,6 +36,17 @@ int eulerFilter(int angle)
     return angle;
 }
 
+////////////////////////////////////////////////////////////
+/// \brief Returns the Sprite object of the Class
+///
+/// \param resourceMapper The resourceMapper object that
+/// contains the path to the texture(s) for the sprite
+/// \param distanceFromCentre The fixed radius of the circle
+/// that the ship flys around
+/// \param angle The angle in degrees around the circle of movement
+/// \param scale The scale of the sprite
+///
+////////////////////////////////////////////////////////////
 PlayerShip::PlayerShip(
                         const ResourceMapper &resourceMapper,
                         float distanceFromCentre,
@@ -45,6 +65,9 @@ PlayerShip::PlayerShip(
     move(0); //Initialised position at bottom of play area, not screen origin top-left
 }
 
+////////////////////////////////////////////////////////////
+/// \brief Moves the player ship around a circle by angle
+////////////////////////////////////////////////////////////
 void PlayerShip::move(int angle)
 {
     _angle += angle;
@@ -55,12 +78,18 @@ void PlayerShip::move(int angle)
     _sprite.setRotation(-1 * _angle);
 }
 
+////////////////////////////////////////////////////////////
+/// \brief Returns the Sprite object of the Class by ref
+////////////////////////////////////////////////////////////
 sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
 }
 
-sf::Texture PlayerShip::getTexture()
+////////////////////////////////////////////////////////////
+/// \brief Returns the Tectuxe object of the Class by ref
+////////////////////////////////////////////////////////////
+sf::Texture &PlayerShip::getTexture()
 {
     return _texture;
 }

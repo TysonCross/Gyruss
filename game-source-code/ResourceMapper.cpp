@@ -1,6 +1,15 @@
-//
-// Created by chris on 2017/09/10.
-//
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    ResourceMapper.cpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/10
+/// \brief   Relational, unstructured mapping from key to vector of values
+///
+/// Maps game resources from a key to set of values
+/// Used for determining texture paths, game resolution, etc.
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
 
 #include "ResourceMapper.hpp"
 #include <iostream>
@@ -12,7 +21,6 @@ ResourceMapper::ResourceMapper() {
             {"Star",            {"resources/star.png"}},
             {"SplashScreen",    {"resources/splash.png"}},
             {"PlayerShip",      {"resources/player_model.png"}}
-
     };
 }
 

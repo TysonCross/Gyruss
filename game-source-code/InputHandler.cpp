@@ -1,14 +1,16 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    InputHandler.cpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Description of file in project Project.
-//
-// Detailed description of file.
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    InputHandler.cpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/09
+/// \brief   Read in the map of current keypresses
+///
+/// Reads in the key presses during the last polled game Loop,
+/// and maps these keys to actions
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include "InputHandler.hpp"
 #include "Game.hpp"

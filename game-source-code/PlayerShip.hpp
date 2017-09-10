@@ -1,17 +1,21 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    PlayerShip.hpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Player ship
-//
-// Object for the player ship model
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    PlayerShip.hpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/09
+/// \brief   Player ship
+///
+/// Object for the player ship model
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
+
 #ifndef PROJECT_PLAYERSHIP_HPP
 #define PROJECT_PLAYERSHIP_HPP
 
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "Game.hpp"
@@ -26,7 +30,7 @@ public:
     void move(int angle);
 
     sf::Sprite &getSprite();
-    sf::Texture getTexture();
+    sf::Texture &getTexture();
 
 private:
     sf::Sprite _sprite;

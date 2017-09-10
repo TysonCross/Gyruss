@@ -1,21 +1,19 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    Game.cpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Main Game controller implementation
-//
-// Implements the Game loop, and game states
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    Game.cpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/09
+/// \brief   Main Game controller implementation
+///
+/// Implements the Game loop, and game states
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 #include "Game.hpp"
 #include "SplashScreen.hpp"
 #include "InputHandler.hpp"
-#include "PlayerShip.hpp"
-#include "ResourceMapper.hpp"
 
 struct Star
 {
@@ -24,7 +22,7 @@ struct Star
     float z;
 };
 
-//Static Member redeclarations
+//Static Member redeclaration
 Game::GameState Game::_gameState = Splash;
 key_map Game::_keysPressed;
 sf::RenderWindow Game::_mainWindow;
@@ -35,7 +33,7 @@ void Game::Start()
     icon.loadFromFile("resources/icon.png");
 
     sf::ContextSettings settings;
-    settings.antialiasingLevel = 2;
+    settings.antialiasingLevel = 4;
 
     _mainWindow.create(sf::VideoMode(resolution.x, resolution.y, 32), "Gyruss",
                        sf::Style::Close, settings );
@@ -58,25 +56,33 @@ void Game::InitializeGameLoop()
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
-    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * 0.08f);
+    //First Game State
+    if (_gameState == Game::Splash)
+    {
+        ShowSplashScreen();
+    }
+
 
     ResourceMapper resourceMapper;
-    PlayerShip playerShip(resourceMapper, shipPathRadius, 0, 0.25);
+
+    //Spawn Player ship
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * 0.08f);
+    PlayerShip playerShip(resourceMapper, shipPathRadius, 0, 0.4);
 
     //Game Handler
     InputHandler inputHandler;
 
+    //Starfield starfield;
     //------Star Field------------
     const int width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
     const auto height= std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
     const auto number_of_stars = 60;
-    const auto maximum_depth = 4;
-    const auto star_size = 5;
-    const auto star_speed = 0.08;
+    const auto maximum_depth = 6;
+    const auto star_size = 8.0f;
+    const auto star_speed = 0.081;
     auto star_scale = 0.0f;
 
     std::vector<Star> starField;
-    //starField.reserve(number_of_stars);
     sf::RectangleShape star(sf::Vector2f(star_size,star_size));
 
     //Initialize star random placement
@@ -91,11 +97,6 @@ void Game::InitializeGameLoop()
     }
     //-----------------------------
 
-    //Game States
-    if (_gameState == Game::Splash)
-    {
-        ShowSplashScreen();
-    }
 
     //Game Loop
     while (_gameState == Game::Playing)
@@ -139,44 +140,51 @@ void Game::InitializeGameLoop()
         //ToDo: Get all the objects to be drawn
 
         clock.restart();
-
+    sf::Sprite sprite;
         _mainWindow.clear(color);
 
         //----Star Loop-------
-        //for( auto i = 0; i < starField.size(); i++)
+        auto i = 0;
         for ( auto& sun : starField )
         {
-//            point.z += star_speed;
-//
-//            if (starField.at(i).z >= 0.0f)
-//            {
-//                starField.at(i).z = -maximum_depth;
-//            }
-//            if (starField.at(i).z < -maximum_depth)
-//            {
-//                star_scale = 0;
-//            }
+
+            //Move
             sun.z += star_speed;
 
+            //Rainbow candy
+            auto r = rand()%128 * 2;
+            auto g = rand()%128 * 2;
+            auto b = rand()%128 * 2;
+
+            //If star is visible
             if (sun.z >= 0.0f)
             {
-                //reuse stars
-               sun.z = -1*maximum_depth;
+                //recycle stars
+               sun.z = -maximum_depth;
             }
-            if (sun.z < -maximum_depth)
+            if (sun.z <= -maximum_depth)
             {
                 //tiny
                 star_scale = 0;
             }
             else
             {
-                star_scale = (sun.z + (maximum_depth))/ (maximum_depth);
+                star_scale = (sun.z + (maximum_depth)) / (maximum_depth);
             }
             //Dimming
-            star.setFillColor(sf::Color(255* star_scale,255* star_scale,255* star_scale));
+            i++;
+            if (i%4)
+            {
+                star.setFillColor(sf::Color(255 * star_scale, 255 * star_scale, 255 * star_scale));
+            }
+            else
+            {
+                star.setFillColor(sf::Color(r * star_scale, g * star_scale, b * star_scale));
+            }
             //Scaling
             star.setSize(sf::Vector2f(star_size * star_scale, star_size * star_scale));
-            //Moving
+//            star.setScale(star_size * star_scale, star_size * star_scale);
+            // /Moving
             star.setPosition(sf::Vector2f(-sun.x / sun.z + (width/2),
                                           sun.y / sun.z + (height/2)));
 

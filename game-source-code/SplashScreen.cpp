@@ -1,14 +1,14 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    SplashScreen.cpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Simple Splash Screen.
-//
-// Implementation of showing a splash screen
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    SplashScreen.cpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/10
+/// \brief   Simple Splash Screen
+///
+/// Implementation of showing a splash screen
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
 
 #include "SplashScreen.hpp"
 #include "common.hpp"

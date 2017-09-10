@@ -1,18 +1,22 @@
-//--------------------------------------------------------------------------
-// Student  1239448
-// @file    InputHandler.hpp
-// @author  Tyson Cross and Chris Maree
-// @date    2017/09/09
-// @brief   Read in the map of current keypresses
-//
-// Reads in the key presses during the last polled game Loop,
-// and maps this keys to actions.
-//
-// Copyright (c) 2017 Tyson Cross and Chris Maree, Wits University, All rights reserved.
-//--------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////
+/// Student  1239448 & 1101946
+/// \file    InputHandler.hpp
+/// \authors Tyson Cross and Chris Maree
+/// \date    2017/09/09
+/// \brief   Read in the map of current keypresses
+///
+/// Reads in the key presses during the last polled game Loop,
+/// and maps these keys to actions.
+///
+/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/////////////////////////////////////////////////////////////////////
+
 #ifndef PROJECT_INPUTHANDLER_HPP
 #define PROJECT_INPUTHANDLER_HPP
 
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
 #include "Game.hpp"
 #include "PlayerShip.hpp"
 #include <map>
