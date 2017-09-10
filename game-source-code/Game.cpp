@@ -54,18 +54,10 @@ Game::GameLoop()
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
-    sf::Texture texture;
-    if (!texture.loadFromFile("resources/player_model.png"));
-    sf::Sprite ship;
+    sf::Texture shipTexture;
+    sf::Sprite shipSprite;
 
-    //sf::Sprite ship(texture);
-    //ship.setScale(0.5, 0.5);
-    //ship.setOrigin(ship.getGlobalBounds().width / 2, ship.getGlobalBounds().height / 2);
-
-    // SHIP CREATION
-    //---------------------------------------------
-
-    PlayerShip playerShip(ship, texture, (gameHeight / 2) - (gameHeight * 0.1),0,0.5);
+    PlayerShip playerShip(shipSprite, shipTexture, (gameHeight / 2) - (gameHeight * 0.1),0,0.5);
 
     //Game Handler
     InputHandler inputHandler;
@@ -112,29 +104,12 @@ Game::GameLoop()
                 }
             }
             if (event.key.code == sf::Keyboard::Left)
-            playerShip.move(-2, gameWidth, gameHeight);
+                playerShip.move(-2, gameWidth, gameHeight);
 
             if (event.key.code == sf::Keyboard::Right)
                 playerShip.move(2, gameWidth, gameHeight);
 
         } // End of input polling
-
-        //std::cout << "Angle: " << shipAngle;
-        // std::cout << " Position: (" << ship.getPosition().x << ", " << ship.getPosition().y << ")";
-        //std::cout << " Time between frame: " << clock.getElapsedTime().asMicroseconds();
-        //std::cout << std::endl;
-
-
-        //---------------------------------------------
-        // Ship movement
-//        shipAngle = shipAngle % 360;
-//        if (shipAngle < 0)
-//            shipAngle += 360;
-//        //Rotate coordinate system by 90 degrees
-//        ship.setPosition(shipPathRadius * sin(shipAngle * (pi / 180)) + gameWidth / 2,
-//                         shipPathRadius * cos(shipAngle * (pi / 180)) + gameHeight / 2);
-//        ship.setRotation(-shipAngle);
-        //---------------------------------------------
 
         playerShip.move(0,gameWidth,gameHeight);
 
@@ -146,7 +121,7 @@ Game::GameLoop()
         clock.restart();
 
         _mainWindow.clear(color);
-        _mainWindow.draw(ship);
+        _mainWindow.draw(shipSprite);
         _mainWindow.display();
     }
 }
