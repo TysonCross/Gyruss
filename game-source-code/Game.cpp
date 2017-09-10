@@ -14,6 +14,8 @@
 #include "Game.hpp"
 #include "SplashScreen.hpp"
 #include "InputHandler.hpp"
+#include "PlayerShip.hpp"
+#include "ResourceMapper.hpp"
 
 Game::GameState Game::_gameState = Splash;
 key_map Game::_keysPressed;
@@ -47,7 +49,9 @@ Game::InitializeGameLoop()
     sf::Color color(sf::Color::Black);
 
     const auto shipPathRadius = (resolution.y / 2) - (resolution.y * 0.1f);
-    PlayerShip playerShip(shipPathRadius, 0, 0.25);
+  
+    ResourceMapper resourceMapper;
+    PlayerShip playerShip(shipPathRadius,resourceMapper ,0, 0.25);
 
     //Game Handler
     InputHandler inputHandler;

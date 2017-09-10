@@ -15,14 +15,17 @@
 #include "SFML/Window.hpp"
 #include "Game.hpp"
 #include "common.hpp"
+#include "ResourceMapper.hpp"
 
 class TextureNotFound{};
 
 class PlayerShip
 {
 public:
-    PlayerShip(float distanceFromCentre, int angle, float scale);
+
+    PlayerShip(float distanceFromCentre,const ResourceMapper& resourceMapper, int angle, float scale);
     void move(int angle);
+
     sf::Sprite &getSprite();
     sf::Texture getTexture();
 
