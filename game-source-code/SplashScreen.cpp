@@ -11,13 +11,12 @@
 //--------------------------------------------------------------------------
 
 #include "SplashScreen.hpp"
-
-void SplashScreen::Show(sf::RenderWindow &renderWindow)
+int SplashScreen::Show(sf::RenderWindow &renderWindow)
 {
     sf::Texture splashScreen;
     if (!splashScreen.loadFromFile("resources/splash.png"))
     {
-        return;
+        return -1; //execution error; resource missing
     }
 
     sf::Sprite splash(splashScreen);
@@ -31,10 +30,12 @@ void SplashScreen::Show(sf::RenderWindow &renderWindow)
         while (renderWindow.pollEvent(event))
         {
             if (event.type == sf::Event::KeyPressed ||
-                event.type == sf::Event::MouseButtonPressed ||
-                event.type == sf::Event::Closed)
+                event.type == sf::Event::MouseButtonPressed)
             {
-                return;
+                return 0; //continue
+            }
+            if (event.type==sf::Event::Closed){
+                return 1; //send close program
             }
         }
     }

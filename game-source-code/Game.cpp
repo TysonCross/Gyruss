@@ -38,24 +38,20 @@ Game::Start()
 
     while (_gameState != Game::Exiting)
     {
-        GameLoop();
+        InitializeGameLoop();
     }
     _mainWindow.close();
 }
 
 void
-Game::GameLoop()
+Game::InitializeGameLoop()
 {
-
     sf::Event event;
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
-    //Todo: the sprite and texture should be created by and in the playerShip object
-    sf::Texture shipTexture;
-    sf::Sprite shipSprite;
     const auto shipPathRadius = (gameHeight / 2) - (gameHeight * 0.1f);
-    PlayerShip playerShip(shipSprite, shipTexture, shipPathRadius,0 , 0.25);
+    PlayerShip playerShip(shipPathRadius, 0, 0.25);
 
     //Game Handler
     InputHandler inputHandler;
@@ -64,6 +60,7 @@ Game::GameLoop()
     {
         ShowSplashScreen();
     }
+
     while (_gameState == Game::Playing)
     {
         //Check for events since last frame
@@ -95,7 +92,6 @@ Game::GameLoop()
                 }
             }
 
-
         } // End of input polling
 
         inputHandler.resolveKeyMapping(_keysPressed, playerShip);
@@ -110,10 +106,14 @@ Game::GameLoop()
     }
 }
 
-void
-Game::ShowSplashScreen()
+void Game::ShowSplashScreen()
 {
     SplashScreen splashScreen;
-    splashScreen.Show(_mainWindow);
-    _gameState = Playing;
+    if(splashScreen.Show(_mainWindow)==0)
+    {
+        _gameState=Game::Playing;
+        return;
+    }
+    _gameState = Game::Exiting;
+    //Todo : add error codes for missing resources
 }

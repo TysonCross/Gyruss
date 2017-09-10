@@ -28,7 +28,7 @@ public:
     static void Start();
 
 private:
-    static void GameLoop();
+    static void InitializeGameLoop();
     static void ShowSplashScreen();
 
     enum GameState { Splash, Playing, Exiting };
