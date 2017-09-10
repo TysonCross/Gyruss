@@ -16,14 +16,11 @@
 #include "Game.hpp"
 #include "SplashScreen.hpp"
 #include "InputHandler.hpp"
+#include "PlayerShip.hpp"
 
 Game::GameState Game::_gameState = Splash;
 key_map Game::_keysPressed;
 sf::RenderWindow Game::_mainWindow;
-
-const int gameWidth = 1920;
-const int gameHeight = 1080;
-const float pi = 3.1415;
 
 void
 Game::Start()
@@ -33,8 +30,8 @@ Game::Start()
 
     _mainWindow.create(sf::VideoMode(gameWidth, gameHeight, 32), "Gyruss",
                        sf::Style::Titlebar | sf::Style::Close);
-    _mainWindow.setKeyRepeatEnabled(true);
-    _mainWindow.setMouseCursorVisible(false);
+    //_mainWindow.setKeyRepeatEnabled(true);
+    //_mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setFramerateLimit(60);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
@@ -58,17 +55,17 @@ Game::GameLoop()
     sf::Color color(sf::Color::Black);
 
     sf::Texture texture;
-    if (!texture.loadFromFile("resources/player_model.png"))
-    {
-        _mainWindow.close();
-    }
+    if (!texture.loadFromFile("resources/player_model.png"));
+    sf::Sprite ship;
 
-    sf::Sprite ship(texture);
-    ship.setScale(0.5, 0.5);
-    ship.setOrigin(ship.getGlobalBounds().width / 2, ship.getGlobalBounds().height / 2);
+    //sf::Sprite ship(texture);
+    //ship.setScale(0.5, 0.5);
+    //ship.setOrigin(ship.getGlobalBounds().width / 2, ship.getGlobalBounds().height / 2);
 
     // SHIP CREATION
     //---------------------------------------------
+
+    PlayerShip playerShip(ship, texture, (gameHeight / 2) - (gameHeight * 0.1),0,0.5);
 
     //Game Handler
     InputHandler inputHandler;
@@ -88,6 +85,7 @@ Game::GameLoop()
                 _gameState = Game::Exiting;
             }
 
+
             if (event.type == sf::Event::EventType::KeyPressed)
             {
                 if (_keysPressed.count(event.key.code) == 0) //optimisation: should we check against expected/allowed keys
@@ -104,31 +102,20 @@ Game::GameLoop()
 
                 }
             }
-//                    if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
-//                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-//                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
-//                        {
-//                            _gameState = Game::Exiting;
-//                            break;
-//                        }
-//                    if ((event.key.code == sf::Keyboard::A) || (event.key.code == sf::Keyboard::Left))
-//                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
-//                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
-//                            shipAngle -= 5;
-//                        else
-//                            shipAngle -= 2;
-//
-//                    if ((event.key.code == sf::Keyboard::D) || (event.key.code == sf::Keyboard::Right))
-//                        if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
-//                            || sf::Keyboard::isKeyPressed(sf::Keyboard::RShift))
-//                            shipAngle += 5;
-//                        else
-//                            shipAngle += 2;
-//
-//                    if (event.key.code == sf::Keyboard::Space)
-//                    {
-//                        shipAngle = 0;
-//                    }
+            if ((event.key.code == sf::Keyboard::Q) || (event.key.code == sf::Keyboard::X))
+            {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
+                    || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+                {
+                    _gameState = Game::Exiting;
+                    break;
+                }
+            }
+            if (event.key.code == sf::Keyboard::Left)
+            playerShip.move(-2, gameWidth, gameHeight);
+
+            if (event.key.code == sf::Keyboard::Right)
+                playerShip.move(2, gameWidth, gameHeight);
 
         } // End of input polling
 
@@ -137,23 +124,26 @@ Game::GameLoop()
         //std::cout << " Time between frame: " << clock.getElapsedTime().asMicroseconds();
         //std::cout << std::endl;
 
+
         //---------------------------------------------
         // Ship movement
-        clock.restart();
-
-        shipAngle = shipAngle % 360;
-        if (shipAngle < 0)
-            shipAngle += 360;
-        //Rotate coordinate system by 90 degrees
-        ship.setPosition(shipPathRadius * sin(shipAngle * (pi / 180)) + gameWidth / 2,
-                         shipPathRadius * cos(shipAngle * (pi / 180)) + gameHeight / 2);
-        ship.setRotation(-shipAngle);
+//        shipAngle = shipAngle % 360;
+//        if (shipAngle < 0)
+//            shipAngle += 360;
+//        //Rotate coordinate system by 90 degrees
+//        ship.setPosition(shipPathRadius * sin(shipAngle * (pi / 180)) + gameWidth / 2,
+//                         shipPathRadius * cos(shipAngle * (pi / 180)) + gameHeight / 2);
+//        ship.setRotation(-shipAngle);
         //---------------------------------------------
+
+        playerShip.move(0,gameWidth,gameHeight);
 
         //Send all inputs to the inputController
         inputHandler.resolveKeyMapping(_keysPressed);
 
         //Get all objects to be drawn
+
+        clock.restart();
 
         _mainWindow.clear(color);
         _mainWindow.draw(ship);

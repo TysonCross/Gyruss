@@ -16,7 +16,12 @@
 #include "SFML/Window.hpp"
 #include <map>
 
+const int gameWidth = 1920;
+const int gameHeight = 1080;
+const float pi = 3.1415;
+
 using key_map = std::map<int,bool>; // perhaps should be unordered_set?? The boolean value is redundant
+
 class Game
 {
 public:
