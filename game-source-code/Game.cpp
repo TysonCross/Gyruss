@@ -30,6 +30,14 @@ void Game::Start()
     sf::Image icon;
     icon.loadFromFile(_resourceMapper.getResource("WindowIcon"));
 
+
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
+    buffer.loadFromFile(_resourceMapper.getResource("StartSound"));
+    sound.setBuffer(buffer);
+    sound.play();
+
+
     sf::ContextSettings settings;
     settings.antialiasingLevel = 4;
 
@@ -67,9 +75,8 @@ void Game::InitializeGameLoop()
     //Game Handler
     InputHandler inputHandler;
 
-    //Starfield starfield;
+    //Todo: Move into own class
     //------Star Field------------
-
     const auto number_of_stars = 60;
     const auto maximum_depth = 6;
     const auto star_size = 8.0f;

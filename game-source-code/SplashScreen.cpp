@@ -29,15 +29,15 @@ int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceM
     {
         return -1; //execution error; resource missing
     }
-    sf::Text title;
-    title.setFont(font);
-    title.setString("GYRUSS");
-    title.setCharacterSize(256); // in pixels, not points!
+    sf::Text title("GYRUSS", font, 256);
     title.setFillColor(sf::Color::White);
     title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
     auto titleWidth = std::stoi(resourceMapper.getResourceValues("Resolution").at(0))/2;
     auto titleHeight = std::stoi(resourceMapper.getResourceValues("Resolution").at(1))/6;
     title.setPosition(titleWidth,titleHeight);
+
+//    sf::Text controls("Move", font, 256);
+//    controls.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
 
     renderWindow.clear();
     renderWindow.draw(splash);

@@ -74,9 +74,6 @@ void PlayerShip::move(int angle)
 void PlayerShip::shoot()
 {
     _shootSound.stop();
-    srand(time(0));
-    auto pitch = (rand()%1)+0.4;
-    _shootSound.setPitch(pitch);
     _shootSound.play();
 }
 
