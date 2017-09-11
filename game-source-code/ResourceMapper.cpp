@@ -20,7 +20,9 @@ ResourceMapper::ResourceMapper() {
             {"WindowIcon",      {"resources/icon.png"}},
             {"Star",            {"resources/star.png"}},
             {"SplashScreen",    {"resources/splash.png"}},
-            {"PlayerShip",      {"resources/player_model.png"}}
+            {"PlayerShip",      {"resources/player_model.png"}},
+            {"PlayerShipSound", {"resources/shoot_laser.ogg"}},
+            {"StartSound",      {"resources/shield_up.ogg"}}
     };
 }
 

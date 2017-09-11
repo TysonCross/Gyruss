@@ -16,8 +16,8 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "SFML/Graphics.hpp"
-#include "common.hpp"
+#include "Game.hpp"
+
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
@@ -32,7 +32,7 @@ public:
 /// \brief Shows the Splash screen
 ///
 ////////////////////////////////////////////////////////////
-    int Show(sf::RenderWindow &window);
+    int show(sf::RenderWindow &window, ResourceMapper &resourceMapper);
 };
 
 #endif //PROJECT_SPLASHSCREEN_H

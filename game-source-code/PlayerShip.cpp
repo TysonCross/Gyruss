@@ -11,16 +11,8 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "PlayerShip.hpp"
-#include <iostream>
 
-////////////////////////////////////////////////////////////
-/// \brief Converts an angle from degrees to radians
-///
-////////////////////////////////////////////////////////////
-float degreeToRad(float degree)
-{
-    return degree * (pi / 180);
-}
+const float pi = 3.1415;
 
 ////////////////////////////////////////////////////////////
 /// \brief Ensures that the angle is always between 0 and 360
@@ -37,25 +29,29 @@ int eulerFilter(int angle)
 }
 
 ////////////////////////////////////////////////////////////
-/// \brief Returns the Sprite object of the Class
-///
-/// \param resourceMapper The resourceMapper object that
-/// contains the path to the texture(s) for the sprite
-/// \param distanceFromCentre The fixed radius of the circle
-/// that the ship flys around
-/// \param angle The angle in degrees around the circle of movement
-/// \param scale The scale of the sprite
+/// \brief Converts an angle from degrees to radians
 ///
 ////////////////////////////////////////////////////////////
+float degreeToRad(float degree)
+{
+    return degree * (pi / 180);
+}
+
 PlayerShip::PlayerShip(
                         const ResourceMapper &resourceMapper,
                         float distanceFromCentre,
                         int angle = 0,
                         float scale = 1)
 {
+    _width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
+    _height = std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
+
     _distanceFromCentre = distanceFromCentre;
     _angle = angle;
     _scale = scale;
+
+    _buffer.loadFromFile(resourceMapper.getResource("PlayerShipSound"));
+    _shootSound.setBuffer(_buffer);
 
     _texture.loadFromFile(resourceMapper.getResource("PlayerShip"));
     _sprite.setTexture(_texture);
@@ -65,30 +61,30 @@ PlayerShip::PlayerShip(
     move(0); //Initialised position at bottom of play area, not screen origin top-left
 }
 
-////////////////////////////////////////////////////////////
-/// \brief Moves the player ship around a circle by angle
-////////////////////////////////////////////////////////////
 void PlayerShip::move(int angle)
 {
     _angle += angle;
     _angle = eulerFilter(_angle);
     //Rotate coordinate system by 90 degrees
-    _sprite.setPosition(_distanceFromCentre * sin(degreeToRad(_angle)) + resolution.x / 2,
-                        _distanceFromCentre * cos(degreeToRad(_angle)) + resolution.y / 2);
+    _sprite.setPosition(_distanceFromCentre * sin(degreeToRad(_angle)) + _width / 2,
+                        _distanceFromCentre * cos(degreeToRad(_angle)) + _height / 2);
     _sprite.setRotation(-1 * _angle);
 }
 
-////////////////////////////////////////////////////////////
-/// \brief Returns the Sprite object of the Class by ref
-////////////////////////////////////////////////////////////
+void PlayerShip::shoot()
+{
+    _shootSound.stop();
+    srand(time(0));
+    auto pitch = (rand()%1)+0.4;
+    _shootSound.setPitch(pitch);
+    _shootSound.play();
+}
+
 sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
 }
 
-////////////////////////////////////////////////////////////
-/// \brief Returns the Tectuxe object of the Class by ref
-////////////////////////////////////////////////////////////
 sf::Texture &PlayerShip::getTexture()
 {
     return _texture;

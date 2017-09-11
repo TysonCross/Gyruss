@@ -17,16 +17,13 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "Game.hpp"
 #include "PlayerShip.hpp"
 #include <map>
 
 class InputHandler
 {
 public:
-    void resolveKeyMapping(const key_map &keys_pressed,
-                           PlayerShip &playerShip);
-private:
-
+    void resolveKeyMapping(const std::map<int, bool>& keys_pressed, PlayerShip& playerShip);
 };
+
 #endif //PROJECT_INPUTHANDLER_HPP

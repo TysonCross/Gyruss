@@ -16,12 +16,13 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
-#include "common.hpp"
+#include <SFML/Graphics.hpp>
 #include <map>
-
-using key_map = std::map<int, bool>; // perhaps should be unordered_set?? The boolean value is redundant
+#include "Common.hpp"
+#include "ResourceMapper.hpp"
+#include "PlayerShip.hpp"
+#include "InputHandler.hpp"
+#include "SplashScreen.hpp"
 
 class Game
 {
@@ -30,13 +31,15 @@ public:
 
 private:
     static void InitializeGameLoop();
-    static void ShowSplashScreen();
+    static void showSplashScreen();
 
     enum GameState { Splash, Playing, Exiting };
 
+    static ResourceMapper _resourceMapper;
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;
-    static key_map _keysPressed;
+    static std::map<int, bool> _keysPressed;
+    static common::Resolution _resolution;
 };
 
 #endif //PROJECT_GAME_HPP

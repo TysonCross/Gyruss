@@ -12,30 +12,28 @@
 
 #include <iostream>
 #include "Game.hpp"
-#include "SplashScreen.hpp"
-#include "InputHandler.hpp"
 
-struct Star
-{
-    float x;
-    float y;
-    float z;
-};
 
 //Static Member redeclaration
 Game::GameState Game::_gameState = Splash;
-key_map Game::_keysPressed;
+ResourceMapper Game::_resourceMapper;
+common::Resolution Game::_resolution;
 sf::RenderWindow Game::_mainWindow;
+std::map<int, bool> Game::_keysPressed;
+
 
 void Game::Start()
 {
+    _resolution.x = std::stoi(_resourceMapper.getResourceValues("Resolution").at(0));
+    _resolution.y = std::stoi(_resourceMapper.getResourceValues("Resolution").at(1));
+
     sf::Image icon;
-    icon.loadFromFile("resources/icon.png");
+    icon.loadFromFile(_resourceMapper.getResource("WindowIcon"));
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 4;
 
-    _mainWindow.create(sf::VideoMode(resolution.x, resolution.y, 32), "Gyruss",
+    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
                        sf::Style::Close, settings );
     //_mainWindow.setKeyRepeatEnabled(true);
     _mainWindow.setMouseCursorVisible(false);
@@ -59,38 +57,34 @@ void Game::InitializeGameLoop()
     //First Game State
     if (_gameState == Game::Splash)
     {
-        ShowSplashScreen();
+        showSplashScreen();
     }
 
-
-    ResourceMapper resourceMapper;
-
     //Spawn Player ship
-    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * 0.08f);
-    PlayerShip playerShip(resourceMapper, shipPathRadius, 0, 0.4);
+    const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
+    PlayerShip playerShip(_resourceMapper, shipPathRadius, 0, 0.4);
 
     //Game Handler
     InputHandler inputHandler;
 
     //Starfield starfield;
     //------Star Field------------
-    const int width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
-    const auto height= std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
+
     const auto number_of_stars = 60;
     const auto maximum_depth = 6;
     const auto star_size = 8.0f;
     const auto star_speed = 0.081;
     auto star_scale = 0.0f;
 
-    std::vector<Star> starField;
+    std::vector<common::Star> starField;
     sf::RectangleShape star(sf::Vector2f(star_size,star_size));
 
     //Initialize star random placement
     for( auto i = 0; i < number_of_stars; i++)
     {
-        Star temp;
-        temp.x = rand() % width - (width / 2.0f);
-        temp.y = rand() % height - (height / 2.0f);
+        common::Star temp;
+        temp.x = rand() % _resolution.x - (_resolution.x / 2.0f);
+        temp.y = rand() % _resolution.y - (_resolution.y / 2.0f);
         //z-Depth
         temp.z = -1 * 1.0f * (rand() % maximum_depth) - maximum_depth;
         starField.push_back(temp);
@@ -115,6 +109,13 @@ void Game::InitializeGameLoop()
             {
                 _gameState = Game::Exiting;
             }
+
+            if (event.type == sf::Event::EventType::KeyReleased)
+                if (event.key.code == sf::Keyboard::Space)
+            {
+                playerShip.shoot();
+            }
+
 
             // During the current polling period, key-presses are detected
             // if pressed added to the map, and removed if the key is released
@@ -185,8 +186,8 @@ void Game::InitializeGameLoop()
             star.setSize(sf::Vector2f(star_size * star_scale, star_size * star_scale));
 //            star.setScale(star_size * star_scale, star_size * star_scale);
             // /Moving
-            star.setPosition(sf::Vector2f(-sun.x / sun.z + (width/2),
-                                          sun.y / sun.z + (height/2)));
+            star.setPosition(sf::Vector2f(-sun.x / sun.z + (_resolution.x/2),
+                                          sun.y / sun.z + (_resolution.y/2)));
 
             _mainWindow.draw(star);
         }
@@ -197,14 +198,13 @@ void Game::InitializeGameLoop()
     }
 }
 
-void Game::ShowSplashScreen()
+void Game::showSplashScreen()
 {
     SplashScreen splashScreen;
-    if (splashScreen.Show(_mainWindow) == 0)
+    if (splashScreen.show(_mainWindow,_resourceMapper) == 0)
     {
         _gameState = Game::Playing;
         return;
     }
     _gameState = Game::Exiting;
-    //Todo : add error codes for missing resources
 }

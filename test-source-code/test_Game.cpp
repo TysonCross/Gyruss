@@ -26,7 +26,7 @@ TEST_CASE ("Check splashscreen image resource exists")
     testWindow.create(sf::VideoMode(gameWidth, gameHeight, 32), "Test");
     SplashScreen splashScreen;
 
-    int splashResult=splashScreen.Show(testWindow);
+    int splashResult= splashScreen.show(testWindow);
     std::cout <<"here";
         CHECK(splashResult!=-1);
 }
@@ -40,7 +40,7 @@ TEST_CASE ("Quit splashscreen window returns 1(signal: close application)")
     testWindow.create(sf::VideoMode(gameWidth, gameHeight, 32), "Test");
     SplashScreen splashScreen;
 
-    int splashResult=splashScreen.Show(testWindow);
+    int splashResult= splashScreen.show(testWindow);
         CHECK(splashResult==1);
 }
 
@@ -53,6 +53,6 @@ TEST_CASE ("Continue Splashscreen returns 0(signal: continue to game play)")
     testWindow.create(sf::VideoMode(gameWidth, gameHeight, 32), "Test");
     SplashScreen splashScreen;
 
-    int splashResult=splashScreen.Show(testWindow);
+    int splashResult= splashScreen.show(testWindow);
         CHECK(splashResult==0);
 }

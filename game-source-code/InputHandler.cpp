@@ -13,9 +13,10 @@
 
 #include <iostream>
 #include "InputHandler.hpp"
-#include "Game.hpp"
 
-void InputHandler::resolveKeyMapping(const key_map &keys_pressed, PlayerShip &playerShip)
+using key_map = std::map<int, bool>;
+
+void InputHandler::resolveKeyMapping(const key_map &keys_pressed, PlayerShip& playerShip)
 {
     const int MOVE_AMOUNT = 3;
 
@@ -29,8 +30,8 @@ void InputHandler::resolveKeyMapping(const key_map &keys_pressed, PlayerShip &pl
         playerShip.move(MOVE_AMOUNT);
     }
 
-    if (keys_pressed.count(sf::Keyboard::Space) > 0)
-    {
-        std::cout << "Shoot " << std::endl;
-    }
+//    if (keys_pressed.count(sf::Keyboard::Space) > 0)
+//    {
+//        //playerShip.shoot();
+//    }
 }

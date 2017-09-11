@@ -13,11 +13,11 @@
 #include "SplashScreen.hpp"
 #include "common.hpp"
 
-int SplashScreen::Show(sf::RenderWindow &renderWindow)
+int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceMapper)
 {
-    //Splashscreen image
+    //Get the Splashscreen image
     sf::Texture splashScreen;
-    if (!splashScreen.loadFromFile("resources/splash.png"))
+    if (!splashScreen.loadFromFile(resourceMapper.getResource("SplashScreen")))
     {
         return -1; //execution error; resource missing
     }
@@ -29,18 +29,19 @@ int SplashScreen::Show(sf::RenderWindow &renderWindow)
     {
         return -1; //execution error; resource missing
     }
-    sf::Text text;
-    text.setFont(font);
-    text.setString("GYRUSS");
-    text.setCharacterSize(256); // in pixels, not points!
-    text.setFillColor(sf::Color::White);
-    text.setOrigin(text.getGlobalBounds().width / 2, text.getGlobalBounds().height / 2);
-    text.setPosition(resolution.x/2, resolution.y/6);
-
+    sf::Text title;
+    title.setFont(font);
+    title.setString("GYRUSS");
+    title.setCharacterSize(256); // in pixels, not points!
+    title.setFillColor(sf::Color::White);
+    title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
+    auto titleWidth = std::stoi(resourceMapper.getResourceValues("Resolution").at(0))/2;
+    auto titleHeight = std::stoi(resourceMapper.getResourceValues("Resolution").at(1))/6;
+    title.setPosition(titleWidth,titleHeight);
 
     renderWindow.clear();
     renderWindow.draw(splash);
-    renderWindow.draw(text);
+    renderWindow.draw(title);
     renderWindow.display();
 
     sf::Event event;

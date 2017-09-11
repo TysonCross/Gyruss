@@ -12,23 +12,35 @@
 #ifndef PROJECT_COMMON_HPP
 #define PROJECT_COMMON_HPP
 
+
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <utility>
+//#include <utility>
 
-//GLOBAL VARIABLES
-static const float pi = 3.1415;
-//static const float phi = 1.618;
+//USEFUL FUNCTIONS and CONSTANTS
+namespace common
+{
+////////////////////////////////////////////////////////////
+/// \brief A simple 3d co-ordinate container of three floats
+///
+////////////////////////////////////////////////////////////
+struct Star
+{
+    float x;
+    float y;
+    float z;
+};
 
-//USEFUL FUNCTIONS
+////////////////////////////////////////////////////////////
+/// \brief A simple 2d container of 2 ints
+///
+////////////////////////////////////////////////////////////
 struct Resolution
 {
     unsigned int x;
     unsigned int y;
 };
-
-//TEMP GLOBAL VARIABLES
-const Resolution resolution = {1920, 1080}; //BAD!!! Todo: Add resolution to resource mapper instead
+}
 
 #endif //PROJECT_COMMON_HPP

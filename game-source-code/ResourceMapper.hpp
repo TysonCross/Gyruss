@@ -43,7 +43,7 @@ public:
     const resourceMap getResourceMap() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the vactor of values at a key entry
+    /// \brief Returns the vector of values at a key entry
     ///
     /// \param resource The key for the mapping to return the values for
     ///
@@ -51,7 +51,7 @@ public:
     const std::vector<std::string> getResourceValues(std::string resource) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the vactor of values at a key entry
+    /// \brief Returns a single (string) values at a key entry
     ///
     /// \param resource The key for the mapping to return for,
     /// This method returns only the first value in the vector
