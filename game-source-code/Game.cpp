@@ -78,9 +78,9 @@ void Game::InitializeGameLoop()
     //  Game Playing starts
     //-------------------------------------------
     //Spawn starField bg
-    auto number_of_stars = 20;
+    auto number_of_stars = 80;
     sf::RectangleShape star_shape({});
-    StarField starField( star_shape, _resolution.x, _resolution.y, 6, number_of_stars);
+    StarField starField( star_shape, _resolution.x, _resolution.y, 3, number_of_stars);
 
     //Spawn Player ship
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
@@ -115,7 +115,6 @@ void Game::InitializeGameLoop()
                     playerShip.shoot();
                 }
 
-
             // During the current polling period, key-presses are detected
             // if pressed added to the map, and removed if the key is released
             if (event.type == sf::Event::EventType::KeyPressed)
@@ -144,17 +143,16 @@ void Game::InitializeGameLoop()
         //ToDo: Update all the relevant objects
 
         //-------------------------------------------
-        //  Presentation
+        //  Render
         //-------------------------------------------
         _mainWindow.clear(color);
 
         //ToDo: Draw all the visible objects
 
-//        for (auto &element : starField.getStarField())
-        for (int i = 0; i < number_of_stars; ++i)
+        for (const auto &element : starField.getStarField())
+        //for (int i = 0; i < number_of_stars; ++i)
         {
-            starField.moveStars(star_shape,_mainWindow);
-            //_mainWindow.draw(star_shape);
+            starField.moveAndDrawStars(star_shape,_mainWindow);
         }
 
         _mainWindow.draw(playerShip.getSprite());

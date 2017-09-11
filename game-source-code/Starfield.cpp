@@ -14,22 +14,9 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Starfield.hpp"
-#include <iostream>
+//#include <iostream>
 #include <cmath>
 
-////////////////////////////////////////////////////////////
-/// \brief Creates a starfield object, a vector of 3d points
-/// The field is made up of many stars (a struct of three floats
-/// The stars are psuedorandomly generated to fill the volume
-/// enclosed by screen height * screen widgth * maximum depth
-///
-/// \param resourceMapper The resourceMapper object that
-/// contains the path to the texture(s) for the sprite
-/// \param number_of_stars The number of stars in the vector
-/// \param max_depth distance from the "camera plane"
-/// \param max_size The maximum scale of the rectangle of a star
-///
-////////////////////////////////////////////////////////////
 StarField::StarField(sf::RectangleShape &star_shape,
                      const unsigned int x,
                      const unsigned int y,
@@ -41,10 +28,6 @@ StarField::StarField(sf::RectangleShape &star_shape,
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
 {
-    const auto _light_shift_amount = 4; // Controls amount of sparkly/rainbow stars
-                                        // _light_shift_amount = 0 : undefined behaviour
-                                        // _light_shift_amount = 1 : all stars are rainbow
-                                        // _light_shift_amount > 1 : reduces the no. of rainbow stars
 
     _star_scale = 0.0f;                 // spawn invisible
     star_shape.setSize({_max_size,_max_size});
@@ -60,55 +43,38 @@ StarField::StarField(sf::RectangleShape &star_shape,
     }
 }
 
-////////////////////////////////////////////////////////////
-/// \brief Moves rhe stars in the starField object
-///
-/// \param speed The delta to move the stars
-///
-/// \param star Pointer to a RectangleShape to draw the stars
-///
-////////////////////////////////////////////////////////////
-void StarField::moveStars(sf::RectangleShape &star_shape,
+
+void StarField::moveAndDrawStars(sf::RectangleShape &star_shape,
                           sf::RenderWindow &renderWindow,
                           float speed)
 {
-    srand(127);
-
-    //    auto star = _starField.at(0);
-//    for (int i = 0; i < _starField.size(); ++i)
-//        star = _starField.at(i);
-
     auto i = 0;
-    for (auto &star : _starField)
+    for (auto &star_pos : _starField)
     {
         // Move
-        star.z += speed;
-
-        star.z += speed;
-//        std::cout << "2nd Position of star[" << i << "] : (" << star.x << ", " << _starField.at(i).y << ", " << _starField.at(i).z << ")" << std::endl;
+        star_pos.z += speed;            //Move the stars along z, towards camera
+        i++;                            // For counting which stars to make colorful
 
         // Rainbow candy (stylized Red/Blue shift)
-        // 0-255,  half range * 2 is brighter color
-        auto r = rand() % 128 * 2;
+        auto r = rand() % 128 * 2;      // 0-255,  half range * 2 is brighter color
         auto g = rand() % 128 * 2;
         auto b = rand() % 128 * 2;
 
         // Boundaries of stars: between camera plane (0) and max_depth (-z)
-        if (star.z >= 0.0f)         // If star is at or behind camera
+        if (star_pos.z >= 0.0f)         // If star is at or behind camera
         {
-            star.z = -_max_depth;   // send it to the furthest distance
+            star_pos.z = -_max_depth;   // send it to the furthest distance
 
         }
-        if (star.z <= -_max_depth)  // star is beyond the furthest distance
+        if (star_pos.z <= -_max_depth)  // star is beyond the furthest distance
         {
-            _star_scale = 0;        // so make it invisible
+            _star_scale = 0;            // make it invisible
         }
-        else                        //Otherwise, move the stars along Z, slower the further away
+        else                            // Otherwise, move the stars along Z, slower if further away
         {
-            _star_scale = (star.z + (_max_depth)) / (_max_depth);
+            _star_scale = (star_pos.z + (_max_depth)) / (_max_depth);
         }
-        i++;
-        if (i %_light_shift_amount) // Dimming
+        if (i %_light_shift_amount)     // Dimming
         {
             star_shape.setFillColor(sf::Color(255 * _star_scale, 255 * _star_scale, 255 * _star_scale));
         }
@@ -117,16 +83,16 @@ void StarField::moveStars(sf::RectangleShape &star_shape,
             star_shape.setFillColor(sf::Color(r * _star_scale, g * _star_scale, b * _star_scale));
         }
 
-//        std::cout << "3rd Position of star[" << i << "] : (" << star.x << ", " << star.y << ", " << star.z << ")" << std::endl;
+//        std::cout << "A: star[" << i << "] : " << star_pos.x << " , " << star_pos.y <<  std::endl;
 
         // Scaling
         star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
 
         // Moving
-        star_shape.setPosition(sf::Vector2f((-star.x / star.z) + (_width / 2),
-                                            (star.y / star.z) + (_height / 2)));
+        star_shape.setPosition({-star_pos.x / star_pos.z + (_width / 2),
+                                star_pos.y / star_pos.z + (_height / 2)});
 
-//        std::cout << "4th Position of star[" << i << "] : (" << _starField.at(i).x << ", " << star.y << ", " << star.z << ")" << std::endl;
+//        std::cout << "B: star[" << i << "] : " << star_pos.x << " , " << star_pos.y <<  std::endl;
 
         renderWindow.draw(star_shape);
     }
