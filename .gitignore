@@ -142,19 +142,29 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/c++,windows,clion+all
 
-#Custom gitignore from here
+# Custom gitignore from here
 
-#Hide CmakeLists.txt
+# Hide Assets folder
+assets
+assets/**
+
+# Hide CmakeLists.txt
 CmakeLists.txt
 
-#Conceal the doctest framework and folder
+# Conceal the doctest framework and folder
 test-source-code/doctest.h
 
-#Conceal the Project Brief
+# Conceal the Project Brief
 docs/elen3009-project-2017.pdf
 docs/elen3009-project-assessment-form-2017.pdf
 
-#Doxygen
+# Doxygen
 doxygen_source
 docygen_source/**
 Doxyfile
+
+# Executables (Make releases work)
+!executables/*.dll
+!executables/*.exe
+!executables/**
+!executables/resources/**
