@@ -58,48 +58,40 @@ void Game::Start()
 
 void Game::InitializeGameLoop()
 {
+    //-------------------------------------------
+    //  Setup
+    //-------------------------------------------
     sf::Event event;
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
+    //-------------------------------------------
+    //  Display Splashscreen
+    //-------------------------------------------
     //First Game State
     if (_gameState == Game::Splash)
     {
         showSplashScreen();
     }
 
+    //-------------------------------------------
+    //  Game Playing starts
+    //-------------------------------------------
+    //Spawn starField bg
+    auto number_of_stars = 5;
+    sf::RectangleShape star_shape({8.0f,8.0f});
+    StarField starField( star_shape, _resolution.x, _resolution.y, number_of_stars);
+
     //Spawn Player ship
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
     PlayerShip playerShip(_resourceMapper, shipPathRadius, 0, 0.4);
 
-    //Game Handler
+    //input Handler
     InputHandler inputHandler;
 
-    //Todo: Move into own class
-    //------Star Field------------
-    const auto number_of_stars = 60;
-    const auto maximum_depth = 6;
-    const auto star_size = 8.0f;
-    const auto star_speed = 0.081;
-    auto star_scale = 0.0f;
-
-    std::vector<common::Star> starField;
-    sf::RectangleShape star(sf::Vector2f(star_size,star_size));
-
-    //Initialize star random placement
-    for( auto i = 0; i < number_of_stars; i++)
-    {
-        common::Star temp;
-        temp.x = rand() % _resolution.x - (_resolution.x / 2.0f);
-        temp.y = rand() % _resolution.y - (_resolution.y / 2.0f);
-        //z-Depth
-        temp.z = -1 * 1.0f * (rand() % maximum_depth) - maximum_depth;
-        starField.push_back(temp);
-    }
-    //-----------------------------
-
-
-    //Game Loop
+    //-------------------------------------------
+    //  Main Game Loop (time advance)
+    //-------------------------------------------
     while (_gameState == Game::Playing)
     {
         //Check for events since last frame
@@ -119,9 +111,9 @@ void Game::InitializeGameLoop()
 
             if (event.type == sf::Event::EventType::KeyReleased)
                 if (event.key.code == sf::Keyboard::Space)
-            {
-                playerShip.shoot();
-            }
+                {
+                    playerShip.shoot();
+                }
 
 
             // During the current polling period, key-presses are detected
@@ -143,65 +135,34 @@ void Game::InitializeGameLoop()
             }
         } // End of input polling
 
+        //-------------------------------------------
+        //  Update and events
+        //-------------------------------------------
         inputHandler.resolveKeyMapping(_keysPressed, playerShip);
 
-        //ToDo: Get all the objects to be drawn
 
-        clock.restart();
-    sf::Sprite sprite;
+        //ToDo: Update all the relevant objects
+
+        //-------------------------------------------
+        //  Presentation
+        //-------------------------------------------
         _mainWindow.clear(color);
 
-        //----Star Loop-------
-        auto i = 0;
-        for ( auto& sun : starField )
+        //ToDo: Draw all the visible objects
+
+//        for (auto &element : starField.getStarField())
+        for (int i = 0; i < number_of_stars; ++i)
         {
-
-            //Move
-            sun.z += star_speed;
-
-            //Rainbow candy
-            auto r = rand()%128 * 2;
-            auto g = rand()%128 * 2;
-            auto b = rand()%128 * 2;
-
-            //If star is visible
-            if (sun.z >= 0.0f)
-            {
-                //recycle stars
-               sun.z = -maximum_depth;
-            }
-            if (sun.z <= -maximum_depth)
-            {
-                //tiny
-                star_scale = 0;
-            }
-            else
-            {
-                star_scale = (sun.z + (maximum_depth)) / (maximum_depth);
-            }
-            //Dimming
-            i++;
-            if (i%4)
-            {
-                star.setFillColor(sf::Color(255 * star_scale, 255 * star_scale, 255 * star_scale));
-            }
-            else
-            {
-                star.setFillColor(sf::Color(r * star_scale, g * star_scale, b * star_scale));
-            }
-            //Scaling
-            star.setSize(sf::Vector2f(star_size * star_scale, star_size * star_scale));
-//            star.setScale(star_size * star_scale, star_size * star_scale);
-            // /Moving
-            star.setPosition(sf::Vector2f(-sun.x / sun.z + (_resolution.x/2),
-                                          sun.y / sun.z + (_resolution.y/2)));
-
-            _mainWindow.draw(star);
+            starField.moveStars(star_shape);
+            _mainWindow.draw(star_shape);
         }
 
         _mainWindow.draw(playerShip.getSprite());
-        //-----------------
+
+        // Show the screen buffer
         _mainWindow.display();
+
+        clock.restart();
     }
 }
 

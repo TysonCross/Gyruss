@@ -5,9 +5,8 @@
 /// \date    2017/09/11
 /// \brief   Background Starfield effect
 ///
-/// Creates a distribution of stars, and simulates moving
-/// through this field, scaling and dimming them to fake a
-/// a persepctive motion with parallax.
+/// Definition for the starfield effect, a moving field of pixels
+/// creating the illusion of flying down a tunnel in space.
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -18,20 +17,44 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
+#include "SFML/Graphics.hpp"
+#include <vector>
+#include <iterator>
+#include "ResourceMapper.hpp"
 
-struct Star
+struct starPosition
 {
     float x;
     float y;
     float z;
 };
 
-class Starfield
+class StarField
 {
 public:
-    Starfield();
+    StarField(sf::RectangleShape &star_shape,
+              const unsigned int x,
+              const unsigned int y,
+              const int max_depth = 6,
+              const int number_of_stars = 60,
+              float max_size = 8.0f);
+
+    void moveStars(sf::RectangleShape &star_shape,
+                   float speed = 0.081);
+
+    std::vector<starPosition>& getStarField();
 
 private:
+    std::vector<starPosition> _starField;
+    const unsigned int _width;
+    const unsigned int _height;
+    const int _max_depth;
+    const int _number_of_stars;
+    const float _max_size;
+    float _star_scale;
+    signed int _light_shift_amount;
+
+
 
 };
 

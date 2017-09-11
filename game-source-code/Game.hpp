@@ -23,6 +23,7 @@
 #include "PlayerShip.hpp"
 #include "InputHandler.hpp"
 #include "SplashScreen.hpp"
+#include "Starfield.hpp"
 
 class Game
 {
