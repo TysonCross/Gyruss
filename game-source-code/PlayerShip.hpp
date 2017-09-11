@@ -18,6 +18,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <cmath>
 #include "ResourceMapper.hpp"
 #include "common.hpp"
 

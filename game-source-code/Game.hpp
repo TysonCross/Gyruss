@@ -18,7 +18,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics.hpp>
 #include <map>
-#include "Common.hpp"
+#include "common.hpp"
 #include "ResourceMapper.hpp"
 #include "PlayerShip.hpp"
 #include "InputHandler.hpp"
