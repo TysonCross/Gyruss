@@ -114,12 +114,14 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 ### OSX ###
+.DS_Store
 *.DS_Store
 .AppleDouble
 .LSOverride
 
 # Icon must end with two \r
 Icon
+Icon*
 
 # Thumbnails
 ._*
@@ -145,8 +147,9 @@ Temporary Items
 # Custom gitignore from here
 
 # Hide Assets folder
-assets
-assets/**
+game_resources
+game_resources/**
+
 
 # Hide CmakeLists.txt
 CmakeLists.txt
