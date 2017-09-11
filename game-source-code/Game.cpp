@@ -79,8 +79,7 @@ void Game::InitializeGameLoop()
     //-------------------------------------------
     //Spawn starField bg
     auto number_of_stars = 80;
-    sf::RectangleShape star_shape({});
-    StarField starField( star_shape, _resolution.x, _resolution.y, 3, number_of_stars);
+    StarField starField(_resolution.x, _resolution.y, 3, number_of_stars);
 
     //Spawn Player ship
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
@@ -152,7 +151,7 @@ void Game::InitializeGameLoop()
         for (const auto &element : starField.getStarField())
         //for (int i = 0; i < number_of_stars; ++i)
         {
-            starField.moveAndDrawStars(star_shape,_mainWindow);
+            starField.moveAndDrawStars(_mainWindow);
         }
 
         _mainWindow.draw(playerShip.getSprite());

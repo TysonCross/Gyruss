@@ -18,6 +18,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
+#include "SFML/Window.hpp"
 #include <vector>
 #include <iterator>
 #include "ResourceMapper.hpp"
@@ -50,7 +51,6 @@ class StarField
 {
 public:
     StarField(
-              sf::RectangleShape &star_shape,
               const unsigned int x,
               const unsigned int y,
               const int max_depth,
@@ -67,14 +67,14 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
-                          sf::RectangleShape &star_shape,
                           sf::RenderWindow &renderWindow,
-                          float speed = 0.001);
+                          float speed = 0.00081);
 
     std::vector<starPosition>& getStarField();
 
 private:
     std::vector<starPosition> _starField;
+    sf::RectangleShape _star_shape;
     const unsigned int _width;
     const unsigned int _height;
     const int _max_depth;

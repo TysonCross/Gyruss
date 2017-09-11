@@ -17,7 +17,7 @@
 //#include <iostream>
 #include <cmath>
 
-StarField::StarField(sf::RectangleShape &star_shape,
+StarField::StarField(
                      const unsigned int x,
                      const unsigned int y,
                      const int max_depth,
@@ -28,9 +28,8 @@ StarField::StarField(sf::RectangleShape &star_shape,
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
 {
-
     _star_scale = 0.0f;                 // spawn invisible
-    star_shape.setSize({_max_size,_max_size});
+    _star_shape.setSize({_max_size,_max_size});
 
     //Initialize star random placement
     for( auto i = 0; i < number_of_stars; i++)
@@ -44,9 +43,9 @@ StarField::StarField(sf::RectangleShape &star_shape,
 }
 
 
-void StarField::moveAndDrawStars(sf::RectangleShape &star_shape,
-                          sf::RenderWindow &renderWindow,
-                          float speed)
+void StarField::moveAndDrawStars(
+                                 sf::RenderWindow &renderWindow,
+                                 float speed)
 {
     auto i = 0;
     for (auto &star_pos : _starField)
@@ -76,25 +75,25 @@ void StarField::moveAndDrawStars(sf::RectangleShape &star_shape,
         }
         if (i %_light_shift_amount)     // Dimming
         {
-            star_shape.setFillColor(sf::Color(255 * _star_scale, 255 * _star_scale, 255 * _star_scale));
+            _star_shape.setFillColor(sf::Color(255 * _star_scale, 255 * _star_scale, 255 * _star_scale));
         }
         else
         {
-            star_shape.setFillColor(sf::Color(r * _star_scale, g * _star_scale, b * _star_scale));
+            _star_shape.setFillColor(sf::Color(r * _star_scale, g * _star_scale, b * _star_scale));
         }
 
 //        std::cout << "A: star[" << i << "] : " << star_pos.x << " , " << star_pos.y <<  std::endl;
 
         // Scaling
-        star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
+        _star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
 
         // Moving
-        star_shape.setPosition({-star_pos.x / star_pos.z + (_width / 2),
+        _star_shape.setPosition({-star_pos.x / star_pos.z + (_width / 2),
                                 star_pos.y / star_pos.z + (_height / 2)});
 
 //        std::cout << "B: star[" << i << "] : " << star_pos.x << " , " << star_pos.y <<  std::endl;
 
-        renderWindow.draw(star_shape);
+        renderWindow.draw(_star_shape);
     }
 }
 
