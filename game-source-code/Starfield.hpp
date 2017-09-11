@@ -35,11 +35,12 @@ public:
     StarField(sf::RectangleShape &star_shape,
               const unsigned int x,
               const unsigned int y,
-              const int max_depth = 6,
-              const int number_of_stars = 60,
+              const int max_depth,
+              const int number_of_stars,
               float max_size = 8.0f);
 
     void moveStars(sf::RectangleShape &star_shape,
+                   sf::RenderWindow &renderWindow,
                    float speed = 0.081);
 
     std::vector<starPosition>& getStarField();

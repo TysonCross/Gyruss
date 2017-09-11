@@ -47,7 +47,7 @@ StarField::StarField(sf::RectangleShape &star_shape,
                                         // _light_shift_amount > 1 : reduces the no. of rainbow stars
 
     _star_scale = 0.0f;                 // spawn invisible
-    star_shape.setSize({_star_scale,_star_scale});
+    star_shape.setSize({_max_size,_max_size});
 
     //Initialize star random placement
     for( auto i = 0; i < number_of_stars; i++)
@@ -57,8 +57,6 @@ StarField::StarField(sf::RectangleShape &star_shape,
         star_pos.y = rand() % _height - (_height / 2.0f);
         star_pos.z = -1.0f * (rand() % max_depth) - max_depth;
         _starField.push_back(star_pos);
-
-        std::cout << "Initial Position of star[" << i << "] : (" << star_pos.x << ", " << star_pos.y << ", " << star_pos.z << ")" << std::endl;
     }
 }
 
@@ -71,23 +69,29 @@ StarField::StarField(sf::RectangleShape &star_shape,
 ///
 ////////////////////////////////////////////////////////////
 void StarField::moveStars(sf::RectangleShape &star_shape,
+                          sf::RenderWindow &renderWindow,
                           float speed)
 {
-//    srand(127);
+    srand(127);
 
-//    for (auto &star : _starField)
-        auto star = _starField.at(0);
-    for (int i = 0; i < _starField.size(); ++i)
+    //    auto star = _starField.at(0);
+//    for (int i = 0; i < _starField.size(); ++i)
+//        star = _starField.at(i);
+
+    auto i = 0;
+    for (auto &star : _starField)
     {
-        star = _starField.at(i);
         // Move
         star.z += speed;
 
-//        // Rainbow candy (stylized Red/Blue shift)
-//        // 0-255,  half range * 2 is brighter color
-//        auto r = rand() % 128 * 2;
-//        auto g = rand() % 128 * 2;
-//        auto b = rand() % 128 * 2;
+        star.z += speed;
+//        std::cout << "2nd Position of star[" << i << "] : (" << star.x << ", " << _starField.at(i).y << ", " << _starField.at(i).z << ")" << std::endl;
+
+        // Rainbow candy (stylized Red/Blue shift)
+        // 0-255,  half range * 2 is brighter color
+        auto r = rand() % 128 * 2;
+        auto g = rand() % 128 * 2;
+        auto b = rand() % 128 * 2;
 
         // Boundaries of stars: between camera plane (0) and max_depth (-z)
         if (star.z >= 0.0f)         // If star is at or behind camera
@@ -103,27 +107,28 @@ void StarField::moveStars(sf::RectangleShape &star_shape,
         {
             _star_scale = (star.z + (_max_depth)) / (_max_depth);
         }
+        i++;
+        if (i %_light_shift_amount) // Dimming
+        {
+            star_shape.setFillColor(sf::Color(255 * _star_scale, 255 * _star_scale, 255 * _star_scale));
+        }
+        else
+        {
+            star_shape.setFillColor(sf::Color(r * _star_scale, g * _star_scale, b * _star_scale));
+        }
 
-//        if (i %_light_shift_amount) // Dimming
-//        {
-//            star_shape.setFillColor(sf::Color(255 * _star_scale, 255 * _star_scale, 255 * _star_scale));
-//        }
-//        else
-//        {
-//            star_shape.setFillColor(sf::Color(r * _star_scale, g * _star_scale, b * _star_scale));
-//        }
+//        std::cout << "3rd Position of star[" << i << "] : (" << star.x << ", " << star.y << ", " << star.z << ")" << std::endl;
 
-        //if (i==0) std::cout << "1st Position of star[" << i << "] : (" << star.x << ", " << star.y << ", " << star.z << ")" << std::endl;
-
-//        // Scaling
-//        star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
+        // Scaling
+        star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
 
         // Moving
-        star_shape.setPosition(sf::Vector2f(-star.x / star.z + (_width / 2),
-                                            star.y / star.z + (_height / 2)));
+        star_shape.setPosition(sf::Vector2f((-star.x / star.z) + (_width / 2),
+                                            (star.y / star.z) + (_height / 2)));
 
-        //if (i==0) std::cout << "2nd Position of star[" << i << "] : (" << star.x << ", " << star.y << ", " << star.z << ")" << std::endl;
+//        std::cout << "4th Position of star[" << i << "] : (" << _starField.at(i).x << ", " << star.y << ", " << star.z << ")" << std::endl;
 
+        renderWindow.draw(star_shape);
     }
 }
 
