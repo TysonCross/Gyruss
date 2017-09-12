@@ -17,6 +17,7 @@
 //Static Member redeclaration
 Game::GameState Game::_gameState = Splash;
 ResourceMapper Game::_resourceMapper;
+InputHandler Game::_inputHandler;
 common::Resolution Game::_resolution;
 sf::RenderWindow Game::_mainWindow;
 std::map<int, bool> Game::_keysPressed;
@@ -58,39 +59,38 @@ void Game::Start()
 
 void Game::InitializeGameLoop()
 {
-    //-------------------------------------------
-    //  Setup
-    //-------------------------------------------
+    ///-------------------------------------------
+    ///  Setup
+    ///-------------------------------------------
     sf::Event event;
     sf::Clock clock;
     sf::Color color(sf::Color::Black);
 
-    //-------------------------------------------
-    //  Display Splashscreen
-    //-------------------------------------------
+    ///-------------------------------------------
+    ///  Display Splashscreen
+    ///-------------------------------------------
     //First Game State
     if (_gameState == Game::Splash)
     {
         showSplashScreen();
     }
 
-    //-------------------------------------------
-    //  Game Playing starts
-    //-------------------------------------------
-    //Spawn starField bg
+    ///-------------------------------------------
+    ///  Game Playing starts
+    ///-------------------------------------------
+    //Spawn StarField background
     auto number_of_stars = 80;
     StarField starField(_resolution.x, _resolution.y, 3, number_of_stars);
 
     //Spawn Player ship
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
-    PlayerShip playerShip(_resourceMapper, shipPathRadius, 0, 0.4);
+    PlayerShip playerShip(_resourceMapper, shipPathRadius, 0, 0.3);
 
     //input Handler
-    InputHandler inputHandler;
 
-    //-------------------------------------------
-    //  Main Game Loop (time advance)
-    //-------------------------------------------
+    ///-------------------------------------------
+    ///  Main Game Loop (time advance)
+    ///-------------------------------------------
     while (_gameState == Game::Playing)
     {
         //Check for events since last frame
@@ -133,20 +133,20 @@ void Game::InitializeGameLoop()
             }
         } // End of input polling
 
-        //-------------------------------------------
-        //  Update and events
-        //-------------------------------------------
-        inputHandler.resolveKeyMapping(_keysPressed, playerShip);
+        ///-------------------------------------------
+        ///  Update and events
+        ///-------------------------------------------
+        _inputHandler.resolveKeyMapping(_keysPressed, playerShip);
 
 
-        //ToDo: Update all the relevant objects
+        // /ToDo: Update all the relevant objects
 
-        //-------------------------------------------
-        //  Render
-        //-------------------------------------------
+        ///-------------------------------------------
+        ///  Render
+        ///-------------------------------------------
         _mainWindow.clear(color);
 
-        //ToDo: Draw all the visible objects
+        // /ToDo: Draw all the visible objects
 
         for (const auto &element : starField.getStarField())
         //for (int i = 0; i < number_of_stars; ++i)

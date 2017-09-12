@@ -37,6 +37,7 @@ private:
     enum GameState { Splash, Playing, Exiting };
 
     static ResourceMapper _resourceMapper;
+    static InputHandler _inputHandler;
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;
     static std::map<int, bool> _keysPressed;

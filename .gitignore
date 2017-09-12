@@ -150,10 +150,6 @@ Temporary Items
 game_resources
 game_resources/**
 
-
-# Hide CmakeLists.txt
-CmakeLists.txt
-
 # Conceal the doctest framework and folder
 test-source-code/doctest.h
 
@@ -167,7 +163,9 @@ docygen_source/**
 Doxyfile
 
 # Executables (Make releases work)
+!executables/game.exe 
 !executables/*.dll
 !executables/*.exe
-!executables/**
 !executables/resources/**
+#but hide the OSX executable
+executables/game
