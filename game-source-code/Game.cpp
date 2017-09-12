@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    Game.cpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/09
 /// \brief   Main Game controller implementation
 ///
@@ -9,6 +7,7 @@
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
+
 
 #include <iostream>
 #include "Game.hpp"
@@ -25,6 +24,7 @@ std::map<int, bool> Game::_keysPressed;
 
 void Game::Start()
 {
+    // Todo: Need to choose better way to store this, currently many classes/methods require the screen dimensions
     _resolution.x = std::stoi(_resourceMapper.getResourceValues("Resolution").at(0));
     _resolution.y = std::stoi(_resourceMapper.getResourceValues("Resolution").at(1));
 
@@ -47,7 +47,7 @@ void Game::Start()
     //_mainWindow.setKeyRepeatEnabled(true);
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
-    _mainWindow.setFramerateLimit(60);
+    _mainWindow.setFramerateLimit(60); // Todo : Limit framerate manually
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
     while (_gameState != Game::Exiting)

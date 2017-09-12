@@ -20,27 +20,13 @@ set(SOURCE_FILES
         game-source-code/Starfield.cpp
         game-source-code/Starfield.hpp
         #[[game-source-code/Resolution.cpp
-        game-source-code/Resolution.hpp]])
+        game-source-code/Resolution.hpp]]
+        #[[game-source-code/Entity.hpp
+        game-source-code/Entity.cpp]])
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
-set(SOURCE_FILES_RELEASE
-        game-source-code/common.hpp
-        game-source-code/Gyruss.cpp
-        game-source-code/Game.hpp
-        game-source-code/Game.cpp
-        game-source-code/InputHandler.cpp
-        game-source-code/InputHandler.hpp
-        game-source-code/ResourceMapper.cpp
-        game-source-code/ResourceMapper.hpp
-        game-source-code/SplashScreen.hpp
-        game-source-code/SplashScreen.cpp
-        game-source-code/PlayerShip.cpp
-        game-source-code/PlayerShip.hpp
-        game-source-code/Starfield.cpp
-        game-source-code/Starfield.hpp
-        #[[game-source-code/Resolution.cpp
-        game-source-code/Resolution.hpp]])
+set(SOURCE_FILES_RELEASE ${SOURCE_FILES})
 set(EXECUTABLE_NAME_RELEASE "game")
 set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/executables")
 add_executable(${EXECUTABLE_NAME_RELEASE} ${SOURCE_FILES_RELEASE})

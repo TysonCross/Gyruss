@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    Gyruss.cpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/09
 /// \brief   Project 2017 - Gyruss
 ///

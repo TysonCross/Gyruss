@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    Starfield.hpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/11
 /// \brief   Background Starfield effect
 ///
@@ -58,21 +56,34 @@ public:
               float max_size = 8.0f);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Moves the star positions along -Z in the starField object
-    /// Then draws a square at each position in the starField.
-    /// \
+    /// \brief Moves the star positions along -Z in the starField object,
+    /// then draws a square at each position in the starField.
+    ///
+    /// The movement along Z is not physically accurate,
+    /// but uses a fast approximation:
+    /// (Δposition - max_depth) / max_depth
+    ///
     /// \param speed The delta to move the stars
+    /// \param window The sf:Window object to draw and render to
     ///
-    /// \param star Pointer to a RectangleShape to draw the stars
-    ///
+    /// \see sf::Window
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
                           sf::RenderWindow &renderWindow,
                           float speed = 0.00081);
 
-    std::vector<starPosition>& getStarField();
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns a reference to the StarField object
+    /// (for iterating through the elements)
+    ///
+    ////////////////////////////////////////////////////////////
+    std::vector<starPosition> &getStarField();
 
 private:
+
+    ////////////////////////////////////////////////////////////
+    // Member data
+    ////////////////////////////////////////////////////////////
     std::vector<starPosition> _starField;
     sf::RectangleShape _star_shape;
     const unsigned int _width;
@@ -81,11 +92,12 @@ private:
     const int _number_of_stars;
     const float _max_size;
     float _star_scale;
+    /// \brief Controls amount of colorful stars
+    ///
+    /// _light_shift_amount = 0 : undefined behaviour
+    /// _light_shift_amount = 1 : all stars are colorful
+    /// _light_shift_amount > 1 : reduces no. of colorful stars
     const signed int _light_shift_amount = 2;
-    // _light_shift_amount: Controls amount of colorful stars
-    // _light_shift_amount = 0 : undefined behaviour
-    // _light_shift_amount = 1 : all stars are colorful
-    // _light_shift_amount > 1 : reduces no. of colorful stars
 };
 
 #endif //PROJECT_STARFIELD_HPP

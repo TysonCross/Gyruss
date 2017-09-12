@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
+/// Students 1239448 & 1101946
 /// \file    ResourceMapper.cpp
 /// \authors Tyson Cross and Chris Maree
 /// \date    2017/09/10

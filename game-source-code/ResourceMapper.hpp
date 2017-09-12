@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    ResourceMapper.hpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/10
 /// \brief   Relational, unstructured mapping from key to vector of values
 ///
