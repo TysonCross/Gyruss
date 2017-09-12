@@ -31,7 +31,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Default constuctor
     ///
-    /// Creates a speficic database of string keys, and a vector of string values
+    /// Creates a specific database of string keys, and a vector of string values
     ///
     ////////////////////////////////////////////////////////////
     ResourceMapper();
