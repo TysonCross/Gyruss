@@ -1,9 +1,8 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    PlayerShip.hpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/09
 /// \brief   Basic Resolution class to hold the screen dimensions
+///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
@@ -11,8 +10,7 @@
 
 Resolution::Resolution(unsigned int x,
                        unsigned int y) : _x(x),
-                                         _y(y)
-{}
+                                         _y(y) {}
 
 Res Resolution::getDimensions()
 {

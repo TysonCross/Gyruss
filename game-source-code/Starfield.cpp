@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    Starfield.cpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/11
 /// \brief   Implementation of the background star effect
 ///
@@ -9,13 +7,10 @@
 /// through this field, scaling and dimming them to fake a
 /// a perspective motion with parallax.
 ///
-///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "Starfield.hpp"
-//#include <iostream>
-#include <cmath>
 
 StarField::StarField(
                      const unsigned int x,
@@ -28,7 +23,7 @@ StarField::StarField(
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
 {
-    _star_scale = 0.0f;                 // spawn invisible
+    _star_scale = 0.0f;
     _star_shape.setSize({_max_size,_max_size});
 
     //Initialize star random placement
@@ -42,7 +37,6 @@ StarField::StarField(
     }
 }
 
-
 void StarField::moveAndDrawStars(
                                  sf::RenderWindow &renderWindow,
                                  float speed)
@@ -54,16 +48,15 @@ void StarField::moveAndDrawStars(
         star_pos.z += speed;            //Move the stars along z, towards camera
         i++;                            // For counting which stars to make colorful
 
-        // Rainbow candy (stylized Red/Blue shift)
+        // Rainbow candy
         auto r = rand() % 128 * 2;      // 0-255,  half range * 2 is brighter color
-        auto g = rand() % 128 * 2;
-        auto b = rand() % 128 * 2;
+        auto g = rand() % 128 * 2;      // These random colors help simulate a
+        auto b = rand() % 128 * 2;      // stylized Red/Blue shift
 
         // Boundaries of stars: between camera plane (0) and max_depth (-z)
         if (star_pos.z >= 0.0f)         // If star is at or behind camera
         {
             star_pos.z = -_max_depth;   // send it to the furthest distance
-
         }
         if (star_pos.z <= -_max_depth)  // star is beyond the furthest distance
         {
@@ -82,16 +75,12 @@ void StarField::moveAndDrawStars(
             _star_shape.setFillColor(sf::Color(r * _star_scale, g * _star_scale, b * _star_scale));
         }
 
-//        std::cout << "A: star[" << i << "] : " << star_pos.x << " , " << star_pos.y <<  std::endl;
-
         // Scaling
         _star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
 
         // Moving
         _star_shape.setPosition({-star_pos.x / star_pos.z + (_width / 2),
                                 star_pos.y / star_pos.z + (_height / 2)});
-
-//        std::cout << "B: star[" << i << "] : " << star_pos.x << " , " << star_pos.y <<  std::endl;
 
         renderWindow.draw(_star_shape);
     }
@@ -101,10 +90,3 @@ std::vector<starPosition>& StarField::getStarField()
 {
     return _starField;
 }
-
-//_starField;
-//_light_shift_amount;
-
-
-
-

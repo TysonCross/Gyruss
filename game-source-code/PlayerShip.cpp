@@ -1,11 +1,10 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    PlayerShip.cpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/09
-/// \brief   Description of file in project Project.
+/// \brief   The main player ship
 ///
-/// Detailed description of file.
+/// The player's ship flies around the centre of the screen in a circle of fixed
+/// radius, shooting at enemies.
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////

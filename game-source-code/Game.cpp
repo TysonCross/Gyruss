@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    Game.cpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/09
 /// \brief   Main Game controller implementation
 ///
@@ -9,6 +7,7 @@
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
+
 
 #include <iostream>
 #include "Game.hpp"
@@ -25,19 +24,17 @@ std::map<int, bool> Game::_keysPressed;
 
 void Game::Start()
 {
+    // Todo: Need to choose better way to store this, currently many classes/methods require the screen dimensions
     _resolution.x = std::stoi(_resourceMapper.getResourceValues("Resolution").at(0));
     _resolution.y = std::stoi(_resourceMapper.getResourceValues("Resolution").at(1));
 
     sf::Image icon;
     icon.loadFromFile(_resourceMapper.getResource("WindowIcon"));
 
-
     sf::SoundBuffer buffer;
-    sf::Sound sound;
     buffer.loadFromFile(_resourceMapper.getResource("StartSound"));
-    sound.setBuffer(buffer);
+    sf::Sound sound(buffer);
     sound.play();
-
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 4;
@@ -47,7 +44,7 @@ void Game::Start()
     //_mainWindow.setKeyRepeatEnabled(true);
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
-    _mainWindow.setFramerateLimit(60);
+    _mainWindow.setFramerateLimit(60); // Todo : Limit framerate manually
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
     while (_gameState != Game::Exiting)
@@ -59,16 +56,11 @@ void Game::Start()
 
 void Game::InitializeGameLoop()
 {
-    ///-------------------------------------------
-    ///  Setup
-    ///-------------------------------------------
-    sf::Event event;
     sf::Clock clock;
-    sf::Color color(sf::Color::Black);
+    sf::Time timeSinceUpdate = sf::Time::Zero;
 
-    ///-------------------------------------------
-    ///  Display Splashscreen
-    ///-------------------------------------------
+    const sf::Color black(sf::Color::Black);
+
     //First Game State
     if (_gameState == Game::Splash)
     {
@@ -78,15 +70,15 @@ void Game::InitializeGameLoop()
     ///-------------------------------------------
     ///  Game Playing starts
     ///-------------------------------------------
-    //Spawn StarField background
     auto number_of_stars = 80;
     StarField starField(_resolution.x, _resolution.y, 3, number_of_stars);
 
-    //Spawn Player ship
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
     PlayerShip playerShip(_resourceMapper, shipPathRadius, 0, 0.3);
 
-    //input Handler
+    sf::Event event;
+    enum ButtonState {Up,Down};
+    bool previousButtonState = 0;
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -107,11 +99,18 @@ void Game::InitializeGameLoop()
             {
                 _gameState = Game::Exiting;
             }
-
+// Need to have a proper polling here to check previous gamestate
+            if (event.type == sf::Event::EventType::KeyPressed)
+                if (event.key.code == sf::Keyboard::Space)
+                    if (previousButtonState == 0)
+                    {
+                        playerShip.shoot();
+                        previousButtonState = 1;
+                    }
             if (event.type == sf::Event::EventType::KeyReleased)
                 if (event.key.code == sf::Keyboard::Space)
                 {
-                    playerShip.shoot();
+                    previousButtonState = 0;
                 }
 
             // During the current polling period, key-presses are detected
@@ -138,13 +137,12 @@ void Game::InitializeGameLoop()
         ///-------------------------------------------
         _inputHandler.resolveKeyMapping(_keysPressed, playerShip);
 
-
         // /ToDo: Update all the relevant objects
 
         ///-------------------------------------------
         ///  Render
         ///-------------------------------------------
-        _mainWindow.clear(color);
+        _mainWindow.clear(black);
 
         // /ToDo: Draw all the visible objects
 

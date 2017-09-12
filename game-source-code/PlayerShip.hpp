@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    PlayerShip.hpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/09
 /// \brief   Player ship
 ///
@@ -40,7 +38,7 @@ public:
     PlayerShip(const ResourceMapper &resourceMapper, float distanceFromCentre, int angle, float scale);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Moves the player ship around a circle by angle
+    /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
     void move(int angle);
 
@@ -54,11 +52,15 @@ public:
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
+    ///
+    /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
     sf::Sprite &getSprite();
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the texture object of the Class by ref
+    ///
+    /// \see sf:Texture
     ////////////////////////////////////////////////////////////
     sf::Texture &getTexture();
 

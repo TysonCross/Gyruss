@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Student  1239448 & 1101946
-/// \file    SplashScreen.hpp
-/// \authors Tyson Cross and Chris Maree
+/// Students 1239448 & 1101946
 /// \date    2017/09/10
 /// \brief   Simple Splash Screen
 ///
@@ -30,6 +28,12 @@ public:
 
 ////////////////////////////////////////////////////////////
 /// \brief Shows the Splash screen
+///
+/// \param window The sf:Window object to draw and render to
+/// \param resourceMapper The resourceMapper containing assets for the aplashscreen
+///
+/// \see sf::Window
+/// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
     int show(sf::RenderWindow &window, ResourceMapper &resourceMapper);
