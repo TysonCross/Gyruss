@@ -18,15 +18,11 @@ set(SOURCE_FILES
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
         game-source-code/Starfield.cpp
-        game-source-code/Starfield.hpp
-        #[[game-source-code/Resolution.cpp
-        game-source-code/Resolution.hpp]]
-        #[[game-source-code/Entity.hpp
-        game-source-code/Entity.cpp]])
+        game-source-code/Starfield.hpp)
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
-set(SOURCE_FILES_RELEASE ${SOURCE_FILES} game-source-code/fps.hpp)
+set(SOURCE_FILES_RELEASE ${SOURCE_FILES})
 set(EXECUTABLE_NAME_RELEASE "game")
 set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/executables")
 add_executable(${EXECUTABLE_NAME_RELEASE} ${SOURCE_FILES_RELEASE})
