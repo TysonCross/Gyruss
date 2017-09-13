@@ -51,13 +51,12 @@ void Game::Start()
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 4;
-
     _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
                        sf::Style::Close , settings );
     //_mainWindow.setKeyRepeatEnabled(true);
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
-    _mainWindow.setFramerateLimit(60); // Todo : Limit framerate manually
+    //_mainWindow.setFramerateLimit(60); // Todo : Limit framerate manually
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
     while (_gameState != Game::Exiting)
@@ -71,6 +70,7 @@ void Game::InitializeGameLoop()
 {
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
+    float timeStep = 1.f / 60.f;
 
     const sf::Color black(sf::Color::Black);
 
@@ -155,6 +155,9 @@ void Game::InitializeGameLoop()
         ///-------------------------------------------
         ///  Update and events
         ///-------------------------------------------
+        timeSinceUpdate += clock.getElapsedTime();
+        clock.restart();
+        std::cout <<  "time elapsed: " << timeSinceUpdate.asMilliseconds() << std::endl;
         _inputHandler.resolveKeyMapping(_keysPressed, playerShip);
 
         // /ToDo: Update all the relevant objects
@@ -162,22 +165,25 @@ void Game::InitializeGameLoop()
         ///-------------------------------------------
         ///  Render
         ///-------------------------------------------
-        _mainWindow.clear(black);
-
-        // /ToDo: Draw all the visible objects
-
-        for (const auto &element : starField.getStarField())
-        //for (int i = 0; i < number_of_stars; ++i)
+        while (timeSinceUpdate.asMilliseconds() >= timeStep)
         {
-            starField.moveAndDrawStars(_mainWindow);
+            timeSinceUpdate = sf::Time::Zero;
+            _mainWindow.clear(black);
+
+            // /ToDo: Draw all the visible objects
+
+            for (const auto &element : starField.getStarField())
+                //for (int i = 0; i < number_of_stars; ++i)
+            {
+                starField.moveAndDrawStars(_mainWindow);
+            }
+
+            _mainWindow.draw(playerShip.getSprite());
+
+            // Show the screen buffer
+            _mainWindow.display();
+
         }
-
-        _mainWindow.draw(playerShip.getSprite());
-
-        // Show the screen buffer
-        _mainWindow.display();
-
-        clock.restart();
     }
 }
 
