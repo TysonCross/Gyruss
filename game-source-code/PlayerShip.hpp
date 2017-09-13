@@ -40,13 +40,13 @@ public:
     PlayerShip(const ResourceMapper &resourceMapper,
                common::Resolution resolution,
                float distanceFromCentre,
-               int angle,
+               float angle,
                float scale);
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
-    void move(int angle);
+    void move(float angle);
 
     ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers
@@ -82,7 +82,7 @@ private:
     int _width;
     int _height;
     float _distanceFromCentre;
-    int _angle;
+    float _angle;
     float _scale;
 };
 

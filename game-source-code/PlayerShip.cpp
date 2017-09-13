@@ -18,9 +18,9 @@ const float pi = 3.1415;
 /// \brief Ensures that the angle is always between 0 and 360
 ///
 ////////////////////////////////////////////////////////////
-int eulerFilter(int angle)
+float eulerFilter(float angle)
 {
-    angle = angle % 360;
+    angle = fmod(angle,360);
     if (angle < 0)
     {
         angle += 360;
@@ -41,7 +41,7 @@ PlayerShip::PlayerShip(
                         const ResourceMapper &resourceMapper,
                         common::Resolution resolution,
                         float distanceFromCentre,
-                        int angle = 0,
+                        float angle = 0,
                         float scale = 1) : _width(resolution.x),
                                            _height(resolution.y)
 {
@@ -63,7 +63,7 @@ PlayerShip::PlayerShip(
     move(0); //Initialised position at bottom of play area, not screen origin top-left
 }
 
-void PlayerShip::move(int angle)
+void PlayerShip::move(float angle)
 {
     _angle += angle;
     _angle = eulerFilter(_angle);
