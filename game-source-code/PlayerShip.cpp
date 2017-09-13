@@ -10,6 +10,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "PlayerShip.hpp"
+#include "common.hpp"
 
 const float pi = 3.1415;
 
@@ -38,12 +39,14 @@ float degreeToRad(float degree)
 
 PlayerShip::PlayerShip(
                         const ResourceMapper &resourceMapper,
+                        common::Resolution resolution,
                         float distanceFromCentre,
                         int angle = 0,
-                        float scale = 1)
+                        float scale = 1) : _width(resolution.x),
+                                           _height(resolution.y)
 {
-    _width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
-    _height = std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
+    //_width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
+    //_height = std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
 
     _distanceFromCentre = distanceFromCentre;
     _angle = angle;

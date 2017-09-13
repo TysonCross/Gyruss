@@ -13,12 +13,11 @@
 #include "Starfield.hpp"
 
 StarField::StarField(
-                     const unsigned int x,
-                     const unsigned int y,
+                     common::Resolution resolution,
                      const int max_depth,
                      const int number_of_stars,
-                     float max_size) : _width(x),
-                                       _height(y),
+                     float max_size) : _width(resolution.x),
+                                       _height(resolution.y),
                                        _max_depth(max_depth),
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
