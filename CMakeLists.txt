@@ -18,11 +18,7 @@ set(SOURCE_FILES
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
         game-source-code/Starfield.cpp
-        game-source-code/Starfield.hpp
-        #[[game-source-code/Resolution.cpp
-        game-source-code/Resolution.hpp]]
-        #[[game-source-code/Entity.hpp
-        game-source-code/Entity.cpp]])
+        game-source-code/Starfield.hpp)
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
@@ -65,16 +61,17 @@ endif ()
 
 # Game assets - Copy from /game_resources to the relevant 'resources' folder
 set(RESOURCES_TO_COPY "game_resources")
-set(RESOURCE_TARGET_FOLDER "resources")
-set(RESOURCE_TARGET_FILE_LIST "*")
+set(RESOURCE_TARGET_FOLDER "/resources")
+set(RESOURCE_TARGET_FILE_LIST "*.*")
 set(${DEPLOY_DIRECTORY} "executables")
-add_custom_command(TARGET ${EXECUTABLE_NAME} POST_BUILD
+add_custom_command(TARGET ${EXECUTABLE_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E remove
-        $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
+        $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/${RESOURCE_TARGET_FOLDER})
+        ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>${RESOURCE_TARGET_FOLDER})
 add_custom_command(TARGET ${EXECUTABLE_NAME_RELEASE} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E remove
-        $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>/${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
+        $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>/${RESOURCE_TARGET_FOLDER})
+        ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>${RESOURCE_TARGET_FOLDER})
+

@@ -29,18 +29,24 @@ public:
     ///
     /// \param resourceMapper The resourceMapper object that
     /// contains the path to the texture(s) for the sprite
+    /// \param The screen resolution (to determine the radius
+    /// the playerShip circles around
     /// \param distanceFromCentre The fixed radius of the circle
     /// that the ship flies around
     /// \param angle The angle in degrees around the circle of movement
     /// \param scale The scale of the sprite
     ///
     ////////////////////////////////////////////////////////////
-    PlayerShip(const ResourceMapper &resourceMapper, float distanceFromCentre, int angle, float scale);
+    PlayerShip(const ResourceMapper &resourceMapper,
+               common::Resolution resolution,
+               float distanceFromCentre,
+               float angle,
+               float scale);
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
-    void move(int angle);
+    void move(float angle);
 
     ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers
@@ -76,7 +82,7 @@ private:
     int _width;
     int _height;
     float _distanceFromCentre;
-    int _angle;
+    float _angle;
     float _scale;
 };
 

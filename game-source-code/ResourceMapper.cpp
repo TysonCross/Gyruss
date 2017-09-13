@@ -19,6 +19,7 @@ ResourceMapper::ResourceMapper() {
             {"Resolution",      {"1920","1080"}},
             {"WindowIcon",      {"resources/icon.png"}},
             {"StartSound",      {"resources/startup.ogg"}},
+            {"Music",           {"resources/game_music.ogg"}},
             {"Star",            {"resources/star.png"}},
             {"SplashScreen",    {"resources/splash.png"}},
             {"PlayerShip",      {"resources/player_model.png"}},

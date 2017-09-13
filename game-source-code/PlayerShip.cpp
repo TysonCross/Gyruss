@@ -10,6 +10,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "PlayerShip.hpp"
+#include "common.hpp"
 
 const float pi = 3.1415;
 
@@ -17,9 +18,9 @@ const float pi = 3.1415;
 /// \brief Ensures that the angle is always between 0 and 360
 ///
 ////////////////////////////////////////////////////////////
-int eulerFilter(int angle)
+float eulerFilter(float angle)
 {
-    angle = angle % 360;
+    angle = fmod(angle,360);
     if (angle < 0)
     {
         angle += 360;
@@ -38,21 +39,29 @@ float degreeToRad(float degree)
 
 PlayerShip::PlayerShip(
                         const ResourceMapper &resourceMapper,
+                        common::Resolution resolution,
                         float distanceFromCentre,
-                        int angle = 0,
-                        float scale = 1)
+                        float angle = 0,
+                        float scale = 1) : _width(resolution.x),
+                                           _height(resolution.y)
 {
-    _width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
-    _height = std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
+    //_width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
+    //_height = std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
 
     _distanceFromCentre = distanceFromCentre;
     _angle = angle;
     _scale = scale;
 
-    _buffer.loadFromFile(resourceMapper.getResource("PlayerShipSound"));
+    if(!_buffer.loadFromFile(resourceMapper.getResource("PlayerShipSound")))
+    {
+        return; //execution error; resource missing
+    }
     _shootSound.setBuffer(_buffer);
 
-    _texture.loadFromFile(resourceMapper.getResource("PlayerShip"));
+    if(!_texture.loadFromFile(resourceMapper.getResource("PlayerShip")))
+    {
+        return; //execution error; resource missing
+    }
     _sprite.setTexture(_texture);
     _sprite.setScale(_scale, _scale);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
@@ -60,7 +69,7 @@ PlayerShip::PlayerShip(
     move(0); //Initialised position at bottom of play area, not screen origin top-left
 }
 
-void PlayerShip::move(int angle)
+void PlayerShip::move(float angle)
 {
     _angle += angle;
     _angle = eulerFilter(_angle);

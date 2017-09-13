@@ -5,12 +5,15 @@
 ///
 /// Implements the Game loop, and game states
 ///
+/// Music by Eric Matyas (www.http://soundimage.org)
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 
 #include <iostream>
+//#include <sstream>
 #include "Game.hpp"
+//#include "fps.hpp"
 
 
 //Static Member redeclaration
@@ -24,27 +27,42 @@ std::map<int, bool> Game::_keysPressed;
 
 void Game::Start()
 {
-    // Todo: Need to choose better way to store this, currently many classes/methods require the screen dimensions
+    // Todo: Need to choose better way to set the resolution. settings screen and setResource perhaps?
     _resolution.x = std::stoi(_resourceMapper.getResourceValues("Resolution").at(0));
     _resolution.y = std::stoi(_resourceMapper.getResourceValues("Resolution").at(1));
 
+//    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
+//    for (std::size_t i = 0; i < modes.size(); ++i)
+//    {
+//        sf::VideoMode mode = modes[i];
+//        std::cout << "Mode #" << i << ": "
+//                  << mode.width << "x" << mode.height << " - "
+//                  << mode.bitsPerPixel << " bpp" << std::endl;
+//    }
+//
+//    _resolution.x = modes.at(3).width;
+//    _resolution.y = modes.at(3).height;
+
     sf::Image icon;
-    icon.loadFromFile(_resourceMapper.getResource("WindowIcon"));
+    if(!icon.loadFromFile(_resourceMapper.getResource("WindowIcon")))
+    {
+        return; //execution error; resource missing
+    }
 
     sf::SoundBuffer buffer;
-    buffer.loadFromFile(_resourceMapper.getResource("StartSound"));
+    if(!buffer.loadFromFile(_resourceMapper.getResource("StartSound")))
+    {
+        return; //execution error; resource missing
+    }
     sf::Sound sound(buffer);
     sound.play();
 
     sf::ContextSettings settings;
-    settings.antialiasingLevel = 4;
-
+    settings.antialiasingLevel = 8;
     _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
-                       sf::Style::Close, settings );
-    //_mainWindow.setKeyRepeatEnabled(true);
+                       sf::Style::Close , settings );
     _mainWindow.setMouseCursorVisible(false);
-    _mainWindow.setVerticalSyncEnabled(true);
-    _mainWindow.setFramerateLimit(60); // Todo : Limit framerate manually
+    //_mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
     while (_gameState != Game::Exiting)
@@ -58,6 +76,8 @@ void Game::InitializeGameLoop()
 {
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
+    float timeStep = 1.f / 60.f;
+    //fps fps;
 
     const sf::Color black(sf::Color::Black);
 
@@ -70,11 +90,18 @@ void Game::InitializeGameLoop()
     ///-------------------------------------------
     ///  Game Playing starts
     ///-------------------------------------------
-    auto number_of_stars = 80;
-    StarField starField(_resolution.x, _resolution.y, 3, number_of_stars);
+    sf::Music music;
+    music.setLoop(true);
+    music.setVolume(25);
+    if (!music.openFromFile(_resourceMapper.getResourceValues("Music").at(0)))
+        return; // error
+    music.play();
+
+    auto number_of_stars = 60;
+    StarField starField(_resolution, 3, number_of_stars);
 
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
-    PlayerShip playerShip(_resourceMapper, shipPathRadius, 0, 0.3);
+    PlayerShip playerShip(_resourceMapper, _resolution, shipPathRadius, 0, 0.3);
 
     sf::Event event;
     enum ButtonState {Up,Down};
@@ -99,7 +126,6 @@ void Game::InitializeGameLoop()
             {
                 _gameState = Game::Exiting;
             }
-// Need to have a proper polling here to check previous gamestate
             if (event.type == sf::Event::EventType::KeyPressed)
                 if (event.key.code == sf::Keyboard::Space)
                     if (previousButtonState == 0)
@@ -133,38 +159,46 @@ void Game::InitializeGameLoop()
         } // End of input polling
 
         ///-------------------------------------------
-        ///  Update and events
+        /// Events
         ///-------------------------------------------
-        _inputHandler.resolveKeyMapping(_keysPressed, playerShip);
-
-        // /ToDo: Update all the relevant objects
-
-        ///-------------------------------------------
-        ///  Render
-        ///-------------------------------------------
-        _mainWindow.clear(black);
-
-        // /ToDo: Draw all the visible objects
-
-        for (const auto &element : starField.getStarField())
-        //for (int i = 0; i < number_of_stars; ++i)
-        {
-            starField.moveAndDrawStars(_mainWindow);
-        }
-
-        _mainWindow.draw(playerShip.getSprite());
-
-        // Show the screen buffer
-        _mainWindow.display();
-
+        timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
+        _inputHandler.resolveKeyMapping(_keysPressed);
+
+
+        ///-------------------------------------------
+        ///  Fixed Timestep
+        ///-------------------------------------------
+        while (timeSinceUpdate.asSeconds() >= timeStep)
+        {
+            timeSinceUpdate = sf::Time::Zero;
+            _mainWindow.clear(black);
+            // /ToDo: Update all the relevant objects
+            _inputHandler.update(playerShip,timeStep);
+
+            //  Render
+            // /ToDo: Draw all the visible objects
+            for (const auto &element : starField.getStarField())
+                //for (int i = 0; i < number_of_stars; ++i)
+            {
+                starField.moveAndDrawStars(_mainWindow);
+            }
+            _mainWindow.draw(playerShip.getSprite());
+            _mainWindow.display();
+
+           //DO NOT INCLUDE (EXTERNAL CODE for a quick check)
+//            fps.update();
+//            std::ostringstream ss;
+//            ss << fps.getFPS();
+//            _mainWindow.setTitle(ss.str());
+        }
     }
 }
 
 void Game::showSplashScreen()
 {
     SplashScreen splashScreen;
-    if (splashScreen.show(_mainWindow,_resourceMapper) == 0)
+    if (splashScreen.show(_mainWindow,_resourceMapper,_resolution) == 0)
     {
         _gameState = Game::Playing;
         return;

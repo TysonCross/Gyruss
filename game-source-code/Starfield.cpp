@@ -13,18 +13,19 @@
 #include "Starfield.hpp"
 
 StarField::StarField(
-                     const unsigned int x,
-                     const unsigned int y,
+                     common::Resolution resolution,
                      const int max_depth,
                      const int number_of_stars,
-                     float max_size) : _width(x),
-                                       _height(y),
+                     float max_size) : _width(resolution.x),
+                                       _height(resolution.y),
                                        _max_depth(max_depth),
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
 {
     _star_scale = 0.0f;
-    _star_shape.setSize({_max_size,_max_size});
+    _star_shape.setPointCount(3);
+    _star_shape.setRadius(max_size);
+    //_star_shape.setSize({_max_size,_max_size});
 
     //Initialize star random placement
     for( auto i = 0; i < number_of_stars; i++)
@@ -76,7 +77,8 @@ void StarField::moveAndDrawStars(
         }
 
         // Scaling
-        _star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
+        //_star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
+        _star_shape.setRadius(_max_size * _star_scale);
 
         // Moving
         _star_shape.setPosition({-star_pos.x / star_pos.z + (_width / 2),

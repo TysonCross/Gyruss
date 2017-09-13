@@ -10,8 +10,9 @@
 
 #include "SplashScreen.hpp"
 #include "common.hpp"
+#include <iostream>
 
-int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceMapper)
+int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceMapper, common::Resolution resolution)
 {
     //Get the Splashscreen image
     sf::Texture splashScreen;
@@ -20,6 +21,8 @@ int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceM
         return -1; //execution error; resource missing
     }
     sf::Sprite splash(splashScreen);
+    auto scaleFactor = resolution.x/splash.getGlobalBounds().width;
+    splash.setScale(scaleFactor,scaleFactor);
 
     // Title Text
     sf::Font font;
@@ -27,19 +30,39 @@ int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceM
     {
         return -1; //execution error; resource missing
     }
-    sf::Text title("GYRUSS", font, 256);
+    sf::Text title("GYRUSS", font, 250);
     title.setFillColor(sf::Color::White);
     title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
-    auto titleWidth = std::stoi(resourceMapper.getResourceValues("Resolution").at(0))/2;
-    auto titleHeight = std::stoi(resourceMapper.getResourceValues("Resolution").at(1))/6;
+    auto titleWidth = resolution.x/2;
+    auto titleHeight = resolution.y/8;
     title.setPosition(titleWidth,titleHeight);
 
-//    sf::Text controls("Move", font, 256);
-//    controls.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
+    // Version text
+    sf::Font font_version;
+    if (!font_version.loadFromFile("resources/fax_sans_beta.otf"))
+    {
+        return -1; //execution error; resource missing
+    }
+    sf::Text version("version 0.1", font_version, 24);
+    sf::Color Gray = {70,70,70};
+    version.setFillColor(Gray);
+    version.setPosition(12,12);
 
+    // Info Text
+    sf::Text info("Press any key to start", font_version, 42);
+    sf::Color Purple = {179,74,186};
+    info.setFillColor(Purple);
+    info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
+    auto infoWidth = resolution.x/2;;
+    auto infoHeight = resolution.y-60;
+    info.setPosition(infoWidth,infoHeight);
+
+    // Render
     renderWindow.clear();
     renderWindow.draw(splash);
     renderWindow.draw(title);
+    renderWindow.draw(version);
+    renderWindow.draw(info);
     renderWindow.display();
 
     sf::Event event;

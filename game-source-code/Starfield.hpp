@@ -20,6 +20,7 @@
 #include <vector>
 #include <iterator>
 #include "ResourceMapper.hpp"
+#include "common.hpp"
 
 ////////////////////////////////////////////////////////////
 /// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
@@ -49,8 +50,7 @@ class StarField
 {
 public:
     StarField(
-              const unsigned int x,
-              const unsigned int y,
+              common::Resolution resolution,
               const int max_depth,
               const int number_of_stars,
               float max_size = 8.0f);
@@ -85,7 +85,8 @@ private:
     // Member data
     ////////////////////////////////////////////////////////////
     std::vector<starPosition> _starField;
-    sf::RectangleShape _star_shape;
+    sf::CircleShape _star_shape;
+    //sf::RectangleShape _star_shape;
     const unsigned int _width;
     const unsigned int _height;
     const int _max_depth;
