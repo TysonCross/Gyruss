@@ -52,10 +52,16 @@ PlayerShip::PlayerShip(
     _angle = angle;
     _scale = scale;
 
-    _buffer.loadFromFile(resourceMapper.getResource("PlayerShipSound"));
+    if(!_buffer.loadFromFile(resourceMapper.getResource("PlayerShipSound")))
+    {
+        return; //execution error; resource missing
+    }
     _shootSound.setBuffer(_buffer);
 
-    _texture.loadFromFile(resourceMapper.getResource("PlayerShip"));
+    if(!_texture.loadFromFile(resourceMapper.getResource("PlayerShip")))
+    {
+        return; //execution error; resource missing
+    }
     _sprite.setTexture(_texture);
     _sprite.setScale(_scale, _scale);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);

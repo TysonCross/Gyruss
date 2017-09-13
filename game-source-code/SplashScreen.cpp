@@ -22,9 +22,6 @@ int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceM
     }
     sf::Sprite splash(splashScreen);
     auto scaleFactor = resolution.x/splash.getGlobalBounds().width;
-    //std::cout << "Resolution is: " << resolution.x << "x" << resolution.y << std::endl;
-    //std::cout << "Sprite size is: " << splash.getGlobalBounds().width << "x" << splash.getGlobalBounds().height << std::endl;/
-    //std::cout << scaleFactor;
     splash.setScale(scaleFactor,scaleFactor);
 
     // Title Text

@@ -21,7 +21,13 @@
 class InputHandler
 {
 public:
-    void resolveKeyMapping(const std::map<int, bool>& keys_pressed, PlayerShip& playerShip);
+    void resolveKeyMapping(const std::map<int, bool>& keys_pressed);
+    void update(PlayerShip& playerShip, float deltaTime);
+
+private:
+    bool _isMovingLeft;
+    bool _isMovingRight;
+    bool _isShooting;
 };
 
 #endif //PROJECT_INPUTHANDLER_HPP

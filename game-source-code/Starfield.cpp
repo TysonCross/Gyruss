@@ -23,7 +23,9 @@ StarField::StarField(
                                        _max_size(max_size)
 {
     _star_scale = 0.0f;
-    _star_shape.setSize({_max_size,_max_size});
+    _star_shape.setPointCount(3);
+    _star_shape.setRadius(max_size);
+    //_star_shape.setSize({_max_size,_max_size});
 
     //Initialize star random placement
     for( auto i = 0; i < number_of_stars; i++)
@@ -75,7 +77,8 @@ void StarField::moveAndDrawStars(
         }
 
         // Scaling
-        _star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
+        //_star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
+        _star_shape.setRadius(_max_size * _star_scale);
 
         // Moving
         _star_shape.setPosition({-star_pos.x / star_pos.z + (_width / 2),

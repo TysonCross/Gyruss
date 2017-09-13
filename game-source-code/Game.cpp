@@ -11,7 +11,9 @@
 
 
 #include <iostream>
+//#include <sstream>
 #include "Game.hpp"
+//#include "fps.hpp"
 
 
 //Static Member redeclaration
@@ -42,21 +44,25 @@ void Game::Start()
 //    _resolution.y = modes.at(3).height;
 
     sf::Image icon;
-    icon.loadFromFile(_resourceMapper.getResource("WindowIcon"));
+    if(!icon.loadFromFile(_resourceMapper.getResource("WindowIcon")))
+    {
+        return; //execution error; resource missing
+    }
 
     sf::SoundBuffer buffer;
-    buffer.loadFromFile(_resourceMapper.getResource("StartSound"));
+    if(!buffer.loadFromFile(_resourceMapper.getResource("StartSound")))
+    {
+        return; //execution error; resource missing
+    }
     sf::Sound sound(buffer);
     sound.play();
 
     sf::ContextSettings settings;
-    settings.antialiasingLevel = 4;
+    settings.antialiasingLevel = 8;
     _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
                        sf::Style::Close , settings );
-    //_mainWindow.setKeyRepeatEnabled(true);
     _mainWindow.setMouseCursorVisible(false);
-    _mainWindow.setVerticalSyncEnabled(true);
-    //_mainWindow.setFramerateLimit(60); // Todo : Limit framerate manually
+    //_mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
     while (_gameState != Game::Exiting)
@@ -71,6 +77,7 @@ void Game::InitializeGameLoop()
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
+    //fps fps;
 
     const sf::Color black(sf::Color::Black);
 
@@ -90,7 +97,7 @@ void Game::InitializeGameLoop()
         return; // error
     music.play();
 
-    auto number_of_stars = 80;
+    auto number_of_stars = 60;
     StarField starField(_resolution, 3, number_of_stars);
 
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
@@ -119,7 +126,6 @@ void Game::InitializeGameLoop()
             {
                 _gameState = Game::Exiting;
             }
-// Need to have a proper polling here to check previous gamestate
             if (event.type == sf::Event::EventType::KeyPressed)
                 if (event.key.code == sf::Keyboard::Space)
                     if (previousButtonState == 0)
@@ -153,36 +159,38 @@ void Game::InitializeGameLoop()
         } // End of input polling
 
         ///-------------------------------------------
-        ///  Update and events
+        /// Events
         ///-------------------------------------------
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-        std::cout <<  "time elapsed: " << timeSinceUpdate.asMilliseconds() << std::endl;
-        _inputHandler.resolveKeyMapping(_keysPressed, playerShip);
+        _inputHandler.resolveKeyMapping(_keysPressed);
 
-        // /ToDo: Update all the relevant objects
 
         ///-------------------------------------------
-        ///  Render
+        ///  Fixed Timestep
         ///-------------------------------------------
-        while (timeSinceUpdate.asMilliseconds() >= timeStep)
+        while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
             _mainWindow.clear(black);
+            // /ToDo: Update all the relevant objects
+            _inputHandler.update(playerShip,timeStep);
 
+            //  Render
             // /ToDo: Draw all the visible objects
-
             for (const auto &element : starField.getStarField())
                 //for (int i = 0; i < number_of_stars; ++i)
             {
                 starField.moveAndDrawStars(_mainWindow);
             }
-
             _mainWindow.draw(playerShip.getSprite());
-
-            // Show the screen buffer
             _mainWindow.display();
 
+           //DO NOT INCLUDE (EXTERNAL CODE for a quick check)
+//            fps.update();
+//            std::ostringstream ss;
+//            ss << fps.getFPS();
+//            _mainWindow.setTitle(ss.str());
         }
     }
 }

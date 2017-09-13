@@ -14,22 +14,44 @@
 
 using key_map = std::map<int, bool>;
 
-void InputHandler::resolveKeyMapping(const key_map &keys_pressed, PlayerShip& playerShip)
+void InputHandler::resolveKeyMapping(const key_map &keys_pressed)
 {
-    const int MOVE_AMOUNT = 3;
 
     if (keys_pressed.count(sf::Keyboard::Left) > 0)
     {
-        playerShip.move(-MOVE_AMOUNT);
+        _isMovingLeft = true;
+    }
+    else
+    {
+        _isMovingLeft = false;
     }
 
     if (keys_pressed.count(sf::Keyboard::Right) > 0)
     {
-        playerShip.move(MOVE_AMOUNT);
+        _isMovingRight = true;
+    }
+    else
+    {
+        _isMovingRight = false;
+
     }
 
-//    if (keys_pressed.count(sf::Keyboard::Space) > 0)
-//    {
-//        //playerShip.shoot();
-//    }
+}
+
+void InputHandler::update(PlayerShip &playerShip, float deltaTime)
+{
+    const auto moveAmount = 260.f;
+    auto move = 0.f;
+
+    if (_isMovingLeft)
+    {
+        move -= moveAmount;
+
+    }
+    if (_isMovingRight)
+    {
+        move += moveAmount;
+    }
+
+    playerShip.move(move * deltaTime);
 }
