@@ -28,6 +28,7 @@ ResourceMapper::ResourceMapper() {
             {"PlayerShip",      {"resources/player_model.png"}},
             {"PlayerShipSound", {"resources/shoot_laser.ogg"}},
             {"StartSound",      {"resources/shield_up.ogg"}},
+            {"EnemyShip",       {"resources/enemyship_grey.png","resources/enemyship_purple.png"}},
             {"PlayerBullet",    {"resources/player_bullet.png"}},
             {"EnemyBullet",     {"resources/enemy_bullet.png"}}
     };
@@ -38,7 +39,7 @@ const resourceMap ResourceMapper::getResourceMap() const
     return _resourceMap;
 }
 
-const std::vector<std::string> ResourceMapper::getResourceValues(std::string resourceName) const
+const std::vector<std::string> ResourceMapper::getResourceVector(std::string resourceName) const
 {
     return _resourceMap.at(resourceName);
 };

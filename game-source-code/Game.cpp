@@ -11,9 +11,8 @@
 
 
 #include <iostream>
-//#include <sstream>
 #include "Game.hpp"
-//#include "fps.hpp"
+
 
 
 //Static Member redeclaration
@@ -28,8 +27,8 @@ std::map<int, bool> Game::_keysPressed;
 void Game::Start()
 {
     // Todo: Need to choose better way to set the resolution. settings screen and setResource perhaps?
-    _resolution.x = std::stoi(_resourceMapper.getResourceValues("Resolution").at(0));
-    _resolution.y = std::stoi(_resourceMapper.getResourceValues("Resolution").at(1));
+    _resolution.x = std::stoi(_resourceMapper.getResourceVector("Resolution").at(0));
+    _resolution.y = std::stoi(_resourceMapper.getResourceVector("Resolution").at(1));
 
 //    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
 //    for (std::size_t i = 0; i < modes.size(); ++i)
@@ -93,7 +92,7 @@ void Game::InitializeGameLoop()
     sf::Music music;
     music.setLoop(true);
     music.setVolume(25);
-    if (!music.openFromFile(_resourceMapper.getResourceValues("Music").at(0)))
+    if (!music.openFromFile(_resourceMapper.getResourceVector("Music").at(0)))
         return; // error
     music.play();
 
@@ -102,6 +101,8 @@ void Game::InitializeGameLoop()
 
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
     PlayerShip playerShip(_resourceMapper, _resolution, shipPathRadius, 0, 0.3);
+
+    Enemy enemyShip(_resourceMapper, _resolution, 0, 0, 0.1, Enemy::GreyShip);
 
     sf::Event event;
     enum ButtonState {Up,Down};
@@ -183,6 +184,20 @@ void Game::InitializeGameLoop()
             {
                 starField.moveAndDrawStars(_mainWindow);
             }
+
+            if ((enemyShip.getSprite().getPosition().x > _resolution.x) || (enemyShip.getSprite().getPosition().y > _resolution.y))
+            {
+            }
+            else
+            {
+                auto rand_angle_value = rand()%3;
+                auto random_angle = (rand_angle_value ) - (rand_angle_value/2);
+                auto random_move_value = rand()%5;
+                auto random_move = floor(((random_move_value ) - (random_move_value/2)));
+                enemyShip.move(random_angle,random_move);
+                _mainWindow.draw(enemyShip.getSprite());
+            }
+
             _mainWindow.draw(playerShip.getSprite());
             _mainWindow.display();
 

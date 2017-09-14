@@ -21,7 +21,9 @@ set(SOURCE_FILES
         game-source-code/Starfield.cpp
         game-source-code/Starfield.hpp
         game-source-code/Entity.cpp
-        game-source-code/Entity.hpp)
+        game-source-code/Entity.hpp
+        game-source-code/Enemy.cpp
+        game-source-code/Enemy.hpp)
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 

@@ -22,6 +22,9 @@
 #include "InputHandler.hpp"
 #include "SplashScreen.hpp"
 #include "Starfield.hpp"
+#include "Enemy.hpp"
+//#include <sstream>
+//#include "fps.hpp"
 
 class Game
 {

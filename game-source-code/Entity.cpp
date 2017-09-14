@@ -3,9 +3,9 @@
 /// \file    Entity.cpp
 /// \authors Tyson Cross and Chris Maree
 /// \date    14/9/17
-/// \brief   Description of file in project Project
+/// \brief   Impmentation of basic entity class for game objects
 ///
-/// Detailed description of file
+/// Enemies, lasers, missiles, and asteroids will all inherit from this class
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -14,29 +14,21 @@
 
 Entity::Entity(const ResourceMapper &resourceMapper,
                common::Resolution resolution,
-               float distanceFromCentre,
-               float angle,
-               float scale)
-{
-
-}
+               float distanceFromCentre = 0,
+               float angle = 0,
+               float scale = 1) : _resolution(resolution) {}
 
 void Entity::move(float angle, float distance)
 {
-
+    _angle += angle;
+    _angle = common::eulerFilter(_angle);
+    _distanceFromCentre += distance;
+    _sprite.setPosition(_distanceFromCentre * sin(common::degreeToRad(_angle)) + _resolution.x / 2,
+                        _distanceFromCentre * cos(common::degreeToRad(_angle)) + _resolution.y / 2);
+    _sprite.setRotation(-1 * _angle);
 }
-
 
 sf::Sprite &Entity::getSprite()
 {
     return _sprite;
 }
-
-
-
-//sf::Sprite _sprite;
-//sf::Texture _texture;
-//common::Resolution _resolution
-//float _distanceFromCentre;
-//float _angle;
-//float _scale;

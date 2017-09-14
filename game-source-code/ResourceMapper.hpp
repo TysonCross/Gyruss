@@ -46,7 +46,7 @@ public:
     /// \param resource The key for the mapping to return the values for
     ///
     ////////////////////////////////////////////////////////////
-    const std::vector<std::string> getResourceValues(std::string resource) const;
+    const std::vector<std::string> getResourceVector(std::string resource) const;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns a single (string) values at a key entry

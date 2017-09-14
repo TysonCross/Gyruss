@@ -4,11 +4,10 @@
 /// \date    14/9/17
 /// \brief   Basic entity class for game objects
 ///
-/// Enemies, lazers, missiles, and asteroids will all inherit from this class
+/// Enemies, lasers, missiles, and asteroids will all inherit from this class
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
-
 
 #ifndef PROJECT_ENTITY_HPP
 #define PROJECT_ENTITY_HPP
@@ -17,13 +16,13 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
+#include <cmath>
 #include "ResourceMapper.hpp"
 #include "common.hpp"
 
 class Entity
 {
 public:
-
     Entity(const ResourceMapper &resourceMapper,
                common::Resolution resolution,
                float distanceFromCentre,
@@ -47,7 +46,7 @@ public:
     ////////////////////////////////////////////////////////////
     sf::Sprite &getSprite();
 
-private:
+protected:
 
     ////////////////////////////////////////////////////////////
     // Member data
