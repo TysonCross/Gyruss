@@ -9,6 +9,10 @@
 /// Used for determining texture paths, game resolution, etc.
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+///
+/// \copyright Free Game Art Assets from http://kenney.nl
+/// Royalty free Music by Music by Eric Matyas from http://soundimage.org
+
 /////////////////////////////////////////////////////////////////////
 
 #include "ResourceMapper.hpp"
