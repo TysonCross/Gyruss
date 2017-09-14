@@ -10,44 +10,14 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "PlayerShip.hpp"
-#include "common.hpp"
-
-const float pi = 3.1415;
-
-////////////////////////////////////////////////////////////
-/// \brief Ensures that the angle is always between 0 and 360
-///
-////////////////////////////////////////////////////////////
-float eulerFilter(float angle)
-{
-    angle = fmod(angle,360);
-    if (angle < 0)
-    {
-        angle += 360;
-    }
-    return angle;
-}
-
-////////////////////////////////////////////////////////////
-/// \brief Converts an angle from degrees to radians
-///
-////////////////////////////////////////////////////////////
-float degreeToRad(float degree)
-{
-    return degree * (pi / 180);
-}
 
 PlayerShip::PlayerShip(
                         const ResourceMapper &resourceMapper,
                         common::Resolution resolution,
                         float distanceFromCentre,
                         float angle = 0,
-                        float scale = 1) : _width(resolution.x),
-                                           _height(resolution.y)
+                        float scale = 1) : _resolution(resolution)
 {
-    //_width = std::stoi(resourceMapper.getResourceValues("Resolution").at(0));
-    //_height = std::stoi(resourceMapper.getResourceValues("Resolution").at(1));
-
     _distanceFromCentre = distanceFromCentre;
     _angle = angle;
     _scale = scale;
@@ -72,10 +42,10 @@ PlayerShip::PlayerShip(
 void PlayerShip::move(float angle)
 {
     _angle += angle;
-    _angle = eulerFilter(_angle);
+    _angle = common::eulerFilter(_angle);
     //Rotate coordinate system by 90 degrees
-    _sprite.setPosition(_distanceFromCentre * sin(degreeToRad(_angle)) + _width / 2,
-                        _distanceFromCentre * cos(degreeToRad(_angle)) + _height / 2);
+    _sprite.setPosition(_distanceFromCentre * sin(common::degreeToRad(_angle)) + _resolution.x / 2,
+                        _distanceFromCentre * cos(common::degreeToRad(_angle)) + _resolution.y / 2);
     _sprite.setRotation(-1 * _angle);
 }
 
@@ -88,9 +58,4 @@ void PlayerShip::shoot()
 sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
-}
-
-sf::Texture &PlayerShip::getTexture()
-{
-    return _texture;
 }

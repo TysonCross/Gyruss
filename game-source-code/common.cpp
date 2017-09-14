@@ -7,5 +7,22 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "common.hpp"
+#include <cmath>
 
+namespace common
+{
+    float eulerFilter(float angle)
+    {
+        angle = fmod(angle, 360);
+        if (angle < 0)
+        {
+            angle += 360;
+        }
+        return angle;
+    }
 
+    float degreeToRad(float degree)
+    {
+        return degree * (pi / 180);
+    }
+}

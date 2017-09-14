@@ -63,13 +63,6 @@ public:
     ////////////////////////////////////////////////////////////
     sf::Sprite &getSprite();
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Returns the texture object of the Class by ref
-    ///
-    /// \see sf:Texture
-    ////////////////////////////////////////////////////////////
-    sf::Texture &getTexture();
-
 private:
 
     ////////////////////////////////////////////////////////////
@@ -79,8 +72,7 @@ private:
     sf::Texture _texture;
     sf::SoundBuffer _buffer;
     sf::Sound _shootSound;
-    int _width;
-    int _height;
+    common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;
     float _scale;

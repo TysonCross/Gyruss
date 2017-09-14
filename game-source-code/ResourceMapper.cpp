@@ -16,7 +16,6 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "ResourceMapper.hpp"
-#include <iostream>
 
 ResourceMapper::ResourceMapper() {
     _resourceMap = {
@@ -28,7 +27,9 @@ ResourceMapper::ResourceMapper() {
             {"SplashScreen",    {"resources/splash.png"}},
             {"PlayerShip",      {"resources/player_model.png"}},
             {"PlayerShipSound", {"resources/shoot_laser.ogg"}},
-            {"StartSound",      {"resources/shield_up.ogg"}}
+            {"StartSound",      {"resources/shield_up.ogg"}},
+            {"PlayerBullet",    {"resources/player_bullet.png"}},
+            {"EnemyBullet",     {"resources/enemy_bullet.png"}}
     };
 }
 

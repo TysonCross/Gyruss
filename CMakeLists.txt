@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CONFIGURATION_TYPES "Release;RelWithDebInfo" CACHE STRING "" FORCE)
 
 set(SOURCE_FILES
+        game-source-code/common.cpp
         game-source-code/common.hpp
         game-source-code/Gyruss.cpp
         game-source-code/Game.hpp
@@ -18,7 +19,9 @@ set(SOURCE_FILES
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
         game-source-code/Starfield.cpp
-        game-source-code/Starfield.hpp)
+        game-source-code/Starfield.hpp
+        game-source-code/Entity.cpp
+        game-source-code/Entity.hpp)
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
