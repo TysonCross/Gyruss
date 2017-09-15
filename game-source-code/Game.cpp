@@ -112,9 +112,6 @@ void Game::InitializeGameLoop()
 
     Enemy enemyShip(_textures, _resolution, 0, 0, 1, textures::EnemyShipPurple);
 
-    Bullet bullet(_textures,_resolution,
-                  playerShip.getDistanceFromCentre(),
-                  playerShip.getAngle(), 1 , textures::BulletEnemy);
 
     sf::Event event;
     enum ButtonState {Up,Down};
@@ -147,6 +144,9 @@ void Game::InitializeGameLoop()
                     if (previousButtonState == 0)
                     {
                         playerShip.shoot();
+                        Bullet bullet(_textures,_resolution,
+                                      playerShip.getDistanceFromCentre(),
+                                      playerShip.getAngle(), 1 , textures::BulletEnemy);
                         bulletVector.push_back(bullet);
                         previousButtonState = 1;
                     }
@@ -208,8 +208,8 @@ void Game::InitializeGameLoop()
             {
                 auto random_angle = rand() % 4 + (-1);
                 auto random_move = rand() % 6 + (-2);
-                enemyShip.move(random_angle,random_move);
-//                enemyShip.move(0,20);
+//                enemyShip.move(random_angle,random_move);
+                enemyShip.move(0,20);
 
                 _mainWindow.draw(enemyShip.getSprite());
             }
