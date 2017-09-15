@@ -24,7 +24,7 @@ Enemy::Enemy(const TextureHolder &textureHolder,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 
-    _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
+    _soundShoot.setBuffer(soundHolder.get(sounds::EnemyShoot));
 
     move(0,0); //Initialised position at centre of screen
 }

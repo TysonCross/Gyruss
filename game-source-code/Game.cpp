@@ -92,6 +92,8 @@ void Game::InitializeGameLoop()
     Enemy enemyShip(_textures, _sounds, _resolution, 0, 0, 1, textures::EnemyShipPurple);
     // Temp
     std::vector<Bullet> bulletVector;
+    std::vector<Bullet> bulletVectorEnemy;
+
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -177,6 +179,10 @@ void Game::InitializeGameLoop()
             {
                 starField.moveAndDrawStars(_mainWindow);
             }
+
+            ///////////////////////////////////////////////////////
+            // Temp Enemy generation
+            auto i = 0;
             const auto OVERSCAN_X = _resolution.x * 0.1;
             const auto OVERSCAN_Y = _resolution.y * 0.1;
             if((enemyShip.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
@@ -184,15 +190,21 @@ void Game::InitializeGameLoop()
                && (enemyShip.getSprite().getPosition().x > 0-OVERSCAN_X)
                && (enemyShip.getSprite().getPosition().y > 0-OVERSCAN_Y))
             {
+                i++;
                 auto random_angle = rand() % 4 + (-1);
                 auto random_move = rand() % 6 + (-2) + 6;
                 enemyShip.move(random_angle,random_move);
+                //                enemyShip.move(0,20);
+
+
                 Bullet bullet2(_textures,_resolution,
                               enemyShip.getDistanceFromCentre(),
-                              enemyShip.getAngle(), 1 , textures::BulletEnemy);
-                bulletVector.push_back(bullet2);
-
-//                enemyShip.move(0,20);
+                              enemyShip.getAngle(), 1, textures::BulletEnemy);
+                if (!(rand()%200)%25)
+                {
+                    enemyShip.shoot();
+                    bulletVectorEnemy.push_back(bullet2);
+                }
 
                 _mainWindow.draw(enemyShip.getSprite());
             }
@@ -202,6 +214,14 @@ void Game::InitializeGameLoop()
                 bullet.move(-30);
                 _mainWindow.draw(bullet.getSprite());
             }
+            for(auto &bullet : bulletVectorEnemy)
+            {
+                bullet.move(30);
+                _mainWindow.draw(bullet.getSprite());
+            }
+
+            // Temp enemy generation ends here
+            ///////////////////////////////////////////////////////
 
             _mainWindow.draw(playerShip.getSprite());
             _mainWindow.display();
@@ -242,7 +262,7 @@ void Game::loadResources()
     _sounds.load(sounds::StartSound,"resources/startup.ogg");
     _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
     _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
-//    _sounds.load(sounds::EnemyShoot,"resource/shoot_enemy.ogg);
+    _sounds.load(sounds::EnemyShoot,"resources/shoot_phaser.ogg");
 
     _fonts.load(fonts::Title,"resources/danube.ttf");
     _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");

@@ -22,6 +22,7 @@ StarField::StarField(
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
 {
+    srand(127); // A nice prime
     _star_scale = 0.0f;
     _star_shape.setPointCount(8);
     _star_shape.setRadius(max_size);
@@ -44,6 +45,7 @@ void StarField::moveAndDrawStars(
     auto i = 0;
     for (auto &star_pos : _starField)
     {
+        //srand(i); // Colors streak instead of flicker
         // Move
         star_pos.z += speed;            //Move the stars along z, towards camera
         i++;                            // For counting which stars to make colorful

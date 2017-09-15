@@ -41,7 +41,7 @@ public:
               common::Resolution resolution,
               const int max_depth,
               const int number_of_stars,
-              float max_size = 8.0f);
+              float max_size = 6.0f);
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the star positions along -Z in the starField object,
@@ -86,7 +86,7 @@ private:
     /// _light_shift_amount = 0 : undefined behaviour
     /// _light_shift_amount = 1 : all stars are colorful
     /// _light_shift_amount > 1 : reduces no. of colorful stars
-    const signed int _light_shift_amount = 2;
+    const signed int _light_shift_amount = 4;
 };
 
 #endif //PROJECT_STARFIELD_HPP
