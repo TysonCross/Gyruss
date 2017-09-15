@@ -35,13 +35,7 @@ void Game::Start()
         return ;
     }
 
-    sf::SoundBuffer buffer;
-    if(!buffer.loadFromFile("resources/startup.ogg"))
-    {
-        return; //execution error; resource missing
-    }
-    sf::Sound sound(buffer);
-    sound.play();
+    loadResources();
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
@@ -60,6 +54,7 @@ void Game::Start()
 
 void Game::InitializeGameLoop()
 {
+
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
@@ -67,25 +62,8 @@ void Game::InitializeGameLoop()
 
     const sf::Color black(sf::Color::Black);
 
-    //Load Textures and Sounds
-    _textures.load(textures::SplashScreen,"resources/splash.png");
-    _textures.load(textures::PlayerShip,"resources/player_ship.png");
-    _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
-    _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
-    _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
-    _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
-//    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
-//    _textures.load(textures::Meteoroid,"resource/meteroid.png");
-//    _textures.load(textures::Satellite,"resource/satellite.png");
-
-    _sounds.load(sounds::StartSound,"resources/startup.ogg");
-    _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
-    _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
-//    _sounds.load(sounds::EnemyShoot,"resource/shoot_enemy.ogg);
-
-    _fonts.load(fonts::Title,"resources/danube.ttf");
-    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
-
+    sf::Sound sound(_sounds.get(sounds::StartSound));
+    sound.play();
 
     //First Game State
     if (_gameState == Game::Splash)
@@ -110,19 +88,18 @@ void Game::InitializeGameLoop()
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
     PlayerShip playerShip(_textures, _sounds, _resolution, shipPathRadius, 0, 0.35);
 
+    // Todo: Enemy creation
     Enemy enemyShip(_textures, _resolution, 0, 0, 1, textures::EnemyShipPurple);
-
-
-    sf::Event event;
-    enum ButtonState {Up,Down};
-    bool previousButtonState = 0;
-
     // Temp
     std::vector<Bullet> bulletVector;
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
+    sf::Event event;
+    enum ButtonState {Up,Down};
+    bool previousButtonState = 0;
+
     while (_gameState == Game::Playing)
     {
         //Check for events since last frame
@@ -207,9 +184,9 @@ void Game::InitializeGameLoop()
                && (enemyShip.getSprite().getPosition().y > 0-OVERSCAN_Y))
             {
                 auto random_angle = rand() % 4 + (-1);
-                auto random_move = rand() % 6 + (-2);
-//                enemyShip.move(random_angle,random_move);
-                enemyShip.move(0,20);
+                auto random_move = rand() % 6 + (-2) + 6;
+                enemyShip.move(random_angle,random_move);
+//                enemyShip.move(0,20);
 
                 _mainWindow.draw(enemyShip.getSprite());
             }
@@ -241,4 +218,26 @@ void Game::showSplashScreen()
         return;
     }
     _gameState = Game::Exiting;
+}
+
+void Game::loadResources()
+{
+    //Load Textures and Sounds
+    _textures.load(textures::SplashScreen,"resources/splash.png");
+    _textures.load(textures::PlayerShip,"resources/player_ship.png");
+    _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+    _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
+    _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
+    _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
+//    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
+//    _textures.load(textures::Meteoroid,"resource/meteoroid.png");
+//    _textures.load(textures::Satellite,"resource/satellite.png");
+
+    _sounds.load(sounds::StartSound,"resources/startup.ogg");
+    _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+//    _sounds.load(sounds::EnemyShoot,"resource/shoot_enemy.ogg);
+
+    _fonts.load(fonts::Title,"resources/danube.ttf");
+    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
 }

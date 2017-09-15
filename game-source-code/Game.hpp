@@ -36,6 +36,7 @@ public:
 private:
     void InitializeGameLoop();
     void showSplashScreen();
+    void loadResources();
 
     enum GameState { Splash, Playing, Exiting };
 
