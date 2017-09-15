@@ -16,24 +16,19 @@
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include <cmath>
-#include "ResourceHolder.hpp"
 #include "common.hpp"
+#include "ResourceHolder.hpp"
 
 class Bullet //: public Entity
 {
 public:
-    enum Type
-    {
-        PlayerBullet = 0,
-        EnemyBullet = 1,
-    };
 
-    Bullet(const ResourceHolder &resourceMapper,
+    Bullet(const TextureHolder &textureHolder,
           common::Resolution resolution,
           float distanceFromCentre,
           float angle,
           float scale,
-          Type type);
+          textures::ID type);
 
     void move(float distance);
     float getDistanceFromCentre();
@@ -49,7 +44,7 @@ private:
     float _distanceFromCentre;
     float _angle;
     float _scale;
-    Type _type;
+    textures::ID _id;
 };
 
 #endif //PROJECT_BULLET_HPP

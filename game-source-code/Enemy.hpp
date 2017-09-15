@@ -14,24 +14,19 @@
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include <cmath>
-#include "ResourceHolder.hpp"
 #include "common.hpp"
+#include "ResourceHolder.hpp"
 
 class Enemy //: public Entity
 {
 public:
-    enum Type
-    {
-        GreyShip = 0,
-        PurpleShip = 1,
-    };
 
-    Enemy(const ResourceHolder &resourceMapper,
+    Enemy(const TextureHolder &textureHolder,
           common::Resolution resolution,
           float distanceFromCentre,
           float angle,
           float scale,
-          Type type);
+          textures::ID id);
 
     void move(float angle, float distance);
     float getDistanceFromCentre();
@@ -47,7 +42,7 @@ private:
     float _distanceFromCentre;
     float _angle;
     float _scale;
-    Type _type;
+    textures::ID _id;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

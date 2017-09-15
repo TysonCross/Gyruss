@@ -11,20 +11,11 @@
 
 #include "Game.hpp"
 
-//Static Member redeclaration
-Game::GameState Game::_gameState = Splash;
-ResourceHolder Game::_resourceHolder;
-InputHandler Game::_inputHandler;
-common::Resolution Game::_resolution;
-sf::RenderWindow Game::_mainWindow;
-std::map<int, bool> Game::_keysPressed;
-
-
 void Game::Start()
 {
     // Todo: Need to choose better way to set the resolution. settings screen and setResource perhaps?
-    _resolution.x = std::stoi(_resourceHolder.getResourceVector("Resolution").at(0));
-    _resolution.y = std::stoi(_resourceHolder.getResourceVector("Resolution").at(1));
+    _resolution.x = 1920;
+    _resolution.y = 1080;
 
 //    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
 //    for (std::size_t i = 0; i < modes.size(); ++i)
@@ -39,13 +30,13 @@ void Game::Start()
 //    _resolution.y = modes.at(3).height;
 
     sf::Image icon;
-    if(!icon.loadFromFile(_resourceHolder.getResource("WindowIcon")))
+    if (!icon.loadFromFile("resources/icon.png"))
     {
-        return; //execution error; resource missing
+        return ;
     }
 
     sf::SoundBuffer buffer;
-    if(!buffer.loadFromFile(_resourceHolder.getResource("StartSound")))
+    if(!buffer.loadFromFile("resources/startup.ogg"))
     {
         return; //execution error; resource missing
     }
@@ -76,6 +67,26 @@ void Game::InitializeGameLoop()
 
     const sf::Color black(sf::Color::Black);
 
+    //Load Textures and Sounds
+    _textures.load(textures::SplashScreen,"resources/splash.png");
+    _textures.load(textures::PlayerShip,"resources/player_ship.png");
+    _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+    _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
+    _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
+    _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
+//    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
+//    _textures.load(textures::Meteoroid,"resource/meteroid.png");
+//    _textures.load(textures::Satellite,"resource/satellite.png");
+
+    _sounds.load(sounds::StartSound,"resources/startup.ogg");
+    _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+//    _sounds.load(sounds::EnemyShoot,"resource/shoot_enemy.ogg);
+
+    _fonts.load(fonts::Title,"resources/danube.ttf");
+    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
+
+
     //First Game State
     if (_gameState == Game::Splash)
     {
@@ -88,7 +99,7 @@ void Game::InitializeGameLoop()
     sf::Music music;
     music.setLoop(true);
     music.setVolume(25);
-    if (!music.openFromFile(_resourceHolder.getResource("Music")))
+    if (!music.openFromFile("resources/game_music.ogg"))
         return; // error
     music.play();
 
@@ -97,13 +108,13 @@ void Game::InitializeGameLoop()
 
     //Set the player circle radius
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
-    PlayerShip playerShip(_resourceHolder, _resolution, shipPathRadius, 0, 0.35);
+    PlayerShip playerShip(_textures, _sounds, _resolution, shipPathRadius, 0, 0.35);
 
-    Enemy enemyShip(_resourceHolder, _resolution, 0, 0, 1, Enemy::PurpleShip);
+    Enemy enemyShip(_textures, _resolution, 0, 0, 1, textures::EnemyShipPurple);
 
-    Bullet bullet(_resourceHolder,_resolution,
+    Bullet bullet(_textures,_resolution,
                   playerShip.getDistanceFromCentre(),
-                  playerShip.getAngle(), 1 , Bullet::EnemyBullet);
+                  playerShip.getAngle(), 1 , textures::BulletEnemy);
 
     sf::Event event;
     enum ButtonState {Up,Down};
@@ -197,8 +208,8 @@ void Game::InitializeGameLoop()
             {
                 auto random_angle = rand() % 4 + (-1);
                 auto random_move = rand() % 6 + (-2);
-                //enemyShip.move(random_angle,random_move);
-                enemyShip.move(0,20);
+                enemyShip.move(random_angle,random_move);
+//                enemyShip.move(0,20);
 
                 _mainWindow.draw(enemyShip.getSprite());
             }
@@ -224,7 +235,7 @@ void Game::InitializeGameLoop()
 void Game::showSplashScreen()
 {
     SplashScreen splashScreen;
-    if (splashScreen.show(_mainWindow,_resourceHolder,_resolution) == 0)
+    if (splashScreen.show(_mainWindow,_textures,_sounds, _fonts, _resolution) == 0)
     {
         _gameState = Game::Playing;
         return;

@@ -12,7 +12,7 @@
 
 #include "Entity.hpp"
 
-Entity::Entity(const ResourceHolder &resourceMapper,
+Entity::Entity(const TextureHolder &textureHolder,
                common::Resolution resolution,
                float distanceFromCentre = 0,
                float angle = 0,

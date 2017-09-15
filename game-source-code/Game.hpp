@@ -19,9 +19,9 @@
 #include <iostream> // Todo : Remove me!
 #include <SFML/Graphics.hpp>
 #include "common.hpp"
-#include "ResourceHolder.hpp"
 #include "PlayerShip.hpp"
 #include "Bullet.hpp"
+#include "ResourceHolder.hpp"
 #include "InputHandler.hpp"
 #include "SplashScreen.hpp"
 #include "Starfield.hpp"
@@ -31,20 +31,22 @@
 class Game
 {
 public:
-    static void Start();
+    void Start();
 
 private:
-    static void InitializeGameLoop();
-    static void showSplashScreen();
+    void InitializeGameLoop();
+    void showSplashScreen();
 
     enum GameState { Splash, Playing, Exiting };
 
-    static ResourceHolder _resourceHolder;
-    static InputHandler _inputHandler;
-    static GameState _gameState;
-    static sf::RenderWindow _mainWindow;
-    static std::map<int, bool> _keysPressed;
-    static common::Resolution _resolution;
+    TextureHolder _textures;
+    SoundHolder _sounds;
+    FontHolder _fonts;
+    InputHandler _inputHandler;
+    GameState _gameState;
+    sf::RenderWindow _mainWindow;
+    std::map<int, bool> _keysPressed;
+    common::Resolution _resolution;
 };
 
 #endif //PROJECT_GAME_HPP

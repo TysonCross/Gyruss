@@ -9,6 +9,18 @@
 #ifndef PROJECT_COMMON_HPP
 #define PROJECT_COMMON_HPP
 
+#include "SFML/Graphics.hpp"
+#include <cmath>
+#include <SFML/Audio/Sound.hpp>
+#include "ResourceHolder.hpp"
+
+namespace sf
+{
+    class Texture;
+    class Font;
+    class Shader;
+}
+
 //USEFUL FUNCTIONS and CONSTANTS
 namespace common
 {
@@ -36,5 +48,49 @@ namespace common
     float angleFilter(float angle);
 
 }
+
+namespace textures
+{
+    enum ID
+    {
+        SplashScreen,
+        PlayerShip,
+        BulletPlayer,
+        BulletEnemy,
+        EnemyShipGrey,
+        EnemyShipPurple,
+//        EnemyShipGenerator,
+//        Meteoroid,
+//        Satellite,
+    };
+}
+
+namespace sounds
+{
+    enum ID
+    {
+        StartSound,
+        SpawnSound,
+        PlayerShoot,
+        EnemyShoot,
+    };
+}
+
+namespace fonts
+{
+    enum ID
+    {
+        Title,
+        Info,
+    };
+}
+
+// Forward declaration
+template <typename Resource, typename Identifier>
+class ResourceHolder;
+
+typedef ResourceHolder<sf::Texture, textures::ID>	    TextureHolder;
+typedef ResourceHolder<sf::SoundBuffer, sounds::ID>	    SoundHolder;
+typedef ResourceHolder<sf::Font, fonts::ID>			    FontHolder;
 
 #endif //PROJECT_COMMON_HPP

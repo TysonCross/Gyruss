@@ -10,21 +10,18 @@
 
 #include "Bullet.hpp"
 
-Bullet::Bullet(const ResourceHolder &resourceMapper,
+Bullet::Bullet(const TextureHolder &textureHolder,
              common::Resolution resolution,
              float distanceFromCentre,
              float angle,
              float scale = 1,
-             Type type = PlayerBullet) : _resolution(resolution),
-                                        _type(type),
-                                        _distanceFromCentre(distanceFromCentre),
-                                        _angle(angle),
-                                        _scale(scale)
+             textures::ID id = textures::BulletPlayer) : _resolution(resolution),
+                                                        _id(id),
+                                                        _distanceFromCentre(distanceFromCentre),
+                                                        _angle(angle),
+                                                        _scale(scale)
 {
-    _texture.loadFromFile(resourceMapper.getResourceVector("Bullet").at(type));
-    //_texture.loadFromFile("resources/player_model.png");
-    //Need error check/exception
-    _sprite.setTexture(_texture);
+    _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(sf::IntRect(0, 0, 70, 110));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);

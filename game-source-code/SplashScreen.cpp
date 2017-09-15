@@ -9,28 +9,20 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "SplashScreen.hpp"
-#include "common.hpp"
-#include <iostream>
 
-int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceHolder &resourceMapper, common::Resolution resolution)
+int SplashScreen::show(sf::RenderWindow &renderWindow,
+                       const TextureHolder &textureHolder,
+                       const SoundHolder &soundHolder,
+                       const FontHolder &fontHolder,
+                       common::Resolution resolution)
 {
     //Get the Splashscreen image
-    sf::Texture splashScreen;
-    if (!splashScreen.loadFromFile(resourceMapper.getResource("SplashScreen")))
-    {
-        return -1; //execution error; resource missing
-    }
-    sf::Sprite splash(splashScreen);
+    sf::Sprite splash(textureHolder.get(textures::SplashScreen));
     auto scaleFactor = resolution.x/splash.getGlobalBounds().width;
     splash.setScale(scaleFactor,scaleFactor);
 
     // Title Text
-    sf::Font font;
-    if (!font.loadFromFile("resources/danube.ttf"))
-    {
-        return -1; //execution error; resource missing
-    }
-    sf::Text title("GYRUSS", font, 250);
+    sf::Text title("GYRUSS", fontHolder.get(fonts::Title),250);
     title.setFillColor(sf::Color::White);
     title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
     auto titleWidth = resolution.x/2;
@@ -38,18 +30,13 @@ int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceHolder &resourceM
     title.setPosition(titleWidth,titleHeight);
 
     // Version text
-    sf::Font font_version;
-    if (!font_version.loadFromFile("resources/fax_sans_beta.otf"))
-    {
-        return -1; //execution error; resource missing
-    }
-    sf::Text version("version 0.1", font_version, 24);
+    sf::Text version("version 0.1", fontHolder.get(fonts::Info), 24);
     sf::Color Gray = {70,70,70};
     version.setFillColor(Gray);
     version.setPosition(12,12);
 
     // Info Text
-    sf::Text info("Press any key to start", font_version, 42);
+    sf::Text info("Press any key to start", fontHolder.get(fonts::Info), 42);
     sf::Color Purple = {179,74,186};
     info.setFillColor(Purple);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);

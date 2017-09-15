@@ -11,35 +11,23 @@
 
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(
-                        const ResourceHolder &resourceMapper,
-                        common::Resolution resolution,
-                        float distanceFromCentre,
-                        float angle = 0,
-                        float scale = 1) : _resolution(resolution)
+PlayerShip::PlayerShip(const TextureHolder &textureHolder,
+                       const SoundHolder &soundHolder,
+                       common::Resolution resolution,
+                       float distanceFromCentre,
+                       float angle = 0,
+                       float scale = 1) : _resolution(resolution)
 {
     _distanceFromCentre = distanceFromCentre;
     _angle = angle;
     _scale = scale;
 
-    if(!_bufferSpawn.loadFromFile(resourceMapper.getResourceVector("PlayerShipSound").at(0)))
-    {
-        return; //execution error; resource missing
-    }
-    _soundSpawn.setBuffer(_bufferSpawn);
+    _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
     _soundSpawn.play();
 
-    if(!_bufferShoot.loadFromFile(resourceMapper.getResourceVector("PlayerShipSound").at(1)))
-    {
-        return; //execution error; resource missing
-    }
-    _soundShoot.setBuffer(_bufferShoot);
+    _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
 
-    if(!_texture.loadFromFile(resourceMapper.getResource("PlayerShip")))
-    {
-        return; //execution error; resource missing
-    }
-    _sprite.setTexture(_texture);
+    _sprite.setTexture(textureHolder.get(textures::PlayerShip));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 

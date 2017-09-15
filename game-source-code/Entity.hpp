@@ -17,17 +17,17 @@
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include <cmath>
-#include "ResourceHolder.hpp"
 #include "common.hpp"
+#include "ResourceHolder.hpp"
 
 class Entity
 {
 public:
-    Entity(const ResourceHolder &resourceMapper,
-               common::Resolution resolution,
-               float distanceFromCentre,
-               float angle,
-               float scale);
+    Entity(const TextureHolder &textureHolder,
+           common::Resolution resolution,
+           float distanceFromCentre,
+           float angle,
+           float scale);
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the Entity around a circle or spiral

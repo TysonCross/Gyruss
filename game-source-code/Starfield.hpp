@@ -19,7 +19,6 @@
 #include "SFML/Window.hpp"
 #include <vector>
 #include <iterator>
-#include "ResourceHolder.hpp"
 #include "common.hpp"
 
 ////////////////////////////////////////////////////////////
