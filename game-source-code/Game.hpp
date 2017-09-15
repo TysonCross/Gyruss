@@ -14,11 +14,14 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics.hpp>
 #include <map>
+#include <sstream> // Todo : Remove me!
+#include <iostream> // Todo : Remove me!
+#include <SFML/Graphics.hpp>
 #include "common.hpp"
-#include "ResourceMapper.hpp"
+#include "ResourceHolder.hpp"
 #include "PlayerShip.hpp"
+#include "Bullet.hpp"
 #include "InputHandler.hpp"
 #include "SplashScreen.hpp"
 #include "Starfield.hpp"
@@ -36,7 +39,7 @@ private:
 
     enum GameState { Splash, Playing, Exiting };
 
-    static ResourceMapper _resourceMapper;
+    static ResourceHolder _resourceHolder;
     static InputHandler _inputHandler;
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;

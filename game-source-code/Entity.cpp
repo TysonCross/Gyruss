@@ -12,13 +12,14 @@
 
 #include "Entity.hpp"
 
-Entity::Entity(const ResourceMapper &resourceMapper,
+Entity::Entity(const ResourceHolder &resourceMapper,
                common::Resolution resolution,
                float distanceFromCentre = 0,
                float angle = 0,
                float scale = 1) : _resolution(resolution) {}
 
-void Entity::move(float angle, float distance)
+void Entity::move(float angle,
+                  float distance)
 {
     _angle += angle;
     _angle = common::angleFilter(_angle);

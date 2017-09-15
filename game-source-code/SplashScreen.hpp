@@ -37,7 +37,7 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
-    int show(sf::RenderWindow &window, ResourceMapper &resourceMapper, common::Resolution);
+    int show(sf::RenderWindow &window, ResourceHolder &resourceMapper, common::Resolution);
 };
 
 #endif //PROJECT_SPLASHSCREEN_H

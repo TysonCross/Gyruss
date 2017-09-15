@@ -12,7 +12,7 @@
 #include "common.hpp"
 #include <iostream>
 
-int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceMapper &resourceMapper, common::Resolution resolution)
+int SplashScreen::show(sf::RenderWindow &renderWindow, ResourceHolder &resourceMapper, common::Resolution resolution)
 {
     //Get the Splashscreen image
     sf::Texture splashScreen;

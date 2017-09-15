@@ -17,7 +17,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <cmath>
-#include "ResourceMapper.hpp"
+#include "ResourceHolder.hpp"
 #include "common.hpp"
 
 class PlayerShip
@@ -37,7 +37,7 @@ public:
     /// \param scale The scale of the sprite
     ///
     ////////////////////////////////////////////////////////////
-    PlayerShip(const ResourceMapper &resourceMapper,
+    PlayerShip(const ResourceHolder &resourceMapper,
                common::Resolution resolution,
                float distanceFromCentre,
                float angle,
@@ -47,6 +47,16 @@ public:
     /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
     void move(float angle);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the distance from origin
+    ////////////////////////////////////////////////////////////
+    float getDistanceFromCentre();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the angle
+    ////////////////////////////////////////////////////////////
+    float getAngle();
 
     ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers

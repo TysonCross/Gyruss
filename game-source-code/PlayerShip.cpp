@@ -12,7 +12,7 @@
 #include "PlayerShip.hpp"
 
 PlayerShip::PlayerShip(
-                        const ResourceMapper &resourceMapper,
+                        const ResourceHolder &resourceMapper,
                         common::Resolution resolution,
                         float distanceFromCentre,
                         float angle = 0,
@@ -56,9 +56,20 @@ void PlayerShip::move(float angle)
     _sprite.setRotation(-1 * _angle);
 }
 
+float PlayerShip::getDistanceFromCentre()
+{
+    return _distanceFromCentre - _sprite.getOrigin().y;
+}
+
+float PlayerShip::getAngle()
+{
+    return _angle;
+}
+
 void PlayerShip::shoot()
 {
     _soundShoot.play();
+
 }
 
 sf::Sprite &PlayerShip::getSprite()

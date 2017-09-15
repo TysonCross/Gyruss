@@ -1,40 +1,38 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
-/// \date    14/9/17
-/// \brief   Implementation of Enemy ship types
+/// \date    15/9/17
+/// \brief   Projectile bullet Class
+///
+/// A bullet, can be an enemy or player projectile
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "Enemy.hpp"
-#include <iostream>
+#include "Bullet.hpp"
 
-
-Enemy::Enemy(const ResourceHolder &resourceMapper,
+Bullet::Bullet(const ResourceHolder &resourceMapper,
              common::Resolution resolution,
-             float distanceFromCentre = 0,
-             float angle = 0,
+             float distanceFromCentre,
+             float angle,
              float scale = 1,
-             Type type = GreyShip) :  _resolution(resolution),
-                                      _type(type),
-                                      _distanceFromCentre(distanceFromCentre),
-                                      _angle(angle),
-                                      _scale(scale)
+             Type type = PlayerBullet) : _resolution(resolution),
+                                        _type(type),
+                                        _distanceFromCentre(distanceFromCentre),
+                                        _angle(angle),
+                                        _scale(scale)
 {
-    _texture.loadFromFile(resourceMapper.getResourceVector("EnemyShip").at(type));
+    _texture.loadFromFile(resourceMapper.getResourceVector("Bullet").at(type));
+    //_texture.loadFromFile("resources/player_model.png");
     //Need error check/exception
     _sprite.setTexture(_texture);
+    _sprite.setTextureRect(sf::IntRect(0, 0, 70, 110));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-
-    move(0,0); //Initialised position at centre of screen
+    move(_distanceFromCentre); //Initialised position at centre of screen
 }
 
-void Enemy::move(float angle,
-                 float distance)
+void Bullet::move(float distance) // ToDo : Sensible default value
 {
-    _angle += angle;
-    _angle = common::angleFilter(_angle);
     auto offset = 0.f;
     if(_distanceFromCentre==0)
     {
@@ -49,20 +47,19 @@ void Enemy::move(float angle,
     _sprite.setScale(scale * _scale,scale * _scale);
 
     // Dimming
-    auto dimColor = (scale*55) + 200;
+    auto dimColor = (scale*200) + 100;
     _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
 
     // Orientation
-    _sprite.setRotation(-1*_angle);
     //ToDo: store old position, find new direction, dot product to orient ship
 }
 
-float Enemy::getDistanceFromCentre()
+float Bullet::getDistanceFromCentre()
 {
     return _distanceFromCentre;
 }
 
-sf::Sprite &Enemy::getSprite()
+sf::Sprite &Bullet::getSprite()
 {
     return _sprite;
 }

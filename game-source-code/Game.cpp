@@ -9,13 +9,11 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include <iostream>
-#include <sstream>
 #include "Game.hpp"
 
 //Static Member redeclaration
 Game::GameState Game::_gameState = Splash;
-ResourceMapper Game::_resourceMapper;
+ResourceHolder Game::_resourceHolder;
 InputHandler Game::_inputHandler;
 common::Resolution Game::_resolution;
 sf::RenderWindow Game::_mainWindow;
@@ -25,8 +23,8 @@ std::map<int, bool> Game::_keysPressed;
 void Game::Start()
 {
     // Todo: Need to choose better way to set the resolution. settings screen and setResource perhaps?
-    _resolution.x = std::stoi(_resourceMapper.getResourceVector("Resolution").at(0));
-    _resolution.y = std::stoi(_resourceMapper.getResourceVector("Resolution").at(1));
+    _resolution.x = std::stoi(_resourceHolder.getResourceVector("Resolution").at(0));
+    _resolution.y = std::stoi(_resourceHolder.getResourceVector("Resolution").at(1));
 
 //    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
 //    for (std::size_t i = 0; i < modes.size(); ++i)
@@ -41,13 +39,13 @@ void Game::Start()
 //    _resolution.y = modes.at(3).height;
 
     sf::Image icon;
-    if(!icon.loadFromFile(_resourceMapper.getResource("WindowIcon")))
+    if(!icon.loadFromFile(_resourceHolder.getResource("WindowIcon")))
     {
         return; //execution error; resource missing
     }
 
     sf::SoundBuffer buffer;
-    if(!buffer.loadFromFile(_resourceMapper.getResource("StartSound")))
+    if(!buffer.loadFromFile(_resourceHolder.getResource("StartSound")))
     {
         return; //execution error; resource missing
     }
@@ -90,7 +88,7 @@ void Game::InitializeGameLoop()
     sf::Music music;
     music.setLoop(true);
     music.setVolume(25);
-    if (!music.openFromFile(_resourceMapper.getResource("Music")))
+    if (!music.openFromFile(_resourceHolder.getResource("Music")))
         return; // error
     music.play();
 
@@ -99,13 +97,20 @@ void Game::InitializeGameLoop()
 
     //Set the player circle radius
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
-    PlayerShip playerShip(_resourceMapper, _resolution, shipPathRadius, 0, 0.35);
+    PlayerShip playerShip(_resourceHolder, _resolution, shipPathRadius, 0, 0.35);
 
-    Enemy enemyShip(_resourceMapper, _resolution, 0, 0, 1, Enemy::PurpleShip);
+    Enemy enemyShip(_resourceHolder, _resolution, 0, 0, 1, Enemy::PurpleShip);
+
+    Bullet bullet(_resourceHolder,_resolution,
+                  playerShip.getDistanceFromCentre(),
+                  playerShip.getAngle(), 1 , Bullet::EnemyBullet);
 
     sf::Event event;
     enum ButtonState {Up,Down};
     bool previousButtonState = 0;
+
+    // Temp
+    std::vector<Bullet> bulletVector;
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -131,6 +136,7 @@ void Game::InitializeGameLoop()
                     if (previousButtonState == 0)
                     {
                         playerShip.shoot();
+                        bulletVector.push_back(bullet);
                         previousButtonState = 1;
                     }
             if (event.type == sf::Event::EventType::KeyReleased)
@@ -193,7 +199,14 @@ void Game::InitializeGameLoop()
                 auto random_move = rand() % 6 + (-2);
                 //enemyShip.move(random_angle,random_move);
                 enemyShip.move(0,20);
+
                 _mainWindow.draw(enemyShip.getSprite());
+            }
+
+            for(auto &bullet : bulletVector)
+            {
+                bullet.move(-30);
+                _mainWindow.draw(bullet.getSprite());
             }
 
             _mainWindow.draw(playerShip.getSprite());
@@ -211,7 +224,7 @@ void Game::InitializeGameLoop()
 void Game::showSplashScreen()
 {
     SplashScreen splashScreen;
-    if (splashScreen.show(_mainWindow,_resourceMapper,_resolution) == 0)
+    if (splashScreen.show(_mainWindow,_resourceHolder,_resolution) == 0)
     {
         _gameState = Game::Playing;
         return;

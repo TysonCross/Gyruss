@@ -1,13 +1,15 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
-/// \date    14/9/17
-/// \brief   Enemy ship types
+/// \date    15/9/17
+/// \brief   Description of file in project Project
+///
+/// Detailed description of file
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#ifndef PROJECT_ENEMYSHIP_HPP
-#define PROJECT_ENEMYSHIP_HPP
+#ifndef PROJECT_BULLET_HPP
+#define PROJECT_BULLET_HPP
 
 ////////////////////////////////////////////////////////////
 // Headers
@@ -17,23 +19,23 @@
 #include "ResourceHolder.hpp"
 #include "common.hpp"
 
-class Enemy //: public Entity
+class Bullet //: public Entity
 {
 public:
     enum Type
     {
-        GreyShip = 0,
-        PurpleShip = 1,
+        PlayerBullet = 0,
+        EnemyBullet = 1,
     };
 
-    Enemy(const ResourceHolder &resourceMapper,
+    Bullet(const ResourceHolder &resourceMapper,
           common::Resolution resolution,
           float distanceFromCentre,
           float angle,
           float scale,
           Type type);
 
-    void move(float angle, float distance);
+    void move(float distance);
     float getDistanceFromCentre();
     sf::Sprite &getSprite();
 
@@ -50,4 +52,4 @@ private:
     Type _type;
 };
 
-#endif //PROJECT_ENEMYSHIP_HPP
+#endif //PROJECT_BULLET_HPP

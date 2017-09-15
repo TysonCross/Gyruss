@@ -17,13 +17,13 @@
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include <cmath>
-#include "ResourceMapper.hpp"
+#include "ResourceHolder.hpp"
 #include "common.hpp"
 
 class Entity
 {
 public:
-    Entity(const ResourceMapper &resourceMapper,
+    Entity(const ResourceHolder &resourceMapper,
                common::Resolution resolution,
                float distanceFromCentre,
                float angle,
