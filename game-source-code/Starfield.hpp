@@ -59,7 +59,7 @@ public:
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
                           sf::RenderWindow &renderWindow,
-                          float speed = 0.00081);
+                          float speed = 0.0008);
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns a reference to the StarField object

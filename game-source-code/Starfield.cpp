@@ -23,7 +23,7 @@ StarField::StarField(
                                        _max_size(max_size)
 {
     _star_scale = 0.0f;
-    _star_shape.setPointCount(3);
+    _star_shape.setPointCount(8);
     _star_shape.setRadius(max_size);
 
     //Initialize star random placement

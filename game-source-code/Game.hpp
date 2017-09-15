@@ -23,6 +23,7 @@
 #include "SplashScreen.hpp"
 #include "Starfield.hpp"
 #include "Enemy.hpp"
+#include "FPS.hpp"
 
 class Game
 {

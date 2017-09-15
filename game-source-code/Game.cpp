@@ -10,6 +10,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <sstream>
 #include "Game.hpp"
 
 //Static Member redeclaration
@@ -73,6 +74,7 @@ void Game::InitializeGameLoop()
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
+    FPS fps;
 
     const sf::Color black(sf::Color::Black);
 
@@ -99,7 +101,7 @@ void Game::InitializeGameLoop()
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
     PlayerShip playerShip(_resourceMapper, _resolution, shipPathRadius, 0, 0.35);
 
-    Enemy enemyShip(_resourceMapper, _resolution, 0, 0, 1, Enemy::GreyShip);
+    Enemy enemyShip(_resourceMapper, _resolution, 0, 0, 1, Enemy::PurpleShip);
 
     sf::Event event;
     enum ButtonState {Up,Down};
@@ -190,12 +192,17 @@ void Game::InitializeGameLoop()
                 auto random_angle = rand() % 4 + (-1);
                 auto random_move = rand() % 6 + (-2);
                 //enemyShip.move(random_angle,random_move);
-                enemyShip.move(1,1);
+                enemyShip.move(0,20);
                 _mainWindow.draw(enemyShip.getSprite());
             }
 
             _mainWindow.draw(playerShip.getSprite());
             _mainWindow.display();
+
+            fps.update();
+            std::ostringstream ss;
+            ss << fps.getFPS();
+            _mainWindow.setTitle(ss.str());
 
         }
     }

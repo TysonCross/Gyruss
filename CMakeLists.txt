@@ -23,7 +23,7 @@ set(SOURCE_FILES
         game-source-code/Entity.cpp
         game-source-code/Entity.hpp
         game-source-code/Enemy.cpp
-        game-source-code/Enemy.hpp)
+        game-source-code/Enemy.hpp game-source-code/FPS.hpp)
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
@@ -69,7 +69,7 @@ set(RESOURCES_TO_COPY "game_resources")
 set(RESOURCE_TARGET_FOLDER "/resources")
 set(RESOURCE_TARGET_FILE_LIST "*.*")
 set(${DEPLOY_DIRECTORY} "executables")
-add_custom_command(TARGET ${EXECUTABLE_NAME} PRE_BUILD
+add_custom_command(TARGET ${EXECUTABLE_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E remove
         $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
         COMMAND ${CMAKE_COMMAND} -E copy_directory
