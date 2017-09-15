@@ -23,17 +23,6 @@
 #include "common.hpp"
 
 ////////////////////////////////////////////////////////////
-/// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
-///
-////////////////////////////////////////////////////////////
-struct starPosition
-{
-    float x;
-    float y;
-    float z;
-};
-
-////////////////////////////////////////////////////////////
 /// \brief Creates a starfield object, a vector of 3d points
 /// The field is made up of many stars (a struct of three floats
 /// The stars are psuedorandomly generated to fill the volume
@@ -77,14 +66,14 @@ public:
     /// (for iterating through the elements)
     ///
     ////////////////////////////////////////////////////////////
-    std::vector<starPosition> &getStarField();
+    std::vector<common::position> &getStarField();
 
 private:
 
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    std::vector<starPosition> _starField;
+    std::vector<common::position> _starField;
     sf::CircleShape _star_shape;
     //sf::RectangleShape _star_shape;
     const unsigned int _width;

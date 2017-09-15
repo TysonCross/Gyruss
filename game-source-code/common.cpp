@@ -11,7 +11,7 @@
 
 namespace common
 {
-    float eulerFilter(float angle)
+    float angleFilter(float angle)
     {
         angle = fmod(angle, 360);
         if (angle < 0)

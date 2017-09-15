@@ -9,11 +9,8 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-
 #include <iostream>
 #include "Game.hpp"
-
-
 
 //Static Member redeclaration
 Game::GameState Game::_gameState = Splash;
@@ -76,7 +73,6 @@ void Game::InitializeGameLoop()
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
-    //fps fps;
 
     const sf::Color black(sf::Color::Black);
 
@@ -92,17 +88,18 @@ void Game::InitializeGameLoop()
     sf::Music music;
     music.setLoop(true);
     music.setVolume(25);
-    if (!music.openFromFile(_resourceMapper.getResourceVector("Music").at(0)))
+    if (!music.openFromFile(_resourceMapper.getResource("Music")))
         return; // error
     music.play();
 
     auto number_of_stars = 60;
     StarField starField(_resolution, 3, number_of_stars);
 
+    //Set the player circle radius
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
-    PlayerShip playerShip(_resourceMapper, _resolution, shipPathRadius, 0, 0.3);
+    PlayerShip playerShip(_resourceMapper, _resolution, shipPathRadius, 0, 0.35);
 
-    Enemy enemyShip(_resourceMapper, _resolution, 0, 0, 0.1, Enemy::GreyShip);
+    Enemy enemyShip(_resourceMapper, _resolution, 0, 0, 1, Enemy::GreyShip);
 
     sf::Event event;
     enum ButtonState {Up,Down};
@@ -173,39 +170,33 @@ void Game::InitializeGameLoop()
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
-            _mainWindow.clear(black);
             // /ToDo: Update all the relevant objects
             _inputHandler.update(playerShip,timeStep);
 
             //  Render
+            _mainWindow.clear(black);
             // /ToDo: Draw all the visible objects
             for (const auto &element : starField.getStarField())
-                //for (int i = 0; i < number_of_stars; ++i)
             {
                 starField.moveAndDrawStars(_mainWindow);
             }
-
-            if ((enemyShip.getSprite().getPosition().x > _resolution.x) || (enemyShip.getSprite().getPosition().y > _resolution.y))
+            const auto OVERSCAN_X = _resolution.x * 0.1;
+            const auto OVERSCAN_Y = _resolution.y * 0.1;
+            if((enemyShip.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
+               && (enemyShip.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
+               && (enemyShip.getSprite().getPosition().x > 0-OVERSCAN_X)
+               && (enemyShip.getSprite().getPosition().y > 0-OVERSCAN_Y))
             {
-            }
-            else
-            {
-                auto rand_angle_value = rand()%3;
-                auto random_angle = (rand_angle_value ) - (rand_angle_value/2);
-                auto random_move_value = rand()%5;
-                auto random_move = floor(((random_move_value ) - (random_move_value/2)));
-                enemyShip.move(random_angle,random_move);
+                auto random_angle = rand() % 4 + (-1);
+                auto random_move = rand() % 6 + (-2);
+                //enemyShip.move(random_angle,random_move);
+                enemyShip.move(1,1);
                 _mainWindow.draw(enemyShip.getSprite());
             }
 
             _mainWindow.draw(playerShip.getSprite());
             _mainWindow.display();
 
-           //DO NOT INCLUDE (EXTERNAL CODE for a quick check)
-//            fps.update();
-//            std::ostringstream ss;
-//            ss << fps.getFPS();
-//            _mainWindow.setTitle(ss.str());
         }
     }
 }

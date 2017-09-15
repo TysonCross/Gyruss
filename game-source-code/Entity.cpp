@@ -21,7 +21,7 @@ Entity::Entity(const ResourceMapper &resourceMapper,
 void Entity::move(float angle, float distance)
 {
     _angle += angle;
-    _angle = common::eulerFilter(_angle);
+    _angle = common::angleFilter(_angle);
     _distanceFromCentre += distance;
     _sprite.setPosition(_distanceFromCentre * sin(common::degreeToRad(_angle)) + _resolution.x / 2,
                         _distanceFromCentre * cos(common::degreeToRad(_angle)) + _resolution.y / 2);

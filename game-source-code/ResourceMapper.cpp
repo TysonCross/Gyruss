@@ -26,7 +26,7 @@ ResourceMapper::ResourceMapper() {
             {"Star",            {"resources/star.png"}},
             {"SplashScreen",    {"resources/splash.png"}},
             {"PlayerShip",      {"resources/player_model.png"}},
-            {"PlayerShipSound", {"resources/shoot_laser.ogg"}},
+            {"PlayerShipSound", {"resources/ship_spawn.ogg","resources/shoot_laser.ogg"}},
             {"StartSound",      {"resources/shield_up.ogg"}},
             {"EnemyShip",       {"resources/enemyship_grey.png","resources/enemyship_purple.png"}},
             {"PlayerBullet",    {"resources/player_bullet.png"}},

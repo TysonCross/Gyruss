@@ -70,8 +70,10 @@ private:
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
     sf::Texture _texture;
-    sf::SoundBuffer _buffer;
-    sf::Sound _shootSound;
+    sf::SoundBuffer _bufferShoot;
+    sf::SoundBuffer _bufferSpawn;
+    sf::Sound _soundShoot;
+    sf::Sound _soundSpawn;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;

@@ -36,8 +36,6 @@ public:
     void move(float angle, float distance);
     sf::Sprite &getSprite();
 
-
-
 private:
     ////////////////////////////////////////////////////////////
     // Member data

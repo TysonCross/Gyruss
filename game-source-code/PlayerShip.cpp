@@ -22,19 +22,26 @@ PlayerShip::PlayerShip(
     _angle = angle;
     _scale = scale;
 
-    if(!_buffer.loadFromFile(resourceMapper.getResource("PlayerShipSound")))
+    if(!_bufferSpawn.loadFromFile(resourceMapper.getResourceVector("PlayerShipSound").at(0)))
     {
         return; //execution error; resource missing
     }
-    _shootSound.setBuffer(_buffer);
+    _soundSpawn.setBuffer(_bufferSpawn);
+    _soundSpawn.play();
+
+    if(!_bufferShoot.loadFromFile(resourceMapper.getResourceVector("PlayerShipSound").at(1)))
+    {
+        return; //execution error; resource missing
+    }
+    _soundShoot.setBuffer(_bufferShoot);
 
     if(!_texture.loadFromFile(resourceMapper.getResource("PlayerShip")))
     {
         return; //execution error; resource missing
     }
     _sprite.setTexture(_texture);
-    _sprite.setScale(_scale, _scale);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
+    _sprite.setScale(_scale, _scale);
 
     move(0); //Initialised position at bottom of play area, not screen origin top-left
 }
@@ -42,7 +49,7 @@ PlayerShip::PlayerShip(
 void PlayerShip::move(float angle)
 {
     _angle += angle;
-    _angle = common::eulerFilter(_angle);
+    _angle = common::angleFilter(_angle);
     //Rotate coordinate system by 90 degrees
     _sprite.setPosition(_distanceFromCentre * sin(common::degreeToRad(_angle)) + _resolution.x / 2,
                         _distanceFromCentre * cos(common::degreeToRad(_angle)) + _resolution.y / 2);
@@ -51,8 +58,7 @@ void PlayerShip::move(float angle)
 
 void PlayerShip::shoot()
 {
-    _shootSound.stop();
-    _shootSound.play();
+    _soundShoot.play();
 }
 
 sf::Sprite &PlayerShip::getSprite()
