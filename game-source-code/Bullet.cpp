@@ -25,7 +25,8 @@ Bullet::Bullet(const TextureHolder &textureHolder,
     _sprite.setTextureRect(sf::IntRect(0, 0, 70, 110));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-    move(_distanceFromCentre); //Initialised position at centre of screen
+    _sprite.setRotation(-_angle);
+    move(_distanceFromCentre - (_distanceFromCentre*0.6)); //Spawn at PlayerShip Gun barrel
 }
 
 void Bullet::move(float distance) // ToDo : Sensible default value

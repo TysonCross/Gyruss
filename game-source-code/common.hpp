@@ -14,12 +14,12 @@
 #include <SFML/Audio/Sound.hpp>
 #include "ResourceHolder.hpp"
 
-namespace sf
-{
-    class Texture;
-    class Font;
-    class Shader;
-}
+//namespace sf
+//{
+//    class Texture;
+//    class Font;
+//    class Shader;
+//}
 
 //USEFUL FUNCTIONS and CONSTANTS
 namespace common

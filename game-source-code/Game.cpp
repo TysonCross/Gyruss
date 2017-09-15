@@ -17,17 +17,17 @@ void Game::Start()
     _resolution.x = 1920;
     _resolution.y = 1080;
 
-//    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
-//    for (std::size_t i = 0; i < modes.size(); ++i)
-//    {
-//        sf::VideoMode mode = modes[i];
-//        std::cout << "Mode #" << i << ": "
-//                  << mode.width << "x" << mode.height << " - "
-//                  << mode.bitsPerPixel << " bpp" << std::endl;
-//    }
-//
-//    _resolution.x = modes.at(3).width;
-//    _resolution.y = modes.at(3).height;
+    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
+    for (std::size_t i = 0; i < modes.size(); ++i)
+    {
+        sf::VideoMode mode = modes[i];
+        std::cout << "Mode #" << i << ": "
+                  << mode.width << "x" << mode.height << " - "
+                  << mode.bitsPerPixel << " bpp" << std::endl;
+    }
+
+    _resolution.x = modes.at(1).width;
+    _resolution.y = modes.at(1).height;
 
     sf::Image icon;
     if (!icon.loadFromFile("resources/icon.png"))
@@ -42,7 +42,7 @@ void Game::Start()
     _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
                        sf::Style::Close , settings );
     _mainWindow.setMouseCursorVisible(false);
-    //_mainWindow.setVerticalSyncEnabled(true);
+    _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
     while (_gameState != Game::Exiting)
@@ -85,11 +85,11 @@ void Game::InitializeGameLoop()
     StarField starField(_resolution, 3, number_of_stars);
 
     //Set the player circle radius
-    const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.08f);
+    const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.05f);
     PlayerShip playerShip(_textures, _sounds, _resolution, shipPathRadius, 0, 0.35);
 
     // Todo: Enemy creation
-    Enemy enemyShip(_textures, _resolution, 0, 0, 1, textures::EnemyShipPurple);
+    Enemy enemyShip(_textures, _sounds, _resolution, 0, 0, 1, textures::EnemyShipPurple);
     // Temp
     std::vector<Bullet> bulletVector;
 
@@ -123,8 +123,9 @@ void Game::InitializeGameLoop()
                         playerShip.shoot();
                         Bullet bullet(_textures,_resolution,
                                       playerShip.getDistanceFromCentre(),
-                                      playerShip.getAngle(), 1 , textures::BulletEnemy);
+                                      playerShip.getAngle(), 1 , textures::BulletPlayer);
                         bulletVector.push_back(bullet);
+                        // ToDo : Make bullet creation an event
                         previousButtonState = 1;
                     }
             if (event.type == sf::Event::EventType::KeyReleased)
@@ -186,6 +187,11 @@ void Game::InitializeGameLoop()
                 auto random_angle = rand() % 4 + (-1);
                 auto random_move = rand() % 6 + (-2) + 6;
                 enemyShip.move(random_angle,random_move);
+                Bullet bullet2(_textures,_resolution,
+                              enemyShip.getDistanceFromCentre(),
+                              enemyShip.getAngle(), 1 , textures::BulletEnemy);
+                bulletVector.push_back(bullet2);
+
 //                enemyShip.move(0,20);
 
                 _mainWindow.draw(enemyShip.getSprite());

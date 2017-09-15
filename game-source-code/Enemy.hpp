@@ -22,6 +22,7 @@ class Enemy //: public Entity
 public:
 
     Enemy(const TextureHolder &textureHolder,
+          SoundHolder &soundHolder,
           common::Resolution resolution,
           float distanceFromCentre,
           float angle,
@@ -31,6 +32,8 @@ public:
     void move(float angle, float distance);
     float getDistanceFromCentre();
     sf::Sprite &getSprite();
+    float getAngle();
+    void shoot();
 
 private:
     ////////////////////////////////////////////////////////////
@@ -38,6 +41,7 @@ private:
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
     sf::Texture _texture;
+    sf::Sound _soundShoot;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;

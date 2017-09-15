@@ -57,7 +57,6 @@ float PlayerShip::getAngle()
 void PlayerShip::shoot()
 {
     _soundShoot.play();
-
 }
 
 sf::Sprite &PlayerShip::getSprite()

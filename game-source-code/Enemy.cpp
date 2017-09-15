@@ -9,6 +9,7 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(const TextureHolder &textureHolder,
+             SoundHolder &soundHolder,
              common::Resolution resolution,
              float distanceFromCentre = 0,
              float angle = 0,
@@ -22,6 +23,8 @@ Enemy::Enemy(const TextureHolder &textureHolder,
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
+
+    _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
 
     move(0,0); //Initialised position at centre of screen
 }
@@ -61,4 +64,14 @@ float Enemy::getDistanceFromCentre()
 sf::Sprite &Enemy::getSprite()
 {
     return _sprite;
+}
+
+float Enemy::getAngle()
+{
+    return _angle;
+}
+
+void Enemy::shoot()
+{
+    _soundShoot.play();
 }
