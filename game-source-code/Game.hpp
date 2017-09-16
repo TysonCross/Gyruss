@@ -14,32 +14,42 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/Graphics.hpp>
 #include <map>
+#include <sstream> // Todo : Remove me!
+#include <iostream> // Todo : Remove me!
+#include <SFML/Graphics.hpp>
 #include "common.hpp"
-#include "ResourceMapper.hpp"
 #include "PlayerShip.hpp"
+#include "Bullet.hpp"
+#include "ResourceHolder.hpp"
 #include "InputHandler.hpp"
 #include "SplashScreen.hpp"
 #include "Starfield.hpp"
+#include "Enemy.hpp"
+#include "FPS.hpp"
 
 class Game
 {
 public:
-    static void Start();
+    void Start();
+    void Quit();
 
 private:
-    static void InitializeGameLoop();
-    static void showSplashScreen();
+    void initializeGameLoop();
+    void showSplashScreen();
+    void loadResources();
+    void pollInput(PlayerShip& playerShip,std::vector<Bullet>& bulletVector); //temp arguments
 
     enum GameState { Splash, Playing, Exiting };
 
-    static ResourceMapper _resourceMapper;
-    static InputHandler _inputHandler;
-    static GameState _gameState;
-    static sf::RenderWindow _mainWindow;
-    static std::map<int, bool> _keysPressed;
-    static common::Resolution _resolution;
+    TextureHolder _textures;
+    SoundHolder _sounds;
+    FontHolder _fonts;
+    InputHandler _inputHandler;
+    GameState _gameState;
+    sf::RenderWindow _mainWindow;
+    std::map<int, bool> _keysPressed;
+    common::Resolution _resolution;
 };
 
 #endif //PROJECT_GAME_HPP

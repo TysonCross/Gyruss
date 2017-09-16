@@ -8,4 +8,25 @@
 
 #include "common.hpp"
 
+namespace common
+{
+    float angleFilter(float angle)
+    {
+        angle = fmod(angle, 360);
+        if (angle < 0)
+        {
+            angle += 360;
+        }
+        return angle;
+    }
 
+    float degreeToRad(float degree)
+    {
+        return degree * (pi / 180);
+    }
+
+    float radToDegree(float radian)
+    {
+        return radian * 180 / pi;
+    }
+}

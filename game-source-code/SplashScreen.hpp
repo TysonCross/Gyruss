@@ -15,8 +15,6 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Game.hpp"
-#include "common.hpp"
-
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
@@ -37,7 +35,11 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
-    int show(sf::RenderWindow &window, ResourceMapper &resourceMapper, common::Resolution);
+    int show(sf::RenderWindow &window,
+             const TextureHolder &textureHolder,
+             const SoundHolder &soundHolder,
+             const FontHolder &fontHolder,
+             common::Resolution);
 };
 
 #endif //PROJECT_SPLASHSCREEN_H

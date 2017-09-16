@@ -19,19 +19,7 @@
 #include "SFML/Window.hpp"
 #include <vector>
 #include <iterator>
-#include "ResourceMapper.hpp"
 #include "common.hpp"
-
-////////////////////////////////////////////////////////////
-/// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
-///
-////////////////////////////////////////////////////////////
-struct starPosition
-{
-    float x;
-    float y;
-    float z;
-};
 
 ////////////////////////////////////////////////////////////
 /// \brief Creates a starfield object, a vector of 3d points
@@ -53,7 +41,7 @@ public:
               common::Resolution resolution,
               const int max_depth,
               const int number_of_stars,
-              float max_size = 8.0f);
+              float max_size = 6.0f);
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the star positions along -Z in the starField object,
@@ -70,21 +58,21 @@ public:
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
                           sf::RenderWindow &renderWindow,
-                          float speed = 0.00081);
+                          float speed = 0.0008);
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns a reference to the StarField object
     /// (for iterating through the elements)
     ///
     ////////////////////////////////////////////////////////////
-    std::vector<starPosition> &getStarField();
+    std::vector<common::position> &getStarField();
 
 private:
 
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    std::vector<starPosition> _starField;
+    std::vector<common::position> _starField;
     sf::CircleShape _star_shape;
     //sf::RectangleShape _star_shape;
     const unsigned int _width;
@@ -98,7 +86,7 @@ private:
     /// _light_shift_amount = 0 : undefined behaviour
     /// _light_shift_amount = 1 : all stars are colorful
     /// _light_shift_amount > 1 : reduces no. of colorful stars
-    const signed int _light_shift_amount = 2;
+    const signed int _light_shift_amount = 4;
 };
 
 #endif //PROJECT_STARFIELD_HPP

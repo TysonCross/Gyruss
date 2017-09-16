@@ -4,21 +4,34 @@ project(Project)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CONFIGURATION_TYPES "Release;RelWithDebInfo" CACHE STRING "" FORCE)
 
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -v")
+#set(CMAKE_VERBOSE_MAKEFILE ON)
+
 set(SOURCE_FILES
-        game-source-code/common.hpp
         game-source-code/Gyruss.cpp
         game-source-code/Game.hpp
         game-source-code/Game.cpp
         game-source-code/InputHandler.cpp
         game-source-code/InputHandler.hpp
-        game-source-code/ResourceMapper.cpp
-        game-source-code/ResourceMapper.hpp
         game-source-code/SplashScreen.hpp
         game-source-code/SplashScreen.cpp
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
         game-source-code/Starfield.cpp
-        game-source-code/Starfield.hpp)
+        game-source-code/Starfield.hpp
+        game-source-code/Entity.cpp
+        game-source-code/Entity.hpp
+        game-source-code/Enemy.cpp
+        game-source-code/Enemy.hpp
+        game-source-code/FPS.hpp
+        game-source-code/common.cpp
+        game-source-code/common.hpp
+        game-source-code/ResourceHolder.inl
+        game-source-code/ResourceHolder.hpp
+        game-source-code/Bullet.cpp
+        game-source-code/Bullet.hpp)
+
+
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
@@ -40,8 +53,11 @@ set(SOURCE_FILES_TEST
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
         test-source-code/test_Game.cpp)
+
 set(EXECUTABLE_NAME_TEST "tests")
 add_executable(${EXECUTABLE_NAME_TEST} ${SOURCE_FILES_TEST})
+
+add_custom_target(FORCE_REBUILD DEPENDS ${EXECUTABLE_NAME} ${EXECUTABLE_NAME_RELEASE})
 
 # Detect and add SFML
 if (WIN32)
@@ -60,6 +76,7 @@ if (SFML_FOUND)
 endif ()
 
 # Game assets - Copy from /game_resources to the relevant 'resources' folder
+
 set(RESOURCES_TO_COPY "game_resources")
 set(RESOURCE_TARGET_FOLDER "/resources")
 set(RESOURCE_TARGET_FILE_LIST "*.*")
@@ -70,8 +87,7 @@ add_custom_command(TARGET ${EXECUTABLE_NAME} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>${RESOURCE_TARGET_FOLDER})
 add_custom_command(TARGET ${EXECUTABLE_NAME_RELEASE} PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E remove
-        $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>${RESOURCE_TARGET_FOLDER})
-
+            COMMAND ${CMAKE_COMMAND} -E remove
+            $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>${RESOURCE_TARGET_FOLDER}/${RESOURCE_TARGET_FILE_LIST}
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${PROJECT_SOURCE_DIR}/${RESOURCES_TO_COPY} $<TARGET_FILE_DIR:${EXECUTABLE_NAME_RELEASE}>${RESOURCE_TARGET_FOLDER})

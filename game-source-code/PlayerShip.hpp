@@ -17,8 +17,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <cmath>
-#include "ResourceMapper.hpp"
 #include "common.hpp"
+#include "ResourceHolder.hpp"
 
 class PlayerShip
 {
@@ -27,7 +27,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class
     ///
-    /// \param resourceMapper The resourceMapper object that
+    /// \param textureHolder The resourceMapper object that
     /// contains the path to the texture(s) for the sprite
     /// \param The screen resolution (to determine the radius
     /// the playerShip circles around
@@ -37,7 +37,8 @@ public:
     /// \param scale The scale of the sprite
     ///
     ////////////////////////////////////////////////////////////
-    PlayerShip(const ResourceMapper &resourceMapper,
+    PlayerShip(const TextureHolder &textureHolder,
+               const SoundHolder &soundHolder,
                common::Resolution resolution,
                float distanceFromCentre,
                float angle,
@@ -47,6 +48,16 @@ public:
     /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
     void move(float angle);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the distance from origin
+    ////////////////////////////////////////////////////////////
+    float getDistanceFromCentre();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the angle
+    ////////////////////////////////////////////////////////////
+    float getAngle();
 
     ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers
@@ -63,24 +74,16 @@ public:
     ////////////////////////////////////////////////////////////
     sf::Sprite &getSprite();
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Returns the texture object of the Class by ref
-    ///
-    /// \see sf:Texture
-    ////////////////////////////////////////////////////////////
-    sf::Texture &getTexture();
-
 private:
 
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
-    sf::Texture _texture;
-    sf::SoundBuffer _buffer;
-    sf::Sound _shootSound;
-    int _width;
-    int _height;
+    sf::Sound _soundSpawn;
+    sf::Sound _soundShoot;
+    sf::Sound _soundMove;
+    common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;
     float _scale;

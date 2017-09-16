@@ -5,7 +5,7 @@
 ///
 /// Creates a distribution of stars, and simulates moving
 /// through this field, scaling and dimming them to fake a
-/// a perspective motion with parallax.
+/// a perspective motion with parallax (An orthographic projection)
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -22,15 +22,15 @@ StarField::StarField(
                                        _number_of_stars(number_of_stars),
                                        _max_size(max_size)
 {
+    srand(127); // A nice prime
     _star_scale = 0.0f;
-    _star_shape.setPointCount(3);
+    _star_shape.setPointCount(8);
     _star_shape.setRadius(max_size);
-    //_star_shape.setSize({_max_size,_max_size});
 
     //Initialize star random placement
     for( auto i = 0; i < number_of_stars; i++)
     {
-        starPosition star_pos;
+        common::position star_pos;
         star_pos.x = rand() % _width - (_width / 2.0f);
         star_pos.y = rand() % _height - (_height / 2.0f);
         star_pos.z = -1.0f * (rand() % max_depth) - max_depth;
@@ -45,6 +45,7 @@ void StarField::moveAndDrawStars(
     auto i = 0;
     for (auto &star_pos : _starField)
     {
+        //srand(i); // Colors streak instead of flicker
         // Move
         star_pos.z += speed;            //Move the stars along z, towards camera
         i++;                            // For counting which stars to make colorful
@@ -77,7 +78,6 @@ void StarField::moveAndDrawStars(
         }
 
         // Scaling
-        //_star_shape.setSize(sf::Vector2f(_max_size * _star_scale, _max_size * _star_scale));
         _star_shape.setRadius(_max_size * _star_scale);
 
         // Moving
@@ -88,7 +88,7 @@ void StarField::moveAndDrawStars(
     }
 }
 
-std::vector<starPosition>& StarField::getStarField()
+std::vector<common::position>& StarField::getStarField()
 {
     return _starField;
 }

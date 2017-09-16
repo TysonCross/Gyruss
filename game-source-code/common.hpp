@@ -9,29 +9,97 @@
 #ifndef PROJECT_COMMON_HPP
 #define PROJECT_COMMON_HPP
 
+#include "SFML/Graphics.hpp"
+#include <cmath>
+#include <SFML/Audio/Sound.hpp>
+#include "ResourceHolder.hpp"
+
+//namespace sf
+//{
+//    class Texture;
+//    class Font;
+//    class Shader;
+//}
+
 //USEFUL FUNCTIONS and CONSTANTS
 namespace common
 {
-    ////////////////////////////////////////////////////////////
-    /// \brief A simple 3d co-ordinate container of three floats
-    ///
-    ////////////////////////////////////////////////////////////
-    struct Star
+    const float pi = 3.1415;
+
+    /// \brief A simple 2d container of 2 ints
+    struct Resolution
+    {
+        unsigned int x;
+        unsigned int y;
+    };
+
+    /// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
+    struct position
     {
         float x;
         float y;
         float z;
     };
 
-    ////////////////////////////////////////////////////////////
-    /// \brief A simple 2d container of 2 ints
-    ///
-    ////////////////////////////////////////////////////////////
-    struct Resolution
+    /// \brief Ensures that the angle is always between 0 and 360
+    float angleFilter(float angle);
+
+    /// \brief Converts an angle from degrees to radians
+    float degreeToRad(float degree);
+
+    /// \brief Converts an angle from radians to degrees
+    float radToDegree(float radian);
+
+}
+
+/// \brief A namespace to collect the ID keys for the game texture file resources
+namespace textures
+{
+    enum ID
     {
-        unsigned int x;
-        unsigned int y;
+        SplashScreen,
+        PlayerShip,
+        BulletPlayer,
+        BulletEnemy,
+        EnemyShipGrey,
+        EnemyShipPurple,
+//        EnemyShipGenerator,
+//        Meteoroid,
+//        Satellite,
     };
 }
+
+/// \brief A namespace to collect the ID keys for the game sound-fx file resources
+
+namespace sounds
+{
+    enum ID
+    {
+        StartSound,
+        SpawnSound,
+        PlayerMove,
+        PlayerShoot,
+        EnemyShoot,
+        PlayerDeath,
+    };
+}
+
+/// \brief A namespace to collect the ID keys for the game typeface resources
+namespace fonts
+{
+    enum ID
+    {
+        Title,
+        Info,
+    };
+}
+
+// Forward declaration
+template <typename Resource, typename Identifier>
+class ResourceHolder;
+
+typedef ResourceHolder<sf::Texture, textures::ID>	    TextureHolder;
+typedef ResourceHolder<sf::SoundBuffer, sounds::ID>	    SoundHolder;
+typedef ResourceHolder<sf::Font, fonts::ID>			    FontHolder;
 
 #endif //PROJECT_COMMON_HPP

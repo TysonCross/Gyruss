@@ -9,7 +9,6 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include <iostream>
 #include "InputHandler.hpp"
 
 using key_map = std::map<int, bool>;
