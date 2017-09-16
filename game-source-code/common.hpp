@@ -57,7 +57,9 @@ namespace textures
 {
     enum ID
     {
+        testTexture,
         SplashScreen,
+        SplashControls,
         PlayerShip,
         BulletPlayer,
         BulletEnemy,
@@ -75,6 +77,7 @@ namespace sounds
 {
     enum ID
     {
+        testSound,
         StartSound,
         SpawnSound,
         PlayerMove,
@@ -89,6 +92,7 @@ namespace fonts
 {
     enum ID
     {
+        testFont,
         Title,
         Info,
     };

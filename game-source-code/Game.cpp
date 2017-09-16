@@ -104,10 +104,13 @@ void Game::initializeGameLoop()
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
 
+    bool previousButtonState = 0;
 
     while (_gameState == Game::Playing)
     {
-        pollInput(playerShip,bulletVector); //temporary arguments
+        //enum ButtonState {Up,Down};
+        sf::Event event;
+        pollInput(playerShip,bulletVector, event, previousButtonState ); //temporary arguments
 
         ///-------------------------------------------
         /// Events
@@ -135,7 +138,7 @@ void Game::initializeGameLoop()
             }
 
             ///////////////////////////////////////////////////////
-            // Temp Enemy generation
+            // Temp Enemy generation hack
             auto i = 0;
             const auto OVERSCAN_X = _resolution.x * 0.1;
             const auto OVERSCAN_Y = _resolution.y * 0.1;
@@ -145,10 +148,16 @@ void Game::initializeGameLoop()
                && (enemyShip.getSprite().getPosition().y > 0-OVERSCAN_Y))
             {
                 i++;
-                auto random_angle = rand() % 2 + 1;
-                auto random_move = rand() % 20 + (-2);
-                enemyShip.move(2,20);
-                
+                auto random_angle = rand() % 3 + 2;
+                auto random_move = rand() % 8 + (-2);
+                if(enemyShip.getDistanceFromCentre() < _resolution.y/8)
+                {
+                    enemyShip.move(1+random_angle, 16);
+                }
+                else
+                {
+                    enemyShip.move(random_angle, random_move);
+                }
             }
             else
             {
@@ -156,10 +165,13 @@ void Game::initializeGameLoop()
             }
 
 
+            auto shootInfrequency = 20;
+            auto shootChance = 5;
             Bullet bullet2(_textures,_resolution,
                            enemyShip.getDistanceFromCentre(),
                            enemyShip.getAngle(), 1, textures::BulletEnemy);
-            if ((!(rand()%50)%5)&&(enemyShip.getDirectionAngle()+enemyShip.getAngle() > 180))
+            if ((!(rand()%shootInfrequency)%shootChance)
+                &&(enemyShip.getDirectionAngle() + enemyShip.getAngle() >= 90))
             {
                 enemyShip.shoot();
                 bulletVectorEnemy.push_back(bullet2);
@@ -178,7 +190,7 @@ void Game::initializeGameLoop()
                 _mainWindow.draw(bullet.getSprite());
             }
 
-            // Temp enemy generation ends here
+            // Temp enemy generation hack ends here
             ///////////////////////////////////////////////////////
 
             _mainWindow.draw(playerShip.getSprite());
@@ -204,36 +216,12 @@ void Game::showSplashScreen()
     _gameState = Game::Exiting;
 }
 
-void Game::loadResources()
-{
-    //Load Textures and Sounds
-    _textures.load(textures::SplashScreen,"resources/splash.png");
-    _textures.load(textures::PlayerShip,"resources/player_ship.png");
-    _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
-    _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
-    _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
-    _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
-//    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
-//    _textures.load(textures::Meteoroid,"resource/meteoroid.png");
-//    _textures.load(textures::Satellite,"resource/satellite.png");
-
-    _sounds.load(sounds::StartSound,"resources/startup.ogg");
-    _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
-    _sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
-    _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
-    _sounds.load(sounds::EnemyShoot,"resources/shoot_phaser.ogg");
-    _sounds.load(sounds::PlayerDeath,"resources/player_death.ogg");
-
-    _fonts.load(fonts::Title,"resources/danube.ttf");
-    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
-}
-
-void Game::pollInput(PlayerShip& playerShip,std::vector<Bullet>& bulletVector)
+void Game::pollInput(PlayerShip& playerShip,
+                     std::vector<Bullet>& bulletVector,
+                     sf::Event &event,
+                     bool &previousButtonState)
 {
     // ToDo: Move into inputHandler
-    enum ButtonState {Up,Down};
-    bool previousButtonState = 0;
-    sf::Event event;
 
     //Check for events since last frame
     while (_mainWindow.pollEvent(event))
@@ -285,4 +273,29 @@ void Game::pollInput(PlayerShip& playerShip,std::vector<Bullet>& bulletVector)
             }
         }
     } // End of input polling
+}
+
+void Game::loadResources()
+{
+    //Load Textures and Sounds
+    _textures.load(textures::SplashScreen,"resources/splash.png");
+    _textures.load(textures::SplashControls,"resources/splash_controls.png");
+    _textures.load(textures::PlayerShip,"resources/player_ship.png");
+    _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+    _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
+    _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
+    _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
+//    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
+//    _textures.load(textures::Meteoroid,"resource/meteoroid.png");
+//    _textures.load(textures::Satellite,"resource/satellite.png");
+
+    _sounds.load(sounds::StartSound,"resources/startup.ogg");
+    _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    _sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+    _sounds.load(sounds::EnemyShoot,"resources/shoot_phaser.ogg");
+    _sounds.load(sounds::PlayerDeath,"resources/player_death.ogg");
+
+    _fonts.load(fonts::Title,"resources/danube.ttf");
+    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
 }

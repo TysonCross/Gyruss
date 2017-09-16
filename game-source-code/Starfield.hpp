@@ -86,7 +86,7 @@ private:
     /// _light_shift_amount = 0 : undefined behaviour
     /// _light_shift_amount = 1 : all stars are colorful
     /// _light_shift_amount > 1 : reduces no. of colorful stars
-    const signed int _light_shift_amount = 4;
+    const signed int _light_shift_amount = 3;
 };
 
 #endif //PROJECT_STARFIELD_HPP

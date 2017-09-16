@@ -38,7 +38,12 @@ private:
     void initializeGameLoop();
     void showSplashScreen();
     void loadResources();
-    void pollInput(PlayerShip& playerShip,std::vector<Bullet>& bulletVector); //temp arguments
+    //temp method and arguements
+    // ToDo: InputHandler should generate gameEvents
+    void pollInput(PlayerShip& playerShip,
+                   std::vector<Bullet>& bulletVector,
+                   sf::Event &event,
+                   bool &prevButtonState);
 
     enum GameState { Splash, Playing, Exiting };
 

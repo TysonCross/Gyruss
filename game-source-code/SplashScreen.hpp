@@ -29,7 +29,7 @@ public:
 /// \brief Shows the Splash screen
 ///
 /// \param window The sf:Window object to draw and render to
-/// \param resourceMapper The resourceMapper containing assets for the aplashscreen
+/// \param resourceMapper The resourceMapper containing assets for the splashscreen
 ///
 /// \see sf::Window
 /// \see ResourceMapper
@@ -40,6 +40,24 @@ public:
              const SoundHolder &soundHolder,
              const FontHolder &fontHolder,
              common::Resolution);
+private:
+    ////////////////////////////////////////////////////////////
+/// \brief Loops through fading in and out a text object
+///
+/// \param text The sf:Text object to fade in and out
+/// \param color The sf::Color to fade up to
+/// \param frequency The frequency of the fade
+/// \param frequency The frequency of the fade
+/// \param clock A changing value to alter the time step
+///
+/// \see sf:Text
+/// \see sf::Color
+///
+////////////////////////////////////////////////////////////
+    void fadeTextInAndOut(sf::Text &text,
+                          sf::Color color,
+                          int frequency,
+                          sf::Clock& clock);
 };
 
 #endif //PROJECT_SPLASHSCREEN_H
