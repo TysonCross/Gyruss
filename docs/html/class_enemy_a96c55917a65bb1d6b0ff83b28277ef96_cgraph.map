@@ -1,0 +1,7 @@
+<map id="Enemy::Enemy" name="Enemy::Enemy">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="165,5,309,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a046e5c32b598bf21a76674d4a67fb5d8" title="Enemy::move" alt="" coords="185,55,288,80"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="366,5,508,31"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="357,55,517,80"/>
+<area shape="rect" id="node6" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="358,104,515,129"/>
+</map>

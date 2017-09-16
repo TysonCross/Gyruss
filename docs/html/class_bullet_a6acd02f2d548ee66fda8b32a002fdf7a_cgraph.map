@@ -1,0 +1,5 @@
+<map id="Bullet::Bullet" name="Bullet::Bullet">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="149,5,292,31"/>
+<area shape="rect" id="node3" href="$class_bullet.html#a2546940f64a7553a26a18c7e4d5bcdc2" title="Bullet::move" alt="" coords="173,55,268,80"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="340,55,500,80"/>
+</map>

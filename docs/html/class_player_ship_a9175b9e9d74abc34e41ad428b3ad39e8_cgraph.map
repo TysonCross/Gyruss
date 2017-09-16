@@ -1,0 +1,6 @@
+<map id="PlayerShip::PlayerShip" name="PlayerShip::PlayerShip">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="211,5,355,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a6d145568d5c5875dd00cb8d0d7f41203" title="Moves the player ship around a circle by this angle. " alt="" coords="220,55,346,80"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="412,29,554,55"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="403,79,563,104"/>
+</map>

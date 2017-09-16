@@ -1,0 +1,27 @@
+<map id="Game::Start" name="Game::Start">
+<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="147,541,236,567"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="550,5,694,31"/>
+<area shape="rect" id="node4" href="$class_input_handler.html#aeec8e84f627f70e05ccbc6fa161c176f" title="InputHandler::resolveKey\lMapping" alt="" coords="304,256,475,295"/>
+<area shape="rect" id="node5" href="$class_input_handler.html#a5dd847838751b34a7838d6659653246a" title="InputHandler::update" alt="" coords="317,207,463,232"/>
+<area shape="rect" id="node9" href="$class_star_field.html#acc5e764762506119799c3e37b912564a" title="Returns a reference to the StarField object (for iterating through the elements) " alt="" coords="313,319,467,344"/>
+<area shape="rect" id="node10" href="$class_star_field.html#a977fdffc877bbdeccb1b972de7b1cba0" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="290,368,490,393"/>
+<area shape="rect" id="node11" href="$class_enemy.html#a816f5f7c72e1d6b7444e4df7edb3cb24" title="Enemy::getSprite" alt="" coords="328,417,452,443"/>
+<area shape="rect" id="node12" href="$class_enemy.html#a817fd1218fafecb15c7955c97fa3f692" title="Enemy::getDistanceFromCentre" alt="" coords="284,467,496,492"/>
+<area shape="rect" id="node13" href="$class_enemy.html#a046e5c32b598bf21a76674d4a67fb5d8" title="Enemy::move" alt="" coords="339,157,441,183"/>
+<area shape="rect" id="node15" href="$class_enemy.html#a0755a2799e2c7d10a242c13513321e3e" title="Enemy::reset" alt="" coords="340,516,440,541"/>
+<area shape="rect" id="node16" href="$class_enemy.html#a664cf5c443a7763845808bd7881ad8d7" title="Enemy::getAngle" alt="" coords="328,565,451,591"/>
+<area shape="rect" id="node17" href="$class_enemy.html#a0abadf2655ac24e1da16d6e04e106170" title="Enemy::getDirectionAngle" alt="" coords="302,615,478,640"/>
+<area shape="rect" id="node18" href="$class_enemy.html#a08e8bd93e1381f2606ccc63cb46a1ae9" title="Enemy::shoot" alt="" coords="339,664,441,689"/>
+<area shape="rect" id="node19" href="$class_player_ship.html#ae1e1e7216647f5b9debd3750a028ee39" title="Returns the Sprite object of the Class by ref. " alt="" coords="317,713,463,739"/>
+<area shape="rect" id="node20" href="$class_f_p_s.html#a230d52d9a0b736e73d43100f6441a4bf" title="FPS::update" alt="" coords="342,763,438,788"/>
+<area shape="rect" id="node21" href="$class_f_p_s.html#ae04fc22fb84c28d4660f98cab0e6e9b6" title="Update the frame count. " alt="" coords="340,812,440,837"/>
+<area shape="rect" id="node22" href="$class_splash_screen.html#a02129b7191237c674dca18f1f20246bd" title="Shows the Splash screen. " alt="" coords="318,95,461,120"/>
+<area shape="rect" id="node23" href="$class_player_ship.html#a5fd2356380ae72e592a698998ad44370" title="Shooting ma lazers. " alt="" coords="327,861,453,887"/>
+<area shape="rect" id="node24" href="$class_player_ship.html#ad2506afccdce34aebb057fb572ebbd3d" title="Returns the distance from origin. " alt="" coords="293,911,487,949"/>
+<area shape="rect" id="node25" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="317,973,463,999"/>
+<area shape="rect" id="node26" href="$class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="315,1023,465,1048"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a6d145568d5c5875dd00cb8d0d7f41203" title="Moves the player ship around a circle by this angle. " alt="" coords="559,259,685,284"/>
+<area shape="rect" id="node7" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="758,157,900,183"/>
+<area shape="rect" id="node8" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="749,233,909,259"/>
+<area shape="rect" id="node14" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="544,107,701,132"/>
+</map>

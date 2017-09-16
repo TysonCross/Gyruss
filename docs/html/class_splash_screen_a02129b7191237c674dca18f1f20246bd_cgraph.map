@@ -1,0 +1,5 @@
+<map id="SplashScreen::show" name="SplashScreen::show">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="203,5,347,31"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="196,55,353,80"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="204,104,346,129"/>
+</map>

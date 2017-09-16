@@ -1,0 +1,7 @@
+<map id="PlayerShip::move" name="PlayerShip::move">
+<area shape="rect" id="node2" href="$class_input_handler.html#a5dd847838751b34a7838d6659653246a" title="InputHandler::update" alt="" coords="185,5,331,31"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a9175b9e9d74abc34e41ad428b3ad39e8" title="Returns the Sprite object of the Class. " alt="" coords="179,55,337,80"/>
+<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="385,5,474,31"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Main Game controller implementation. " alt="" coords="522,5,616,31"/>
+<area shape="rect" id="node5" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="664,5,714,31"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="Entity::move" name="Entity::move">
+<area shape="rect" id="node2" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="157,5,299,31"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="148,55,308,80"/>
+</map>
