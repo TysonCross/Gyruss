@@ -80,8 +80,9 @@ private:
     // Member data
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
-    sf::Sound _soundShoot;
     sf::Sound _soundSpawn;
+    sf::Sound _soundShoot;
+    sf::Sound _soundMove;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;

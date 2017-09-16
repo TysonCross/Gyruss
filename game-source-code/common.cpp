@@ -24,4 +24,9 @@ namespace common
     {
         return degree * (pi / 180);
     }
+
+    float radToDegree(float radian)
+    {
+        return radian * 180 / pi;
+    }
 }

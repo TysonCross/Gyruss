@@ -42,13 +42,17 @@ namespace common
     };
 
     /// \brief Ensures that the angle is always between 0 and 360
-    float degreeToRad(float degree);
+    float angleFilter(float angle);
 
     /// \brief Converts an angle from degrees to radians
-    float angleFilter(float angle);
+    float degreeToRad(float degree);
+
+    /// \brief Converts an angle from radians to degrees
+    float radToDegree(float radian);
 
 }
 
+/// \brief A namespace to collect the ID keys for the game texture file resources
 namespace textures
 {
     enum ID
@@ -65,17 +69,22 @@ namespace textures
     };
 }
 
+/// \brief A namespace to collect the ID keys for the game sound-fx file resources
+
 namespace sounds
 {
     enum ID
     {
         StartSound,
         SpawnSound,
+        PlayerMove,
         PlayerShoot,
         EnemyShoot,
+        PlayerDeath,
     };
 }
 
+/// \brief A namespace to collect the ID keys for the game typeface resources
 namespace fonts
 {
     enum ID

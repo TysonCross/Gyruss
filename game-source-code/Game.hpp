@@ -32,11 +32,13 @@ class Game
 {
 public:
     void Start();
+    void Quit();
 
 private:
-    void InitializeGameLoop();
+    void initializeGameLoop();
     void showSplashScreen();
     void loadResources();
+    void pollInput(PlayerShip& playerShip,std::vector<Bullet>& bulletVector); //temp arguments
 
     enum GameState { Splash, Playing, Exiting };
 

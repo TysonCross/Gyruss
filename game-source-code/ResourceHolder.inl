@@ -11,11 +11,11 @@
 /// https://github.com/LaurentGomila/SFML-Game-Development-Book
 /////////////////////////////////////////////////////////////////////
 
-template <typename Resource, typename Identifier>
-void ResourceHolder<Resource, Identifier>::load(Identifier id,
+template <typename ResourceType, typename IdentifierType>
+void ResourceHolder<ResourceType, IdentifierType>::load(IdentifierType id,
                                                         const std::string& filename)
 {
-    std::unique_ptr<Resource> resource(new Resource());
+    std::unique_ptr<ResourceType> resource(new ResourceType());
     if (!resource->loadFromFile(filename))
     {
         throw std::runtime_error("ResourceHolder::load - Failed to load " + filename);

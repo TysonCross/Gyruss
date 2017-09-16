@@ -30,6 +30,8 @@ set(SOURCE_FILES
         game-source-code/ResourceHolder.hpp
         game-source-code/Bullet.cpp
         game-source-code/Bullet.hpp)
+
+
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
 
@@ -51,8 +53,11 @@ set(SOURCE_FILES_TEST
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
         test-source-code/test_Game.cpp)
+
 set(EXECUTABLE_NAME_TEST "tests")
 add_executable(${EXECUTABLE_NAME_TEST} ${SOURCE_FILES_TEST})
+
+add_custom_target(FORCE_REBUILD DEPENDS ${EXECUTABLE_NAME} ${EXECUTABLE_NAME_RELEASE})
 
 # Detect and add SFML
 if (WIN32)
@@ -71,6 +76,7 @@ if (SFML_FOUND)
 endif ()
 
 # Game assets - Copy from /game_resources to the relevant 'resources' folder
+
 set(RESOURCES_TO_COPY "game_resources")
 set(RESOURCE_TARGET_FOLDER "/resources")
 set(RESOURCE_TARGET_FILE_LIST "*.*")

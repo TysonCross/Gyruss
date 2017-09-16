@@ -33,6 +33,8 @@ public:
     float getDistanceFromCentre();
     sf::Sprite &getSprite();
     float getAngle();
+    float getDirectionAngle();
+    void reset();
     void shoot();
 
 private:
@@ -45,7 +47,11 @@ private:
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;
+    float _angleOrientation;
     float _scale;
+    sf::Vector2<float> _prevPosition,
+                        _newPosition,
+                        _pointingPosition;
     textures::ID _id;
 };
 

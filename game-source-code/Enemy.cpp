@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Enemy.hpp"
+#include <iostream>
 
 Enemy::Enemy(const TextureHolder &textureHolder,
              SoundHolder &soundHolder,
@@ -32,28 +33,37 @@ Enemy::Enemy(const TextureHolder &textureHolder,
 void Enemy::move(float angle,
                  float distance)
 {
+    _prevPosition = _sprite.getPosition();
+    _prevPosition.x -= _resolution.x/2;
+    _prevPosition.y -= _resolution.y/2;
+
     _angle += angle;
     _angle = common::angleFilter(_angle);
     auto offset = 0.f;
     if(_distanceFromCentre==0)
     {
-        offset = _resolution.x*0.2;
+        offset = _resolution.x*0.3;
     }
     auto depthScale = ((_distanceFromCentre + offset)/(_resolution.x/2));
     _distanceFromCentre += distance * depthScale;
     auto x_pos = _distanceFromCentre * sin(common::degreeToRad(_angle));
     auto y_pos = _distanceFromCentre * cos(common::degreeToRad(_angle));
     auto scale = 1 + ((_distanceFromCentre - (_resolution.x / 2)) / (_resolution.x / 2));
+
     _sprite.setPosition(x_pos+(_resolution.x / 2),y_pos+(_resolution.y / 2));
     _sprite.setScale(scale * _scale,scale * _scale);
-
     // Dimming
     auto dimColor = (scale*55) + 200;
     _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
 
     // Orientation
-    _sprite.setRotation(-1*_angle);
-    //ToDo: store old position, find new direction, dot product to orient ship
+    _newPosition = _sprite.getPosition();
+    _newPosition.x -= _resolution.x/2;
+    _newPosition.y -= _resolution.y/2;
+    _pointingPosition = _newPosition - _prevPosition;
+    _angleOrientation = angle = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y);
+    _angleOrientation = -1*common::radToDegree(_angleOrientation) - _angle;
+    _sprite.setRotation(_angleOrientation);
 }
 
 float Enemy::getDistanceFromCentre()
@@ -71,7 +81,22 @@ float Enemy::getAngle()
     return _angle;
 }
 
+float Enemy::getDirectionAngle()
+{
+    return _angleOrientation;
+}
+
+void Enemy::reset()
+{
+    _angle = 0;
+    _angleOrientation = 0;
+    _distanceFromCentre = 0;
+    _sprite.setScale(0,0);
+    _sprite.setPosition(_resolution.x/2,_resolution.y/2);
+}
+
 void Enemy::shoot()
 {
+    _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
     _soundShoot.play();
 }

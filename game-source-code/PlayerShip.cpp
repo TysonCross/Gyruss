@@ -22,10 +22,12 @@ PlayerShip::PlayerShip(const TextureHolder &textureHolder,
     _angle = angle;
     _scale = scale;
 
-    _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
-    _soundSpawn.play();
-
     _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
+    _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
+    _soundMove.setBuffer(soundHolder.get(sounds::PlayerMove));
+    _soundMove.setLoop(1);
+    _soundMove.play();
+    _soundSpawn.play();
 
     _sprite.setTexture(textureHolder.get(textures::PlayerShip));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
@@ -36,6 +38,8 @@ PlayerShip::PlayerShip(const TextureHolder &textureHolder,
 
 void PlayerShip::move(float angle)
 {
+    _soundMove.setPitch(fabs(angle/4)); // Engine pitch rises when moving
+    _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
     _angle += angle;
     _angle = common::angleFilter(_angle);
     //Rotate coordinate system by 90 degrees
@@ -56,6 +60,7 @@ float PlayerShip::getAngle()
 
 void PlayerShip::shoot()
 {
+    //_soundShoot.setPitch(((rand()%3)/6.0f)+0.3);
     _soundShoot.play();
 }
 
