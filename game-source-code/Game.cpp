@@ -59,17 +59,13 @@ void Game::initializeGameLoop()
     FPS fps;
     #endif // DEBUG
 
-
     const sf::Color black(sf::Color::Black);
-
     sf::Sound sound(_sounds.get(sounds::StartSound));
     sound.play();
 
     //First Game State
     if (_gameState == game::GameState::Splash)
-    {
         showSplashScreen();
-    }
 
     ///-------------------------------------------
     ///  Game Playing starts
@@ -125,27 +121,18 @@ void Game::initializeGameLoop()
             timeSinceUpdate = sf::Time::Zero;
             // /ToDo: Check all the relevant objects and planned actions
             _inputHandler.update(playerShip,timeStep);
+
             // ToDo : Make bullet creation an event
             if (playerShip.isShooting())
             {
-                Bullet bullet(_textures,_sounds, _resolution,
+                Bullet bullet(_textures,
+                              _sounds,
+                              _resolution,
                               playerShip.getDistanceFromCentre(),
-                              playerShip.getAngle(), 1 , textures::BulletPlayer);
+                              playerShip.getAngle(),
+                              1,
+                              textures::BulletPlayer);
                 bulletVector.push_back(bullet);
-            }
-
-            // ToDo: Check Collisions
-
-            // ToDo: Update all movement and perform actions
-            playerShip.update();
-
-
-            //  Render
-            _mainWindow.clear(black);
-            // /ToDo: Draw all the visible objects
-            for (const auto &element : starField.getStarField())
-            {
-                starField.moveAndDrawStars(_mainWindow);
             }
 
             ///////////////////////////////////////////////////////
@@ -163,45 +150,83 @@ void Game::initializeGameLoop()
                 auto random_move = rand() % 8 + (-2);
                 if(enemyShip.getDistanceFromCentre() < _resolution.y/8)
                 {
-                    enemyShip.move(1+random_angle, 16);
+                    enemyShip.setMove(1+random_angle, 16);
                 }
                 else
                 {
-                    enemyShip.move(random_angle, random_move);
+                    enemyShip.setMove(random_angle, random_move);
                 }
             }
             else
-            {
                 enemyShip.reset();
-            }
-
 
             auto shootInfrequency = 20;
             auto shootChance = 5;
-            Bullet bullet2(_textures, _sounds, _resolution,
-                           enemyShip.getDistanceFromCentre(),
-                           enemyShip.getAngle(), 1, textures::BulletEnemy);
+            Bullet bullet_enemy(_textures,
+                                _sounds,
+                                _resolution,
+                                enemyShip.getDistanceFromCentre(),
+                                enemyShip.getAngle(),
+                                1,
+                                textures::BulletEnemy);
+
             if ((!(rand()%shootInfrequency)%shootChance)
                 &&(enemyShip.getDirectionAngle() + enemyShip.getAngle() >= 90))
             {
-                enemyShip.shoot();
-                bulletVectorEnemy.push_back(bullet2);
+                enemyShip.setShoot();
+                bulletVectorEnemy.push_back(bullet_enemy);
             }
 
+
+            // Temp enemy generation hack ends here
+            //////////////////////////////////////////////////////////////
+
+
+            // ToDo: Check Collisions
+
+            // ToDo: Update all movement and perform actions
+            playerShip.update();
+
+            for (auto i =0; i < bulletVector.size(); i++)
+            {
+                auto bullet = bulletVector.at(i);
+                if((bullet.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
+                   && (bullet.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
+                   && (bullet.getSprite().getPosition().x > (0-OVERSCAN_X))
+                   && (bullet.getSprite().getPosition().y > (0-OVERSCAN_Y)))
+                {
+                    bullet.update();
+                }
+                else {
+                    bulletVector.erase(bulletVector.begin()+i);
+                    i--;
+                }
+            }
+
+             enemyShip.update();
+
+            //  Render
+            _mainWindow.clear(black);
+            // /ToDo: Draw all the visible objects
+            for (const auto &element : starField.getStarField())
+                starField.moveAndDrawStars(_mainWindow);
+
+            //////////////////////////////////////////////////////////////////
+            // Temp Enemy draw hack
             _mainWindow.draw(enemyShip.getSprite());
 
             for(auto &bullet : bulletVector)
             {
-                bullet.move(-30);
+                bullet.setMove(-30);
                 _mainWindow.draw(bullet.getSprite());
             }
             for(auto &bullet : bulletVectorEnemy)
             {
-                bullet.move(30);
+                bullet.setMove(30);
                 _mainWindow.draw(bullet.getSprite());
             }
 
-            // Temp enemy generation hack ends here
+            // Temp enemy draw hack ends here
             ///////////////////////////////////////////////////////
 
             _mainWindow.draw(playerShip.getSprite());

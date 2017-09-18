@@ -29,13 +29,14 @@ public:
            float scale,
            textures::ID type);
 
-    void move(float distance);
+    void setMove(float distance);
     void reset();
     void update();
     float getDistanceFromCentre();
     sf::Sprite &getSprite();
 
 private:
+    void move();
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
@@ -44,10 +45,10 @@ private:
     float _distanceFromCentre;
     float _angle;
     float _scale;
-    float _futureAngleValue;
+    sf::IntRect _rectArea;
+    int _spriteOffset;
     float _futureMoveValue;
     bool _isMoving;
-    bool _isShooting;
     textures::ID _id;
 };
 

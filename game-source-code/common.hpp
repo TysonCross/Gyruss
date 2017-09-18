@@ -14,13 +14,6 @@
 #include <SFML/Audio/Sound.hpp>
 #include "ResourceHolder.hpp"
 
-//namespace sf
-//{
-//    class Texture;
-//    class Font;
-//    class Shader;
-//}
-
 //USEFUL FUNCTIONS and CONSTANTS
 namespace common
 {
@@ -98,6 +91,7 @@ namespace fonts
     };
 }
 
+/// \brief A namespace for the possible game states
 namespace game
 {
     enum GameState

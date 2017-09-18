@@ -28,8 +28,9 @@ public:
           float angle,
           float scale,
           textures::ID id);
-    void move(float angle, float distance);
-    void shoot();
+    void setMove(float angle, float distance);
+    void setShoot();
+    bool isShooting();
     void reset();
     void update();
     float getAngle();
@@ -38,6 +39,8 @@ public:
     sf::Sprite &getSprite();
 
 private:
+    void shoot();
+    void move();
 
     ////////////////////////////////////////////////////////////
     // Member data

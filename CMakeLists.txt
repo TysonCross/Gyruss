@@ -35,7 +35,7 @@ set(SOURCE_FILES_TEST
 
 set(SOURCE_FILES
         ${SOURCE_FILES_BASE}
-        game-source-code/Main.cpp)
+        game-source-code/Main.cpp game-source-code/FPS.cpp)
 
 set(EXECUTABLE_NAME_TEST_INTERACTIVE "tests_interactive")
 add_executable(${EXECUTABLE_NAME_TEST_INTERACTIVE} ${SOURCE_FILES_TEST} test-source-code/test_Interactive.cpp)

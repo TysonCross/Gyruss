@@ -44,11 +44,6 @@ void InputHandler::pollInput(game::GameState &gameState,
             if (previousButtonState == 0)
             {
                 playerShip.setShoot();
-//                Bullet bullet(_textures,_sounds, _resolution,
-//                              playerShip.getDistanceFromCentre(),
-//                              playerShip.getAngle(), 1 , textures::BulletPlayer);
-//                bulletVector.push_back(bullet);
-                // ToDo : Make bullet creation an event
                 previousButtonState = 1;
             }
     }
