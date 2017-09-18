@@ -38,20 +38,12 @@ private:
     void initializeGameLoop();
     void showSplashScreen();
     void loadResources();
-    //temp method and arguements
-    // ToDo: InputHandler should generate gameEvents
-    void pollInput(PlayerShip& playerShip,
-                   std::vector<Bullet>& bulletVector,
-                   sf::Event &event,
-                   bool &prevButtonState);
-
-    enum GameState { Splash, Playing, Exiting };
 
     TextureHolder _textures;
     SoundHolder _sounds;
     FontHolder _fonts;
     InputHandler _inputHandler;
-    GameState _gameState;
+    game::GameState _gameState;
     sf::RenderWindow _mainWindow;
     std::map<int, bool> _keysPressed;
     common::Resolution _resolution;

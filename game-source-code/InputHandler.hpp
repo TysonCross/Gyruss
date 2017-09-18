@@ -16,18 +16,29 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "PlayerShip.hpp"
+#include "Bullet.hpp"
+#include "Enemy.hpp"
 #include <map>
+
+using key_map = std::map<int, bool>;
 
 class InputHandler
 {
 public:
-    void resolveKeyMapping(const std::map<int, bool>& keys_pressed);
+    void pollInput(game::GameState &gameState,
+                   PlayerShip &playerShip,
+                   const sf::Event &event,
+                   bool &previousButtonState);
+
     void update(PlayerShip& playerShip, float deltaTime);
+
 
 private:
     bool _isMovingLeft;
     bool _isMovingRight;
     bool _isShooting;
+    sf::RenderWindow _mainWindow;
+    key_map _keysPressed;
 };
 
 #endif //PROJECT_INPUTHANDLER_HPP

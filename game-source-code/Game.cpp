@@ -36,7 +36,7 @@ void Game::Start()
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
-    while (_gameState != Game::Exiting)
+    while (_gameState != game::GameState::Exiting)
     {
         initializeGameLoop();
     }
@@ -66,7 +66,7 @@ void Game::initializeGameLoop()
     sound.play();
 
     //First Game State
-    if (_gameState == Game::Splash)
+    if (_gameState == game::GameState::Splash)
     {
         showSplashScreen();
     }
@@ -89,11 +89,10 @@ void Game::initializeGameLoop()
     PlayerShip playerShip(_textures, _sounds, _resolution, shipPathRadius, 0, 0.35);
 
     // Todo: Enemy creation
-    Enemy enemyShip(_textures, _sounds, _resolution, 0, 0, 1, textures::EnemyShipPurple);
     // Temp
+    Enemy enemyShip(_textures, _sounds, _resolution, 0, 0, 1, textures::EnemyShipPurple);
     std::vector<Bullet> bulletVector;
     std::vector<Bullet> bulletVectorEnemy;
-
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -101,19 +100,22 @@ void Game::initializeGameLoop()
 
     bool previousButtonState = 0;
 
-    while (_gameState == Game::Playing)
+    while (_gameState == game::GameState::Playing)
     {
-        //enum ButtonState {Up,Down};
         sf::Event event;
-        pollInput(playerShip,bulletVector, event, previousButtonState ); //temporary arguments
+        while (_mainWindow.pollEvent(event))
+        {
+            _inputHandler.pollInput(_gameState,
+                                    playerShip, //Should be entityHandler
+                                    event,
+                                    previousButtonState);
+        }
 
         ///-------------------------------------------
         /// Events
         ///-------------------------------------------
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-        _inputHandler.resolveKeyMapping(_keysPressed);
-
 
         ///-------------------------------------------
         ///  Fixed Timestep
@@ -121,8 +123,22 @@ void Game::initializeGameLoop()
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
-            // /ToDo: Update all the relevant objects
+            // /ToDo: Check all the relevant objects and planned actions
             _inputHandler.update(playerShip,timeStep);
+            // ToDo : Make bullet creation an event
+            if (playerShip.isShooting())
+            {
+                Bullet bullet(_textures,_sounds, _resolution,
+                              playerShip.getDistanceFromCentre(),
+                              playerShip.getAngle(), 1 , textures::BulletPlayer);
+                bulletVector.push_back(bullet);
+            }
+
+            // ToDo: Check Collisions
+
+            // ToDo: Update all movement and perform actions
+            playerShip.update();
+
 
             //  Render
             _mainWindow.clear(black);
@@ -208,69 +224,10 @@ void Game::showSplashScreen()
     SplashScreen splashScreen;
     if (splashScreen.show(_mainWindow,_textures,_sounds, _fonts, _resolution) == 0)
     {
-        _gameState = Game::Playing;
+        _gameState = game::GameState::Playing;
         return;
     }
-    _gameState = Game::Exiting;
-}
-
-void Game::pollInput(PlayerShip& playerShip,
-                     std::vector<Bullet>& bulletVector,
-                     sf::Event &event,
-                     bool &previousButtonState)
-{
-    // ToDo: Move into inputHandler
-
-    //Check for events since last frame
-    while (_mainWindow.pollEvent(event))
-    {
-        if (event.type == sf::Event::Closed)
-        {
-            _gameState = Game::Exiting;
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)
-            && (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-                || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl)))
-        {
-            _gameState = Game::Exiting;
-        }
-        if (event.type == sf::Event::EventType::KeyPressed)
-            if (event.key.code == sf::Keyboard::Space)
-                if (previousButtonState == 0)
-                {
-                    playerShip.shoot();
-                    Bullet bullet(_textures,_sounds, _resolution,
-                                  playerShip.getDistanceFromCentre(),
-                                  playerShip.getAngle(), 1 , textures::BulletPlayer);
-                    bulletVector.push_back(bullet);
-                    // ToDo : Make bullet creation an event
-                    previousButtonState = 1;
-                }
-        if (event.type == sf::Event::EventType::KeyReleased)
-            if (event.key.code == sf::Keyboard::Space)
-            {
-                previousButtonState = 0;
-            }
-
-        // During the current polling period, key-presses are detected
-        // if pressed added to the map, and removed if the key is released
-        if (event.type == sf::Event::EventType::KeyPressed)
-        {
-            if (_keysPressed.count(event.key.code) == 0)
-            {
-                _keysPressed[event.key.code] = true;
-            }
-        }
-
-        if (event.type == sf::Event::EventType::KeyReleased)
-        {
-            if (_keysPressed.count(event.key.code) > 0)
-            {
-                _keysPressed.erase(event.key.code);
-            }
-        }
-    } // End of input polling
+    _gameState = game::GameState::Exiting;
 }
 
 void Game::loadResources()

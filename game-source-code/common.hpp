@@ -98,6 +98,16 @@ namespace fonts
     };
 }
 
+namespace game
+{
+    enum GameState
+    {
+        Splash,
+        Playing,
+        Exiting
+    };
+}
+
 // Forward declaration
 template <typename Resource, typename Identifier>
 class ResourceHolder;
