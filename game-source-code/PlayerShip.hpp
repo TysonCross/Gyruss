@@ -19,6 +19,7 @@
 #include <cmath>
 #include "common.hpp"
 #include "ResourceHolder.hpp"
+#include <experimental/optional>
 
 class PlayerShip
 {
@@ -39,7 +40,7 @@ public:
     ////////////////////////////////////////////////////////////
     PlayerShip(const TextureHolder &textureHolder,
                const SoundHolder &soundHolder,
-               common::Resolution resolution,
+               const common::Resolution resolution,
                float distanceFromCentre,
                float angle,
                float scale);
@@ -48,6 +49,18 @@ public:
     /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
     void move(float angle);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Shooting ma lazers
+    ///
+    /// Spawns a projectile
+    ///
+    ////////////////////////////////////////////////////////////
+    void shoot();
+
+    void reset();
+
+    void update();
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
@@ -59,13 +72,7 @@ public:
     ////////////////////////////////////////////////////////////
     float getAngle();
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Shooting ma lazers
-    ///
-    /// Spawns a projectile
-    ///
-    ////////////////////////////////////////////////////////////
-    void shoot();
+
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
@@ -87,6 +94,9 @@ private:
     float _distanceFromCentre;
     float _angle;
     float _scale;
+    float _futureAngleValue;
+    bool _isMoving;
+    bool _isShooting;
 };
 
 #endif //PROJECT_PLAYERSHIP_HPP

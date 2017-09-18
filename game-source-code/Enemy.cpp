@@ -10,16 +10,16 @@
 #include <iostream>
 
 Enemy::Enemy(const TextureHolder &textureHolder,
-             SoundHolder &soundHolder,
-             common::Resolution resolution,
+             const SoundHolder &soundHolder,
+             const common::Resolution resolution,
              float distanceFromCentre = 0,
              float angle = 0,
              float scale = 1,
              textures::ID id = textures::EnemyShipGrey ) :  _resolution(resolution),
-                                      _id(id),
-                                      _distanceFromCentre(distanceFromCentre),
-                                      _angle(angle),
-                                      _scale(scale)
+                                                            _id(id),
+                                                            _distanceFromCentre(distanceFromCentre),
+                                                            _angle(angle),
+                                                            _scale(scale)
 {
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);

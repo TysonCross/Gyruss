@@ -13,7 +13,7 @@
 
 PlayerShip::PlayerShip(const TextureHolder &textureHolder,
                        const SoundHolder &soundHolder,
-                       common::Resolution resolution,
+                       const common::Resolution resolution,
                        float distanceFromCentre,
                        float angle = 0,
                        float scale = 1) : _resolution(resolution)

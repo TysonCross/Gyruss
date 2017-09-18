@@ -11,15 +11,16 @@
 #include "Bullet.hpp"
 
 Bullet::Bullet(const TextureHolder &textureHolder,
-             common::Resolution resolution,
-             float distanceFromCentre,
-             float angle,
-             float scale = 1,
-             textures::ID id = textures::BulletPlayer) : _resolution(resolution),
-                                                        _id(id),
-                                                        _distanceFromCentre(distanceFromCentre),
-                                                        _angle(angle),
-                                                        _scale(scale)
+               const SoundHolder &soundHolder,
+               const common::Resolution resolution,
+               float distanceFromCentre,
+               float angle,
+               float scale = 1,
+               textures::ID id = textures::BulletPlayer) : _resolution(resolution),
+                                                           _id(id),
+                                                           _distanceFromCentre(distanceFromCentre),
+                                                           _angle(angle),
+                                                           _scale(scale)
 {
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(sf::IntRect(0, 0, 70, 110));

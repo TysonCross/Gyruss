@@ -17,18 +17,6 @@ void Game::Start()
     _resolution.x = 1920;
     _resolution.y = 1080;
 
-//    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
-//    for (std::size_t i = 0; i < modes.size(); ++i)
-//    {
-//        sf::VideoMode mode = modes[i];
-//        std::cout << "Mode #" << i << ": "
-//                  << mode.width << "x" << mode.height << " - "
-//                  << mode.bitsPerPixel << " bpp" << std::endl;
-//    }
-//
-//    _resolution.x = modes.at(1).width;
-//    _resolution.y = modes.at(1).height;
-
     sf::Image icon;
     if (!icon.loadFromFile("resources/icon.png"))
     {
@@ -39,8 +27,11 @@ void Game::Start()
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
-                       sf::Style::Close , settings );
+    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32),
+                       "Gyruss",
+                       sf::Style::Close,
+                       settings );
+
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
@@ -63,7 +54,11 @@ void Game::initializeGameLoop()
     sf::Clock clock;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
+
+    #ifdef DEBUG
     FPS fps;
+    #endif // DEBUG
+
 
     const sf::Color black(sf::Color::Black);
 
@@ -167,7 +162,7 @@ void Game::initializeGameLoop()
 
             auto shootInfrequency = 20;
             auto shootChance = 5;
-            Bullet bullet2(_textures,_resolution,
+            Bullet bullet2(_textures, _sounds, _resolution,
                            enemyShip.getDistanceFromCentre(),
                            enemyShip.getAngle(), 1, textures::BulletEnemy);
             if ((!(rand()%shootInfrequency)%shootChance)
@@ -196,10 +191,13 @@ void Game::initializeGameLoop()
             _mainWindow.draw(playerShip.getSprite());
             _mainWindow.display();
 
+            #ifdef DEBUG
             fps.update();
             std::ostringstream ss;
             ss << fps.getFPS();
             _mainWindow.setTitle(ss.str());
+            #endif // DEBUG
+
 
         }
     }
@@ -242,7 +240,7 @@ void Game::pollInput(PlayerShip& playerShip,
                 if (previousButtonState == 0)
                 {
                     playerShip.shoot();
-                    Bullet bullet(_textures,_resolution,
+                    Bullet bullet(_textures,_sounds, _resolution,
                                   playerShip.getDistanceFromCentre(),
                                   playerShip.getAngle(), 1 , textures::BulletPlayer);
                     bulletVector.push_back(bullet);
