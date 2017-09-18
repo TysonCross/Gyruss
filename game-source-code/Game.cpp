@@ -185,25 +185,40 @@ void Game::initializeGameLoop()
             // ToDo: Check Collisions
 
             // ToDo: Update all movement and perform actions
-            playerShip.update();
 
-            for (auto i =0; i < bulletVector.size(); i++)
+            for(auto &bullet : bulletVector)
             {
-                auto bullet = bulletVector.at(i);
-                if((bullet.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
-                   && (bullet.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
-                   && (bullet.getSprite().getPosition().x > (0-OVERSCAN_X))
-                   && (bullet.getSprite().getPosition().y > (0-OVERSCAN_Y)))
-                {
-                    bullet.update();
-                }
-                else {
-                    bulletVector.erase(bulletVector.begin()+i);
-                    i--;
-                }
+                bullet.setMove(-30);
+                bullet.update();
+
+            }
+            for(auto &bullet : bulletVectorEnemy)
+            {
+                bullet.setMove(30);
+                bullet.update();
+
             }
 
-             enemyShip.update();
+//            for (auto i =0; i < bulletVector.size(); i++)
+//            {
+//                auto bullet = bulletVector.at(i);
+//                bullet.update();
+//
+//                if((bullet.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
+//                   && (bullet.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
+//                   && (bullet.getSprite().getPosition().x > (0-OVERSCAN_X))
+//                   && (bullet.getSprite().getPosition().y > (0-OVERSCAN_Y)))
+//                {
+//                    bullet.update();
+//                }
+//                else {
+//                    bulletVector.erase(bulletVector.begin()+i);
+//                    i--;
+//                }
+//            }
+
+            playerShip.update();
+            enemyShip.update();
 
             //  Render
             _mainWindow.clear(black);
@@ -217,12 +232,10 @@ void Game::initializeGameLoop()
 
             for(auto &bullet : bulletVector)
             {
-                bullet.setMove(-30);
                 _mainWindow.draw(bullet.getSprite());
             }
             for(auto &bullet : bulletVectorEnemy)
             {
-                bullet.setMove(30);
                 _mainWindow.draw(bullet.getSprite());
             }
 

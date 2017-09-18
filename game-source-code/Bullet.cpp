@@ -9,6 +9,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Bullet.hpp"
+#include <iostream>
 
 Bullet::Bullet(const TextureHolder &textureHolder,
                const SoundHolder &soundHolder,
@@ -22,7 +23,7 @@ Bullet::Bullet(const TextureHolder &textureHolder,
                                                            _scale(scale),
                                                            _id(id)
 {
-    _rectArea = {0, 0, 70, 110}; //
+    _rectArea = {0, 0, 70, 110}; // Individual sprite tile
     _spriteOffset = _rectArea.width; // Animated sprite tileset width
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(_rectArea);
@@ -43,7 +44,7 @@ void Bullet::setMove(float distance)
 void Bullet::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x/2,_resolution.y/2); // Move offscreen?
+    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
 }
 
 void Bullet::update()
@@ -51,7 +52,7 @@ void Bullet::update()
     if (_isMoving)
     {
         _rectArea.left += _spriteOffset;
-        if (_rectArea.left > (420 - 70))
+        if (_rectArea.left > (420 - 70)) // Sprite tileset width - individual tile
         {
             _rectArea.left = 0;
         }
@@ -72,6 +73,7 @@ sf::Sprite &Bullet::getSprite()
 
 void Bullet::move()
 {
+
     auto offset = 0.f;
     if(_distanceFromCentre==0)
         offset = _resolution.x*0.2;

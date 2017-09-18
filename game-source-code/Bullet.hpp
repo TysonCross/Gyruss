@@ -45,9 +45,9 @@ private:
     float _distanceFromCentre;
     float _angle;
     float _scale;
+    float _futureMoveValue;
     sf::IntRect _rectArea;
     int _spriteOffset;
-    float _futureMoveValue;
     bool _isMoving;
     textures::ID _id;
 };
