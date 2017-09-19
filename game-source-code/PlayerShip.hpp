@@ -19,6 +19,7 @@
 #include <cmath>
 #include "common.hpp"
 #include "ResourceHolder.hpp"
+#include <experimental/optional>
 
 class PlayerShip
 {
@@ -39,15 +40,16 @@ public:
     ////////////////////////////////////////////////////////////
     PlayerShip(const TextureHolder &textureHolder,
                const SoundHolder &soundHolder,
-               common::Resolution resolution,
+               const common::Resolution resolution,
                float distanceFromCentre,
                float angle,
                float scale);
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Moves the player ship around a circle by this angle
-    ////////////////////////////////////////////////////////////
-    void move(float angle);
+    void setMove(float angle);
+    void setShoot();
+    bool isShooting();
+    void reset();
+    void update();
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
@@ -60,6 +62,19 @@ public:
     float getAngle();
 
     ////////////////////////////////////////////////////////////
+    /// \brief Returns the Sprite object of the Class by ref
+    ///
+    /// \see sf:Sprite
+    ////////////////////////////////////////////////////////////
+    sf::Sprite &getSprite();
+
+private:
+    ////////////////////////////////////////////////////////////
+    /// \brief Moves the player ship around a circle by this angle
+    ////////////////////////////////////////////////////////////
+    void move();
+
+    ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers
     ///
     /// Spawns a projectile
@@ -68,25 +83,21 @@ public:
     void shoot();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the Sprite object of the Class by ref
-    ///
-    /// \see sf:Sprite
-    ////////////////////////////////////////////////////////////
-    sf::Sprite &getSprite();
-
-private:
-
-    ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
     sf::Sound _soundSpawn;
     sf::Sound _soundShoot;
     sf::Sound _soundMove;
+    sf::IntRect _rectArea;
+    int _spriteOffset;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;
     float _scale;
+    float _futureAngleValue;
+    bool _isMoving;
+    bool _isShooting;
 };
 
 #endif //PROJECT_PLAYERSHIP_HPP

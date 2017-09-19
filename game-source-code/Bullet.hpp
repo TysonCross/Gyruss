@@ -1,9 +1,7 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    15/9/17
-/// \brief   Description of file in project Project
-///
-/// Detailed description of file
+/// \brief   Projectiles/bullets for PlayerShip and EnemyShip
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -24,26 +22,34 @@ class Bullet //: public Entity
 public:
 
     Bullet(const TextureHolder &textureHolder,
-          common::Resolution resolution,
-          float distanceFromCentre,
-          float angle,
-          float scale,
-          textures::ID type);
+           const SoundHolder &soundHolder,
+           const common::Resolution resolution,
+           float distanceFromCentre,
+           float angle,
+           float scale,
+           textures::ID type);
 
-    void move(float distance);
+    void setMove(float distance);
+    void reset();
+    void update();
     float getDistanceFromCentre();
+    float getRadius();
     sf::Sprite &getSprite();
 
 private:
+    void move();
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
-    sf::Texture _texture;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;
     float _scale;
+    float _futureMoveValue;
+    sf::IntRect _rectArea;
+    int _spriteOffset;
+    bool _isMoving;
     textures::ID _id;
 };
 

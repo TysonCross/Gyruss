@@ -22,33 +22,41 @@ class Enemy //: public Entity
 public:
 
     Enemy(const TextureHolder &textureHolder,
-          SoundHolder &soundHolder,
-          common::Resolution resolution,
+          const SoundHolder &soundHolder,
+          const common::Resolution resolution,
           float distanceFromCentre,
           float angle,
           float scale,
           textures::ID id);
-
-    void move(float angle, float distance);
-    float getDistanceFromCentre();
-    sf::Sprite &getSprite();
+    void setMove(float angle, float distance);
+    void setShoot();
+    bool isShooting();
+    void reset();
+    void update();
     float getAngle();
     float getDirectionAngle();
-    void reset();
-    void shoot();
+    float getDistanceFromCentre();
+    float getRadius();
+    sf::Sprite &getSprite();
 
 private:
+    void shoot();
+    void move();
+
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
     sf::Sprite _sprite;
-    sf::Texture _texture;
     sf::Sound _soundShoot;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;
     float _angleOrientation;
     float _scale;
+    float _futureAngleValue;
+    float _futureMoveValue;
+    bool _isMoving;
+    bool _isShooting;
     sf::Vector2<float> _prevPosition,
                         _newPosition,
                         _pointingPosition;

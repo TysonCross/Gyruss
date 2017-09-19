@@ -11,30 +11,57 @@
 
 #include "InputHandler.hpp"
 
-using key_map = std::map<int, bool>;
-
-void InputHandler::resolveKeyMapping(const key_map &keys_pressed)
+void InputHandler::pollInput(game::GameState &gameState,
+                             PlayerShip &playerShip,
+                             const sf::Event &event,
+                             bool &previousButtonState)
 {
-
-    if (keys_pressed.count(sf::Keyboard::Left) > 0)
+    if (event.type == sf::Event::Closed)
     {
-        _isMovingLeft = true;
-    }
-    else
-    {
-        _isMovingLeft = false;
+        gameState = game::GameState::Exiting;
     }
 
-    if (keys_pressed.count(sf::Keyboard::Right) > 0)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)
+        && (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
+            || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl)))
     {
-        _isMovingRight = true;
-    }
-    else
-    {
-        _isMovingRight = false;
-
+        gameState = game::GameState::Exiting;
     }
 
+
+    if (event.type == sf::Event::EventType::KeyPressed)
+    {
+        if (event.key.code == sf::Keyboard::Left)
+        {
+            _isMovingLeft = true;
+        }
+        if (event.key.code == sf::Keyboard::Right)
+        {
+            _isMovingRight = true;
+        }
+        if (event.key.code == sf::Keyboard::Space)
+            if (previousButtonState == 0)
+            {
+                playerShip.setShoot();
+                previousButtonState = 1;
+            }
+    }
+
+    if (event.type == sf::Event::EventType::KeyReleased)
+    {
+        if (event.key.code == sf::Keyboard::Left)
+        {
+            _isMovingLeft = false;
+        }
+        if (event.key.code == sf::Keyboard::Right)
+        {
+            _isMovingRight = false;
+        }
+        if (event.key.code == sf::Keyboard::Space)
+        {
+            previousButtonState = 0;
+        }
+    }
 }
 
 void InputHandler::update(PlayerShip &playerShip, float deltaTime)
@@ -52,5 +79,5 @@ void InputHandler::update(PlayerShip &playerShip, float deltaTime)
         move += moveAmount;
     }
 
-    playerShip.move(move * deltaTime);
+    playerShip.setMove(move * deltaTime);
 }

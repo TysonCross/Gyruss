@@ -13,35 +13,24 @@
 class FPS
 {
 public:
-    /// @brief Constructor with initialization.
-    ///
-    FPS() : mFrame(0), mFps(0) {}
+    /// \brief Default constructor
+    FPS();
 
-    /// @brief Update the frame count.
-    ///
+    /// \brief Return the Frame per second count
+    /// \return The FPS count
+    const unsigned int getFPS() const;
 
-
-    /// @brief Get the current FPS count.
-    /// @return FPS count.
-    const unsigned int getFPS() const { return mFps; }
+    /// \brief Restarts the clock, and increments the frame count
+    void update();
 
 private:
-    unsigned int mFrame;
-    unsigned int mFps;
-    sf::Clock mClock;
 
-public:
-    void update()
-    {
-        if(mClock.getElapsedTime().asSeconds() >= 1.f)
-        {
-            mFps = mFrame;
-            mFrame = 0;
-            mClock.restart();
-        }
-
-        ++mFrame;
-    }
+    ////////////////////////////////////////////////////////////
+    // Member data
+    ////////////////////////////////////////////////////////////
+    unsigned int _frame;
+    unsigned int _fps;
+    sf::Clock _clock;
 };
 
 #endif //PROJECT_FPS_HPP

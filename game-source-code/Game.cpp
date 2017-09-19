@@ -17,18 +17,6 @@ void Game::Start()
     _resolution.x = 1920;
     _resolution.y = 1080;
 
-//    std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
-//    for (std::size_t i = 0; i < modes.size(); ++i)
-//    {
-//        sf::VideoMode mode = modes[i];
-//        std::cout << "Mode #" << i << ": "
-//                  << mode.width << "x" << mode.height << " - "
-//                  << mode.bitsPerPixel << " bpp" << std::endl;
-//    }
-//
-//    _resolution.x = modes.at(1).width;
-//    _resolution.y = modes.at(1).height;
-
     sf::Image icon;
     if (!icon.loadFromFile("resources/icon.png"))
     {
@@ -39,13 +27,16 @@ void Game::Start()
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss",
-                       sf::Style::Close , settings );
+    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32),
+                       "Gyruss",
+                       sf::Style::Close,
+                       settings );
+
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
-    while (_gameState != Game::Exiting)
+    while (_gameState != game::GameState::Exiting)
     {
         initializeGameLoop();
     }
@@ -61,20 +52,21 @@ void Game::initializeGameLoop()
 {
 
     sf::Clock clock;
+    sf::Clock enemyTimer;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
+
+    #ifdef DEBUG
     FPS fps;
+    #endif // DEBUG
 
     const sf::Color black(sf::Color::Black);
-
     sf::Sound sound(_sounds.get(sounds::StartSound));
     sound.play();
 
     //First Game State
-    if (_gameState == Game::Splash)
-    {
+    if (_gameState == game::GameState::Splash)
         showSplashScreen();
-    }
 
     ///-------------------------------------------
     ///  Game Playing starts
@@ -94,11 +86,10 @@ void Game::initializeGameLoop()
     PlayerShip playerShip(_textures, _sounds, _resolution, shipPathRadius, 0, 0.35);
 
     // Todo: Enemy creation
-    Enemy enemyShip(_textures, _sounds, _resolution, 0, 0, 1, textures::EnemyShipPurple);
     // Temp
+    std::vector<Enemy> enemyVector;
     std::vector<Bullet> bulletVector;
     std::vector<Bullet> bulletVectorEnemy;
-
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -106,19 +97,22 @@ void Game::initializeGameLoop()
 
     bool previousButtonState = 0;
 
-    while (_gameState == Game::Playing)
+    while (_gameState == game::GameState::Playing)
     {
-        //enum ButtonState {Up,Down};
         sf::Event event;
-        pollInput(playerShip,bulletVector, event, previousButtonState ); //temporary arguments
+        while (_mainWindow.pollEvent(event))
+        {
+            _inputHandler.pollInput(_gameState,
+                                    playerShip, //Should be entityHandler
+                                    event,
+                                    previousButtonState);
+        }
 
         ///-------------------------------------------
         /// Events
         ///-------------------------------------------
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-        _inputHandler.resolveKeyMapping(_keysPressed);
-
 
         ///-------------------------------------------
         ///  Fixed Timestep
@@ -126,15 +120,20 @@ void Game::initializeGameLoop()
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
-            // /ToDo: Update all the relevant objects
-            _inputHandler.update(playerShip,timeStep);
+            // /ToDo: Check all the relevant objects and planned actions
+            _inputHandler.update(playerShip, timeStep);
 
-            //  Render
-            _mainWindow.clear(black);
-            // /ToDo: Draw all the visible objects
-            for (const auto &element : starField.getStarField())
+            // ToDo : Make bullet creation an event
+            if (playerShip.isShooting())
             {
-                starField.moveAndDrawStars(_mainWindow);
+                Bullet bullet(_textures,
+                              _sounds,
+                              _resolution,
+                              playerShip.getDistanceFromCentre(),
+                              playerShip.getAngle(),
+                              1,
+                              textures::BulletPlayer);
+                bulletVector.push_back(bullet);
             }
 
             ///////////////////////////////////////////////////////
@@ -142,65 +141,182 @@ void Game::initializeGameLoop()
             auto i = 0;
             const auto OVERSCAN_X = _resolution.x * 0.1;
             const auto OVERSCAN_Y = _resolution.y * 0.1;
-            if((enemyShip.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
-               && (enemyShip.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
-               && (enemyShip.getSprite().getPosition().x > 0-OVERSCAN_X)
-               && (enemyShip.getSprite().getPosition().y > 0-OVERSCAN_Y))
+
+            auto test = fmod(enemyTimer.getElapsedTime().asSeconds(),5000000)/5 > 0.01;
+            if (!test)
             {
-                i++;
-                auto random_angle = rand() % 3 + 2;
-                auto random_move = rand() % 8 + (-2);
-                if(enemyShip.getDistanceFromCentre() < _resolution.y/8)
+                Enemy enemy(_textures,
+                                _sounds,
+                                _resolution,
+                                0, 0, 1,
+                                textures::EnemyShipPurple);
+                enemyVector.push_back(enemy);
+            } else enemyTimer.restart();
+
+            for (auto &enemyShip : enemyVector)
+            {
+                if (enemyShip.getRadius() > _resolution.y / 2.f)
                 {
-                    enemyShip.move(1+random_angle, 16);
-                }
-                else
+                    i++;
+                    auto random_angle = rand() % 3 + 2;
+                    auto random_move = rand() % 8 + (-2);
+                    if (enemyShip.getDistanceFromCentre() < _resolution.y / 8)
+                    {
+                        enemyShip.setMove(1 + random_angle, 16);
+                    } else
+                    {
+                        enemyShip.setMove(random_angle, random_move);
+                    }
+                } else
                 {
-                    enemyShip.move(random_angle, random_move);
+                    enemyShip.reset();
+                }
+
+                auto shootInfrequency = 20;
+                auto shootChance = 5;
+                Bullet bullet_enemy(_textures,
+                                    _sounds,
+                                    _resolution,
+                                    enemyShip.getDistanceFromCentre(),
+                                    enemyShip.getAngle(),
+                                    1,
+                                    textures::BulletEnemy);
+
+                if ((!(rand() % shootInfrequency) % shootChance)
+                    && (enemyShip.getDirectionAngle() + enemyShip.getAngle() >= 90))
+                {
+                    enemyShip.setShoot();
+                    bulletVectorEnemy.push_back(bullet_enemy);
                 }
             }
-            else
+
+
+            // Temp enemy generation hack ends here
+            //////////////////////////////////////////////////////////////
+
+
+            // ToDo: Check Collisions
+            for (auto i = 0; i!=enemyVector.size(); ++i)
             {
-                enemyShip.reset();
+                if (collides(playerShip.getSprite(), enemyVector.at(i).getSprite()))
+                {
+                    enemyVector.erase(enemyVector.begin()+i);
+                    i--;
+                }
             }
+            enemyVector.shrink_to_fit();
 
-
-            auto shootInfrequency = 20;
-            auto shootChance = 5;
-            Bullet bullet2(_textures,_resolution,
-                           enemyShip.getDistanceFromCentre(),
-                           enemyShip.getAngle(), 1, textures::BulletEnemy);
-            if ((!(rand()%shootInfrequency)%shootChance)
-                &&(enemyShip.getDirectionAngle() + enemyShip.getAngle() >= 90))
+            for (auto i = 0; i != bulletVector.size(); ++i)
             {
-                enemyShip.shoot();
-                bulletVectorEnemy.push_back(bullet2);
+                for (auto j = 0; j != enemyVector.size(); ++j)
+                {
+                    if (collides(bulletVector.at(i).getSprite(), enemyVector.at(j).getSprite()))
+                    {
+//                        bulletVector.erase(bulletVector.begin() + i);
+                        enemyVector.erase(enemyVector.begin() + j);
+//                        i--;
+                        j--;
+                    }
+                }
             }
+            enemyVector.shrink_to_fit();
+            bulletVector.shrink_to_fit();
 
-            _mainWindow.draw(enemyShip.getSprite());
+
+            for (auto i = 0; i!=bulletVectorEnemy.size(); ++i)
+            {
+                if (collides(playerShip.getSprite(), bulletVectorEnemy.at(i).getSprite()))
+                {
+                    bulletVectorEnemy.erase(bulletVectorEnemy.begin()+i);
+                    i--;
+                }
+            }
+            bulletVectorEnemy.shrink_to_fit();
+
+
+            // Clipping of bullets outside frustum
+            for (auto i = 0; i!=bulletVectorEnemy.size(); ++i)
+
+            {
+                if (bulletVectorEnemy.at(i).getRadius() > _resolution.y / 2.f)
+                {
+                    bulletVectorEnemy.erase(bulletVectorEnemy.begin() + i);
+                    i--;
+                }
+            }
+            bulletVectorEnemy.shrink_to_fit();
+
+            for (auto i = 0; i!=bulletVector.size(); ++i)
+            {
+                if(((bulletVector.at(i).getSprite().getPosition().x > (_resolution.x/2) - 10)
+                     && (bulletVector.at(i).getSprite().getPosition().y > (_resolution.y/2) - 10)
+                     && (bulletVector.at(i).getSprite().getPosition().x < (_resolution.x/2) + 10)
+                     && (bulletVector.at(i).getSprite().getPosition().y < (_resolution.y/2) + 10)))
+                {
+                    bulletVector.erase(bulletVector.begin() + i);
+                    i--;
+                }
+            }
+            bulletVector.shrink_to_fit();
+
+
+            // ToDo: Update all movement and perform actions
+
+            playerShip.update();
+
+            for (auto &enemyShip : enemyVector)
+            {
+                enemyShip.update();
+            }
 
             for(auto &bullet : bulletVector)
             {
-                bullet.move(-30);
-                _mainWindow.draw(bullet.getSprite());
+                bullet.update();
+                bullet.setMove(-30);
             }
+
             for(auto &bullet : bulletVectorEnemy)
             {
-                bullet.move(30);
+                                bullet.update();
+                bullet.setMove(30);
+            }
+
+
+            //  Render
+            _mainWindow.clear(black);
+            // /ToDo: Draw all the visible objects
+            for (const auto &element : starField.getStarField())
+                starField.moveAndDrawStars(_mainWindow);
+
+            //////////////////////////////////////////////////////////////////
+            // Temp Enemy draw hack
+            for (auto &enemyShip : enemyVector)
+            {
+                _mainWindow.draw(enemyShip.getSprite());
+            }
+
+            for(auto &bullet : bulletVector)
+            {
                 _mainWindow.draw(bullet.getSprite());
             }
 
-            // Temp enemy generation hack ends here
+            for(auto &bullet : bulletVectorEnemy)
+            {
+                _mainWindow.draw(bullet.getSprite());
+            }
+            // Temp enemy draw hack ends here
             ///////////////////////////////////////////////////////
 
             _mainWindow.draw(playerShip.getSprite());
+
             _mainWindow.display();
 
+            #ifdef DEBUG
             fps.update();
             std::ostringstream ss;
             ss << fps.getFPS();
             _mainWindow.setTitle(ss.str());
-
+            #endif // DEBUG
         }
     }
 }
@@ -210,69 +326,21 @@ void Game::showSplashScreen()
     SplashScreen splashScreen;
     if (splashScreen.show(_mainWindow,_textures,_sounds, _fonts, _resolution) == 0)
     {
-        _gameState = Game::Playing;
+        _gameState = game::GameState::Playing;
         return;
     }
-    _gameState = Game::Exiting;
+    _gameState = game::GameState::Exiting;
 }
 
-void Game::pollInput(PlayerShip& playerShip,
-                     std::vector<Bullet>& bulletVector,
-                     sf::Event &event,
-                     bool &previousButtonState)
+bool Game::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
 {
-    // ToDo: Move into inputHandler
+    auto shrink_factor = 4.f + 0.2f;
+    float radius_1 = (sprite1.getGlobalBounds().width + sprite1.getGlobalBounds().height) / shrink_factor;
+    float radius_2 = (sprite2.getGlobalBounds().width + sprite2.getGlobalBounds().height) / shrink_factor;
+    float distance_x = sprite1.getPosition().x - sprite2.getPosition().x;
+    float distance_y = sprite1.getPosition().y - sprite2.getPosition().y;
 
-    //Check for events since last frame
-    while (_mainWindow.pollEvent(event))
-    {
-        if (event.type == sf::Event::Closed)
-        {
-            _gameState = Game::Exiting;
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)
-            && (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-                || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl)))
-        {
-            _gameState = Game::Exiting;
-        }
-        if (event.type == sf::Event::EventType::KeyPressed)
-            if (event.key.code == sf::Keyboard::Space)
-                if (previousButtonState == 0)
-                {
-                    playerShip.shoot();
-                    Bullet bullet(_textures,_resolution,
-                                  playerShip.getDistanceFromCentre(),
-                                  playerShip.getAngle(), 1 , textures::BulletPlayer);
-                    bulletVector.push_back(bullet);
-                    // ToDo : Make bullet creation an event
-                    previousButtonState = 1;
-                }
-        if (event.type == sf::Event::EventType::KeyReleased)
-            if (event.key.code == sf::Keyboard::Space)
-            {
-                previousButtonState = 0;
-            }
-
-        // During the current polling period, key-presses are detected
-        // if pressed added to the map, and removed if the key is released
-        if (event.type == sf::Event::EventType::KeyPressed)
-        {
-            if (_keysPressed.count(event.key.code) == 0)
-            {
-                _keysPressed[event.key.code] = true;
-            }
-        }
-
-        if (event.type == sf::Event::EventType::KeyReleased)
-        {
-            if (_keysPressed.count(event.key.code) > 0)
-            {
-                _keysPressed.erase(event.key.code);
-            }
-        }
-    } // End of input polling
+    return sqrt((distance_x * distance_x) + (distance_y * distance_y)) <= radius_1 + radius_2;
 }
 
 void Game::loadResources()
@@ -280,7 +348,7 @@ void Game::loadResources()
     //Load Textures and Sounds
     _textures.load(textures::SplashScreen,"resources/splash.png");
     _textures.load(textures::SplashControls,"resources/splash_controls.png");
-    _textures.load(textures::PlayerShip,"resources/player_ship.png");
+    _textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
     _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
     _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
     _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
