@@ -82,7 +82,8 @@ void Game::initializeGameLoop()
     StarField starField(_resolution, 3, number_of_stars);
 
     //Set the player circle radius
-    const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * 0.05f);
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     PlayerShip playerShip(_textures, _sounds, _resolution, shipPathRadius, 0, 0.35);
 
     // Todo: Enemy creation

@@ -11,6 +11,9 @@
 #include "SFML/Graphics.hpp"
 #include "../game-source-code/ResourceHolder.hpp"
 #include "../game-source-code/common.hpp"
+#include "../game-source-code/PlayerShip.hpp"
+#include "../game-source-code/Bullet.hpp"
+
 
 #include <iostream>
 #include "doctest.h"
@@ -86,4 +89,261 @@ TEST_CASE ("Getting a font previously loaded into a resourceHandler<sf::Font, fo
     FontHolder font_holder;
             REQUIRE_NOTHROW(font_holder.load(fonts::testFont,"resources/danube.ttf"));
             CHECK_NOTHROW(sf::Text text_test("TEST", font_holder.get(fonts::testFont)));
+}
+
+////////////////////////////////////////////////////////////
+///  Movement tests
+////////////////////////////////////////////////////////////
+
+//PlayerShip movement tests
+
+TEST_CASE ("Creating A PlayerShip object succeeds")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution = {1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    CHECK_NOTHROW(PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35););
+}
+
+//Check rotation works with .setMove & .update
+TEST_CASE ("Moving a PlayerShip 10 degrees succeeds")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution = {1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35);
+    auto originalAngle = playerShip.getAngle();
+    auto moveAngle = 10.0f;
+    playerShip.setMove(moveAngle);
+    playerShip.update();
+    auto finalAngle = playerShip.getAngle();
+            CHECK(finalAngle == moveAngle);
+}
+
+//tets holding down move button
+TEST_CASE ("Moving a PlayerShip multiple times succeeds")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution = {1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35);
+    auto originalAngle = playerShip.getAngle();
+    auto moveAngle = 10.0f; //define to move the ship 10 degrees
+    for (auto i =0; i<5;i++)
+    {
+        playerShip.setMove(moveAngle);
+        playerShip.update();
+    }
+    auto expectedAngle = moveAngle*5;
+    auto finalAngle = playerShip.getAngle();
+            CHECK(finalAngle == expectedAngle);
+}
+
+//correct circle imlemented
+TEST_CASE ("Moving a PlayerShip 360 degrees brings ship back to where it started")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution = {1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35);
+    auto originalAngle = playerShip.getAngle();
+    auto originalPosition = playerShip.getSprite().getPosition();
+    auto moveAngle = 45.0f; //define to move the ship 10 degrees
+    for (auto i =0; i<8;i++)
+    {
+        playerShip.setMove(moveAngle);
+        playerShip.update();
+    }
+    auto finalAngle = playerShip.getAngle();
+    auto finalPosition = playerShip.getSprite().getPosition();
+            CHECK(finalAngle == originalAngle);
+            CHECK(finalPosition == originalPosition);
+}
+
+
+//Check eular function
+TEST_CASE ("Moving a PlayerShip -10 degrees correctly casts to 350 and succeeds")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution = {1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35);
+    auto originalAngle = playerShip.getAngle();
+    auto moveAngle = -10.0f;
+    auto expectedFinalAngle= 350.0f; //using the eular filter to cast negative angle to <360
+    playerShip.setMove(moveAngle);
+    playerShip.update();
+    auto finalAngle = playerShip.getAngle();
+            CHECK(finalAngle == expectedFinalAngle);
+}
+
+TEST_CASE ("Moving a PlayerShip moves the sprit the correct number of pixles (flip 180)")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution ={1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35);
+    auto originalLocation = playerShip.getSprite().getPosition();
+    auto moveAngle = 180;
+    playerShip.setMove(moveAngle);
+    playerShip.update();
+    auto finalLocation = playerShip.getSprite().getPosition();
+    auto expectedLocation = sf::Vector2f{originalLocation.x, resolution.y*shipPathRadiusPadding};
+            CHECK(int(finalLocation.y)==int(expectedLocation.y)); //cast to int to get closest pixel accuracy
+            CHECK(int(finalLocation.x)==int(expectedLocation.x)); //cast to int to get closest pixel accuracy
+}
+
+TEST_CASE ("Reseting ship position brings the ship back to spawning point sucessfully")
+{
+    TextureHolder textures;
+    textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
+
+    common::Resolution resolution ={1920,1080};
+    auto shipPathRadiusPadding = 0.05f;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(textures, sounds, resolution, shipPathRadius, 0, 0.35);
+    auto originalLocation = playerShip.getSprite().getPosition();
+    auto moveAngle = 180;
+    playerShip.setMove(moveAngle);
+    playerShip.update();
+    playerShip.reset();
+    auto finalLocation = playerShip.getSprite().getPosition();
+            CHECK(finalLocation==originalLocation); //cast to int to get closest pixel accuracy
+}
+
+// Bullet movement tests
+
+TEST_CASE ("Creating a bullet entity succeeds")
+{
+    TextureHolder textures;
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+
+    common::Resolution resolution ={1920,1080};
+    auto BulletShootAngle = 180;
+    auto BulletStartingPoint = resolution.y; //define the starting distance from centre;
+    CHECK_NOTHROW(Bullet bullet(textures,sounds,resolution,BulletStartingPoint,BulletShootAngle,1,textures::BulletPlayer););
+}
+
+TEST_CASE ("Shooting a bullet stright up moves corretly")
+{
+    TextureHolder textures;
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+
+    common::Resolution resolution ={1920,1080};
+    auto BulletShootAngle = 180;
+    auto BulletStartingPoint = resolution.y; //define the starting distance from centre;
+    Bullet bullet(textures,sounds,resolution,BulletStartingPoint,BulletShootAngle,1,textures::BulletPlayer);
+    auto startingPosition = bullet.getSprite().getPosition();
+    auto desiredBulletMove =-1; //-1 moves bullet up(simulating a player shot)
+    bullet.setMove(desiredBulletMove);
+    bullet.update();
+    auto finalPosition = bullet.getSprite().getPosition();
+    //the position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the bullet
+    auto expectedPosition = sf::Vector2f(startingPosition.x,startingPosition.y+desiredBulletMove*-2);
+            CHECK(int(finalPosition.x)==int(expectedPosition.x));
+            CHECK(int(finalPosition.y)==int(expectedPosition.y));
+}
+
+TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly away")
+{
+    TextureHolder textures;
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+
+    common::Resolution resolution ={1920,1080};
+    auto BulletShootAngle = 180;
+    auto BulletStartingPoint = resolution.y; //define the starting distance from centre;
+    Bullet bullet(textures,sounds,resolution,BulletStartingPoint,BulletShootAngle,1,textures::BulletPlayer);
+    auto startingScale = bullet.getRadius();
+    auto desiredBulletMove =-10;
+    bullet.setMove(desiredBulletMove);
+    bullet.update();
+    auto finalScale = bullet.getRadius();
+    //the position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the bullet
+    CHECK(finalScale<startingScale);
+}
+
+TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwards")
+{
+    TextureHolder textures;
+    textures.load(textures::BulletPlayer,"resources/bullet_player.png");
+
+    SoundHolder sounds;
+
+    common::Resolution resolution ={1920,1080};
+    auto BulletShootAngle = 180;
+    auto BulletStartingPoint = resolution.y/2; //define the starting distance from centre;
+    Bullet bullet(textures,sounds,resolution,BulletStartingPoint,BulletShootAngle,1,textures::BulletPlayer);
+    auto startingScale = bullet.getRadius();
+    auto desiredBulletMove =10;
+    bullet.setMove(desiredBulletMove);
+    bullet.update();
+    auto finalScale = bullet.getRadius();
+    //the position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the bullet
+            CHECK(finalScale>startingScale);
 }

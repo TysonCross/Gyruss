@@ -58,10 +58,11 @@ bool PlayerShip::isShooting()
 
 void PlayerShip::reset()
 {
+    _angle = 0;
     _futureAngleValue = 0;
-    _isMoving = false;
     _isShooting = false;
-    update();
+    _isMoving = false;
+    move();
 }
 
 void PlayerShip::update()
