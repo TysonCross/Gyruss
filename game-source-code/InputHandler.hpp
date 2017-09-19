@@ -36,9 +36,6 @@ public:
 private:
     bool _isMovingLeft;
     bool _isMovingRight;
-    bool _isShooting;
-    sf::RenderWindow _mainWindow;
-    key_map _keysPressed;
 };
 
 #endif //PROJECT_INPUTHANDLER_HPP

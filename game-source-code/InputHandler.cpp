@@ -10,7 +10,6 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "InputHandler.hpp"
-#include "Game.hpp"
 
 void InputHandler::pollInput(game::GameState &gameState,
                              PlayerShip &playerShip,

@@ -52,6 +52,7 @@ void Game::initializeGameLoop()
 {
 
     sf::Clock clock;
+    sf::Clock enemyTimer;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
 
@@ -86,7 +87,7 @@ void Game::initializeGameLoop()
 
     // Todo: Enemy creation
     // Temp
-    Enemy enemyShip(_textures, _sounds, _resolution, 0, 0, 1, textures::EnemyShipPurple);
+    std::vector<Enemy> enemyVector;
     std::vector<Bullet> bulletVector;
     std::vector<Bullet> bulletVectorEnemy;
 
@@ -120,7 +121,7 @@ void Game::initializeGameLoop()
         {
             timeSinceUpdate = sf::Time::Zero;
             // /ToDo: Check all the relevant objects and planned actions
-            _inputHandler.update(playerShip,timeStep);
+            _inputHandler.update(playerShip, timeStep);
 
             // ToDo : Make bullet creation an event
             if (playerShip.isShooting())
@@ -140,41 +141,56 @@ void Game::initializeGameLoop()
             auto i = 0;
             const auto OVERSCAN_X = _resolution.x * 0.1;
             const auto OVERSCAN_Y = _resolution.y * 0.1;
-            if((enemyShip.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
-               && (enemyShip.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
-               && (enemyShip.getSprite().getPosition().x > 0-OVERSCAN_X)
-               && (enemyShip.getSprite().getPosition().y > 0-OVERSCAN_Y))
-            {
-                i++;
-                auto random_angle = rand() % 3 + 2;
-                auto random_move = rand() % 8 + (-2);
-                if(enemyShip.getDistanceFromCentre() < _resolution.y/8)
-                {
-                    enemyShip.setMove(1+random_angle, 16);
-                }
-                else
-                {
-                    enemyShip.setMove(random_angle, random_move);
-                }
-            }
-            else
-                enemyShip.reset();
 
-            auto shootInfrequency = 20;
-            auto shootChance = 5;
-            Bullet bullet_enemy(_textures,
+            auto test = fmod(enemyTimer.getElapsedTime().asSeconds(),10000)/2 > 0.01;
+            if (!test)
+            {
+                Enemy enemy(_textures,
                                 _sounds,
                                 _resolution,
-                                enemyShip.getDistanceFromCentre(),
-                                enemyShip.getAngle(),
-                                1,
-                                textures::BulletEnemy);
+                                0, 0, 1,
+                                textures::EnemyShipPurple);
+                enemyVector.push_back(enemy);
+            } else enemyTimer.restart();
 
-            if ((!(rand()%shootInfrequency)%shootChance)
-                &&(enemyShip.getDirectionAngle() + enemyShip.getAngle() >= 90))
+            for (auto &enemyShip : enemyVector)
             {
-                enemyShip.setShoot();
-                bulletVectorEnemy.push_back(bullet_enemy);
+                if ((enemyShip.getSprite().getPosition().x < _resolution.x + OVERSCAN_X)
+                    && (enemyShip.getSprite().getPosition().y < _resolution.y + OVERSCAN_Y)
+                    && (enemyShip.getSprite().getPosition().x > 0 - OVERSCAN_X)
+                    && (enemyShip.getSprite().getPosition().y > 0 - OVERSCAN_Y))
+                {
+                    i++;
+                    auto random_angle = rand() % 3 + 2;
+                    auto random_move = rand() % 8 + (-2);
+                    if (enemyShip.getDistanceFromCentre() < _resolution.y / 8)
+                    {
+                        enemyShip.setMove(1 + random_angle, 16);
+                    } else
+                    {
+                        enemyShip.setMove(random_angle, random_move);
+                    }
+                } else
+                {
+                    enemyShip.reset();
+                }
+
+                auto shootInfrequency = 20;
+                auto shootChance = 5;
+                Bullet bullet_enemy(_textures,
+                                    _sounds,
+                                    _resolution,
+                                    enemyShip.getDistanceFromCentre(),
+                                    enemyShip.getAngle(),
+                                    1,
+                                    textures::BulletEnemy);
+
+                if ((!(rand() % shootInfrequency) % shootChance)
+                    && (enemyShip.getDirectionAngle() + enemyShip.getAngle() >= 90))
+                {
+                    enemyShip.setShoot();
+                    bulletVectorEnemy.push_back(bullet_enemy);
+                }
             }
 
 
@@ -183,6 +199,41 @@ void Game::initializeGameLoop()
 
 
             // ToDo: Check Collisions
+            for (auto i = 0; i!=enemyVector.size(); ++i)
+            {
+                if (collides(playerShip.getSprite(), enemyVector.at(i).getSprite()))
+                {
+                    enemyVector.erase(enemyVector.begin()+i);
+                    i--;
+                }
+            }
+            enemyVector.shrink_to_fit();
+
+            for (auto i = 0; i != bulletVector.size(); ++i)
+            {
+                for (auto j = 0; j != enemyVector.size(); ++j)
+                {
+                    if (collides(bulletVector.at(i).getSprite(), enemyVector.at(j).getSprite()))
+                    {
+//                        bulletVector.erase(bulletVector.begin() + i);
+                        enemyVector.erase(enemyVector.begin() + j);
+//                        i--;
+                        j--;
+                    }
+                }
+            }
+            enemyVector.shrink_to_fit();
+            bulletVector.shrink_to_fit();
+
+
+            for (auto i = 0; i!=bulletVectorEnemy.size(); ++i)
+            {
+                if (collides(playerShip.getSprite(), bulletVectorEnemy.at(i).getSprite()))
+                {
+                    bulletVectorEnemy.erase(bulletVectorEnemy.begin()+i);
+                    i--;
+                }
+            }
 
             // Clipping of bullets outside frustum
             for (auto i = 0; i!=bulletVectorEnemy.size(); ++i)
@@ -214,21 +265,25 @@ void Game::initializeGameLoop()
 
             // ToDo: Update all movement and perform actions
 
+            playerShip.update();
+
+            for (auto &enemyShip : enemyVector)
+            {
+                enemyShip.update();
+            }
+
             for(auto &bullet : bulletVector)
             {
                 bullet.update();
                 bullet.setMove(-30);
-
-
             }
+
             for(auto &bullet : bulletVectorEnemy)
             {
                                 bullet.update();
                 bullet.setMove(30);
             }
 
-            playerShip.update();
-            enemyShip.update();
 
             //  Render
             _mainWindow.clear(black);
@@ -238,21 +293,25 @@ void Game::initializeGameLoop()
 
             //////////////////////////////////////////////////////////////////
             // Temp Enemy draw hack
-            _mainWindow.draw(enemyShip.getSprite());
+            for (auto &enemyShip : enemyVector)
+            {
+                _mainWindow.draw(enemyShip.getSprite());
+            }
 
             for(auto &bullet : bulletVector)
             {
                 _mainWindow.draw(bullet.getSprite());
             }
+
             for(auto &bullet : bulletVectorEnemy)
             {
                 _mainWindow.draw(bullet.getSprite());
             }
-
             // Temp enemy draw hack ends here
             ///////////////////////////////////////////////////////
 
             _mainWindow.draw(playerShip.getSprite());
+
             _mainWindow.display();
 
             #ifdef DEBUG
@@ -274,6 +333,17 @@ void Game::showSplashScreen()
         return;
     }
     _gameState = game::GameState::Exiting;
+}
+
+bool Game::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
+{
+    auto shrink_factor = 4.f + 0.1f;
+    float radius_1 = (sprite1.getGlobalBounds().width + sprite1.getGlobalBounds().height) / shrink_factor;
+    float radius_2 = (sprite2.getGlobalBounds().width + sprite2.getGlobalBounds().height) / shrink_factor;
+    float distance_x = sprite1.getPosition().x - sprite2.getPosition().x;
+    float distance_y = sprite1.getPosition().y - sprite2.getPosition().y;
+
+    return sqrt((distance_x * distance_x) + (distance_y * distance_y)) <= radius_1 + radius_2;
 }
 
 void Game::loadResources()

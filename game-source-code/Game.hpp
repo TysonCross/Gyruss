@@ -38,6 +38,7 @@ private:
     void initializeGameLoop();
     void showSplashScreen();
     void loadResources();
+    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
 
     TextureHolder _textures;
     SoundHolder _sounds;
