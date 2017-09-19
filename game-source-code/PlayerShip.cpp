@@ -30,7 +30,10 @@ PlayerShip::PlayerShip(const TextureHolder &textureHolder,
     _soundMove.play();
     _soundSpawn.play();
 
+    _rectArea = {0, 0, 366, 382}; // Individual sprite tile
+    _spriteOffset = _rectArea.width; // Animated sprite tileset width
     _sprite.setTexture(textureHolder.get(textures::PlayerShip));
+    _sprite.setTextureRect(_rectArea);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 
@@ -65,6 +68,12 @@ void PlayerShip::update()
 {
     if (_isMoving)
     {
+        _rectArea.left += _spriteOffset;
+        if (_rectArea.left > (3660 - 366)) // Sprite tileset width - individual tile
+        {
+            _rectArea.left = 0;
+        }
+        _sprite.setTextureRect(_rectArea);
         move();
     }
     if (_isShooting)

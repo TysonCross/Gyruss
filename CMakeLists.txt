@@ -21,6 +21,7 @@ set(SOURCE_FILES_BASE
         game-source-code/Entity.hpp
         game-source-code/Enemy.cpp
         game-source-code/Enemy.hpp
+        game-source-code/FPS.cpp
         game-source-code/FPS.hpp
         game-source-code/common.cpp
         game-source-code/common.hpp
@@ -35,13 +36,17 @@ set(SOURCE_FILES_TEST
 
 set(SOURCE_FILES
         ${SOURCE_FILES_BASE}
-        game-source-code/Main.cpp game-source-code/FPS.cpp)
+        game-source-code/Main.cpp)
 
 set(EXECUTABLE_NAME_TEST_INTERACTIVE "tests_interactive")
-add_executable(${EXECUTABLE_NAME_TEST_INTERACTIVE} ${SOURCE_FILES_TEST} test-source-code/test_Interactive.cpp)
+add_executable(${EXECUTABLE_NAME_TEST_INTERACTIVE}
+        ${SOURCE_FILES_TEST}
+        test-source-code/test_Interactive.cpp)
 
 set(EXECUTABLE_NAME_TEST "tests")
-add_executable(${EXECUTABLE_NAME_TEST} ${SOURCE_FILES_TEST} test-source-code/test_Unit.cpp)
+add_executable(${EXECUTABLE_NAME_TEST}
+        ${SOURCE_FILES_TEST}
+        test-source-code/test_Unit.cpp)
 
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})

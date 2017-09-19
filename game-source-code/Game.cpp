@@ -184,38 +184,48 @@ void Game::initializeGameLoop()
 
             // ToDo: Check Collisions
 
+            // Clipping of bullets outside frustum
+            for (auto i = 0; i!=bulletVectorEnemy.size(); ++i)
+            {
+                if(!((bulletVectorEnemy.at(i).getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
+                     && (bulletVectorEnemy.at(i).getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
+                     && (bulletVectorEnemy.at(i).getSprite().getPosition().x > (0-OVERSCAN_X))
+                     && (bulletVectorEnemy.at(i).getSprite().getPosition().y > (0-OVERSCAN_Y))))
+                {
+                    bulletVectorEnemy.erase(bulletVectorEnemy.begin() + i);
+                    i--;
+                }
+            }
+            bulletVectorEnemy.shrink_to_fit();
+
+            for (auto i = 0; i!=bulletVector.size(); ++i)
+            {
+                if(((bulletVector.at(i).getSprite().getPosition().x > (_resolution.x/2) - 10)
+                     && (bulletVector.at(i).getSprite().getPosition().y > (_resolution.y/2) - 10)
+                     && (bulletVector.at(i).getSprite().getPosition().x < (_resolution.x/2) + 10)
+                     && (bulletVector.at(i).getSprite().getPosition().y < (_resolution.y/2) + 10)))
+                {
+                    bulletVector.erase(bulletVector.begin() + i);
+                    i--;
+                }
+            }
+            bulletVector.shrink_to_fit();
+
+
             // ToDo: Update all movement and perform actions
 
             for(auto &bullet : bulletVector)
             {
-                bullet.setMove(-30);
                 bullet.update();
+                bullet.setMove(-30);
+
 
             }
             for(auto &bullet : bulletVectorEnemy)
             {
+                                bullet.update();
                 bullet.setMove(30);
-                bullet.update();
-
             }
-
-//            for (auto i =0; i < bulletVector.size(); i++)
-//            {
-//                auto bullet = bulletVector.at(i);
-//                bullet.update();
-//
-//                if((bullet.getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
-//                   && (bullet.getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
-//                   && (bullet.getSprite().getPosition().x > (0-OVERSCAN_X))
-//                   && (bullet.getSprite().getPosition().y > (0-OVERSCAN_Y)))
-//                {
-//                    bullet.update();
-//                }
-//                else {
-//                    bulletVector.erase(bulletVector.begin()+i);
-//                    i--;
-//                }
-//            }
 
             playerShip.update();
             enemyShip.update();
@@ -251,8 +261,6 @@ void Game::initializeGameLoop()
             ss << fps.getFPS();
             _mainWindow.setTitle(ss.str());
             #endif // DEBUG
-
-
         }
     }
 }
@@ -273,7 +281,7 @@ void Game::loadResources()
     //Load Textures and Sounds
     _textures.load(textures::SplashScreen,"resources/splash.png");
     _textures.load(textures::SplashControls,"resources/splash_controls.png");
-    _textures.load(textures::PlayerShip,"resources/player_ship.png");
+    _textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
     _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
     _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
     _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");

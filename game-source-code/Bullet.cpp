@@ -31,7 +31,7 @@ Bullet::Bullet(const TextureHolder &textureHolder,
     _sprite.setScale(_scale, _scale);
     _sprite.setRotation(-_angle);
     _isMoving = true;
-    setMove(_distanceFromCentre - (_distanceFromCentre*0.4)); // Spawn at Ship Gun barrel
+    setMove((_distanceFromCentre - (_distanceFromCentre*0.3))); // Spawn at Ship Gun barrel
     update();
 }
 
@@ -87,6 +87,6 @@ void Bullet::move()
     _sprite.setScale(scale * _scale,scale * _scale);
 
     // Dimming
-    auto dimColor = (scale*200) + 100;
+    auto dimColor = ((scale*200) + 55)*1.5;
     _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
 }

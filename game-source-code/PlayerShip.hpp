@@ -89,6 +89,8 @@ private:
     sf::Sound _soundSpawn;
     sf::Sound _soundShoot;
     sf::Sound _soundMove;
+    sf::IntRect _rectArea;
+    int _spriteOffset;
     common::Resolution _resolution;
     float _distanceFromCentre;
     float _angle;

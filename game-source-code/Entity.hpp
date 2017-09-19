@@ -28,7 +28,7 @@ public:
            const common::Resolution resolution,
            float distanceFromCentre,
            float angle,
-           float scale;
+           float scale){}
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the Entity around a circle or spiral
