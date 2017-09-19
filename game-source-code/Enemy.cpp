@@ -72,6 +72,14 @@ float Enemy::getDistanceFromCentre()
     return _distanceFromCentre;
 }
 
+float Enemy::getRadius()
+{
+    auto x_pos = _sprite.getPosition().x + _resolution.x/2;
+    auto y_pos = _sprite.getPosition().y + _resolution.y/2;
+
+    return sqrt((x_pos*x_pos) + (y_pos*y_pos));
+}
+
 sf::Sprite &Enemy::getSprite()
 {
     return _sprite;

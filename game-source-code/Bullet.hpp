@@ -33,6 +33,7 @@ public:
     void reset();
     void update();
     float getDistanceFromCentre();
+    float getRadius();
     sf::Sprite &getSprite();
 
 private:

@@ -66,6 +66,17 @@ float Bullet::getDistanceFromCentre()
     return _distanceFromCentre;
 }
 
+float Bullet::getRadius()
+{
+    auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
+    auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
+
+    sf::Vector2f length = mid-pos;
+
+    return sqrt((length.x * length.x) + (length.y * length.y));
+
+}
+
 sf::Sprite &Bullet::getSprite()
 {
     return _sprite;
@@ -87,6 +98,6 @@ void Bullet::move()
     _sprite.setScale(scale * _scale,scale * _scale);
 
     // Dimming
-    auto dimColor = ((scale*200) + 55)*1.5;
+    auto dimColor = (scale*200) + 55;
     _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
 }

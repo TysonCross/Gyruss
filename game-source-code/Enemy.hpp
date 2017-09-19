@@ -36,6 +36,7 @@ public:
     float getAngle();
     float getDirectionAngle();
     float getDistanceFromCentre();
+    float getRadius();
     sf::Sprite &getSprite();
 
 private:

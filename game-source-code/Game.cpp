@@ -142,7 +142,7 @@ void Game::initializeGameLoop()
             const auto OVERSCAN_X = _resolution.x * 0.1;
             const auto OVERSCAN_Y = _resolution.y * 0.1;
 
-            auto test = fmod(enemyTimer.getElapsedTime().asSeconds(),10000)/2 > 0.01;
+            auto test = fmod(enemyTimer.getElapsedTime().asSeconds(),5000000)/5 > 0.01;
             if (!test)
             {
                 Enemy enemy(_textures,
@@ -155,10 +155,7 @@ void Game::initializeGameLoop()
 
             for (auto &enemyShip : enemyVector)
             {
-                if ((enemyShip.getSprite().getPosition().x < _resolution.x + OVERSCAN_X)
-                    && (enemyShip.getSprite().getPosition().y < _resolution.y + OVERSCAN_Y)
-                    && (enemyShip.getSprite().getPosition().x > 0 - OVERSCAN_X)
-                    && (enemyShip.getSprite().getPosition().y > 0 - OVERSCAN_Y))
+                if (enemyShip.getRadius() > _resolution.y / 2.f)
                 {
                     i++;
                     auto random_angle = rand() % 3 + 2;
@@ -234,14 +231,14 @@ void Game::initializeGameLoop()
                     i--;
                 }
             }
+            bulletVectorEnemy.shrink_to_fit();
+
 
             // Clipping of bullets outside frustum
             for (auto i = 0; i!=bulletVectorEnemy.size(); ++i)
+
             {
-                if(!((bulletVectorEnemy.at(i).getSprite().getPosition().x < _resolution.x+OVERSCAN_X)
-                     && (bulletVectorEnemy.at(i).getSprite().getPosition().y < _resolution.y+OVERSCAN_Y)
-                     && (bulletVectorEnemy.at(i).getSprite().getPosition().x > (0-OVERSCAN_X))
-                     && (bulletVectorEnemy.at(i).getSprite().getPosition().y > (0-OVERSCAN_Y))))
+                if (bulletVectorEnemy.at(i).getRadius() > _resolution.y / 2.f)
                 {
                     bulletVectorEnemy.erase(bulletVectorEnemy.begin() + i);
                     i--;
@@ -337,7 +334,7 @@ void Game::showSplashScreen()
 
 bool Game::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
 {
-    auto shrink_factor = 4.f + 0.1f;
+    auto shrink_factor = 4.f + 0.2f;
     float radius_1 = (sprite1.getGlobalBounds().width + sprite1.getGlobalBounds().height) / shrink_factor;
     float radius_2 = (sprite2.getGlobalBounds().width + sprite2.getGlobalBounds().height) / shrink_factor;
     float distance_x = sprite1.getPosition().x - sprite2.getPosition().x;
