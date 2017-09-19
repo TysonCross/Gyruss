@@ -7,25 +7,26 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Enemy.hpp"
-#include <iostream>
 
-Enemy::Enemy(const TextureHolder &textureHolder,
+Enemy::Enemy(const sf::Vector2i &resolution,
+             float distanceFromCentre,
+             float angle,
+             float scale,
+             const TextureHolder &textureHolder,
              const SoundHolder &soundHolder,
-             const common::Resolution resolution,
-             float distanceFromCentre = 0,
-             float angle = 0,
-             float scale = 1,
-             textures::ID id = textures::EnemyShipGrey ) :  _resolution(resolution),
-                                                            _id(id),
-                                                            _distanceFromCentre(distanceFromCentre),
-                                                            _angle(angle),
-                                                            _scale(scale)
+             textures::ID id) : Entity{resolution,
+                                       distanceFromCentre,
+                                       angle,
+                                       scale,
+                                       textureHolder}
 {
+    _id = id;
+    _lives = 1;
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-
     _soundShoot.setBuffer(soundHolder.get(sounds::EnemyShoot));
+    _isShooting = false;
     setMove(0,0); //Initialised position at centre of screen
 }
 
@@ -36,16 +37,6 @@ void Enemy::setMove(float angle, float distance)
     _futureMoveValue = distance;
 }
 
-void Enemy::setShoot()
-{
-    _isShooting = true;
-}
-
-bool Enemy::isShooting()
-{
-    return _isShooting;
-}
-
 void Enemy::reset()
 {
     _angle = 0;
@@ -53,6 +44,7 @@ void Enemy::reset()
     _distanceFromCentre = 0;
     _sprite.setScale(0,0);
     _sprite.setPosition(_resolution.x/2,_resolution.y/2);
+    _isShooting = false;
 }
 
 void Enemy::update()
@@ -67,12 +59,7 @@ void Enemy::update()
     }
 }
 
-float Enemy::getDistanceFromCentre()
-{
-    return _distanceFromCentre;
-}
-
-float Enemy::getRadius()
+const float Enemy::getRadius()
 {
     auto x_pos = _sprite.getPosition().x + _resolution.x/2;
     auto y_pos = _sprite.getPosition().y + _resolution.y/2;
@@ -80,9 +67,38 @@ float Enemy::getRadius()
     return sqrt((x_pos*x_pos) + (y_pos*y_pos));
 }
 
+const float Enemy::getDistanceFromCentre()
+{
+    return _distanceFromCentre;
+}
+
 sf::Sprite &Enemy::getSprite()
 {
     return _sprite;
+}
+
+const void Enemy::die()
+{
+    _lives--;
+    if (_lives==0)
+    {
+        reset();
+    }
+}
+
+int Enemy::getLives()
+{
+    return _lives;
+}
+
+void Enemy::setShoot()
+{
+    _isShooting = true;
+}
+
+bool Enemy::isShooting()
+{
+    return _isShooting;
 }
 
 float Enemy::getAngle()
@@ -99,6 +115,7 @@ void Enemy::shoot()
 {
     _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
     _soundShoot.play();
+    _isShooting = false;
 }
 
 void Enemy::move()

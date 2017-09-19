@@ -14,11 +14,13 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <map>
-#include <sstream> // Todo : Remove me!
-#include <iostream> // Todo : Remove me!
+#ifdef DEBUG
+#include <sstream>
+#include <iostream>
+#endif // DEBUG
 #include <SFML/Graphics.hpp>
 #include "common.hpp"
+#include "Entity.hpp"
 #include "PlayerShip.hpp"
 #include "Bullet.hpp"
 #include "ResourceHolder.hpp"
@@ -46,8 +48,7 @@ private:
     InputHandler _inputHandler;
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;
-    std::map<int, bool> _keysPressed;
-    common::Resolution _resolution;
+    sf::Vector2i _resolution;
 };
 
 #endif //PROJECT_GAME_HPP

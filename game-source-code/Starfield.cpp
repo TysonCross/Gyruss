@@ -13,7 +13,7 @@
 #include "Starfield.hpp"
 
 StarField::StarField(
-                     common::Resolution resolution,
+                     const sf::Vector2i resolution,
                      const int max_depth,
                      const int number_of_stars,
                      float max_size) : _width(resolution.x),

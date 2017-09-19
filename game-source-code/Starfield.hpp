@@ -37,8 +37,7 @@
 class StarField
 {
 public:
-    StarField(
-              common::Resolution resolution,
+    StarField(const sf::Vector2i resolution,
               const int max_depth,
               const int number_of_stars,
               float max_size = 6.0f);
@@ -74,7 +73,6 @@ private:
     ////////////////////////////////////////////////////////////
     std::vector<common::position> _starField;
     sf::CircleShape _star_shape;
-    //sf::RectangleShape _star_shape;
     const unsigned int _width;
     const unsigned int _height;
     const int _max_depth;

@@ -11,21 +11,22 @@
 
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(const TextureHolder &textureHolder,
-                       const SoundHolder &soundHolder,
-                       const common::Resolution resolution,
+PlayerShip::PlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
-                       float angle = 0,
-                       float scale = 1) : _distanceFromCentre(distanceFromCentre),
-                                          _angle(angle),
-                                          _scale(scale),
-                                          _resolution(resolution),
-                                          _isShooting(false),
-                                          _isMoving(false)
+                       float angle,
+                       float scale,
+                       const TextureHolder &textureHolder,
+                       const SoundHolder &soundHolder) : Entity{resolution,
+                                                                distanceFromCentre,
+                                                                angle,
+                                                                scale,
+                                                                textureHolder}
 {
+    _lives = 3;
     _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
     _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
     _soundMove.setBuffer(soundHolder.get(sounds::PlayerMove));
+    _soundDeath.setBuffer(soundHolder.get(sounds::PlayerDeath));
     _soundMove.setLoop(1);
     _soundMove.play();
     _soundSpawn.play();
@@ -37,6 +38,8 @@ PlayerShip::PlayerShip(const TextureHolder &textureHolder,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 
+    _isShooting = false;
+    _isMoving = false;
     reset(); //Initialised position at bottom of play area, not screen origin top-left
 }
 
@@ -46,22 +49,14 @@ void PlayerShip::setMove(float angle)
     _futureAngleValue = angle;
 }
 
-void PlayerShip::setShoot()
-{
-    _isShooting = true;
-}
-
-bool PlayerShip::isShooting()
-{
-    return _isShooting;
-}
-
 void PlayerShip::reset()
 {
+    _angle = 0;
     _futureAngleValue = 0;
-    _isMoving = false;
     _isShooting = false;
-    update();
+    _isMoving = false;
+//    move();
+    setMove(0);
 }
 
 void PlayerShip::update()
@@ -85,15 +80,41 @@ void PlayerShip::update()
     _isShooting = false;
 }
 
+const float PlayerShip::getRadius()
+{
+    return getDistanceFromCentre();
+}
+
+const float PlayerShip::getDistanceFromCentre()
+{
+    return _distanceFromCentre - _sprite.getOrigin().y;
+}
+
 sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
 }
 
-
-float PlayerShip::getDistanceFromCentre()
+const void PlayerShip::die()
 {
-    return _distanceFromCentre - _sprite.getOrigin().y;
+    _soundDeath.play();
+    _lives--;
+    reset();
+}
+
+int PlayerShip::getLives()
+{
+    return _lives;
+}
+
+void PlayerShip::setShoot()
+{
+    _isShooting = true;
+}
+
+bool PlayerShip::isShooting()
+{
+    return _isShooting;
 }
 
 float PlayerShip::getAngle()

@@ -14,7 +14,7 @@ int SplashScreen::show(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
                        const SoundHolder &soundHolder,
                        const FontHolder &fontHolder,
-                       common::Resolution resolution)
+                       const sf::Vector2i resolution)
 {
     //Get the Splashscreen image
     sf::Sprite splash(textureHolder.get(textures::SplashScreen));

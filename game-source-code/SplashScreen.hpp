@@ -40,7 +40,7 @@ public:
              const TextureHolder &textureHolder,
              const SoundHolder &soundHolder,
              const FontHolder &fontHolder,
-             common::Resolution);
+             const sf::Vector2i);
 private:
     ////////////////////////////////////////////////////////////
 /// \brief Loops through fading in and out a text object
