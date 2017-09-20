@@ -81,7 +81,7 @@ sf::Sprite& Bullet::getSprite()
     return _sprite;
 }
 
-sf::Vector2f Bullet::getScale()
+const sf::Vector2f Bullet::getScale()
 {
     return _sprite.getScale();
 }

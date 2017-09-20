@@ -40,7 +40,7 @@ public:
     virtual void update()=0;
     virtual const float getRadius()=0;
     virtual const float getDistanceFromCentre()=0;
-    virtual sf::Vector2f getScale()=0;
+    virtual const sf::Vector2f getScale()=0;
     virtual sf::Sprite &getSprite()=0;
     virtual const void die()=0;
     virtual int getLives()=0;

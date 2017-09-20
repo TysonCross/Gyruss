@@ -83,7 +83,7 @@ sf::Sprite& Explosion::getSprite()
     return _sprite;
 }
 
-sf::Vector2f Explosion::getScale()
+const sf::Vector2f Explosion::getScale()
 {
     return _sprite.getScale();
 }

@@ -13,8 +13,7 @@
 
 void InputHandler::pollInput(game::GameState &gameState,
                              PlayerShip &playerShip,
-                             const sf::Event &event,
-                             bool &previousButtonState)
+                             const sf::Event &event)
 {
     if (event.type == sf::Event::Closed)
     {
@@ -40,10 +39,10 @@ void InputHandler::pollInput(game::GameState &gameState,
             _isMovingRight = true;
         }
         if (event.key.code == sf::Keyboard::Space)
-            if (previousButtonState == 0)
+            if (_previousButtonState == 0)
             {
                 playerShip.setShoot();
-                previousButtonState = 1;
+                _previousButtonState = 1;
             }
     }
 
@@ -59,7 +58,7 @@ void InputHandler::pollInput(game::GameState &gameState,
         }
         if (event.key.code == sf::Keyboard::Space)
         {
-            previousButtonState = 0;
+            _previousButtonState = 0;
         }
     }
 }
@@ -86,4 +85,5 @@ void InputHandler::reset()
 {
     _isMovingLeft = false;
     _isMovingRight = false;
+    _previousButtonState = false;
 }

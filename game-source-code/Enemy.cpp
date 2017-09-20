@@ -77,7 +77,7 @@ sf::Sprite &Enemy::getSprite()
     return _sprite;
 }
 
-sf::Vector2f Enemy::getScale()
+const sf::Vector2f Enemy::getScale()
 {
     return _sprite.getScale();
 }

@@ -34,7 +34,7 @@ int GameOverScreen::show(sf::RenderWindow &renderWindow,
     title.setPosition(titleWidth, titleHeight);
 
     // Info Text
-    sf::Text info("Press space to restart", fontHolder.get(fonts::Info), 42);
+    sf::Text info("Press enter to restart", fontHolder.get(fonts::Info), 42);
     info.setFillColor(sf::Color::White);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
     auto infoWidth = resolution.x/2;;
@@ -70,7 +70,7 @@ int GameOverScreen::show(sf::RenderWindow &renderWindow,
             }
             if (event.type == sf::Event::KeyPressed)
             {
-                if (event.key.code == sf::Keyboard::Space)
+                if (event.key.code == sf::Keyboard::Return)
                 {
                     return 0; //continue
                 }

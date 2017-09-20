@@ -27,8 +27,7 @@ class InputHandler
 public:
     void pollInput(game::GameState &gameState,
                    PlayerShip &playerShip,
-                   const sf::Event &event,
-                   bool &previousButtonState);
+                   const sf::Event &event);
 
     void update(PlayerShip& playerShip, float deltaTime);
     void reset();
@@ -36,6 +35,7 @@ public:
 private:
     bool _isMovingLeft;
     bool _isMovingRight;
+    bool _previousButtonState = false; // True is pressed
 };
 
 #endif //PROJECT_INPUTHANDLER_HPP
