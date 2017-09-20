@@ -59,6 +59,8 @@ void Game::initializeGameLoop()
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
 
+    _inputHandler.reset();
+
 #ifdef DEBUG
     FPS fps;
 #endif // DEBUG
@@ -429,7 +431,7 @@ void Game::initializeGameLoop()
             _mainWindow.setTitle(ss.str());
 #endif // DEBUG
 
-            if (playerShip.getLives() == 0)
+            if (playerShip.getLives() <= 0)
             {
                 _gameState = game::GameState::GameOver;
             }

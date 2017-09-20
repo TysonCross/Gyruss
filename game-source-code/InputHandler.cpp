@@ -81,3 +81,9 @@ void InputHandler::update(PlayerShip &playerShip, float deltaTime)
 
     playerShip.setMove(move * deltaTime);
 }
+
+void InputHandler::reset()
+{
+    _isMovingLeft = false;
+    _isMovingRight = false;
+}

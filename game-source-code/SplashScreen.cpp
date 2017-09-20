@@ -40,7 +40,7 @@ int SplashScreen::show(sf::RenderWindow &renderWindow,
     version.setPosition(12,12);
 
     // Info Text
-    sf::Text info("Press any key to start", fontHolder.get(fonts::Info), 42);
+    sf::Text info("Press spacebar to start", fontHolder.get(fonts::Info), 42);
     sf::Color Purple = {179,74,186};
     info.setFillColor(Purple);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
@@ -74,24 +74,25 @@ int SplashScreen::show(sf::RenderWindow &renderWindow,
 
         while (renderWindow.pollEvent(event))
         {
-            if (event.type == sf::Event::KeyPressed ||
-                event.type == sf::Event::MouseButtonPressed)
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)
+                && (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
+                    || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl)))
             {
-                return 0; //continue
+                return 1; //send close program
             }
             if (event.type == sf::Event::Closed)
             {
                 return 1; //send close program
             }
+            if (event.type == sf::Event::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Space)
+                {
+                    return 0; //continue
+                }
+            }
+
         }
     }
 }
 
-
-void SplashScreen::fadeTextInAndOut(sf::Text &text, sf::Color color, int frequency, sf::Clock& clock)
-{
-    float change = float(clock.getElapsedTime().asSeconds());
-    change = common::radToDegree(common::angleFilter(change));
-    auto i = fabs(sin(change*1/frequency));
-    text.setFillColor(sf::Color(i*color.r,i*color.g,i*color.b));
-}

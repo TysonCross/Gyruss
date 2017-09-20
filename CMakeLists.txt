@@ -29,6 +29,7 @@ set(SOURCE_FILES_BASE
         game-source-code/common.hpp
         game-source-code/FPS.cpp
         game-source-code/FPS.hpp
+        game-source-code/InfoScreen.cpp
         game-source-code/InfoScreen.hpp
         game-source-code/SplashScreen.hpp
         game-source-code/SplashScreen.cpp

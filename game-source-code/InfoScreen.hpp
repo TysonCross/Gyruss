@@ -50,12 +50,11 @@ protected:
 ///
 /// \see sf:Text
 /// \see sf::Color
-///
 ////////////////////////////////////////////////////////////
     virtual void fadeTextInAndOut(sf::Text &text,
                           sf::Color color,
                           int frequency,
-                          sf::Clock &clock) {};
+                          sf::Clock &clock);
 
 };
 

@@ -31,7 +31,7 @@ public:
                    bool &previousButtonState);
 
     void update(PlayerShip& playerShip, float deltaTime);
-
+    void reset();
 
 private:
     bool _isMovingLeft;

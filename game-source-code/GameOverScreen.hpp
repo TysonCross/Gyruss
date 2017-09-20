@@ -23,18 +23,11 @@ class GameOverScreen : public InfoScreen
 {
 public:
 
-
     int show(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const SoundHolder &soundHolder,
              const FontHolder &fontHolder,
              const sf::Vector2i) override;
-private:
-
-    void fadeTextInAndOut(sf::Text &text,
-                          sf::Color color,
-                          int frequency,
-                          sf::Clock& clock) override;
 };
 
 #endif //PROJECT_GAMEOVERSCREEN_HPP
