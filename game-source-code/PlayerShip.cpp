@@ -87,7 +87,7 @@ const float PlayerShip::getRadius()
 
 const float PlayerShip::getDistanceFromCentre()
 {
-    return _distanceFromCentre - _sprite.getOrigin().y;
+    return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
 sf::Sprite &PlayerShip::getSprite()

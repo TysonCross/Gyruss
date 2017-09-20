@@ -88,9 +88,11 @@ void Game::initializeGameLoop()
     //Set the player circle radius
     auto shipPathRadiusPadding = 0.05f;
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
+    const auto shipScale = 0.28;
     PlayerShip playerShip(_resolution,
                           shipPathRadius,
-                          0, 0.35,
+                          0,
+                          shipScale,
                           _textures,
                           _sounds);
 
@@ -138,7 +140,8 @@ void Game::initializeGameLoop()
             {
                 auto bullet = std::make_unique<Bullet>(_resolution,
                                                        playerShip.getDistanceFromCentre(),
-                                                       playerShip.getAngle(), 0.5,
+                                                       playerShip.getAngle(),
+                                                       0.5,
                                                        _textures,
                                                        textures::BulletPlayer);
                 bulletPlayerVector.push_back(std::move(bullet));
@@ -191,12 +194,14 @@ void Game::initializeGameLoop()
                 {
                     enemyShip->reset();
                 }
+
                 if (shootTimer.getElapsedTime().asMilliseconds() > (rand() % 2000 + 100))
                 {
                     shootTimer.restart();
                     auto bullet_enemy = std::make_unique<Bullet>(_resolution,
                                                                  enemyShip->getDistanceFromCentre(),
-                                                                 enemyShip->getAngle(), 0.5,
+                                                                 enemyShip->getAngle(),
+                                                                 0.5,
                                                                  _textures,
                                                                  textures::BulletEnemy);
 
@@ -218,7 +223,7 @@ void Game::initializeGameLoop()
                     auto explosion = std::make_unique<Explosion>(_resolution,
                                                                  playerShip.getDistanceFromCentre(),
                                                                  playerShip.getAngle(),
-                                                                 (*enemy)->getScale().x,
+                                                                 (*enemy)->getScale().x * 2,
                                                                  _textures,
                                                                  _sounds,
                                                                  textures::Explosion);
@@ -242,7 +247,7 @@ void Game::initializeGameLoop()
                         auto explosion = std::make_unique<Explosion>(_resolution,
                                                                      (*enemy)->getDistanceFromCentre(),
                                                                      (*enemy)->getAngle(),
-                                                                     (*enemy)->getScale().x,
+                                                                     (*enemy)->getScale().x * 2,
                                                                      _textures,
                                                                      _sounds,
                                                                      textures::Explosion);
@@ -263,7 +268,7 @@ void Game::initializeGameLoop()
                     auto explosion = std::make_unique<Explosion>(_resolution,
                                                                  (*enemy)->getDistanceFromCentre(),
                                                                  (*enemy)->getAngle(),
-                                                                 (*enemy)->getScale().x,
+                                                                 (*enemy)->getScale().x * 2,
                                                                  _textures,
                                                                  _sounds,
                                                                  textures::Explosion);
@@ -282,7 +287,7 @@ void Game::initializeGameLoop()
                     auto explosion = std::make_unique<Explosion>(_resolution,
                                                                  playerShip.getDistanceFromCentre(),
                                                                  playerShip.getAngle(),
-                                                                 playerShip.getScale().x,
+                                                                 playerShip.getScale().x * 2,
                                                                  _textures,
                                                                  _sounds,
                                                                  textures::Explosion);

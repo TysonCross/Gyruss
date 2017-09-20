@@ -31,7 +31,8 @@ Bullet::Bullet(const sf::Vector2i resolution,
     _sprite.setScale(_scale, _scale);
     _sprite.setRotation(-_angle);
     _isMoving = true;
-    setMove((_distanceFromCentre - (_distanceFromCentre*0.5))); // Spawn at Ship Gun barrel
+//    setMove((_distanceFromCentre - (_distanceFromCentre*0.5))); // Spawn at Ship Gun barrel
+    setMove(0); // Spawn at Ship Gun barrel
     update();
 }
 
@@ -72,7 +73,7 @@ const float Bullet::getRadius()
 
 const float Bullet::getDistanceFromCentre()
 {
-    return _distanceFromCentre;
+    return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
 sf::Sprite& Bullet::getSprite()

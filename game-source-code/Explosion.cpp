@@ -33,7 +33,7 @@ Explosion::Explosion(const sf::Vector2i resolution,
     _sprite.setScale(_scale, _scale);
     _sprite.setRotation(-_angle);
     _isMoving = true;
-    setMove(_angle,_distanceFromCentre); // Spawn on object
+    setMove(_angle,0); // Spawn on object
     move();
     update();
 }

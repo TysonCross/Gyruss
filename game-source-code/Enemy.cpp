@@ -69,7 +69,7 @@ const float Enemy::getRadius()
 
 const float Enemy::getDistanceFromCentre()
 {
-    return _distanceFromCentre;
+    return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
 sf::Sprite &Enemy::getSprite()
