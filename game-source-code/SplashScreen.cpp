@@ -16,6 +16,10 @@ int SplashScreen::show(sf::RenderWindow &renderWindow,
                        const FontHolder &fontHolder,
                        const sf::Vector2i resolution)
 {
+    sf::Sound splashSound;
+    splashSound.setBuffer(soundHolder.get(sounds::StartSound));
+    splashSound.play();
+
     //Get the Splashscreen image
     sf::Sprite splash(textureHolder.get(textures::SplashScreen));
     auto scaleFactor = resolution.x/splash.getGlobalBounds().width;
@@ -90,4 +94,4 @@ void SplashScreen::fadeTextInAndOut(sf::Text &text, sf::Color color, int frequen
     change = common::radToDegree(common::angleFilter(change));
     auto i = fabs(sin(change*1/frequency));
     text.setFillColor(sf::Color(i*color.r,i*color.g,i*color.b));
-    }
+}

@@ -52,10 +52,12 @@ namespace textures
     {
         testTexture,
         SplashScreen,
+        GameOverScreen,
         SplashControls,
         PlayerShip,
         BulletPlayer,
         BulletEnemy,
+        Explosion,
         EnemyShipGrey,
         EnemyShipPurple,
 //        EnemyShipGenerator,
@@ -73,10 +75,12 @@ namespace sounds
         testSound,
         StartSound,
         SpawnSound,
+        GameOverSound,
         PlayerMove,
         PlayerShoot,
         EnemyShoot,
         PlayerDeath,
+        Explosion,
     };
 }
 

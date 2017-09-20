@@ -26,6 +26,8 @@
 #include "ResourceHolder.hpp"
 #include "InputHandler.hpp"
 #include "SplashScreen.hpp"
+#include "GameOverScreen.hpp"
+#include "Explosion.hpp"
 #include "Starfield.hpp"
 #include "Enemy.hpp"
 #include "FPS.hpp"
@@ -39,6 +41,7 @@ public:
 private:
     void initializeGameLoop();
     void showSplashScreen();
+    void showGameOverScreen();
     void loadResources();
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
 

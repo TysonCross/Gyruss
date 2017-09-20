@@ -65,6 +65,8 @@ public:
     ////////////////////////////////////////////////////////////
     sf::Sprite &getSprite() override;
 
+    sf::Vector2f getScale() override;
+
     const void die() override;
 
     int getLives() override;

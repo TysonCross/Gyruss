@@ -34,6 +34,7 @@ public:
     const float getRadius() override;
     const float getDistanceFromCentre() override;
     sf::Sprite &getSprite() override;
+    sf::Vector2f getScale() override;
     const void die() override;
     int getLives() override;
 

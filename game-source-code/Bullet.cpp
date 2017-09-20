@@ -80,6 +80,11 @@ sf::Sprite& Bullet::getSprite()
     return _sprite;
 }
 
+sf::Vector2f Bullet::getScale()
+{
+    return _sprite.getScale();
+}
+
 const void Bullet::die()
 {
     _lives--;

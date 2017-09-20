@@ -36,6 +36,7 @@ void Game::Start()
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
+
     while (_gameState != game::GameState::Exiting)
     {
         initializeGameLoop();
@@ -61,17 +62,16 @@ void Game::initializeGameLoop()
 #ifdef DEBUG
     FPS fps;
 #endif // DEBUG
-
-    const sf::Color black(sf::Color::Black);
-    sf::Sound sound(_sounds.get(sounds::StartSound));
-    sound.play();
+    auto shaking = 0;
+    auto pos = _mainWindow.getPosition();
+    _mainWindow.clear(sf::Color::Black);
 
     //First Game State
     if (_gameState == game::GameState::Splash)
         showSplashScreen();
 
     if (_gameState == game::GameState::GameOver)
-        showSplashScreen();
+        showGameOverScreen();
     ///-------------------------------------------
     ///  Game Playing starts
     ///-------------------------------------------
@@ -99,6 +99,7 @@ void Game::initializeGameLoop()
     std::vector<std::unique_ptr<Enemy>> enemyVector;
     std::vector<std::unique_ptr<Bullet>> bulletPlayerVector;
     std::vector<std::unique_ptr<Bullet>> bulletEnemyVector;
+    std::vector<std::unique_ptr<Explosion>> explosionVector;
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -149,7 +150,7 @@ void Game::initializeGameLoop()
             const auto OVERSCAN_X = _resolution.x * 0.1;
             const auto OVERSCAN_Y = _resolution.y * 0.1;
 
-            if (enemyTimer.getElapsedTime().asSeconds() > (rand()%4 + 2))
+            if (enemyTimer.getElapsedTime().asSeconds() > (rand()%3 + 2))
             {
                 enemyTimer.restart();
                 auto enemy = std::make_unique<Enemy>(_resolution,
@@ -160,7 +161,7 @@ void Game::initializeGameLoop()
                 enemyVector.push_back(std::move(enemy));
             }
 
-            if (enemyTimer2.getElapsedTime().asSeconds() > (rand()%3 + 3))
+            if (enemyTimer2.getElapsedTime().asSeconds() > (rand()%4 + 3))
             {
                 enemyTimer2.restart();
                 auto enemy = std::make_unique<Enemy>(_resolution,
@@ -214,7 +215,17 @@ void Game::initializeGameLoop()
             {
                 if (collides(playerShip.getSprite(), (*enemy)->getSprite()))
                 {
+                    auto explosion = std::make_unique<Explosion>(_resolution,
+                                                                 playerShip.getDistanceFromCentre(),
+                                                                 playerShip.getAngle(),
+                                                                 (*enemy)->getScale().x,
+                                                                 _textures,
+                                                                 _sounds,
+                                                                 textures::Explosion);
+                    explosionVector.push_back(std::move(explosion));
                     playerShip.die();
+
+                    shaking = 1;
                     enemy = enemyVector.erase(enemy);
                 } else
                 {
@@ -228,6 +239,14 @@ void Game::initializeGameLoop()
                 {
                     if (collides((*bullet)->getSprite(), (*enemy)->getSprite()))
                     {
+                        auto explosion = std::make_unique<Explosion>(_resolution,
+                                                                     (*enemy)->getDistanceFromCentre(),
+                                                                     (*enemy)->getAngle(),
+                                                                     (*enemy)->getScale().x,
+                                                                     _textures,
+                                                                     _sounds,
+                                                                     textures::Explosion);
+                        explosionVector.push_back(std::move(explosion));
                         bullet = bulletPlayerVector.erase(bullet);
                         (*enemy)->die();
                     } else
@@ -241,6 +260,14 @@ void Game::initializeGameLoop()
             {
                 if ((*enemy)->getLives()==0)
                 {
+                    auto explosion = std::make_unique<Explosion>(_resolution,
+                                                                 (*enemy)->getDistanceFromCentre(),
+                                                                 (*enemy)->getAngle(),
+                                                                 (*enemy)->getScale().x,
+                                                                 _textures,
+                                                                 _sounds,
+                                                                 textures::Explosion);
+                    explosionVector.push_back(std::move(explosion));
                     enemy = enemyVector.erase(enemy);
                 } else
                 {
@@ -252,11 +279,31 @@ void Game::initializeGameLoop()
             {
                 if (collides(playerShip.getSprite(), (*bullet)->getSprite()))
                 {
+                    auto explosion = std::make_unique<Explosion>(_resolution,
+                                                                 playerShip.getDistanceFromCentre(),
+                                                                 playerShip.getAngle(),
+                                                                 playerShip.getScale().x,
+                                                                 _textures,
+                                                                 _sounds,
+                                                                 textures::Explosion);
                     playerShip.die();
+                    shaking = 1;
                     bullet = bulletEnemyVector.erase(bullet);
                 } else
                 {
                     ++bullet;
+                }
+            }
+
+            for (auto explosion = explosionVector.begin(); explosion != explosionVector.end();)
+
+            {
+                if ((*explosion)->getLives() == 0)
+                {
+                    explosion = explosionVector.erase(explosion);
+                } else
+                {
+                    ++explosion;
                 }
             }
 
@@ -308,9 +355,14 @@ void Game::initializeGameLoop()
                 bullet->setMove(30);
             }
 
+            for(auto &explosion : explosionVector)
+            {
+                explosion->update();
+            }
+
 
             //  Render
-            _mainWindow.clear(black);
+            _mainWindow.clear(sf::Color::Black);
             // /ToDo: Draw all the visible objects
             for (const auto &element : starField.getStarField())
                 starField.moveAndDrawStars(_mainWindow);
@@ -331,11 +383,38 @@ void Game::initializeGameLoop()
             {
                 _mainWindow.draw(bullet->getSprite());
             }
+
+            for(auto &explosion : explosionVector)
+            {
+                _mainWindow.draw(explosion->getSprite());
+            }
+            // Temp enemy draw hack ends here
             // Temp enemy draw hack ends here
             ///////////////////////////////////////////////////////
 
             _mainWindow.draw(playerShip.getSprite());
 
+
+            while (shaking > 0)
+            {
+                sf::Event event;
+                while (_mainWindow.pollEvent(event))
+                {
+                    if (event.type == sf::Event::Closed) _mainWindow.close();
+                }
+
+                if (shaking > 0)
+                {
+                    auto pos_temp = pos;
+                    _mainWindow.setPosition(sf::Vector2i(pos_temp.x + rand() % 25, pos_temp.y + rand() % 25));
+
+                    if (++shaking == 5)
+                        shaking = 0;
+                }
+                _mainWindow.display();
+            }
+
+            _mainWindow.setPosition(pos);
             _mainWindow.display();
 
 #ifdef DEBUG
@@ -364,6 +443,17 @@ void Game::showSplashScreen()
     _gameState = game::GameState::Exiting;
 }
 
+void Game::showGameOverScreen()
+{
+    GameOverScreen gameOverScreen;
+    if (gameOverScreen.show(_mainWindow,_textures,_sounds, _fonts, _resolution) == 0)
+    {
+        _gameState = game::GameState::Splash;
+        return;
+    }
+    _gameState = game::GameState::Exiting;
+}
+
 bool Game::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
 {
     auto shrink_factor = 4.f + 0.2f;
@@ -379,23 +469,26 @@ void Game::loadResources()
 {
     //Load Textures and Sounds
     _textures.load(textures::SplashScreen,"resources/splash.png");
+    _textures.load(textures::GameOverScreen,"resources/gameover.png");
     _textures.load(textures::SplashControls,"resources/splash_controls.png");
     _textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
     _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
     _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
     _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
     _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
+    _textures.load(textures::Explosion,"resources/explosion.png");
 //    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
 //    _textures.load(textures::Meteoroid,"resource/meteoroid.png");
 //    _textures.load(textures::Satellite,"resource/satellite.png");
 
     _sounds.load(sounds::StartSound,"resources/startup.ogg");
     _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
+    _sounds.load(sounds::GameOverSound,"resources/gameover.ogg");
     _sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
     _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
     _sounds.load(sounds::EnemyShoot,"resources/shoot_phaser.ogg");
     _sounds.load(sounds::PlayerDeath,"resources/player_death.ogg");
-
+    _sounds.load(sounds::Explosion,"resources/player_death.ogg");
     _fonts.load(fonts::Title,"resources/danube.ttf");
     _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
 }

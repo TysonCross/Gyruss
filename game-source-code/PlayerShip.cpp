@@ -95,6 +95,11 @@ sf::Sprite &PlayerShip::getSprite()
     return _sprite;
 }
 
+sf::Vector2f PlayerShip::getScale()
+{
+    return _sprite.getScale();
+}
+
 const void PlayerShip::die()
 {
     _soundDeath.play();

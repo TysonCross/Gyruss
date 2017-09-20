@@ -14,15 +14,15 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "SFML/Graphics.hpp"
-#include "ResourceHolder.hpp"
+
+#include "InfoScreen.hpp"
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
 /// the game, titles, controls and version information
 ///
 ////////////////////////////////////////////////////////////
-class SplashScreen
+class SplashScreen : public InfoScreen
 {
 public:
 
@@ -40,7 +40,7 @@ public:
              const TextureHolder &textureHolder,
              const SoundHolder &soundHolder,
              const FontHolder &fontHolder,
-             const sf::Vector2i);
+             const sf::Vector2i) override;
 private:
     ////////////////////////////////////////////////////////////
 /// \brief Loops through fading in and out a text object
@@ -58,7 +58,7 @@ private:
     void fadeTextInAndOut(sf::Text &text,
                           sf::Color color,
                           int frequency,
-                          sf::Clock& clock);
+                          sf::Clock& clock) override;
 };
 
 #endif //PROJECT_SPLASHSCREEN_H

@@ -77,6 +77,12 @@ sf::Sprite &Enemy::getSprite()
     return _sprite;
 }
 
+sf::Vector2f Enemy::getScale()
+{
+    return _sprite.getScale();
+}
+
+
 const void Enemy::die()
 {
     _lives--;
