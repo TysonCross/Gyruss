@@ -96,7 +96,6 @@ void Game::initializeGameLoop()
                                 shipScale,
                                 _textures);
 
-
     EntityController entityController(_resolution,
                                       playerShip,
                                       _textures);
@@ -131,10 +130,10 @@ void Game::initializeGameLoop()
 
             _inputHandler.update(playerShip, timeStep);
             entityController.spawnEnemies();
-            entityController.shoot(playerShip);
+            entityController.shoot();
             entityController.setMove();
             entityController.checkClipping();
-            if (entityController.checkCollisions(playerShip))
+            if (entityController.checkCollisions())
             {
                 playerShip.die();
                 _soundController.playSound(sounds::PlayerDeath);
@@ -165,8 +164,8 @@ void Game::initializeGameLoop()
             ///-------------------------------------------
             /// Update() all entities
             ///-------------------------------------------
-            entityController.update();
             playerShip.update();
+            entityController.update();
 
 
 #ifdef DEBUG

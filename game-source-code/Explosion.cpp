@@ -82,7 +82,7 @@ const sf::Vector2f Explosion::getPosition()
     return _sprite.getPosition();
 }
 
-sf::Sprite& Explosion::getSprite()
+const sf::Sprite& Explosion::getSprite()
 {
     return _sprite;
 }
@@ -101,7 +101,7 @@ const void Explosion::die()
     }
 }
 
-int Explosion::getLives()
+const int Explosion::getLives()
 {
     return _lives;
 }

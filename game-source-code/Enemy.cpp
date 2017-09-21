@@ -76,7 +76,7 @@ const sf::Vector2f Enemy::getPosition()
     return _sprite.getPosition();
 }
 
-sf::Sprite &Enemy::getSprite()
+const sf::Sprite &Enemy::getSprite()
 {
     return _sprite;
 }
@@ -96,7 +96,7 @@ const void Enemy::die()
     }
 }
 
-int Enemy::getLives()
+const int Enemy::getLives()
 {
     return _lives;
 }

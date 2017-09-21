@@ -9,77 +9,90 @@
 #include "EntityController.hpp"
 #ifdef DEBUG
 #include <iostream>
+#include <tic.h>
+
 #endif // DEBUG
 
 EntityController::EntityController(sf::Vector2i resolution,
                                    PlayerShip &playerShip,
                                    TextureHolder &textureHolder) : _resolution(resolution),
+                                                                   _playerShip(playerShip),
                                                                    _textureHolder(textureHolder) // ToDo: remove
 {
     // Reset timers for the enemy spawning and shooting
     _timerSpawn.restart();
     _timerShoot.restart();
-    _explosionEvent = false;
+    _totalTime.restart();
+    _explosionHasOccurred = false;
     _speed_modifier = 0.75f;
 }
 
 void EntityController::spawnEnemies()
 {
-    int min_number_enemies = 2;
-    float enemySpawnTime = rand()%3 + 2;
-    if ((_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTime)||
-            (_enemies.size() <= min_number_enemies))
+    // Initial delay before first enemies spawn.
+    if (_totalTime.getElapsedTime().asSeconds() > 1)
     {
-        _timerSpawn.restart();
-        auto shipVariant = static_cast<textures::ID>(rand()%2);
-        auto enemy = std::make_unique<Enemy>(_resolution,
-                                                   0, 0, 0.5,
-                                                   _textureHolder, // ToDo: remove
-                                                   shipVariant);
-        _enemies.push_front(std::move(enemy));
+        int minNumberEnemies = 2;
+        float enemySpawnTime = rand() % 3 + 2;
+        if ((_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTime)
+            || (_enemies.size() <= minNumberEnemies))
+        {
+            _timerSpawn.restart();
+            auto shipVariant = static_cast<textures::ID>(rand() % 1);
+            auto enemy = std::make_unique<Enemy>(_resolution,
+                                                 0, 0, 0.5,
+                                                 _textureHolder, // ToDo: remove
+                                                 shipVariant);
+            _enemies.push_front(std::move(enemy));
+        }
     }
 }
 
-
-void EntityController::shoot(PlayerShip &playerShip)
+void EntityController::shoot()
 {
-    _shootEvent = false;
-    if (playerShip.isShooting())
+    if (_playerShip.isShooting())
     { auto bullet = std::make_unique<Bullet>(_resolution,
-                                                   playerShip.getDistanceFromCentre(),
-                                                   playerShip.getAngle(),
+                                                   _playerShip.getDistanceFromCentre(),
+                                                   _playerShip.getAngle(),
                                                    0.5,
                                                    _textureHolder,
                                                    textures::BulletPlayer);
         _bulletsPlayer.push_front(std::move(bullet));
     }
 
-    float enemyShootTime = (rand()% 9000 + 500);
+    _enemyShootEventHasOccurred = false;
+    auto minNumberEnemyBullets = 1;
+    auto dontFireInsideThisRadius = (_resolution.y/2)*0.05; // only shoot when closer
+    float enemyShootTime = (rand()% 9000 + 500); // In Milliseconds
     for (auto &enemy : _enemies)
     {
-        if (_timerShoot.getElapsedTime().asMilliseconds() > enemyShootTime)
+        if (enemy->getDistanceFromCentre() > dontFireInsideThisRadius)
         {
-            _timerShoot.restart();
-            auto bullet_enemy = std::make_unique<Bullet>(_resolution,
-                                                               enemy->getDistanceFromCentre(),
-                                                               enemy->getAngle(),
-                                                               0.5,
-                                                               _textureHolder,
-                                                               textures::BulletEnemy);
-            _bulletsEnemy.push_front(std::move(bullet_enemy));
-            _shootEvent = true;
+            if ((_timerShoot.getElapsedTime().asMilliseconds() > enemyShootTime)
+                || (_bulletsEnemy.size() <= minNumberEnemyBullets))
+            {
+                _timerShoot.restart();
+                auto bullet_enemy = std::make_unique<Bullet>(_resolution,
+                                                             enemy->getDistanceFromCentre(),
+                                                             enemy->getAngle(),
+                                                             0.5,
+                                                             _textureHolder,
+                                                             textures::BulletEnemy);
+                _bulletsEnemy.push_front(std::move(bullet_enemy));
+                _enemyShootEventHasOccurred = true;
+            }
         }
     }
 }
 
-bool EntityController::shootingOccurred()
+const bool EntityController::shootingOccurred()
 {
-    return _shootEvent;
+    return _enemyShootEventHasOccurred;
 }
 void EntityController::setMove()
 {
-    // Reset enemies outside cylindrical frustum back to the centre
-    // otherwise, set their moves (and move faster immediately after spawning to get closer to player)
+    // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
+    // future enemy movement (and move faster - immediately after spawning - to get closer to the player)
     for (auto &enemy : _enemies)
     {
         if (enemy->getRadius() > _resolution.y / 2.f)
@@ -100,52 +113,29 @@ void EntityController::setMove()
     }
 }
 
-bool EntityController::checkCollisions(PlayerShip &playerShip)
+bool EntityController::checkCollisions()
 {
-    bool player_is_hit = false;
-    bool explosion_occurred = false;
+    _explosionHasOccurred = false;
+    _playerHasBeenHit = false;
+    checkEnemyToPlayerShipCollisions();
 
-    // Enemy -> PlayerShip (enemy explodes, player dies)
-    for( auto enemy = _enemies.begin(); enemy != _enemies.end();)
-    {
-        if (collides(playerShip.getSprite(), (*enemy)->getSprite()))
-        {
-            auto explosion = std::make_unique<Explosion>(_resolution,
-                                                               playerShip.getDistanceFromCentre(),
-                                                               playerShip.getAngle(),
-                                                               (*enemy)->getScale().x * 2,
-                                                               _textureHolder,
-                                                               textures::Explosion);
-
-            _explosions.push_back(std::move(explosion));
-            enemy = _enemies.erase(enemy);
-            if (!playerShip.isInvulnerable())
-                player_is_hit = true;
-            explosion_occurred = true;
-#ifdef DEBUG
-            std::cout << "Explosion! : Enemy hit PlayerShip" << std::endl;
-#endif // DEBUG
-        }
-        else
-            enemy++;
-    }
 
     // EnemyBullets -> PlayerShip (player explodes + dies, bullet disappears)
     for( auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
     {
-        if (collides(playerShip.getSprite(), (*bullet)->getSprite()))
+        if (collides(_playerShip.getSprite(), (*bullet)->getSprite()))
         {
             auto explosion = std::make_unique<Explosion>(_resolution,
-                                                               playerShip.getDistanceFromCentre(),
-                                                               playerShip.getAngle(),
-                                                               playerShip.getScale().x * 2,
+                                                               _playerShip.getDistanceFromCentre(),
+                                                               _playerShip.getAngle(),
+                                                               _playerShip.getScale().x * 2,
                                                                _textureHolder,
                                                                textures::Explosion);
             _explosions.push_back(std::move(explosion));
             bullet = _bulletsEnemy.erase(bullet);
-            if (!playerShip.isInvulnerable())
-                player_is_hit = true;
-            explosion_occurred = true;
+            if (!_playerShip.isInvulnerable())
+                _playerHasBeenHit = true;
+            _explosionHasOccurred = true;
 #ifdef DEBUG
             std::cout << "Explosion! : EnemyBullet hit Player" << std::endl;
 #endif // DEBUG
@@ -170,7 +160,7 @@ bool EntityController::checkCollisions(PlayerShip &playerShip)
                 _explosions.push_back(std::move(explosion));
                 bullet = _bulletsPlayer.erase(bullet);
                 (*enemy)->die();
-                explosion_occurred = true;
+                _explosionHasOccurred = true;
 #ifdef DEBUG
                 std::cout << "Explosion! : PlayerBullet hit enemy" << std::endl;
 #endif // DEBUG
@@ -189,15 +179,46 @@ bool EntityController::checkCollisions(PlayerShip &playerShip)
             enemy++;
     }
 
-    if (explosion_occurred)
-        _explosionEvent = true;
 
-    return player_is_hit;
+    return _playerHasBeenHit;
 }
 
-bool EntityController::explosionOccurred()
+void EntityController::checkEnemyToPlayerShipCollisions()
+{// Enemy <-> PlayerShip (enemy explodes, player dies)
+    for(auto enemy = _enemies.begin(); enemy != _enemies.end();)
+    {
+        if (collides(_playerShip.getSprite(), (*enemy)->getSprite()))
+        {
+            auto explosion = std::__1::make_unique<Explosion>(_resolution,
+                                                              _playerShip.getDistanceFromCentre(),
+                                                              _playerShip.getAngle(),
+                                                               (*enemy)->getScale().x * 2,
+                                                              _textureHolder, // ToDo : Remove me
+                                                               textures::Explosion);
+
+            _explosions.push_back(move(explosion));
+            enemy = _enemies.erase(enemy);
+            if (!_playerShip.isInvulnerable())
+            {
+                _playerHasBeenHit = true;
+            }
+            _explosionHasOccurred = true;
+
+#ifdef DEBUG
+            std::__1::cout << "Explosion! : Enemy hit PlayerShip" << std::__1::endl;
+            std::__1::cout << "The enemy was at : (" << (*enemy)->getPosition().x << "," << (*enemy)->getPosition().y << ")" << std::__1::endl;
+            std::__1::cout << "The player was at : (" << _playerShip.getPosition().x << "," << _playerShip.getPosition().y << ")" << std::__1::endl;
+#endif // DEBUG
+
+        }
+        else
+            enemy++;
+    }
+}
+
+const bool EntityController::explosionOccurred()
 {
-    return _explosionEvent;
+    return _explosionHasOccurred;
 }
 
 void EntityController::checkClipping()
@@ -257,8 +278,8 @@ void EntityController::update()
     for (auto &explosion : _explosions)
         explosion->update();
 
-    _explosionEvent = false;
-    _shootEvent = false;
+    _explosionHasOccurred = false;
+    _enemyShootEventHasOccurred = false;
 }
 
 bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
@@ -272,7 +293,7 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
     return  radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
 }
 
-void EntityController::draw(sf::RenderWindow &renderWindow)
+const void EntityController::draw(sf::RenderWindow &renderWindow)
 {
 
     for (auto &enemy : _enemies)
@@ -304,11 +325,5 @@ void EntityController::decreaseGlobalSpeed(float amount = 0.1f)
 #ifdef DEBUG
 void EntityController::debug()
 {
-//    auto size_player_bullets = std::distance(_bulletsPlayer.begin(), _bulletsPlayer.end());
-//    auto size_enemy_bullets = std::distance(_bulletsEnemy.begin(), _bulletsEnemy.end());
-//    if (size_enemy_bullets > 0)
-//        std::cout << "Enemy Bullets active: " << size_enemy_bullets << std::endl;
-//    if (size_player_bullets > 0)
-//        std::cout << "Player Bullets active: " << size_player_bullets << std::endl;
 }
 #endif // DEBUG
