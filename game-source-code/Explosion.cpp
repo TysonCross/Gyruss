@@ -7,7 +7,7 @@
 /////////////////////////////////////////////////////////////////////
 
 
-#include "EntityExplosion.hpp"
+#include "Explosion.hpp"
 
 EntityExplosion::EntityExplosion(const sf::Vector2i resolution,
                      float distanceFromCentre,
@@ -25,7 +25,7 @@ EntityExplosion::EntityExplosion(const sf::Vector2i resolution,
     _lives = 1;
     _rectArea = {0, 0, 128, 128}; // Individual sprite tile
     _soundExplode.setBuffer(soundHolder.get(sounds::Explosion));
-    //_soundExplode.play();
+    _soundExplode.play();
     _spriteOffset = _rectArea.width; // Animated sprite tileset width
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(_rectArea);

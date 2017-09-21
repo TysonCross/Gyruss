@@ -8,18 +8,18 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "EntityBullet.hpp"
+#include "Bullet.hpp"
 
 EntityBullet::EntityBullet(const sf::Vector2i resolution,
-               float distanceFromCentre,
-               float angle,
-               float scale,
-               const TextureHolder &textureHolder,
-               const textures::ID id) : Entity{resolution,
-                                               distanceFromCentre,
-                                               angle,
-                                               scale,
-                                               textureHolder}
+                           float distanceFromCentre,
+                           float angle,
+                           float scale,
+                           const TextureHolder &textureHolder,
+                           const textures::ID id) : Entity{resolution,
+                                                           distanceFromCentre,
+                                                           angle,
+                                                           scale,
+                                                           textureHolder}
 {
     _id = id;
     _lives = 1;
@@ -53,7 +53,7 @@ void EntityBullet::setMove(float angle, float distance)
 void EntityBullet::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
+    _sprite.setPosition(_resolution.x,_resolution.y); // Move offscreen?
     _sprite.setScale(0,0);
 }
 

@@ -9,7 +9,7 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "EntityPlayerShip.hpp"
+#include "PlayerShip.hpp"
 
 EntityPlayerShip::EntityPlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,

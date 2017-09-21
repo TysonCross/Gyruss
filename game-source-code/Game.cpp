@@ -130,17 +130,16 @@ void Game::initializeGameLoop()
             timeSinceUpdate = sf::Time::Zero;
 
             _inputHandler.update(playerShip, timeStep);
-
             entityController.spawnEnemies();
             entityController.shoot(playerShip);
             entityController.setMove();
-           if(entityController.checkCollisions(playerShip))
-           {
-               playerShip.die();
-               _inputHandler.reset();
-               shaking = 1;
-           }
             entityController.checkClipping();
+            if (entityController.checkCollisions(playerShip))
+            {
+                playerShip.die();
+                _inputHandler.reset();
+                shaking = 1;
+            }
             entityController.update();
             playerShip.update();
 

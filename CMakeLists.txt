@@ -17,14 +17,14 @@ set(SOURCE_FILES_BASE
         game-source-code/Starfield.cpp
         game-source-code/Starfield.hpp
         game-source-code/Entity.hpp
-        game-source-code/EntityPlayerShip.cpp
-        game-source-code/EntityPlayerShip.hpp
-        game-source-code/EntityEnemy.cpp
-        game-source-code/EntityEnemy.hpp
-        game-source-code/EntityBullet.cpp
-        game-source-code/EntityBullet.hpp
-        game-source-code/EntityExplosion.cpp
-        game-source-code/EntityExplosion.hpp
+        game-source-code/PlayerShip.cpp
+        game-source-code/PlayerShip.hpp
+        game-source-code/Enemy.cpp
+        game-source-code/Enemy.hpp
+        game-source-code/Bullet.cpp
+        game-source-code/Bullet.hpp
+        game-source-code/Explosion.cpp
+        game-source-code/Explosion.hpp
         game-source-code/common.cpp
         game-source-code/common.hpp
         game-source-code/FPS.cpp

@@ -16,57 +16,9 @@ EntityController::EntityController(sf::Vector2i resolution,
                                                                _textureHolder(textureHolder), // ToDo: remove
                                                                _soundHolder(soundHolder) // ToDo: remove
 {
-    const int number_enemies = 50;
-    const int number_bullets_enemy = 100;
-    const int number_bullets_player = 60;
-    const int number_explosions = 51;
-
     // Reset timers for the enemy spawning and shooting
     _timerSpawn.restart();
     _timerShoot.restart();
-
-    // Generate pool of basic enemies, made up from either of  two variants
-    for (auto i = 0; i < number_enemies; i++)
-    {
-        auto shipVariant = static_cast<textures::ID>(rand()%2);
-        auto enemy = std::make_unique<EntityEnemy>(_resolution,
-                                                   0, 0, 0.5,
-                                                   _textureHolder, // ToDo: remove
-                                                   _soundHolder, // ToDo: remove
-                                                   shipVariant);
-        _enemiesInactive.push_front(std::move(enemy));
-    }
-
-    // Generate pool of player bullets
-    for (auto i = 0; i < number_bullets_player; i++)
-    {
-        auto bullet = std::make_unique<EntityBullet>(_resolution,
-                                                     0, 0, 1,
-                                                     _textureHolder, // ToDo: remove
-                                                     textures::BulletPlayer);
-        _bulletsPlayerInactive.push_front(std::move(bullet));
-    }
-
-    // Generate pool of enemy bullets
-    for (auto i = 0; i < number_bullets_enemy; i++)
-    {
-        auto bullet = std::make_unique<EntityBullet>(_resolution,
-                                                     0, 0, 1,
-                                                     _textureHolder, // ToDo: remove
-                                                     textures::BulletEnemy);
-        _bulletsEnemyInactive.push_front(std::move(bullet));
-    }
-
-    // Generate pool of explosions
-    for (auto i = 0; i < number_explosions; i++)
-    {
-        auto explosion = std::make_unique<EntityExplosion>(_resolution,
-                                                           0, 0, 1,
-                                                           _textureHolder, // ToDo: remove
-                                                           _soundHolder, // ToDo: remove
-                                                           textures::Explosion);
-        _explosionsInactive.push_front(std::move(explosion));
-    }
 }
 
 void EntityController::spawnEnemies()
@@ -75,8 +27,13 @@ void EntityController::spawnEnemies()
     if (_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTime)
     {
         _timerSpawn.restart();
-        _enemiesActive.push_front(std::move(_enemiesInactive.front()));
-        _enemiesInactive.pop_front();
+        auto shipVariant = static_cast<textures::ID>(rand()%2);
+        auto enemy = std::make_unique<EntityEnemy>(_resolution,
+                                                   0, 0, 0.5,
+                                                   _textureHolder, // ToDo: remove
+                                                   _soundHolder, // ToDo: remove
+                                                   shipVariant);
+        _enemies.push_front(std::move(enemy));
     }
 }
 
@@ -84,44 +41,44 @@ void EntityController::spawnEnemies()
 void EntityController::shoot(EntityPlayerShip &playerShip)
 {
     if (playerShip.isShooting())
-    {
-        _bulletsPlayerActive.push_front(std::move(_bulletsPlayerInactive.front()));
-        _bulletsPlayerInactive.pop_front();
-
-        _bulletsPlayerActive.front()->getSprite().setPosition(playerShip.getSprite().getOrigin());
-        _bulletsPlayerActive.front()->getSprite().setScale(playerShip.getSprite().getScale());
-        _bulletsPlayerActive.front()->getSprite().setRotation(playerShip.getSprite().getRotation());
-        _bulletsPlayerActive.front()->setMove(playerShip.getDistanceFromCentre());
+    { auto bullet = std::make_unique<EntityBullet>(_resolution,
+                                                   playerShip.getDistanceFromCentre(),
+                                                   playerShip.getAngle(),
+                                                   0.5,
+                                                   _textureHolder,
+                                                   textures::BulletPlayer);
+        _bulletsPlayer.push_front(std::move(bullet));
     }
 
-    float enemyShootTime = (rand()% 200 + 100);
-    for (auto &enemy : _enemiesActive)
+    float enemyShootTime = (rand()% 9000 + 500);
+    for (auto &enemy : _enemies)
     {
         if (_timerShoot.getElapsedTime().asMilliseconds() > enemyShootTime)
         {
             _timerShoot.restart();
-
-            _bulletsEnemyActive.push_front(std::move(_bulletsEnemyInactive.front()));
-            _bulletsEnemyInactive.pop_front();
-
-            _bulletsEnemyActive.front()->getSprite().setPosition(enemy->getSprite().getOrigin());
-            _bulletsEnemyActive.front()->getSprite().setScale(enemy->getSprite().getScale());
-            _bulletsEnemyActive.front()->getSprite().setRotation(enemy->getSprite().getRotation());
-            _bulletsEnemyActive.front()->setMove(enemy->getDistanceFromCentre());
+            auto bullet_enemy = std::make_unique<EntityBullet>(_resolution,
+                                                               enemy->getDistanceFromCentre(),
+                                                               enemy->getAngle(),
+                                                               0.5,
+                                                               _textureHolder,
+                                                               textures::BulletEnemy);
+            _bulletsEnemy.push_front(std::move(bullet_enemy));
         }
     }
 }
 
 void EntityController::setMove()
 {
-    // Reset enemies outside cylindrical frustum back to the centre, otherwise, set their moves
-    for (auto &enemy : _enemiesActive)
+    // Reset enemies outside cylindrical frustum back to the centre
+    // otherwise, set their moves (and move faster immediately after spawning to get closer to player)
+    for (auto &enemy : _enemies)
     {
         if (enemy->getRadius() > _resolution.y / 2.f)
         {
             auto random_angle = (rand() % 3 + 2.0f);
-            auto random_move = rand() % 10 + (-2);
+            auto random_move = rand() % 12 + (-2);
             auto playableZoneRadiusFactor = 8;
+
             if (enemy->getDistanceFromCentre() < (_resolution.y / playableZoneRadiusFactor))
             {
                 enemy->setMove(1 + random_angle, 18);
@@ -134,91 +91,67 @@ void EntityController::setMove()
     }
 }
 
-void EntityController::checkClipping()
-{
-    // Clip away enemy bullets outside cylindrical frustum
-    for (auto bullet = _bulletsEnemyActive.begin(); bullet != _bulletsEnemyActive.end();)
-    {
-        if ((*bullet)->getRadius() > _resolution.y / 2.f)
-        {
-            _bulletsEnemyInactive.splice(_bulletsEnemyInactive.begin(), _bulletsEnemyActive, bullet++);
-        } else
-            bullet++;
-    }
-
-    // Clip away player bullets at centre
-    auto radius_buffer = 10; // should be smaller than playableZoneRadiusFactor above
-    for (auto bullet = _bulletsPlayerActive.begin(); bullet != _bulletsPlayerActive.end();)
-    {
-        if (((*bullet)->getPosition().x > (_resolution.x / 2) - radius_buffer)
-            && ((*bullet)->getPosition().y > (_resolution.y / 2) - radius_buffer)
-            && ((*bullet)->getPosition().x < (_resolution.x / 2) + radius_buffer)
-            && ((*bullet)->getPosition().y < (_resolution.y / 2) + radius_buffer))
-        {
-            _bulletsPlayerInactive.splice(_bulletsPlayerInactive.begin(), _bulletsPlayerActive, bullet++);
-        } else
-            bullet++;
-    }
-
-    // Remove any finished explosions
-    for (auto explosion = _explosionsActive.begin(); explosion != _explosionsActive.end();)
-    {
-        if ((*explosion)->getLives() == 0) // ToDo: Make boolean, is_finished
-        {
-            _explosionsInactive.splice(_explosionsInactive.begin(), _explosionsActive, explosion++);
-
-        } else
-            explosion++;
-    }
-}
-
-
 bool EntityController::checkCollisions(EntityPlayerShip &playerShip)
 {
     bool player_is_hit = false;
 
-    // Enemy -> PlayerShip
-    for( auto enemy = _enemiesActive.begin(); enemy != _enemiesActive.end();)
+    // Enemy -> PlayerShip (enemy explodes, player dies)
+    for( auto enemy = _enemies.begin(); enemy != _enemies.end();)
     {
         if (collides(playerShip.getSprite(), (*enemy)->getSprite()))
         {
-            _explosionsActive.push_front(std::move(_explosionsInactive.front()));
-            _explosionsInactive.pop_front();
-            _explosionsActive.front()->setMove(playerShip.getDistanceFromCentre(),
-                                               playerShip.getAngle());
+            auto explosion = std::make_unique<EntityExplosion>(_resolution,
+                                                               playerShip.getDistanceFromCentre(),
+                                                               playerShip.getAngle(),
+                                                               (*enemy)->getScale().x * 2,
+                                                               _textureHolder,
+                                                               _soundHolder,
+                                                               textures::Explosion);
 
-            _enemiesInactive.splice(_enemiesInactive.begin(), _enemiesActive, enemy++);
+            _explosions.push_back(std::move(explosion));
+            enemy = _enemies.erase(enemy);
             player_is_hit = true;
         }
         else
             enemy++;
     }
 
-    // EnemyBullets -> EntityPlayerShip
-    for( auto bullet = _bulletsEnemyActive.begin(); bullet != _bulletsEnemyActive.end();)
+    // EnemyBullets -> PlayerShip (player explodes + dies, bullet disappears)
+    for( auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
     {
         if (collides(playerShip.getSprite(), (*bullet)->getSprite()))
         {
-            _explosionsActive.push_front(std::move(_explosionsInactive.front()));
-            _explosionsInactive.pop_front();
-            _explosionsActive.front()->setMove(playerShip.getDistanceFromCentre(),
-                                               playerShip.getAngle());
+            auto explosion = std::make_unique<EntityExplosion>(_resolution,
+                                                               playerShip.getDistanceFromCentre(),
+                                                               playerShip.getAngle(),
+                                                               playerShip.getScale().x * 2,
+                                                               _textureHolder,
+                                                               _soundHolder,
+                                                               textures::Explosion);
+            _explosions.push_back(std::move(explosion));
+            bullet = _bulletsEnemy.erase(bullet);
             player_is_hit = true;
-            _bulletsEnemyInactive.splice(_bulletsEnemyInactive.begin(), _bulletsEnemyActive, bullet++);
-
         } else
             bullet++;
 
     }
 
-    // PlayerBullets -> Enemy
-    for( auto enemy = _enemiesActive.begin(); enemy != _enemiesActive.end(); ++enemy)
+    // PlayerBullets -> Enemy (enemy explodes, playerbullet disappears)
+    for( auto enemy = _enemies.begin(); enemy != _enemies.end(); ++enemy)
     {
-        for( auto bullet = _bulletsPlayerActive.begin(); bullet != _bulletsPlayerActive.end();)
+        for( auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
         {
             if (collides((*bullet)->getSprite(), (*enemy)->getSprite()))
             {
-                _bulletsPlayerInactive.splice(_bulletsPlayerInactive.begin(),_bulletsPlayerActive,bullet++);
+                auto explosion = std::make_unique<EntityExplosion>(_resolution,
+                                                                   (*enemy)->getDistanceFromCentre(),
+                                                                   (*enemy)->getAngle(),
+                                                                   (*enemy)->getScale().x * 2,
+                                                                   _textureHolder,
+                                                                   _soundHolder,
+                                                                   textures::Explosion);
+                _explosions.push_back(std::move(explosion));
+                bullet = _bulletsPlayer.erase(bullet);
                 (*enemy)->die();
             } else
                 bullet++;
@@ -226,18 +159,11 @@ bool EntityController::checkCollisions(EntityPlayerShip &playerShip)
     }
 
     // Process Enemy death events from PlayerBullets collisions above
-    for( auto enemy = _enemiesActive.begin(); enemy != _enemiesActive.end();)
+    for( auto enemy = _enemies.begin(); enemy != _enemies.end();)
     {
         if ((*enemy)->getLives() == 0)
         {
-            _enemiesInactive.splice(_enemiesInactive.begin(), _enemiesActive, enemy++);
-
-            _explosionsActive.push_front(std::move(_explosionsInactive.front()));
-            _explosionsInactive.pop_front();
-            _explosionsActive.front()->setMove((*enemy)->getDistanceFromCentre(),
-                                               (*enemy)->getAngle());
-            _explosionsActive.front()->getSprite().setScale((*enemy)->getScale().x * 2,
-                                                            (*enemy)->getScale().y * 2);
+            enemy = _enemies.erase(enemy);
         } else
             enemy++;
     }
@@ -245,25 +171,61 @@ bool EntityController::checkCollisions(EntityPlayerShip &playerShip)
     return player_is_hit;
 }
 
+void EntityController::checkClipping()
+{
+    // Clip away enemy bullets outside cylindrical frustum
+    for (auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
+    {
+        if ((*bullet)->getRadius() > _resolution.y / 2.f)
+        {
+            bullet = _bulletsEnemy.erase(bullet);
+        } else
+            bullet++;
+    }
+
+    // Clip away player bullets at centre
+    auto radius_buffer = 20; // should be smaller than playableZoneRadiusFactor above
+    for (auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
+    {
+        if (((*bullet)->getPosition().x > (_resolution.x / 2) - radius_buffer)
+            && ((*bullet)->getPosition().y > (_resolution.y / 2) - radius_buffer)
+            && ((*bullet)->getPosition().x < (_resolution.x / 2) + radius_buffer)
+            && ((*bullet)->getPosition().y < (_resolution.y / 2) + radius_buffer))
+        {
+            bullet = _bulletsPlayer.erase(bullet);
+        } else
+            bullet++;
+    }
+
+    // Remove any finished explosions
+    for (auto explosion = _explosions.begin(); explosion != _explosions.end();)
+    {
+        if ((*explosion)->getLives() == 0) // ToDo: Make boolean, is_finished
+        {
+            explosion = _explosions.erase(explosion);
+        } else
+            explosion++;
+    }
+}
 
 void EntityController::update()
 {
-    for (auto &enemy : _enemiesActive)
+    for (auto &enemy : _enemies)
         enemy->update();
 
-    for (auto &bullet : _bulletsPlayerActive)
+    for (auto &bullet : _bulletsPlayer)
     {
         bullet->update();
         bullet->setMove(-25);
     }
 
-    for (auto &bullet : _bulletsEnemyActive)
+    for (auto &bullet : _bulletsEnemy)
     {
         bullet->update();
         bullet->setMove(20);
     }
 
-    for (auto &explosion : _explosionsActive)
+    for (auto &explosion : _explosions)
         explosion->update();
 }
 
@@ -281,28 +243,27 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
 void EntityController::draw(sf::RenderWindow &renderWindow)
 {
 
-    for (auto &enemy : _enemiesActive)
+    for (auto &enemy : _enemies)
         renderWindow.draw(enemy->getSprite());
 
-    for (auto &bullet : _bulletsEnemyActive)
+    for (auto &bullet : _bulletsEnemy)
         renderWindow.draw(bullet->getSprite());
 
-    for (auto &bullet : _bulletsPlayerActive)
+    for (auto &bullet : _bulletsPlayer)
         renderWindow.draw(bullet->getSprite());
 
-    for (auto &explosion : _explosionsActive)
+    for (auto &explosion : _explosions)
         renderWindow.draw(explosion->getSprite());
 
 }
 #ifdef DEBUG
-
 void EntityController::debug()
 {
-    auto size_player_bullets = std::distance(_bulletsPlayerActive.begin(), _bulletsPlayerActive.end());
-    auto size_enemy_bullets = std::distance(_bulletsEnemyActive.begin(), _bulletsEnemyActive.end());
-    if (size_enemy_bullets > 0)
-        std::cout << "Enemy Bullets active: " << size_enemy_bullets << std::endl;
-    if (size_player_bullets > 0)
-        std::cout << "Player Bullets active: " << size_player_bullets << std::endl;
+//    auto size_player_bullets = std::distance(_bulletsPlayer.begin(), _bulletsPlayer.end());
+//    auto size_enemy_bullets = std::distance(_bulletsEnemy.begin(), _bulletsEnemy.end());
+//    if (size_enemy_bullets > 0)
+//        std::cout << "Enemy Bullets active: " << size_enemy_bullets << std::endl;
+//    if (size_player_bullets > 0)
+//        std::cout << "Player Bullets active: " << size_player_bullets << std::endl;
 }
 #endif // DEBUG

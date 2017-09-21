@@ -6,7 +6,7 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "EntityEnemy.hpp"
+#include "Enemy.hpp"
 
 EntityEnemy::EntityEnemy(const sf::Vector2i &resolution,
              float distanceFromCentre,

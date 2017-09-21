@@ -14,10 +14,10 @@
 #include "common.hpp"
 #include "ResourceHolder.hpp"
 #include "Entity.hpp"
-#include "EntityPlayerShip.hpp"
-#include "EntityEnemy.hpp"
-#include "EntityBullet.hpp"
-#include "EntityExplosion.hpp"
+#include "PlayerShip.hpp"
+#include "Enemy.hpp"
+#include "Bullet.hpp"
+#include "Explosion.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<EntityBullet>>;
@@ -64,14 +64,10 @@ private:
     sf::Vector2i _resolution;
     TextureHolder& _textureHolder;
     SoundHolder& _soundHolder;
-    bulletList _bulletsEnemyActive;
-    bulletList _bulletsEnemyInactive;
-    bulletList _bulletsPlayerActive;
-    bulletList _bulletsPlayerInactive;
-    enemyList _enemiesActive;
-    enemyList _enemiesInactive;
-    explosionList _explosionsActive;
-    explosionList _explosionsInactive;
+    bulletList _bulletsEnemy;
+    bulletList _bulletsPlayer;
+    enemyList _enemies;
+    explosionList _explosions;
     sf::Clock _timerSpawn;
     sf::Clock _timerShoot;
 };
