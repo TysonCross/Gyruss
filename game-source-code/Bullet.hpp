@@ -18,10 +18,10 @@
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class EntityBullet : public Entity
+class Bullet : public Entity
 {
 public:
-    EntityBullet(const sf::Vector2i resolution,
+    Bullet(const sf::Vector2i resolution,
                  float distanceFromCentre,
                  float angle,
                  float scale,

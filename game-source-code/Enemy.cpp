@@ -8,12 +8,11 @@
 
 #include "Enemy.hpp"
 
-EntityEnemy::EntityEnemy(const sf::Vector2i &resolution,
+Enemy::Enemy(const sf::Vector2i &resolution,
              float distanceFromCentre,
              float angle,
              float scale,
              const TextureHolder &textureHolder,
-             const SoundHolder &soundHolder,
              textures::ID id) : Entity{resolution,
                                        distanceFromCentre,
                                        angle,
@@ -25,19 +24,19 @@ EntityEnemy::EntityEnemy(const sf::Vector2i &resolution,
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-    _soundShoot.setBuffer(soundHolder.get(sounds::EnemyShoot));
+//    _soundShoot.setBuffer(soundHolder.get(sounds::EnemyShoot));
     _isShooting = false;
     setMove(0,0); //Initialised position at centre of screen
 }
 
-void EntityEnemy::setMove(float angle, float distance)
+void Enemy::setMove(float angle, float distance)
 {
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
 }
 
-void EntityEnemy::reset()
+void Enemy::reset()
 {
     _angle = 0;
     _angleOrientation = 0;
@@ -47,7 +46,7 @@ void EntityEnemy::reset()
     _isShooting = false;
 }
 
-void EntityEnemy::update()
+void Enemy::update()
 {
     if (_isMoving)
     {
@@ -59,7 +58,7 @@ void EntityEnemy::update()
     }
 }
 
-const float EntityEnemy::getRadius()
+const float Enemy::getRadius()
 {
     auto x_pos = _sprite.getPosition().x + _resolution.x/2;
     auto y_pos = _sprite.getPosition().y + _resolution.y/2;
@@ -67,28 +66,28 @@ const float EntityEnemy::getRadius()
     return sqrt((x_pos*x_pos) + (y_pos*y_pos));
 }
 
-const float EntityEnemy::getDistanceFromCentre()
+const float Enemy::getDistanceFromCentre()
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f EntityEnemy::getPosition()
+const sf::Vector2f Enemy::getPosition()
 {
     return _sprite.getPosition();
 }
 
-sf::Sprite &EntityEnemy::getSprite()
+sf::Sprite &Enemy::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f EntityEnemy::getScale()
+const sf::Vector2f Enemy::getScale()
 {
     return _sprite.getScale();
 }
 
 
-const void EntityEnemy::die()
+const void Enemy::die()
 {
     _lives--;
     if (_lives==0)
@@ -97,39 +96,39 @@ const void EntityEnemy::die()
     }
 }
 
-int EntityEnemy::getLives()
+int Enemy::getLives()
 {
     return _lives;
 }
 
-void EntityEnemy::setShoot()
+void Enemy::setShoot()
 {
     _isShooting = true;
 }
 
-bool EntityEnemy::isShooting()
+bool Enemy::isShooting()
 {
     return _isShooting;
 }
 
-float EntityEnemy::getAngle()
+float Enemy::getAngle()
 {
     return _angle;
 }
 
-float EntityEnemy::getDirectionAngle()
+float Enemy::getDirectionAngle()
 {
     return _angleOrientation;
 }
 
-void EntityEnemy::shoot()
+void Enemy::shoot()
 {
-    _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
-    _soundShoot.play();
+//    _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
+//    _soundShoot.play();
     _isShooting = false;
 }
 
-void EntityEnemy::move()
+void Enemy::move()
 {
     _prevPosition = _sprite.getPosition();
     _prevPosition.x -= _resolution.x/2;

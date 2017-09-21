@@ -36,7 +36,9 @@ set(SOURCE_FILES_BASE
         game-source-code/ScreenGameOver.cpp
         game-source-code/ScreenGameOver.hpp
         game-source-code/EntityController.cpp
-        game-source-code/EntityController.hpp)
+        game-source-code/EntityController.hpp
+        game-source-code/SoundController.cpp
+        game-source-code/SoundController.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}
@@ -51,10 +53,18 @@ add_executable(${EXECUTABLE_NAME_TEST_INTERACTIVE}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Interactive.cpp)
 
-set(EXECUTABLE_NAME_TEST "tests")
+set(EXECUTABLE_NAME_TEST "test_unit")
 add_executable(${EXECUTABLE_NAME_TEST}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Unit.cpp)
+
+set(EXECUTABLE_NAME_TEST_RELEASE "game_tests")
+add_executable(${EXECUTABLE_NAME_TEST_RELEASE}
+        ${SOURCE_FILES_TEST}
+        test-source-code/test_Unit.cpp)
+set(CMAKE_BINARY_DIR_TEST "${PROJECT_SOURCE_DIR}/executables")
+set_target_properties(${EXECUTABLE_NAME_TEST_RELEASE}
+        PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR_TEST}")
 
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})

@@ -39,7 +39,6 @@ public:
 ////////////////////////////////////////////////////////////
     int show(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
-             const SoundHolder &soundHolder,
              const FontHolder &fontHolder,
              const sf::Vector2i) override;
 

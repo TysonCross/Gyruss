@@ -84,8 +84,6 @@ private:
     const int _number_of_stars;
     const float _max_size;
     float _star_scale;
-    /// \brief Controls amount of colorful stars
-    ///
 
 };
 

@@ -12,14 +12,9 @@
 
 int ScreenSplash::show(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
-                       const SoundHolder &soundHolder,
                        const FontHolder &fontHolder,
                        const sf::Vector2i resolution)
 {
-    sf::Sound splashSound;
-    splashSound.setBuffer(soundHolder.get(sounds::StartSound));
-    splashSound.play();
-
     //Get the Splashscreen image
     sf::Sprite splash(textureHolder.get(textures::SplashScreen));
     auto scaleFactor = resolution.x/splash.getGlobalBounds().width;

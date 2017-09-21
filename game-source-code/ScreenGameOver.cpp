@@ -12,14 +12,9 @@
 
 int ScreenGameOver::show(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
-                       const SoundHolder &soundHolder,
                        const FontHolder &fontHolder,
                        const sf::Vector2i resolution)
 {
-    // Play audio cue
-    sf::Sound gameoverSound;
-    gameoverSound.setBuffer(soundHolder.get(sounds::GameOverSound));
-    gameoverSound.play();
     //Get the ScreenGameOver image
     sf::Sprite gameover(textureHolder.get(textures::GameOverScreen));
     auto scaleFactor = resolution.x/gameover.getGlobalBounds().width;

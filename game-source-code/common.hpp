@@ -50,9 +50,8 @@ namespace textures
 {
     enum ID
     {
-        EnemyShipGrey=0,
-        EnemyShipPurple=1,
-        testTexture,
+        EnemyShipGrey = 0,
+        EnemyShipPurple,
         SplashScreen,
         SplashScreenExtra,
         GameOverScreen,
@@ -62,9 +61,8 @@ namespace textures
         BulletPlayer,
         BulletEnemy,
         Explosion,
-//        EnemyShipGenerator,
-//        Meteoroid,
-//        Satellite,
+        testTexture,
+        textureID_end,
     };
 }
 
@@ -74,8 +72,7 @@ namespace sounds
 {
     enum ID
     {
-        testSound,
-        StartSound,
+        StartSound = 0,
         SpawnSound,
         GameOverSound,
         PlayerMove,
@@ -83,6 +80,8 @@ namespace sounds
         EnemyShoot,
         PlayerDeath,
         Explosion,
+        testSound,
+        soundID_end,
     };
 }
 
@@ -91,9 +90,10 @@ namespace fonts
 {
     enum ID
     {
-        testFont,
-        Title,
+        Title = 0,
         Info,
+        testFont,
+        fontIDend,
     };
 }
 
@@ -105,16 +105,16 @@ namespace game
         Splash,
         Playing,
         GameOver,
-        Exiting
+        Exiting,
     };
 }
 
 // Forward declaration
-template <typename Resource, typename Identifier>
+template<typename Resource, typename Identifier>
 class ResourceHolder;
 
-typedef ResourceHolder<sf::Texture, textures::ID>	    TextureHolder;
-typedef ResourceHolder<sf::SoundBuffer, sounds::ID>	    SoundHolder;
-typedef ResourceHolder<sf::Font, fonts::ID>			    FontHolder;
+typedef ResourceHolder<sf::Texture, textures::ID> TextureHolder;
+typedef ResourceHolder<sf::SoundBuffer, sounds::ID> SoundHolder;
+typedef ResourceHolder<sf::Font, fonts::ID> FontHolder;
 
 #endif //PROJECT_COMMON_HPP

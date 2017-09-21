@@ -9,12 +9,11 @@
 
 #include "Explosion.hpp"
 
-EntityExplosion::EntityExplosion(const sf::Vector2i resolution,
+Explosion::Explosion(const sf::Vector2i resolution,
                      float distanceFromCentre,
                      float angle,
                      float scale,
                      const TextureHolder &textureHolder,
-                     const SoundHolder &soundHolder,
                      const textures::ID id) : Entity{resolution,
                                                      distanceFromCentre,
                                                      angle,
@@ -24,8 +23,8 @@ EntityExplosion::EntityExplosion(const sf::Vector2i resolution,
     _id = id;
     _lives = 1;
     _rectArea = {0, 0, 128, 128}; // Individual sprite tile
-    _soundExplode.setBuffer(soundHolder.get(sounds::Explosion));
-    _soundExplode.play();
+//    _soundExplode.setBuffer(soundHolder.get(sounds::Explosion));
+//    _soundExplode.play();
     _spriteOffset = _rectArea.width; // Animated sprite tileset width
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(_rectArea);
@@ -38,21 +37,21 @@ EntityExplosion::EntityExplosion(const sf::Vector2i resolution,
     update();
 }
 
-void EntityExplosion::setMove(float angle, float distance)
+void Explosion::setMove(float angle, float distance)
 {
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
 }
 
-void EntityExplosion::reset()
+void Explosion::reset()
 {
     _isMoving = false;
     _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
     _sprite.setScale(0,0);
 }
 
-void EntityExplosion::update()
+void Explosion::update()
 {
     if (_isMoving)
     {
@@ -65,7 +64,7 @@ void EntityExplosion::update()
     }
 }
 
-const float EntityExplosion::getRadius()
+const float Explosion::getRadius()
 {
     auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
     auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
@@ -73,27 +72,27 @@ const float EntityExplosion::getRadius()
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
-const float EntityExplosion::getDistanceFromCentre()
+const float Explosion::getDistanceFromCentre()
 {
     return _distanceFromCentre;
 }
 
-const sf::Vector2f EntityExplosion::getPosition()
+const sf::Vector2f Explosion::getPosition()
 {
     return _sprite.getPosition();
 }
 
-sf::Sprite& EntityExplosion::getSprite()
+sf::Sprite& Explosion::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f EntityExplosion::getScale()
+const sf::Vector2f Explosion::getScale()
 {
     return _sprite.getScale();
 }
 
-const void EntityExplosion::die()
+const void Explosion::die()
 {
     _lives--;
     if (_lives==0)
@@ -102,13 +101,13 @@ const void EntityExplosion::die()
     }
 }
 
-int EntityExplosion::getLives()
+int Explosion::getLives()
 {
     return _lives;
 }
 
 
-void EntityExplosion::move()
+void Explosion::move()
 {
 
     auto offset = 0.f;

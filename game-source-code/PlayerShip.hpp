@@ -21,7 +21,7 @@
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class EntityPlayerShip : public Entity
+class PlayerShip : public Entity
 {
 public:
 
@@ -38,12 +38,11 @@ public:
     /// \param scale The scale of the sprite
     ///
     ////////////////////////////////////////////////////////////
-    EntityPlayerShip(const sf::Vector2i resolution,
+    PlayerShip(const sf::Vector2i resolution,
                float distanceFromCentre,
                float angle,
                float scale,
-               const TextureHolder &textureHolder,
-               const SoundHolder &soundHolder);
+               const TextureHolder &textureHolder);
 
     void setMove(float angle) override;
 
@@ -51,8 +50,11 @@ public:
     /// \brief Moves the player ship around a circle by this angle
     ////////////////////////////////////////////////////////////
     void move() override;
+
     void reset() override;
+
     void update() override;
+
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
     ////////////////////////////////////////////////////////////
@@ -79,12 +81,20 @@ public:
     int getLives() override;
 
     void setShoot();
+
+    bool isMoving();
+
     bool isShooting();
+
+    bool isInvulnerable();
+
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the angle
     ////////////////////////////////////////////////////////////
     float getAngle();
+
+    float getFutureAngle();
 
 private:
 
@@ -99,15 +109,16 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    sf::Sound _soundSpawn;
-    sf::Sound _soundShoot;
+    sf::SoundBuffer _buffer;
     sf::Sound _soundMove;
-    sf::Sound _soundDeath;
     sf::IntRect _rectArea;
     int _spriteOffset;
     float _futureAngleValue;
     bool _isMoving;
     bool _isShooting;
+    bool _isInvulnerable;
+    sf::Clock _invulnerabilityTimer;
+    float _invulnerabilityTimeAmount;
 };
 
 #endif //PROJECT_PLAYERSHIP_HPP

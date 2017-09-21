@@ -20,9 +20,9 @@
 #include "Explosion.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
-using bulletList = std::list<std::unique_ptr<EntityBullet>>;
-using enemyList = std::list<std::unique_ptr<EntityEnemy>>;
-using explosionList = std::list<std::unique_ptr<EntityExplosion>>;
+using bulletList = std::list<std::unique_ptr<Bullet>>;
+using enemyList = std::list<std::unique_ptr<Enemy>>;
+using explosionList = std::list<std::unique_ptr<Explosion>>;
 using clockVector = std::vector<std::unique_ptr<sf::Clock>>;
 
 class EntityController
@@ -30,17 +30,21 @@ class EntityController
 public:
     EntityController();
     EntityController(sf::Vector2i resolution,
-                     EntityPlayerShip &playerShip,
-                     TextureHolder &textures,
-                     SoundHolder &sounds);
+                     PlayerShip &playerShip,
+                     TextureHolder &textures);
 
     void spawnEnemies();
     void setMove();
-    void shoot(EntityPlayerShip &playerShip);
+    void shoot(PlayerShip &playerShip);
     void checkClipping();
-    bool checkCollisions(EntityPlayerShip &playerShip);
+    bool checkCollisions(PlayerShip &playerShip);
     void update();
     void draw(sf::RenderWindow &renderWindow); // ToDo: remove
+    bool explosionOccurred();
+    bool shootingOccurred();
+    void increaseGlobalSpeed(float amount);
+    void decreaseGlobalSpeed(float amount);
+
 #ifdef DEBUG
     void debug();
 #endif // DEBUG
@@ -63,13 +67,15 @@ private:
 
     sf::Vector2i _resolution;
     TextureHolder& _textureHolder;
-    SoundHolder& _soundHolder;
     bulletList _bulletsEnemy;
     bulletList _bulletsPlayer;
     enemyList _enemies;
     explosionList _explosions;
     sf::Clock _timerSpawn;
     sf::Clock _timerShoot;
+    bool _explosionEvent;
+    bool _shootEvent;
+    float _speed_modifier;
 };
 
 
