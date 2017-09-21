@@ -54,6 +54,7 @@ void PlayerShip::reset()
     _futureAngleValue = 0;
     _isShooting = false;
     _isMoving = false;
+
     _invulnerabilityTimer.restart();
     _isInvulnerable = true;
     setMove(0);

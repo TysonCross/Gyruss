@@ -96,6 +96,7 @@ void Game::initializeGameLoop()
                                 shipScale,
                                 _textures);
 
+
     EntityController entityController(_resolution,
                                       playerShip,
                                       _textures);
