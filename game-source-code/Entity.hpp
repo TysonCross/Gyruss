@@ -23,43 +23,42 @@
 class Entity
 {
 public:
-    Entity(const TextureHolder &textureHolder,
-           const SoundHolder &soundHolder,
-           const common::Resolution resolution,
+    Entity();
+    Entity(const sf::Vector2i resolution,
            float distanceFromCentre,
            float angle,
-           float scale){}
+           float scale,
+           const TextureHolder &textureHolder) : _resolution{resolution},
+                                                 _distanceFromCentre{distanceFromCentre},
+                                                 _angle{angle},
+                                                 _scale{scale}
+    {}
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Moves the Entity around a circle or spiral
-    ///
-    /// \param angle The change in angle, with the origin at the centre
-    /// of the screen
-    /// \param distance How far along a ray, originating at the centre
-    /// of the screen to move the entity.
-    ////////////////////////////////////////////////////////////
-    void move(float angle, float distance);
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Returns the Sprite object of the Class by ref
-    ///
-    /// \see sf:Sprite
-    ////////////////////////////////////////////////////////////
-    sf::Sprite &getSprite();
+    virtual void setMove(float){}
+    virtual void setMove(float, float){}
+    virtual void reset()=0;
+    virtual void update()=0;
+    virtual const float getRadius()=0;
+    virtual const float getDistanceFromCentre()=0;
+    virtual const sf::Vector2f getScale()=0;
+    virtual const sf::Vector2f getPosition()=0;
+    virtual sf::Sprite &getSprite()=0;
+    virtual const void die()=0;
+    virtual int getLives()=0;
+    virtual void move()=0;
 
 protected:
-
-    ////////////////////////////////////////////////////////////
-    // Member data
-    ////////////////////////////////////////////////////////////
+    const sf::Vector2i _resolution;
     sf::Sprite _sprite;
-    sf::Texture _texture;
-    common::Resolution _resolution;
     float _distanceFromCentre;
+    float _futureAngleValue;
+    float _futureMoveValue;
     float _angle;
     float _scale;
+    bool _isMoving;
+    int _lives;
+    textures::ID _id;
 };
-
 
 
 #endif //PROJECT_ENTITY_HPP

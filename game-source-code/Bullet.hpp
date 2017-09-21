@@ -15,42 +15,38 @@
 #include "SFML/Graphics.hpp"
 #include <cmath>
 #include "common.hpp"
+#include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class Bullet //: public Entity
+class Bullet : public Entity
 {
 public:
+    Bullet(const sf::Vector2i resolution,
+                 float distanceFromCentre,
+                 float angle,
+                 float scale,
+                 const TextureHolder &textureHolder,
+                 const textures::ID id);
 
-    Bullet(const TextureHolder &textureHolder,
-           const SoundHolder &soundHolder,
-           const common::Resolution resolution,
-           float distanceFromCentre,
-           float angle,
-           float scale,
-           textures::ID type);
-
-    void setMove(float distance);
-    void reset();
-    void update();
-    float getDistanceFromCentre();
-    float getRadius();
-    sf::Sprite &getSprite();
+    void setMove(float distance) override;
+    void setMove(float angle, float distance) override;
+    void move() override;
+    void reset() override;
+    void update() override;
+    const float getRadius() override;
+    const float getDistanceFromCentre() override;
+    const sf::Vector2f getPosition() override;
+    sf::Sprite &getSprite() override;
+    const sf::Vector2f getScale() override;
+    const void die() override;
+    int getLives() override;
 
 private:
-    void move();
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    sf::Sprite _sprite;
-    common::Resolution _resolution;
-    float _distanceFromCentre;
-    float _angle;
-    float _scale;
-    float _futureMoveValue;
     sf::IntRect _rectArea;
     int _spriteOffset;
-    bool _isMoving;
-    textures::ID _id;
 };
 
 #endif //PROJECT_BULLET_HPP

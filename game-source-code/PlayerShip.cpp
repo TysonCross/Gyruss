@@ -11,24 +11,23 @@
 
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(const TextureHolder &textureHolder,
-                       const SoundHolder &soundHolder,
-                       const common::Resolution resolution,
+PlayerShip::PlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
-                       float angle = 0,
-                       float scale = 1) : _distanceFromCentre(distanceFromCentre),
-                                          _angle(angle),
-                                          _scale(scale),
-                                          _resolution(resolution),
-                                          _isShooting(false),
-                                          _isMoving(false)
+                       float angle,
+                       float scale,
+                       const TextureHolder &textureHolder) : Entity{resolution,
+                                                                    distanceFromCentre,
+                                                                    angle,
+                                                                    scale,
+                                                                    textureHolder}
 {
-    _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
-    _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
-    _soundMove.setBuffer(soundHolder.get(sounds::PlayerMove));
+    _lives = 3;
+    _invulnerabilityTimeAmount = 1.2f;
+
+    _buffer.loadFromFile("resources/thrust.ogg");
+    _soundMove.setBuffer(_buffer);
     _soundMove.setLoop(1);
     _soundMove.play();
-    _soundSpawn.play();
 
     _rectArea = {0, 0, 366, 382}; // Individual sprite tile
     _spriteOffset = _rectArea.width; // Animated sprite tileset width
@@ -37,6 +36,9 @@ PlayerShip::PlayerShip(const TextureHolder &textureHolder,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 
+    _isInvulnerable = true;
+    _isShooting = false;
+    _isMoving = false;
     reset(); //Initialised position at bottom of play area, not screen origin top-left
 }
 
@@ -46,23 +48,16 @@ void PlayerShip::setMove(float angle)
     _futureAngleValue = angle;
 }
 
-void PlayerShip::setShoot()
-{
-    _isShooting = true;
-}
-
-bool PlayerShip::isShooting()
-{
-    return _isShooting;
-}
-
 void PlayerShip::reset()
 {
     _angle = 0;
     _futureAngleValue = 0;
     _isShooting = false;
     _isMoving = false;
-    move();
+
+    _invulnerabilityTimer.restart();
+    _isInvulnerable = true;
+    setMove(0);
 }
 
 void PlayerShip::update()
@@ -81,25 +76,80 @@ void PlayerShip::update()
     {
         shoot();
     }
+    if (_invulnerabilityTimer.getElapsedTime().asSeconds() > _invulnerabilityTimeAmount)
+    {
+        _isInvulnerable = false;
+    }
     _isMoving = false;
     _futureAngleValue = 0;
     _isShooting = false;
 }
+
+const float PlayerShip::getRadius()
+{
+    return getDistanceFromCentre();
+}
+
+const float PlayerShip::getDistanceFromCentre()
+{
+    return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
+}
+
+const sf::Vector2f PlayerShip::getPosition()
+{
+    return _sprite.getPosition();
+}
+
 
 sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
 }
 
-
-float PlayerShip::getDistanceFromCentre()
+const sf::Vector2f PlayerShip::getScale()
 {
-    return _distanceFromCentre - _sprite.getOrigin().y;
+    return _sprite.getScale();
+}
+
+const void PlayerShip::die()
+{
+    _lives--;
+    reset();
+}
+
+int PlayerShip::getLives()
+{
+    return _lives;
+}
+
+void PlayerShip::setShoot()
+{
+    _isShooting = true;
+}
+
+bool PlayerShip::isShooting()
+{
+    return _isShooting;
+}
+
+bool PlayerShip::isMoving()
+{
+    return _isMoving;
+}
+
+bool PlayerShip::isInvulnerable()
+{
+    return _isInvulnerable;
 }
 
 float PlayerShip::getAngle()
 {
     return _angle;
+}
+
+float PlayerShip::getFutureAngle()
+{
+    return _futureAngleValue;
 }
 
 void PlayerShip::move()
@@ -116,7 +166,9 @@ void PlayerShip::move()
 
 void PlayerShip::shoot()
 {
-    //_soundShoot.setPitch(((rand()%3)/6.0f)+0.3);
-    _soundShoot.play();
+//    _soundShoot.play();
     _isShooting = false;
 }
+
+
+

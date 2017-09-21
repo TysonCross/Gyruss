@@ -13,7 +13,7 @@
 #include "Starfield.hpp"
 
 StarField::StarField(
-                     common::Resolution resolution,
+                     const sf::Vector2i resolution,
                      const int max_depth,
                      const int number_of_stars,
                      float max_size) : _width(resolution.x),
@@ -38,9 +38,9 @@ StarField::StarField(
     }
 }
 
-void StarField::moveAndDrawStars(
-                                 sf::RenderWindow &renderWindow,
-                                 float speed)
+void StarField::moveAndDrawStars(sf::RenderWindow &renderWindow,
+                                 float speed,
+                                 int light_shift_amount)
 {
     auto i = 0;
     for (auto &star_pos : _starField)
@@ -68,7 +68,7 @@ void StarField::moveAndDrawStars(
         {
             _star_scale = (star_pos.z + (_max_depth)) / (_max_depth);
         }
-        if (i %_light_shift_amount)     // Dimming
+        if (i % light_shift_amount)     // Dimming and color
         {
             _star_shape.setFillColor(sf::Color(255 * _star_scale, 255 * _star_scale, 255 * _star_scale));
         }
