@@ -117,60 +117,39 @@ bool EntityController::checkCollisions()
 {
     _explosionHasOccurred = false;
     _playerHasBeenHit = false;
+
     checkEnemyToPlayerShipCollisions();
+    checkEnemyBulletsToPlayerShipCollisions();
+    checkPlayerBulletsToEnemyCollisions();
 
+    return _playerHasBeenHit;
+}
 
-    // EnemyBullets -> PlayerShip (player explodes + dies, bullet disappears)
-    for( auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
+void EntityController::checkPlayerBulletsToEnemyCollisions()
+{// PlayerBullets -> Enemy (enemy explodes, playerbullet disappears)
+    for(auto enemy = _enemies.begin(); enemy != _enemies.end(); ++enemy)
     {
-        if (collides(_playerShip.getSprite(), (*bullet)->getSprite()))
-        {
-            auto explosion = std::make_unique<Explosion>(_resolution,
-                                                               _playerShip.getDistanceFromCentre(),
-                                                               _playerShip.getAngle(),
-                                                               _playerShip.getScale().x * 2,
-                                                               _textureHolder,
-                                                               textures::Explosion);
-            _explosions.push_back(std::move(explosion));
-            bullet = _bulletsEnemy.erase(bullet);
-            if (!_playerShip.isInvulnerable())
-                _playerHasBeenHit = true;
-            _explosionHasOccurred = true;
-#ifdef DEBUG
-            std::cout << "Explosion! : EnemyBullet hit Player" << std::endl;
-#endif // DEBUG
-        } else
-            bullet++;
-
-    }
-
-    // PlayerBullets -> Enemy (enemy explodes, playerbullet disappears)
-    for( auto enemy = _enemies.begin(); enemy != _enemies.end(); ++enemy)
-    {
-        for( auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
+        for(auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
         {
             if (collides((*bullet)->getSprite(), (*enemy)->getSprite()))
             {
                 auto explosion = std::make_unique<Explosion>(_resolution,
-                                                                   (*enemy)->getDistanceFromCentre(),
-                                                                   (*enemy)->getAngle(),
+                                                                  (*enemy)->getDistanceFromCentre(),
+                                                                  (*enemy)->getAngle(),
                                                                    (*enemy)->getScale().x * 2,
-                                                                   _textureHolder,
-                                                                   textures::Explosion);
+                                                                  _textureHolder,
+                                                                  textures::Explosion);
                 _explosions.push_back(std::move(explosion));
                 bullet = _bulletsPlayer.erase(bullet);
                 (*enemy)->die();
                 _explosionHasOccurred = true;
-#ifdef DEBUG
-                std::cout << "Explosion! : PlayerBullet hit enemy" << std::endl;
-#endif // DEBUG
             } else
                 bullet++;
         }
     }
 
     // Process Enemy death events from PlayerBullets collisions above
-    for( auto enemy = _enemies.begin(); enemy != _enemies.end();)
+    for(auto enemy = _enemies.begin(); enemy != _enemies.end();)
     {
         if ((*enemy)->getLives() == 0)
         {
@@ -178,9 +157,29 @@ bool EntityController::checkCollisions()
         } else
             enemy++;
     }
+}
 
+void EntityController::checkEnemyBulletsToPlayerShipCollisions()
+{// EnemyBullets -> PlayerShip (player explodes + dies, bullet disappears)
+    for(auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
+    {
+        if (collides(_playerShip.getSprite(), (*bullet)->getSprite()))
+        {
+            auto explosion = std::make_unique<Explosion>(_resolution,
+                                                              _playerShip.getDistanceFromCentre(),
+                                                              _playerShip.getAngle(),
+                                                              _playerShip.getScale().x * 2,
+                                                              _textureHolder,
+                                                              textures::Explosion);
+            _explosions.push_back(std::move(explosion));
+            bullet = _bulletsEnemy.erase(bullet);
+            if (!_playerShip.isInvulnerable())
+                _playerHasBeenHit = true;
+            _explosionHasOccurred = true;
+        } else
+            bullet++;
 
-    return _playerHasBeenHit;
+    }
 }
 
 void EntityController::checkEnemyToPlayerShipCollisions()
@@ -189,7 +188,7 @@ void EntityController::checkEnemyToPlayerShipCollisions()
     {
         if (collides(_playerShip.getSprite(), (*enemy)->getSprite()))
         {
-            auto explosion = std::__1::make_unique<Explosion>(_resolution,
+            auto explosion = std::make_unique<Explosion>(_resolution,
                                                               _playerShip.getDistanceFromCentre(),
                                                               _playerShip.getAngle(),
                                                                (*enemy)->getScale().x * 2,
@@ -203,12 +202,6 @@ void EntityController::checkEnemyToPlayerShipCollisions()
                 _playerHasBeenHit = true;
             }
             _explosionHasOccurred = true;
-
-#ifdef DEBUG
-            std::__1::cout << "Explosion! : Enemy hit PlayerShip" << std::__1::endl;
-            std::__1::cout << "The enemy was at : (" << (*enemy)->getPosition().x << "," << (*enemy)->getPosition().y << ")" << std::__1::endl;
-            std::__1::cout << "The player was at : (" << _playerShip.getPosition().x << "," << _playerShip.getPosition().y << ")" << std::__1::endl;
-#endif // DEBUG
 
         }
         else

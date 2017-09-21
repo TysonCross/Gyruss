@@ -50,6 +50,7 @@ public:
 
 private:
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
+    void checkEnemyToPlayerShipCollisions();
 
     PlayerShip& _playerShip;
     sf::Vector2i _resolution;
@@ -66,7 +67,9 @@ private:
     bool _playerHasBeenHit;
     float _speed_modifier;
 
-    void checkEnemyToPlayerShipCollisions();
+    void checkEnemyBulletsToPlayerShipCollisions();
+
+    void checkPlayerBulletsToEnemyCollisions();
 };
 
 
