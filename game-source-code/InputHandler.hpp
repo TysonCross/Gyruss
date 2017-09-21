@@ -15,9 +15,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "PlayerShip.hpp"
-#include "Bullet.hpp"
-#include "Enemy.hpp"
+#include "EntityController.hpp"
 #include <map>
 
 using key_map = std::map<int, bool>;
@@ -25,17 +23,21 @@ using key_map = std::map<int, bool>;
 class InputHandler
 {
 public:
+    InputHandler();
+
     void pollInput(game::GameState &gameState,
-                   PlayerShip &playerShip,
-                   const sf::Event &event,
-                   bool &previousButtonState);
+                   EntityPlayerShip &playerShip,
+                   const sf::Event &event);
 
-    void update(PlayerShip& playerShip, float deltaTime);
+    void update(EntityPlayerShip &playerShip,
+                const float deltaTime);
 
+    void reset();
 
 private:
     bool _isMovingLeft;
     bool _isMovingRight;
+    bool _previousButtonState; // 1 is pressed, 0 is released
 };
 
 #endif //PROJECT_INPUTHANDLER_HPP

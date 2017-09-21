@@ -19,12 +19,12 @@ namespace common
 {
     const float pi = 3.1415;
 
-    /// \brief A simple 2d container of 2 ints
-    struct Resolution
-    {
-        unsigned int x;
-        unsigned int y;
-    };
+//    /// \brief A simple 2d container of 2 ints
+//    struct Resolution
+//    {
+//        unsigned int x;
+//        unsigned int y;
+//    };
 
     /// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
     struct position
@@ -50,14 +50,18 @@ namespace textures
 {
     enum ID
     {
+        EnemyShipGrey=0,
+        EnemyShipPurple=1,
         testTexture,
         SplashScreen,
+        SplashScreenExtra,
+        GameOverScreen,
         SplashControls,
+        GameOverCredits,
         PlayerShip,
         BulletPlayer,
         BulletEnemy,
-        EnemyShipGrey,
-        EnemyShipPurple,
+        Explosion,
 //        EnemyShipGenerator,
 //        Meteoroid,
 //        Satellite,
@@ -73,10 +77,12 @@ namespace sounds
         testSound,
         StartSound,
         SpawnSound,
+        GameOverSound,
         PlayerMove,
         PlayerShoot,
         EnemyShoot,
         PlayerDeath,
+        Explosion,
     };
 }
 
@@ -98,6 +104,7 @@ namespace game
     {
         Splash,
         Playing,
+        GameOver,
         Exiting
     };
 }

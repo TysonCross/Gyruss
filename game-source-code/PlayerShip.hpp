@@ -18,10 +18,10 @@
 #include <SFML/Audio.hpp>
 #include <cmath>
 #include "common.hpp"
+#include "Entity.hpp"
 #include "ResourceHolder.hpp"
-#include <experimental/optional>
 
-class PlayerShip
+class EntityPlayerShip : public Entity
 {
 public:
 
@@ -38,41 +38,55 @@ public:
     /// \param scale The scale of the sprite
     ///
     ////////////////////////////////////////////////////////////
-    PlayerShip(const TextureHolder &textureHolder,
-               const SoundHolder &soundHolder,
-               const common::Resolution resolution,
+    EntityPlayerShip(const sf::Vector2i resolution,
                float distanceFromCentre,
                float angle,
-               float scale);
+               float scale,
+               const TextureHolder &textureHolder,
+               const SoundHolder &soundHolder);
 
-    void setMove(float angle);
-    void setShoot();
-    bool isShooting();
-    void reset();
-    void update();
+    void setMove(float angle) override;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Moves the player ship around a circle by this angle
+    ////////////////////////////////////////////////////////////
+    void move() override;
+    void reset() override;
+    void update() override;
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the distance from origin
+    ////////////////////////////////////////////////////////////
+    const float getRadius() override; // As below
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
     ////////////////////////////////////////////////////////////
-    float getDistanceFromCentre();
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Returns the angle
-    ////////////////////////////////////////////////////////////
-    float getAngle();
+    const float getDistanceFromCentre() override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
     ///
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
-    sf::Sprite &getSprite();
+    sf::Sprite &getSprite() override;
+
+    const sf::Vector2f getPosition() override;
+
+    const sf::Vector2f getScale() override;
+
+    const void die() override;
+
+    int getLives() override;
+
+    void setShoot();
+    bool isShooting();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the angle
+    ////////////////////////////////////////////////////////////
+    float getAngle();
 
 private:
-    ////////////////////////////////////////////////////////////
-    /// \brief Moves the player ship around a circle by this angle
-    ////////////////////////////////////////////////////////////
-    void move();
 
     ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers
@@ -85,16 +99,12 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    sf::Sprite _sprite;
     sf::Sound _soundSpawn;
     sf::Sound _soundShoot;
     sf::Sound _soundMove;
+    sf::Sound _soundDeath;
     sf::IntRect _rectArea;
     int _spriteOffset;
-    common::Resolution _resolution;
-    float _distanceFromCentre;
-    float _angle;
-    float _scale;
     float _futureAngleValue;
     bool _isMoving;
     bool _isShooting;

@@ -37,8 +37,7 @@
 class StarField
 {
 public:
-    StarField(
-              common::Resolution resolution,
+    StarField(const sf::Vector2i resolution,
               const int max_depth,
               const int number_of_stars,
               float max_size = 6.0f);
@@ -53,12 +52,17 @@ public:
     ///
     /// \param speed The delta to move the stars
     /// \param window The sf:Window object to draw and render to
+    /// \param light_shift_amount Controls amount of colorful stars
+    /// light_shift_amount = 0 : undefined behaviour
+    /// light_shift_amount = 1 : all stars are colorful
+    /// light_shift_amount > 1 : reduces no. of colorful stars
     ///
     /// \see sf::Window
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
                           sf::RenderWindow &renderWindow,
-                          float speed = 0.0008);
+                          float speed = 0.0008,
+                          int light_shift_amount = 3);
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns a reference to the StarField object
@@ -74,7 +78,6 @@ private:
     ////////////////////////////////////////////////////////////
     std::vector<common::position> _starField;
     sf::CircleShape _star_shape;
-    //sf::RectangleShape _star_shape;
     const unsigned int _width;
     const unsigned int _height;
     const int _max_depth;
@@ -83,10 +86,7 @@ private:
     float _star_scale;
     /// \brief Controls amount of colorful stars
     ///
-    /// _light_shift_amount = 0 : undefined behaviour
-    /// _light_shift_amount = 1 : all stars are colorful
-    /// _light_shift_amount > 1 : reduces no. of colorful stars
-    const signed int _light_shift_amount = 3;
+
 };
 
 #endif //PROJECT_STARFIELD_HPP

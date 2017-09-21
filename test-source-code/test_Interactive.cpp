@@ -8,7 +8,7 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../game-source-code/SplashScreen.hpp"
+#include "../game-source-code/ScreenSplash.hpp"
 #include <iostream>
 #include "doctest.h"
 
@@ -29,7 +29,7 @@ TEST_CASE ("Check splashscreen loads")
 
     sf::RenderWindow testWindow;
     testWindow.create(sf::VideoMode(res.x, res.y, 32), "Test");
-    SplashScreen splashScreen;
+    ScreenSplash splashScreen;
 
     int splashResult= splashScreen.show(testWindow, texture_holder, sound_holder, font_holder, res);
         CHECK(splashResult!=-1);
@@ -50,7 +50,7 @@ TEST_CASE ("Quit splashscreen window returns 1(signal: close application)")
 
     sf::RenderWindow testWindow;
     testWindow.create(sf::VideoMode(res.x, res.y, 32), "Test");
-    SplashScreen splashScreen;
+    ScreenSplash splashScreen;
 
     int splashResult= splashScreen.show(testWindow, texture_holder, sound_holder, font_holder, res);
         CHECK(splashResult==1);
@@ -71,7 +71,7 @@ TEST_CASE ("Continue Splashscreen returns 0(signal: continue to game play)")
 
     sf::RenderWindow testWindow;
     testWindow.create(sf::VideoMode(res.x, res.y, 32), "Test");
-    SplashScreen splashScreen;
+    ScreenSplash splashScreen;
 
     int splashResult= splashScreen.show(testWindow, texture_holder, sound_holder, font_holder, res);
         CHECK(splashResult==0);

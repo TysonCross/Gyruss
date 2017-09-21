@@ -13,54 +13,52 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
+#include <SFML/Audio.hpp>
 #include <cmath>
 #include "common.hpp"
+#include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class Enemy //: public Entity
+class EntityEnemy : public Entity
 {
 public:
-
-    Enemy(const TextureHolder &textureHolder,
-          const SoundHolder &soundHolder,
-          const common::Resolution resolution,
+    EntityEnemy(const sf::Vector2i &resolution,
           float distanceFromCentre,
           float angle,
           float scale,
+          const TextureHolder &textureHolder,
+          const SoundHolder &soundHolder,
           textures::ID id);
-    void setMove(float angle, float distance);
+
+    void setMove(float angle, float distance) override;
+    void move() override;
+    void reset() override;
+    void update() override;
+    const float getRadius() override;
+    const float getDistanceFromCentre() override;
+    const sf::Vector2f getPosition() override;
+    sf::Sprite &getSprite() override;
+    const sf::Vector2f getScale() override;
+    const void die() override;
+    int getLives() override;
+
     void setShoot();
     bool isShooting();
-    void reset();
-    void update();
     float getAngle();
     float getDirectionAngle();
-    float getDistanceFromCentre();
-    float getRadius();
-    sf::Sprite &getSprite();
 
 private:
     void shoot();
-    void move();
 
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    sf::Sprite _sprite;
     sf::Sound _soundShoot;
-    common::Resolution _resolution;
-    float _distanceFromCentre;
-    float _angle;
     float _angleOrientation;
-    float _scale;
-    float _futureAngleValue;
-    float _futureMoveValue;
-    bool _isMoving;
     bool _isShooting;
     sf::Vector2<float> _prevPosition,
                         _newPosition,
                         _pointingPosition;
-    textures::ID _id;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

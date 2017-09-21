@@ -12,23 +12,31 @@ set(SOURCE_FILES_BASE
         game-source-code/Game.cpp
         game-source-code/InputHandler.cpp
         game-source-code/InputHandler.hpp
-        game-source-code/SplashScreen.hpp
-        game-source-code/SplashScreen.cpp
-        game-source-code/PlayerShip.cpp
-        game-source-code/PlayerShip.hpp
+        game-source-code/ResourceHolder.inl
+        game-source-code/ResourceHolder.hpp
         game-source-code/Starfield.cpp
         game-source-code/Starfield.hpp
         game-source-code/Entity.hpp
+        game-source-code/PlayerShip.cpp
+        game-source-code/PlayerShip.hpp
         game-source-code/Enemy.cpp
         game-source-code/Enemy.hpp
-        game-source-code/FPS.cpp
-        game-source-code/FPS.hpp
+        game-source-code/Bullet.cpp
+        game-source-code/Bullet.hpp
+        game-source-code/Explosion.cpp
+        game-source-code/Explosion.hpp
         game-source-code/common.cpp
         game-source-code/common.hpp
-        game-source-code/ResourceHolder.inl
-        game-source-code/ResourceHolder.hpp
-        game-source-code/Bullet.cpp
-        game-source-code/Bullet.hpp)
+        game-source-code/FPS.cpp
+        game-source-code/FPS.hpp
+        game-source-code/Screen.cpp
+        game-source-code/Screen.hpp
+        game-source-code/ScreenSplash.hpp
+        game-source-code/ScreenSplash.cpp
+        game-source-code/ScreenGameOver.cpp
+        game-source-code/ScreenGameOver.hpp
+        game-source-code/EntityController.cpp
+        game-source-code/EntityController.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}

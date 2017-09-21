@@ -11,21 +11,22 @@
 
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(const TextureHolder &textureHolder,
-                       const SoundHolder &soundHolder,
-                       const common::Resolution resolution,
+EntityPlayerShip::EntityPlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
-                       float angle = 0,
-                       float scale = 1) : _distanceFromCentre(distanceFromCentre),
-                                          _angle(angle),
-                                          _scale(scale),
-                                          _resolution(resolution),
-                                          _isShooting(false),
-                                          _isMoving(false)
+                       float angle,
+                       float scale,
+                       const TextureHolder &textureHolder,
+                       const SoundHolder &soundHolder) : Entity{resolution,
+                                                                distanceFromCentre,
+                                                                angle,
+                                                                scale,
+                                                                textureHolder}
 {
+    _lives = 3;
     _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
     _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
     _soundMove.setBuffer(soundHolder.get(sounds::PlayerMove));
+    _soundDeath.setBuffer(soundHolder.get(sounds::PlayerDeath));
     _soundMove.setLoop(1);
     _soundMove.play();
     _soundSpawn.play();
@@ -37,34 +38,28 @@ PlayerShip::PlayerShip(const TextureHolder &textureHolder,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 
+    _isShooting = false;
+    _isMoving = false;
     reset(); //Initialised position at bottom of play area, not screen origin top-left
 }
 
-void PlayerShip::setMove(float angle)
+void EntityPlayerShip::setMove(float angle)
 {
     _isMoving = true;
     _futureAngleValue = angle;
 }
 
-void PlayerShip::setShoot()
+void EntityPlayerShip::reset()
 {
-    _isShooting = true;
-}
-
-bool PlayerShip::isShooting()
-{
-    return _isShooting;
-}
-
-void PlayerShip::reset()
-{
+    _angle = 0;
     _futureAngleValue = 0;
-    _isMoving = false;
     _isShooting = false;
-    update();
+    _isMoving = false;
+//    move();
+    setMove(0);
 }
 
-void PlayerShip::update()
+void EntityPlayerShip::update()
 {
     if (_isMoving)
     {
@@ -85,23 +80,60 @@ void PlayerShip::update()
     _isShooting = false;
 }
 
-sf::Sprite &PlayerShip::getSprite()
+const float EntityPlayerShip::getRadius()
+{
+    return getDistanceFromCentre();
+}
+
+const float EntityPlayerShip::getDistanceFromCentre()
+{
+    return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
+}
+
+const sf::Vector2f EntityPlayerShip::getPosition()
+{
+    return _sprite.getPosition();
+}
+
+
+sf::Sprite &EntityPlayerShip::getSprite()
 {
     return _sprite;
 }
 
-
-float PlayerShip::getDistanceFromCentre()
+const sf::Vector2f EntityPlayerShip::getScale()
 {
-    return _distanceFromCentre - _sprite.getOrigin().y;
+    return _sprite.getScale();
 }
 
-float PlayerShip::getAngle()
+const void EntityPlayerShip::die()
+{
+    _soundDeath.play();
+    _lives--;
+    reset();
+}
+
+int EntityPlayerShip::getLives()
+{
+    return _lives;
+}
+
+void EntityPlayerShip::setShoot()
+{
+    _isShooting = true;
+}
+
+bool EntityPlayerShip::isShooting()
+{
+    return _isShooting;
+}
+
+float EntityPlayerShip::getAngle()
 {
     return _angle;
 }
 
-void PlayerShip::move()
+void EntityPlayerShip::move()
 {
     _soundMove.setPitch(fabs(_futureAngleValue/4)); // Engine pitch rises when moving
     _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
@@ -113,7 +145,7 @@ void PlayerShip::move()
     _sprite.setRotation(-1 * _angle);
 }
 
-void PlayerShip::shoot()
+void EntityPlayerShip::shoot()
 {
     //_soundShoot.setPitch(((rand()%3)/6.0f)+0.3);
     _soundShoot.play();
