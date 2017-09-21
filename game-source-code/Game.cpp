@@ -10,6 +10,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Game.hpp"
+#include <iostream>
 
 void Game::Start()
 {
@@ -48,6 +49,7 @@ void Game::Quit()
 void Game::initializeGameLoop()
 {
     sf::Clock clock;
+    sf::Clock total;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
 
@@ -71,35 +73,32 @@ void Game::initializeGameLoop()
     ///-------------------------------------------
     ///  Game Playing starts
     ///-------------------------------------------
-    sf::Music music;
-    music.setLoop(true);
-    music.setVolume(25);
-    if (!music.openFromFile("resources/game_music.ogg"))
+    _music.setLoop(true);
+    _music.setVolume(25);
+    if (!_music.openFromFile("resources/game_music.ogg"))
     {
         _gameState = game::GameState::Exiting;
         return;// error
     }
     else
-        music.play();
+        _music.play();
 
     auto number_of_stars = 60;
     StarField starField(_resolution, 3, number_of_stars);
 
-//    //Set the player circle radius
-//    // Todo: Config.ini file
+    // Todo: Config.ini file
     auto shipPathRadiusPadding = 0.05f;
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.28;
-    EntityPlayerShip playerShip(_resolution,
+    PlayerShip playerShip(_resolution,
                                 shipPathRadius,
                                 0,
                                 shipScale,
-                                _textures,
-                                _sounds);
+                                _textures);
+
     EntityController entityController(_resolution,
                                       playerShip,
-                                      _textures,
-                                      _sounds);
+                                      _textures);
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -137,11 +136,37 @@ void Game::initializeGameLoop()
             if (entityController.checkCollisions(playerShip))
             {
                 playerShip.die();
+                _soundController.playSound(sounds::PlayerDeath);
+                _soundController.playSound(sounds::Explosion);
                 _inputHandler.reset();
                 shaking = 1;
             }
+            ///-------------------------------------------
+            /// Pre update() Sound events
+            ///-------------------------------------------
+            if (playerShip.isShooting())
+                _soundController.playSound(sounds::PlayerShoot);
+
+            if (entityController.explosionOccurred())
+            {
+                // Vary the pitch of the explosions
+                auto pitch = (rand() % 3 + 0.8) / 3.f;
+                _soundController.playSound(sounds::Explosion, pitch, 50);
+            }
+
+            if (entityController.shootingOccurred())
+            {
+                // Vary the pitch of the explosions
+                auto pitch = (rand() % 3 + 0.8) / 3.f;
+                _soundController.playSound(sounds::EnemyShoot, pitch, 90);
+            }
+
+            ///-------------------------------------------
+            /// Update() all entities
+            ///-------------------------------------------
             entityController.update();
             playerShip.update();
+
 
 #ifdef DEBUG
         entityController.debug();
@@ -178,6 +203,9 @@ void Game::initializeGameLoop()
                 _mainWindow.display();
             }
 
+            if (playerShip.isInvulnerable())
+                pulseColor(playerShip.getSprite(),sf::Color::Red,20,total);
+
             _mainWindow.setPosition(pos);
             _mainWindow.display();
 
@@ -198,8 +226,9 @@ void Game::initializeGameLoop()
 
 void Game::showSplashScreen()
 {
+    _soundController.playSound(sounds::StartSound);
     ScreenSplash splashScreen;
-    if (splashScreen.show(_mainWindow,_textures,_sounds, _fonts, _resolution) == 0)
+    if (splashScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Playing;
         return;
@@ -209,8 +238,10 @@ void Game::showSplashScreen()
 
 void Game::showGameOverScreen()
 {
+    _soundController.playSound(sounds::GameOverSound);
+    _music.stop();
     ScreenGameOver gameOverScreen;
-    if (gameOverScreen.show(_mainWindow,_textures,_sounds, _fonts, _resolution) == 0)
+    if (gameOverScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Splash;
         return;
@@ -220,7 +251,7 @@ void Game::showGameOverScreen()
 
 void Game::loadResources()
 {
-    //Load Textures and Sounds
+    // Load Textures
     _textures.load(textures::SplashScreen,"resources/splash.png");
     _textures.load(textures::SplashScreenExtra,"resources/splash_spacefight.png");
     _textures.load(textures::GameOverScreen,"resources/gameover.png");
@@ -233,14 +264,15 @@ void Game::loadResources()
     _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
     _textures.load(textures::Explosion,"resources/explosion.png");
 
-    _sounds.load(sounds::StartSound,"resources/startup.ogg");
-    _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
-    _sounds.load(sounds::GameOverSound,"resources/gameover.ogg");
-    _sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
-    _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
-    _sounds.load(sounds::EnemyShoot,"resources/shoot_phaser.ogg");
-    _sounds.load(sounds::PlayerDeath,"resources/player_death.ogg");
-    _sounds.load(sounds::Explosion,"resources/explosion.ogg");
+    // Load Fonts
     _fonts.load(fonts::Title,"resources/danube.ttf");
     _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
+}
+
+void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clock& clock)
+{
+    float change = clock.getElapsedTime().asSeconds();
+    change = common::radToDegree(common::angleFilter(change));
+    auto i = fabs(sin(change*1/frequency));
+    sprite.setColor(sf::Color(i*color.r,i*color.g,i*color.b));
 }

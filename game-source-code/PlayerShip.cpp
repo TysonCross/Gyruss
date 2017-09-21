@@ -11,25 +11,23 @@
 
 #include "PlayerShip.hpp"
 
-EntityPlayerShip::EntityPlayerShip(const sf::Vector2i resolution,
+PlayerShip::PlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
                        float angle,
                        float scale,
-                       const TextureHolder &textureHolder,
-                       const SoundHolder &soundHolder) : Entity{resolution,
-                                                                distanceFromCentre,
-                                                                angle,
-                                                                scale,
-                                                                textureHolder}
+                       const TextureHolder &textureHolder) : Entity{resolution,
+                                                                    distanceFromCentre,
+                                                                    angle,
+                                                                    scale,
+                                                                    textureHolder}
 {
     _lives = 3;
-    _soundShoot.setBuffer(soundHolder.get(sounds::PlayerShoot));
-    _soundSpawn.setBuffer(soundHolder.get(sounds::SpawnSound));
-    _soundMove.setBuffer(soundHolder.get(sounds::PlayerMove));
-    _soundDeath.setBuffer(soundHolder.get(sounds::PlayerDeath));
+    _invulnerabilityTimeAmount = 1.2f;
+
+    _buffer.loadFromFile("resources/thrust.ogg");
+    _soundMove.setBuffer(_buffer);
     _soundMove.setLoop(1);
     _soundMove.play();
-    _soundSpawn.play();
 
     _rectArea = {0, 0, 366, 382}; // Individual sprite tile
     _spriteOffset = _rectArea.width; // Animated sprite tileset width
@@ -38,28 +36,30 @@ EntityPlayerShip::EntityPlayerShip(const sf::Vector2i resolution,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
 
+    _isInvulnerable = true;
     _isShooting = false;
     _isMoving = false;
     reset(); //Initialised position at bottom of play area, not screen origin top-left
 }
 
-void EntityPlayerShip::setMove(float angle)
+void PlayerShip::setMove(float angle)
 {
     _isMoving = true;
     _futureAngleValue = angle;
 }
 
-void EntityPlayerShip::reset()
+void PlayerShip::reset()
 {
     _angle = 0;
     _futureAngleValue = 0;
     _isShooting = false;
     _isMoving = false;
-//    move();
+    _invulnerabilityTimer.restart();
+    _isInvulnerable = true;
     setMove(0);
 }
 
-void EntityPlayerShip::update()
+void PlayerShip::update()
 {
     if (_isMoving)
     {
@@ -75,65 +75,83 @@ void EntityPlayerShip::update()
     {
         shoot();
     }
+    if (_invulnerabilityTimer.getElapsedTime().asSeconds() > _invulnerabilityTimeAmount)
+    {
+        _isInvulnerable = false;
+    }
     _isMoving = false;
     _futureAngleValue = 0;
     _isShooting = false;
 }
 
-const float EntityPlayerShip::getRadius()
+const float PlayerShip::getRadius()
 {
     return getDistanceFromCentre();
 }
 
-const float EntityPlayerShip::getDistanceFromCentre()
+const float PlayerShip::getDistanceFromCentre()
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f EntityPlayerShip::getPosition()
+const sf::Vector2f PlayerShip::getPosition()
 {
     return _sprite.getPosition();
 }
 
 
-sf::Sprite &EntityPlayerShip::getSprite()
+sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f EntityPlayerShip::getScale()
+const sf::Vector2f PlayerShip::getScale()
 {
     return _sprite.getScale();
 }
 
-const void EntityPlayerShip::die()
+const void PlayerShip::die()
 {
-    _soundDeath.play();
     _lives--;
     reset();
 }
 
-int EntityPlayerShip::getLives()
+int PlayerShip::getLives()
 {
     return _lives;
 }
 
-void EntityPlayerShip::setShoot()
+void PlayerShip::setShoot()
 {
     _isShooting = true;
 }
 
-bool EntityPlayerShip::isShooting()
+bool PlayerShip::isShooting()
 {
     return _isShooting;
 }
 
-float EntityPlayerShip::getAngle()
+bool PlayerShip::isMoving()
+{
+    return _isMoving;
+}
+
+bool PlayerShip::isInvulnerable()
+{
+    return _isInvulnerable;
+}
+
+float PlayerShip::getAngle()
 {
     return _angle;
 }
 
-void EntityPlayerShip::move()
+float PlayerShip::getFutureAngle()
+{
+    return _futureAngleValue;
+}
+
+void PlayerShip::move()
 {
     _soundMove.setPitch(fabs(_futureAngleValue/4)); // Engine pitch rises when moving
     _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
@@ -145,9 +163,11 @@ void EntityPlayerShip::move()
     _sprite.setRotation(-1 * _angle);
 }
 
-void EntityPlayerShip::shoot()
+void PlayerShip::shoot()
 {
-    //_soundShoot.setPitch(((rand()%3)/6.0f)+0.3);
-    _soundShoot.play();
+//    _soundShoot.play();
     _isShooting = false;
 }
+
+
+

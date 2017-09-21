@@ -36,7 +36,7 @@ set(SOURCE_FILES_BASE
         game-source-code/ScreenGameOver.cpp
         game-source-code/ScreenGameOver.hpp
         game-source-code/EntityController.cpp
-        game-source-code/EntityController.hpp)
+        game-source-code/EntityController.hpp game-source-code/SoundController.cpp game-source-code/SoundController.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}

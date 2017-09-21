@@ -18,16 +18,16 @@
 #include "common.hpp"
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
+#include "SoundController.hpp"
 
-class EntityEnemy : public Entity
+class Enemy : public Entity
 {
 public:
-    EntityEnemy(const sf::Vector2i &resolution,
+    Enemy(const sf::Vector2i &resolution,
           float distanceFromCentre,
           float angle,
           float scale,
           const TextureHolder &textureHolder,
-          const SoundHolder &soundHolder,
           textures::ID id);
 
     void setMove(float angle, float distance) override;
@@ -53,7 +53,7 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    sf::Sound _soundShoot;
+//    sf::Sound _soundShoot;
     float _angleOrientation;
     bool _isShooting;
     sf::Vector2<float> _prevPosition,

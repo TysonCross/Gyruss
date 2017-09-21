@@ -26,10 +26,10 @@ public:
     InputHandler();
 
     void pollInput(game::GameState &gameState,
-                   EntityPlayerShip &playerShip,
+                   PlayerShip &playerShip,
                    const sf::Event &event);
 
-    void update(EntityPlayerShip &playerShip,
+    void update(PlayerShip &playerShip,
                 const float deltaTime);
 
     void reset();

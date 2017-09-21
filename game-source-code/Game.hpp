@@ -22,15 +22,12 @@
 #include "common.hpp"
 #include "Entity.hpp"
 #include "EntityController.hpp"
-//#include "EntityPlayerShip.hpp"
-//#include "EntityBullet.hpp"
 #include "ResourceHolder.hpp"
+#include "SoundController.hpp"
 #include "InputHandler.hpp"
 #include "ScreenSplash.hpp"
 #include "ScreenGameOver.hpp"
-//#include "EntityExplosion.hpp"
 #include "Starfield.hpp"
-//#include "EntityEnemy.hpp"
 #include "FPS.hpp"
 
 class Game
@@ -44,11 +41,17 @@ private:
     void showSplashScreen();
     void showGameOverScreen();
     void loadResources();
+    void pulseColor(sf::Sprite sprite,
+                    sf::Color color,
+                    int frequency,
+                    sf::Clock& clock);
+
 //    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
 
     TextureHolder _textures;
-    SoundHolder _sounds;
+    SoundController _soundController;
     FontHolder _fonts;
+    sf::Music _music;
     InputHandler _inputHandler;
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;

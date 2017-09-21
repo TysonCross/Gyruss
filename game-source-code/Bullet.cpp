@@ -10,7 +10,7 @@
 
 #include "Bullet.hpp"
 
-EntityBullet::EntityBullet(const sf::Vector2i resolution,
+Bullet::Bullet(const sf::Vector2i resolution,
                            float distanceFromCentre,
                            float angle,
                            float scale,
@@ -36,13 +36,13 @@ EntityBullet::EntityBullet(const sf::Vector2i resolution,
     update();
 }
 
-void EntityBullet::setMove(float distance)
+void Bullet::setMove(float distance)
 {
     _isMoving = true;
     _futureMoveValue = distance;
 }
 
-void EntityBullet::setMove(float angle, float distance)
+void Bullet::setMove(float angle, float distance)
 {
     _isMoving = true;
 //    _angle = angle;
@@ -50,14 +50,14 @@ void EntityBullet::setMove(float angle, float distance)
     _futureMoveValue = distance;
 }
 
-void EntityBullet::reset()
+void Bullet::reset()
 {
     _isMoving = false;
     _sprite.setPosition(_resolution.x,_resolution.y); // Move offscreen?
     _sprite.setScale(0,0);
 }
 
-void EntityBullet::update()
+void Bullet::update()
 {
     if (_isMoving)
     {
@@ -71,7 +71,7 @@ void EntityBullet::update()
     }
 }
 
-const float EntityBullet::getRadius()
+const float Bullet::getRadius()
 {
     auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
     auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
@@ -79,27 +79,27 @@ const float EntityBullet::getRadius()
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
-const float EntityBullet::getDistanceFromCentre()
+const float Bullet::getDistanceFromCentre()
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f EntityBullet::getPosition()
+const sf::Vector2f Bullet::getPosition()
 {
     return _sprite.getPosition();
 }
 
-sf::Sprite& EntityBullet::getSprite()
+sf::Sprite& Bullet::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f EntityBullet::getScale()
+const sf::Vector2f Bullet::getScale()
 {
     return _sprite.getScale();
 }
 
-const void EntityBullet::die()
+const void Bullet::die()
 {
     _lives--;
     if (_lives==0)
@@ -108,13 +108,13 @@ const void EntityBullet::die()
     }
 }
 
-int EntityBullet::getLives()
+int Bullet::getLives()
 {
     return _lives;
 }
 
 
-void EntityBullet::move()
+void Bullet::move()
 {
 
     auto offset = 0.f;

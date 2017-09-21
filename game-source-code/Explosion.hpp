@@ -16,15 +16,14 @@
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class EntityExplosion : public Entity
+class Explosion : public Entity
 {
 public:
-    EntityExplosion(const sf::Vector2i resolution,
+    Explosion(const sf::Vector2i resolution,
               float distanceFromCentre,
               float angle,
               float scale,
               const TextureHolder &textureHolder,
-              const SoundHolder &soundHolder,
               const textures::ID id);
 
     void setMove(float angle, float distance) override;
@@ -43,7 +42,7 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    sf::Sound _soundExplode;
+//    sf::Sound _soundExplode;
     sf::IntRect _rectArea;
     int _spriteOffset;
 };
