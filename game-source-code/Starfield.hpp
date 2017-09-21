@@ -52,12 +52,17 @@ public:
     ///
     /// \param speed The delta to move the stars
     /// \param window The sf:Window object to draw and render to
+    /// \param light_shift_amount Controls amount of colorful stars
+    /// light_shift_amount = 0 : undefined behaviour
+    /// light_shift_amount = 1 : all stars are colorful
+    /// light_shift_amount > 1 : reduces no. of colorful stars
     ///
     /// \see sf::Window
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
                           sf::RenderWindow &renderWindow,
-                          float speed = 0.0008);
+                          float speed = 0.0008,
+                          int light_shift_amount = 3);
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns a reference to the StarField object
@@ -81,10 +86,7 @@ private:
     float _star_scale;
     /// \brief Controls amount of colorful stars
     ///
-    /// _light_shift_amount = 0 : undefined behaviour
-    /// _light_shift_amount = 1 : all stars are colorful
-    /// _light_shift_amount > 1 : reduces no. of colorful stars
-    const signed int _light_shift_amount = 3;
+
 };
 
 #endif //PROJECT_STARFIELD_HPP

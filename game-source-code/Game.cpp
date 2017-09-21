@@ -222,8 +222,10 @@ void Game::loadResources()
 {
     //Load Textures and Sounds
     _textures.load(textures::SplashScreen,"resources/splash.png");
+    _textures.load(textures::SplashScreenExtra,"resources/splash_spacefight.png");
     _textures.load(textures::GameOverScreen,"resources/gameover.png");
     _textures.load(textures::SplashControls,"resources/splash_controls.png");
+    _textures.load(textures::GameOverCredits,"resources/gameover_credits.png");
     _textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
     _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
     _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");

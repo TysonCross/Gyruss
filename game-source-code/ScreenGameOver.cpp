@@ -26,20 +26,27 @@ int ScreenGameOver::show(sf::RenderWindow &renderWindow,
     gameover.setScale(scaleFactor,scaleFactor);
 
     // Title Text
-    sf::Text title("GAME OVER", fontHolder.get(fonts::Info),resolution.y/6);
-    title.setFillColor(sf::Color::Red);
+    sf::Text title("G A M E   O V E R", fontHolder.get(fonts::Info),resolution.y/6);
+    title.setFillColor(sf::Color::White);
     title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
     auto titleWidth = resolution.x/2;
-    auto titleHeight = resolution.y/10;
+    auto titleHeight = resolution.y/13;
     title.setPosition(titleWidth, titleHeight);
 
     // Info Text
-    sf::Text info("Press enter to restart", fontHolder.get(fonts::Info), 42);
+    sf::Text info("Press return to continue", fontHolder.get(fonts::Info), 36);
     info.setFillColor(sf::Color::White);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
     auto infoWidth = resolution.x/2;;
-    auto infoHeight = resolution.y/4;
+    auto infoHeight = resolution.y - 100;
     info.setPosition(infoWidth, infoHeight);
+
+    // Credit Info
+    sf::Sprite credits(textureHolder.get(textures::GameOverCredits));
+    credits.setOrigin(credits.getGlobalBounds().width / 2, credits.getGlobalBounds().height / 2);
+    auto creditsWidth = resolution.x/2-resolution.x/3;
+    auto creditsHeight = resolution.y/2+resolution.y/9;
+    credits.setPosition(creditsWidth, creditsHeight);
 
     // Render
     sf::Event event;
@@ -49,6 +56,7 @@ int ScreenGameOver::show(sf::RenderWindow &renderWindow,
         renderWindow.clear();
         renderWindow.draw(gameover);
         renderWindow.draw(title);
+        renderWindow.draw(credits);
 
         fadeTextInAndOut(info,sf::Color::White, 50, clock);
 

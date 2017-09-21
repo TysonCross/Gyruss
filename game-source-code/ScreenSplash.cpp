@@ -25,6 +25,13 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
     auto scaleFactor = resolution.x/splash.getGlobalBounds().width;
     splash.setScale(scaleFactor,scaleFactor);
 
+    // Dramatic spacefight
+    sf::Sprite spacefight(textureHolder.get(textures::SplashScreenExtra));
+    spacefight.setOrigin(spacefight.getGlobalBounds().width / 2, spacefight.getGlobalBounds().height / 2);
+    auto spacefightWidth = resolution.x/2-resolution.x/12;
+    auto spacefightlHeight = resolution.y/2 + resolution.y/8;
+    spacefight.setPosition(spacefightWidth, spacefightlHeight);
+
     // Title Text
     sf::Text title("GYRUSS", fontHolder.get(fonts::Title),resolution.y/3.8);
     title.setFillColor(sf::Color::White);
@@ -34,7 +41,7 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
     title.setPosition(titleWidth, titleHeight);
 
     // Version text
-    sf::Text version("version 1.0", fontHolder.get(fonts::Info), 24);
+    sf::Text version("version 2.0", fontHolder.get(fonts::Info), 24);
     sf::Color Gray = {70,70,70};
     version.setFillColor(Gray);
     version.setPosition(12,12);
@@ -52,17 +59,26 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
     sf::Sprite controls(textureHolder.get(textures::SplashControls));
     controls.setOrigin(controls.getGlobalBounds().width / 2, controls.getGlobalBounds().height / 2);
     auto controlsWidth = resolution.x/2+resolution.x/3;
-    auto controlHeight = resolution.y/2+resolution.y/9;
+    auto controlHeight = resolution.y/2+resolution.y/12;
     controls.setPosition(controlsWidth, controlHeight);
+
+    auto number_of_stars = 60;
+    StarField starField(resolution, 3, number_of_stars);
 
     // Render
     sf::Event event;
     sf::Clock clock;
     while (true)
     {
+
         renderWindow.clear();
-        renderWindow.draw(splash);
+        //renderWindow.draw(splash);
+
+        for (const auto &element : starField.getStarField())
+            starField.moveAndDrawStars(renderWindow,0.001,1);
+
         renderWindow.draw(title);
+        renderWindow.draw(spacefight);
         renderWindow.draw(version);
         renderWindow.draw(controls);
 
