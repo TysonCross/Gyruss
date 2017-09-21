@@ -127,15 +127,18 @@ void Game::initializeGameLoop()
 
             entityController.spawnEnemies();
             entityController.setMove();
-//            entityController.shoot();
-//            entityController.checkClipping();
-//           if(entityController.checkCollisions())
-//           {
-//               _inputHandler.reset();
-//               shaking = 1;
-//           }
-//            entityController.update();
-//            entityController.move();
+            entityController.shoot();
+            entityController.checkClipping();
+           if(entityController.checkCollisions())
+           {
+               _inputHandler.reset();
+               shaking = 1;
+           }
+            entityController.update();
+
+#ifdef DEBUG
+        entityController.debug();
+#endif // DEBUG
 
             ///-------------------------------------------
             ///  Render

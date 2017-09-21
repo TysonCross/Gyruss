@@ -43,9 +43,12 @@ public:
     void shoot();
     void checkClipping();
     bool checkCollisions();
-    void move();
     void update();
     void draw(sf::RenderWindow &renderWindow); // ToDo: remove
+#ifdef DEBUG
+    void debug();
+#endif // DEBUG
+
 
 private:
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
@@ -53,6 +56,7 @@ private:
                           int number_bullets_enemy,
                           int number_bullets_player,
                           int number_explosions);
+
 //    template <typename T>
 //    void generateEntities<T>(int number_entities,std::list<std::unique_ptr<T>>);
 

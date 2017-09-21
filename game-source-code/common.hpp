@@ -50,6 +50,8 @@ namespace textures
 {
     enum ID
     {
+        EnemyShipGrey=0,
+        EnemyShipPurple=1,
         testTexture,
         SplashScreen,
         GameOverScreen,
@@ -58,8 +60,6 @@ namespace textures
         BulletPlayer,
         BulletEnemy,
         Explosion,
-        EnemyShipGrey,
-        EnemyShipPurple,
 //        EnemyShipGenerator,
 //        Meteoroid,
 //        Satellite,

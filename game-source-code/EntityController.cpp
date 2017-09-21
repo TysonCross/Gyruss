@@ -7,6 +7,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "EntityController.hpp"
+#include <iostream>
 
 EntityController::EntityController(sf::Vector2i resolution,
                                    float playerShipPathRadius,
@@ -102,7 +103,7 @@ void EntityController::shoot()
     {
         _bulletsPlayerActive.push_front(std::move(_bulletsPlayerInactive.front()));
         _bulletsPlayerInactive.pop_front();
-
+        _bulletsPlayerActive.front()->reset();
         _bulletsPlayerActive.front()->setMove(_playerShip.getAngle(),
                                               _playerShip.getDistanceFromCentre());
     }
@@ -263,19 +264,6 @@ bool EntityController::checkCollisions()
     return player_is_hit;
 }
 
-void EntityController::move()
-{
-    _playerShip.move();
-
-    for (auto &enemy : _enemiesActive)
-        enemy->move();
-
-    for (auto &bullet : _bulletsPlayerActive)
-        bullet->move();
-
-    for(auto &bullet : _bulletsEnemyActive)
-        bullet->move();
-}
 
 void EntityController::update()
 {
@@ -285,10 +273,16 @@ void EntityController::update()
         enemy->update();
 
     for (auto &bullet : _bulletsPlayerActive)
+    {
         bullet->update();
+        bullet->setMove(-25);
+    }
 
     for (auto &bullet : _bulletsEnemyActive)
+    {
         bullet->update();
+        bullet->setMove(20);
+    }
 
     for (auto &explosion : _explosionsActive)
         explosion->update();
@@ -322,3 +316,15 @@ void EntityController::draw(sf::RenderWindow &renderWindow)
     renderWindow.draw(_playerShip.getSprite());
 
 }
+#ifdef DEBUG
+
+void EntityController::debug()
+{
+    auto size_player_bullets = std::distance(_bulletsPlayerActive.begin(), _bulletsPlayerActive.end());
+    auto size_enemy_bullets = std::distance(_bulletsEnemyActive.begin(), _bulletsEnemyActive.end());
+    if (size_enemy_bullets > 0)
+        std::cout << "Enemy Bullets active: " << size_enemy_bullets << std::endl;
+    if (size_player_bullets > 0)
+        std::cout << "Player Bullets active: " << size_player_bullets << std::endl;
+}
+#endif // DEBUG
