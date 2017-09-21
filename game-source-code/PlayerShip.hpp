@@ -70,7 +70,7 @@ public:
     ///
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
-    sf::Sprite &getSprite() override;
+    const sf::Sprite &getSprite() override;
 
     const sf::Vector2f getPosition() override;
 
@@ -78,15 +78,16 @@ public:
 
     const void die() override;
 
-    int getLives() override;
+    const int getLives() override;
+
+    const bool isMoving();
+
+    const bool isShooting();
+
+    const bool isInvulnerable();
 
     void setShoot();
 
-    bool isMoving();
-
-    bool isShooting();
-
-    bool isInvulnerable();
 
 
     ////////////////////////////////////////////////////////////

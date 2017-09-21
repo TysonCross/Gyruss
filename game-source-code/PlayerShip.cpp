@@ -101,7 +101,7 @@ const sf::Vector2f PlayerShip::getPosition()
 }
 
 
-sf::Sprite &PlayerShip::getSprite()
+const sf::Sprite &PlayerShip::getSprite()
 {
     return _sprite;
 }
@@ -117,7 +117,7 @@ const void PlayerShip::die()
     reset();
 }
 
-int PlayerShip::getLives()
+const int PlayerShip::getLives()
 {
     return _lives;
 }
@@ -127,17 +127,17 @@ void PlayerShip::setShoot()
     _isShooting = true;
 }
 
-bool PlayerShip::isShooting()
+const bool PlayerShip::isShooting()
 {
     return _isShooting;
 }
 
-bool PlayerShip::isMoving()
+const bool PlayerShip::isMoving()
 {
     return _isMoving;
 }
 
-bool PlayerShip::isInvulnerable()
+const bool PlayerShip::isInvulnerable()
 {
     return _isInvulnerable;
 }
@@ -166,7 +166,6 @@ void PlayerShip::move()
 
 void PlayerShip::shoot()
 {
-//    _soundShoot.play();
     _isShooting = false;
 }
 

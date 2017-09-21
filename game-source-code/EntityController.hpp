@@ -23,25 +23,23 @@ using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<Bullet>>;
 using enemyList = std::list<std::unique_ptr<Enemy>>;
 using explosionList = std::list<std::unique_ptr<Explosion>>;
-using clockVector = std::vector<std::unique_ptr<sf::Clock>>;
 
 class EntityController
 {
 public:
-    EntityController();
     EntityController(sf::Vector2i resolution,
                      PlayerShip &playerShip,
                      TextureHolder &textures);
 
     void spawnEnemies();
     void setMove();
-    void shoot(PlayerShip &playerShip);
+    void shoot();
     void checkClipping();
-    bool checkCollisions(PlayerShip &playerShip);
+    bool checkCollisions();
     void update();
-    void draw(sf::RenderWindow &renderWindow); // ToDo: remove
-    bool explosionOccurred();
-    bool shootingOccurred();
+    const void draw(sf::RenderWindow &renderWindow); // ToDo: remove
+    const bool explosionOccurred();
+    const bool shootingOccurred();
     void increaseGlobalSpeed(float amount);
     void decreaseGlobalSpeed(float amount);
 
@@ -52,19 +50,8 @@ public:
 
 private:
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
-//    void generateEntities(int number_enemies,
-//                          int number_bullets_enemy,
-//                          int number_bullets_player,
-//                          int number_explosions);
 
-//    template <typename T>
-//    void generateEntities<T>(int number_entities,std::list<std::unique_ptr<T>>);
-
-//    void generateEnemies(int number_enemies);
-//    void generateBullets(int number_bullets_enemy);
-//    void generatePlayerBullets(int number_bullets_player);
-//    void generateExplosions(int number_explosions);
-
+    PlayerShip& _playerShip;
     sf::Vector2i _resolution;
     TextureHolder& _textureHolder;
     bulletList _bulletsEnemy;
@@ -73,9 +60,13 @@ private:
     explosionList _explosions;
     sf::Clock _timerSpawn;
     sf::Clock _timerShoot;
-    bool _explosionEvent;
-    bool _shootEvent;
+    sf::Clock _totalTime;
+    bool _explosionHasOccurred;
+    bool _enemyShootEventHasOccurred;
+    bool _playerHasBeenHit;
     float _speed_modifier;
+
+    void checkEnemyToPlayerShipCollisions();
 };
 
 

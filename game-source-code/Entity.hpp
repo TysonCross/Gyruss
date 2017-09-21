@@ -42,9 +42,9 @@ public:
     virtual const float getDistanceFromCentre()=0;
     virtual const sf::Vector2f getScale()=0;
     virtual const sf::Vector2f getPosition()=0;
-    virtual sf::Sprite &getSprite()=0;
+    virtual const sf::Sprite &getSprite()=0;
     virtual const void die()=0;
-    virtual int getLives()=0;
+    virtual const int getLives()=0;
     virtual void move()=0;
 
 protected:

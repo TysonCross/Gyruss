@@ -36,10 +36,10 @@ public:
     const float getRadius() override;
     const float getDistanceFromCentre() override;
     const sf::Vector2f getPosition() override;
-    sf::Sprite &getSprite() override;
+    const sf::Sprite &getSprite() override;
     const sf::Vector2f getScale() override;
     const void die() override;
-    int getLives() override;
+    const int getLives() override;
 
 private:
     ////////////////////////////////////////////////////////////
