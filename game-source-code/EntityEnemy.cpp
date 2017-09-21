@@ -6,9 +6,9 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "Enemy.hpp"
+#include "EntityEnemy.hpp"
 
-Enemy::Enemy(const sf::Vector2i &resolution,
+EntityEnemy::EntityEnemy(const sf::Vector2i &resolution,
              float distanceFromCentre,
              float angle,
              float scale,
@@ -30,14 +30,14 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     setMove(0,0); //Initialised position at centre of screen
 }
 
-void Enemy::setMove(float angle, float distance)
+void EntityEnemy::setMove(float angle, float distance)
 {
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
 }
 
-void Enemy::reset()
+void EntityEnemy::reset()
 {
     _angle = 0;
     _angleOrientation = 0;
@@ -47,7 +47,7 @@ void Enemy::reset()
     _isShooting = false;
 }
 
-void Enemy::update()
+void EntityEnemy::update()
 {
     if (_isMoving)
     {
@@ -59,7 +59,7 @@ void Enemy::update()
     }
 }
 
-const float Enemy::getRadius()
+const float EntityEnemy::getRadius()
 {
     auto x_pos = _sprite.getPosition().x + _resolution.x/2;
     auto y_pos = _sprite.getPosition().y + _resolution.y/2;
@@ -67,23 +67,28 @@ const float Enemy::getRadius()
     return sqrt((x_pos*x_pos) + (y_pos*y_pos));
 }
 
-const float Enemy::getDistanceFromCentre()
+const float EntityEnemy::getDistanceFromCentre()
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-sf::Sprite &Enemy::getSprite()
+const sf::Vector2f EntityEnemy::getPosition()
+{
+    return _sprite.getPosition();
+}
+
+sf::Sprite &EntityEnemy::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f Enemy::getScale()
+const sf::Vector2f EntityEnemy::getScale()
 {
     return _sprite.getScale();
 }
 
 
-const void Enemy::die()
+const void EntityEnemy::die()
 {
     _lives--;
     if (_lives==0)
@@ -92,39 +97,39 @@ const void Enemy::die()
     }
 }
 
-int Enemy::getLives()
+int EntityEnemy::getLives()
 {
     return _lives;
 }
 
-void Enemy::setShoot()
+void EntityEnemy::setShoot()
 {
     _isShooting = true;
 }
 
-bool Enemy::isShooting()
+bool EntityEnemy::isShooting()
 {
     return _isShooting;
 }
 
-float Enemy::getAngle()
+float EntityEnemy::getAngle()
 {
     return _angle;
 }
 
-float Enemy::getDirectionAngle()
+float EntityEnemy::getDirectionAngle()
 {
     return _angleOrientation;
 }
 
-void Enemy::shoot()
+void EntityEnemy::shoot()
 {
     _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
     _soundShoot.play();
     _isShooting = false;
 }
 
-void Enemy::move()
+void EntityEnemy::move()
 {
     _prevPosition = _sprite.getPosition();
     _prevPosition.x -= _resolution.x/2;

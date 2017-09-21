@@ -11,8 +11,13 @@
 
 #include "InputHandler.hpp"
 
+InputHandler::InputHandler()
+{
+    _previousButtonState = false;
+}
+
 void InputHandler::pollInput(game::GameState &gameState,
-                             PlayerShip &playerShip,
+                             EntityController &entityController,
                              const sf::Event &event)
 {
     if (event.type == sf::Event::Closed)
@@ -41,7 +46,7 @@ void InputHandler::pollInput(game::GameState &gameState,
         if (event.key.code == sf::Keyboard::Space)
             if (_previousButtonState == 0)
             {
-                playerShip.setShoot();
+                entityController.tellPlayerShipToShoot();
                 _previousButtonState = 1;
             }
     }
@@ -63,7 +68,7 @@ void InputHandler::pollInput(game::GameState &gameState,
     }
 }
 
-void InputHandler::update(PlayerShip &playerShip, float deltaTime)
+void InputHandler::update(EntityController &entityController, const float deltaTime)
 {
     const auto moveAmount = 260.f;
     auto move = 0.f;
@@ -78,7 +83,7 @@ void InputHandler::update(PlayerShip &playerShip, float deltaTime)
         move += moveAmount;
     }
 
-    playerShip.setMove(move * deltaTime);
+    entityController.tellPlayerShipToMove(move * deltaTime);
 }
 
 void InputHandler::reset()

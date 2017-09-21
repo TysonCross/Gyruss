@@ -18,7 +18,7 @@
 #include "SFML/Graphics.hpp"
 #include "ResourceHolder.hpp"
 
-class InfoScreen
+class Screen
 {
 public:
 

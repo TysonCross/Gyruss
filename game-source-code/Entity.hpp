@@ -41,13 +41,13 @@ public:
     virtual const float getRadius()=0;
     virtual const float getDistanceFromCentre()=0;
     virtual const sf::Vector2f getScale()=0;
+    virtual const sf::Vector2f getPosition()=0;
     virtual sf::Sprite &getSprite()=0;
     virtual const void die()=0;
     virtual int getLives()=0;
-
-protected:
     virtual void move()=0;
 
+protected:
     const sf::Vector2i _resolution;
     sf::Sprite _sprite;
     float _distanceFromCentre;

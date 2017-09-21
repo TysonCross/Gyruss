@@ -9,9 +9,9 @@
 /////////////////////////////////////////////////////////////////////
 
 
-#include "InfoScreen.hpp"
+#include "Screen.hpp"
 
-void InfoScreen::fadeTextInAndOut(sf::Text &text, sf::Color color, int frequency, sf::Clock& clock)
+void Screen::fadeTextInAndOut(sf::Text &text, sf::Color color, int frequency, sf::Clock& clock)
 {
     float change = float(clock.getElapsedTime().asSeconds());
     change = common::radToDegree(common::angleFilter(change));

@@ -21,7 +21,7 @@
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class PlayerShip : public Entity
+class EntityPlayerShip : public Entity
 {
 public:
 
@@ -38,7 +38,7 @@ public:
     /// \param scale The scale of the sprite
     ///
     ////////////////////////////////////////////////////////////
-    PlayerShip(const sf::Vector2i resolution,
+    EntityPlayerShip(const sf::Vector2i resolution,
                float distanceFromCentre,
                float angle,
                float scale,
@@ -46,6 +46,11 @@ public:
                const SoundHolder &soundHolder);
 
     void setMove(float angle) override;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Moves the player ship around a circle by this angle
+    ////////////////////////////////////////////////////////////
+    void move() override;
     void reset() override;
     void update() override;
     ////////////////////////////////////////////////////////////
@@ -65,6 +70,8 @@ public:
     ////////////////////////////////////////////////////////////
     sf::Sprite &getSprite() override;
 
+    const sf::Vector2f getPosition() override;
+
     const sf::Vector2f getScale() override;
 
     const void die() override;
@@ -81,10 +88,7 @@ public:
 
 
 private:
-    ////////////////////////////////////////////////////////////
-    /// \brief Moves the player ship around a circle by this angle
-    ////////////////////////////////////////////////////////////
-    void move() override;
+
 
     ////////////////////////////////////////////////////////////
     /// \brief Shooting ma lazers

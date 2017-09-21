@@ -15,14 +15,14 @@
 // Headers
 ////////////////////////////////////////////////////////////
 
-#include "InfoScreen.hpp"
+#include "Screen.hpp"
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
 /// the game, titles, controls and version information
 ///
 ////////////////////////////////////////////////////////////
-class SplashScreen : public InfoScreen
+class ScreenSplash : public Screen
 {
 public:
 

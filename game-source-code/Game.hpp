@@ -21,15 +21,16 @@
 #include <SFML/Graphics.hpp>
 #include "common.hpp"
 #include "Entity.hpp"
-#include "PlayerShip.hpp"
-#include "Bullet.hpp"
+#include "EntityController.hpp"
+//#include "EntityPlayerShip.hpp"
+//#include "EntityBullet.hpp"
 #include "ResourceHolder.hpp"
 #include "InputHandler.hpp"
-#include "SplashScreen.hpp"
-#include "GameOverScreen.hpp"
-#include "Explosion.hpp"
+#include "ScreenSplash.hpp"
+#include "ScreenGameOver.hpp"
+//#include "EntityExplosion.hpp"
 #include "Starfield.hpp"
-#include "Enemy.hpp"
+//#include "EntityEnemy.hpp"
 #include "FPS.hpp"
 
 class Game
@@ -43,7 +44,7 @@ private:
     void showSplashScreen();
     void showGameOverScreen();
     void loadResources();
-    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
+//    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
 
     TextureHolder _textures;
     SoundHolder _sounds;

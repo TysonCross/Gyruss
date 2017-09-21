@@ -7,9 +7,9 @@
 /////////////////////////////////////////////////////////////////////
 
 
-#include "Explosion.hpp"
+#include "EntityExplosion.hpp"
 
-Explosion::Explosion(const sf::Vector2i resolution,
+EntityExplosion::EntityExplosion(const sf::Vector2i resolution,
                      float distanceFromCentre,
                      float angle,
                      float scale,
@@ -38,21 +38,21 @@ Explosion::Explosion(const sf::Vector2i resolution,
     update();
 }
 
-void Explosion::setMove(float angle, float distance)
+void EntityExplosion::setMove(float angle, float distance)
 {
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
 }
 
-void Explosion::reset()
+void EntityExplosion::reset()
 {
     _isMoving = false;
     _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
     _sprite.setScale(0,0);
 }
 
-void Explosion::update()
+void EntityExplosion::update()
 {
     if (_isMoving)
     {
@@ -65,7 +65,7 @@ void Explosion::update()
     }
 }
 
-const float Explosion::getRadius()
+const float EntityExplosion::getRadius()
 {
     auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
     auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
@@ -73,22 +73,27 @@ const float Explosion::getRadius()
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
-const float Explosion::getDistanceFromCentre()
+const float EntityExplosion::getDistanceFromCentre()
 {
     return _distanceFromCentre;
 }
 
-sf::Sprite& Explosion::getSprite()
+const sf::Vector2f EntityExplosion::getPosition()
+{
+    return _sprite.getPosition();
+}
+
+sf::Sprite& EntityExplosion::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f Explosion::getScale()
+const sf::Vector2f EntityExplosion::getScale()
 {
     return _sprite.getScale();
 }
 
-const void Explosion::die()
+const void EntityExplosion::die()
 {
     _lives--;
     if (_lives==0)
@@ -97,13 +102,13 @@ const void Explosion::die()
     }
 }
 
-int Explosion::getLives()
+int EntityExplosion::getLives()
 {
     return _lives;
 }
 
 
-void Explosion::move()
+void EntityExplosion::move()
 {
 
     auto offset = 0.f;

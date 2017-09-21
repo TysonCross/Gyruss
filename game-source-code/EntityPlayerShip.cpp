@@ -9,9 +9,9 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "PlayerShip.hpp"
+#include "EntityPlayerShip.hpp"
 
-PlayerShip::PlayerShip(const sf::Vector2i resolution,
+EntityPlayerShip::EntityPlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
                        float angle,
                        float scale,
@@ -43,13 +43,13 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
     reset(); //Initialised position at bottom of play area, not screen origin top-left
 }
 
-void PlayerShip::setMove(float angle)
+void EntityPlayerShip::setMove(float angle)
 {
     _isMoving = true;
     _futureAngleValue = angle;
 }
 
-void PlayerShip::reset()
+void EntityPlayerShip::reset()
 {
     _angle = 0;
     _futureAngleValue = 0;
@@ -59,7 +59,7 @@ void PlayerShip::reset()
     setMove(0);
 }
 
-void PlayerShip::update()
+void EntityPlayerShip::update()
 {
     if (_isMoving)
     {
@@ -80,54 +80,60 @@ void PlayerShip::update()
     _isShooting = false;
 }
 
-const float PlayerShip::getRadius()
+const float EntityPlayerShip::getRadius()
 {
     return getDistanceFromCentre();
 }
 
-const float PlayerShip::getDistanceFromCentre()
+const float EntityPlayerShip::getDistanceFromCentre()
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-sf::Sprite &PlayerShip::getSprite()
+const sf::Vector2f EntityPlayerShip::getPosition()
+{
+    return _sprite.getPosition();
+}
+
+
+sf::Sprite &EntityPlayerShip::getSprite()
 {
     return _sprite;
 }
 
-const sf::Vector2f PlayerShip::getScale()
+const sf::Vector2f EntityPlayerShip::getScale()
 {
     return _sprite.getScale();
 }
 
-const void PlayerShip::die()
+const void EntityPlayerShip::die()
 {
     _soundDeath.play();
     _lives--;
     reset();
 }
 
-int PlayerShip::getLives()
+int EntityPlayerShip::getLives()
 {
     return _lives;
 }
 
-void PlayerShip::setShoot()
+void EntityPlayerShip::setShoot()
 {
     _isShooting = true;
 }
 
-bool PlayerShip::isShooting()
+bool EntityPlayerShip::isShooting()
 {
     return _isShooting;
 }
 
-float PlayerShip::getAngle()
+float EntityPlayerShip::getAngle()
 {
     return _angle;
 }
 
-void PlayerShip::move()
+void EntityPlayerShip::move()
 {
     _soundMove.setPitch(fabs(_futureAngleValue/4)); // Engine pitch rises when moving
     _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
@@ -139,7 +145,7 @@ void PlayerShip::move()
     _sprite.setRotation(-1 * _angle);
 }
 
-void PlayerShip::shoot()
+void EntityPlayerShip::shoot()
 {
     //_soundShoot.setPitch(((rand()%3)/6.0f)+0.3);
     _soundShoot.play();
