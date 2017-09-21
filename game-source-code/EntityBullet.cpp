@@ -45,7 +45,7 @@ void EntityBullet::setMove(float distance)
 void EntityBullet::setMove(float angle, float distance)
 {
     _isMoving = true;
-    _angle = angle;
+//    _angle = angle;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
 }

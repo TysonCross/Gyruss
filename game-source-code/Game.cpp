@@ -90,9 +90,14 @@ void Game::initializeGameLoop()
     auto shipPathRadiusPadding = 0.05f;
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.28;
+    EntityPlayerShip playerShip(_resolution,
+                                shipPathRadius,
+                                0,
+                                shipScale,
+                                _textures,
+                                _sounds);
     EntityController entityController(_resolution,
-                                      shipPathRadius,
-                                      shipScale,
+                                      playerShip,
                                       _textures,
                                       _sounds);
 
@@ -102,17 +107,18 @@ void Game::initializeGameLoop()
 
     while (_gameState == game::GameState::Playing)
     {
-        sf::Event event;
-        while (_mainWindow.pollEvent(event))
-        {
-            _inputHandler.pollInput(_gameState,
-                                    entityController, // Could be entityHandler?
-                                    event);
-        }
 
         ///-------------------------------------------
         /// Events
         ///-------------------------------------------
+        sf::Event event;
+        while (_mainWindow.pollEvent(event))
+        {
+            _inputHandler.pollInput(_gameState,
+                                    playerShip,
+                                    event);
+        }
+
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
 
@@ -123,18 +129,20 @@ void Game::initializeGameLoop()
         {
             timeSinceUpdate = sf::Time::Zero;
 
-            _inputHandler.update(entityController, timeStep);
+            _inputHandler.update(playerShip, timeStep);
 
             entityController.spawnEnemies();
+            entityController.shoot(playerShip);
             entityController.setMove();
-            entityController.shoot();
-            entityController.checkClipping();
-           if(entityController.checkCollisions())
+           if(entityController.checkCollisions(playerShip))
            {
+               playerShip.die();
                _inputHandler.reset();
                shaking = 1;
            }
+            entityController.checkClipping();
             entityController.update();
+            playerShip.update();
 
 #ifdef DEBUG
         entityController.debug();
@@ -149,6 +157,8 @@ void Game::initializeGameLoop()
                 starField.moveAndDrawStars(_mainWindow);
 
             entityController.draw(_mainWindow);
+
+            _mainWindow.draw(playerShip.getSprite());
 
             while (shaking > 0)
             {
@@ -179,7 +189,7 @@ void Game::initializeGameLoop()
             _mainWindow.setTitle(ss.str());
 #endif // DEBUG
 
-            if (entityController.getPlayerLives() <= 0)
+            if (playerShip.getLives() <= 0)
             {
                 _gameState = game::GameState::GameOver;
             }
@@ -209,17 +219,6 @@ void Game::showGameOverScreen()
     _gameState = game::GameState::Exiting;
 }
 
-//bool Game::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
-//{
-//    auto shrink_factor = 4.f + 0.2f;
-//    float radius_1 = (sprite1.getGlobalBounds().width + sprite1.getGlobalBounds().height) / shrink_factor;
-//    float radius_2 = (sprite2.getGlobalBounds().width + sprite2.getGlobalBounds().height) / shrink_factor;
-//    float distance_x = sprite1.getPosition().x - sprite2.getPosition().x;
-//    float distance_y = sprite1.getPosition().y - sprite2.getPosition().y;
-//
-//    return  radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
-//}
-
 void Game::loadResources()
 {
     //Load Textures and Sounds
@@ -232,9 +231,6 @@ void Game::loadResources()
     _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
     _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
     _textures.load(textures::Explosion,"resources/explosion.png");
-//    _textures.load(textures::EnemyShipGenerator,"resource/generator.png");
-//    _textures.load(textures::Meteoroid,"resource/meteoroid.png");
-//    _textures.load(textures::Satellite,"resource/satellite.png");
 
     _sounds.load(sounds::StartSound,"resources/startup.ogg");
     _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");

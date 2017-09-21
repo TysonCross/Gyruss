@@ -17,7 +17,7 @@ InputHandler::InputHandler()
 }
 
 void InputHandler::pollInput(game::GameState &gameState,
-                             EntityController &entityController,
+                             EntityPlayerShip &playerShip,
                              const sf::Event &event)
 {
     if (event.type == sf::Event::Closed)
@@ -46,7 +46,7 @@ void InputHandler::pollInput(game::GameState &gameState,
         if (event.key.code == sf::Keyboard::Space)
             if (_previousButtonState == 0)
             {
-                entityController.tellPlayerShipToShoot();
+                playerShip.setShoot();
                 _previousButtonState = 1;
             }
     }
@@ -68,7 +68,7 @@ void InputHandler::pollInput(game::GameState &gameState,
     }
 }
 
-void InputHandler::update(EntityController &entityController, const float deltaTime)
+void InputHandler::update(EntityPlayerShip &playerShip, const float deltaTime)
 {
     const auto moveAmount = 260.f;
     auto move = 0.f;
@@ -83,7 +83,7 @@ void InputHandler::update(EntityController &entityController, const float deltaT
         move += moveAmount;
     }
 
-    entityController.tellPlayerShipToMove(move * deltaTime);
+    playerShip.setMove(move * deltaTime);
 }
 
 void InputHandler::reset()

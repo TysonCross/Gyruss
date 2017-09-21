@@ -10,34 +10,27 @@
 #include <iostream>
 
 EntityController::EntityController(sf::Vector2i resolution,
-                                   float playerShipPathRadius,
-                                   float playerShipScale,
+                                   EntityPlayerShip &playerShip,
                                    TextureHolder &textureHolder, // ToDo: remove, along with Sounds
-                                   SoundHolder &soundHolder) : _playerShip(resolution,
-                                                                           playerShipPathRadius,
-                                                                           0,
-                                                                           playerShipScale,
-                                                                           textureHolder,
-                                                                           soundHolder),
-                                                               _resolution(resolution),
+                                   SoundHolder &soundHolder) : _resolution(resolution),
                                                                _textureHolder(textureHolder), // ToDo: remove
                                                                _soundHolder(soundHolder) // ToDo: remove
 {
     const int number_enemies = 50;
     const int number_bullets_enemy = 100;
     const int number_bullets_player = 60;
-    const int number_explosions = 100;
+    const int number_explosions = 51;
 
-    // Generate timers for the enemy spawning and shooting
+    // Reset timers for the enemy spawning and shooting
     _timerSpawn.restart();
     _timerShoot.restart();
 
-    // Generate pool of basic enemies, made up from either the two variants
+    // Generate pool of basic enemies, made up from either of  two variants
     for (auto i = 0; i < number_enemies; i++)
     {
         auto shipVariant = static_cast<textures::ID>(rand()%2);
         auto enemy = std::make_unique<EntityEnemy>(_resolution,
-                                                   0, 0, 1,
+                                                   0, 0, 0.5,
                                                    _textureHolder, // ToDo: remove
                                                    _soundHolder, // ToDo: remove
                                                    shipVariant);
@@ -87,28 +80,21 @@ void EntityController::spawnEnemies()
     }
 }
 
-void EntityController::tellPlayerShipToShoot()
-{
-   _playerShip.setShoot();
-}
 
-void EntityController::tellPlayerShipToMove(float distance)
+void EntityController::shoot(EntityPlayerShip &playerShip)
 {
-    _playerShip.setMove(distance);
-}
-
-void EntityController::shoot()
-{
-    if (_playerShip.isShooting())
+    if (playerShip.isShooting())
     {
         _bulletsPlayerActive.push_front(std::move(_bulletsPlayerInactive.front()));
         _bulletsPlayerInactive.pop_front();
-        _bulletsPlayerActive.front()->reset();
-        _bulletsPlayerActive.front()->setMove(_playerShip.getAngle(),
-                                              _playerShip.getDistanceFromCentre());
+
+        _bulletsPlayerActive.front()->getSprite().setPosition(playerShip.getSprite().getOrigin());
+        _bulletsPlayerActive.front()->getSprite().setScale(playerShip.getSprite().getScale());
+        _bulletsPlayerActive.front()->getSprite().setRotation(playerShip.getSprite().getRotation());
+        _bulletsPlayerActive.front()->setMove(playerShip.getDistanceFromCentre());
     }
 
-    float enemyShootTime = (rand() % 2000 + 100);
+    float enemyShootTime = (rand()% 200 + 100);
     for (auto &enemy : _enemiesActive)
     {
         if (_timerShoot.getElapsedTime().asMilliseconds() > enemyShootTime)
@@ -118,17 +104,13 @@ void EntityController::shoot()
             _bulletsEnemyActive.push_front(std::move(_bulletsEnemyInactive.front()));
             _bulletsEnemyInactive.pop_front();
 
-            _bulletsEnemyActive.front()->setMove(enemy->getDistanceFromCentre(),
-                                                 enemy->getAngle());
+            _bulletsEnemyActive.front()->getSprite().setPosition(enemy->getSprite().getOrigin());
+            _bulletsEnemyActive.front()->getSprite().setScale(enemy->getSprite().getScale());
+            _bulletsEnemyActive.front()->getSprite().setRotation(enemy->getSprite().getRotation());
+            _bulletsEnemyActive.front()->setMove(enemy->getDistanceFromCentre());
         }
     }
 }
-
-const int EntityController::getPlayerLives()
-{
-    return _playerShip.getLives();
-}
-
 
 void EntityController::setMove()
 {
@@ -140,7 +122,7 @@ void EntityController::setMove()
             auto random_angle = (rand() % 3 + 2.0f);
             auto random_move = rand() % 10 + (-2);
             auto playableZoneRadiusFactor = 8;
-            if (enemy->getDistanceFromCentre() < _resolution.y / playableZoneRadiusFactor)
+            if (enemy->getDistanceFromCentre() < (_resolution.y / playableZoneRadiusFactor))
             {
                 enemy->setMove(1 + random_angle, 18);
             } else
@@ -191,19 +173,19 @@ void EntityController::checkClipping()
 }
 
 
-bool EntityController::checkCollisions()
+bool EntityController::checkCollisions(EntityPlayerShip &playerShip)
 {
     bool player_is_hit = false;
 
     // Enemy -> PlayerShip
     for( auto enemy = _enemiesActive.begin(); enemy != _enemiesActive.end();)
     {
-        if (collides(_playerShip.getSprite(), (*enemy)->getSprite()))
+        if (collides(playerShip.getSprite(), (*enemy)->getSprite()))
         {
             _explosionsActive.push_front(std::move(_explosionsInactive.front()));
             _explosionsInactive.pop_front();
-            _explosionsActive.front()->setMove(_playerShip.getDistanceFromCentre(),
-                                               _playerShip.getAngle());
+            _explosionsActive.front()->setMove(playerShip.getDistanceFromCentre(),
+                                               playerShip.getAngle());
 
             _enemiesInactive.splice(_enemiesInactive.begin(), _enemiesActive, enemy++);
             player_is_hit = true;
@@ -215,12 +197,12 @@ bool EntityController::checkCollisions()
     // EnemyBullets -> EntityPlayerShip
     for( auto bullet = _bulletsEnemyActive.begin(); bullet != _bulletsEnemyActive.end();)
     {
-        if (collides(_playerShip.getSprite(), (*bullet)->getSprite()))
+        if (collides(playerShip.getSprite(), (*bullet)->getSprite()))
         {
             _explosionsActive.push_front(std::move(_explosionsInactive.front()));
             _explosionsInactive.pop_front();
-            _explosionsActive.front()->setMove(_playerShip.getDistanceFromCentre(),
-                                               _playerShip.getAngle());
+            _explosionsActive.front()->setMove(playerShip.getDistanceFromCentre(),
+                                               playerShip.getAngle());
             player_is_hit = true;
             _bulletsEnemyInactive.splice(_bulletsEnemyInactive.begin(), _bulletsEnemyActive, bullet++);
 
@@ -260,15 +242,12 @@ bool EntityController::checkCollisions()
             enemy++;
     }
 
-    if (player_is_hit) _playerShip.die();
     return player_is_hit;
 }
 
 
 void EntityController::update()
 {
-    _playerShip.update();
-
     for (auto &enemy : _enemiesActive)
         enemy->update();
 
@@ -290,7 +269,7 @@ void EntityController::update()
 
 bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
 {
-    auto shrink_factor = 4.f + 0.2f;
+    auto shrink_factor = 4 + 0.2f;
     float radius_1 = (sprite1.getGlobalBounds().width + sprite1.getGlobalBounds().height) / shrink_factor;
     float radius_2 = (sprite2.getGlobalBounds().width + sprite2.getGlobalBounds().height) / shrink_factor;
     float distance_x = sprite1.getPosition().x - sprite2.getPosition().x;
@@ -298,6 +277,7 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
 
     return  radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
 }
+
 void EntityController::draw(sf::RenderWindow &renderWindow)
 {
 
@@ -312,8 +292,6 @@ void EntityController::draw(sf::RenderWindow &renderWindow)
 
     for (auto &explosion : _explosionsActive)
         renderWindow.draw(explosion->getSprite());
-
-    renderWindow.draw(_playerShip.getSprite());
 
 }
 #ifdef DEBUG

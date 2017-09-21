@@ -30,19 +30,15 @@ class EntityController
 public:
     EntityController();
     EntityController(sf::Vector2i resolution,
-                     float playerShipPathRadius,
-                     float playerShipScale,
-                     TextureHolder& textures,
-                     SoundHolder& sounds);
+                     EntityPlayerShip &playerShip,
+                     TextureHolder &textures,
+                     SoundHolder &sounds);
 
     void spawnEnemies();
-    void tellPlayerShipToShoot();
-    void tellPlayerShipToMove(float distance);
-    const int getPlayerLives();
     void setMove();
-    void shoot();
+    void shoot(EntityPlayerShip &playerShip);
     void checkClipping();
-    bool checkCollisions();
+    bool checkCollisions(EntityPlayerShip &playerShip);
     void update();
     void draw(sf::RenderWindow &renderWindow); // ToDo: remove
 #ifdef DEBUG
@@ -52,23 +48,22 @@ public:
 
 private:
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
-    void generateEntities(int number_enemies,
-                          int number_bullets_enemy,
-                          int number_bullets_player,
-                          int number_explosions);
+//    void generateEntities(int number_enemies,
+//                          int number_bullets_enemy,
+//                          int number_bullets_player,
+//                          int number_explosions);
 
 //    template <typename T>
 //    void generateEntities<T>(int number_entities,std::list<std::unique_ptr<T>>);
 
 //    void generateEnemies(int number_enemies);
 //    void generateBullets(int number_bullets_enemy);
-//    void generatePlayerBullets(int number_nullets_player);
+//    void generatePlayerBullets(int number_bullets_player);
 //    void generateExplosions(int number_explosions);
 
     sf::Vector2i _resolution;
     TextureHolder& _textureHolder;
     SoundHolder& _soundHolder;
-    EntityPlayerShip _playerShip;
     bulletList _bulletsEnemyActive;
     bulletList _bulletsEnemyInactive;
     bulletList _bulletsPlayerActive;
