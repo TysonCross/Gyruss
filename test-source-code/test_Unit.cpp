@@ -9,22 +9,10 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "SFML/Audio.hpp"
 #include "SFML/Graphics.hpp"
-#include "../game-source-code/common.hpp"
-#include "../game-source-code/Bullet.hpp"
-#include "../game-source-code/Enemy.hpp"
-#include "../game-source-code/Entity.hpp"
-#include "../game-source-code/EntityController.hpp"
-#include "../game-source-code/Explosion.hpp"
-#include "../game-source-code/FPS.hpp"
-#include "../game-source-code/Game.hpp"
-#include "../game-source-code/InputHandler.hpp"
-#include "../game-source-code/PlayerShip.hpp"
 #include "../game-source-code/ResourceHolder.hpp"
-#include "../game-source-code/Screen.hpp"
-#include "../game-source-code/ScreenGameOver.hpp"
-#include "../game-source-code/ScreenSplash.hpp"
-#include "../game-source-code/SoundController.hpp"
-#include "../game-source-code/Starfield.hpp"
+#include "../game-source-code/common.hpp"
+#include "../game-source-code/PlayerShip.hpp"
+#include "../game-source-code/Bullet.hpp"
 
 
 #include <iostream>

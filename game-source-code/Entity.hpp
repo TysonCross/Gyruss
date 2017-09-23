@@ -28,12 +28,10 @@ public:
            float distanceFromCentre,
            float angle,
            float scale,
-           const entity::ID type,
-           const TextureHolder &textureHolder) : _resolution{resolution}, // ToDo: Remove texture stuff
+           const TextureHolder &textureHolder) : _resolution{resolution},
                                                  _distanceFromCentre{distanceFromCentre},
                                                  _angle{angle},
-                                                 _scale{scale},
-                                                 _type{type}
+                                                 _scale{scale}
     {}
 
     virtual void setMove(float){}
@@ -46,7 +44,7 @@ public:
     virtual const sf::Vector2f getPosition()=0;
     virtual const sf::Sprite &getSprite()=0;
     virtual const void die()=0;
-    virtual const int getLives() const=0;
+    virtual const int getLives()=0;
     virtual void move()=0;
 
 protected:
@@ -60,7 +58,6 @@ protected:
     bool _isMoving;
     int _lives;
     textures::ID _id;
-    entity::ID _type;
 };
 
 

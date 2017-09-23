@@ -42,7 +42,6 @@ public:
                float distanceFromCentre,
                float angle,
                float scale,
-               const entity::ID type,
                const TextureHolder &textureHolder);
 
     void setMove(float angle) override;
@@ -79,7 +78,7 @@ public:
 
     const void die() override;
 
-    const int getLives() const override;
+    const int getLives() override;
 
     const bool isMoving();
 

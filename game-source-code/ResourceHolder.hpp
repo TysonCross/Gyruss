@@ -35,7 +35,7 @@ public:
     /// The load() method loads the file into an object of specifed type,
     /// transferring ownership of the resource to the private map container member _resourceMap/
     ///
-    /// \param The key (ID) to load the resource for (defined in common.hpp)
+    /// \param The key (ID) to load the resource for (defined in game.cpp)
     /// \param The file to load the resource from.
     ///
     /// \see Game.hpp
@@ -45,14 +45,14 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Returns the resource object
     ///
-    /// \param The key (ID) to load the resource for (defined in common.hpp)
+    /// \param The key (ID) to load the resource for (defined in game.cpp)
     ////////////////////////////////////////////////////////////
     ResourceType& get(IdentifierType id);
 
     ////////////////////////////////////////////////////////////
     /// \brief Overloaded const method
     ///
-    /// \param The key (ID) to load the resource for (defined in common.hpp)
+    /// \param The key (ID) to load the resource for (defined in game.cpp)
     ////////////////////////////////////////////////////////////
     const ResourceType& get(IdentifierType id) const;
 
@@ -61,10 +61,10 @@ private:
     /// \brief internal method to insert the unique pointer into the private
     /// map member
     ///
-    /// \param id The identifying key to load the resource for (defined in common.hpp)
+    /// \param id The identifying key to load the resource for (defined in game.cpp)
     /// \param resource A unique pointer to the object containing the resource
     ///
-    /// \see common.hpp
+    /// \see Game.hpp
     ////////////////////////////////////////////////////////////
     void insertResource(IdentifierType id, std::unique_ptr<ResourceType> resource);
 

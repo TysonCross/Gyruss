@@ -1,10 +1,9 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    20/9/17
-/// \brief   Base class interface for a "Screen"
+/// \brief   Description of file in project Project
 ///
-/// A screen is an additional graphical interface in the game which
-/// provides information about the game, before/after playing the game
+/// Detailed description of file
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -18,7 +17,6 @@
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include "ResourceHolder.hpp"
-#include "Score.hpp"
 
 class Screen
 {
@@ -34,19 +32,10 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
-    virtual int draw(sf::RenderWindow &window,
-                     const TextureHolder &textureHolder,
-                     const FontHolder &fontHolder,
-                     const sf::Vector2i resolution)
-    {return 0;}
-
-    virtual int draw(sf::RenderWindow &window,
-                     const TextureHolder &textureHolder,
-                     const FontHolder &fontHolder,
-                     const sf::Vector2i resolution,
-                     const Score &score,
-                     const sf::Clock &timeAlive)
-    {return 0;}
+    virtual int show(sf::RenderWindow &window,
+             const TextureHolder &textureHolder,
+             const FontHolder &fontHolder,
+             const sf::Vector2i)=0;
 
 protected:
 ////////////////////////////////////////////////////////////
@@ -65,6 +54,7 @@ protected:
                           sf::Color color,
                           int frequency,
                           sf::Clock &clock);
+
 };
 
 #endif //PROJECT_INFOSCREEN_HPP

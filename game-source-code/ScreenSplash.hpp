@@ -3,7 +3,7 @@
 /// \date    2017/09/10
 /// \brief   Simple Splash Screen
 ///
-/// Class interface for showing a splash screen with information on how to play the game
+/// Implementation of showing a splash screen
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -37,10 +37,10 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
-    int draw(sf::RenderWindow &window,
+    int show(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
-             const sf::Vector2i resolution);
+             const sf::Vector2i) override;
 
 };
 

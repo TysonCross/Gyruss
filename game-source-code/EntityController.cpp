@@ -1,26 +1,23 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    20/9/17
-/// \brief   Controller and manager for game entity objects
+/// \brief   controller and manager for game entity objects
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "EntityController.hpp"
-
 #ifdef DEBUG
-
 #include <iostream>
+#include <tic.h>
 
 #endif // DEBUG
 
 EntityController::EntityController(sf::Vector2i resolution,
                                    PlayerShip &playerShip,
-                                   TextureHolder &textureHolder,
-                                   Score &score) : _resolution{resolution},
-                                                   _playerShip{playerShip},
-                                                   _textureHolder{textureHolder}, // ToDo: remove
-                                                   _score{score}
+                                   TextureHolder &textureHolder) : _resolution(resolution),
+                                                                   _playerShip(playerShip),
+                                                                   _textureHolder(textureHolder) // ToDo: remove
 {
     // Reset timers for the enemy spawning and shooting
     _timerSpawn.restart();
@@ -41,13 +38,11 @@ void EntityController::spawnEnemies()
             || (_enemies.size() <= minNumberEnemies))
         {
             _timerSpawn.restart();
-            auto shipVariant = static_cast<entity::ID>(rand() % 1);
-            auto shipTextureVariant = static_cast<textures::ID>(shipVariant); // ToDo : Remove me
+            auto shipVariant = static_cast<textures::ID>(rand() % 1);
             auto enemy = std::make_unique<Enemy>(_resolution,
                                                  0, 0, 0.5,
-                                                 shipVariant,
                                                  _textureHolder, // ToDo: remove
-                                                 shipTextureVariant); // ToDo : Remove me
+                                                 shipVariant);
             _enemies.push_front(std::move(enemy));
         }
     }
@@ -56,25 +51,22 @@ void EntityController::spawnEnemies()
 void EntityController::shoot()
 {
     if (_playerShip.isShooting())
-    {
-        auto bullet = std::make_unique<Bullet>(_resolution,
-                                               _playerShip.getDistanceFromCentre(),
-                                               _playerShip.getAngle(),
-                                               0.5,
-                                               entity::PlayerBullet,
-                                               _textureHolder,
-                                               textures::BulletPlayer);
+    { auto bullet = std::make_unique<Bullet>(_resolution,
+                                                   _playerShip.getDistanceFromCentre(),
+                                                   _playerShip.getAngle(),
+                                                   0.5,
+                                                   _textureHolder,
+                                                   textures::BulletPlayer);
         _bulletsPlayer.push_front(std::move(bullet));
-        _score.incrementBulletsFired();
     }
 
     _enemyShootEventHasOccurred = false;
     auto minNumberEnemyBullets = 1;
-    auto doNotFireInsideThisRadius = (_resolution.y / 2) * 0.05; // only shoot when closer
-    float enemyShootTime = (rand() % 9000 + 500); // In Milliseconds
+    auto dontFireInsideThisRadius = (_resolution.y/2)*0.05; // only shoot when closer
+    float enemyShootTime = (rand()% 9000 + 500); // In Milliseconds
     for (auto &enemy : _enemies)
     {
-        if (enemy->getDistanceFromCentre() > doNotFireInsideThisRadius)
+        if (enemy->getDistanceFromCentre() > dontFireInsideThisRadius)
         {
             if ((_timerShoot.getElapsedTime().asMilliseconds() > enemyShootTime)
                 || (_bulletsEnemy.size() <= minNumberEnemyBullets))
@@ -84,9 +76,8 @@ void EntityController::shoot()
                                                              enemy->getDistanceFromCentre(),
                                                              enemy->getAngle(),
                                                              0.5,
-                                                             entity::EnemyBullet,
-                                                             _textureHolder, // ToDo : Remove me
-                                                             textures::BulletEnemy); // ToDo : Remove me
+                                                             _textureHolder,
+                                                             textures::BulletEnemy);
                 _bulletsEnemy.push_front(std::move(bullet_enemy));
                 _enemyShootEventHasOccurred = true;
             }
@@ -98,7 +89,6 @@ const bool EntityController::shootingOccurred()
 {
     return _enemyShootEventHasOccurred;
 }
-
 void EntityController::setMove()
 {
     // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
@@ -113,10 +103,10 @@ void EntityController::setMove()
 
             if (enemy->getDistanceFromCentre() < (_resolution.y / playableZoneRadiusFactor))
             {
-                enemy->setMove(1 + random_angle, 15 * _speed_modifier);
+                enemy->setMove(1 + random_angle, 15*_speed_modifier);
             } else
             {
-                enemy->setMove(random_angle, random_move * _speed_modifier);
+                enemy->setMove(random_angle, random_move*_speed_modifier);
             }
         } else
             enemy->reset();
@@ -136,25 +126,22 @@ bool EntityController::checkCollisions()
 }
 
 void EntityController::checkPlayerBulletsToEnemyCollisions()
-{
-    // PlayerBullets -> Enemy (enemy explodes, PlayerBullet disappears)
-    for (auto enemy = _enemies.begin(); enemy != _enemies.end(); ++enemy)
+{// PlayerBullets -> Enemy (enemy explodes, playerbullet disappears)
+    for(auto enemy = _enemies.begin(); enemy != _enemies.end(); ++enemy)
     {
-        for (auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
+        for(auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
         {
             if (collides((*bullet)->getSprite(), (*enemy)->getSprite()))
             {
                 auto explosion = std::make_unique<Explosion>(_resolution,
-                                                             (*enemy)->getDistanceFromCentre(),
-                                                             (*enemy)->getAngle(),
-                                                             (*enemy)->getScale().x * 2,
-                                                             entity::Explosion,
-                                                             _textureHolder, // ToDo : Remove me
-                                                             textures::Explosion); // ToDo : Remove me
+                                                                  (*enemy)->getDistanceFromCentre(),
+                                                                  (*enemy)->getAngle(),
+                                                                   (*enemy)->getScale().x * 2,
+                                                                  _textureHolder,
+                                                                  textures::Explosion);
                 _explosions.push_back(std::move(explosion));
                 bullet = _bulletsPlayer.erase(bullet);
                 (*enemy)->die();
-                _score.incrementEnemiesKilled((*enemy)->getType());
                 _explosionHasOccurred = true;
             } else
                 bullet++;
@@ -162,8 +149,7 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
     }
 
     // Process Enemy death events from PlayerBullets collisions above
-    // (indexing/incrementing problems prevent performing these actions in the same nested loop)
-    for (auto enemy = _enemies.begin(); enemy != _enemies.end();)
+    for(auto enemy = _enemies.begin(); enemy != _enemies.end();)
     {
         if ((*enemy)->getLives() == 0)
         {
@@ -175,17 +161,16 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
 
 void EntityController::checkEnemyBulletsToPlayerShipCollisions()
 {// EnemyBullets -> PlayerShip (player explodes + dies, bullet disappears)
-    for (auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
+    for(auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
     {
         if (collides(_playerShip.getSprite(), (*bullet)->getSprite()))
         {
             auto explosion = std::make_unique<Explosion>(_resolution,
-                                                         _playerShip.getDistanceFromCentre(),
-                                                         _playerShip.getAngle(),
-                                                         _playerShip.getScale().x * 2,
-                                                         entity::Explosion,
-                                                         _textureHolder, // ToDo : Remove me
-                                                         textures::Explosion); // ToDo : Remove me
+                                                              _playerShip.getDistanceFromCentre(),
+                                                              _playerShip.getAngle(),
+                                                              _playerShip.getScale().x * 2,
+                                                              _textureHolder,
+                                                              textures::Explosion);
             _explosions.push_back(std::move(explosion));
             bullet = _bulletsEnemy.erase(bullet);
             if (!_playerShip.isInvulnerable())
@@ -199,17 +184,16 @@ void EntityController::checkEnemyBulletsToPlayerShipCollisions()
 
 void EntityController::checkEnemyToPlayerShipCollisions()
 {// Enemy <-> PlayerShip (enemy explodes, player dies)
-    for (auto enemy = _enemies.begin(); enemy != _enemies.end();)
+    for(auto enemy = _enemies.begin(); enemy != _enemies.end();)
     {
         if (collides(_playerShip.getSprite(), (*enemy)->getSprite()))
         {
             auto explosion = std::make_unique<Explosion>(_resolution,
-                                                         _playerShip.getDistanceFromCentre(),
-                                                         _playerShip.getAngle(),
-                                                         (*enemy)->getScale().x * 2,
-                                                         entity::Explosion,
-                                                         _textureHolder, // ToDo : Remove me
-                                                         textures::Explosion); // ToDo : Remove me
+                                                              _playerShip.getDistanceFromCentre(),
+                                                              _playerShip.getAngle(),
+                                                               (*enemy)->getScale().x * 2,
+                                                              _textureHolder, // ToDo : Remove me
+                                                               textures::Explosion);
 
             _explosions.push_back(move(explosion));
             enemy = _enemies.erase(enemy);
@@ -219,7 +203,8 @@ void EntityController::checkEnemyToPlayerShipCollisions()
             }
             _explosionHasOccurred = true;
 
-        } else
+        }
+        else
             enemy++;
     }
 }
@@ -298,7 +283,7 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
     float distance_x = sprite1.getPosition().x - sprite2.getPosition().x;
     float distance_y = sprite1.getPosition().y - sprite2.getPosition().y;
 
-    return radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
+    return  radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
 }
 
 const void EntityController::draw(sf::RenderWindow &renderWindow)
@@ -322,19 +307,16 @@ void EntityController::increaseGlobalSpeed(float amount = 0.1f)
 {
     _speed_modifier += amount;
 }
-
 void EntityController::decreaseGlobalSpeed(float amount = 0.1f)
 {
-    if (_speed_modifier < amount)
+    if(_speed_modifier < amount)
         _speed_modifier = 0.1;
     else
         _speed_modifier -= amount;
 }
 
 #ifdef DEBUG
-
 void EntityController::debug()
 {
 }
-
 #endif // DEBUG
