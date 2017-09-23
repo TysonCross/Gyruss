@@ -23,6 +23,7 @@ public:
               float distanceFromCentre,
               float angle,
               float scale,
+              const entity::ID type,
               const TextureHolder &textureHolder,
               const textures::ID id);
 
@@ -36,7 +37,7 @@ public:
     const sf::Sprite &getSprite() override;
     const sf::Vector2f getScale() override;
     const void die() override;
-    const int getLives() override;
+    const int getLives() const override;
 
 private:
     ////////////////////////////////////////////////////////////

@@ -13,11 +13,13 @@ Explosion::Explosion(const sf::Vector2i resolution,
                      float distanceFromCentre,
                      float angle,
                      float scale,
+                     const entity::ID type,
                      const TextureHolder &textureHolder,
                      const textures::ID id) : Entity{resolution,
                                                      distanceFromCentre,
                                                      angle,
                                                      scale,
+                                                     type,
                                                      textureHolder}
 {
     _id = id;
@@ -101,7 +103,7 @@ const void Explosion::die()
     }
 }
 
-const int Explosion::getLives()
+const int Explosion::getLives() const
 {
     return _lives;
 }

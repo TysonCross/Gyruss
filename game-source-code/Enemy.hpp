@@ -27,6 +27,7 @@ public:
           float distanceFromCentre,
           float angle,
           float scale,
+          const entity::ID type,
           const TextureHolder &textureHolder,
           textures::ID id);
 
@@ -40,7 +41,8 @@ public:
     const sf::Sprite &getSprite() override;
     const sf::Vector2f getScale() override;
     const void die() override;
-    const int getLives() override;
+    const int getLives() const override;
+    const entity::ID getType();
 
     void setShoot();
     bool isShooting();
@@ -53,7 +55,6 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-//    sf::Sound _soundShoot;
     float _angleOrientation;
     bool _isShooting;
     sf::Vector2<float> _prevPosition,

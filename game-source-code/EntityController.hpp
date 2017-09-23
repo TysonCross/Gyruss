@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    20/9/17
-/// \brief   controller and manager for game entity objects
+/// \brief   Controller and manager for game entity objects
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -18,6 +18,7 @@
 #include "Enemy.hpp"
 #include "Bullet.hpp"
 #include "Explosion.hpp"
+#include "Score.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<Bullet>>;
@@ -29,7 +30,8 @@ class EntityController
 public:
     EntityController(sf::Vector2i resolution,
                      PlayerShip &playerShip,
-                     TextureHolder &textures);
+                     TextureHolder &textures,
+                     Score &score);
 
     void spawnEnemies();
     void setMove();
@@ -51,6 +53,8 @@ public:
 private:
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
     void checkEnemyToPlayerShipCollisions();
+    void checkEnemyBulletsToPlayerShipCollisions();
+    void checkPlayerBulletsToEnemyCollisions();
 
     PlayerShip& _playerShip;
     sf::Vector2i _resolution;
@@ -62,14 +66,13 @@ private:
     sf::Clock _timerSpawn;
     sf::Clock _timerShoot;
     sf::Clock _totalTime;
+    Score& _score;
     bool _explosionHasOccurred;
     bool _enemyShootEventHasOccurred;
     bool _playerHasBeenHit;
     float _speed_modifier;
 
-    void checkEnemyBulletsToPlayerShipCollisions();
 
-    void checkPlayerBulletsToEnemyCollisions();
 };
 
 

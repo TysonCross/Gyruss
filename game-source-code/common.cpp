@@ -27,4 +27,14 @@ namespace common
     {
         return radian * 180 / pi;
     }
+
+    std::string padIntToString(unsigned int value, int paddingLength, char padChar)
+    {
+        std::string s = std::to_string(value);
+        if (paddingLength>s.length())
+        {
+            s.insert(s.begin(), paddingLength - s.size(), padChar);
+        }
+        return s;
+    }
 }
