@@ -23,6 +23,7 @@ public:
               float distanceFromCentre,
               float angle,
               float scale,
+              const entity::ID type,
               const TextureHolder &textureHolder,
               const textures::ID id);
 

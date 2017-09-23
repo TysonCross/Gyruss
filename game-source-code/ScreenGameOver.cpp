@@ -12,9 +12,10 @@
 #include "ScreenGameOver.hpp"
 
 int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
-                       const TextureHolder &textureHolder,
-                       const FontHolder &fontHolder,
-                       const sf::Vector2i resolution)
+                         const TextureHolder &textureHolder,
+                         const FontHolder &fontHolder,
+                         const sf::Vector2i resolution,
+                         const Score &score)
 {
     //Get the ScreenGameOver image
     sf::Sprite gameover(textureHolder.get(textures::GameOverScreen));

@@ -13,7 +13,8 @@
 int ScreenSplash::draw(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
                        const FontHolder &fontHolder,
-                       const sf::Vector2i resolution)
+                       const sf::Vector2i resolution,
+                       const Score &score)
 {
     //Get the Splashscreen image
     sf::Sprite splash(textureHolder.get(textures::SplashScreen));

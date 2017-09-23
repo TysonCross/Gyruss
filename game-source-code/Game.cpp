@@ -91,14 +91,16 @@ void Game::initializeGameLoop()
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.28;
     PlayerShip playerShip(_resolution,
-                                shipPathRadius,
-                                0,
-                                shipScale,
-                                _textures);
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          _textures);
 
     EntityController entityController(_resolution,
                                       playerShip,
-                                      _textures);
+                                      _textures,
+                                      _score);
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -214,6 +216,13 @@ void Game::initializeGameLoop()
             std::ostringstream ss;
             ss << fps.getFPS();
             _mainWindow.setTitle(ss.str());
+
+            std::cout << "Score : " << _score.getScore() << std::endl;
+            std::cout << "Bullets Fired : " << _score.getBulletsFired() << std::endl;
+            std::cout << "Enemies Killed : " << _score.getEnemiesKilled() << std::endl;
+            std::cout << "Lives Remaining: " << playerShip.getLives() << std::endl;
+
+
 #endif // DEBUG
 
             if (playerShip.getLives() <= 0)
@@ -228,7 +237,7 @@ void Game::showSplashScreen()
 {
     _soundController.playSound(sounds::StartSound);
     ScreenSplash splashScreen;
-    if (splashScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (splashScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
     {
         _gameState = game::GameState::Playing;
         return;
@@ -241,7 +250,7 @@ void Game::showGameOverScreen()
     _soundController.playSound(sounds::GameOverSound);
     _music.stop();
     ScreenGameOver gameOverScreen;
-    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
     {
         _gameState = game::GameState::Splash;
         return;

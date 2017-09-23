@@ -42,6 +42,7 @@ public:
                float distanceFromCentre,
                float angle,
                float scale,
+               const entity::ID type,
                const TextureHolder &textureHolder);
 
     void setMove(float angle) override;

@@ -56,6 +56,7 @@ private:
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;
     sf::Vector2i _resolution;
+    Score _score;
 };
 
 #endif //PROJECT_GAME_HPP

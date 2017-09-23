@@ -12,11 +12,13 @@ Enemy::Enemy(const sf::Vector2i &resolution,
              float distanceFromCentre,
              float angle,
              float scale,
+             const entity::ID type,
              const TextureHolder &textureHolder,
              textures::ID id) : Entity{resolution,
                                        distanceFromCentre,
                                        angle,
                                        scale,
+                                       type,
                                        textureHolder}
 {
     _id = id;
@@ -60,10 +62,10 @@ void Enemy::update()
 
 const float Enemy::getRadius()
 {
-    auto x_pos = _sprite.getPosition().x + _resolution.x/2;
-    auto y_pos = _sprite.getPosition().y + _resolution.y/2;
+    auto xPos = _sprite.getPosition().x + _resolution.x/2;
+    auto yPos = _sprite.getPosition().y + _resolution.y/2;
 
-    return sqrt((x_pos*x_pos) + (y_pos*y_pos));
+    return sqrt((xPos*xPos) + (yPos*yPos));
 }
 
 const float Enemy::getDistanceFromCentre()
@@ -101,6 +103,10 @@ const int Enemy::getLives()
     return _lives;
 }
 
+const entity::ID Enemy::getType()
+{
+    return _type;
+}
 void Enemy::setShoot()
 {
     _isShooting = true;

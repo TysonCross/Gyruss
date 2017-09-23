@@ -50,6 +50,26 @@ namespace common
 /// This allows easy access while writing code to assign the textures to game objects by ID
 /// note that the final entry is textureID_end, a special empty entry which allows determination of
 /// size and the first entry is specified as =0, hence enabling indexing of the enum.
+namespace entity
+{
+    enum ID
+    {
+        Basic = 0,
+        BasicAlternate,
+        PlayerShip,
+        PlayerBullet,
+        EnemyBullet,
+        Explosion,
+        testEnemy,
+        enemyID_end,
+    };
+}
+
+/// \brief A namespace to collect the ID keys for the game texture file resources
+///
+/// This allows easy access while writing code to assign the textures to game objects by ID
+/// note that the final entry is textureID_end, a special empty entry which allows determination of
+/// size and the first entry is specified as =0, hence enabling indexing of the enum.
 namespace textures
 {
     enum ID

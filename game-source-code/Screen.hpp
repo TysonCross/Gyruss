@@ -18,6 +18,7 @@
 ////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
 #include "ResourceHolder.hpp"
+#include "Score.hpp"
 
 class Screen
 {
@@ -33,10 +34,12 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
+
     virtual int draw(sf::RenderWindow &window,
-             const TextureHolder &textureHolder,
-             const FontHolder &fontHolder,
-             const sf::Vector2i)=0;
+                     const TextureHolder &textureHolder,
+                     const FontHolder &fontHolder,
+                     const sf::Vector2i resolution,
+                     const Score &score)=0;
 
 protected:
 ////////////////////////////////////////////////////////////

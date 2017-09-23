@@ -28,10 +28,12 @@ public:
            float distanceFromCentre,
            float angle,
            float scale,
+           const entity::ID type,
            const TextureHolder &textureHolder) : _resolution{resolution},
                                                  _distanceFromCentre{distanceFromCentre},
                                                  _angle{angle},
-                                                 _scale{scale}
+                                                 _scale{scale},
+                                                 _type{type}
     {}
 
     virtual void setMove(float){}
@@ -58,6 +60,7 @@ protected:
     bool _isMoving;
     int _lives;
     textures::ID _id;
+    entity::ID _type;
 };
 
 

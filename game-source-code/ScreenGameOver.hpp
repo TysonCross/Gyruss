@@ -18,16 +18,19 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Screen.hpp"
+#include "Score.hpp"
 
 class ScreenGameOver : public Screen
 
 {
 public:
 
-    int draw(sf::RenderWindow &window,
+    virtual int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
-             const sf::Vector2i) override;
+             const sf::Vector2i resolution,
+             const Score &score) override;
+
 };
 
 #endif //PROJECT_GAMEOVERSCREEN_HPP

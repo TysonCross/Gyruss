@@ -15,28 +15,29 @@
 #include <sstream>
 #include "SFML/Graphics.hpp"
 #include "ResourceHolder.hpp"
+#include "Score.hpp"
 #include "common.hpp"
 
 class HUD
 {
 public:
-    HUD();
-    draw();
+    HUD(sf::RenderWindow &renderWindow,
+        TextureHolder &textureHolder,
+        FontHolder &fontHolder,
+            Score &score);
+
+    void draw();
+    void updatePlayerLives();
+    void updateScore();
+    void updateEnemiesKilled();
+    void updateBulletsFired();
+    void updateTime();
 
 private:
-    updatePlayerLives();
-    updateScore();
-    updateEnemiesKilled();
-    updateBulletsFired();
-
+    Score _score;
     sf::RenderWindow _window;
     TextureHolder _textures;
     FontHolder _fonts;
-    int _playerLives;
-    int _score;
-    int _enemiesKilled;
-    int bulletsFired;
-    int _totalTime;
 
 };
 
