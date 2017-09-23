@@ -189,7 +189,7 @@ void EntityController::checkEnemyToPlayerShipCollisions()
     {
         if (collides(_playerShip.getSprite(), (*enemy)->getSprite()))
         {
-            auto explosion = std::__1::make_unique<Explosion>(_resolution,
+            auto explosion = std::make_unique<Explosion>(_resolution,
                                                               _playerShip.getDistanceFromCentre(),
                                                               _playerShip.getAngle(),
                                                                (*enemy)->getScale().x * 2,
