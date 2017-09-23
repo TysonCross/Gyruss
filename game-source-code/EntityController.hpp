@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    20/9/17
-/// \brief   controller and manager for game entity objects
+/// \brief   Controller and manager for game entity objects
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////

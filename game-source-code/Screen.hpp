@@ -1,9 +1,10 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    20/9/17
-/// \brief   Description of file in project Project
+/// \brief   Base class interface for a "Screen"
 ///
-/// Detailed description of file
+/// A screen is an additional graphical interface in the game which
+/// provides information about the game, before/after playing the game
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -32,7 +33,7 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
-    virtual int show(sf::RenderWindow &window,
+    virtual int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
              const sf::Vector2i)=0;

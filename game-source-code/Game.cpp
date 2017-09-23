@@ -228,7 +228,7 @@ void Game::showSplashScreen()
 {
     _soundController.playSound(sounds::StartSound);
     ScreenSplash splashScreen;
-    if (splashScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (splashScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Playing;
         return;
@@ -241,7 +241,7 @@ void Game::showGameOverScreen()
     _soundController.playSound(sounds::GameOverSound);
     _music.stop();
     ScreenGameOver gameOverScreen;
-    if (gameOverScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Splash;
         return;

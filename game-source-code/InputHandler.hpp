@@ -18,7 +18,7 @@
 #include "EntityController.hpp"
 #include <map>
 
-using key_map = std::map<int, bool>;
+using keyMap = std::map<int, bool>;
 
 class InputHandler
 {

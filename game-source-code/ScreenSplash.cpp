@@ -3,14 +3,14 @@
 /// \date    2017/09/10
 /// \brief   Simple Splash Screen
 ///
-/// Implementation of showing a splash screen
+/// Class implementation for showing a splash screen with information on how to play the game
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "ScreenSplash.hpp"
 
-int ScreenSplash::show(sf::RenderWindow &renderWindow,
+int ScreenSplash::draw(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
                        const FontHolder &fontHolder,
                        const sf::Vector2i resolution)

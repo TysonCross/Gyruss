@@ -38,7 +38,9 @@ set(SOURCE_FILES_BASE
         game-source-code/EntityController.cpp
         game-source-code/EntityController.hpp
         game-source-code/SoundController.cpp
-        game-source-code/SoundController.hpp)
+        game-source-code/SoundController.hpp
+        game-source-code/HUD.cpp
+        game-source-code/HUD.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}
