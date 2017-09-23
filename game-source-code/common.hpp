@@ -19,13 +19,6 @@ namespace common
 {
     const float pi = 3.1415;
 
-//    /// \brief A simple 2d container of 2 ints
-//    struct Resolution
-//    {
-//        unsigned int x;
-//        unsigned int y;
-//    };
-
     /// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
     struct position
     {
@@ -42,6 +35,10 @@ namespace common
 
     /// \brief Converts an angle from radians to degrees
     float radToDegree(float radian);
+
+    /// \brief Converts an int to a string, with optional padding
+    std::string padIntToString(unsigned int value, int paddingLength=0, char padChar='0');
+
 
 }
 
@@ -123,7 +120,7 @@ namespace fonts
     enum ID
     {
         Title = 0,
-        Info,
+        Default,
         testFont,
         fontID_end,
     };

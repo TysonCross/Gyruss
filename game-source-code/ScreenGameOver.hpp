@@ -26,10 +26,11 @@ class ScreenGameOver : public Screen
 public:
 
     virtual int draw(sf::RenderWindow &window,
-             const TextureHolder &textureHolder,
-             const FontHolder &fontHolder,
-             const sf::Vector2i resolution,
-             const Score &score) override;
+                     const TextureHolder &textureHolder,
+                     const FontHolder &fontHolder,
+                     const sf::Vector2i resolution,
+                     const Score &score,
+                     float timeAlive);
 
 };
 

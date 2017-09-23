@@ -13,8 +13,7 @@
 int ScreenSplash::draw(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
                        const FontHolder &fontHolder,
-                       const sf::Vector2i resolution,
-                       const Score &score)
+                       const sf::Vector2i resolution)
 {
     //Get the Splashscreen image
     sf::Sprite splash(textureHolder.get(textures::SplashScreen));
@@ -37,13 +36,13 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     title.setPosition(titleWidth, titleHeight);
 
     // Version text
-    sf::Text version("version 2.0", fontHolder.get(fonts::Info), 24);
+    sf::Text version("version 2.0", fontHolder.get(fonts::Default), 24);
     sf::Color Gray = {70,70,70};
     version.setFillColor(Gray);
     version.setPosition(12,12);
 
     // Info Text
-    sf::Text info("Press spacebar to start", fontHolder.get(fonts::Info), 42);
+    sf::Text info("Press spacebar to start", fontHolder.get(fonts::Default), 42);
     sf::Color Purple = {179,74,186};
     info.setFillColor(Purple);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);

@@ -98,7 +98,7 @@ const void Enemy::die()
     }
 }
 
-const int Enemy::getLives()
+const int Enemy::getLives() const
 {
     return _lives;
 }

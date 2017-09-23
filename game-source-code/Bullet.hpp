@@ -40,7 +40,7 @@ public:
     const sf::Sprite &getSprite() override;
     const sf::Vector2f getScale() override;
     const void die() override;
-    const int getLives() override;
+    const int getLives() const override;
 
 private:
     ////////////////////////////////////////////////////////////

@@ -40,8 +40,7 @@ public:
     int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
-             const sf::Vector2i resolution,
-             const Score &score) override;
+             const sf::Vector2i resolution);
 
 };
 

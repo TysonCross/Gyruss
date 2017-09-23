@@ -103,7 +103,7 @@ const void Explosion::die()
     }
 }
 
-const int Explosion::getLives()
+const int Explosion::getLives() const
 {
     return _lives;
 }

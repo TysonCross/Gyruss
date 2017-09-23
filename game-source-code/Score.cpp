@@ -40,22 +40,29 @@ void Score::incrementBulletsFired()
     _bulletsFired++;
 }
 
-const float Score::getPlayerAccuracy()
+const float Score::getPlayerAccuracy() const
 {
-    return (_bulletsHit * 1.f)/_bulletsFired;
+    if (_bulletsFired!=0)
+    {
+        return (_bulletsHit * 1.f) / _bulletsFired;
+    }
+    else
+    {
+        return 0.f;
+    }
 }
 
-const unsigned int Score::getScore()
+const unsigned int Score::getScore() const
 {
     return _score;
 }
 
-const unsigned int Score::getEnemiesKilled()
+const unsigned int Score::getEnemiesKilled() const
 {
     return _enemiesKilled;
 }
 
-const unsigned int Score::getBulletsFired()
+const unsigned int Score::getBulletsFired() const
 {
     return _bulletsFired;
 }

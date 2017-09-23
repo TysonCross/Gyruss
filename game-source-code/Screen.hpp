@@ -34,12 +34,19 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
+    virtual int draw(sf::RenderWindow &window,
+                     const TextureHolder &textureHolder,
+                     const FontHolder &fontHolder,
+                     const sf::Vector2i resolution)
+    {return 0;}
 
     virtual int draw(sf::RenderWindow &window,
                      const TextureHolder &textureHolder,
                      const FontHolder &fontHolder,
                      const sf::Vector2i resolution,
-                     const Score &score)=0;
+                     const Score &score,
+                     const sf::Clock &timeAlive)
+    {return 0;}
 
 protected:
 ////////////////////////////////////////////////////////////
@@ -58,7 +65,6 @@ protected:
                           sf::Color color,
                           int frequency,
                           sf::Clock &clock);
-
 };
 
 #endif //PROJECT_INFOSCREEN_HPP

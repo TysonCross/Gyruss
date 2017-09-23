@@ -119,7 +119,7 @@ const void PlayerShip::die()
     reset();
 }
 
-const int PlayerShip::getLives()
+const int PlayerShip::getLives() const
 {
     return _lives;
 }

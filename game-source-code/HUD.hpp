@@ -1,9 +1,7 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    21/9/17
-/// \brief   Description of file in project Project
-///
-/// Detailed description of file
+/// \brief   Head Up Display showing the score, player lives
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -12,19 +10,22 @@
 #ifndef PROJECT_HUD_HPP
 #define PROJECT_HUD_HPP
 
-#include <sstream>
 #include "SFML/Graphics.hpp"
 #include "ResourceHolder.hpp"
 #include "Score.hpp"
+#include "PlayerShip.hpp"
 #include "common.hpp"
 
 class HUD
 {
 public:
-    HUD(sf::RenderWindow &renderWindow,
-        TextureHolder &textureHolder,
-        FontHolder &fontHolder,
-            Score &score);
+    HUD(const sf::Vector2i resolution,
+        sf::RenderWindow &renderWindow,
+        const TextureHolder &textureHolder,
+        const FontHolder &fontHolder,
+        const Score &score,
+        const sf::Clock &timeAlive,
+        const PlayerShip &playerShip);
 
     void draw();
     void updatePlayerLives();
@@ -34,10 +35,13 @@ public:
     void updateTime();
 
 private:
-    Score _score;
-    sf::RenderWindow _window;
-    TextureHolder _textures;
-    FontHolder _fonts;
+    const sf::Vector2i _resolution;
+    sf::RenderWindow& _renderWindow;
+    const TextureHolder& _textures;
+    const FontHolder& _fonts;
+    const Score& _score;
+    const sf::Clock& _timeAlive;
+    const PlayerShip& _playerShip;
 
 };
 

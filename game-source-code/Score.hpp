@@ -18,10 +18,10 @@ class Score
 public:
     void incrementEnemiesKilled(entity::ID type);
     void incrementBulletsFired();
-    const unsigned int getScore();
-    const unsigned int getEnemiesKilled();
-    const unsigned int getBulletsFired();
-    const float getPlayerAccuracy();
+    const unsigned int getScore() const;
+    const unsigned int getEnemiesKilled() const;
+    const unsigned int getBulletsFired() const;
+    const float getPlayerAccuracy() const;
 
 private:
     void addToScore(int points);

@@ -29,7 +29,7 @@ public:
            float angle,
            float scale,
            const entity::ID type,
-           const TextureHolder &textureHolder) : _resolution{resolution},
+           const TextureHolder &textureHolder) : _resolution{resolution}, // ToDo: Remove texture stuff
                                                  _distanceFromCentre{distanceFromCentre},
                                                  _angle{angle},
                                                  _scale{scale},
@@ -46,7 +46,7 @@ public:
     virtual const sf::Vector2f getPosition()=0;
     virtual const sf::Sprite &getSprite()=0;
     virtual const void die()=0;
-    virtual const int getLives()=0;
+    virtual const int getLives() const=0;
     virtual void move()=0;
 
 protected:

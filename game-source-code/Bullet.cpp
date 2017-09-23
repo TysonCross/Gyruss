@@ -110,7 +110,7 @@ const void Bullet::die()
     }
 }
 
-const int Bullet::getLives()
+const int Bullet::getLives() const
 {
     return _lives;
 }
