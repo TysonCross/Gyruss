@@ -18,6 +18,7 @@ public:
     Score();
     void incrementEnemiesKilled(entity::ID type);
     void incrementBulletsFired();
+    void reset();
     const unsigned int getScore() const;
     const unsigned int getEnemiesKilled() const;
     const unsigned int getBulletsFired() const;

@@ -31,7 +31,8 @@ public:
     EntityController(sf::Vector2i resolution,
                      PlayerShip &playerShip,
                      TextureHolder &textures,
-                     Score &score);
+                     Score &score,
+                     float speedModifier);
 
     void spawnEnemies();
     void setMove();
@@ -42,8 +43,9 @@ public:
     const void draw(sf::RenderWindow &renderWindow); // ToDo: remove
     const bool explosionOccurred();
     const bool shootingOccurred();
-    void increaseGlobalSpeed(float amount);
-    void decreaseGlobalSpeed(float amount);
+    void changeGlobalSpeed(float amount);
+    const float getSpeed() const;
+
 
 #ifdef DEBUG
     void debug();
@@ -70,7 +72,7 @@ private:
     bool _explosionHasOccurred;
     bool _enemyShootEventHasOccurred;
     bool _playerHasBeenHit;
-    float _speed_modifier;
+    float _speedModifier;
 
 
 };

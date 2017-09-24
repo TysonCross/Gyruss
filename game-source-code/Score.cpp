@@ -11,7 +11,8 @@
 Score::Score() : _score{0},
                  _enemiesKilled{0},
                  _bulletsFired{0},
-                 _bulletsHit{0}{}
+                 _bulletsHit{0}
+{}
 
 void Score::addToScore(int points)
 {
@@ -37,6 +38,14 @@ void Score::incrementEnemiesKilled(entity::ID type)
         default :
             break;
     }
+}
+
+void Score::reset()
+{
+    _score = 0;
+    _enemiesKilled = 0;
+    _bulletsFired = 0;
+    _bulletsHit = 0;
 }
 
 void Score::incrementBulletsFired()

@@ -43,6 +43,7 @@ private:
     void showSplashScreen();
     void showGameOverScreen();
     void loadResources();
+    void recordHighScore();
     void pulseColor(sf::Sprite sprite,
                     sf::Color color,
                     int frequency,

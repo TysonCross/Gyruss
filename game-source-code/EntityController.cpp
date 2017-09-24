@@ -17,17 +17,18 @@
 EntityController::EntityController(sf::Vector2i resolution,
                                    PlayerShip &playerShip,
                                    TextureHolder &textureHolder,
-                                   Score &score) : _resolution{resolution},
-                                                   _playerShip{playerShip},
-                                                   _textureHolder{textureHolder}, // ToDo: remove
-                                                   _score{score}
+                                   Score &score,
+                                   float speedModifier) : _resolution{resolution},
+                                                          _playerShip{playerShip},
+                                                          _textureHolder{textureHolder}, // ToDo: remove
+                                                          _score{score}
 {
     // Reset timers for the enemy spawning and shooting
     _timerSpawn.restart();
     _timerShoot.restart();
     _totalTime.restart();
     _explosionHasOccurred = false;
-    _speed_modifier = 0.75f;
+    _speedModifier = speedModifier;
 }
 
 void EntityController::spawnEnemies()
@@ -101,6 +102,8 @@ const bool EntityController::shootingOccurred()
 
 void EntityController::setMove()
 {
+
+    std::cout << _speedModifier << std::endl;
     // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
     // future enemy movement (and move faster - immediately after spawning - to get closer to the player)
     for (auto &enemy : _enemies)
@@ -113,10 +116,10 @@ void EntityController::setMove()
 
             if (enemy->getDistanceFromCentre() < (_resolution.y / playableZoneRadiusFactor))
             {
-                enemy->setMove(1 + random_angle, 15 * _speed_modifier);
+                enemy->setMove((1 + random_angle)* _speedModifier, 15 * _speedModifier);
             } else
             {
-                enemy->setMove(random_angle, random_move * _speed_modifier);
+                enemy->setMove(random_angle* _speedModifier, random_move * _speedModifier);
             }
         } else
             enemy->reset();
@@ -318,17 +321,18 @@ const void EntityController::draw(sf::RenderWindow &renderWindow)
 
 }
 
-void EntityController::increaseGlobalSpeed(float amount = 0.1f)
+void EntityController::changeGlobalSpeed(float amount = 0.1f)
 {
-    _speed_modifier += amount;
+    auto minimumSpeed = 0.1f;
+    if ((_speedModifier + amount) < minimumSpeed)
+        _speedModifier = minimumSpeed;
+    else
+        _speedModifier += amount;
 }
 
-void EntityController::decreaseGlobalSpeed(float amount = 0.1f)
+const float EntityController::getSpeed() const
 {
-    if (_speed_modifier < amount)
-        _speed_modifier = 0.1;
-    else
-        _speed_modifier -= amount;
+    return _speedModifier;
 }
 
 #ifdef DEBUG

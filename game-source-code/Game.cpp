@@ -52,6 +52,7 @@ void Game::initializeGameLoop()
     sf::Clock total;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
+    auto speedModifier = 0.75f;
 
     _inputHandler.reset();
 
@@ -73,6 +74,7 @@ void Game::initializeGameLoop()
     ///-------------------------------------------
     ///  Game Playing starts
     ///-------------------------------------------
+    _score.reset();
     _music.setLoop(true);
     _music.setVolume(25);
     if (!_music.openFromFile("resources/game_music.ogg"))
@@ -100,7 +102,8 @@ void Game::initializeGameLoop()
     EntityController entityController(_resolution,
                                       playerShip,
                                       _textures,
-                                      _score);
+                                      _score,
+                                      speedModifier);
 
     HUD hud(_resolution,_mainWindow,_textures,_fonts,_score, playerShip);
 
@@ -121,6 +124,15 @@ void Game::initializeGameLoop()
             _inputHandler.pollInput(_gameState,
                                     playerShip,
                                     event);
+#ifdef DEBUG
+            auto speedChange = 0.1f;
+            if (event.type == sf::Event::EventType::KeyPressed)
+                if (event.key.code == sf::Keyboard::RBracket)
+                    entityController.changeGlobalSpeed(speedChange);
+            if (event.type == sf::Event::EventType::KeyPressed)
+                if (event.key.code == sf::Keyboard::LBracket)
+                    entityController.changeGlobalSpeed(-speedChange);
+#endif // DEBUG
         }
 
         timeSinceUpdate += clock.getElapsedTime();
@@ -183,7 +195,7 @@ void Game::initializeGameLoop()
             _mainWindow.clear(sf::Color::Black);
 
             for (const auto &element : starField.getStarField())
-                starField.moveAndDrawStars(_mainWindow);
+                starField.moveAndDrawStars(_mainWindow,entityController.getSpeed()*0.001f);
 
             entityController.draw(_mainWindow);
 
@@ -212,6 +224,7 @@ void Game::initializeGameLoop()
                 pulseColor(playerShip.getSprite(),sf::Color::Red,20,total);
 
             _mainWindow.setPosition(pos);
+            hud.draw();
             _mainWindow.display();
 
 #ifdef DEBUG
@@ -245,6 +258,7 @@ void Game::showGameOverScreen()
 {
     _soundController.playSound(sounds::GameOverSound);
     _music.stop();
+    recordHighScore();
     ScreenGameOver gameOverScreen;
     if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
     {
@@ -280,4 +294,41 @@ void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clo
     change = common::radToDegree(common::angleFilter(change));
     auto i = fabs(sin(change*1/frequency));
     sprite.setColor(sf::Color(i*color.r,i*color.g,i*color.b));
+}
+
+void Game::recordHighScore()
+{
+
+    std::string filename = "highscores.txt";
+    std::ifstream inputFile(filename,
+                            std::ios::in);
+
+
+    if (!inputFile.is_open())
+    {
+        throw std::runtime_error("Game::recordHighScore - Unable to open input file: " + filename);
+    }
+    inputFile.seekg(0, std::ios::beg);
+
+
+    std::string oldHighScore = "";
+    inputFile >> oldHighScore;
+
+    std::string::size_type sizeString;   // alias of size_t
+    int oldValue = std::stoi(oldHighScore, &sizeString);
+
+    std::cout << oldValue;
+    if (_score.getScore() > oldValue)
+    {
+        std::ofstream outputFile(filename, std::ios::out);
+        if (!outputFile.is_open())
+        {
+            throw std::runtime_error("Game::recordHighScore - Unable to open output file: " + filename);
+        }
+        outputFile << _score.getScore();
+        outputFile.close();
+    }
+
+    inputFile.close();
+    return;
 }
