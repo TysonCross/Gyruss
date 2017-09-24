@@ -27,6 +27,7 @@ Enemy::Enemy(const sf::Vector2i &resolution,
 //    _soundShoot.setBuffer(soundHolder.get(sounds::EnemyShoot));
     _isShooting = false;
     setMove(0,0); //Initialised position at centre of screen
+    _movementState = MovementState::SpiralOutwards; //set default movement state to spiral outwards
 }
 
 void Enemy::setMove(float angle, float distance)
@@ -45,6 +46,11 @@ void Enemy::setMove(float angle, float distance,int xOffset, int yOffset)
     _futureMoveValue = distance;
     _xOffset=xOffset;
     _yOffset=yOffset;
+}
+
+void Enemy::setMovementState(MovementState movementState)
+{
+    _movementState = movementState;
 }
 
 void Enemy::reset()
@@ -87,6 +93,21 @@ const float Enemy::getDistanceFromCentre()
 const float Enemy::getDistanceFromCentreWithOffset()
 {
     return (_distanceFromCentre+sqrt(_xOffset*_xOffset+_xOffset*_yOffset)) - _sprite.getGlobalBounds().height/2;
+}
+
+const float Enemy::getOffsetX()
+{
+    return _xOffset;
+}
+
+const float Enemy::getOffsetY()
+{
+    return _yOffset;
+}
+
+const MovementState Enemy::getMovementState()
+{
+    return _movementState;
 }
 
 const sf::Vector2f Enemy::getPosition()

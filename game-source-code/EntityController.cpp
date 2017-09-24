@@ -98,21 +98,30 @@ void EntityController::setMove()
     for (auto &enemy : _enemies)
     {
 //        std::cout << enemy->getRadius() <<std::endl;
-        std::cout << enemy->getAngleWithOffset() <<std::endl;
+        std::cout << enemy->getMovementState() <<std::endl;
         if (enemy->getRadius() < _resolution.y / 2.f)
         {
             auto random_angle = (rand() % 3 + 2.0f);
             auto random_move = rand() % 15 + (-2);
-            auto playableZoneRadiusFactor = 8;
+            auto grpwShipScreenZone = _resolution.y/8;
+            auto playableZoneRadiusFactor = 15;
 //            auto radius=sin(common::degreeToRad(enemy->getAngle()))*sin(common::degreeToRad(enemy->getAngle()));
-            if (enemy->getDistanceFromCentre() < (_resolution.y / playableZoneRadiusFactor))
+            if (enemy->getRadius() < grpwShipScreenZone && enemy->getOffsetX()==0)
             {
                 enemy->setMove(1 + random_angle, 15*_speed_modifier);
             } else
             {
+                enemy->setMovementState(MovementState::circle);
+                auto currentOffsetX = enemy->getOffsetX();
+                if (currentOffsetX<100)
+                {
+                    enemy->setMove(random_angle, 0,currentOffsetX+1,0);
+                }
+                else
+                {
+                    enemy->setMove(random_angle, 0,currentOffsetX,0);
+                }
 
-//                enemy->setMove(1, 0,int(cos(radius)*200),int(sin(radius)*200));
-                enemy->setMove(1, 0,200,200);
 //                enemy->setMove(1 + random_angle, 15*_speed_modifier);
             }
         } else

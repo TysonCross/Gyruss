@@ -20,6 +20,13 @@
 #include "ResourceHolder.hpp"
 #include "SoundController.hpp"
 
+enum MovementState
+{
+    SpiralOutwards=0,
+    SpiralInwards,
+    circle
+};
+
 class Enemy : public Entity
 {
 public:
@@ -32,12 +39,13 @@ public:
 
     void setMove(float angle, float distance) override;
     void setMove(float angle, float distance,int xOffset, int yOffset);
+    void setMovementState(MovementState movementState);
+
     void move() override;
     void reset() override;
     void update() override;
     const float getRadius() override;
     const float getDistanceFromCentre() override;
-    const float getDistanceFromCentreWithOffset();
     const float getAngleWithOffset();
     const sf::Vector2f getPosition() override;
     const sf::Sprite &getSprite() override;
@@ -45,6 +53,10 @@ public:
     const void die() override;
     const int getLives() override;
 
+    const MovementState getMovementState();
+    const float getDistanceFromCentreWithOffset();
+    const float getOffsetX();
+    const float getOffsetY();
     void setShoot();
     bool isShooting();
     float getAngle();
@@ -64,6 +76,11 @@ private:
                         _pointingPosition;
     int _xOffset;
     int _yOffset;
+
+
+
+    MovementState _movementState;
+
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP
