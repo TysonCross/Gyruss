@@ -56,6 +56,7 @@ void EntityController::spawnEnemies()
 
 void EntityController::shoot()
 {
+    // Player shooting (Bullet creation)
     if (_playerShip.isShooting())
     {
         auto bullet = std::make_unique<Bullet>(_resolution,
@@ -69,6 +70,7 @@ void EntityController::shoot()
         _score.incrementBulletsFired();
     }
 
+    // Enemy Shooting
     _enemyShootEventHasOccurred = false;
     auto minNumberEnemyBullets = 1;
     auto doNotFireInsideThisRadius = (_resolution.y / 2) * 0.05; // only shoot when closer
@@ -102,13 +104,15 @@ const bool EntityController::shootingOccurred()
 
 void EntityController::setMove()
 {
-
+#ifdef DEBUG
     std::cout << _speedModifier << std::endl;
+#endif // DEBUG
+
     // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
     // future enemy movement (and move faster - immediately after spawning - to get closer to the player)
     for (auto &enemy : _enemies)
     {
-        if (enemy->getRadius() > _resolution.y / 2.f)
+        if (enemy->getRadius() < _resolution.y / 2.f)
         {
             auto random_angle = (rand() % 3 + 2.0f);
             auto random_move = rand() % 15 + (-2);
@@ -237,7 +241,7 @@ void EntityController::checkClipping()
     // Clip away enemy bullets outside cylindrical frustum
     for (auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
     {
-        if ((*bullet)->getRadius() > _resolution.y / 2.f)
+        if ((*bullet)->getRadius() > _resolution.y / 2)
         {
             bullet = _bulletsEnemy.erase(bullet);
         } else

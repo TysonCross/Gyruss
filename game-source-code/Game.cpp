@@ -10,15 +10,16 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Game.hpp"
-Game::Game(){}
+
+Game::Game() {}
 
 void Game::Start()
 {
     // Todo: Need to choose better way to set the resolution. settings screen and set Resource perhaps?
-     _resolution = sf::Vector2i{1920,1080};
+    _resolution = sf::Vector2i{1920, 1080};
 
     sf::Image icon;
-    if (!icon.loadFromFile("resources/icon.png")) return ;
+    if (!icon.loadFromFile("resources/icon.png")) return;
 
     loadResources();
 
@@ -52,7 +53,7 @@ void Game::initializeGameLoop()
     sf::Clock total;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
-    auto speedModifier = 0.75f;
+    auto speedModifier = 0.5f;
 
     _inputHandler.reset();
 
@@ -81,8 +82,7 @@ void Game::initializeGameLoop()
     {
         _gameState = game::GameState::Exiting;
         return;// error
-    }
-    else
+    } else
         _music.play();
 
     auto number_of_stars = 60;
@@ -105,7 +105,7 @@ void Game::initializeGameLoop()
                                       _score,
                                       speedModifier);
 
-    HUD hud(_resolution,_mainWindow,_textures,_fonts,_score, playerShip);
+    HUD hud(_resolution, _mainWindow, _textures, _fonts, _score, playerShip);
 
 //    _timeAliveClock.restart();
     ///-------------------------------------------
@@ -137,7 +137,7 @@ void Game::initializeGameLoop()
 
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-
+        entityController.changeGlobalSpeed(total.getElapsedTime().asSeconds() / 100000000);
         ///-------------------------------------------
         ///  Fixed Timestep
         ///-------------------------------------------
@@ -186,7 +186,7 @@ void Game::initializeGameLoop()
 
 
 #ifdef DEBUG
-        entityController.debug();
+            entityController.debug();
 #endif // DEBUG
 
             ///-------------------------------------------
@@ -195,7 +195,7 @@ void Game::initializeGameLoop()
             _mainWindow.clear(sf::Color::Black);
 
             for (const auto &element : starField.getStarField())
-                starField.moveAndDrawStars(_mainWindow,entityController.getSpeed()*0.001f);
+                starField.moveAndDrawStars(_mainWindow, entityController.getSpeed() * 0.001f);
 
             entityController.draw(_mainWindow);
 
@@ -221,7 +221,7 @@ void Game::initializeGameLoop()
             }
 
             if (playerShip.isInvulnerable())
-                pulseColor(playerShip.getSprite(),sf::Color::Red,20,total);
+                pulseColor(playerShip.getSprite(), sf::Color::Red, 20, total);
 
             _mainWindow.setPosition(pos);
             hud.draw();
@@ -246,7 +246,7 @@ void Game::showSplashScreen()
 {
     _soundController.playSound(sounds::StartSound);
     ScreenSplash splashScreen;
-    if (splashScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (splashScreen.draw(_mainWindow, _textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Playing;
         return;
@@ -260,7 +260,7 @@ void Game::showGameOverScreen()
     _music.stop();
     recordHighScore();
     ScreenGameOver gameOverScreen;
-    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
+    if (gameOverScreen.draw(_mainWindow, _textures, _fonts, _resolution, _score) == 0)
     {
         _gameState = game::GameState::Splash;
         return;
@@ -271,29 +271,29 @@ void Game::showGameOverScreen()
 void Game::loadResources()
 {
     // Load Textures
-    _textures.load(textures::SplashScreen,"resources/splash.png");
-    _textures.load(textures::SplashScreenExtra,"resources/splash_spacefight.png");
-    _textures.load(textures::GameOverScreen,"resources/gameover.png");
-    _textures.load(textures::SplashControls,"resources/splash_controls.png");
-    _textures.load(textures::GameOverCredits,"resources/gameover_credits.png");
-    _textures.load(textures::PlayerShip,"resources/player_ship_animated.png");
-    _textures.load(textures::BulletPlayer,"resources/bullet_player.png");
-    _textures.load(textures::BulletEnemy,"resources/bullet_enemy.png");
-    _textures.load(textures::EnemyShipGrey,"resources/enemyship_grey.png");
-    _textures.load(textures::EnemyShipPurple,"resources/enemyship_purple.png");
-    _textures.load(textures::Explosion,"resources/explosion.png");
+    _textures.load(textures::SplashScreen, "resources/splash.png");
+    _textures.load(textures::SplashScreenExtra, "resources/splash_spacefight.png");
+    _textures.load(textures::GameOverScreen, "resources/gameover.png");
+    _textures.load(textures::SplashControls, "resources/splash_controls.png");
+    _textures.load(textures::GameOverCredits, "resources/gameover_credits.png");
+    _textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    _textures.load(textures::BulletPlayer, "resources/bullet_player.png");
+    _textures.load(textures::BulletEnemy, "resources/bullet_enemy.png");
+    _textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+    _textures.load(textures::EnemyShipPurple, "resources/enemyship_purple.png");
+    _textures.load(textures::Explosion, "resources/explosion.png");
 
     // Load Fonts
-    _fonts.load(fonts::Title,"resources/danube.ttf");
-    _fonts.load(fonts::Default,"resources/fax_sans_beta.otf");
+    _fonts.load(fonts::Title, "resources/danube.ttf");
+    _fonts.load(fonts::Default, "resources/fax_sans_beta.otf");
 }
 
-void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clock& clock)
+void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clock &clock)
 {
     float change = clock.getElapsedTime().asSeconds();
     change = common::radToDegree(common::angleFilter(change));
-    auto i = fabs(sin(change*1/frequency));
-    sprite.setColor(sf::Color(i*color.r,i*color.g,i*color.b));
+    auto i = fabs(sin(change * 1 / frequency));
+    sprite.setColor(sf::Color(i * color.r, i * color.g, i * color.b));
 }
 
 void Game::recordHighScore()

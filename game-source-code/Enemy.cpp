@@ -26,7 +26,6 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-//    _soundShoot.setBuffer(soundHolder.get(sounds::EnemyShoot));
     _isShooting = false;
     setMove(0,0); //Initialised position at centre of screen
 }
@@ -62,8 +61,8 @@ void Enemy::update()
 
 const float Enemy::getRadius() const
 {
-    auto xPos = _sprite.getPosition().x + _resolution.x/2;
-    auto yPos = _sprite.getPosition().y + _resolution.y/2;
+    auto xPos = _sprite.getPosition().x - _resolution.x/2;
+    auto yPos = _sprite.getPosition().y - _resolution.y/2;
 
     return sqrt((xPos*xPos) + (yPos*yPos));
 }
@@ -130,13 +129,12 @@ float Enemy::getDirectionAngle()
 
 void Enemy::shoot()
 {
-//    _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
-//    _soundShoot.play();
     _isShooting = false;
 }
 
 void Enemy::move()
 {
+    // Store old position
     _prevPosition = _sprite.getPosition();
     _prevPosition.x -= _resolution.x/2;
     _prevPosition.y -= _resolution.y/2;
@@ -150,11 +148,11 @@ void Enemy::move()
     }
     auto depthScale = ((_distanceFromCentre + offset)/(_resolution.x/2));
     _distanceFromCentre += _futureMoveValue * depthScale;
-    auto x_pos = _distanceFromCentre * sin(common::degreeToRad(_angle));
-    auto y_pos = _distanceFromCentre * cos(common::degreeToRad(_angle));
+    auto xPos = _distanceFromCentre * sin(common::degreeToRad(_angle));
+    auto yPos = _distanceFromCentre * cos(common::degreeToRad(_angle));
     auto scale = 1 + ((_distanceFromCentre - (_resolution.x / 2)) / (_resolution.x / 2));
 
-    _sprite.setPosition(x_pos+(_resolution.x / 2),y_pos+(_resolution.y / 2));
+    _sprite.setPosition(xPos+(_resolution.x / 2),yPos+(_resolution.y / 2));
     _sprite.setScale(scale * _scale,scale * _scale);
     // Dimming
     auto dimColor = (scale*55) + 200;
