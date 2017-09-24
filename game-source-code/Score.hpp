@@ -23,6 +23,9 @@ public:
     const unsigned int getEnemiesKilled() const;
     const unsigned int getBulletsFired() const;
     const float getPlayerAccuracy() const;
+    const float getTimeAlive() const;
+    const float getLongestTimeAlive() const;
+    const void resetLifeTimer();
 
 private:
     void addToScore(int points);
@@ -31,6 +34,8 @@ private:
     unsigned int _enemiesKilled;
     unsigned int _bulletsFired;
     unsigned int _bulletsHit;
+    sf::Clock _lifeTimer;
+    float _longestTimeAlive;
 };
 
 #endif //PROJECT_SCORE_HPP

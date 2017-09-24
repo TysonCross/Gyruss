@@ -56,9 +56,10 @@ void Game::Quit()
 
 void Game::initializeGameLoop()
 {
-    sf::Clock clock;
-    sf::Clock total;
-    sf::Clock speed;
+    sf::Clock mainClock;
+    sf::Clock totalTimer;
+    sf::Clock speedTimer;
+    sf::Clock aliveTimer;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
     auto speedModifier = 0.5f;
@@ -114,8 +115,7 @@ void Game::initializeGameLoop()
                                       speedModifier);
 
     HUD hud(_resolution, _mainWindow, _textures, _fonts, _score, playerShip);
-
-//    _timeAliveClock.restart();
+    _score.resetLifeTimer();
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
@@ -154,12 +154,12 @@ void Game::initializeGameLoop()
 #endif // DEBUG_ONLY
         }
 
-        timeSinceUpdate += clock.getElapsedTime();
-        clock.restart();
+        timeSinceUpdate += mainClock.getElapsedTime();
+        mainClock.restart();
         // Enemy movment get faster the longer the player lives
-        if(speed.getElapsedTime().asSeconds() > increaseSpeedThreshold)
+        if(speedTimer.getElapsedTime().asSeconds() > increaseSpeedThreshold)
         {
-            speed.restart();
+            speedTimer.restart();
             entityController.changeGlobalSpeed(0.001);
         }
         ///-------------------------------------------
@@ -180,6 +180,7 @@ void Game::initializeGameLoop()
                 if (!_makePlayerInvulnerable)
                 {
                     playerShip.die();
+                    _score.resetLifeTimer();
                     _soundController.playSound(sounds::PlayerDeath);
                     _soundController.playSound(sounds::Explosion);
                     _inputHandler.reset();

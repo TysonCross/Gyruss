@@ -11,8 +11,8 @@
 Score::Score() : _score{0},
                  _enemiesKilled{0},
                  _bulletsFired{0},
-                 _bulletsHit{0}
-{}
+                 _bulletsHit{0},
+                 _longestTimeAlive{0} {}
 
 void Score::addToScore(int points)
 {
@@ -79,6 +79,27 @@ const unsigned int Score::getBulletsFired() const
 {
     return _bulletsFired;
 }
+
+const float Score::getTimeAlive() const
+{
+    return _lifeTimer.getElapsedTime().asSeconds();
+}
+
+const float Score::getLongestTimeAlive() const
+{
+    return _longestTimeAlive;
+}
+
+const void Score::resetLifeTimer()
+{
+    auto currentTimeAlive = _lifeTimer.getElapsedTime().asSeconds();
+    if (currentTimeAlive > _longestTimeAlive)
+    {
+        _longestTimeAlive = currentTimeAlive;
+    }
+    _lifeTimer.restart();
+}
+
 
 
 

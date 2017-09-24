@@ -47,20 +47,20 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     ///////////////////////////////////
     // RIGHT SIDE
     ///////////////////////////////////
-    auto fontSize = 32;
+    auto fontSize = static_cast<unsigned int>(32);
     auto rowPadding = fontSize/3;
     auto sectionPadding = rowPadding*2;
-    auto positionX = resolution.x - resolution.x/5.8;
-    auto positionY = resolution.y/2.8;
+    auto positionX = static_cast<unsigned int>(resolution.x - resolution.x/5.8);
+    auto positionY = static_cast<unsigned int>(resolution.y/2.8);
 
 
     ///--------------------------------
     // Score
     ///--------------------------------
     // Title
-    auto scoreTitleFontSize = fontSize;
+    auto scoreTitleFontSize = (fontSize);
     sf::Text scoreTitle("SCORE", fontHolder.get(fonts::Default),
-                        scoreTitleFontSize);
+                        fontSize);
     scoreTitle.setFillColor(sf::Color::White);
     scoreTitle.setOrigin(scoreTitle.getLocalBounds().width/2,
                          scoreTitle.getLocalBounds().height/2);
@@ -70,45 +70,68 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
                            scoreTitlePositionY);
 
     // Text
-    auto scoreFontSize = fontSize;
     sf::Text score(common::padIntToString(scoreValue.getScore()),
                    fontHolder.get(fonts::Default),
-                   scoreFontSize);
+                   fontSize);
     score.setFillColor(sf::Color::White);
     score.setOrigin(score.getLocalBounds().width/2,
                     score.getLocalBounds().height/2);
     auto scorePositionX = positionX;
-    auto scorePositionY = scoreTitlePositionY + scoreFontSize + rowPadding;
+    auto scorePositionY = scoreTitlePositionY + fontSize + rowPadding;
     score.setPosition(scorePositionX,
                       scorePositionY);
 
+    ///--------------------------------
+    // Longest Time Alive
+    ///--------------------------------
+    // Title
+    sf::Text maxTimeTitle("LONGEST LIFE", fontHolder.get(fonts::Default),
+                          fontSize);
+    maxTimeTitle.setFillColor(sf::Color::White);
+    maxTimeTitle.setOrigin(maxTimeTitle.getLocalBounds().width / 2,
+                           maxTimeTitle.getLocalBounds().height / 2);
+    auto timeTitlePositionX = positionX;
+    auto timeTitlePositionY =  scorePositionY + fontSize + sectionPadding;
+    maxTimeTitle.setPosition(timeTitlePositionX,
+                             timeTitlePositionY);
+
+    // Text
+    std::string maxTimeText = common::padIntToString(static_cast<unsigned int>(scoreValue.getLongestTimeAlive()));
+    sf::Text maxTime((maxTimeText) + " seconds",
+                     fontHolder.get(fonts::Default),
+                     fontSize);
+    maxTime.setFillColor(sf::Color::White);
+    maxTime.setOrigin(maxTime.getLocalBounds().width/2,
+                      maxTime.getLocalBounds().height/2);
+    auto maxTimePositionX = positionX;
+    auto maxTimePositionY = timeTitlePositionY + fontSize + rowPadding;
+    maxTime.setPosition(maxTimePositionX,
+                        maxTimePositionY);
 
     ///--------------------------------
     // Bullets Fired
     ///--------------------------------
     // Title
     auto numberBulletsFired = scoreValue.getBulletsFired();
-    auto bulletsFiredTitleFontSize = fontSize;
     sf::Text bulletsFiredTitle("PROJECTILES FIRED", fontHolder.get(fonts::Default),
-                               bulletsFiredTitleFontSize);
+                               fontSize);
     bulletsFiredTitle.setFillColor(sf::Color::White);
     bulletsFiredTitle.setOrigin(bulletsFiredTitle.getLocalBounds().width / 2,
                                 bulletsFiredTitle.getLocalBounds().height / 2);
     auto bulletsFiredTitlePositionX = positionX;
-    auto bulletsFiredTitlePositionY =  scorePositionY + bulletsFiredTitleFontSize + sectionPadding;
+    auto bulletsFiredTitlePositionY =  maxTimePositionY + fontSize + sectionPadding;
     bulletsFiredTitle.setPosition(bulletsFiredTitlePositionX,
                                   bulletsFiredTitlePositionY);
 
     // Text
-    auto bulletsFiredFontSize = fontSize;
     sf::Text bulletsFired(common::padIntToString(numberBulletsFired),
                           fontHolder.get(fonts::Default),
-                          bulletsFiredFontSize);
+                          fontSize);
     bulletsFired.setFillColor(sf::Color::White);
     bulletsFired.setOrigin(bulletsFired.getLocalBounds().width/2,
                            bulletsFired.getLocalBounds().height/2);
     auto bulletsFiredPositionX = positionX;
-    auto bulletsFiredPositionY = bulletsFiredTitlePositionY + bulletsFiredFontSize + rowPadding;
+    auto bulletsFiredPositionY = bulletsFiredTitlePositionY + fontSize + rowPadding;
     bulletsFired.setPosition(bulletsFiredPositionX,
                         bulletsFiredPositionY);
 
@@ -117,28 +140,26 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     ///--------------------------------
     // Title
     auto accuracyValue = scoreValue.getPlayerAccuracy();
-    auto accuracyTitleFontSize = fontSize;
     sf::Text accuracyTitle("ACCURACY", fontHolder.get(fonts::Default),
-                               accuracyTitleFontSize);
+                           fontSize);
     accuracyTitle.setFillColor(sf::Color::White);
     accuracyTitle.setOrigin(accuracyTitle.getLocalBounds().width / 2,
                                 accuracyTitle.getLocalBounds().height / 2);
     auto accuracyTitlePositionX = positionX;
-    auto accuracyTitlePositionY =  bulletsFiredPositionY + accuracyTitleFontSize + sectionPadding;
+    auto accuracyTitlePositionY =  bulletsFiredPositionY + fontSize + sectionPadding;
     accuracyTitle.setPosition(accuracyTitlePositionX,
                                   accuracyTitlePositionY);
 
     // Text
-    auto accuracyFontSize = fontSize;
     auto accuracyAmount = static_cast<int>(accuracyValue*100);
     sf::Text accuracy(std::to_string(accuracyAmount) + "%",
                           fontHolder.get(fonts::Default),
-                          accuracyFontSize);
+                      fontSize);
     accuracy.setFillColor(sf::Color::White);
     accuracy.setOrigin(accuracy.getLocalBounds().width/2,
                            accuracy.getLocalBounds().height/2);
     auto accuracyPositionX = positionX;
-    auto accuracyPositionY = accuracyTitlePositionY + accuracyFontSize + rowPadding;
+    auto accuracyPositionY = accuracyTitlePositionY + fontSize + rowPadding;
     accuracy.setPosition(accuracyPositionX,
                              accuracyPositionY);
 
@@ -154,6 +175,8 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
         renderWindow.draw(credits);
         renderWindow.draw(scoreTitle);
         renderWindow.draw(score);
+        renderWindow.draw(maxTimeTitle);
+        renderWindow.draw(maxTime);
         renderWindow.draw(bulletsFiredTitle);
         renderWindow.draw(bulletsFired);
         renderWindow.draw(accuracyTitle);
