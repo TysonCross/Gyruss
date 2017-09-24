@@ -185,6 +185,6 @@ void Enemy::move()
     _newPosition.y -= _resolution.y/2;
     _pointingPosition = _newPosition - _prevPosition;
     _angleOrientation = _futureAngleValue = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y); // ? Should be -?
-    _angleOrientation = -1*common::radToDegree(_angleOrientation) - _angle;
+    _angleOrientation = -1*common::radToDegree(_angleOrientation) - getAngleWithOffset();
     _sprite.setRotation(_angleOrientation);
 }

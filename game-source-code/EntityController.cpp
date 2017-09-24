@@ -141,8 +141,8 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
             if (collides((*bullet)->getSprite(), (*enemy)->getSprite()))
             {
                 auto explosion = std::make_unique<Explosion>(_resolution,
-                                                                  (*enemy)->getDistanceFromCentre(),
-                                                                  (*enemy)->getAngle(),
+                                                                  (*enemy)->getRadius(),
+                                                                  (*enemy)->getAngleWithOffset(),
                                                                    (*enemy)->getScale().x * 2,
                                                                   _textureHolder,
                                                                   textures::Explosion);
