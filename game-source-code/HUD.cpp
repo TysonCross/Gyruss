@@ -133,29 +133,3 @@ void HUD::draw()
     }
 }
 
-void HUD::updatePlayerLives()
-{
-
-}
-
-void HUD::updateScore()
-{
-
-}
-
-void HUD::updateEnemiesKilled()
-{
-
-}
-
-void HUD::updateBulletsFired()
-{
-
-}
-
-void HUD::updateTime()
-{
-
-}
-
-

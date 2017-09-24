@@ -27,11 +27,6 @@ public:
         const PlayerShip &playerShip);
 
     void draw();
-    void updatePlayerLives();
-    void updateScore();
-    void updateEnemiesKilled();
-    void updateBulletsFired();
-    void updateTime();
 
 private:
     const sf::Vector2i _resolution;
@@ -40,7 +35,6 @@ private:
     const FontHolder& _fonts;
     const Score& _score;
     const PlayerShip& _playerShip;
-
 };
 
 

@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Game.hpp"
-#include <iostream>
+Game::Game(){}
 
 void Game::Start()
 {
@@ -51,7 +51,6 @@ void Game::initializeGameLoop()
     sf::Clock total;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
-//    float timeAliveMax = 0;
 
     _inputHandler.reset();
 
@@ -125,11 +124,6 @@ void Game::initializeGameLoop()
 
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-//        auto timeAlive = _timeAliveClock.getElapsedTime().asSeconds();
-//        if ( timeAlive >= timeAliveMax)
-//        {
-//            timeAliveMax = timeAlive;
-//        }
 
         ///-------------------------------------------
         ///  Fixed Timestep
@@ -229,11 +223,8 @@ void Game::initializeGameLoop()
 
 //            std::cout << "Score : " << _score.getScore() << std::endl;
 //            std::cout << "Bullets Fired : " << _score.getBulletsFired() << std::endl;
-//            std::cout << "Enemies Killed : " << _score.getEnemiesKilled() << std::endl;
-//            std::cout << "Lives Remaining: " << playerShip.getLives() << std::endl;
 
             std::cout.clear();
-
 
 #endif // DEBUG
 

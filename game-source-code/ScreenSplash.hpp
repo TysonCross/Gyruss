@@ -17,6 +17,7 @@
 
 #include "Screen.hpp"
 #include "Starfield.hpp"
+#include <fstream>
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
@@ -41,6 +42,8 @@ public:
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
              const sf::Vector2i resolution);
+
+    std::string getHighScore();
 
 };
 

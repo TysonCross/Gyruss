@@ -6,8 +6,8 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-
 #include "Score.hpp"
+
 Score::Score() : _score{0},
                  _enemiesKilled{0},
                  _bulletsFired{0},
@@ -70,3 +70,6 @@ const unsigned int Score::getBulletsFired() const
 {
     return _bulletsFired;
 }
+
+
+

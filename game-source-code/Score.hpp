@@ -10,7 +10,6 @@
 #ifndef PROJECT_SCORE_HPP
 #define PROJECT_SCORE_HPP
 
-#include <SFML/System/Time.hpp>
 #include "common.hpp"
 
 class Score
@@ -32,6 +31,5 @@ private:
     unsigned int _bulletsFired;
     unsigned int _bulletsHit;
 };
-
 
 #endif //PROJECT_SCORE_HPP
