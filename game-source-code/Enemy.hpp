@@ -31,11 +31,14 @@ public:
           textures::ID id);
 
     void setMove(float angle, float distance) override;
+    void setMove(float angle, float distance,int xOffset, int yOffset);
     void move() override;
     void reset() override;
     void update() override;
     const float getRadius() override;
     const float getDistanceFromCentre() override;
+    const float getDistanceFromCentreWithOffset();
+    const float getAngleWithOffset();
     const sf::Vector2f getPosition() override;
     const sf::Sprite &getSprite() override;
     const sf::Vector2f getScale() override;
@@ -59,6 +62,8 @@ private:
     sf::Vector2<float> _prevPosition,
                         _newPosition,
                         _pointingPosition;
+    int _xOffset;
+    int _yOffset;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

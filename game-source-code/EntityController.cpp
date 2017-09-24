@@ -32,6 +32,9 @@ void EntityController::spawnEnemies()
     {
         int minNumberEnemies = 2;
         float enemySpawnTime = rand() % 3 + 2;
+        if (_enemies.size()<1){
+
+
         if ((_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTime)
             || (_enemies.size() <= minNumberEnemies))
         {
@@ -42,6 +45,7 @@ void EntityController::spawnEnemies()
                                                  _textureHolder, // ToDo: remove
                                                  shipVariant);
             _enemies.push_front(std::move(enemy));
+        }
         }
     }
 }
@@ -71,8 +75,8 @@ void EntityController::shoot()
             {
                 _timerShoot.restart();
                 auto bullet_enemy = std::make_unique<Bullet>(_resolution,
-                                                             enemy->getDistanceFromCentre(),
-                                                             enemy->getAngle(),
+                                                             enemy->getRadius(),
+                                                             enemy->getAngleWithOffset(),
                                                              0.5,
                                                              _textureHolder,
                                                              textures::BulletEnemy);
@@ -93,18 +97,23 @@ void EntityController::setMove()
     // future enemy movement (and move faster - immediately after spawning - to get closer to the player)
     for (auto &enemy : _enemies)
     {
-        if (enemy->getRadius() > _resolution.y / 2.f)
+//        std::cout << enemy->getRadius() <<std::endl;
+        std::cout << enemy->getAngleWithOffset() <<std::endl;
+        if (enemy->getRadius() < _resolution.y / 2.f)
         {
             auto random_angle = (rand() % 3 + 2.0f);
             auto random_move = rand() % 15 + (-2);
             auto playableZoneRadiusFactor = 8;
-
+//            auto radius=sin(common::degreeToRad(enemy->getAngle()))*sin(common::degreeToRad(enemy->getAngle()));
             if (enemy->getDistanceFromCentre() < (_resolution.y / playableZoneRadiusFactor))
             {
                 enemy->setMove(1 + random_angle, 15*_speed_modifier);
             } else
             {
-                enemy->setMove(random_angle, random_move*_speed_modifier);
+
+//                enemy->setMove(1, 0,int(cos(radius)*200),int(sin(radius)*200));
+                enemy->setMove(1, 0,200,200);
+//                enemy->setMove(1 + random_angle, 15*_speed_modifier);
             }
         } else
             enemy->reset();

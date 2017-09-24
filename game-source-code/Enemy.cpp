@@ -34,6 +34,17 @@ void Enemy::setMove(float angle, float distance)
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
+    _xOffset=0;
+    _yOffset=0;
+}
+
+void Enemy::setMove(float angle, float distance,int xOffset, int yOffset)
+{
+    _isMoving = true;
+    _futureAngleValue = angle;
+    _futureMoveValue = distance;
+    _xOffset=xOffset;
+    _yOffset=yOffset;
 }
 
 void Enemy::reset()
@@ -44,6 +55,8 @@ void Enemy::reset()
     _sprite.setScale(0,0);
     _sprite.setPosition(_resolution.x/2,_resolution.y/2);
     _isShooting = false;
+    _yOffset=0;
+    _xOffset=0;
 }
 
 void Enemy::update()
@@ -60,8 +73,8 @@ void Enemy::update()
 
 const float Enemy::getRadius()
 {
-    auto x_pos = _sprite.getPosition().x + _resolution.x/2;
-    auto y_pos = _sprite.getPosition().y + _resolution.y/2;
+    auto x_pos = _sprite.getPosition().x - _resolution.x/2;
+    auto y_pos = _sprite.getPosition().y - _resolution.y/2;
 
     return sqrt((x_pos*x_pos) + (y_pos*y_pos));
 }
@@ -69,6 +82,11 @@ const float Enemy::getRadius()
 const float Enemy::getDistanceFromCentre()
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
+}
+
+const float Enemy::getDistanceFromCentreWithOffset()
+{
+    return (_distanceFromCentre+sqrt(_xOffset*_xOffset+_xOffset*_yOffset)) - _sprite.getGlobalBounds().height/2;
 }
 
 const sf::Vector2f Enemy::getPosition()
@@ -121,6 +139,14 @@ float Enemy::getDirectionAngle()
     return _angleOrientation;
 }
 
+const float Enemy::getAngleWithOffset()
+{
+    auto x_pos = _sprite.getPosition().x - _resolution.x/2;
+    auto y_pos = _sprite.getPosition().y - _resolution.y/2;
+    auto radianAngle = atan2(x_pos,y_pos);
+    return common::angleFilter(common::radToDegree(radianAngle));
+}
+
 void Enemy::shoot()
 {
 //    _soundShoot.setPitch((_distanceFromCentre-_resolution.x/2)/(_resolution.x/2)); //((rand()%20+10)/2.0f));
@@ -142,10 +168,10 @@ void Enemy::move()
         offset = _resolution.x*0.3;
     }
     auto depthScale = ((_distanceFromCentre + offset)/(_resolution.x/2));
-    _distanceFromCentre += _futureMoveValue * depthScale;
-    auto x_pos = _distanceFromCentre * sin(common::degreeToRad(_angle));
-    auto y_pos = _distanceFromCentre * cos(common::degreeToRad(_angle));
-    auto scale = 1 + ((_distanceFromCentre - (_resolution.x / 2)) / (_resolution.x / 2));
+    _distanceFromCentre += (_futureMoveValue) * depthScale;
+    auto x_pos = _distanceFromCentre * sin(common::degreeToRad(_angle))+_xOffset;
+    auto y_pos = _distanceFromCentre * cos(common::degreeToRad(_angle))+_yOffset;
+    auto scale = 1 + ((getRadius() - (_resolution.x / 2)) / (_resolution.x / 2));
 
     _sprite.setPosition(x_pos+(_resolution.x / 2),y_pos+(_resolution.y / 2));
     _sprite.setScale(scale * _scale,scale * _scale);
