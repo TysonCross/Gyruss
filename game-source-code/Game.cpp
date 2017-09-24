@@ -34,7 +34,6 @@ void Game::Start()
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
-
     while (_gameState != game::GameState::Exiting)
     {
         initializeGameLoop();
@@ -127,11 +126,23 @@ void Game::initializeGameLoop()
 #ifdef DEBUG
             auto speedChange = 0.1f;
             if (event.type == sf::Event::EventType::KeyPressed)
+            {
                 if (event.key.code == sf::Keyboard::RBracket)
                     entityController.changeGlobalSpeed(speedChange);
-            if (event.type == sf::Event::EventType::KeyPressed)
+
                 if (event.key.code == sf::Keyboard::LBracket)
                     entityController.changeGlobalSpeed(-speedChange);
+
+                if (event.key.code == sf::Keyboard::P)
+                    _makePlayerInvulnerable = true;
+
+                if (event.key.code == sf::Keyboard::O)
+                    _makePlayerInvulnerable = false;
+
+                if (event.key.code == sf::Keyboard::K)
+                        playerShip.die();
+            }
+
 #endif // DEBUG
         }
 
@@ -150,13 +161,17 @@ void Game::initializeGameLoop()
             entityController.shoot();
             entityController.setMove();
             entityController.checkClipping();
+
             if (entityController.checkCollisions())
             {
-                playerShip.die();
-                _soundController.playSound(sounds::PlayerDeath);
-                _soundController.playSound(sounds::Explosion);
-                _inputHandler.reset();
-                shaking = 1;
+                if (!_makePlayerInvulnerable)
+                {
+                    playerShip.die();
+                    _soundController.playSound(sounds::PlayerDeath);
+                    _soundController.playSound(sounds::Explosion);
+                    _inputHandler.reset();
+                    shaking = 1;
+                }
             }
             ///-------------------------------------------
             /// Pre update() Sound events
@@ -183,7 +198,6 @@ void Game::initializeGameLoop()
             ///-------------------------------------------
             playerShip.update();
             entityController.update();
-
 
 #ifdef DEBUG
             entityController.debug();
@@ -220,9 +234,6 @@ void Game::initializeGameLoop()
                 _mainWindow.display();
             }
 
-            if (playerShip.isInvulnerable())
-                pulseColor(playerShip.getSprite(), sf::Color::Red, 20, total);
-
             _mainWindow.setPosition(pos);
             hud.draw();
             _mainWindow.display();
@@ -234,6 +245,7 @@ void Game::initializeGameLoop()
             _mainWindow.setTitle(ss.str());
 #endif // DEBUG
 
+            // End Game
             if (playerShip.getLives() <= 0)
             {
                 _gameState = game::GameState::GameOver;
@@ -288,14 +300,6 @@ void Game::loadResources()
     _fonts.load(fonts::Default, "resources/fax_sans_beta.otf");
 }
 
-void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clock &clock)
-{
-    float change = clock.getElapsedTime().asSeconds();
-    change = common::radToDegree(common::angleFilter(change));
-    auto i = fabs(sin(change * 1 / frequency));
-    sprite.setColor(sf::Color(i * color.r, i * color.g, i * color.b));
-}
-
 void Game::recordHighScore()
 {
 
@@ -317,7 +321,6 @@ void Game::recordHighScore()
     std::string::size_type sizeString;   // alias of size_t
     int oldValue = std::stoi(oldHighScore, &sizeString);
 
-    std::cout << oldValue;
     if (_score.getScore() > oldValue)
     {
         std::ofstream outputFile(filename, std::ios::out);

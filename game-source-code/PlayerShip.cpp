@@ -25,7 +25,7 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
 {
     _lives = 3;
     _invulnerabilityTimeAmount = 1.2f;
-
+    _animationFPSLimit = 0;
     _buffer.loadFromFile("resources/thrust.ogg");
     _soundMove.setBuffer(_buffer);
     _soundMove.setLoop(1);
@@ -66,12 +66,20 @@ void PlayerShip::update()
 {
     if (_isMoving)
     {
-        _rectArea.left += _spriteOffset;
-        if (_rectArea.left > (3660 - 366)) // Sprite tileset width - individual tile
+        if (_animationFPSLimit >= 2)
         {
-            _rectArea.left = 0;
+            _animationFPSLimit = 0;
+            _rectArea.left += _spriteOffset;
+            if (_rectArea.left > (3660 - 366)) // Sprite tileset width - individual tile
+            {
+                _rectArea.left = 0;
+            }
+            _sprite.setTextureRect(_rectArea);
         }
-        _sprite.setTextureRect(_rectArea);
+        else
+        {
+            _animationFPSLimit++;
+        }
         move();
     }
     if (_isShooting)

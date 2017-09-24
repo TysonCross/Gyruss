@@ -44,10 +44,6 @@ private:
     void showGameOverScreen();
     void loadResources();
     void recordHighScore();
-    void pulseColor(sf::Sprite sprite,
-                    sf::Color color,
-                    int frequency,
-                    sf::Clock& clock);
 
     TextureHolder _textures;
     SoundController _soundController;
@@ -58,6 +54,7 @@ private:
     sf::RenderWindow _mainWindow;
     sf::Vector2i _resolution;
     Score _score;
+    bool _makePlayerInvulnerable = false;
 
 };
 

@@ -66,12 +66,6 @@ void InputHandler::pollInput(game::GameState &gameState,
             _previousButtonState = 0;
         }
     }
-
-#ifdef DEBUG
-    if (event.type == sf::Event::EventType::KeyPressed)
-        if (event.key.code == sf::Keyboard::K)
-            playerShip.die();
-#endif // DEBUG
 }
 
 void InputHandler::update(PlayerShip &playerShip, const float deltaTime)

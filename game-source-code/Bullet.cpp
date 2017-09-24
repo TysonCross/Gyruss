@@ -63,12 +63,19 @@ void Bullet::update()
 {
     if (_isMoving)
     {
-        _rectArea.left += _spriteOffset;
-        if (_rectArea.left > (420 - 70)) // Sprite tileset width - individual tile
+        if (_animationFPSLimit >= 2)
         {
-            _rectArea.left = 0;
+            _animationFPSLimit = 0;
+            _rectArea.left += _spriteOffset;
+            if (_rectArea.left > (420 - 70)) // Sprite tileset width - individual tile
+            {
+                _rectArea.left = 0;
+            }
+            _sprite.setTextureRect(_rectArea);
+        } else
+        {
+            _animationFPSLimit++;
         }
-        _sprite.setTextureRect(_rectArea);
         move();
     }
 }

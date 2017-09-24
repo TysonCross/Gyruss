@@ -61,6 +61,7 @@ protected:
     int _lives;
     textures::ID _id;
     entity::ID _type;
+    int _animationFPSLimit;
 };
 
 

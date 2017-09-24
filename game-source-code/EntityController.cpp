@@ -105,7 +105,7 @@ const bool EntityController::shootingOccurred()
 void EntityController::setMove()
 {
 #ifdef DEBUG
-    std::cout << _speedModifier << std::endl;
+//    std::cout << _speedModifier << std::endl;
 #endif // DEBUG
 
     // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
