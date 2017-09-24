@@ -15,10 +15,12 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
                        float angle,
                        float scale,
+                       const entity::ID type,
                        const TextureHolder &textureHolder) : Entity{resolution,
                                                                     distanceFromCentre,
                                                                     angle,
                                                                     scale,
+                                                                    type,
                                                                     textureHolder}
 {
     _lives = 3;
@@ -85,41 +87,41 @@ void PlayerShip::update()
     _isShooting = false;
 }
 
-const float PlayerShip::getRadius()
+const float PlayerShip::getRadius() const
 {
     return getDistanceFromCentre();
 }
 
-const float PlayerShip::getDistanceFromCentre()
+const float PlayerShip::getDistanceFromCentre() const
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f PlayerShip::getPosition()
+const sf::Vector2f PlayerShip::getPosition() const
 {
     return _sprite.getPosition();
 }
 
 
-const sf::Sprite &PlayerShip::getSprite()
+const sf::Sprite &PlayerShip::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f PlayerShip::getScale()
+const sf::Vector2f PlayerShip::getScale() const
 {
     return _sprite.getScale();
+}
+
+const int PlayerShip::getLives() const
+{
+    return _lives;
 }
 
 const void PlayerShip::die()
 {
     _lives--;
     reset();
-}
-
-const int PlayerShip::getLives()
-{
-    return _lives;
 }
 
 void PlayerShip::setShoot()

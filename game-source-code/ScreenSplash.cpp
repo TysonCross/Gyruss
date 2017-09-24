@@ -3,14 +3,14 @@
 /// \date    2017/09/10
 /// \brief   Simple Splash Screen
 ///
-/// Implementation of showing a splash screen
+/// Class implementation for showing a splash screen with information on how to play the game
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "ScreenSplash.hpp"
 
-int ScreenSplash::show(sf::RenderWindow &renderWindow,
+int ScreenSplash::draw(sf::RenderWindow &renderWindow,
                        const TextureHolder &textureHolder,
                        const FontHolder &fontHolder,
                        const sf::Vector2i resolution)
@@ -36,13 +36,13 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
     title.setPosition(titleWidth, titleHeight);
 
     // Version text
-    sf::Text version("version 2.0", fontHolder.get(fonts::Info), 24);
+    sf::Text version("version 2.0", fontHolder.get(fonts::Default), 24);
     sf::Color Gray = {70,70,70};
     version.setFillColor(Gray);
     version.setPosition(12,12);
 
     // Info Text
-    sf::Text info("Press spacebar to start", fontHolder.get(fonts::Info), 42);
+    sf::Text info("Press spacebar to start", fontHolder.get(fonts::Default), 42);
     sf::Color Purple = {179,74,186};
     info.setFillColor(Purple);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
@@ -56,6 +56,32 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
     auto controlsWidth = resolution.x/2+resolution.x/3;
     auto controlHeight = resolution.y/2+resolution.y/12;
     controls.setPosition(controlsWidth, controlHeight);
+    
+    // highScore info
+    // Title
+    auto highScoreTitleFontSize = 37;
+    sf::Text highScoreTitle("Top Score", fontHolder.get(fonts::Default),
+                        highScoreTitleFontSize);
+    highScoreTitle.setFillColor(sf::Color::White);
+    highScoreTitle.setOrigin(highScoreTitle.getLocalBounds().width/2,
+                         highScoreTitle.getLocalBounds().height/2);
+    auto highScoreTitlePositionX = resolution.x/5;
+    auto highScoreTitlePositionY = resolution.y/2-resolution.y/12;
+    highScoreTitle.setPosition(highScoreTitlePositionX,
+                           highScoreTitlePositionY);
+
+    // Text
+    auto highScoreFontSize = 32;
+    sf::Text highScore(getHighScore(),
+                   fontHolder.get(fonts::Default),
+                   highScoreFontSize);
+    highScore.setFillColor(sf::Color::White);
+    highScore.setOrigin(highScore.getLocalBounds().width/2,
+                    highScore.getLocalBounds().height/2);
+    auto highScorePositionX = highScoreTitlePositionX;
+    auto highScorePositionY = highScoreTitlePositionY + highScoreFontSize + 20;
+    highScore.setPosition(highScorePositionX,
+                      highScorePositionY);
 
     auto number_of_stars = 60;
     StarField starField(resolution, 3, number_of_stars);
@@ -76,6 +102,8 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
         renderWindow.draw(spacefight);
         renderWindow.draw(version);
         renderWindow.draw(controls);
+        renderWindow.draw(highScoreTitle);
+        renderWindow.draw(highScore);
 
         fadeTextInAndOut(info,Purple, 50, clock);
 
@@ -107,3 +135,23 @@ int ScreenSplash::show(sf::RenderWindow &renderWindow,
     }
 }
 
+std::string ScreenSplash::getHighScore()
+{
+
+    std::string filename = "highscores.txt";
+    std::ifstream inputFile(filename,
+                            std::ios::in);
+
+    std::string oldHighScore = "0";
+    if (!inputFile.is_open())
+    {
+        throw std::runtime_error("Game::recordHighScore - Unable to open input file: " + filename);
+    }
+    inputFile.seekg(0, std::ios::beg);
+
+    inputFile >> oldHighScore;
+    
+    inputFile.close();
+    return oldHighScore;
+
+}

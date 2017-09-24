@@ -12,11 +12,13 @@ Enemy::Enemy(const sf::Vector2i &resolution,
              float distanceFromCentre,
              float angle,
              float scale,
+             const entity::ID type,
              const TextureHolder &textureHolder,
              textures::ID id) : Entity{resolution,
                                        distanceFromCentre,
                                        angle,
                                        scale,
+                                       type,
                                        textureHolder}
 {
     _id = id;
@@ -58,30 +60,30 @@ void Enemy::update()
     }
 }
 
-const float Enemy::getRadius()
+const float Enemy::getRadius() const
 {
-    auto x_pos = _sprite.getPosition().x + _resolution.x/2;
-    auto y_pos = _sprite.getPosition().y + _resolution.y/2;
+    auto xPos = _sprite.getPosition().x + _resolution.x/2;
+    auto yPos = _sprite.getPosition().y + _resolution.y/2;
 
-    return sqrt((x_pos*x_pos) + (y_pos*y_pos));
+    return sqrt((xPos*xPos) + (yPos*yPos));
 }
 
-const float Enemy::getDistanceFromCentre()
+const float Enemy::getDistanceFromCentre() const
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f Enemy::getPosition()
+const sf::Vector2f Enemy::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite &Enemy::getSprite()
+const sf::Sprite &Enemy::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Enemy::getScale()
+const sf::Vector2f Enemy::getScale() const
 {
     return _sprite.getScale();
 }
@@ -96,9 +98,14 @@ const void Enemy::die()
     }
 }
 
-const int Enemy::getLives()
+const int Enemy::getLives() const
 {
     return _lives;
+}
+
+const entity::ID Enemy::getType()
+{
+    return _type;
 }
 
 void Enemy::setShoot()
@@ -158,7 +165,7 @@ void Enemy::move()
     _newPosition.x -= _resolution.x/2;
     _newPosition.y -= _resolution.y/2;
     _pointingPosition = _newPosition - _prevPosition;
-    _angleOrientation = _futureAngleValue = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y); // ? Should be -?
+    _angleOrientation = _futureAngleValue = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y);
     _angleOrientation = -1*common::radToDegree(_angleOrientation) - _angle;
     _sprite.setRotation(_angleOrientation);
 }

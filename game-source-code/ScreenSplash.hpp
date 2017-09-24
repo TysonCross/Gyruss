@@ -3,7 +3,7 @@
 /// \date    2017/09/10
 /// \brief   Simple Splash Screen
 ///
-/// Implementation of showing a splash screen
+/// Class interface for showing a splash screen with information on how to play the game
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -17,6 +17,7 @@
 
 #include "Screen.hpp"
 #include "Starfield.hpp"
+#include <fstream>
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
@@ -37,10 +38,12 @@ public:
 /// \see ResourceMapper
 ///
 ////////////////////////////////////////////////////////////
-    int show(sf::RenderWindow &window,
+    int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
-             const sf::Vector2i) override;
+             const sf::Vector2i resolution);
+
+    std::string getHighScore();
 
 };
 

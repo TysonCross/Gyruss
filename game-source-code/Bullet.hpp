@@ -22,24 +22,25 @@ class Bullet : public Entity
 {
 public:
     Bullet(const sf::Vector2i resolution,
-                 float distanceFromCentre,
-                 float angle,
-                 float scale,
-                 const TextureHolder &textureHolder,
-                 const textures::ID id);
+           float distanceFromCentre,
+           float angle,
+           float scale,
+           const entity::ID type,
+           const TextureHolder &textureHolder,
+           const textures::ID id);
 
     void setMove(float distance) override;
     void setMove(float angle, float distance) override;
     void move() override;
     void reset() override;
     void update() override;
-    const float getRadius() override;
-    const float getDistanceFromCentre() override;
-    const sf::Vector2f getPosition() override;
-    const sf::Sprite &getSprite() override;
-    const sf::Vector2f getScale() override;
+    const float getRadius() const override;
+    const float getDistanceFromCentre() const override;
+    const sf::Vector2f getPosition() const override;
+    const sf::Sprite &getSprite() const override;
+    const sf::Vector2f getScale() const override;
+    const int getLives() const override;
     const void die() override;
-    const int getLives() override;
 
 private:
     ////////////////////////////////////////////////////////////

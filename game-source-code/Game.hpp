@@ -29,10 +29,12 @@
 #include "ScreenGameOver.hpp"
 #include "Starfield.hpp"
 #include "FPS.hpp"
+#include "HUD.hpp"
 
 class Game
 {
 public:
+    Game();
     void Start();
     void Quit();
 
@@ -46,8 +48,6 @@ private:
                     int frequency,
                     sf::Clock& clock);
 
-//    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
-
     TextureHolder _textures;
     SoundController _soundController;
     FontHolder _fonts;
@@ -56,6 +56,8 @@ private:
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;
     sf::Vector2i _resolution;
+    Score _score;
+
 };
 
 #endif //PROJECT_GAME_HPP

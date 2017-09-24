@@ -10,7 +10,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "Game.hpp"
-#include <iostream>
+Game::Game(){}
 
 void Game::Start()
 {
@@ -91,15 +91,20 @@ void Game::initializeGameLoop()
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.28;
     PlayerShip playerShip(_resolution,
-                                shipPathRadius,
-                                0,
-                                shipScale,
-                                _textures);
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          _textures);
 
     EntityController entityController(_resolution,
                                       playerShip,
-                                      _textures);
+                                      _textures,
+                                      _score);
 
+    HUD hud(_resolution,_mainWindow,_textures,_fonts,_score, playerShip);
+
+//    _timeAliveClock.restart();
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
@@ -228,7 +233,7 @@ void Game::showSplashScreen()
 {
     _soundController.playSound(sounds::StartSound);
     ScreenSplash splashScreen;
-    if (splashScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (splashScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Playing;
         return;
@@ -241,7 +246,7 @@ void Game::showGameOverScreen()
     _soundController.playSound(sounds::GameOverSound);
     _music.stop();
     ScreenGameOver gameOverScreen;
-    if (gameOverScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
     {
         _gameState = game::GameState::Splash;
         return;
@@ -266,7 +271,7 @@ void Game::loadResources()
 
     // Load Fonts
     _fonts.load(fonts::Title,"resources/danube.ttf");
-    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
+    _fonts.load(fonts::Default,"resources/fax_sans_beta.otf");
 }
 
 void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clock& clock)

@@ -13,18 +13,18 @@ Explosion::Explosion(const sf::Vector2i resolution,
                      float distanceFromCentre,
                      float angle,
                      float scale,
+                     const entity::ID type,
                      const TextureHolder &textureHolder,
                      const textures::ID id) : Entity{resolution,
                                                      distanceFromCentre,
                                                      angle,
                                                      scale,
+                                                     type,
                                                      textureHolder}
 {
     _id = id;
     _lives = 1;
     _rectArea = {0, 0, 128, 128}; // Individual sprite tile
-//    _soundExplode.setBuffer(soundHolder.get(sounds::Explosion));
-//    _soundExplode.play();
     _spriteOffset = _rectArea.width; // Animated sprite tileset width
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(_rectArea);
@@ -64,7 +64,7 @@ void Explosion::update()
     }
 }
 
-const float Explosion::getRadius()
+const float Explosion::getRadius() const
 {
     auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
     auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
@@ -72,24 +72,29 @@ const float Explosion::getRadius()
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
-const float Explosion::getDistanceFromCentre()
+const float Explosion::getDistanceFromCentre() const
 {
     return _distanceFromCentre;
 }
 
-const sf::Vector2f Explosion::getPosition()
+const sf::Vector2f Explosion::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite& Explosion::getSprite()
+const sf::Sprite& Explosion::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Explosion::getScale()
+const sf::Vector2f Explosion::getScale() const
 {
     return _sprite.getScale();
+}
+
+const int Explosion::getLives() const
+{
+    return _lives;
 }
 
 const void Explosion::die()
@@ -100,12 +105,6 @@ const void Explosion::die()
         reset();
     }
 }
-
-const int Explosion::getLives()
-{
-    return _lives;
-}
-
 
 void Explosion::move()
 {

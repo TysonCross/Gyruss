@@ -23,10 +23,12 @@ class ScreenGameOver : public Screen
 {
 public:
 
-    int show(sf::RenderWindow &window,
-             const TextureHolder &textureHolder,
-             const FontHolder &fontHolder,
-             const sf::Vector2i) override;
+    virtual int draw(sf::RenderWindow &window,
+                     const TextureHolder &textureHolder,
+                     const FontHolder &fontHolder,
+                     const sf::Vector2i resolution,
+                     const Score &score);
+
 };
 
 #endif //PROJECT_GAMEOVERSCREEN_HPP

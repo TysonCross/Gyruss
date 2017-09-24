@@ -28,23 +28,25 @@ public:
            float distanceFromCentre,
            float angle,
            float scale,
+           const entity::ID type,
            const TextureHolder &textureHolder) : _resolution{resolution},
                                                  _distanceFromCentre{distanceFromCentre},
                                                  _angle{angle},
-                                                 _scale{scale}
+                                                 _scale{scale},
+                                                 _type{type}
     {}
 
     virtual void setMove(float){}
     virtual void setMove(float, float){}
     virtual void reset()=0;
     virtual void update()=0;
-    virtual const float getRadius()=0;
-    virtual const float getDistanceFromCentre()=0;
-    virtual const sf::Vector2f getScale()=0;
-    virtual const sf::Vector2f getPosition()=0;
-    virtual const sf::Sprite &getSprite()=0;
+    virtual const float getRadius() const=0;
+    virtual const float getDistanceFromCentre()const=0;
+    virtual const sf::Vector2f getScale()const=0;
+    virtual const sf::Vector2f getPosition()const=0;
+    virtual const sf::Sprite &getSprite()const=0;
+    virtual const int getLives() const=0;
     virtual const void die()=0;
-    virtual const int getLives()=0;
     virtual void move()=0;
 
 protected:
@@ -58,6 +60,7 @@ protected:
     bool _isMoving;
     int _lives;
     textures::ID _id;
+    entity::ID _type;
 };
 
 
