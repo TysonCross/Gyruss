@@ -11,7 +11,15 @@
 
 #include "Game.hpp"
 
-Game::Game() {}
+#ifdef DEBUG_ONLY
+#include <sstream>
+#include <iostream>
+#endif // DEBUG_ONLY
+
+Game::Game()
+{
+    _makePlayerInvulnerable = false;
+}
 
 void Game::Start()
 {
@@ -50,15 +58,16 @@ void Game::initializeGameLoop()
 {
     sf::Clock clock;
     sf::Clock total;
+    sf::Clock speed;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
     auto speedModifier = 0.5f;
-
+    auto increaseSpeedThreshold = 1;
     _inputHandler.reset();
 
-#ifdef DEBUG
+#ifdef DEBUG_ONLY
     FPS fps;
-#endif // DEBUG
+#endif // DEBUG_ONLY
 
     auto shaking = 0; // Controls the shaking of the main renderWindow when a player loses a life
     auto pos = _mainWindow.getPosition();
@@ -123,7 +132,7 @@ void Game::initializeGameLoop()
             _inputHandler.pollInput(_gameState,
                                     playerShip,
                                     event);
-#ifdef DEBUG
+#ifdef DEBUG_ONLY
             auto speedChange = 0.1f;
             if (event.type == sf::Event::EventType::KeyPressed)
             {
@@ -142,13 +151,17 @@ void Game::initializeGameLoop()
                 if (event.key.code == sf::Keyboard::K)
                         playerShip.die();
             }
-
-#endif // DEBUG
+#endif // DEBUG_ONLY
         }
 
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-        entityController.changeGlobalSpeed(total.getElapsedTime().asSeconds() / 100000000);
+        // Enemy movment get faster the longer the player lives
+        if(speed.getElapsedTime().asSeconds() > increaseSpeedThreshold)
+        {
+            speed.restart();
+            entityController.changeGlobalSpeed(0.001);
+        }
         ///-------------------------------------------
         ///  Fixed Timestep
         ///-------------------------------------------
@@ -199,10 +212,6 @@ void Game::initializeGameLoop()
             playerShip.update();
             entityController.update();
 
-#ifdef DEBUG
-            entityController.debug();
-#endif // DEBUG
-
             ///-------------------------------------------
             ///  Render
             ///-------------------------------------------
@@ -238,12 +247,12 @@ void Game::initializeGameLoop()
             hud.draw();
             _mainWindow.display();
 
-#ifdef DEBUG
+#ifdef DEBUG_ONLY
             fps.update();
             std::ostringstream ss;
             ss << fps.getFPS();
             _mainWindow.setTitle(ss.str());
-#endif // DEBUG
+#endif // DEBUG_ONLY
 
             // End Game
             if (playerShip.getLives() <= 0)

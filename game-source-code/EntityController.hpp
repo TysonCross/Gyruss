@@ -46,12 +46,6 @@ public:
     void changeGlobalSpeed(float amount);
     const float getSpeed() const;
 
-
-#ifdef DEBUG
-    void debug();
-#endif // DEBUG
-
-
 private:
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
     void checkEnemyToPlayerShipCollisions();
@@ -74,8 +68,6 @@ private:
     bool _playerHasBeenHit;
     float _speedModifier;
 
-
 };
-
 
 #endif //PROJECT_ENTITYCONTROLLER_HPP

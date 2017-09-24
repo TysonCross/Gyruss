@@ -8,7 +8,7 @@
 #ifndef PROJECT_FPS_HPP
 #define PROJECT_FPS_HPP
 
-#include "SFML/Graphics.hpp"
+#include "SFML/System/Clock.hpp"
 
 class FPS
 {

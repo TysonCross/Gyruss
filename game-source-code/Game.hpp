@@ -14,10 +14,7 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#ifdef DEBUG
-#include <sstream>
-#include <iostream>
-#endif // DEBUG
+
 #include <SFML/Graphics.hpp>
 #include "common.hpp"
 #include "Entity.hpp"
@@ -54,7 +51,7 @@ private:
     sf::RenderWindow _mainWindow;
     sf::Vector2i _resolution;
     Score _score;
-    bool _makePlayerInvulnerable = false;
+    bool _makePlayerInvulnerable;
 
 };
 

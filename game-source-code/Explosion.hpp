@@ -11,7 +11,6 @@
 #define PROJECT_EXPLOSION_HPP
 
 #include "SFML/Graphics.hpp"
-//#include <cmath>
 #include "common.hpp"
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
@@ -43,7 +42,6 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-//    sf::Sound _soundExplode;
     sf::IntRect _rectArea;
     int _spriteOffset;
 };

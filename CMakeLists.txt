@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.8)
 project(Project)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CONFIGURATION_TYPES "Release;RelWithDebInfo" CACHE STRING "" FORCE)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -v")
 #set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -72,8 +72,6 @@ set_target_properties(${EXECUTABLE_NAME_TEST_RELEASE}
 
 set(EXECUTABLE_NAME "game_debug")
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
-target_compile_definitions(${EXECUTABLE_NAME} PUBLIC DEBUG)
-
 
 set(EXECUTABLE_NAME_RELEASE "game")
 add_executable(${EXECUTABLE_NAME_RELEASE} ${SOURCE_FILES})
@@ -87,6 +85,7 @@ if (WIN32)
 endif (WIN32)
 if (APPLE)
     set(SFML_ROOT "/usr/local/Cellar/sfml/2.4.2_1/share/SFML")
+    target_compile_definitions(${EXECUTABLE_NAME} PUBLIC DEBUG_ONLY)
 endif (APPLE)
 
 set(CMAKE_MODULE_PATH "${SFML_ROOT}/cmake/Modules/" ${CMAKE_MODULE_PATH})

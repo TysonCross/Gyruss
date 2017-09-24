@@ -39,7 +39,7 @@ void HUD::draw()
     }
     else
     {
-        lifeTitleText = "LIVES";
+        lifeTitleText = "LIFE";
     }
     sf::Text livesTitle(lifeTitleText, _fonts.get(fonts::Default), livesTitleFontSize);
     livesTitle.setFillColor(sf::Color::White);

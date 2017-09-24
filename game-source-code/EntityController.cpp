@@ -8,12 +8,6 @@
 
 #include "EntityController.hpp"
 
-#ifdef DEBUG
-
-#include <iostream>
-
-#endif // DEBUG
-
 EntityController::EntityController(sf::Vector2i resolution,
                                    PlayerShip &playerShip,
                                    TextureHolder &textureHolder,
@@ -104,10 +98,6 @@ const bool EntityController::shootingOccurred()
 
 void EntityController::setMove()
 {
-#ifdef DEBUG
-//    std::cout << _speedModifier << std::endl;
-#endif // DEBUG
-
     // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
     // future enemy movement (and move faster - immediately after spawning - to get closer to the player)
     for (auto &enemy : _enemies)
@@ -338,11 +328,3 @@ const float EntityController::getSpeed() const
 {
     return _speedModifier;
 }
-
-#ifdef DEBUG
-
-void EntityController::debug()
-{
-}
-
-#endif // DEBUG
