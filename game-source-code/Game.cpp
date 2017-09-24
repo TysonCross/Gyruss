@@ -33,6 +33,7 @@ void Game::Start()
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
 
+
     while (_gameState != game::GameState::Exiting)
     {
         initializeGameLoop();
@@ -59,7 +60,7 @@ void Game::initializeGameLoop()
 #endif // DEBUG
 
     auto shaking = 0; // Controls the shaking of the main renderWindow when a player loses a life
-    auto windowPosition = _mainWindow.getPosition();
+    auto pos = _mainWindow.getPosition();
     _mainWindow.clear(sf::Color::Black);
 
     //First Game State
@@ -90,16 +91,14 @@ void Game::initializeGameLoop()
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.28;
     PlayerShip playerShip(_resolution,
-                          shipPathRadius,
-                          0,
-                          shipScale,
-                          entity::PlayerShip,
-                          _textures);
+                                shipPathRadius,
+                                0,
+                                shipScale,
+                                _textures);
 
     EntityController entityController(_resolution,
                                       playerShip,
-                                      _textures,
-                                      _score);
+                                      _textures);
 
     HUD hud(_resolution,_mainWindow,_textures,_fonts,_score, playerShip);
 
@@ -188,7 +187,6 @@ void Game::initializeGameLoop()
 
             _mainWindow.draw(playerShip.getSprite());
 
-            windowPosition = _mainWindow.getPosition();
             while (shaking > 0)
             {
                 sf::Event event;
@@ -199,7 +197,7 @@ void Game::initializeGameLoop()
 
                 if (shaking > 0)
                 {
-                    auto pos_temp = windowPosition;
+                    auto pos_temp = pos;
                     _mainWindow.setPosition(sf::Vector2i(pos_temp.x + rand() % 25, pos_temp.y + rand() % 25));
 
                     if (++shaking >= 5)
@@ -211,8 +209,7 @@ void Game::initializeGameLoop()
             if (playerShip.isInvulnerable())
                 pulseColor(playerShip.getSprite(),sf::Color::Red,20,total);
 
-            hud.draw();
-            _mainWindow.setPosition(windowPosition);
+            _mainWindow.setPosition(pos);
             _mainWindow.display();
 
 #ifdef DEBUG
@@ -220,12 +217,6 @@ void Game::initializeGameLoop()
             std::ostringstream ss;
             ss << fps.getFPS();
             _mainWindow.setTitle(ss.str());
-
-//            std::cout << "Score : " << _score.getScore() << std::endl;
-//            std::cout << "Bullets Fired : " << _score.getBulletsFired() << std::endl;
-
-            std::cout.clear();
-
 #endif // DEBUG
 
             if (playerShip.getLives() <= 0)
@@ -240,7 +231,7 @@ void Game::showSplashScreen()
 {
     _soundController.playSound(sounds::StartSound);
     ScreenSplash splashScreen;
-    if (splashScreen.draw(_mainWindow,_textures, _fonts, _resolution) == 0)
+    if (splashScreen.show(_mainWindow,_textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Playing;
         return;
@@ -252,7 +243,6 @@ void Game::showGameOverScreen()
 {
     _soundController.playSound(sounds::GameOverSound);
     _music.stop();
-    recordHighScore();
     ScreenGameOver gameOverScreen;
     if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
     {
@@ -279,7 +269,7 @@ void Game::loadResources()
 
     // Load Fonts
     _fonts.load(fonts::Title,"resources/danube.ttf");
-    _fonts.load(fonts::Default,"resources/fax_sans_beta.otf");
+    _fonts.load(fonts::Info,"resources/fax_sans_beta.otf");
 }
 
 void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clock& clock)
@@ -288,42 +278,4 @@ void Game::pulseColor(sf::Sprite sprite, sf::Color color, int frequency, sf::Clo
     change = common::radToDegree(common::angleFilter(change));
     auto i = fabs(sin(change*1/frequency));
     sprite.setColor(sf::Color(i*color.r,i*color.g,i*color.b));
-}
-
-void Game::recordHighScore()
-{
-
-    std::string filename = "highscores.txt";
-    std::ifstream inputFile(filename,
-                            std::ios::in);
-
-
-    if (!inputFile.is_open())
-    {
-        throw std::runtime_error("Game::recordHighScore - Unable to open input file: " + filename);
-    }
-    inputFile.seekg(0, std::ios::beg);
-
-
-    std::string oldHighScore = "";
-    inputFile >> oldHighScore;
-
-    std::string::size_type sizeString;   // alias of size_t
-    int oldValue = std::stoi(oldHighScore,&sizeString);
-
-    std::cout << oldValue;
-    if (_score.getScore() > oldValue)
-    {
-        std::ofstream outputFile(filename, std::ios::out);
-        if (!outputFile.is_open())
-        {
-            throw std::runtime_error("Game::recordHighScore - Unable to open output file: " + filename);
-        }
-        outputFile << _score.getScore();
-        outputFile.close();
-    }
-
-    inputFile.close();
-    return;
-
 }

@@ -15,12 +15,10 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
                        float distanceFromCentre,
                        float angle,
                        float scale,
-                       const entity::ID type,
                        const TextureHolder &textureHolder) : Entity{resolution,
                                                                     distanceFromCentre,
                                                                     angle,
                                                                     scale,
-                                                                    type,
                                                                     textureHolder}
 {
     _lives = 3;

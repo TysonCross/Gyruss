@@ -27,7 +27,6 @@ public:
           float distanceFromCentre,
           float angle,
           float scale,
-          const entity::ID type,
           const TextureHolder &textureHolder,
           textures::ID id);
 
@@ -55,6 +54,7 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
+//    sf::Sound _soundShoot;
     float _angleOrientation;
     bool _isShooting;
     sf::Vector2<float> _prevPosition,

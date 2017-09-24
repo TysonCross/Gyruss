@@ -11,16 +11,14 @@
 #include "Bullet.hpp"
 
 Bullet::Bullet(const sf::Vector2i resolution,
-               float distanceFromCentre,
-               float angle,
-               float scale,
-               const entity::ID type,
-               const TextureHolder &textureHolder,
+                           float distanceFromCentre,
+                           float angle,
+                           float scale,
+                           const TextureHolder &textureHolder,
                            const textures::ID id) : Entity{resolution,
                                                            distanceFromCentre,
                                                            angle,
                                                            scale,
-                                                           type,
                                                            textureHolder}
 {
     _id = id;

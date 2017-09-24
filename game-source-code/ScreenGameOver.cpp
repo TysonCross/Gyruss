@@ -1,10 +1,9 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    20/9/17
-/// \brief   Simple Game Over / Death Screen implementation
+/// \brief   Description of file in project Project
 ///
-/// Class Implementation for showing a screen with information on how to the score
-/// and asking for input from player as an option to restart the game
+/// Detailed description of file
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
@@ -23,39 +22,27 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     gameover.setScale(scaleFactor,scaleFactor);
 
     // Title Text
-    sf::Text title("G A M E   O V E R",
-                   fontHolder.get(fonts::Default),
-                   resolution.y/6);
+    sf::Text title("G A M E   O V E R", fontHolder.get(fonts::Info),resolution.y/6);
     title.setFillColor(sf::Color::White);
-    title.setOrigin(title.getGlobalBounds().width / 2,
-                    title.getGlobalBounds().height / 2);
+    title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
     auto titleWidth = resolution.x/2;
     auto titleHeight = resolution.y/13;
-    title.setPosition(titleWidth,
-                      titleHeight);
+    title.setPosition(titleWidth, titleHeight);
 
-    ///////////////////////////////////
-    // LEFT SIDE
-    ///////////////////////////////////
     // Info Text
-    sf::Text info("Press return to continue",
-                  fontHolder.get(fonts::Default), 36);
+    sf::Text info("Press return to continue", fontHolder.get(fonts::Info), 36);
     info.setFillColor(sf::Color::White);
-    info.setOrigin(info.getGlobalBounds().width / 2,
-                   info.getGlobalBounds().height / 2);
+    info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
     auto infoWidth = resolution.x/2;;
     auto infoHeight = resolution.y - 100;
-    info.setPosition(infoWidth,
-                     infoHeight);
+    info.setPosition(infoWidth, infoHeight);
 
     // Credit Info
     sf::Sprite credits(textureHolder.get(textures::GameOverCredits));
-    credits.setOrigin(credits.getGlobalBounds().width / 2,
-                      credits.getGlobalBounds().height / 2);
+    credits.setOrigin(credits.getGlobalBounds().width / 2, credits.getGlobalBounds().height / 2);
     auto creditsWidth = resolution.x/2-resolution.x/3;
-    auto creditsHeight = resolution.y/2+resolution.y/30;
-    credits.setPosition(creditsWidth,
-                        creditsHeight);
+    auto creditsHeight = resolution.y/2+resolution.y/9;
+    credits.setPosition(creditsWidth, creditsHeight);
 
     ///////////////////////////////////
     // RIGHT SIDE
@@ -157,11 +144,8 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
 
     ///--------------------------------
     // Render
-    ///--------------------------------
-
     sf::Event event;
     sf::Clock clock;
-
     while (true)
     {
         renderWindow.clear();

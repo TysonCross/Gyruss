@@ -14,9 +14,11 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-
+#ifdef DEBUG
+#include <sstream>
+#include <iostream>
+#endif // DEBUG
 #include <SFML/Graphics.hpp>
-#include <fstream>
 #include "common.hpp"
 #include "Entity.hpp"
 #include "EntityController.hpp"
@@ -26,13 +28,7 @@
 #include "ScreenSplash.hpp"
 #include "ScreenGameOver.hpp"
 #include "Starfield.hpp"
-#include "HUD.hpp"
-
-#ifdef DEBUG
-#include <sstream>
-#include <iostream>
 #include "FPS.hpp"
-#endif // DEBUG
 
 class Game
 {
@@ -46,7 +42,6 @@ private:
     void showSplashScreen();
     void showGameOverScreen();
     void loadResources();
-    void recordHighScore();
     void pulseColor(sf::Sprite sprite,
                     sf::Color color,
                     int frequency,
