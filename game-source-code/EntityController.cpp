@@ -22,7 +22,8 @@ EntityController::EntityController(sf::Vector2i resolution,
     _timerShoot.restart();
     _totalTime.restart();
     _explosionHasOccurred = false;
-    _speedModifier = speedModifier;
+    _defaultSpeed = speedModifier;
+    _speedModifier = _defaultSpeed;
 }
 
 void EntityController::spawnEnemies()
@@ -327,4 +328,9 @@ void EntityController::changeGlobalSpeed(float amount = 0.1f)
 const float EntityController::getSpeed() const
 {
     return _speedModifier;
+}
+
+void EntityController::resetGlobalSpeed()
+{
+    _speedModifier = _defaultSpeed;
 }

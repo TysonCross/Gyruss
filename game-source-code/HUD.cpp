@@ -24,16 +24,16 @@ HUD::HUD(const sf::Vector2i resolution,
 
 void HUD::draw()
 {
-    auto fontSize = 36;
+    auto numberOfLivesLeft = _playerShip.getLives();
+    auto fontSize =static_cast<unsigned int>(36);
     auto rowSpacing = fontSize/2;
 
     ///////////////////////////////////
     // RIGHT SIDE
     ///////////////////////////////////
     // Lives title
-    auto livesTitleFontSize = fontSize;
     std::string lifeTitleText;
-    if (_playerShip.getLives()>1)
+    if (numberOfLivesLeft>1)
     {
         lifeTitleText = "LIVES";
     }
@@ -41,7 +41,7 @@ void HUD::draw()
     {
         lifeTitleText = "LIFE";
     }
-    sf::Text livesTitle(lifeTitleText, _fonts.get(fonts::Default), livesTitleFontSize);
+    sf::Text livesTitle(lifeTitleText, _fonts.get(fonts::Default), fontSize);
     livesTitle.setFillColor(sf::Color::White);
     livesTitle.setOrigin(livesTitle.getGlobalBounds().left,
                          livesTitle.getGlobalBounds().height/2);
@@ -87,9 +87,8 @@ void HUD::draw()
     // LEFT SIDE
     ///////////////////////////////////
     // Score title
-    auto scoreTitleFontSize = fontSize;
     sf::Text scoreTitle("SCORE", _fonts.get(fonts::Default),
-                        scoreTitleFontSize);
+                        fontSize);
     scoreTitle.setFillColor(sf::Color::White);
     scoreTitle.setOrigin(scoreTitle.getGlobalBounds().width,
                          scoreTitle.getGlobalBounds().height/2);
@@ -101,21 +100,50 @@ void HUD::draw()
                            scoreTitlePositionY);
 
     // Score Text
-    auto scoreFontSize = fontSize;
     sf::Text score(common::padIntToString(_score.getScore()),
                    _fonts.get(fonts::Default),
-                   scoreFontSize);
+                   fontSize);
     score.setFillColor(sf::Color::White);
     score.setOrigin(score.getGlobalBounds().width,
                     score.getGlobalBounds().height/2);
     auto scorePositionX = scoreTitlePositionX;
-    auto scorePositionY = scoreTitlePositionY + scoreFontSize/2 + rowSpacing;
+    auto scorePositionY = scoreTitlePositionY + fontSize/2 + rowSpacing;
     score.setPosition(scorePositionX,
                       scorePositionY);
 
-    _renderWindow.draw(livesTitle);
+    // Time alive title
+    std::string timeAliveText = "ALIVE";
+    if (_playerShip.isInvulnerable())
+        timeAliveText = "INVULNERABLE";
+    if (numberOfLivesLeft==0)
+        timeAliveText = "DEAD";
+    sf::Text timeAliveTitle(timeAliveText, _fonts.get(fonts::Default),
+                            fontSize);
+    timeAliveTitle.setFillColor(sf::Color::White);
+    timeAliveTitle.setOrigin(timeAliveTitle.getGlobalBounds().width,
+                         timeAliveTitle.getGlobalBounds().height/2);
+    auto timeAliveTitlePositionX = _resolution.x - _resolution.x/8;
+    auto timeAliveTitlePositionY = _resolution.y - _resolution.y/8;
 
-    auto numberOfLivesLeft = _playerShip.getLives();
+
+    timeAliveTitle.setPosition(timeAliveTitlePositionX,
+                           timeAliveTitlePositionY);
+
+    // timeAlive Text
+    std::string maxTimeText = common::padIntToString(int(_score.getTimeAlive()));
+    sf::Text timeAlive(maxTimeText,
+                   _fonts.get(fonts::Default),
+                       fontSize);
+    timeAlive.setFillColor(sf::Color::White);
+    timeAlive.setOrigin(timeAlive.getGlobalBounds().width,
+                    timeAlive.getGlobalBounds().height/2);
+    auto timeAlivePositionX = timeAliveTitlePositionX;
+    auto timeAlivePositionY = timeAliveTitlePositionY - fontSize/2 - rowSpacing;
+    timeAlive.setPosition(timeAlivePositionX,
+                      timeAlivePositionY);
+
+
+    _renderWindow.draw(livesTitle);
     if (numberOfLivesLeft > 0)
     {
         _renderWindow.draw(lifeBlock1);
@@ -129,6 +157,10 @@ void HUD::draw()
         }
         _renderWindow.draw(scoreTitle);
         _renderWindow.draw(score);
+
+        _renderWindow.draw(timeAliveTitle);
+        _renderWindow.draw(timeAlive);
+
 
     }
 }

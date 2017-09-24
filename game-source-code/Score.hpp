@@ -18,6 +18,7 @@ public:
     Score();
     void incrementEnemiesKilled(entity::ID type);
     void incrementBulletsFired();
+    void update();
     void reset();
     const unsigned int getScore() const;
     const unsigned int getEnemiesKilled() const;
@@ -35,7 +36,9 @@ private:
     unsigned int _bulletsFired;
     unsigned int _bulletsHit;
     sf::Clock _lifeTimer;
+    sf::Clock _updateTimer;
     float _longestTimeAlive;
+    float _survivalTime;
 };
 
 #endif //PROJECT_SCORE_HPP

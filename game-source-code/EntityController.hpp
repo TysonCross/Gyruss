@@ -44,6 +44,7 @@ public:
     const bool explosionOccurred();
     const bool shootingOccurred();
     void changeGlobalSpeed(float amount);
+    void resetGlobalSpeed();
     const float getSpeed() const;
 
 private:
@@ -67,6 +68,7 @@ private:
     bool _enemyShootEventHasOccurred;
     bool _playerHasBeenHit;
     float _speedModifier;
+    float _defaultSpeed;
 
 };
 

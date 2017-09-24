@@ -137,17 +137,17 @@ void PlayerShip::setShoot()
     _isShooting = true;
 }
 
-const bool PlayerShip::isShooting()
+const bool PlayerShip::isShooting() const
 {
     return _isShooting;
 }
 
-const bool PlayerShip::isMoving()
+const bool PlayerShip::isMoving() const
 {
     return _isMoving;
 }
 
-const bool PlayerShip::isInvulnerable()
+const bool PlayerShip::isInvulnerable() const
 {
     return _isInvulnerable;
 }

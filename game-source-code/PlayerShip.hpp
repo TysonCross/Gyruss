@@ -81,11 +81,11 @@ public:
 
     const void die() override;
 
-    const bool isMoving();
+    const bool isMoving() const;
 
-    const bool isShooting();
+    const bool isShooting() const;
 
-    const bool isInvulnerable();
+    const bool isInvulnerable() const;
 
     void setShoot();
 

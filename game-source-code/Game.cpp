@@ -63,7 +63,8 @@ void Game::initializeGameLoop()
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
     auto speedModifier = 0.5f;
-    auto increaseSpeedThreshold = 1;
+    auto increaseSpeedThreshold = 1.5f;  // How often the game speeds up (in seconds)
+    auto globalSpeedIncrease = 0.01f; // Game speeds up this amount every time
     _inputHandler.reset();
 
 #ifdef DEBUG_ONLY
@@ -86,7 +87,7 @@ void Game::initializeGameLoop()
     ///-------------------------------------------
     _score.reset();
     _music.setLoop(true);
-    _music.setVolume(25);
+    _music.setVolume(50);
     if (!_music.openFromFile("resources/game_music.ogg"))
     {
         _gameState = game::GameState::Exiting;
@@ -153,14 +154,15 @@ void Game::initializeGameLoop()
             }
 #endif // DEBUG_ONLY
         }
-
+        // Frame timing events
         timeSinceUpdate += mainClock.getElapsedTime();
         mainClock.restart();
-        // Enemy movment get faster the longer the player lives
+
+        // Game gets faster the longer you stay alive
         if(speedTimer.getElapsedTime().asSeconds() > increaseSpeedThreshold)
         {
             speedTimer.restart();
-            entityController.changeGlobalSpeed(0.001);
+            entityController.changeGlobalSpeed(globalSpeedIncrease);
         }
         ///-------------------------------------------
         ///  Fixed Timestep
@@ -175,6 +177,11 @@ void Game::initializeGameLoop()
             entityController.setMove();
             entityController.checkClipping();
 
+
+            ///-------------------------------------------
+            ///  Player Death
+            ///-------------------------------------------
+            // \brief Returns true if the player has collided. (also does global entity collision check)
             if (entityController.checkCollisions())
             {
                 if (!_makePlayerInvulnerable)
@@ -184,6 +191,7 @@ void Game::initializeGameLoop()
                     _soundController.playSound(sounds::PlayerDeath);
                     _soundController.playSound(sounds::Explosion);
                     _inputHandler.reset();
+                    entityController.resetGlobalSpeed();
                     shaking = 1;
                 }
             }
@@ -210,6 +218,7 @@ void Game::initializeGameLoop()
             ///-------------------------------------------
             /// Update() all entities
             ///-------------------------------------------
+            _score.update();
             playerShip.update();
             entityController.update();
 
@@ -224,6 +233,7 @@ void Game::initializeGameLoop()
             entityController.draw(_mainWindow);
 
             _mainWindow.draw(playerShip.getSprite());
+            hud.draw();
 
             while (shaking > 0)
             {
@@ -245,7 +255,6 @@ void Game::initializeGameLoop()
             }
 
             _mainWindow.setPosition(pos);
-            hud.draw();
             _mainWindow.display();
 
 #ifdef DEBUG_ONLY
