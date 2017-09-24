@@ -61,8 +61,7 @@ private:
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;
     sf::Vector2i _resolution;
-    sf::Clock _timeAliveClock;
-    float _timeAliveMax;
+//    sf::Clock _timeAliveClock;
     Score _score;
 };
 

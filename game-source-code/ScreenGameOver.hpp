@@ -29,8 +29,7 @@ public:
                      const TextureHolder &textureHolder,
                      const FontHolder &fontHolder,
                      const sf::Vector2i resolution,
-                     const Score &score,
-                     float timeAlive);
+                     const Score &score);
 
 };
 

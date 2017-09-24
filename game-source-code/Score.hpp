@@ -16,6 +16,7 @@
 class Score
 {
 public:
+    Score();
     void incrementEnemiesKilled(entity::ID type);
     void incrementBulletsFired();
     const unsigned int getScore() const;

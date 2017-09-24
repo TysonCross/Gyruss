@@ -8,6 +8,10 @@
 
 
 #include "Score.hpp"
+Score::Score() : _score{0},
+                 _enemiesKilled{0},
+                 _bulletsFired{0},
+                 _bulletsHit{0}{}
 
 void Score::addToScore(int points)
 {

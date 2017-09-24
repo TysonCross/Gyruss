@@ -24,7 +24,6 @@ public:
         const TextureHolder &textureHolder,
         const FontHolder &fontHolder,
         const Score &score,
-        const sf::Clock &timeAlive,
         const PlayerShip &playerShip);
 
     void draw();
@@ -40,7 +39,6 @@ private:
     const TextureHolder& _textures;
     const FontHolder& _fonts;
     const Score& _score;
-    const sf::Clock& _timeAlive;
     const PlayerShip& _playerShip;
 
 };

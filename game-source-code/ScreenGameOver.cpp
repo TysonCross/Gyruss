@@ -15,8 +15,7 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
                          const TextureHolder &textureHolder,
                          const FontHolder &fontHolder,
                          const sf::Vector2i resolution,
-                         const Score &scoreValue,
-                         float maxTimeAlive)
+                         const Score &scoreValue)
 {
     //Get the ScreenGameOver image
     sf::Sprite gameover(textureHolder.get(textures::GameOverScreen));
@@ -96,33 +95,6 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     score.setPosition(scorePositionX,
                       scorePositionY);
 
-    ///--------------------------------
-    // Longest Time Alive
-    ///--------------------------------
-    // Title
-    auto maxTimeTitleFontSize = fontSize;
-    sf::Text maxTimeTitle("LONGEST LIFE", fontHolder.get(fonts::Default),
-                          maxTimeTitleFontSize);
-    maxTimeTitle.setFillColor(sf::Color::White);
-    maxTimeTitle.setOrigin(maxTimeTitle.getLocalBounds().width / 2,
-                           maxTimeTitle.getLocalBounds().height / 2);
-    auto timeTitlePositionX = positionX;
-    auto timeTitlePositionY =  scorePositionY + maxTimeTitleFontSize + sectionPadding;
-    maxTimeTitle.setPosition(timeTitlePositionX,
-                             timeTitlePositionY);
-
-    // Text
-    auto maxTimeFontSize = fontSize;
-    sf::Text maxTime(common::padIntToString(maxTimeAlive) + " seconds",
-                     fontHolder.get(fonts::Default),
-                     maxTimeFontSize);
-    maxTime.setFillColor(sf::Color::White);
-    maxTime.setOrigin(maxTime.getLocalBounds().width/2,
-                      maxTime.getLocalBounds().height/2);
-    auto maxTimePositionX = positionX;
-    auto maxTimePositionY = timeTitlePositionY + maxTimeFontSize + rowPadding;
-    maxTime.setPosition(maxTimePositionX,
-                        maxTimePositionY);
 
     ///--------------------------------
     // Bullets Fired
@@ -136,7 +108,7 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     bulletsFiredTitle.setOrigin(bulletsFiredTitle.getLocalBounds().width / 2,
                                 bulletsFiredTitle.getLocalBounds().height / 2);
     auto bulletsFiredTitlePositionX = positionX;
-    auto bulletsFiredTitlePositionY =  maxTimePositionY + bulletsFiredTitleFontSize + sectionPadding;
+    auto bulletsFiredTitlePositionY =  scorePositionY + bulletsFiredTitleFontSize + sectionPadding;
     bulletsFiredTitle.setPosition(bulletsFiredTitlePositionX,
                                   bulletsFiredTitlePositionY);
 
@@ -198,8 +170,6 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
         renderWindow.draw(credits);
         renderWindow.draw(scoreTitle);
         renderWindow.draw(score);
-        renderWindow.draw(maxTimeTitle);
-        renderWindow.draw(maxTime);
         renderWindow.draw(bulletsFiredTitle);
         renderWindow.draw(bulletsFired);
         renderWindow.draw(accuracyTitle);

@@ -51,6 +51,8 @@ void Game::initializeGameLoop()
     sf::Clock total;
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
+//    float timeAliveMax = 0;
+
     _inputHandler.reset();
 
 #ifdef DEBUG
@@ -100,9 +102,9 @@ void Game::initializeGameLoop()
                                       _textures,
                                       _score);
 
-    HUD hud(_resolution,_mainWindow,_textures,_fonts,_score, _timeAliveClock, playerShip);
+    HUD hud(_resolution,_mainWindow,_textures,_fonts,_score, playerShip);
 
-    _timeAliveClock.restart();
+//    _timeAliveClock.restart();
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
@@ -123,11 +125,11 @@ void Game::initializeGameLoop()
 
         timeSinceUpdate += clock.getElapsedTime();
         clock.restart();
-        auto timeAlive = _timeAliveClock.getElapsedTime().asSeconds();
-        if ( timeAlive >= _timeAliveMax)
-        {
-            _timeAliveMax = timeAlive;
-        }
+//        auto timeAlive = _timeAliveClock.getElapsedTime().asSeconds();
+//        if ( timeAlive >= timeAliveMax)
+//        {
+//            timeAliveMax = timeAlive;
+//        }
 
         ///-------------------------------------------
         ///  Fixed Timestep
@@ -144,7 +146,6 @@ void Game::initializeGameLoop()
             if (entityController.checkCollisions())
             {
                 playerShip.die();
-                _timeAliveClock.restart();
                 _soundController.playSound(sounds::PlayerDeath);
                 _soundController.playSound(sounds::Explosion);
                 _inputHandler.reset();
@@ -230,8 +231,7 @@ void Game::initializeGameLoop()
 //            std::cout << "Bullets Fired : " << _score.getBulletsFired() << std::endl;
 //            std::cout << "Enemies Killed : " << _score.getEnemiesKilled() << std::endl;
 //            std::cout << "Lives Remaining: " << playerShip.getLives() << std::endl;
-            std::cout << "time alive: " << _timeAliveClock.getElapsedTime().asSeconds() << std::endl;
-            std::cout << "max time alive: " << _timeAliveMax << std::endl;
+
             std::cout.clear();
 
 
@@ -263,7 +263,7 @@ void Game::showGameOverScreen()
     _music.stop();
     recordHighScore();
     ScreenGameOver gameOverScreen;
-    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score, _timeAliveMax) == 0)
+    if (gameOverScreen.draw(_mainWindow,_textures, _fonts, _resolution, _score) == 0)
     {
         _gameState = game::GameState::Splash;
         return;
