@@ -9,8 +9,6 @@
 #include "EntityController.hpp"
 #ifdef DEBUG
 #include <iostream>
-#include <tic.h>
-
 #endif // DEBUG
 
 EntityController::EntityController(sf::Vector2i resolution,
