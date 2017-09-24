@@ -107,6 +107,7 @@ const entity::ID Enemy::getType()
 {
     return _type;
 }
+
 void Enemy::setShoot()
 {
     _isShooting = true;

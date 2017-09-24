@@ -29,6 +29,7 @@
 #include "ScreenGameOver.hpp"
 #include "Starfield.hpp"
 #include "FPS.hpp"
+#include "HUD.hpp"
 
 class Game
 {

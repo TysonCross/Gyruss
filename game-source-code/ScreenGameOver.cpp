@@ -22,7 +22,7 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     gameover.setScale(scaleFactor,scaleFactor);
 
     // Title Text
-    sf::Text title("G A M E   O V E R", fontHolder.get(fonts::Info),resolution.y/6);
+    sf::Text title("G A M E   O V E R", fontHolder.get(fonts::Default),resolution.y/6);
     title.setFillColor(sf::Color::White);
     title.setOrigin(title.getGlobalBounds().width / 2, title.getGlobalBounds().height / 2);
     auto titleWidth = resolution.x/2;
@@ -30,7 +30,7 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     title.setPosition(titleWidth, titleHeight);
 
     // Info Text
-    sf::Text info("Press return to continue", fontHolder.get(fonts::Info), 36);
+    sf::Text info("Press return to continue", fontHolder.get(fonts::Default), 36);
     info.setFillColor(sf::Color::White);
     info.setOrigin(info.getGlobalBounds().width / 2, info.getGlobalBounds().height / 2);
     auto infoWidth = resolution.x/2;;
