@@ -58,27 +58,27 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
     ////////////////////////////////////////////////////////////
-    const float getRadius() override; // As below
+    const float getRadius() const override; // As below
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
     ////////////////////////////////////////////////////////////
-    const float getDistanceFromCentre() override;
+    const float getDistanceFromCentre() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
     ///
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
-    const sf::Sprite &getSprite() override;
+    const sf::Sprite &getSprite() const override;
 
-    const sf::Vector2f getPosition() override;
+    const sf::Vector2f getPosition() const override;
 
-    const sf::Vector2f getScale() override;
+    const sf::Vector2f getScale() const override;
 
     const void die() override;
 
-    const int getLives() override;
+    const int getLives() const override;
 
     const bool isMoving();
 

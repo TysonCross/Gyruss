@@ -85,28 +85,28 @@ void PlayerShip::update()
     _isShooting = false;
 }
 
-const float PlayerShip::getRadius()
+const float PlayerShip::getRadius() const
 {
     return getDistanceFromCentre();
 }
 
-const float PlayerShip::getDistanceFromCentre()
+const float PlayerShip::getDistanceFromCentre() const
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f PlayerShip::getPosition()
+const sf::Vector2f PlayerShip::getPosition() const
 {
     return _sprite.getPosition();
 }
 
 
-const sf::Sprite &PlayerShip::getSprite()
+const sf::Sprite &PlayerShip::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f PlayerShip::getScale()
+const sf::Vector2f PlayerShip::getScale() const
 {
     return _sprite.getScale();
 }
@@ -117,7 +117,7 @@ const void PlayerShip::die()
     reset();
 }
 
-const int PlayerShip::getLives()
+const int PlayerShip::getLives() const
 {
     return _lives;
 }

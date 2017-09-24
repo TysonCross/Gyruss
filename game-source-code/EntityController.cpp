@@ -30,22 +30,39 @@ void EntityController::spawnEnemies()
     // Initial delay before first enemies spawn.
     if (_totalTime.getElapsedTime().asSeconds() > 1)
     {
-        int minNumberEnemies = 2;
+        int minNumberEnemies = 1;
+        int maxNumberEnemies = 10;
         float enemySpawnTime = rand() % 3 + 2;
-        if (_enemies.size()<1){
-
-
-        if ((_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTime)
-            || (_enemies.size() <= minNumberEnemies))
-        {
-            _timerSpawn.restart();
-            auto shipVariant = static_cast<textures::ID>(rand() % 1);
-            auto enemy = std::make_unique<Enemy>(_resolution,
-                                                 0, 0, 0.5,
-                                                 _textureHolder, // ToDo: remove
-                                                 shipVariant);
-            _enemies.push_front(std::move(enemy));
-        }
+        float enemySpawnTimeOutwards = rand() % 3 + 2;
+        if (_enemies.size()<maxNumberEnemies){
+            if ((_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTime)
+                || (_enemies.size() <= minNumberEnemies))
+            {
+                _timerSpawn.restart();
+                auto shipVariant = static_cast<textures::ID>(rand() % 1);
+                auto movmenetDirection = static_cast<MovementDirection>(rand()%2);
+                auto enemy = std::make_unique<Enemy>(_resolution,
+                                                     0, 0, 0.5,
+                                                     _textureHolder,
+                                                     shipVariant,
+                                                     MovementState::SpiralOut,
+                                                     movmenetDirection);
+                _enemies.push_front(std::move(enemy));
+            }
+            if ((_timerSpawn.getElapsedTime().asSeconds() > enemySpawnTimeOutwards)
+                || (_enemies.size() <= minNumberEnemies))
+            {
+                _timerSpawn.restart();
+                auto shipVariant = static_cast<textures::ID>(rand() % 1);
+                auto movmenetDirection = static_cast<MovementDirection>(rand()%2);
+                auto enemy = std::make_unique<Enemy>(_resolution,
+                                                     _resolution.y/2-1, common::angleFilter(180+_playerShip.getAngle()), 0.5,
+                                                     _textureHolder,
+                                                     shipVariant,
+                                                     MovementState::SpiralIn,
+                                                     movmenetDirection);
+                _enemies.push_front(std::move(enemy));
+            }
         }
     }
 }
@@ -63,12 +80,12 @@ void EntityController::shoot()
     }
 
     _enemyShootEventHasOccurred = false;
-    auto minNumberEnemyBullets = 1;
+    auto minNumberEnemyBullets = 0;
     auto dontFireInsideThisRadius = (_resolution.y/2)*0.05; // only shoot when closer
     float enemyShootTime = (rand()% 9000 + 500); // In Milliseconds
     for (auto &enemy : _enemies)
     {
-        if (enemy->getDistanceFromCentre() > dontFireInsideThisRadius)
+        if (enemy->getDistanceFromCentreWithOffset() > dontFireInsideThisRadius)
         {
             if ((_timerShoot.getElapsedTime().asMilliseconds() > enemyShootTime)
                 || (_bulletsEnemy.size() <= minNumberEnemyBullets))
@@ -77,7 +94,7 @@ void EntityController::shoot()
                 auto bullet_enemy = std::make_unique<Bullet>(_resolution,
                                                              enemy->getRadius(),
                                                              enemy->getAngleWithOffset(),
-                                                             0.5,
+                                                             0.3,
                                                              _textureHolder,
                                                              textures::BulletEnemy);
                 _bulletsEnemy.push_front(std::move(bullet_enemy));
@@ -95,36 +112,101 @@ void EntityController::setMove()
 {
     // Reset enemies outside cylindrical frustum back to the centre. Otherwise, set up the
     // future enemy movement (and move faster - immediately after spawning - to get closer to the player)
+
+    auto shipCircleRadius=300;
+    auto shipOffsetIncrement=5;
+    auto shipRadiusIncrease=15;
     for (auto &enemy : _enemies)
     {
-//        std::cout << enemy->getRadius() <<std::endl;
-        std::cout << enemy->getMovementState() <<std::endl;
-        if (enemy->getRadius() < _resolution.y / 2.f)
+
+        auto currentEnemeyDirectionSign = enemy->getMovementDirectionSign();
+        auto currentEnemeyMovementState = enemy->getMovementState();
+        auto currnetEnemeyRadius = enemy->getRadius();
+        auto currentXOffset = enemy->getOffsetX();
+        auto currentYOffset = enemy->getOffsetY();
+        auto currentEnemeyState = enemy->getMovementState();
+        auto CurrentEnemeyAngle = enemy->getAngleWithOffset();
+
+        std::cout << currentEnemeyMovementState << std::endl;
+        if (currnetEnemeyRadius < _resolution.y / 2.f)
         {
-            auto random_angle = (rand() % 3 + 2.0f);
+            auto random_angle = (rand() % 2 + 2.0f);
             auto random_move = rand() % 15 + (-2);
-            auto grpwShipScreenZone = _resolution.y/8;
-            auto playableZoneRadiusFactor = 15;
-//            auto radius=sin(common::degreeToRad(enemy->getAngle()))*sin(common::degreeToRad(enemy->getAngle()));
-            if (enemy->getRadius() < grpwShipScreenZone && enemy->getOffsetX()==0)
+            auto growShipScreenZone = _resolution.y/5;
+            auto ShipClipScreenZone = _resolution.y/3;
+
+            if (currnetEnemeyRadius>growShipScreenZone && currnetEnemeyRadius <ShipClipScreenZone && currentEnemeyMovementState!=MovementState::figureOfEight)
             {
-                enemy->setMove(1 + random_angle, 15*_speed_modifier);
-            } else
-            {
-                enemy->setMovementState(MovementState::circle);
-                auto currentOffsetX = enemy->getOffsetX();
-                if (currentOffsetX<100)
+                //1 in 100 chance that the ship will enter a random movement state that is not spiral inwards or outwards
+                auto randomStateChange=(rand()%100+1);
+                if(randomStateChange<2) //1% chance
                 {
-                    enemy->setMove(random_angle, 0,currentOffsetX+1,0);
+                    enemy->setMovementState(MovementState::circleOffsetLeft);
                 }
-                else
+                else if(randomStateChange>2 && randomStateChange<4) //1% chance
                 {
-                    enemy->setMove(random_angle, 0,currentOffsetX,0);
+                    enemy->setMovementState(MovementState::circleOffsetRight);
+                }
+                else if(randomStateChange==50) //0.5% change
+                {
+                    enemy->setMovementState(MovementState::SpiralOut);
+                }
+                 if(randomStateChange>200) //2% chance
+                {
+                    enemy->setMovementState(MovementState::figureOfEight);
                 }
 
-//                enemy->setMove(1 + random_angle, 15*_speed_modifier);
+
+
+            }   //end of ship grow zone logic
+
+            switch (enemy->getMovementState())
+            {
+                case (MovementState::SpiralOut) :
+                    enemy->setMove(random_angle* currentEnemeyDirectionSign, shipRadiusIncrease * _speed_modifier,currentXOffset,currentYOffset);
+                    break;
+                case (MovementState::SpiralIn) :
+                    enemy->setMove(random_angle* currentEnemeyDirectionSign, -shipRadiusIncrease * _speed_modifier,currentXOffset,currentYOffset);
+                    break;
+
+                case (MovementState::circleOffsetRight) :
+                    if (currentXOffset < shipCircleRadius) {
+                        enemy->setMove(random_angle*currentEnemeyDirectionSign, 0, currentXOffset + shipOffsetIncrement, currentYOffset);
+                    } else {
+                        enemy->setMove(random_angle*currentEnemeyDirectionSign, 0, currentXOffset, currentYOffset);
+                    }
+                    break;
+
+                case (MovementState::circleOffsetLeft) :
+                    if (currentXOffset > -shipCircleRadius) {
+                        enemy->setMove(random_angle*currentEnemeyDirectionSign, 0, currentXOffset - shipOffsetIncrement, currentYOffset);
+                    } else {
+                        enemy->setMove(random_angle*currentEnemeyDirectionSign, 0, currentXOffset, currentYOffset);
+                    }
+                    break;
+                case (MovementState::figureOfEight) :
+
+                    auto currentAngleInRad = common::degreeToRad(common::angleFilter(enemy->getAngle()));
+
+                    auto radius=sin(currentAngleInRad)*sin(currentAngleInRad);
+
+                    std::cout << radius << std::endl;
+//                    if (currentXOffset<300 && currentYOffset<300)
+//                    {
+//                        auto newX=cos(currentAngleInRad)*radius*currentXOffset+15;
+//                        auto newY=sin(currentAngleInRad)*radius*currentYOffset+15;
+//                        enemy->setMove(1,0,newX,newY);
+//                    }
+//                    else
+//                    {
+                        auto newX=cos(currentAngleInRad)*radius*300;
+                        auto newY=sin(currentAngleInRad)*radius*300;
+                        enemy->setMove(random_angle,0,newX,newY);
+//                    }
+//                    enemy->setMove(1,0,newX,newY);
+                    break;
             }
-        } else
+        } else //if enemey is outside of the radius, reset it
             enemy->reset();
     }
 }

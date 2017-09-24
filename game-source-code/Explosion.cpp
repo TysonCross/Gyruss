@@ -64,7 +64,7 @@ void Explosion::update()
     }
 }
 
-const float Explosion::getRadius()
+const float Explosion::getRadius() const
 {
     auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
     auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
@@ -72,22 +72,22 @@ const float Explosion::getRadius()
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
-const float Explosion::getDistanceFromCentre()
+const float Explosion::getDistanceFromCentre() const
 {
     return _distanceFromCentre;
 }
 
-const sf::Vector2f Explosion::getPosition()
+const sf::Vector2f Explosion::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite& Explosion::getSprite()
+const sf::Sprite& Explosion::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Explosion::getScale()
+const sf::Vector2f Explosion::getScale() const
 {
     return _sprite.getScale();
 }
@@ -101,7 +101,7 @@ const void Explosion::die()
     }
 }
 
-const int Explosion::getLives()
+const int Explosion::getLives() const
 {
     return _lives;
 }

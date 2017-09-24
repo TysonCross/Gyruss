@@ -22,9 +22,17 @@
 
 enum MovementState
 {
-    SpiralOutwards=0,
-    SpiralInwards,
-    circle
+    SpiralOut=0,
+    SpiralIn,
+    circleOffsetLeft,
+    figureOfEight,
+    circleOffsetRight
+};
+
+enum MovementDirection
+{
+    clockwise=0,
+    Cclockwise
 };
 
 class Enemy : public Entity
@@ -35,7 +43,10 @@ public:
           float angle,
           float scale,
           const TextureHolder &textureHolder,
-          textures::ID id);
+          textures::ID id,
+          MovementState movementState,
+          MovementDirection movementDirection
+    );
 
     void setMove(float angle, float distance) override;
     void setMove(float angle, float distance,int xOffset, int yOffset);
@@ -44,17 +55,18 @@ public:
     void move() override;
     void reset() override;
     void update() override;
-    const float getRadius() override;
-    const float getDistanceFromCentre() override;
+    const float getRadius() const override;
+    const float getDistanceFromCentre() const override;
     const float getAngleWithOffset();
-    const sf::Vector2f getPosition() override;
-    const sf::Sprite &getSprite() override;
-    const sf::Vector2f getScale() override;
+    const sf::Vector2f getPosition() const override;
+    const sf::Sprite &getSprite() const override;
+    const sf::Vector2f getScale() const override;
+    const int getLives() const override;
     const void die() override;
-    const int getLives() override;
 
     const MovementState getMovementState();
-    const float getDistanceFromCentreWithOffset();
+    const int getMovementDirectionSign();
+    const float getDistanceFromCentreWithOffset() const;
     const float getOffsetX();
     const float getOffsetY();
     void setShoot();
@@ -77,10 +89,8 @@ private:
     int _xOffset;
     int _yOffset;
 
-
-
     MovementState _movementState;
-
+    MovementDirection _movementDirection;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

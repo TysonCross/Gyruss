@@ -33,14 +33,15 @@ public:
     void move() override;
     void reset() override;
     void update() override;
-    const float getRadius() override;
-    const float getDistanceFromCentre() override;
-    const sf::Vector2f getPosition() override;
-    const sf::Sprite &getSprite() override;
-    const sf::Vector2f getScale() override;
-    const void die() override;
-    const int getLives() override;
+    const float getRadius() const override;
+    const float getDistanceFromCentre() const override;
+    const sf::Vector2f getPosition() const override;
+    const sf::Sprite &getSprite() const override;
+    const sf::Vector2f getScale() const override;
 
+    const int getLives() const override;
+
+    const void die() override;
 private:
     ////////////////////////////////////////////////////////////
     // Member data

@@ -38,13 +38,13 @@ public:
     virtual void setMove(float, float){}
     virtual void reset()=0;
     virtual void update()=0;
-    virtual const float getRadius()=0;
-    virtual const float getDistanceFromCentre()=0;
-    virtual const sf::Vector2f getScale()=0;
-    virtual const sf::Vector2f getPosition()=0;
-    virtual const sf::Sprite &getSprite()=0;
+    virtual const float getRadius() const = 0;
+    virtual const float getDistanceFromCentre() const = 0;
+    virtual const sf::Vector2f getScale() const=0;
+    virtual const sf::Vector2f getPosition() const = 0;
+    virtual const sf::Sprite &getSprite() const = 0;
     virtual const void die()=0;
-    virtual const int getLives()=0;
+    virtual const int getLives() const = 0;
     virtual void move()=0;
 
 protected:
