@@ -67,6 +67,7 @@ void Enemy::reset()
     _isShooting = false;
     _yOffset=0;
     _xOffset=0;
+    _movementState=MovementState::SpiralOut;
 }
 
 void Enemy::update()
