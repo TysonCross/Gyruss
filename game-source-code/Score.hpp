@@ -15,7 +15,6 @@
 class Score
 {
 public:
-    Score();
     void incrementEnemiesKilled(entity::ID type);
     void incrementBulletsFired();
     void update();

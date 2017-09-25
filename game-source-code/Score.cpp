@@ -8,13 +8,6 @@
 
 #include "Score.hpp"
 
-Score::Score() : _score{0},
-                 _enemiesKilled{0},
-                 _bulletsFired{0},
-                 _bulletsHit{0},
-                 _longestTimeAlive{0},
-                 _survivalTime{0}{}
-
 void Score::update()
 {
     auto survivalTimeIncrement = 1.f;
