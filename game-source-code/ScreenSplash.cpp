@@ -93,7 +93,7 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     {
 
         renderWindow.clear();
-        //renderWindow.draw(splash);
+//        renderWindow.draw(splash);
 
         for (const auto &element : starField.getStarField())
             starField.moveAndDrawStars(renderWindow,0.001,1);

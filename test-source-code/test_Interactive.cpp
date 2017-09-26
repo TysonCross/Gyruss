@@ -12,67 +12,62 @@
 #include <iostream>
 #include "doctest.h"
 
+#include "SFML/Audio.hpp"
+#include "SFML/Graphics.hpp"
+
 
 //Splash screen tests
-TEST_CASE ("Check splashscreen loads")
-{
+TEST_CASE ("Check splashscreen loads") {
     TextureHolder texture_holder;
     FontHolder font_holder;
     SoundHolder sound_holder;
 
-    texture_holder.load(textures::SplashScreen,"resources/test_image.png");
-    sound_holder.load(sounds::StartSound,"resources/win_sound.ogg");
-    font_holder.load(fonts::Title,"resources/fax_sans_beta.otf");
-    font_holder.load(fonts::Info,"resources/fax_sans_beta.otf");
+    texture_holder.load(textures::SplashScreen, "resources/test_image.png");
+    font_holder.load(fonts::Title, "resources/fax_sans_beta.otf");
+    font_holder.load(fonts::Default, "resources/fax_sans_beta.otf");
 
-    common::Resolution res= {1024,768};
-
+    auto resolution = sf::Vector2i{1024, 768};
     sf::RenderWindow testWindow;
-    testWindow.create(sf::VideoMode(res.x, res.y, 32), "Test");
+    testWindow.create(sf::VideoMode(resolution.x, resolution.y, 32), "Test");
     ScreenSplash splashScreen;
 
-    int splashResult= splashScreen.show(testWindow, texture_holder, sound_holder, font_holder, res);
-        CHECK(splashResult!=-1);
+    int splashResult = splashScreen.draw(testWindow, texture_holder, font_holder, resolution);
+            CHECK(splashResult != -1);
 }
 
-TEST_CASE ("Quit splashscreen window returns 1(signal: close application)")
-{
+TEST_CASE ("Quit splashscreen window returns 1(signal: close application)") {
     TextureHolder texture_holder;
     FontHolder font_holder;
     SoundHolder sound_holder;
 
-    texture_holder.load(textures::SplashScreen,"resources/test_image_close.png");
-    sound_holder.load(sounds::StartSound,"resources/win_sound.ogg");
-    font_holder.load(fonts::Title,"resources/fax_sans_beta.otf");
-    font_holder.load(fonts::Info,"resources/fax_sans_beta.otf");
+    texture_holder.load(textures::SplashScreenExtra, "resources/test_image_close.png");
+    font_holder.load(fonts::Title, "resources/fax_sans_beta.otf");
+    font_holder.load(fonts::Default, "resources/fax_sans_beta.otf");
 
-    common::Resolution res= {1024,768};
-
+    auto resolution = sf::Vector2i{1024, 768};
     sf::RenderWindow testWindow;
-    testWindow.create(sf::VideoMode(res.x, res.y, 32), "Test");
+    testWindow.create(sf::VideoMode(resolution.x, resolution.y, 32), "Test");
     ScreenSplash splashScreen;
 
-    int splashResult= splashScreen.show(testWindow, texture_holder, sound_holder, font_holder, res);
-        CHECK(splashResult==1);
+    int splashResult = splashScreen.draw(testWindow, texture_holder, font_holder, resolution);
+            CHECK(splashResult == 1);
 }
 
-TEST_CASE ("Continue Splashscreen returns 0(signal: continue to game play)")
-{
+TEST_CASE ("Continue Splashscreen returns 0(signal: continue to game play)") {
     TextureHolder texture_holder;
     FontHolder font_holder;
     SoundHolder sound_holder;
 
-    texture_holder.load(textures::SplashScreen,"resources/test_image_press.png");
-    sound_holder.load(sounds::StartSound,"resources/win_sound.ogg");
-    font_holder.load(fonts::Title,"resources/fax_sans_beta.otf");
-    font_holder.load(fonts::Info,"resources/fax_sans_beta.otf");
+    texture_holder.load(textures::SplashScreen, "resources/test_image_press.png");
+    font_holder.load(fonts::Title, "resources/fax_sans_beta.otf");
+    font_holder.load(fonts::Default, "resources/fax_sans_beta.otf");
 
-    common::Resolution res= {1024,768};
+    auto resolution = sf::Vector2i{1024, 768};
 
     sf::RenderWindow testWindow;
-    testWindow.create(sf::VideoMode(res.x, res.y, 32), "Test");
+    testWindow.create(sf::VideoMode(resolution.x, resolution.y, 32), "Test");
     ScreenSplash splashScreen;
 
-    int splashResult= splashScreen.show(testWindow, texture_holder, sound_holder, font_holder, res);
-        CHECK(splashResult==0);
+    int splashResult = splashScreen.draw(testWindow, texture_holder, font_holder, resolution);
+            CHECK(splashResult == 0);
 }
