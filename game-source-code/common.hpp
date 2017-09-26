@@ -42,10 +42,9 @@ namespace common
 
 }
 
-/// \brief A namespace to collect the ID keys for the game texture file resources
+/// \brief A namespace to collect the ID keys for the game entities
 ///
-/// This allows easy access while writing code to assign the textures to game objects by ID
-/// note that the final entry is textureID_end, a special empty entry which allows determination of
+/// note that the final entry is enemyID_end, a special empty entry which allows determination of
 /// size and the first entry is specified as =0, hence enabling indexing of the enum.
 namespace entity
 {
@@ -56,9 +55,10 @@ namespace entity
         PlayerShip,
         PlayerBullet,
         EnemyBullet,
+        Meteoroid,
         Explosion,
         testEnemy,
-        enemyID_end,
+        enemyID_end
     };
 }
 
@@ -81,9 +81,10 @@ namespace textures
         PlayerShip,
         BulletPlayer,
         BulletEnemy,
+        Meteoroid,
         Explosion,
         testTexture,
-        textureID_end,
+        textureID_end
     };
 }
 
@@ -106,7 +107,7 @@ namespace sounds
         PlayerDeath,
         Explosion,
         testSound,
-        soundID_end,
+        soundID_end
     };
 }
 
@@ -122,7 +123,7 @@ namespace fonts
         Title = 0,
         Default,
         testFont,
-        fontID_end,
+        fontID_end
     };
 }
 
@@ -134,7 +135,7 @@ namespace game
         Splash,
         Playing,
         GameOver,
-        Exiting,
+        Exiting
     };
 }
 

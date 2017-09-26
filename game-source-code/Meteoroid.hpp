@@ -1,32 +1,35 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
-/// \date    20/9/17
-/// \brief   Explosion entity for destroyed screen objects
+/// \date    26/9/17
+/// \brief   Meteroid Entity (cannot be destroyed by bullets)
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
+#ifndef PROJECT_METEROID_HPP
+#define PROJECT_METEROID_HPP
 
-#ifndef PROJECT_EXPLOSION_HPP
-#define PROJECT_EXPLOSION_HPP
-
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
 #include "SFML/Graphics.hpp"
+#include <cmath>
 #include "common.hpp"
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
-class Explosion : public Entity
+class Meteoroid : public Entity
 {
 public:
-    Explosion(const sf::Vector2i resolution,
-              float distanceFromCentre,
-              float angle,
-              float scale,
-              const entity::ID type,
-              const TextureHolder &textureHolder,
-              const textures::ID id);
+    Meteoroid(const sf::Vector2i resolution,
+           float distanceFromCentre,
+           float angle,
+           float scale,
+           const entity::ID type,
+           const TextureHolder &textureHolder,
+           const textures::ID id);
 
-    void setMove(float angle, float distance) override;
+    void setMove(float distance) override;
     void move() override;
     void reset() override;
     void update() override;
@@ -46,4 +49,4 @@ private:
     int _spriteOffset;
 };
 
-#endif //PROJECT_EXPLOSION_HPP
+#endif //PROJECT_METEROID_HPP

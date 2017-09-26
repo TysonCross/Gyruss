@@ -42,7 +42,9 @@ set(SOURCE_FILES_BASE
         game-source-code/HUD.cpp
         game-source-code/HUD.hpp
         game-source-code/Score.cpp
-        game-source-code/Score.hpp)
+        game-source-code/Score.hpp
+        game-source-code/Meteoroid.cpp
+        game-source-code/Meteoroid.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}

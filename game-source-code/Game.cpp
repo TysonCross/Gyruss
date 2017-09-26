@@ -172,7 +172,7 @@ void Game::initializeGameLoop()
             timeSinceUpdate = sf::Time::Zero;
 
             _inputHandler.update(playerShip, timeStep);
-            entityController.spawnEnemies();
+            entityController.spawnEntities();
             entityController.shoot();
             entityController.setMove();
             entityController.checkClipping();
@@ -310,6 +310,7 @@ void Game::loadResources()
     _textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     _textures.load(textures::BulletPlayer, "resources/bullet_player.png");
     _textures.load(textures::BulletEnemy, "resources/bullet_enemy.png");
+    _textures.load(textures::Meteoroid, "resources/meteoroid.png");
     _textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     _textures.load(textures::EnemyShipPurple, "resources/enemyship_purple.png");
     _textures.load(textures::Explosion, "resources/explosion.png");

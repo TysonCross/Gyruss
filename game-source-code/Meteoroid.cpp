@@ -1,16 +1,14 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
-/// \date    15/9/17
-/// \brief   Projectile bullet Class
-///
-/// A bullet, can be an enemy or player projectile
+/// \date    26/9/17
+/// \brief   Meteroid Entity (cannot be destroyed by bullets)
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-#include "Bullet.hpp"
+#include "Meteoroid.hpp"
 
-Bullet::Bullet(const sf::Vector2i resolution,
+Meteoroid::Meteoroid(const sf::Vector2i resolution,
                float distanceFromCentre,
                float angle,
                float scale,
@@ -25,87 +23,70 @@ Bullet::Bullet(const sf::Vector2i resolution,
 {
     _id = id;
     _lives = 1;
-    _rectArea = {0, 0, 70, 110}; // Individual sprite tile
-    _spriteOffset = _rectArea.width; // Animated sprite tileset width
     _sprite.setTexture(textureHolder.get(_id));
-    _sprite.setTextureRect(_rectArea);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
     _sprite.setRotation(-_angle);
     _isMoving = true;
-//    setMove((_distanceFromCentre - (_distanceFromCentre*0.5))); // Spawn at Ship Gun barrel
-    setMove(0); // Spawn at Ship Gun barrel
+    setMove(0); // Spawn at centre of screen
     update();
 }
 
-void Bullet::setMove(float distance)
+void Meteoroid::setMove(float distance)
 {
     _isMoving = true;
     _futureMoveValue = distance;
 }
 
-void Bullet::reset()
+void Meteoroid::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x,_resolution.y); // Move offscreen?
+    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
     _sprite.setScale(0,0);
 }
 
-void Bullet::update()
+void Meteoroid::update()
 {
     if (_isMoving)
     {
-        if (_animationFPSLimit >= 2)
-        {
-            _animationFPSLimit = 0;
-            _rectArea.left += _spriteOffset;
-            if (_rectArea.left > (420 - 70)) // Sprite tileset width - individual tile
-            {
-                _rectArea.left = 0;
-            }
-            _sprite.setTextureRect(_rectArea);
-        } else
-        {
-            _animationFPSLimit++;
-        }
         move();
     }
 }
 
-const float Bullet::getRadius() const
+const float Meteoroid::getRadius() const
 {
-    auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
-    auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
+    auto mid = sf::Vector2<float>{_resolution.x/2.f, _resolution.y/2.f};
+    auto pos = sf::Vector2<float>{_sprite.getPosition().x, _sprite.getPosition().y};
     sf::Vector2f length = mid-pos;
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
-const float Bullet::getDistanceFromCentre() const
+const float Meteoroid::getDistanceFromCentre() const
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f Bullet::getPosition() const
+const sf::Vector2f Meteoroid::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite& Bullet::getSprite() const
+const sf::Sprite& Meteoroid::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Bullet::getScale() const
+const sf::Vector2f Meteoroid::getScale() const
 {
     return _sprite.getScale();
 }
 
-const int Bullet::getLives() const
+const int Meteoroid::getLives() const
 {
     return _lives;
 }
 
-void Bullet::die()
+void Meteoroid::die()
 {
     _lives--;
     if (_lives==0)
@@ -114,7 +95,7 @@ void Bullet::die()
     }
 }
 
-void Bullet::move()
+void Meteoroid::move()
 {
 
     auto offset = 0.f;
@@ -133,10 +114,5 @@ void Bullet::move()
     auto dimColor = (scale*200) + 55;
     if (getRadius() >= (_resolution.y/2))
 
-    _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
-}
-
-const float Bullet::getAngle() const
-{
-    return _angle;
+        _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
 }

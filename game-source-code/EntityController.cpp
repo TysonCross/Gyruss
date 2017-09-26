@@ -20,13 +20,14 @@ EntityController::EntityController(sf::Vector2i resolution,
     // Reset timers for the enemy spawning and shooting
     _timerSpawnFromCentre.restart();
     _timerSpawnFromPerimeter.restart();
+    _timerMeteoroid.restart();
     _totalTime.restart();
     _explosionHasOccurred = false;
     _defaultSpeed = speedModifier;
     _speedModifier = _defaultSpeed;
 }
 
-void EntityController::spawnEnemies()
+void EntityController::spawnEntities()
 {
     // Initial delay before first enemies spawn.
     if (_totalTime.getElapsedTime().asSeconds() > 1)
@@ -69,6 +70,22 @@ void EntityController::spawnEnemies()
                                                      movementDirection);  // MovementDirection movementDirection
                 _enemies.push_front(std::move(enemy));
             }
+        }
+
+        auto meteoroidSpawnEventTimer = fmod(rand(),8.f) + 10.f;
+        if (_timerMeteoroid.getElapsedTime().asSeconds() > meteoroidSpawnEventTimer)
+        {
+            _timerMeteoroid.restart();
+            auto randomAngle = rand()%360;
+            auto meteoroid = std::make_unique<Meteoroid>(_resolution,
+                                                         0,
+                                                         randomAngle,
+                                                         1,
+                                                         entity::Meteoroid,
+                                                         _textureHolder,
+                                                         textures::Meteoroid);
+            _meteoroids.push_front(std::move(meteoroid));
+
         }
     }
 }
@@ -270,6 +287,8 @@ bool EntityController::checkCollisions()
     checkEnemyToPlayerShipCollisions();
     checkEnemyBulletsToPlayerShipCollisions();
     checkPlayerBulletsToEnemyCollisions();
+    checkMeteoroidToPlayerShipCollisions();
+    checkPlayerBulletsToMeteoroidCollisions();
 
     return _playerHasBeenHit;
 }
@@ -312,6 +331,30 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
     }
 }
 
+void EntityController::checkPlayerBulletsToMeteoroidCollisions()
+{
+    // PlayerBullets -> Enemy (enemy explodes, PlayerBullet disappears)
+    for (auto meteoroid = _meteoroids.begin(); meteoroid != _meteoroids.end(); ++meteoroid)
+    {
+        for (auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
+        {
+            if (collides((*bullet)->getSprite(), (*meteoroid)->getSprite()))
+            {
+                auto explosion = std::make_unique<Explosion>(_resolution,
+                                                             (*bullet)->getRadius(),
+                                                             (*bullet)->getAngle(),
+                                                             (*bullet)->getScale().x / 2,
+                                                             entity::Explosion,
+                                                             _textureHolder,
+                                                             textures::Explosion);
+                _explosions.push_back(std::move(explosion));
+                bullet = _bulletsPlayer.erase(bullet);
+                _explosionHasOccurred = true;
+            } else
+                bullet++;
+        }
+    }
+}
 void EntityController::checkEnemyBulletsToPlayerShipCollisions()
 {// EnemyBullets -> PlayerShip (player explodes + dies, bullet disappears)
     for (auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
@@ -328,11 +371,37 @@ void EntityController::checkEnemyBulletsToPlayerShipCollisions()
             _explosions.push_back(std::move(explosion));
             bullet = _bulletsEnemy.erase(bullet);
             if (!_playerShip.isInvulnerable())
+            {
                 _playerHasBeenHit = true;
+            }
             _explosionHasOccurred = true;
-        } else
+        }
+        else
             bullet++;
 
+    }
+}
+
+void EntityController::checkMeteoroidToPlayerShipCollisions()
+{// Meteoroids -> PlayerShip (player explodes + dies, meteor keeps going)
+    for (auto meteoroid = _meteoroids.begin(); meteoroid != _meteoroids.end(); meteoroid++)
+    {
+        if (collides(_playerShip.getSprite(), (*meteoroid)->getSprite()))
+        {
+            auto explosion = std::make_unique<Explosion>(_resolution,
+                                                         _playerShip.getDistanceFromCentre(),
+                                                         _playerShip.getAngle(),
+                                                         (*meteoroid)->getScale().x,
+                                                         entity::Explosion,
+                                                         _textureHolder, // ToDo : Remove me
+                                                         textures::Explosion); // ToDo : Remove me
+            _explosions.push_back(std::move(explosion));
+            if (!_playerShip.isInvulnerable())
+            {
+                _playerHasBeenHit = true;
+            }
+            _explosionHasOccurred = true;
+        }
     }
 }
 
@@ -370,7 +439,7 @@ const bool EntityController::explosionOccurred()
 
 void EntityController::checkClipping()
 {
-    // Clip away enemy bullets outside cylindrical frustum
+    // Clip away projectiles (bullets/meteoroids) outside cylindrical frustum
     for (auto bullet = _bulletsEnemy.begin(); bullet != _bulletsEnemy.end();)
     {
         if ((*bullet)->getRadius() > _resolution.y / 2)
@@ -379,6 +448,16 @@ void EntityController::checkClipping()
         } else
             bullet++;
     }
+
+    for (auto meteoroid = _meteoroids.begin(); meteoroid != _meteoroids.end();)
+    {
+        if ((*meteoroid)->getRadius() > _resolution.y / 2)
+        {
+            meteoroid = _meteoroids.erase(meteoroid);
+        } else
+            meteoroid++;
+    }
+
 
     // Clip away player bullets at centre
     auto radius_buffer = 20; // should be smaller than playableZoneRadiusFactor above
@@ -413,13 +492,19 @@ void EntityController::update()
     for (auto &bullet : _bulletsPlayer)
     {
         bullet->update();
-        bullet->setMove(-25);
+        bullet->setMove(-30);
     }
 
     for (auto &bullet : _bulletsEnemy)
     {
         bullet->update();
-        bullet->setMove(20);
+        bullet->setMove(18 * _speedModifier);
+    }
+
+    for (auto &meteoroid : _meteoroids)
+    {
+        meteoroid->update();
+        meteoroid->setMove(22 * _speedModifier);
     }
 
     for (auto &explosion : _explosions)
@@ -451,6 +536,9 @@ const void EntityController::draw(sf::RenderWindow &renderWindow)
 
     for (auto &bullet : _bulletsPlayer)
         renderWindow.draw(bullet->getSprite());
+
+    for (auto &meteoroid : _meteoroids)
+        renderWindow.draw(meteoroid->getSprite());
 
     for (auto &explosion : _explosions)
         renderWindow.draw(explosion->getSprite());

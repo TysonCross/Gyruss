@@ -79,7 +79,7 @@ public:
 
     const int getLives() const override;
 
-    const void die() override;
+    void die() override;
 
     const bool isMoving() const;
 
