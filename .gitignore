@@ -163,9 +163,13 @@ docygen_source/**
 Doxyfile
 
 # Executables (Make releases work)
-!executables/game.exe 
+!executables/game.exe
+!executables/game_tests.exe
+!executables/game_tests_gui.exe
 !executables/*.dll
 !executables/*.exe
 !executables/resources/**
-#but hide the OSX executable
+#but hide the OSX executables
 executables/game
+executables/game_tests
+executables/game_tests_gui

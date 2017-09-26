@@ -64,12 +64,20 @@ add_executable(${EXECUTABLE_TEST_UNIT}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Unit.cpp)
 
-set(EXECUTABLE_TEST_RELEASE "game_tests")
-add_executable(${EXECUTABLE_TEST_RELEASE}
+set(EXECUTABLE_TEST_UNIT_RELEASE "game_tests")
+add_executable(${EXECUTABLE_TEST_UNIT_RELEASE}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Unit.cpp)
 set(CMAKE_BINARY_DIR_TEST "${PROJECT_SOURCE_DIR}/executables")
-set_target_properties(${EXECUTABLE_TEST_RELEASE}
+set_target_properties(${EXECUTABLE_TEST_UNIT_RELEASE}
+        PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR_TEST}")
+
+set(EXECUTABLE_TEST_INTERACTIVE_RELEASE "game_tests_gui")
+add_executable(${EXECUTABLE_TEST_INTERACTIVE_RELEASE}
+        ${SOURCE_FILES_TEST}
+        test-source-code/test_Interactive.cpp)
+set(CMAKE_BINARY_DIR_TEST "${PROJECT_SOURCE_DIR}/executables")
+set_target_properties(${EXECUTABLE_TEST_INTERACTIVE_RELEASE}
         PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR_TEST}")
 
 set(EXECUTABLE_DEBUG "debug")
@@ -79,7 +87,7 @@ set(EXECUTABLE_RELEASE "game")
 add_executable(${EXECUTABLE_RELEASE} ${SOURCE_FILES})
 set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/executables")
 set_target_properties(${EXECUTABLE_RELEASE}
-                        PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+        PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 
 # Detect and add SFML
 if (WIN32)
@@ -96,7 +104,8 @@ if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(${EXECUTABLE_RELEASE} ${SFML_LIBRARIES})
     target_link_libraries(${EXECUTABLE_DEBUG} ${SFML_LIBRARIES})
-    target_link_libraries(${EXECUTABLE_TEST_RELEASE} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_TEST_UNIT_RELEASE} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_TEST_INTERACTIVE_RELEASE} ${SFML_LIBRARIES})
     target_link_libraries(${EXECUTABLE_TEST_UNIT} ${SFML_LIBRARIES})
     target_link_libraries(${EXECUTABLE_TEST_INTERACTIVE} ${SFML_LIBRARIES})
 endif ()

@@ -108,9 +108,9 @@ void EntityController::shoot()
 
     // Enemy Shooting
     _enemyShootEventHasOccurred = false;
-    auto minNumberEnemyBullets = _enemies.size()/10;
+    auto minNumberEnemyBullets = 0;
     auto doNotFireInsideThisRadius = (_resolution.y/2)*0.05; // only shoot when closer ( 5% of circle radius)
-    float enemyShootTime = (fmod(rand(),3.5f) + 2.0f); // In seconds
+    float enemyShootTime = (fmod(rand(),2.5f) + 3.2f); // In seconds
     for (auto &enemy : _enemies)
     {
         if (enemy->getDistanceFromCentreWithOffset() > doNotFireInsideThisRadius)

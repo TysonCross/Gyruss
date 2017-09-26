@@ -8,21 +8,16 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../game-source-code/ScreenSplash.hpp"
-#include <iostream>
 #include "doctest.h"
-
-#include "SFML/Audio.hpp"
-#include "SFML/Graphics.hpp"
+#include "../game-source-code/ScreenSplash.hpp"
 
 
 //Splash screen tests
 TEST_CASE ("Check splashscreen loads") {
     TextureHolder texture_holder;
     FontHolder font_holder;
-    SoundHolder sound_holder;
 
-    texture_holder.load(textures::SplashScreen, "resources/test_image.png");
+    texture_holder.load(textures::SplashScreenExtra, "resources/test_image.png");
     font_holder.load(fonts::Title, "resources/fax_sans_beta.otf");
     font_holder.load(fonts::Default, "resources/fax_sans_beta.otf");
 
@@ -38,7 +33,6 @@ TEST_CASE ("Check splashscreen loads") {
 TEST_CASE ("Quit splashscreen window returns 1(signal: close application)") {
     TextureHolder texture_holder;
     FontHolder font_holder;
-    SoundHolder sound_holder;
 
     texture_holder.load(textures::SplashScreenExtra, "resources/test_image_close.png");
     font_holder.load(fonts::Title, "resources/fax_sans_beta.otf");
@@ -56,9 +50,8 @@ TEST_CASE ("Quit splashscreen window returns 1(signal: close application)") {
 TEST_CASE ("Continue Splashscreen returns 0(signal: continue to game play)") {
     TextureHolder texture_holder;
     FontHolder font_holder;
-    SoundHolder sound_holder;
 
-    texture_holder.load(textures::SplashScreen, "resources/test_image_press.png");
+    texture_holder.load(textures::SplashScreenExtra, "resources/test_image_press.png");
     font_holder.load(fonts::Title, "resources/fax_sans_beta.otf");
     font_holder.load(fonts::Default, "resources/fax_sans_beta.otf");
 

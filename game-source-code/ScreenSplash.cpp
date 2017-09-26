@@ -23,9 +23,9 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     // Dramatic spacefight
     sf::Sprite spacefight(textureHolder.get(textures::SplashScreenExtra));
     spacefight.setOrigin(spacefight.getGlobalBounds().width / 2, spacefight.getGlobalBounds().height / 2);
-    auto spacefightWidth = resolution.x/2-resolution.x/12;
-    auto spacefightlHeight = resolution.y/2 + resolution.y/8;
-    spacefight.setPosition(spacefightWidth, spacefightlHeight);
+    auto spacefightWidth = resolution.x/2;
+    auto spacefightHeight = resolution.y/2;
+    spacefight.setPosition(spacefightWidth, spacefightHeight);
 
     // Title Text
     sf::Text title("GYRUSS", fontHolder.get(fonts::Title),resolution.y/3.8);
