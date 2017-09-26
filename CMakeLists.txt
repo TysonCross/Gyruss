@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(Project)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" FORCE)
+set(CMAKE_CONFIGURATION_TYPES "Release" CACHE STRING "" FORCE)
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -v")
 #set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -52,31 +52,31 @@ set(SOURCE_FILES
         ${SOURCE_FILES_BASE}
         game-source-code/Main.cpp)
 
-set(EXECUTABLE_NAME_TEST_INTERACTIVE "tests_interactive")
-add_executable(${EXECUTABLE_NAME_TEST_INTERACTIVE}
+set(EXECUTABLE_TEST_INTERACTIVE "tests_interactive")
+add_executable(${EXECUTABLE_TEST_INTERACTIVE}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Interactive.cpp)
 
-set(EXECUTABLE_NAME_TEST "test_unit")
-add_executable(${EXECUTABLE_NAME_TEST}
+set(EXECUTABLE_TEST_UNIT "tests_unit")
+add_executable(${EXECUTABLE_TEST_UNIT}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Unit.cpp)
 
-set(EXECUTABLE_NAME_TEST_RELEASE "game_tests")
-add_executable(${EXECUTABLE_NAME_TEST_RELEASE}
+set(EXECUTABLE_TEST_RELEASE "game_tests")
+add_executable(${EXECUTABLE_TEST_RELEASE}
         ${SOURCE_FILES_TEST}
         test-source-code/test_Unit.cpp)
 set(CMAKE_BINARY_DIR_TEST "${PROJECT_SOURCE_DIR}/executables")
-set_target_properties(${EXECUTABLE_NAME_TEST_RELEASE}
+set_target_properties(${EXECUTABLE_TEST_RELEASE}
         PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR_TEST}")
 
-set(EXECUTABLE_NAME "game_debug")
-add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES})
+set(EXECUTABLE_DEBUG "debug")
+add_executable(${EXECUTABLE_DEBUG} ${SOURCE_FILES})
 
-set(EXECUTABLE_NAME_RELEASE "game")
-add_executable(${EXECUTABLE_NAME_RELEASE} ${SOURCE_FILES})
+set(EXECUTABLE_RELEASE "game")
+add_executable(${EXECUTABLE_RELEASE} ${SOURCE_FILES})
 set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/executables")
-set_target_properties(${EXECUTABLE_NAME_RELEASE}
+set_target_properties(${EXECUTABLE_RELEASE}
                         PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 
 # Detect and add SFML
@@ -85,15 +85,16 @@ if (WIN32)
 endif (WIN32)
 if (APPLE)
     set(SFML_ROOT "/usr/local/Cellar/sfml/2.4.2_1/share/SFML")
-    target_compile_definitions(${EXECUTABLE_NAME} PUBLIC DEBUG_ONLY)
+    target_compile_definitions(${EXECUTABLE_DEBUG} PUBLIC DEBUG_ONLY)
 endif (APPLE)
 
 set(CMAKE_MODULE_PATH "${SFML_ROOT}/cmake/Modules/" ${CMAKE_MODULE_PATH})
 find_package(SFML 2 COMPONENTS system window graphics audio)
 if (SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
-    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
-    target_link_libraries(${EXECUTABLE_NAME_RELEASE} ${SFML_LIBRARIES})
-    target_link_libraries(${EXECUTABLE_NAME_TEST} ${SFML_LIBRARIES})
-    target_link_libraries(${EXECUTABLE_NAME_TEST_INTERACTIVE} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_RELEASE} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_DEBUG} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_TEST_RELEASE} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_TEST_UNIT} ${SFML_LIBRARIES})
+    target_link_libraries(${EXECUTABLE_TEST_INTERACTIVE} ${SFML_LIBRARIES})
 endif ()
