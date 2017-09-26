@@ -222,3 +222,13 @@ void Enemy::move()
     _angleOrientation = -1*common::radToDegree(_angleOrientation) - getAngleWithOffset();
     _sprite.setRotation(_angleOrientation);
 }
+
+const float Enemy::getShootTimerElapsedTime() const
+{
+    return _timerShoot.getElapsedTime().asSeconds();
+}
+
+void Enemy::resetShootTimer()
+{
+    _timerShoot.restart();
+}

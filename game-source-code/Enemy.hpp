@@ -73,6 +73,9 @@ public:
     bool isShooting();
     float getAngle();
     float getDirectionAngle();
+    void resetShootTimer();
+    const float getShootTimerElapsedTime() const;
+
 
 private:
     void shoot();
@@ -88,6 +91,7 @@ private:
                         _pointingPosition;
     int _xOffset;
     int _yOffset;
+    sf::Clock _timerShoot;
 
     MovementState _movementState;
     MovementDirection _movementDirection;
