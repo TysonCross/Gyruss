@@ -24,15 +24,15 @@ enum MovementState
 {
     SpiralOut=0,
     SpiralIn,
-    circleOffsetLeft,
-    figureOfEight,
-    circleOffsetRight
+    CircleOffsetLeft,
+    CircleOffsetRight,
+    FigureOfEight
 };
 
 enum MovementDirection
 {
-    clockwise=0,
-    Cclockwise
+    Clockwise=0,
+    CounterClockwise
 };
 
 class Enemy : public Entity
@@ -44,13 +44,12 @@ public:
           float scale,
           const entity::ID type,
           const TextureHolder &textureHolder,
-          textures::ID id,
+          const textures::ID id,
           MovementState movementState,
-          MovementDirection movementDirection
-    );
+          MovementDirection movementDirection);
 
     void setMove(float angle, float distance) override;
-    void setMove(float angle, float distance,int xOffset, int yOffset);
+    void setMove(float angle, float distance, float xOffset, float yOffset);
     void setMovementState(MovementState movementState);
 
     void move() override;
@@ -91,8 +90,8 @@ private:
     sf::Vector2<float> _prevPosition,
                         _newPosition,
                         _pointingPosition;
-    int _xOffset;
-    int _yOffset;
+    float _xOffset;
+    float _yOffset;
     sf::Clock _timerShoot;
 
     MovementState _movementState;

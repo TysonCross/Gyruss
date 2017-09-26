@@ -14,14 +14,14 @@ Enemy::Enemy(const sf::Vector2i &resolution,
              float scale,
              const entity::ID type,
              const TextureHolder &textureHolder,
-             textures::ID id,
+             const textures::ID id,
              MovementState movementState,
              MovementDirection movementDirection) : Entity{resolution,
-                                       distanceFromCentre,
-                                       angle,
-                                       scale,
-                                       type,
-                                       textureHolder}
+                                                           distanceFromCentre,
+                                                           angle,
+                                                           scale,
+                                                           type,
+                                                           textureHolder}
 {
     _id = id;
     _lives = 1;
@@ -32,8 +32,8 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     setMove(angle,distanceFromCentre,0,0); //Initialised position at starting point
     _movementState = movementState;
     _movementDirection = movementDirection;
-    _xOffset=0;
-    _yOffset=0;
+    _xOffset = 0;
+    _yOffset = 0;
 }
 
 void Enemy::setMove(float angle, float distance)
@@ -45,7 +45,7 @@ void Enemy::setMove(float angle, float distance)
     _yOffset=0;
 }
 
-void Enemy::setMove(float angle, float distance,int xOffset, int yOffset)
+void Enemy::setMove(float angle, float distance, float xOffset, float yOffset)
 {
     _isMoving = true;
     _futureAngleValue = angle;
@@ -67,9 +67,9 @@ void Enemy::reset()
     _sprite.setScale(0,0);
     _sprite.setPosition(_resolution.x/2,_resolution.y/2);
     _isShooting = false;
-    _yOffset=0;
-    _xOffset=0;
-    _movementState=MovementState::SpiralOut;
+    _yOffset = 0;
+    _xOffset = 0;
+    _movementState = MovementState::SpiralOut;
 }
 
 void Enemy::update()
@@ -119,10 +119,14 @@ const MovementState Enemy::getMovementState()
 
 const int Enemy::getMovementDirectionSign()
 {
-    if (_movementDirection==MovementDirection::Cclockwise)
-        return -1;
-    if (_movementDirection==MovementDirection::clockwise)
-        return 1;
+    // Swaps the direction of the angle increase
+    switch (_movementDirection)
+    {
+        case (MovementDirection::CounterClockwise) :
+            return -1;
+        case (MovementDirection::Clockwise) :
+            return 1;
+    }
 }
 
 const sf::Vector2f Enemy::getPosition() const
