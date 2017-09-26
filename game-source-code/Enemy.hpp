@@ -62,18 +62,18 @@ public:
     const sf::Sprite &getSprite() const override;
     const sf::Vector2f getScale() const override;
     const int getLives() const override;
-    const void die() override;
-    const entity::ID getType();
+    void die() override;
+    const entity::ID getType() const;
 
-    const MovementState getMovementState();
-    const int getMovementDirectionSign();
+    const MovementState getMovementState() const;
+    const int getMovementDirectionSign() const;
     const float getDistanceFromCentreWithOffset() const;
-    const float getOffsetX();
-    const float getOffsetY();
+    const float getOffsetX() const;
+    const float getOffsetY() const;
     void setShoot();
-    bool isShooting();
-    float getAngle();
-    float getDirectionAngle();
+    const bool isShooting() const;
+    const float getAngle() const;
+    const float getDirectionAngle() const;
     void resetShootTimer();
     const float getShootTimerElapsedTime() const;
 

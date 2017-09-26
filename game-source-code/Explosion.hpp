@@ -36,8 +36,8 @@ public:
     const sf::Sprite &getSprite() const override;
     const sf::Vector2f getScale() const override;
     const int getLives() const override;
+    void die() override;
 
-    const void die() override;
 private:
     ////////////////////////////////////////////////////////////
     // Member data

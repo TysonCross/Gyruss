@@ -44,14 +44,6 @@ void Bullet::setMove(float distance)
     _futureMoveValue = distance;
 }
 
-void Bullet::setMove(float angle, float distance)
-{
-    _isMoving = true;
-//    _angle = angle;
-    _futureAngleValue = angle;
-    _futureMoveValue = distance;
-}
-
 void Bullet::reset()
 {
     _isMoving = false;
@@ -113,7 +105,7 @@ const int Bullet::getLives() const
     return _lives;
 }
 
-const void Bullet::die()
+void Bullet::die()
 {
     _lives--;
     if (_lives==0)
@@ -142,4 +134,9 @@ void Bullet::move()
     if (getRadius() >= (_resolution.y/2))
 
     _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
+}
+
+const float Bullet::getAngle() const
+{
+    return _angle;
 }

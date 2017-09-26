@@ -18,12 +18,14 @@
 #include "Enemy.hpp"
 #include "Bullet.hpp"
 #include "Explosion.hpp"
+#include "Meteoroid.hpp"
 #include "Score.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<Bullet>>;
 using enemyList = std::list<std::unique_ptr<Enemy>>;
 using explosionList = std::list<std::unique_ptr<Explosion>>;
+using meteoroidList = std::list<std::unique_ptr<Meteoroid>>;
 
 class EntityController
 {
@@ -34,7 +36,7 @@ public:
                      Score &score,
                      float speedModifier);
 
-    void spawnEnemies();
+    void spawnEntities();
     void setMove();
     void shoot();
     void checkClipping();
@@ -52,6 +54,8 @@ private:
     void checkEnemyToPlayerShipCollisions();
     void checkEnemyBulletsToPlayerShipCollisions();
     void checkPlayerBulletsToEnemyCollisions();
+    void checkMeteoroidToPlayerShipCollisions();
+    void checkPlayerBulletsToMeteoroidCollisions();
 
     PlayerShip& _playerShip;
     sf::Vector2i _resolution;
@@ -60,9 +64,10 @@ private:
     bulletList _bulletsPlayer;
     enemyList _enemies;
     explosionList _explosions;
+    meteoroidList _meteoroids;
     sf::Clock _timerSpawnFromPerimeter;
     sf::Clock _timerSpawnFromCentre;
-    sf::Clock _timerShoot;
+    sf::Clock _timerMeteoroid;
     sf::Clock _totalTime;
     Score& _score;
     bool _explosionHasOccurred;

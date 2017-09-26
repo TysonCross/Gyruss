@@ -30,17 +30,17 @@ public:
            const textures::ID id);
 
     void setMove(float distance) override;
-    void setMove(float angle, float distance) override;
     void move() override;
     void reset() override;
     void update() override;
     const float getRadius() const override;
     const float getDistanceFromCentre() const override;
+    const float getAngle() const;
     const sf::Vector2f getPosition() const override;
     const sf::Sprite &getSprite() const override;
     const sf::Vector2f getScale() const override;
     const int getLives() const override;
-    const void die() override;
+    void die() override;
 
 private:
     ////////////////////////////////////////////////////////////

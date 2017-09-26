@@ -102,22 +102,22 @@ const float Enemy::getDistanceFromCentreWithOffset() const
     return (_distanceFromCentre+sqrt(_xOffset*_xOffset+_yOffset*_yOffset)) - _sprite.getGlobalBounds().height/2;
 }
 
-const float Enemy::getOffsetX()
+const float Enemy::getOffsetX() const
 {
     return _xOffset;
 }
 
-const float Enemy::getOffsetY()
+const float Enemy::getOffsetY() const
 {
     return _yOffset;
 }
 
-const MovementState Enemy::getMovementState()
+const MovementState Enemy::getMovementState() const
 {
     return _movementState;
 }
 
-const int Enemy::getMovementDirectionSign()
+const int Enemy::getMovementDirectionSign() const
 {
     // Swaps the direction of the angle increase
     switch (_movementDirection)
@@ -145,7 +145,7 @@ const sf::Vector2f Enemy::getScale() const
 }
 
 
-const void Enemy::die()
+void Enemy::die()
 {
     _lives--;
     if (_lives==0)
@@ -159,7 +159,7 @@ const int Enemy::getLives() const
     return _lives;
 }
 
-const entity::ID Enemy::getType()
+const entity::ID Enemy::getType() const
 {
     return _type;
 }
@@ -169,17 +169,17 @@ void Enemy::setShoot()
     _isShooting = true;
 }
 
-bool Enemy::isShooting()
+const bool Enemy::isShooting() const
 {
     return _isShooting;
 }
 
-float Enemy::getAngle()
+const float Enemy::getAngle() const
 {
     return _angle;
 }
 
-float Enemy::getDirectionAngle()
+const float Enemy::getDirectionAngle() const
 {
     return _angleOrientation;
 }

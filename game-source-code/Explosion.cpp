@@ -97,7 +97,7 @@ const int Explosion::getLives() const
     return _lives;
 }
 
-const void Explosion::die()
+void Explosion::die()
 {
     _lives--;
     if (_lives==0)

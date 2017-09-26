@@ -46,7 +46,7 @@ public:
     virtual const sf::Vector2f getPosition()const=0;
     virtual const sf::Sprite &getSprite()const=0;
     virtual const int getLives() const=0;
-    virtual const void die()=0;
+    virtual void die()=0;
     virtual void move()=0;
 
 protected:
