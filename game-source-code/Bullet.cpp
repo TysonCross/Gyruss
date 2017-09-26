@@ -122,6 +122,12 @@ const void Bullet::die()
     }
 }
 
+const int Bullet::getLives() const
+{
+    return _lives;
+}
+
+
 void Bullet::move()
 {
 

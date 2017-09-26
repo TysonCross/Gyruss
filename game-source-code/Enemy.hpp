@@ -20,6 +20,21 @@
 #include "ResourceHolder.hpp"
 #include "SoundController.hpp"
 
+enum MovementState
+{
+    SpiralOut=0,
+    SpiralIn,
+    circleOffsetLeft,
+    figureOfEight,
+    circleOffsetRight
+};
+
+enum MovementDirection
+{
+    clockwise=0,
+    Cclockwise
+};
+
 class Enemy : public Entity
 {
 public:
@@ -29,14 +44,21 @@ public:
           float scale,
           const entity::ID type,
           const TextureHolder &textureHolder,
-          textures::ID id);
+          textures::ID id,
+          MovementState movementState,
+          MovementDirection movementDirection
+    );
 
     void setMove(float angle, float distance) override;
+    void setMove(float angle, float distance,int xOffset, int yOffset);
+    void setMovementState(MovementState movementState);
+
     void move() override;
     void reset() override;
     void update() override;
     const float getRadius() const override;
     const float getDistanceFromCentre() const override;
+    const float getAngleWithOffset();
     const sf::Vector2f getPosition() const override;
     const sf::Sprite &getSprite() const override;
     const sf::Vector2f getScale() const override;
@@ -44,10 +66,18 @@ public:
     const void die() override;
     const entity::ID getType();
 
+    const MovementState getMovementState();
+    const int getMovementDirectionSign();
+    const float getDistanceFromCentreWithOffset() const;
+    const float getOffsetX();
+    const float getOffsetY();
     void setShoot();
     bool isShooting();
     float getAngle();
     float getDirectionAngle();
+    void resetShootTimer();
+    const float getShootTimerElapsedTime() const;
+
 
 private:
     void shoot();
@@ -61,6 +91,12 @@ private:
     sf::Vector2<float> _prevPosition,
                         _newPosition,
                         _pointingPosition;
+    int _xOffset;
+    int _yOffset;
+    sf::Clock _timerShoot;
+
+    MovementState _movementState;
+    MovementDirection _movementDirection;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

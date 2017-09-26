@@ -14,7 +14,9 @@ Enemy::Enemy(const sf::Vector2i &resolution,
              float scale,
              const entity::ID type,
              const TextureHolder &textureHolder,
-             textures::ID id) : Entity{resolution,
+             textures::ID id,
+             MovementState movementState,
+             MovementDirection movementDirection) : Entity{resolution,
                                        distanceFromCentre,
                                        angle,
                                        scale,
@@ -27,7 +29,11 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
     _isShooting = false;
-    setMove(0,0); //Initialised position at centre of screen
+    setMove(angle,distanceFromCentre,0,0); //Initialised position at starting point
+    _movementState = movementState;
+    _movementDirection = movementDirection;
+    _xOffset=0;
+    _yOffset=0;
 }
 
 void Enemy::setMove(float angle, float distance)
@@ -35,6 +41,22 @@ void Enemy::setMove(float angle, float distance)
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
+    _xOffset=0;
+    _yOffset=0;
+}
+
+void Enemy::setMove(float angle, float distance,int xOffset, int yOffset)
+{
+    _isMoving = true;
+    _futureAngleValue = angle;
+    _futureMoveValue = distance;
+    _xOffset=xOffset;
+    _yOffset=yOffset;
+}
+
+void Enemy::setMovementState(MovementState movementState)
+{
+    _movementState = movementState;
 }
 
 void Enemy::reset()
@@ -45,6 +67,9 @@ void Enemy::reset()
     _sprite.setScale(0,0);
     _sprite.setPosition(_resolution.x/2,_resolution.y/2);
     _isShooting = false;
+    _yOffset=0;
+    _xOffset=0;
+    _movementState=MovementState::SpiralOut;
 }
 
 void Enemy::update()
@@ -70,6 +95,34 @@ const float Enemy::getRadius() const
 const float Enemy::getDistanceFromCentre() const
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
+}
+
+const float Enemy::getDistanceFromCentreWithOffset() const
+{
+    return (_distanceFromCentre+sqrt(_xOffset*_xOffset+_yOffset*_yOffset)) - _sprite.getGlobalBounds().height/2;
+}
+
+const float Enemy::getOffsetX()
+{
+    return _xOffset;
+}
+
+const float Enemy::getOffsetY()
+{
+    return _yOffset;
+}
+
+const MovementState Enemy::getMovementState()
+{
+    return _movementState;
+}
+
+const int Enemy::getMovementDirectionSign()
+{
+    if (_movementDirection==MovementDirection::Cclockwise)
+        return -1;
+    if (_movementDirection==MovementDirection::clockwise)
+        return 1;
 }
 
 const sf::Vector2f Enemy::getPosition() const
@@ -127,6 +180,14 @@ float Enemy::getDirectionAngle()
     return _angleOrientation;
 }
 
+const float Enemy::getAngleWithOffset()
+{
+    auto x_pos = _sprite.getPosition().x - _resolution.x/2;
+    auto y_pos = _sprite.getPosition().y - _resolution.y/2;
+    auto radianAngle = atan2(x_pos,y_pos);
+    return common::angleFilter(common::radToDegree(radianAngle));
+}
+
 void Enemy::shoot()
 {
     _isShooting = false;
@@ -147,10 +208,10 @@ void Enemy::move()
         offset = _resolution.x*0.3;
     }
     auto depthScale = ((_distanceFromCentre + offset)/(_resolution.x/2));
-    _distanceFromCentre += _futureMoveValue * depthScale;
-    auto xPos = _distanceFromCentre * sin(common::degreeToRad(_angle));
-    auto yPos = _distanceFromCentre * cos(common::degreeToRad(_angle));
-    auto scale = 1 + ((_distanceFromCentre - (_resolution.x / 2)) / (_resolution.x / 2));
+    _distanceFromCentre += (_futureMoveValue) * depthScale;
+    auto xPos = _distanceFromCentre * sin(common::degreeToRad(_angle))+_xOffset;
+    auto yPos = _distanceFromCentre * cos(common::degreeToRad(_angle))+_yOffset;
+    auto scale = 1 + ((getRadius() - (_resolution.x / 2)) / (_resolution.x / 2));
 
     _sprite.setPosition(xPos+(_resolution.x / 2),yPos+(_resolution.y / 2));
     _sprite.setScale(scale * _scale,scale * _scale);
@@ -163,7 +224,17 @@ void Enemy::move()
     _newPosition.x -= _resolution.x/2;
     _newPosition.y -= _resolution.y/2;
     _pointingPosition = _newPosition - _prevPosition;
-    _angleOrientation = _futureAngleValue = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y);
-    _angleOrientation = -1*common::radToDegree(_angleOrientation) - _angle;
+    _angleOrientation = _futureAngleValue = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y); // ? Should be -?
+    _angleOrientation = -1*common::radToDegree(_angleOrientation) - getAngleWithOffset();
     _sprite.setRotation(_angleOrientation);
+}
+
+const float Enemy::getShootTimerElapsedTime() const
+{
+    return _timerShoot.getElapsedTime().asSeconds();
+}
+
+void Enemy::resetShootTimer()
+{
+    _timerShoot.restart();
 }

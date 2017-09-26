@@ -60,7 +60,8 @@ private:
     bulletList _bulletsPlayer;
     enemyList _enemies;
     explosionList _explosions;
-    sf::Clock _timerSpawn;
+    sf::Clock _timerSpawnFromPerimeter;
+    sf::Clock _timerSpawnFromCentre;
     sf::Clock _timerShoot;
     sf::Clock _totalTime;
     Score& _score;
