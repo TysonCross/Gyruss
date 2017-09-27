@@ -41,6 +41,7 @@ public:
     void shoot();
     void checkClipping();
     bool checkCollisions();
+    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
     void update();
     const void draw(sf::RenderWindow &renderWindow); // ToDo: remove
     const bool explosionOccurred();
@@ -50,7 +51,6 @@ public:
     const float getSpeed() const;
 
 private:
-    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
     void checkEnemyToPlayerShipCollisions();
     void checkEnemyBulletsToPlayerShipCollisions();
     void checkPlayerBulletsToEnemyCollisions();

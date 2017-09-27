@@ -855,5 +855,76 @@ TEST_CASE ("killing the enemy ship resets the object") {
 }
 
 ////////////////////////////////////////////////////////////
-///  Input Handler Tests
+///  Collision detection tests
 ////////////////////////////////////////////////////////////
+
+TEST_CASE("two objects on top of each other report a collision"){
+    auto resolution = sf::Vector2i{1920, 1080};
+    TextureHolder textures;
+
+    sf::Sprite sprite1;
+    sprite1.setPosition(10,10);
+
+    sf::Sprite sprite2;
+    sprite2.setPosition(10,10);
+    //each sprite needs a texture so it can have a size associated with it to simulate the collision detection
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+    sprite1.setTexture(textures.get(textures::EnemyShipGrey));
+    sprite2.setTexture(textures.get(textures::EnemyShipGrey));
+
+    //The EntityController requires the playership object as part of its constructor so we have to make one
+
+    textures.load(textures::BulletPlayer, "resources/bullet_player.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    //Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+//we can now check that the two sprites, at the same location, return a collision
+    CHECK(entityController.collides(sprite1,sprite2));
+}
+
+TEST_CASE("two objects on that are not on top of eachother do not report a collission"){
+    auto resolution = sf::Vector2i{1920, 1080};
+    TextureHolder textures;
+
+    sf::Sprite sprite1;
+    sprite1.setPosition(10,10);
+
+    sf::Sprite sprite2;
+    //set the second sprite far away from the first
+    sprite2.setPosition(900,900);
+    //each sprite needs a texture so it can have a size associated with it to simulate the collision detection
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+    sprite1.setTexture(textures.get(textures::EnemyShipGrey));
+    sprite2.setTexture(textures.get(textures::EnemyShipGrey));
+
+    //The EntityController requires the playership object as part of its constructor so we have to make one
+
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    //Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+//we can now check that the two sprites, at diffrent locations, do not report true
+            CHECK(!entityController.collides(sprite1,sprite2));
+}
