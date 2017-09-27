@@ -88,6 +88,7 @@ namespace textures
         Satellite,
         Explosion,
         Shield,
+        Planet,
         testTexture,
         textureID_end
     };

@@ -36,6 +36,7 @@ void Meteoroid::setMove(float distance)
 {
     _isMoving = true;
     _futureMoveValue = distance;
+    _rotationOffset++;
 }
 
 void Meteoroid::reset()
@@ -49,6 +50,7 @@ void Meteoroid::update()
 {
     if (_isMoving)
     {
+        _sprite.setRotation(_rotationOffset);
         move();
     }
 }

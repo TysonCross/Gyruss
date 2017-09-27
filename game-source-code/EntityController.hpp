@@ -61,8 +61,6 @@ private:
     void upgradePlayerShip();
 
     void spawnSpiral(entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState);
-    void spawnSpiralOut();
-    void spawnSpiralIn();
     void spawnMeteoroid();
     void spawnSatellites();
 
@@ -86,6 +84,9 @@ private:
     float _speedModifier;
     float _defaultSpeed;
     int _satellitesAlive;
+    float _bulletPlayerSpeed;
+    float _bulletEnemySpeed;
+    float _meteoroidSpeed;
 
 };
 

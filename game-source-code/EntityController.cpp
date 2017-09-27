@@ -30,6 +30,9 @@ EntityController::EntityController(sf::Vector2i resolution,
     _explosionHasOccurred = false;
     _defaultSpeed = speedModifier;
     _speedModifier = _defaultSpeed;
+    _bulletPlayerSpeed = 25;    //  (will be made negative)
+    _bulletEnemySpeed = 20;
+    _meteoroidSpeed = 30;
 }
 
 
@@ -158,7 +161,10 @@ void EntityController::shoot()
     if (_playerShip.isShooting())
     {
         auto numberOfBullets = 1;
-        auto bulletOffset = _playerShip.getSprite().getLocalBounds().width;
+//        auto bulletOffset = _playerShip.getSprite().getLocalBounds().width;
+        auto bulletOffset = 3.8f;
+        auto bulletScale = _playerShip.getScale().x * 1.5f;
+
         if (_playerShip.isUpgraded())
         {
             numberOfBullets = 2;
@@ -175,7 +181,7 @@ void EntityController::shoot()
             auto bullet = std::make_unique<Bullet>(_resolution,
                                                    _playerShip.getDistanceFromCentre(),
                                                    _playerShip.getAngle() + bulletOffset,
-                                                   0.5,
+                                                   bulletScale,
                                                    entity::PlayerBullet,
                                                    _textureHolder,
                                                    textures::BulletPlayer);
@@ -572,19 +578,19 @@ void EntityController::update()
     for (auto &bullet : _bulletsPlayer)
     {
         bullet->update();
-        bullet->setMove(-30);
+        bullet->setMove(-_bulletPlayerSpeed);
     }
 
     for (auto &bullet : _bulletsEnemy)
     {
         bullet->update();
-        bullet->setMove(18 * _speedModifier);
+        bullet->setMove(_bulletEnemySpeed * _speedModifier);
     }
 
     for (auto &meteoroid : _meteoroids)
     {
         meteoroid->update();
-        meteoroid->setMove(22 * _speedModifier);
+        meteoroid->setMove(_meteoroidSpeed * _speedModifier);
     }
 
     for (auto &explosion : _explosions)

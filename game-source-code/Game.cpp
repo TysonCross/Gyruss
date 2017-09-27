@@ -104,7 +104,7 @@ void Game::initializeGameLoop()
     // Todo: Config.ini file
     auto shipPathRadiusPadding = 0.05f;
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
-    const auto shipScale = 0.28;
+    const auto shipScale = 0.22;
     PlayerShip playerShip(_resolution,
                           shipPathRadius,
                           0,
@@ -143,6 +143,7 @@ void Game::initializeGameLoop()
             _inputHandler.pollInput(_gameState,
                                     playerShip,
                                     event);
+
 #ifdef DEBUG_ONLY
             auto speedChange = 0.1f;
             if (event.type == sf::Event::EventType::KeyPressed)
@@ -174,7 +175,9 @@ void Game::initializeGameLoop()
                     playerShip.upgrade();
             }
 #endif // DEBUG_ONLY
+
         }
+
         // Frame timing events
         timeSinceUpdate += mainClock.getElapsedTime();
         mainClock.restart();
@@ -355,6 +358,7 @@ void Game::loadResources()
     _textures.load(textures::BulletPlayer, "resources/bullet_player.png");
     _textures.load(textures::BulletEnemy, "resources/bullet_enemy.png");
     _textures.load(textures::Meteoroid, "resources/meteoroid.png");
+    _textures.load(textures::Planet, "resources/earth.png");
     _textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     _textures.load(textures::EnemyShipPurple, "resources/enemyship_purple.png");
     _textures.load(textures::Satellite, "resources/satellite.png");
