@@ -10,6 +10,8 @@
 
 #include "ScreenGameOver.hpp"
 
+ScreenGameOver::ScreenGameOver(bool gameOutcome) : _wonGame{gameOutcome} {}
+
 int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
                          const TextureHolder &textureHolder,
                          const FontHolder &fontHolder,
@@ -17,9 +19,14 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
                          const Score &scoreValue)
 {
     //Get the ScreenGameOver image
-    sf::Sprite gameover(textureHolder.get(textures::GameOverScreen));
-    auto scaleFactor = resolution.x/gameover.getGlobalBounds().width;
-    gameover.setScale(scaleFactor,scaleFactor);
+    sf::Sprite gameOver;
+    if (_wonGame)
+        gameOver.setTexture(textureHolder.get(textures::GameOverWinScreen));
+    else
+        gameOver.setTexture(textureHolder.get(textures::GameOverLoseScreen));
+
+    auto scaleFactor = resolution.x/gameOver.getGlobalBounds().width;
+    gameOver.setScale(scaleFactor,scaleFactor);
 
     // Title Text
     sf::Text title("G A M E   O V E R", fontHolder.get(fonts::Default),resolution.y/6);
@@ -170,7 +177,7 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     while (true)
     {
         renderWindow.clear();
-        renderWindow.draw(gameover);
+        renderWindow.draw(gameOver);
         renderWindow.draw(title);
         renderWindow.draw(credits);
         renderWindow.draw(scoreTitle);

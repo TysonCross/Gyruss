@@ -41,6 +41,7 @@ public:
     void shoot();
     void checkClipping();
     bool checkCollisions();
+    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
     void update();
     const void draw(sf::RenderWindow &renderWindow); // ToDo: remove
     const bool explosionOccurred();
@@ -48,14 +49,22 @@ public:
     void changeGlobalSpeed(float amount);
     void resetGlobalSpeed();
     const float getSpeed() const;
+    void killAllEnemiesOfType(entity::ID type);
 
 private:
-    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
     void checkEnemyToPlayerShipCollisions();
     void checkEnemyBulletsToPlayerShipCollisions();
     void checkPlayerBulletsToEnemyCollisions();
     void checkMeteoroidToPlayerShipCollisions();
     void checkPlayerBulletsToMeteoroidCollisions();
+    void enemyKilled(entity::ID type);
+    void upgradePlayerShip();
+
+    void spawnSpiral(entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState);
+    void spawnSpiralOut();
+    void spawnSpiralIn();
+    void spawnMeteoroid();
+    void spawnSatellites();
 
     PlayerShip& _playerShip;
     sf::Vector2i _resolution;
@@ -67,6 +76,7 @@ private:
     meteoroidList _meteoroids;
     sf::Clock _timerSpawnFromPerimeter;
     sf::Clock _timerSpawnFromCentre;
+    sf::Clock _timerSatellite;
     sf::Clock _timerMeteoroid;
     sf::Clock _totalTime;
     Score& _score;
@@ -75,6 +85,7 @@ private:
     bool _playerHasBeenHit;
     float _speedModifier;
     float _defaultSpeed;
+    int _satellitesAlive;
 
 };
 

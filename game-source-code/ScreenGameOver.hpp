@@ -22,6 +22,7 @@ class ScreenGameOver : public Screen
 
 {
 public:
+    ScreenGameOver(bool gameOutcome);
 
     virtual int draw(sf::RenderWindow &window,
                      const TextureHolder &textureHolder,
@@ -29,6 +30,9 @@ public:
                      const sf::Vector2i resolution,
                      const Score &score);
 
+private:
+    bool _wonGame;
 };
 
 #endif //PROJECT_GAMEOVERSCREEN_HPP
+
