@@ -29,11 +29,12 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
     _isShooting = false;
-    setMove(angle,distanceFromCentre,0,0); //Initialised position at starting point
     _movementState = movementState;
     _movementDirection = movementDirection;
     _xOffset = 0;
     _yOffset = 0;
+
+    setMove(angle,distanceFromCentre,0,0); //Initialised position at starting point
 }
 
 void Enemy::setMove(float angle, float distance)

@@ -18,7 +18,7 @@
 
 Game::Game()
 {
-    _makePlayerInvulnerable = false;
+    _winCondition = 1; // Number of enemies needed to kill to win.
 }
 
 void Game::Start()
@@ -79,8 +79,11 @@ void Game::initializeGameLoop()
     if (_gameState == game::GameState::Splash)
         showSplashScreen();
 
-    if (_gameState == game::GameState::GameOver)
-        showGameOverScreen();
+    if (_gameState == game::GameState::GameOverLose)
+        showGameOverScreen(false);
+
+    if (_gameState == game::GameState::GameOverWin)
+        showGameOverScreen(true);
 
     ///-------------------------------------------
     ///  Game Playing starts
@@ -109,14 +112,21 @@ void Game::initializeGameLoop()
                           entity::PlayerShip,
                           _textures);
 
+
     EntityController entityController(_resolution,
                                       playerShip,
                                       _textures,
                                       _score,
                                       speedModifier);
 
+    Shield shield(_resolution,
+                  shipPathRadius,
+                  0, shipScale,
+                  entity::Shield,
+                  _textures,
+                  playerShip);
+
     HUD hud(_resolution, _mainWindow, _textures, _fonts, _score, playerShip);
-    _score.resetLifeTimer();
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
@@ -144,13 +154,24 @@ void Game::initializeGameLoop()
                     entityController.changeGlobalSpeed(-speedChange);
 
                 if (event.key.code == sf::Keyboard::P)
-                    _makePlayerInvulnerable = true;
-
+                    playerShip.makeInvulnerable(true);
                 if (event.key.code == sf::Keyboard::O)
-                    _makePlayerInvulnerable = false;
+                    playerShip.makeInvulnerable(false);
 
                 if (event.key.code == sf::Keyboard::K)
-                        playerShip.die();
+                {
+                    playerShip.die();
+                    _score.resetLifeTimer();
+                    _soundController.playSound(sounds::PlayerDeath);
+                    _soundController.playSound(sounds::Explosion);
+                    _inputHandler.reset();
+                    entityController.resetGlobalSpeed();
+                    entityController.killAllEnemiesOfType(entity::Satellite);
+                    shaking = 1;
+                }
+
+                if (event.key.code == sf::Keyboard::L)
+                    playerShip.upgrade();
             }
 #endif // DEBUG_ONLY
         }
@@ -184,7 +205,7 @@ void Game::initializeGameLoop()
             // \brief Returns true if the player has collided. (also does global entity collision check)
             if (entityController.checkCollisions())
             {
-                if (!_makePlayerInvulnerable)
+                if (!playerShip.isInvulnerable())
                 {
                     playerShip.die();
                     _score.resetLifeTimer();
@@ -192,6 +213,7 @@ void Game::initializeGameLoop()
                     _soundController.playSound(sounds::Explosion);
                     _inputHandler.reset();
                     entityController.resetGlobalSpeed();
+                    entityController.killAllEnemiesOfType(entity::Satellite);
                     shaking = 1;
                 }
             }
@@ -233,6 +255,15 @@ void Game::initializeGameLoop()
             entityController.draw(_mainWindow);
 
             _mainWindow.draw(playerShip.getSprite());
+            if (playerShip.isInvulnerable())
+            {
+                shield.update();
+                _mainWindow.draw(shield.getSprite());
+            }
+            else
+            {
+                shield.reset();
+            }
             hud.draw();
 
             while (shaking > 0)
@@ -267,8 +298,16 @@ void Game::initializeGameLoop()
             // End Game
             if (playerShip.getLives() <= 0)
             {
-                _gameState = game::GameState::GameOver;
+                //_score.resetLifeTimer();
+                _gameState = game::GameState::GameOverLose;
             }
+
+            if(_score.getEnemiesKilled() >= _winCondition)
+            {
+                _score.resetLifeTimer();
+                _gameState = game::GameState::GameOverWin;
+            }
+
         }
     }
 }
@@ -285,12 +324,16 @@ void Game::showSplashScreen()
     _gameState = game::GameState::Exiting;
 }
 
-void Game::showGameOverScreen()
+void Game::showGameOverScreen(bool gameOutcome)
 {
-    _soundController.playSound(sounds::GameOverSound);
+    if (gameOutcome)
+        _soundController.playSound(sounds::GameOverWinSound);
+    else
+        _soundController.playSound(sounds::GameOverLoseSound);
+
     _music.stop();
     recordHighScore();
-    ScreenGameOver gameOverScreen;
+    ScreenGameOver gameOverScreen(gameOutcome);
     if (gameOverScreen.draw(_mainWindow, _textures, _fonts, _resolution, _score) == 0)
     {
         _gameState = game::GameState::Splash;
@@ -304,7 +347,8 @@ void Game::loadResources()
     // Load Textures
     _textures.load(textures::SplashScreen, "resources/splash.png");
     _textures.load(textures::SplashScreenExtra, "resources/splash_spacefight.png");
-    _textures.load(textures::GameOverScreen, "resources/gameover.png");
+    _textures.load(textures::GameOverLoseScreen, "resources/gameoverlose.png");
+    _textures.load(textures::GameOverWinScreen, "resources/gameoverwin.png");
     _textures.load(textures::SplashControls, "resources/splash_controls.png");
     _textures.load(textures::GameOverCredits, "resources/gameover_credits.png");
     _textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
@@ -313,7 +357,9 @@ void Game::loadResources()
     _textures.load(textures::Meteoroid, "resources/meteoroid.png");
     _textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     _textures.load(textures::EnemyShipPurple, "resources/enemyship_purple.png");
+    _textures.load(textures::Satellite, "resources/satellite.png");
     _textures.load(textures::Explosion, "resources/explosion.png");
+    _textures.load(textures::Shield, "resources/shield.png");
 
     // Load Fonts
     _fonts.load(fonts::Title, "resources/danube.ttf");

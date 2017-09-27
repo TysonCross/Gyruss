@@ -56,6 +56,8 @@ public:
 
     void update() override;
 
+    void upgrade();
+
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin
     ////////////////////////////////////////////////////////////
@@ -86,6 +88,12 @@ public:
     const bool isShooting() const;
 
     const bool isInvulnerable() const;
+
+    const bool isUpgraded() const;
+
+    const bool isAlive() const;
+
+    void makeInvulnerable(bool godMode);
 
     void setShoot();
 
@@ -118,6 +126,8 @@ private:
     bool _isMoving;
     bool _isShooting;
     bool _isInvulnerable;
+    bool _isUpgraded;
+    bool _isAlive;
     sf::Clock _invulnerabilityTimer;
     float _invulnerabilityTimeAmount;
 };

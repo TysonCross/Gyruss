@@ -44,7 +44,9 @@ set(SOURCE_FILES_BASE
         game-source-code/Score.cpp
         game-source-code/Score.hpp
         game-source-code/Meteoroid.cpp
-        game-source-code/Meteoroid.hpp)
+        game-source-code/Meteoroid.hpp
+        game-source-code/Shield.cpp
+        game-source-code/Shield.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}

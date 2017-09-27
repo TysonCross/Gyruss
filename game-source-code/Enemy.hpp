@@ -26,7 +26,7 @@ enum MovementState
     SpiralIn,
     CircleOffsetLeft,
     CircleOffsetRight,
-    FigureOfEight
+    SmallCircling
 };
 
 enum MovementDirection

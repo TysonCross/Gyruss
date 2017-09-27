@@ -7,6 +7,9 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "EntityController.hpp"
+#ifdef DEBUG_ONLY
+#include <iostream>
+#endif // DEBUG_ONLY
 
 EntityController::EntityController(sf::Vector2i resolution,
                                    PlayerShip &playerShip,
@@ -18,8 +21,10 @@ EntityController::EntityController(sf::Vector2i resolution,
                                                           _score{score}
 {
     // Reset timers for the enemy spawning and shooting
+    _satellitesAlive = 0;
     _timerSpawnFromCentre.restart();
     _timerSpawnFromPerimeter.restart();
+    _timerSatellite.restart();
     _timerMeteoroid.restart();
     _totalTime.restart();
     _explosionHasOccurred = false;
@@ -27,66 +32,123 @@ EntityController::EntityController(sf::Vector2i resolution,
     _speedModifier = _defaultSpeed;
 }
 
+
+void EntityController::spawnSpiral(entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState)
+{
+    float spiralDistanceFromCentre;
+    float spiralAngle;
+    switch (movementState)
+    {
+        case (MovementState::SpiralIn):
+            spiralDistanceFromCentre=(_resolution.y/2)-1;
+            spiralAngle=180+_playerShip.getAngle();
+            _timerSpawnFromPerimeter.restart();
+
+            break;
+
+        case (MovementState::SpiralOut):
+            spiralDistanceFromCentre=0;
+            spiralAngle=0;
+            _timerSpawnFromCentre.restart();
+            break;
+
+        default :
+            break;
+    }
+
+    auto enemy = std::make_unique<Enemy>(_resolution,         // const sf::Vector2i &resolution
+                                         spiralDistanceFromCentre,                   // float distanceFromCentre
+                                         spiralAngle,                   // float angle
+                                         0.5,                 // float scale
+                                         id,         // const entity::ID type
+                                         _textureHolder,      // const TextureHolder &textureHolder
+                                         shipVariant,         // const textures::ID id
+                                         movementState, // MovementState movementState
+                                         movementDirection);  // MovementDirection movementDirection
+    _enemies.push_front(std::move(enemy));
+}
+
+
+void EntityController::spawnMeteoroid()
+{
+    _timerMeteoroid.restart();
+    auto randomAngle = rand()%360;
+    auto meteoroid = std::make_unique<Meteoroid>(_resolution,
+                                                 0,
+                                                 randomAngle,
+                                                 1,
+                                                 entity::Meteoroid,
+                                                 _textureHolder,
+                                                 textures::Meteoroid);
+    _meteoroids.push_front(std::move(meteoroid));
+
+}
+
+void EntityController::spawnSatellites()
+{
+    _timerSatellite.restart();
+    auto movementDirection = static_cast<MovementDirection>(rand() % 2);
+    auto numberOfSatellites = 3;
+    _satellitesAlive = numberOfSatellites + 1;
+    auto angle = _playerShip.getAngle() - 5;
+    for (auto i = 0; i < numberOfSatellites; i++)
+    {
+        auto enemy = std::make_unique<Enemy>(_resolution,         // const sf::Vector2i &resolution
+                                             _resolution.y / 3, // float distanceFromCentre
+                                             angle, // float angle
+                                             0.5,                 // float scale
+                                             entity::Satellite,         // const entity::ID type
+                                             _textureHolder,      // const TextureHolder &textureHolder
+                                             textures::Satellite,         // const textures::ID id
+                                             MovementState::SmallCircling, // MovementState movementState
+                                             movementDirection);  // MovementDirection movementDirection
+        angle += 5;
+        _enemies.push_front(std::move(enemy));
+    }
+}
+
 void EntityController::spawnEntities()
 {
     // Initial delay before first enemies spawn.
-    if (_totalTime.getElapsedTime().asSeconds() > 1)
+    if ((_totalTime.getElapsedTime().asSeconds() > 1)
+        && (_score.getEnemiesKilled()<100))
     {
         int minNumberEnemies = 1;
-        int maxNumberEnemies = 6;
-        if (_enemies.size() < maxNumberEnemies){
+        int maxNumberEnemies = 7;
+        if (_enemies.size() < maxNumberEnemies)
+        {
             float enemySpawnFromCentreTimer = fmod(rand(),1.2f) + 0.8f;
-            auto shipVariant = static_cast<textures::ID>(rand() % 1);
+            auto shipVariant = static_cast<textures::ID>(rand() % 2);
             auto movementDirection = static_cast<MovementDirection>(rand()%2);
+
             if ((_timerSpawnFromCentre.getElapsedTime().asSeconds() > enemySpawnFromCentreTimer)
                 || (_enemies.size() <= minNumberEnemies))
             {
-                _timerSpawnFromCentre.restart();
-                auto enemy = std::make_unique<Enemy>(_resolution,         // const sf::Vector2i &resolution
-                                                     0,                   // float distanceFromCentre
-                                                     0,                   // float angle
-                                                     0.5,                 // float scale
-                                                     entity::Basic,         // const entity::ID type
-                                                     _textureHolder,      // const TextureHolder &textureHolder
-                                                     shipVariant,         // const textures::ID id
-                                                     MovementState::SpiralOut, // MovementState movementState
-                                                     movementDirection);  // MovementDirection movementDirection
-                _enemies.push_front(std::move(enemy));
+                spawnSpiral(entity::Basic,shipVariant,movementDirection,MovementState::SpiralOut);
             }
+
 
             float enemySpawnFromPerimeterTimer = fmod(rand(),2.4f) + 1.6f;
             if ((_timerSpawnFromPerimeter.getElapsedTime().asSeconds() > enemySpawnFromPerimeterTimer)
                 || (_enemies.size() <= minNumberEnemies))
-            {
-                _timerSpawnFromPerimeter.restart();
-                auto enemy = std::make_unique<Enemy>(_resolution,         // const sf::Vector2i &resolution
-                                                     (_resolution.y/2)-1, // float distanceFromCentre
-                                                     common::angleFilter(180+_playerShip.getAngle()), // float angle
-                                                     0.5,                 // float scale
-                                                     entity::Basic,         // const entity::ID type
-                                                     _textureHolder,      // const TextureHolder &textureHolder
-                                                     shipVariant,         // const textures::ID id
-                                                     MovementState::SpiralIn, // MovementState movementState
-                                                     movementDirection);  // MovementDirection movementDirection
-                _enemies.push_front(std::move(enemy));
-            }
+                spawnSpiral(entity::Basic,shipVariant,movementDirection,MovementState::SpiralIn);
+
+        }
+
+        if (_satellitesAlive == 0)
+        {
+            float satelliteSpawn = fmod(rand(), 5.f) + 15.f;
+            if (_timerSatellite.getElapsedTime().asSeconds() > satelliteSpawn)
+                spawnSatellites();
+        }
+        else
+        {
+            _timerSatellite.restart();
         }
 
         auto meteoroidSpawnEventTimer = fmod(rand(),8.f) + 10.f;
         if (_timerMeteoroid.getElapsedTime().asSeconds() > meteoroidSpawnEventTimer)
-        {
-            _timerMeteoroid.restart();
-            auto randomAngle = rand()%360;
-            auto meteoroid = std::make_unique<Meteoroid>(_resolution,
-                                                         0,
-                                                         randomAngle,
-                                                         1,
-                                                         entity::Meteoroid,
-                                                         _textureHolder,
-                                                         textures::Meteoroid);
-            _meteoroids.push_front(std::move(meteoroid));
-
-        }
+            spawnMeteoroid();
     }
 }
 
@@ -95,15 +157,32 @@ void EntityController::shoot()
     // Player shooting (Bullet creation)
     if (_playerShip.isShooting())
     {
-        auto bullet = std::make_unique<Bullet>(_resolution,
-                                               _playerShip.getDistanceFromCentre(),
-                                               _playerShip.getAngle(),
-                                               0.5,
-                                               entity::PlayerBullet,
-                                               _textureHolder,
-                                               textures::BulletPlayer);
-        _bulletsPlayer.push_front(std::move(bullet));
-        _score.incrementBulletsFired();
+        auto numberOfBullets = 1;
+        auto bulletOffset = _playerShip.getSprite().getLocalBounds().width;
+        if (_playerShip.isUpgraded())
+        {
+            numberOfBullets = 2;
+        }
+
+        for (auto i = 0; i < numberOfBullets; i++)
+        {
+            if (numberOfBullets == 1)
+                bulletOffset = 0;
+            else
+                bulletOffset *= -1;
+
+
+            auto bullet = std::make_unique<Bullet>(_resolution,
+                                                   _playerShip.getDistanceFromCentre(),
+                                                   _playerShip.getAngle() + bulletOffset,
+                                                   0.5,
+                                                   entity::PlayerBullet,
+                                                   _textureHolder,
+                                                   textures::BulletPlayer);
+
+            _bulletsPlayer.push_front(std::move(bullet));
+            _score.incrementBulletsFired();
+        }
     }
 
     // Enemy Shooting
@@ -126,6 +205,7 @@ void EntityController::shoot()
                                                              entity::EnemyBullet,
                                                              _textureHolder,
                                                              textures::BulletEnemy);
+
                 _bulletsEnemy.push_front(std::move(bullet_enemy));
                 _enemyShootEventHasOccurred = true;
             }
@@ -140,7 +220,7 @@ const bool EntityController::shootingOccurred()
 
 void EntityController::setMove()
 {
-    //common movement parameters
+    // Common movement parameters
     auto shipCircleRadius=_resolution.y/3.f;
     auto shipOffsetIncrement=rand()%3+1.f;
     auto shipRadiusIncrease=rand()%3+1.f;
@@ -151,7 +231,7 @@ void EntityController::setMove()
 
     for (auto &enemy : _enemies)
     {
-        //generic properties for each enemy
+        // Generic properties for each enemy
         auto currentEnemyDirectionSign = enemy->getMovementDirectionSign();
         auto currentEnemyMovementState = enemy->getMovementState();
         auto currentEnemyAngle = enemy->getAngleWithOffset();
@@ -159,43 +239,42 @@ void EntityController::setMove()
         auto currentXOffset = enemy->getOffsetX();
         auto currentYOffset = enemy->getOffsetY();
 
-        if (currentEnemyRadius < _resolution.y / 2.f)
+
+        if ((currentEnemyRadius > _resolution.y / 2.f)  // Don/t leave game play area, respawn in centre after leaving
+            || ((currentEnemyMovementState == MovementState::SpiralIn) && (currentEnemyRadius < minimumRadius)))
         {
-            //random values use
+            enemy->reset();
+        }
+        else
+        {
+            // Random values
             auto randomAngle = (rand() % 2 + 2.0f);
             auto randomMove = rand() % 15 + (-2);
             auto randomStateChange=(rand()%100+1); // 1 to 100%
 
-            if ((currentEnemyRadius > growShipScreenZone) && (currentEnemyRadius < shipClipScreenZone) && (currentEnemyMovementState != MovementState::FigureOfEight))
+            // Chance that the ship will enter a new movement state
+            if (((enemy->getType() == entity::Basic) || (enemy->getType() == entity::BasicAlternate))
+                && (currentEnemyRadius > growShipScreenZone)
+                && (currentEnemyRadius < shipClipScreenZone))
             {
-                // Chance that the ship will enter a random movement state that is not spiral inwards or outwards
 
-                if(randomStateChange < 6) //5% chance
+                if (randomStateChange < 6)                                      //5% chance
                 {
                     enemy->setMovementState(MovementState::CircleOffsetLeft);
                 }
-                if(randomStateChange > 6 && randomStateChange < 13) //5% chance
+                if (randomStateChange > 6 && randomStateChange < 13)            //5% chance
                 {
                     enemy->setMovementState(MovementState::CircleOffsetRight);
-                }
-                else if ((randomStateChange > 50) && (randomStateChange < 52)) // 2% chance
+                } else if ((randomStateChange > 50) && (randomStateChange < 52))  // 2% chance
                 {
                     enemy->setMovementState(MovementState::SpiralIn);
-                }
-
-                else if (randomStateChange == 60) //1% change
+                } else if (randomStateChange == 60)                               //1% change
                 {
                     enemy->setMovementState(MovementState::SpiralOut);
                 }
-                 if (randomStateChange > 200) //0% chance
-                {
-                    enemy->setMovementState(MovementState::FigureOfEight);
-                }
+            }
 
-            }   //end of random movement logic
-
-
-            // Behaviour State changes
+            // Movement (based on behaviour state)
             switch (currentEnemyMovementState)
             {
                 case (MovementState::SpiralOut) : //sStandard spiral-out movement
@@ -250,32 +329,11 @@ void EntityController::setMove()
                                        currentYOffset);
                     }
                     break;
-                case (MovementState::FigureOfEight) :
-//
-//                    auto currentAngleInRad = common::degreeToRad(common::angleFilter(enemy->getAngle()));
-//
-//                    auto radius=sin(currentAngleInRad)*sin(currentAngleInRad);
-//
-//                    std::cout << radius << std::endl;
-//                    if (currentXOffset<300 && currentYOffset<300)
-//                    {
-//                        auto newX=cos(currentAngleInRad)*radius*currentXOffset+15;
-//                        auto newY=sin(currentAngleInRad)*radius*currentYOffset+15;
-//                        enemy->setMove(1,0,newX,newY);
-//                    }
-//                    else
-//                    {
-//                        auto newX=cos(currentAngleInRad)*radius*300;
-//                        auto newY=sin(currentAngleInRad)*radius*300;
-//                        enemy->setMove(randomAngle,0,newX,newY);
-//                    }
-//                    enemy->setMove(1,0,newX,newY);
+                case (MovementState::SmallCircling) :
+                    enemy->setMove(0,0,0,0);
                     break;
             }
-        } else //if enemy is outside of the radius, reset it
-            enemy->reset();
-        if ((currentEnemyMovementState == MovementState::SpiralIn) && (currentEnemyRadius < minimumRadius)) // enemy spiral id and is gone,reset
-            enemy->reset();
+        }
     }
 }
 
@@ -313,6 +371,7 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
                 bullet = _bulletsPlayer.erase(bullet);
                 (*enemy)->die();
                 _score.incrementEnemiesKilled((*enemy)->getType());
+                enemyKilled((*enemy)->getType());
                 _explosionHasOccurred = true;
             } else
                 bullet++;
@@ -326,7 +385,27 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
         if ((*enemy)->getLives() == 0)
         {
             enemy = _enemies.erase(enemy);
-        } else
+        }
+        else
+            enemy++;
+    }
+}
+
+void EntityController::killAllEnemiesOfType(entity::ID type)
+{
+    for (auto enemy = _enemies.begin(); enemy != _enemies.end();)
+    {
+        auto enemyType = (*enemy)->getType();
+        if (enemyType == entity::Satellite)
+        {
+            _satellitesAlive = 0;
+        }
+
+        if (enemyType == type)
+        {
+            enemy = _enemies.erase(enemy);
+        }
+        else
             enemy++;
     }
 }
@@ -420,6 +499,8 @@ void EntityController::checkEnemyToPlayerShipCollisions()
                                                          textures::Explosion); // ToDo : Remove me
 
             _explosions.push_back(move(explosion));
+            _score.incrementEnemiesKilled((*enemy)->getType());
+            enemyKilled((*enemy)->getType());
             enemy = _enemies.erase(enemy);
             if (!_playerShip.isInvulnerable())
             {
@@ -457,7 +538,6 @@ void EntityController::checkClipping()
         } else
             meteoroid++;
     }
-
 
     // Clip away player bullets at centre
     auto radius_buffer = 20; // should be smaller than playableZoneRadiusFactor above
@@ -562,4 +642,22 @@ const float EntityController::getSpeed() const
 void EntityController::resetGlobalSpeed()
 {
     _speedModifier = _defaultSpeed;
+}
+
+void EntityController::enemyKilled(entity::ID type)
+{
+    if (type == entity::Satellite)
+    {
+        _satellitesAlive--;
+    }
+    if (_satellitesAlive == 1)
+    {
+        upgradePlayerShip();
+        _satellitesAlive = 0;
+    }
+}
+
+void EntityController::upgradePlayerShip()
+{
+    _playerShip.upgrade();
 }
