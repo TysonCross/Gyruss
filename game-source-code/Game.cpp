@@ -18,7 +18,7 @@
 
 Game::Game()
 {
-    _winCondition = 1; // Number of enemies needed to kill to win.
+    _winCondition = 100; // Number of enemies needed to kill to win.
 }
 
 void Game::Start()
