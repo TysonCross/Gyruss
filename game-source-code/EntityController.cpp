@@ -96,7 +96,7 @@ void EntityController::spawnSatellites()
         auto enemy = std::make_unique<Enemy>(_resolution,         // const sf::Vector2i &resolution
                                              _resolution.y / 3, // float distanceFromCentre
                                              angle, // float angle
-                                             0.5,                 // float scale
+                                             1,                 // float scale
                                              entity::Satellite,         // const entity::ID type
                                              _textureHolder,      // const TextureHolder &textureHolder
                                              textures::Satellite,         // const textures::ID id
