@@ -560,7 +560,102 @@ TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwar
     //the position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
             CHECK(finalScale > startingScale);
 }
-//ToDo: check die event
+
+//Meteoride unit tests
+
+TEST_CASE ("Creating a meteoroid entity succeeds") {
+    TextureHolder textures;
+    textures.load(textures::Meteoroid, "resources/meteoroid.png");
+    SoundHolder sounds;
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto meteoroidShootAngle = 180;
+    auto meteoroidStartingPoint = resolution.y; //define the starting distance from centre;
+            CHECK_NOTHROW(
+            Bullet meteoroid(resolution,
+                          meteoroidStartingPoint,
+                          meteoroidShootAngle,
+                          0.5,
+                          entity::Meteoroid,
+                          textures,
+                          textures::Meteoroid);
+    );
+}
+
+TEST_CASE ("Shooting a meteoroid stright up moves corretly") {
+    TextureHolder textures;
+    textures.load(textures::Meteoroid, "resources/meteoroid.png");
+    SoundHolder sounds;
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto meteoroidShootAngle = 180; //meteoroid moves directly up
+    auto meteoroidStartingPoint = resolution.y; //define the starting distance from centre;
+    Bullet meteoroid(resolution,
+                  meteoroidStartingPoint,
+                  meteoroidShootAngle,
+                  0.5,
+                  entity::Meteoroid,
+                  textures,
+                  textures::Meteoroid);
+    auto startingPosition = meteoroid.getPosition();
+    auto desiredMeteoroidMove = -1; //move the meteoroid 2 pixels away from starting point, from point of fire
+    meteoroid.setMove(desiredMeteoroidMove);
+    meteoroid.update();
+    auto finalPosition = meteoroid.getPosition();
+    auto expectedMeteoroidMove = desiredMeteoroidMove * 2; //double the desired move due to non-linear scaling at edg
+    auto expectedPosition = sf::Vector2f(startingPosition.x, startingPosition.y - expectedMeteoroidMove);
+            CHECK(int(finalPosition.x)==int(expectedPosition.x));
+            CHECK(int(finalPosition.y)==int(expectedPosition.y));
+}
+
+TEST_CASE ("Shooting a meteoroid stright up causes them to scale down as they fly away") {
+    TextureHolder textures;
+    textures.load(textures::Meteoroid, "resources/meteoroid.png");
+    SoundHolder sounds;
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto meteoroidShootAngle = 180;
+    auto meteoroidStartingPoint = resolution.y; //define the starting distance from centre;
+    Bullet meteoroid(resolution,
+                  meteoroidStartingPoint,
+                  meteoroidShootAngle,
+                  0.5,
+                  entity::Meteoroid,
+                  textures,
+                  textures::Meteoroid);
+    auto startingScale = meteoroid.getRadius();
+    auto desiredMeteoroidMove = -10;
+    meteoroid.setMove(desiredMeteoroidMove);
+    meteoroid.update();
+    auto finalScale = meteoroid.getRadius();
+    //the position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the meteoroid
+            CHECK(finalScale < startingScale);
+}
+
+TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves outwards") {
+    TextureHolder textures;
+    textures.load(textures::Meteoroid, "resources/meteoroid.png");
+    SoundHolder sounds;
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto meteoroidShootAngle = 180;
+    auto meteoroidStartingPoint = resolution.y / 2; //define the starting distance from centre;
+    Bullet meteoroid(resolution,
+                  meteoroidStartingPoint,
+                  meteoroidShootAngle,
+                  0.5,
+                  entity::Meteoroid,
+                  textures,
+                  textures::Meteoroid);
+    auto startingScale = meteoroid.getRadius();
+    auto desiredMeteoroidMove = 10;
+    meteoroid.setMove(desiredMeteoroidMove);
+    meteoroid.update();
+    auto finalScale = meteoroid.getRadius();
+    //the position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
+            CHECK(finalScale > startingScale);
+}
+
 //Enemy Unit tests
 
 TEST_CASE ("Creating an object enemy succeeds") {
