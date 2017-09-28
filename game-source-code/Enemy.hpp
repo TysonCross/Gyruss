@@ -46,10 +46,11 @@ public:
           const TextureHolder &textureHolder,
           const textures::ID id,
           MovementState movementState,
-          MovementDirection movementDirection);
+          MovementDirection movementDirection,
+          sf::Vector2f centre = {0,0});
 
     void setMove(float angle, float distance) override;
-    void setMove(float angle, float distance, float xOffset, float yOffset);
+    void setMove(float angle, float distance, sf::Vector2f centre);
     void setMovementState(MovementState movementState);
 
     void move() override;
@@ -70,6 +71,7 @@ public:
     const float getDistanceFromCentreWithOffset() const;
     const float getOffsetX() const;
     const float getOffsetY() const;
+    const sf::Vector2f getCentre() const;
     void setShoot();
     const bool isShooting() const;
     const float getAngle() const;
@@ -90,8 +92,7 @@ private:
     sf::Vector2<float> _prevPosition,
                         _newPosition,
                         _pointingPosition;
-    float _xOffset;
-    float _yOffset;
+    sf::Vector2f _centre;
     sf::Clock _timerShoot;
 
     MovementState _movementState;

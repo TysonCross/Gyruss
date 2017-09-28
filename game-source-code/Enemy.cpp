@@ -16,7 +16,8 @@ Enemy::Enemy(const sf::Vector2i &resolution,
              const TextureHolder &textureHolder,
              const textures::ID id,
              MovementState movementState,
-             MovementDirection movementDirection) : Entity{resolution,
+             MovementDirection movementDirection,
+             sf::Vector2f centre) : Entity{resolution,
                                                            distanceFromCentre,
                                                            angle,
                                                            scale,
@@ -31,10 +32,10 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     _isShooting = false;
     _movementState = movementState;
     _movementDirection = movementDirection;
-    _xOffset = 0;
-    _yOffset = 0;
 
-    setMove(angle,distanceFromCentre,0,0); //Initialised position at starting point
+    _centre == centre;
+
+    setMove(angle,distanceFromCentre,centre); //Initialised position at starting point
 }
 
 void Enemy::setMove(float angle, float distance)
@@ -42,17 +43,15 @@ void Enemy::setMove(float angle, float distance)
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
-    _xOffset=0;
-    _yOffset=0;
+    _centre = {0,0};
 }
 
-void Enemy::setMove(float angle, float distance, float xOffset, float yOffset)
+void Enemy::setMove(float angle, float distance, sf::Vector2f centre)
 {
     _isMoving = true;
     _futureAngleValue = angle;
     _futureMoveValue = distance;
-    _xOffset=xOffset;
-    _yOffset=yOffset;
+    _centre = centre;
 }
 
 void Enemy::setMovementState(MovementState movementState)
@@ -68,8 +67,7 @@ void Enemy::reset()
     _sprite.setScale(0,0);
     _sprite.setPosition(_resolution.x/2,_resolution.y/2);
     _isShooting = false;
-    _yOffset = 0;
-    _xOffset = 0;
+    _centre={0,0};
     _movementState = MovementState::SpiralOut;
 }
 
@@ -100,17 +98,22 @@ const float Enemy::getDistanceFromCentre() const
 
 const float Enemy::getDistanceFromCentreWithOffset() const
 {
-    return (_distanceFromCentre+sqrt(_xOffset*_xOffset+_yOffset*_yOffset)) - _sprite.getGlobalBounds().height/2;
+    return (_distanceFromCentre+sqrt(_centre.x*_centre.x+_centre.y*_centre.y)) - _sprite.getGlobalBounds().height/2;
 }
 
 const float Enemy::getOffsetX() const
 {
-    return _xOffset;
+    return _centre.x;
 }
 
 const float Enemy::getOffsetY() const
 {
-    return _yOffset;
+    return _centre.y;
+}
+
+const sf::Vector2f Enemy::getCentre() const
+{
+    return _centre;
 }
 
 const MovementState Enemy::getMovementState() const
@@ -214,8 +217,8 @@ void Enemy::move()
     }
     auto depthScale = ((_distanceFromCentre + offset)/(_resolution.x/2));
     _distanceFromCentre += (_futureMoveValue) * depthScale;
-    auto xPos = _distanceFromCentre * sin(common::degreeToRad(_angle))+_xOffset;
-    auto yPos = _distanceFromCentre * cos(common::degreeToRad(_angle))+_yOffset;
+    auto xPos = _distanceFromCentre * sin(common::degreeToRad(_angle))+_centre.x;
+    auto yPos = _distanceFromCentre * cos(common::degreeToRad(_angle))+_centre.y;
     auto scale = 1 + ((getRadius() - (_resolution.x / 2)) / (_resolution.x / 2));
 
     _sprite.setPosition(xPos+(_resolution.x / 2),yPos+(_resolution.y / 2));
