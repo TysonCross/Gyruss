@@ -1,8 +1,10 @@
 <map id="game&#45;source&#45;code/Enemy.hpp" name="game&#45;source&#45;code/Enemy.hpp">
-<area shape="rect" id="node2" href="$_enemy_8cpp.html" title="game&#45;source&#45;code/Enemy.cpp" alt="" coords="25,79,226,104"/>
-<area shape="rect" id="node3" href="$_game_8hpp.html" title="game&#45;source&#45;code/Game.hpp" alt="" coords="250,79,449,104"/>
-<area shape="rect" id="node4" href="$_game_8cpp.html" title="game&#45;source&#45;code/Game.cpp" alt="" coords="5,152,203,177"/>
-<area shape="rect" id="node5" href="$_splash_screen_8hpp.html" title="game&#45;source&#45;code/SplashScreen.hpp" alt="" coords="227,152,472,177"/>
-<area shape="rect" id="node7" href="$_main_8cpp.html" title="game&#45;source&#45;code/Main.cpp" alt="" coords="496,152,686,177"/>
-<area shape="rect" id="node6" href="$_splash_screen_8cpp.html" title="game&#45;source&#45;code/SplashScreen.cpp" alt="" coords="227,225,472,251"/>
+<area shape="rect" id="node2" href="$_enemy_8cpp.html" title="game&#45;source&#45;code/Enemy.cpp" alt="" coords="5,79,207,104"/>
+<area shape="rect" id="node3" href="$_entity_controller_8hpp.html" title="game&#45;source&#45;code/EntityController.hpp" alt="" coords="231,79,483,104"/>
+<area shape="rect" id="node4" href="$_entity_controller_8cpp.html" title="game&#45;source&#45;code/EntityController.cpp" alt="" coords="68,152,320,177"/>
+<area shape="rect" id="node5" href="$_game_8hpp.html" title="game&#45;source&#45;code/Game.hpp" alt="" coords="258,225,456,251"/>
+<area shape="rect" id="node8" href="$_input_handler_8hpp.html" title="game&#45;source&#45;code/InputHandler.hpp" alt="" coords="394,152,632,177"/>
+<area shape="rect" id="node6" href="$_game_8cpp.html" title="game&#45;source&#45;code/Game.cpp" alt="" coords="149,299,346,324"/>
+<area shape="rect" id="node7" href="$_main_8cpp.html" title="game&#45;source&#45;code/Main.cpp" alt="" coords="371,299,561,324"/>
+<area shape="rect" id="node9" href="$_input_handler_8cpp.html" title="game&#45;source&#45;code/InputHandler.cpp" alt="" coords="480,225,717,251"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="PlayerShip::update" name="PlayerShip::update">
+<area shape="rect" id="node2" href="$class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba" title="Moves the player ship around a circle by this angle. " alt="" coords="187,31,313,56"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="370,5,512,31"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="361,55,521,80"/>
+</map>

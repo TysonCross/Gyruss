@@ -1,0 +1,6 @@
+<map id="Score::getBulletsFired" name="Score::getBulletsFired">
+<area shape="rect" id="node2" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="206,5,371,31"/>
+<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="419,5,508,31"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="556,5,650,31"/>
+<area shape="rect" id="node5" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="698,5,748,31"/>
+</map>

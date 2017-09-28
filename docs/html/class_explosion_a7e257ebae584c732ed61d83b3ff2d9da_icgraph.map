@@ -1,0 +1,4 @@
+<map id="Explosion::getRadius" name="Explosion::getRadius">
+<area shape="rect" id="node2" href="$class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314" title="Explosion::move" alt="" coords="200,5,319,31"/>
+<area shape="rect" id="node3" href="$class_explosion.html#af7c26d8e42739a756be8653d3faa5823" title="Explosion entity for destroyed screen objects. " alt="" coords="367,5,511,31"/>
+</map>

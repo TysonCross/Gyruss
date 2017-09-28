@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['enemyshipgrey',['EnemyShipGrey',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a79b4582c03ed11055dca18d63a46890f',1,'textures']]],
-  ['enemyshippurple',['EnemyShipPurple',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a3c38a81eb1100f9ee815c5828d8df9ca',1,'textures']]],
-  ['enemyshoot',['EnemyShoot',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea8e603af7bba85b42fa6007b18cdfcbd2',1,'sounds']]]
+  ['circleoffsetleft',['CircleOffsetLeft',['../_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4aab0136814e18a62c6e807158ddc5572e9',1,'Enemy.hpp']]],
+  ['circleoffsetright',['CircleOffsetRight',['../_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4aa70fad56e68e55ee8c85facf47c7c33f8',1,'Enemy.hpp']]],
+  ['clockwise',['Clockwise',['../_enemy_8hpp.html#a0b5e764f0ec9a407e9b8789f0259d754adc82829d52b935bb1ba087f98f44dac7',1,'Enemy.hpp']]],
+  ['counterclockwise',['CounterClockwise',['../_enemy_8hpp.html#a0b5e764f0ec9a407e9b8789f0259d754ab4db9ae6c6daf4f0bb8735cc43810cfa',1,'Enemy.hpp']]]
 ];

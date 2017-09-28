@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['load',['load',['../class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9',1,'ResourceHolder']]]
+  ['keymap',['keyMap',['../_input_handler_8hpp.html#ac6a92097d5e2eda3d4497d6e25473058',1,'InputHandler.hpp']]],
+  ['killallenemiesoftype',['killAllEnemiesOfType',['../class_entity_controller.html#a795606fe9223180467575190e725a18a',1,'EntityController']]]
 ];

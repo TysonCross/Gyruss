@@ -1,0 +1,4 @@
+<map id="Screen::fadeTextInAndOut" name="Screen::fadeTextInAndOut">
+<area shape="rect" id="node2" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="231,5,388,31"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="238,55,381,80"/>
+</map>

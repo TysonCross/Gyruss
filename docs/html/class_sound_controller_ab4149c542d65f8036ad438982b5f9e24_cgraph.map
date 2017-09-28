@@ -1,0 +1,4 @@
+<map id="SoundController::stopMusic" name="SoundController::stopMusic">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="242,5,385,31"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="238,55,389,80"/>
+</map>

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['shoot',['shoot',['../class_enemy.html#a08e8bd93e1381f2606ccc63cb46a1ae9',1,'Enemy::shoot()'],['../class_player_ship.html#a5fd2356380ae72e592a698998ad44370',1,'PlayerShip::shoot()']]],
-  ['show',['show',['../class_splash_screen.html#a02129b7191237c674dca18f1f20246bd',1,'SplashScreen']]],
-  ['starfield',['StarField',['../class_star_field.html#adb4bfb1e8bae40dbca919f06a86b7df9',1,'StarField']]],
-  ['start',['Start',['../class_game.html#adb05b20574551a26f8cf1dc664782790',1,'Game']]]
+  ['main',['main',['../_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'Main.cpp']]],
+  ['makeinvulnerable',['makeInvulnerable',['../class_player_ship.html#a0d4cc1200ed8d172c84c0013d454d0ca',1,'PlayerShip']]],
+  ['meteoroid',['Meteoroid',['../class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7',1,'Meteoroid']]],
+  ['move',['move',['../class_bullet.html#a88af6034543e11dd8e4b5539b7634838',1,'Bullet::move()'],['../class_enemy.html#a90a135c93792574d2675a670ac25b081',1,'Enemy::move()'],['../class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf',1,'Entity::move()'],['../class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314',1,'Explosion::move()'],['../class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97',1,'Meteoroid::move()'],['../class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba',1,'PlayerShip::move()'],['../class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d',1,'Shield::move()']]],
+  ['moveanddrawstars',['moveAndDrawStars',['../class_star_field.html#a12b98fd26428d39c62cad82492f2b853',1,'StarField']]]
 ];

@@ -27,12 +27,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ELEN3009_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">ELEN30018 Software Development II Project</div>
+   <div id="projectbrief">ELEN30009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -114,7 +114,7 @@ class ResourceHolder&lt; ResourceType, IdentifierType &gt;</h3>
 <p>Loads and returns pointers to requested resources from file. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/10 Maps game resources from a key to set of values Used for determining texture paths, game resolution, etc. Based on examples from SFML <a class="el" href="class_game.html" title="Main Game controller. ">Game</a> Development by Jan Haller <a href="https://github.com/LaurentGomila/SFML-Game-Development-Book">https://github.com/LaurentGomila/SFML-Game-Development-Book</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="common_8hpp_source.html#l00103">103</a> of file <a class="el" href="common_8hpp_source.html">common.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="common_8hpp_source.html#l00152">152</a> of file <a class="el" href="common_8hpp_source.html">common.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9980c607ba30a1cb3e8ed361d5e2ef9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9980c607ba30a1cb3e8ed361d5e2ef9d">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
@@ -137,7 +137,7 @@ template&lt;typename Resource , typename Identifier&gt; </div>
 <p>Returns the resource object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="_game_8cpp.html">game.cpp</a>) </td></tr>
+    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="common_8hpp.html">common.hpp</a>) </td></tr>
   </table>
   </dd>
 </dl>
@@ -148,13 +148,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph.png" border="0" usemap="#class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph" alt=""/></div>
 <map name="class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph" id="class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph">
-<area shape="rect" id="node2" href="class_bullet.html#a6acd02f2d548ee66fda8b32a002fdf7a" title="Projectile bullet Class. " alt="" coords="228,5,324,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#a96c55917a65bb1d6b0ff83b28277ef96" title="Implementation of Enemy ship types. " alt="" coords="220,55,332,80"/>
-<area shape="rect" id="node4" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="403,156,492,181"/>
-<area shape="rect" id="node7" href="class_player_ship.html#a9175b9e9d74abc34e41ad428b3ad39e8" title="Returns the Sprite object of the Class. " alt="" coords="197,156,355,181"/>
-<area shape="rect" id="node8" href="class_splash_screen.html#a02129b7191237c674dca18f1f20246bd" title="Shows the Splash screen. " alt="" coords="204,205,347,231"/>
-<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Main Game controller implementation. " alt="" coords="540,156,633,181"/>
-<area shape="rect" id="node6" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="681,156,732,181"/>
+<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="246,5,333,31"/>
+<area shape="rect" id="node6" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="207,55,372,80"/>
+<area shape="rect" id="node7" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="219,104,360,129"/>
+<area shape="rect" id="node8" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="SoundController::stopMusic" alt="" coords="197,153,382,179"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="430,55,520,80"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="568,55,661,80"/>
+<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="709,55,759,80"/>
 </map>
 </div>
 
@@ -181,7 +181,7 @@ template&lt;typename Resource , typename Identifier&gt; </div>
 <p>Overloaded const method. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="_game_8cpp.html">game.cpp</a>) </td></tr>
+    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="common_8hpp.html">common.hpp</a>) </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,7 +222,7 @@ template&lt;typename ResourceType , typename IdentifierType&gt; </div>
 <p>The <a class="el" href="class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob...">load()</a> method loads the file into an object of specifed type, transferring ownership of the resource to the private map container member _resourceMap/</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="_game_8cpp.html">game.cpp</a>) </td></tr>
+    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="common_8hpp.html">common.hpp</a>) </td></tr>
     <tr><td class="paramname">The</td><td>file to load the resource from.</td></tr>
   </table>
   </dd>
@@ -235,9 +235,10 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph.png" border="0" usemap="#class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph" alt=""/></div>
 <map name="class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph" id="class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="204,5,293,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Main Game controller implementation. " alt="" coords="341,5,434,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="482,5,533,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="251,5,341,31"/>
+<area shape="rect" id="node5" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="SoundController::stopMusic" alt="" coords="204,55,389,80"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="437,5,530,31"/>
+<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="578,5,628,31"/>
 </map>
 </div>
 

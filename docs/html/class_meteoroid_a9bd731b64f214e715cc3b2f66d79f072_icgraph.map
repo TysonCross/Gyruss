@@ -1,0 +1,5 @@
+<map id="Meteoroid::getRadius" name="Meteoroid::getRadius">
+<area shape="rect" id="node2" href="$class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Meteoroid::move" alt="" coords="201,5,322,31"/>
+<area shape="rect" id="node3" href="$class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Meteoroid::update" alt="" coords="370,5,499,31"/>
+<area shape="rect" id="node4" href="$class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7" title="Meteroid Entity (cannot be destroyed by bullets) " alt="" coords="547,5,694,31"/>
+</map>

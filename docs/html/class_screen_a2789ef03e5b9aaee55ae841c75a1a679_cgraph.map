@@ -1,0 +1,5 @@
+<map id="Screen::draw" name="Screen::draw">
+<area shape="rect" id="node2" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="153,31,331,56"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="379,5,536,31"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="386,55,528,80"/>
+</map>

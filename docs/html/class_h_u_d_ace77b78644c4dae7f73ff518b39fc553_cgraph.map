@@ -1,0 +1,8 @@
+<map id="HUD::draw" name="HUD::draw">
+<area shape="rect" id="node2" href="$class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449" title="PlayerShip::getLives" alt="" coords="156,5,299,31"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="156,55,299,80"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a57d85e335a22618353b464b768a3818c" title="Converts an int to a string, with optional padding. " alt="" coords="145,104,311,129"/>
+<area shape="rect" id="node5" href="$class_score.html#a9925b73e3f421878dbb192ab9924560b" title="Score::getScore" alt="" coords="169,153,286,179"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="140,203,315,228"/>
+<area shape="rect" id="node7" href="$class_score.html#a81b38b72c9ab9b4fb623fc8604477e61" title="Score::getTimeAlive" alt="" coords="158,252,298,277"/>
+</map>

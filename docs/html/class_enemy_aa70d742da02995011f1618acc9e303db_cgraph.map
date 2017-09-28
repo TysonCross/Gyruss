@@ -1,0 +1,8 @@
+<map id="Enemy::update" name="Enemy::update">
+<area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="164,87,267,113"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="555,113,698,138"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="328,38,488,63"/>
+<area shape="rect" id="node5" href="$class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Enemy::getRadius" alt="" coords="342,87,473,113"/>
+<area shape="rect" id="node6" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="548,162,705,187"/>
+<area shape="rect" id="node7" href="$class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Enemy::getAngleWithOffset" alt="" coords="315,137,500,162"/>
+</map>

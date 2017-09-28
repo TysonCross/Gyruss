@@ -1,6 +1,14 @@
 <map id="game&#45;source&#45;code/InputHandler.hpp" name="game&#45;source&#45;code/InputHandler.hpp">
-<area shape="rect" id="node2" href="$_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="181,79,293,104"/>
-<area shape="rect" id="node6" href="$common_8hpp.html" title="common.hpp" alt="" coords="231,152,329,177"/>
-<area shape="rect" id="node8" href="$_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="356,225,499,251"/>
-<area shape="rect" id="node13" href="$_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="478,299,612,324"/>
+<area shape="rect" id="node2" href="$_entity_controller_8hpp.html" title="EntityController.hpp" alt="" coords="1024,79,1161,104"/>
+<area shape="rect" id="node4" href="$common_8hpp.html" title="common.hpp" alt="" coords="975,299,1074,324"/>
+<area shape="rect" id="node8" href="$_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="896,372,1039,397"/>
+<area shape="rect" id="node14" href="$_entity_8hpp.html" title="Basic entity class for game objects. " alt="" coords="722,225,802,251"/>
+<area shape="rect" id="node15" href="$_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="55,152,167,177"/>
+<area shape="rect" id="node17" href="$_enemy_8hpp.html" title="Enemy.hpp" alt="" coords="474,152,562,177"/>
+<area shape="rect" id="node19" href="$_bullet_8hpp.html" title="Bullet.hpp" alt="" coords="607,152,688,177"/>
+<area shape="rect" id="node20" href="$_explosion_8hpp.html" title="Explosion.hpp" alt="" coords="1189,152,1294,177"/>
+<area shape="rect" id="node21" href="$_meteoroid_8hpp.html" title="Meteoroid.hpp" alt="" coords="943,152,1050,177"/>
+<area shape="rect" id="node22" href="$_score_8hpp.html" title="Score.hpp" alt="" coords="1130,225,1212,251"/>
+<area shape="rect" id="node13" href="$_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="1066,445,1200,471"/>
+<area shape="rect" id="node18" href="$_sound_controller_8hpp.html" title="SoundController.hpp" alt="" coords="200,225,343,251"/>
 </map>

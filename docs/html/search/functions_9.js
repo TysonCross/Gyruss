@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quit',['Quit',['../class_game.html#a1827c75a4b4ab4a543bf99772a55337c',1,'Game']]]
+  ['killallenemiesoftype',['killAllEnemiesOfType',['../class_entity_controller.html#a795606fe9223180467575190e725a18a',1,'EntityController']]]
 ];

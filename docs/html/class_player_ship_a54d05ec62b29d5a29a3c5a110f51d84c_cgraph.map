@@ -1,0 +1,4 @@
+<map id="PlayerShip::PlayerShip" name="PlayerShip::PlayerShip">
+<area shape="rect" id="node2" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="PlayerShip::reset" alt="" coords="211,5,334,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="PlayerShip::setMove" alt="" coords="382,5,526,31"/>
+</map>

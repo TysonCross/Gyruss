@@ -1,0 +1,9 @@
+<map id="EntityController::killAllEnemiesOfType" name="EntityController::killAllEnemiesOfType">
+<area shape="rect" id="node2" href="$class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="EntityController::collides" alt="" coords="225,5,389,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39" title="Returns the Sprite object of the Class by ref. " alt="" coords="234,55,380,80"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="210,104,404,143"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="234,167,380,192"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#af002b45b1a5f935998f674beb011d999" title="PlayerShip::getScale" alt="" coords="234,216,379,241"/>
+<area shape="rect" id="node7" href="$class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="219,265,395,291"/>
+<area shape="rect" id="node8" href="$class_score.html#ab130dd02bdd3e026421ad426741637e8" title="Score::incrementEnemiesKilled" alt="" coords="204,315,410,340"/>
+</map>

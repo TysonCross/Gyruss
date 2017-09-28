@@ -1,0 +1,6 @@
+<map id="EntityController::EntityController" name="EntityController::EntityController">
+<area shape="rect" id="node2" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="214,5,359,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin. " alt="" coords="210,55,363,80"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="207,104,366,129"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="414,48,609,87"/>
+</map>

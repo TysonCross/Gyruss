@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['enemy',['Enemy',['../class_enemy.html#a96c55917a65bb1d6b0ff83b28277ef96',1,'Enemy']]],
-  ['entity',['Entity',['../class_entity.html#a884f90e03ed05eb41904e71bea3cc08e',1,'Entity']]]
+  ['degreetorad',['degreeToRad',['../namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0',1,'common']]],
+  ['die',['die',['../class_bullet.html#af41843fcf97ad6cf0634b0c3e97213c8',1,'Bullet::die()'],['../class_enemy.html#afad764b00a84735def86b410b4695a98',1,'Enemy::die()'],['../class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e',1,'Entity::die()'],['../class_explosion.html#a7f9691fcb02fb57725968b95f4c43590',1,'Explosion::die()'],['../class_meteoroid.html#a84eac69f87842f7b5cc2930556c07158',1,'Meteoroid::die()'],['../class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d',1,'PlayerShip::die()']]],
+  ['draw',['draw',['../class_entity_controller.html#a6e8df192bb7a1dbb0d1471a943282135',1,'EntityController::draw()'],['../class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553',1,'HUD::draw()'],['../class_screen.html#ac97870062b642e689a9884643f7936dd',1,'Screen::draw(sf::RenderWindow &amp;window, const TextureHolder &amp;textureHolder, const FontHolder &amp;fontHolder, const sf::Vector2i resolution)'],['../class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679',1,'Screen::draw(sf::RenderWindow &amp;window, const TextureHolder &amp;textureHolder, const FontHolder &amp;fontHolder, const sf::Vector2i resolution, const Score &amp;score, const sf::Clock &amp;timeAlive)'],['../class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766',1,'ScreenGameOver::draw()'],['../class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0',1,'ScreenSplash::draw()']]]
 ];

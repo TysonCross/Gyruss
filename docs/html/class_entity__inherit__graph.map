@@ -1,0 +1,7 @@
+<map id="Entity" name="Entity">
+<area shape="rect" id="node2" href="$class_bullet.html" title="Projectiles/bullets for PlayerShip and EnemyShip. " alt="" coords="5,79,60,104"/>
+<area shape="rect" id="node3" href="$class_enemy.html" title="Enemy" alt="" coords="84,79,147,104"/>
+<area shape="rect" id="node4" href="$class_explosion.html" title="Explosion entity for destroyed screen objects. " alt="" coords="170,79,250,104"/>
+<area shape="rect" id="node5" href="$class_meteoroid.html" title="Meteroid Entity (cannot be destroyed by bullets) " alt="" coords="274,79,354,104"/>
+<area shape="rect" id="node6" href="$class_player_ship.html" title="Player ship. " alt="" coords="378,79,464,104"/>
+</map>

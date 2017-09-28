@@ -1,0 +1,10 @@
+<map id="ScreenSplash::draw" name="ScreenSplash::draw">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="223,5,366,31"/>
+<area shape="rect" id="node3" href="$class_screen_splash.html#ae869e65e3457e1eccfd51537651be4d6" title="ScreenSplash::getHighScore" alt="" coords="198,55,391,80"/>
+<area shape="rect" id="node4" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="205,104,383,129"/>
+<area shape="rect" id="node7" href="$class_screen_splash.html#ac6a75af943a07905ad1cbdb1829aab52" title="ScreenSplash::animatePlanet" alt="" coords="196,153,393,179"/>
+<area shape="rect" id="node8" href="$class_star_field.html#acc5e764762506119799c3e37b912564a" title="Returns a reference to the StarField object (for iterating through the elements) " alt="" coords="217,203,371,228"/>
+<area shape="rect" id="node9" href="$class_star_field.html#a12b98fd26428d39c62cad82492f2b853" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="194,252,395,277"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="443,80,600,105"/>
+<area shape="rect" id="node6" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="450,129,592,155"/>
+</map>

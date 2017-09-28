@@ -1,0 +1,4 @@
+<map id="EntityController::checkCollisions" name="EntityController::checkCollisions">
+<area shape="rect" id="node2" href="$class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="EntityController::collides" alt="" coords="286,5,451,31"/>
+<area shape="rect" id="node3" href="$class_score.html#ab130dd02bdd3e026421ad426741637e8" title="Score::incrementEnemiesKilled" alt="" coords="265,55,472,80"/>
+</map>

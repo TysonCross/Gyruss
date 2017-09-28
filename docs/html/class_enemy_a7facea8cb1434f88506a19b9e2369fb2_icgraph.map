@@ -1,0 +1,4 @@
+<map id="Enemy::getAngleWithOffset" name="Enemy::getAngleWithOffset">
+<area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="238,5,341,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="389,5,500,31"/>
+</map>

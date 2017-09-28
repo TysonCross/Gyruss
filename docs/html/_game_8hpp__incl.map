@@ -1,12 +1,22 @@
 <map id="game&#45;source&#45;code/Game.hpp" name="game&#45;source&#45;code/Game.hpp">
-<area shape="rect" id="node6" href="$common_8hpp.html" title="common.hpp" alt="" coords="543,225,641,251"/>
-<area shape="rect" id="node9" href="$_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="211,299,354,324"/>
-<area shape="rect" id="node14" href="$_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="299,152,410,177"/>
-<area shape="rect" id="node16" href="$_bullet_8hpp.html" title="Bullet.hpp" alt="" coords="660,152,740,177"/>
-<area shape="rect" id="node17" href="$_input_handler_8hpp.html" title="InputHandler.hpp" alt="" coords="293,79,416,104"/>
-<area shape="rect" id="node18" href="$_splash_screen_8hpp.html" title="SplashScreen.hpp" alt="" coords="648,79,778,104"/>
-<area shape="rect" id="node19" href="$_starfield_8hpp.html" title="Starfield.hpp" alt="" coords="1016,152,1112,177"/>
-<area shape="rect" id="node22" href="$_enemy_8hpp.html" title="Enemy.hpp" alt="" coords="548,152,636,177"/>
-<area shape="rect" id="node23" href="$_f_p_s_8hpp.html" title="FPS.hpp" alt="" coords="867,299,941,324"/>
-<area shape="rect" id="node13" href="$_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="229,372,363,397"/>
+<area shape="rect" id="node3" href="$common_8hpp.html" title="common.hpp" alt="" coords="1152,372,1251,397"/>
+<area shape="rect" id="node6" href="$_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="1326,445,1469,471"/>
+<area shape="rect" id="node12" href="$_entity_8hpp.html" title="Basic entity class for game objects. " alt="" coords="702,299,781,324"/>
+<area shape="rect" id="node13" href="$_entity_controller_8hpp.html" title="EntityController.hpp" alt="" coords="1283,152,1421,177"/>
+<area shape="rect" id="node18" href="$_sound_controller_8hpp.html" title="SoundController.hpp" alt="" coords="1313,299,1455,324"/>
+<area shape="rect" id="node23" href="$_input_handler_8hpp.html" title="InputHandler.hpp" alt="" coords="1849,79,1972,104"/>
+<area shape="rect" id="node24" href="$_screen_splash_8hpp.html" title="ScreenSplash.hpp" alt="" coords="2246,152,2376,177"/>
+<area shape="rect" id="node26" href="$_starfield_8hpp.html" title="Starfield.hpp" alt="" coords="2315,299,2411,324"/>
+<area shape="rect" id="node30" href="$_screen_game_over_8hpp.html" title="ScreenGameOver.hpp" alt="" coords="2048,79,2202,104"/>
+<area shape="rect" id="node31" href="$_f_p_s_8hpp.html" title="FPS.hpp" alt="" coords="2474,79,2547,104"/>
+<area shape="rect" id="node33" href="$_h_u_d_8hpp.html" title="HUD.hpp" alt="" coords="1733,152,1809,177"/>
+<area shape="rect" id="node34" href="$_shield_8hpp.html" title="Shield.hpp" alt="" coords="267,152,352,177"/>
+<area shape="rect" id="node11" href="$_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="1453,519,1587,544"/>
+<area shape="rect" id="node15" href="$_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="1117,225,1229,251"/>
+<area shape="rect" id="node17" href="$_enemy_8hpp.html" title="Enemy.hpp" alt="" coords="905,225,993,251"/>
+<area shape="rect" id="node19" href="$_bullet_8hpp.html" title="Bullet.hpp" alt="" coords="460,225,540,251"/>
+<area shape="rect" id="node20" href="$_explosion_8hpp.html" title="Explosion.hpp" alt="" coords="1377,225,1482,251"/>
+<area shape="rect" id="node21" href="$_meteoroid_8hpp.html" title="Meteoroid.hpp" alt="" coords="588,225,695,251"/>
+<area shape="rect" id="node22" href="$_score_8hpp.html" title="Score.hpp" alt="" coords="1835,299,1917,324"/>
+<area shape="rect" id="node25" href="$_screen_8hpp.html" title="Screen.hpp" alt="" coords="2094,225,2183,251"/>
 </map>

@@ -1,0 +1,12 @@
+<map id="Entity::setMove" name="Entity::setMove">
+<area shape="rect" id="node2" href="$class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Entity::reset" alt="" coords="222,5,313,31"/>
+<area shape="rect" id="node3" href="$class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Entity::update" alt="" coords="216,55,319,80"/>
+<area shape="rect" id="node4" href="$class_entity.html#adb509e7ecf0f3e998a67657bdf2076e6" title="Entity::getRadius" alt="" coords="207,104,329,129"/>
+<area shape="rect" id="node5" href="$class_entity.html#a18ae35ec14f8c0ebbcaf234c26f5429e" title="Entity::getDistanceFromCentre" alt="" coords="166,153,369,179"/>
+<area shape="rect" id="node6" href="$class_entity.html#aa216cd54efce968f742e06f816a8f3b0" title="Entity::getScale" alt="" coords="211,203,325,228"/>
+<area shape="rect" id="node7" href="$class_entity.html#a9edc43f1bf4d31ed1d51aa2dfbf6fb23" title="Entity::getPosition" alt="" coords="204,252,332,277"/>
+<area shape="rect" id="node8" href="$class_entity.html#aea546eec846ec6a7c5668db7b79cd2ac" title="Entity::getSprite" alt="" coords="210,301,325,327"/>
+<area shape="rect" id="node9" href="$class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Entity::getLives" alt="" coords="212,351,324,376"/>
+<area shape="rect" id="node10" href="$class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Entity::die" alt="" coords="228,400,308,425"/>
+<area shape="rect" id="node11" href="$class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf" title="Entity::move" alt="" coords="220,449,315,475"/>
+</map>

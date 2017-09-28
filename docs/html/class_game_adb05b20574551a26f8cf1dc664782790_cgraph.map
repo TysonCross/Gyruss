@@ -1,27 +1,51 @@
 <map id="Game::Start" name="Game::Start">
-<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="147,541,236,567"/>
-<area shape="rect" id="node3" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="550,5,694,31"/>
-<area shape="rect" id="node4" href="$class_input_handler.html#aeec8e84f627f70e05ccbc6fa161c176f" title="InputHandler::resolveKey\lMapping" alt="" coords="304,256,475,295"/>
-<area shape="rect" id="node5" href="$class_input_handler.html#a5dd847838751b34a7838d6659653246a" title="InputHandler::update" alt="" coords="317,207,463,232"/>
-<area shape="rect" id="node9" href="$class_star_field.html#acc5e764762506119799c3e37b912564a" title="Returns a reference to the StarField object (for iterating through the elements) " alt="" coords="313,319,467,344"/>
-<area shape="rect" id="node10" href="$class_star_field.html#a977fdffc877bbdeccb1b972de7b1cba0" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="290,368,490,393"/>
-<area shape="rect" id="node11" href="$class_enemy.html#a816f5f7c72e1d6b7444e4df7edb3cb24" title="Enemy::getSprite" alt="" coords="328,417,452,443"/>
-<area shape="rect" id="node12" href="$class_enemy.html#a817fd1218fafecb15c7955c97fa3f692" title="Enemy::getDistanceFromCentre" alt="" coords="284,467,496,492"/>
-<area shape="rect" id="node13" href="$class_enemy.html#a046e5c32b598bf21a76674d4a67fb5d8" title="Enemy::move" alt="" coords="339,157,441,183"/>
-<area shape="rect" id="node15" href="$class_enemy.html#a0755a2799e2c7d10a242c13513321e3e" title="Enemy::reset" alt="" coords="340,516,440,541"/>
-<area shape="rect" id="node16" href="$class_enemy.html#a664cf5c443a7763845808bd7881ad8d7" title="Enemy::getAngle" alt="" coords="328,565,451,591"/>
-<area shape="rect" id="node17" href="$class_enemy.html#a0abadf2655ac24e1da16d6e04e106170" title="Enemy::getDirectionAngle" alt="" coords="302,615,478,640"/>
-<area shape="rect" id="node18" href="$class_enemy.html#a08e8bd93e1381f2606ccc63cb46a1ae9" title="Enemy::shoot" alt="" coords="339,664,441,689"/>
-<area shape="rect" id="node19" href="$class_player_ship.html#ae1e1e7216647f5b9debd3750a028ee39" title="Returns the Sprite object of the Class by ref. " alt="" coords="317,713,463,739"/>
-<area shape="rect" id="node20" href="$class_f_p_s.html#a230d52d9a0b736e73d43100f6441a4bf" title="FPS::update" alt="" coords="342,763,438,788"/>
-<area shape="rect" id="node21" href="$class_f_p_s.html#ae04fc22fb84c28d4660f98cab0e6e9b6" title="Update the frame count. " alt="" coords="340,812,440,837"/>
-<area shape="rect" id="node22" href="$class_splash_screen.html#a02129b7191237c674dca18f1f20246bd" title="Shows the Splash screen. " alt="" coords="318,95,461,120"/>
-<area shape="rect" id="node23" href="$class_player_ship.html#a5fd2356380ae72e592a698998ad44370" title="Shooting ma lazers. " alt="" coords="327,861,453,887"/>
-<area shape="rect" id="node24" href="$class_player_ship.html#ad2506afccdce34aebb057fb572ebbd3d" title="Returns the distance from origin. " alt="" coords="293,911,487,949"/>
-<area shape="rect" id="node25" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="317,973,463,999"/>
-<area shape="rect" id="node26" href="$class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="315,1023,465,1048"/>
-<area shape="rect" id="node6" href="$class_player_ship.html#a6d145568d5c5875dd00cb8d0d7f41203" title="Moves the player ship around a circle by this angle. " alt="" coords="559,259,685,284"/>
-<area shape="rect" id="node7" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="758,157,900,183"/>
-<area shape="rect" id="node8" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="749,233,909,259"/>
-<area shape="rect" id="node14" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="544,107,701,132"/>
+<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="147,1045,236,1071"/>
+<area shape="rect" id="node3" href="$class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967" title="InputHandler::reset" alt="" coords="323,5,457,31"/>
+<area shape="rect" id="node4" href="$class_score.html#a32804ba9a847e58160e6e0cef46e1f25" title="Score::reset" alt="" coords="343,55,437,80"/>
+<area shape="rect" id="node5" href="$class_input_handler.html#a6774fa1b6782ecfba8aeb412fec7ea26" title="InputHandler::pollInput" alt="" coords="312,104,468,129"/>
+<area shape="rect" id="node7" href="$class_entity_controller.html#a266fed1b08301a21d6f9202f44be0c33" title="EntityController::change\lGlobalSpeed" alt="" coords="308,153,472,192"/>
+<area shape="rect" id="node8" href="$class_player_ship.html#a0d4cc1200ed8d172c84c0013d454d0ca" title="PlayerShip::makeInvulnerable" alt="" coords="291,216,489,241"/>
+<area shape="rect" id="node9" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="PlayerShip::die" alt="" coords="334,265,445,291"/>
+<area shape="rect" id="node11" href="$class_score.html#a141a1c42f44900824c15049c23aaba0c" title="Score::resetLifeTimer" alt="" coords="316,315,464,340"/>
+<area shape="rect" id="node12" href="$class_sound_controller.html#ad166b1139448dd0549facbb8a31693fb" title="SoundController::playSound" alt="" coords="296,364,484,389"/>
+<area shape="rect" id="node13" href="$class_entity_controller.html#a6386fca5171a9e0d5595c4b236983829" title="EntityController::resetGlobal\lSpeed" alt="" coords="296,413,484,452"/>
+<area shape="rect" id="node14" href="$class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d" title="PlayerShip::upgrade" alt="" coords="576,425,718,451"/>
+<area shape="rect" id="node15" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="EntityController::killAll\lEnemiesOfType" alt="" coords="315,629,465,668"/>
+<area shape="rect" id="node17" href="$class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39" title="Returns the Sprite object of the Class by ref. " alt="" coords="574,580,720,605"/>
+<area shape="rect" id="node21" href="$class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="559,843,735,868"/>
+<area shape="rect" id="node23" href="$class_input_handler.html#a4755fd435c868b7f4d281144e913ff9c" title="InputHandler::update" alt="" coords="317,1147,463,1172"/>
+<area shape="rect" id="node24" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="EntityController::spawnEntities" alt="" coords="289,1196,491,1221"/>
+<area shape="rect" id="node25" href="$class_score.html#ad2ad5c64290bc1baf6d929b2118ac240" title="Score::getEnemiesKilled" alt="" coords="564,1221,730,1247"/>
+<area shape="rect" id="node26" href="$class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="EntityController::shoot" alt="" coords="314,692,466,717"/>
+<area shape="rect" id="node27" href="$class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="PlayerShip::isShooting" alt="" coords="569,791,725,816"/>
+<area shape="rect" id="node28" href="$class_entity_controller.html#aa983e489331de567d420724c42924b22" title="EntityController::setMove" alt="" coords="305,1297,475,1323"/>
+<area shape="rect" id="node29" href="$class_entity_controller.html#aea66506a320de6c4b760a344cc4a2f03" title="EntityController::checkClipping" alt="" coords="288,1347,491,1372"/>
+<area shape="rect" id="node30" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="EntityController::checkCollisions" alt="" coords="284,528,496,553"/>
+<area shape="rect" id="node31" href="$class_entity_controller.html#af87a665252f2c949815d21eac24ef470" title="EntityController::explosion\lOccurred" alt="" coords="302,1396,478,1435"/>
+<area shape="rect" id="node32" href="$class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="EntityController::shooting\lOccurred" alt="" coords="305,1459,475,1497"/>
+<area shape="rect" id="node33" href="$class_score.html#a1a476a2a2bc3a65a050e512fad500d02" title="Object and methods to keep score of player actions. " alt="" coords="338,1521,442,1547"/>
+<area shape="rect" id="node34" href="$class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="PlayerShip::update" alt="" coords="323,1571,457,1596"/>
+<area shape="rect" id="node35" href="$class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="EntityController::update" alt="" coords="310,1620,470,1645"/>
+<area shape="rect" id="node36" href="$class_star_field.html#acc5e764762506119799c3e37b912564a" title="Returns a reference to the StarField object (for iterating through the elements) " alt="" coords="570,1697,724,1723"/>
+<area shape="rect" id="node37" href="$class_star_field.html#a12b98fd26428d39c62cad82492f2b853" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="547,1747,747,1772"/>
+<area shape="rect" id="node38" href="$class_entity_controller.html#a392fe1a574a77ba809b5731aada54f15" title="EntityController::getSpeed" alt="" coords="301,1823,478,1848"/>
+<area shape="rect" id="node39" href="$class_entity_controller.html#a6e8df192bb7a1dbb0d1471a943282135" title="EntityController::draw" alt="" coords="316,1872,464,1897"/>
+<area shape="rect" id="node40" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Shield::update" alt="" coords="337,844,443,869"/>
+<area shape="rect" id="node41" href="$class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Shield::reset" alt="" coords="599,893,695,919"/>
+<area shape="rect" id="node42" href="$class_shield.html#ae286bbff311ba2d5156a5eb900229907" title="Returns the Sprite object of the Class by ref. " alt="" coords="330,1921,450,1947"/>
+<area shape="rect" id="node43" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="347,996,433,1021"/>
+<area shape="rect" id="node44" href="$class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449" title="PlayerShip::getLives" alt="" coords="576,971,719,996"/>
+<area shape="rect" id="node45" href="$class_score.html#a9925b73e3f421878dbb192ab9924560b" title="Score::getScore" alt="" coords="589,1045,706,1071"/>
+<area shape="rect" id="node46" href="$class_f_p_s.html#a230d52d9a0b736e73d43100f6441a4bf" title="Restarts the clock, and increments the frame count. " alt="" coords="342,1971,438,1996"/>
+<area shape="rect" id="node47" href="$class_f_p_s.html#ae04fc22fb84c28d4660f98cab0e6e9b6" title="Return the Frame per second count. " alt="" coords="340,2020,440,2045"/>
+<area shape="rect" id="node48" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="320,1721,460,1747"/>
+<area shape="rect" id="node49" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="307,1045,472,1071"/>
+<area shape="rect" id="node50" href="$class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="315,2069,465,2095"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#abc675303e0479506beabfe48a8041879" title="PlayerShip::setShoot" alt="" coords="574,104,720,129"/>
+<area shape="rect" id="node10" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="PlayerShip::reset" alt="" coords="586,265,709,291"/>
+<area shape="rect" id="node16" href="$class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="EntityController::collides" alt="" coords="565,531,729,556"/>
+<area shape="rect" id="node18" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="550,629,744,668"/>
+<area shape="rect" id="node19" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="574,692,720,717"/>
+<area shape="rect" id="node20" href="$class_player_ship.html#af002b45b1a5f935998f674beb011d999" title="PlayerShip::getScale" alt="" coords="575,741,720,767"/>
+<area shape="rect" id="node22" href="$class_score.html#ab130dd02bdd3e026421ad426741637e8" title="Score::incrementEnemiesKilled" alt="" coords="544,481,750,507"/>
 </map>

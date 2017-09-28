@@ -1,0 +1,4 @@
+<map id="Explosion::die" name="Explosion::die">
+<area shape="rect" id="node2" href="$class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9" title="Explosion::update" alt="" coords="158,5,285,31"/>
+<area shape="rect" id="node3" href="$class_explosion.html#af7c26d8e42739a756be8653d3faa5823" title="Explosion entity for destroyed screen objects. " alt="" coords="333,5,477,31"/>
+</map>

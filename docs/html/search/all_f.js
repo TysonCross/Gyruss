@@ -1,17 +1,14 @@
 var searchData=
 [
-  ['shoot',['shoot',['../class_enemy.html#a08e8bd93e1381f2606ccc63cb46a1ae9',1,'Enemy::shoot()'],['../class_player_ship.html#a5fd2356380ae72e592a698998ad44370',1,'PlayerShip::shoot()']]],
-  ['show',['show',['../class_splash_screen.html#a02129b7191237c674dca18f1f20246bd',1,'SplashScreen']]],
-  ['soundholder',['SoundHolder',['../common_8hpp.html#afe2f8a06ae4a9d297466cc355be41d03',1,'common.hpp']]],
-  ['sounds',['sounds',['../namespacesounds.html',1,'']]],
-  ['spawnsound',['SpawnSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea1899db6d37bc177dad20f88ace6cc8f3',1,'sounds']]],
-  ['splashcontrols',['SplashControls',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a63335d5e23cfafdbbdd0629744dd7f1f',1,'textures']]],
-  ['splashscreen',['SplashScreen',['../class_splash_screen.html',1,'SplashScreen'],['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a1736086ed7b2ad8d15d8269943d14ca3',1,'textures::SplashScreen()']]],
-  ['splashscreen_2ecpp',['SplashScreen.cpp',['../_splash_screen_8cpp.html',1,'']]],
-  ['splashscreen_2ehpp',['SplashScreen.hpp',['../_splash_screen_8hpp.html',1,'']]],
-  ['starfield',['StarField',['../class_star_field.html',1,'StarField'],['../class_star_field.html#adb4bfb1e8bae40dbca919f06a86b7df9',1,'StarField::StarField()']]],
-  ['starfield_2ecpp',['Starfield.cpp',['../_starfield_8cpp.html',1,'']]],
-  ['starfield_2ehpp',['Starfield.hpp',['../_starfield_8hpp.html',1,'']]],
-  ['start',['Start',['../class_game.html#adb05b20574551a26f8cf1dc664782790',1,'Game']]],
-  ['startsound',['StartSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea145fded9da03301f195032613e6e26b8',1,'sounds']]]
+  ['radtodegree',['radToDegree',['../namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f',1,'common']]],
+  ['reset',['reset',['../class_bullet.html#a8679c9f2d7f684b2d986a8202d59e57e',1,'Bullet::reset()'],['../class_enemy.html#ad162072e34f5a2ba9efce7ebe9295d80',1,'Enemy::reset()'],['../class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d',1,'Entity::reset()'],['../class_explosion.html#a658e43a61e4eda49565386a388da1db8',1,'Explosion::reset()'],['../class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967',1,'InputHandler::reset()'],['../class_meteoroid.html#aa3dc7fa6b2b485a2e6038de5016ddbd8',1,'Meteoroid::reset()'],['../class_player_ship.html#ad81d932e4d1a3495af55da0593411e23',1,'PlayerShip::reset()'],['../class_score.html#a32804ba9a847e58160e6e0cef46e1f25',1,'Score::reset()'],['../class_shield.html#a3895cca033e2401fb9fb299dd096e026',1,'Shield::reset()']]],
+  ['resetglobalspeed',['resetGlobalSpeed',['../class_entity_controller.html#a6386fca5171a9e0d5595c4b236983829',1,'EntityController']]],
+  ['resetlifetimer',['resetLifeTimer',['../class_score.html#a141a1c42f44900824c15049c23aaba0c',1,'Score']]],
+  ['resetshoottimer',['resetShootTimer',['../class_enemy.html#a34714124192b9bfee1c743a26b1c49fd',1,'Enemy']]],
+  ['resourceholder',['ResourceHolder',['../class_resource_holder.html',1,'']]],
+  ['resourceholder_2ehpp',['ResourceHolder.hpp',['../_resource_holder_8hpp.html',1,'']]],
+  ['resourceholder_2einl',['ResourceHolder.inl',['../_resource_holder_8inl.html',1,'']]],
+  ['resourceholder_3c_20sf_3a_3afont_2c_20fonts_3a_3aid_20_3e',['ResourceHolder&lt; sf::Font, fonts::ID &gt;',['../class_resource_holder.html',1,'']]],
+  ['resourceholder_3c_20sf_3a_3asoundbuffer_2c_20sounds_3a_3aid_20_3e',['ResourceHolder&lt; sf::SoundBuffer, sounds::ID &gt;',['../class_resource_holder.html',1,'']]],
+  ['resourceholder_3c_20sf_3a_3atexture_2c_20textures_3a_3aid_20_3e',['ResourceHolder&lt; sf::Texture, textures::ID &gt;',['../class_resource_holder.html',1,'']]]
 ];

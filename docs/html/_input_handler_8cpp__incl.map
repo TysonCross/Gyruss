@@ -1,7 +1,15 @@
 <map id="game&#45;source&#45;code/InputHandler.cpp" name="game&#45;source&#45;code/InputHandler.cpp">
-<area shape="rect" id="node2" href="$_input_handler_8hpp.html" title="InputHandler.hpp" alt="" coords="364,79,487,104"/>
-<area shape="rect" id="node3" href="$_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="181,152,293,177"/>
-<area shape="rect" id="node7" href="$common_8hpp.html" title="common.hpp" alt="" coords="231,225,329,251"/>
-<area shape="rect" id="node9" href="$_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="356,299,499,324"/>
-<area shape="rect" id="node14" href="$_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="478,372,612,397"/>
+<area shape="rect" id="node2" href="$_input_handler_8hpp.html" title="InputHandler.hpp" alt="" coords="1236,79,1359,104"/>
+<area shape="rect" id="node3" href="$_entity_controller_8hpp.html" title="EntityController.hpp" alt="" coords="1024,152,1161,177"/>
+<area shape="rect" id="node5" href="$common_8hpp.html" title="common.hpp" alt="" coords="975,372,1074,397"/>
+<area shape="rect" id="node9" href="$_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="896,445,1039,471"/>
+<area shape="rect" id="node15" href="$_entity_8hpp.html" title="Basic entity class for game objects. " alt="" coords="722,299,802,324"/>
+<area shape="rect" id="node16" href="$_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="55,225,167,251"/>
+<area shape="rect" id="node18" href="$_enemy_8hpp.html" title="Enemy.hpp" alt="" coords="474,225,562,251"/>
+<area shape="rect" id="node20" href="$_bullet_8hpp.html" title="Bullet.hpp" alt="" coords="607,225,688,251"/>
+<area shape="rect" id="node21" href="$_explosion_8hpp.html" title="Explosion.hpp" alt="" coords="1189,225,1294,251"/>
+<area shape="rect" id="node22" href="$_meteoroid_8hpp.html" title="Meteoroid.hpp" alt="" coords="943,225,1050,251"/>
+<area shape="rect" id="node23" href="$_score_8hpp.html" title="Score.hpp" alt="" coords="1130,299,1212,324"/>
+<area shape="rect" id="node14" href="$_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="1066,519,1200,544"/>
+<area shape="rect" id="node19" href="$_sound_controller_8hpp.html" title="SoundController.hpp" alt="" coords="200,299,343,324"/>
 </map>

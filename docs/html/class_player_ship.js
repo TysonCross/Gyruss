@@ -1,9 +1,25 @@
 var class_player_ship =
 [
-    [ "PlayerShip", "class_player_ship.html#a9175b9e9d74abc34e41ad428b3ad39e8", null ],
+    [ "PlayerShip", "class_player_ship.html#a54d05ec62b29d5a29a3c5a110f51d84c", null ],
+    [ "die", "class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d", null ],
     [ "getAngle", "class_player_ship.html#afc3c24681cd72512aafdac84e37a8142", null ],
-    [ "getDistanceFromCentre", "class_player_ship.html#ad2506afccdce34aebb057fb572ebbd3d", null ],
-    [ "getSprite", "class_player_ship.html#ae1e1e7216647f5b9debd3750a028ee39", null ],
-    [ "move", "class_player_ship.html#a6d145568d5c5875dd00cb8d0d7f41203", null ],
-    [ "shoot", "class_player_ship.html#a5fd2356380ae72e592a698998ad44370", null ]
+    [ "getDistanceFromCentre", "class_player_ship.html#a9671688d8c1759ef3f4500482f51f119", null ],
+    [ "getFutureAngle", "class_player_ship.html#ac48ea1ff511f5aa8e841547fbe760ea5", null ],
+    [ "getLives", "class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449", null ],
+    [ "getPosition", "class_player_ship.html#a23299d56b63aab5f65df7d6eb6e4ff8a", null ],
+    [ "getRadius", "class_player_ship.html#af4b4060652f725125bc2704826ab9abe", null ],
+    [ "getScale", "class_player_ship.html#af002b45b1a5f935998f674beb011d999", null ],
+    [ "getSprite", "class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39", null ],
+    [ "isAlive", "class_player_ship.html#a31039e125f4ffef5692c6596978b396c", null ],
+    [ "isInvulnerable", "class_player_ship.html#a971ef4107082b2040598101b416b1214", null ],
+    [ "isMoving", "class_player_ship.html#a82029eca51f73fc7ab4d861808366fbc", null ],
+    [ "isShooting", "class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd", null ],
+    [ "isUpgraded", "class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a", null ],
+    [ "makeInvulnerable", "class_player_ship.html#a0d4cc1200ed8d172c84c0013d454d0ca", null ],
+    [ "move", "class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba", null ],
+    [ "reset", "class_player_ship.html#ad81d932e4d1a3495af55da0593411e23", null ],
+    [ "setMove", "class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d", null ],
+    [ "setShoot", "class_player_ship.html#abc675303e0479506beabfe48a8041879", null ],
+    [ "update", "class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca", null ],
+    [ "upgrade", "class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d", null ]
 ];

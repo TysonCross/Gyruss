@@ -27,12 +27,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="ELEN3009_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">ELEN30018 Software Development II Project</div>
+   <div id="projectbrief">ELEN30009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -83,22 +83,31 @@ $(document).ready(function(){initNavTree('_input_handler_8hpp.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">InputHandler.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_entity_controller_8hpp_source.html">EntityController.hpp</a>&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for InputHandler.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_input_handler_8hpp__incl.png" border="0" usemap="#game-source-code_2_input_handler_8hpp" alt=""/></div>
 <map name="game-source-code_2_input_handler_8hpp" id="game-source-code_2_input_handler_8hpp">
-<area shape="rect" id="node2" href="_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="181,79,293,104"/>
-<area shape="rect" id="node6" href="common_8hpp.html" title="common.hpp" alt="" coords="231,152,329,177"/>
-<area shape="rect" id="node8" href="_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="356,225,499,251"/>
-<area shape="rect" id="node13" href="_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="478,299,612,324"/>
+<area shape="rect" id="node2" href="_entity_controller_8hpp.html" title="EntityController.hpp" alt="" coords="1024,79,1161,104"/>
+<area shape="rect" id="node4" href="common_8hpp.html" title="common.hpp" alt="" coords="975,299,1074,324"/>
+<area shape="rect" id="node8" href="_resource_holder_8hpp.html" title="ResourceHolder.hpp" alt="" coords="896,372,1039,397"/>
+<area shape="rect" id="node14" href="_entity_8hpp.html" title="Basic entity class for game objects. " alt="" coords="722,225,802,251"/>
+<area shape="rect" id="node15" href="_player_ship_8hpp.html" title="PlayerShip.hpp" alt="" coords="55,152,167,177"/>
+<area shape="rect" id="node17" href="_enemy_8hpp.html" title="Enemy.hpp" alt="" coords="474,152,562,177"/>
+<area shape="rect" id="node19" href="_bullet_8hpp.html" title="Bullet.hpp" alt="" coords="607,152,688,177"/>
+<area shape="rect" id="node20" href="_explosion_8hpp.html" title="Explosion.hpp" alt="" coords="1189,152,1294,177"/>
+<area shape="rect" id="node21" href="_meteoroid_8hpp.html" title="Meteoroid.hpp" alt="" coords="943,152,1050,177"/>
+<area shape="rect" id="node22" href="_score_8hpp.html" title="Score.hpp" alt="" coords="1130,225,1212,251"/>
+<area shape="rect" id="node13" href="_resource_holder_8inl.html" title="ResourceHolder.inl" alt="" coords="1066,445,1200,471"/>
+<area shape="rect" id="node18" href="_sound_controller_8hpp.html" title="SoundController.hpp" alt="" coords="200,225,343,251"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -106,12 +115,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_input_handler_8hpp__dep__incl.png" border="0" usemap="#game-source-code_2_input_handler_8hppdep" alt=""/></div>
 <map name="game-source-code_2_input_handler_8hppdep" id="game-source-code_2_input_handler_8hppdep">
-<area shape="rect" id="node2" href="_game_8hpp.html" title="game&#45;source&#45;code/Game.hpp" alt="" coords="250,79,449,104"/>
-<area shape="rect" id="node7" href="_input_handler_8cpp.html" title="game&#45;source&#45;code/InputHandler.cpp" alt="" coords="472,79,709,104"/>
+<area shape="rect" id="node2" href="_game_8hpp.html" title="game&#45;source&#45;code/Game.hpp" alt="" coords="114,79,313,104"/>
+<area shape="rect" id="node5" href="_input_handler_8cpp.html" title="game&#45;source&#45;code/InputHandler.cpp" alt="" coords="336,79,573,104"/>
 <area shape="rect" id="node3" href="_game_8cpp.html" title="game&#45;source&#45;code/Game.cpp" alt="" coords="5,152,203,177"/>
-<area shape="rect" id="node4" href="_splash_screen_8hpp.html" title="game&#45;source&#45;code/SplashScreen.hpp" alt="" coords="227,152,472,177"/>
-<area shape="rect" id="node6" href="_main_8cpp.html" title="game&#45;source&#45;code/Main.cpp" alt="" coords="496,152,686,177"/>
-<area shape="rect" id="node5" href="_splash_screen_8cpp.html" title="game&#45;source&#45;code/SplashScreen.cpp" alt="" coords="227,225,472,251"/>
+<area shape="rect" id="node4" href="_main_8cpp.html" title="game&#45;source&#45;code/Main.cpp" alt="" coords="228,152,418,177"/>
 </map>
 </div>
 </div>
@@ -120,9 +127,35 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html">InputHandler</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in the map of current keypresses.  <a href="class_input_handler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac6a92097d5e2eda3d4497d6e25473058"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_input_handler_8hpp.html#ac6a92097d5e2eda3d4497d6e25473058">keyMap</a> = std::map&lt; int, bool &gt;</td></tr>
+<tr class="memdesc:ac6a92097d5e2eda3d4497d6e25473058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in the map of current keypresses.  <a href="#ac6a92097d5e2eda3d4497d6e25473058">More...</a><br /></td></tr>
+<tr class="separator:ac6a92097d5e2eda3d4497d6e25473058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ac6a92097d5e2eda3d4497d6e25473058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6a92097d5e2eda3d4497d6e25473058">&#9670;&nbsp;</a></span>keyMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_input_handler_8hpp.html#ac6a92097d5e2eda3d4497d6e25473058">keyMap</a> =  std::map&lt;int, bool&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read in the map of current keypresses. </p>
+<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/09 Reads in the key presses during the last polled game Loop, and maps these keys to actions.</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_handler_8hpp_source.html#l00021">21</a> of file <a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

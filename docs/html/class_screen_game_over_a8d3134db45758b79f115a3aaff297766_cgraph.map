@@ -1,0 +1,11 @@
+<map id="ScreenGameOver::draw" name="ScreenGameOver::draw">
+<area shape="rect" id="node2" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="240,5,384,31"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a57d85e335a22618353b464b768a3818c" title="Converts an int to a string, with optional padding. " alt="" coords="229,55,395,80"/>
+<area shape="rect" id="node4" href="$class_score.html#a9925b73e3f421878dbb192ab9924560b" title="Score::getScore" alt="" coords="254,104,371,129"/>
+<area shape="rect" id="node5" href="$class_score.html#ae0b88df6ae934c981425ea004dad39f9" title="Score::getLongestTimeAlive" alt="" coords="218,153,406,179"/>
+<area shape="rect" id="node6" href="$class_score.html#a47d57069de0d92d2f52b34bf43e481c0" title="Score::getBulletsFired" alt="" coords="236,203,388,228"/>
+<area shape="rect" id="node7" href="$class_score.html#a6d6310f7a4f5c4c2ad15bc62f6999fc6" title="Score::getPlayerAccuracy" alt="" coords="225,252,400,277"/>
+<area shape="rect" id="node8" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="223,301,401,327"/>
+<area shape="rect" id="node9" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="454,276,611,301"/>
+<area shape="rect" id="node10" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="461,325,604,351"/>
+</map>
