@@ -24,6 +24,8 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
                                                                     textureHolder}
 {
     _lives = 3;
+    _isUpgraded = false;
+    _isAlive = true;
     _invulnerabilityTimeAmount = 1.2f;
     _animationFPSLimit = 0;
     _buffer.loadFromFile("resources/thrust.ogg");
@@ -56,10 +58,16 @@ void PlayerShip::reset()
     _futureAngleValue = 0;
     _isShooting = false;
     _isMoving = false;
-
-    _invulnerabilityTimer.restart();
+    _isUpgraded = false;
     _isInvulnerable = true;
+    _invulnerabilityTimer.restart();
+
     setMove(0);
+}
+
+void PlayerShip::upgrade()
+{
+    _isUpgraded = true;
 }
 
 void PlayerShip::update()
@@ -110,7 +118,6 @@ const sf::Vector2f PlayerShip::getPosition() const
     return _sprite.getPosition();
 }
 
-
 const sf::Sprite &PlayerShip::getSprite() const
 {
     return _sprite;
@@ -129,6 +136,7 @@ const int PlayerShip::getLives() const
 void PlayerShip::die()
 {
     _lives--;
+    _isAlive = false;
     reset();
 }
 
@@ -152,6 +160,16 @@ const bool PlayerShip::isInvulnerable() const
     return _isInvulnerable;
 }
 
+const bool PlayerShip::isUpgraded() const
+{
+    return _isUpgraded;
+}
+
+const bool PlayerShip::isAlive() const
+{
+    return _isAlive;
+}
+
 float PlayerShip::getAngle()
 {
     return _angle;
@@ -164,6 +182,7 @@ float PlayerShip::getFutureAngle()
 
 void PlayerShip::move()
 {
+    _isAlive = true;
     _soundMove.setPitch(fabs(_futureAngleValue/4)); // Engine pitch rises when moving
     _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
     _angle += _futureAngleValue;
@@ -177,6 +196,12 @@ void PlayerShip::move()
 void PlayerShip::shoot()
 {
     _isShooting = false;
+}
+
+
+void PlayerShip::makeInvulnerable(bool invulnerability)
+{
+    _isInvulnerable = invulnerability;
 }
 
 

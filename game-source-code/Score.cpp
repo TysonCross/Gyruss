@@ -40,6 +40,10 @@ void Score::incrementEnemiesKilled(entity::ID type)
             addToScore(500);
             break;
 
+        case entity::Satellite :
+            addToScore(150);
+            break;
+
         default :
             break;
     }
@@ -51,6 +55,9 @@ void Score::reset()
     _enemiesKilled = 0;
     _bulletsFired = 0;
     _bulletsHit = 0;
+    _longestTimeAlive = 0.f;
+    _lifeTimer.restart();
+    _updateTimer.restart();
 }
 
 void Score::incrementBulletsFired()

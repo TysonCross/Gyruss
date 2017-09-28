@@ -62,7 +62,7 @@ TEST_CASE ("Loading a missing file into a resourceHandler<sf::SoundBuffer, sound
 TEST_CASE (
         "Loading a sound buffer from a file that exists into a resourceHandler<sf::SoundBuffer, sounds::ID> succeeds (i.e. does not throw an exception)") {
     SoundHolder sound_holder;
-            REQUIRE_NOTHROW(sound_holder.load(sounds::testSound, "resources/win_sound.ogg"));
+            REQUIRE_NOTHROW(sound_holder.load(sounds::testSound, "resources/test.ogg"));
 
     sf::Sound testSound;
             CHECK_NOTHROW(testSound.setBuffer(sound_holder.get(sounds::testSound)));
@@ -72,7 +72,7 @@ TEST_CASE (
 TEST_CASE (
         "Playing a sound previously loaded into a resourceHandler<sf::SoundBuffer, sounds::ID> succeeds (i.e. does not throw an exception)") {
     SoundHolder sound_holder;
-            REQUIRE_NOTHROW(sound_holder.load(sounds::testSound, "resources/win_sound.ogg"));
+            REQUIRE_NOTHROW(sound_holder.load(sounds::testSound, "resources/test.ogg"));
 
     sf::Sound testSound;
             REQUIRE_NOTHROW(testSound.setBuffer(sound_holder.get(sounds::testSound)));

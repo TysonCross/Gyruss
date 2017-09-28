@@ -49,6 +49,7 @@ public:
     void changeGlobalSpeed(float amount);
     void resetGlobalSpeed();
     const float getSpeed() const;
+    void killAllEnemiesOfType(entity::ID type);
 
 private:
     void checkEnemyToPlayerShipCollisions();
@@ -56,6 +57,12 @@ private:
     void checkPlayerBulletsToEnemyCollisions();
     void checkMeteoroidToPlayerShipCollisions();
     void checkPlayerBulletsToMeteoroidCollisions();
+    void enemyKilled(entity::ID type);
+    void upgradePlayerShip();
+
+    void spawnSpiral(entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState);
+    void spawnMeteoroid();
+    void spawnSatellites();
 
     PlayerShip& _playerShip;
     sf::Vector2i _resolution;
@@ -67,6 +74,7 @@ private:
     meteoroidList _meteoroids;
     sf::Clock _timerSpawnFromPerimeter;
     sf::Clock _timerSpawnFromCentre;
+    sf::Clock _timerSatellite;
     sf::Clock _timerMeteoroid;
     sf::Clock _totalTime;
     Score& _score;
@@ -75,6 +83,10 @@ private:
     bool _playerHasBeenHit;
     float _speedModifier;
     float _defaultSpeed;
+    int _satellitesAlive;
+    float _bulletPlayerSpeed;
+    float _bulletEnemySpeed;
+    float _meteoroidSpeed;
 
 };
 

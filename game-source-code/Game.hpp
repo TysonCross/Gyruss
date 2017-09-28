@@ -27,6 +27,7 @@
 #include "Starfield.hpp"
 #include "FPS.hpp"
 #include "HUD.hpp"
+#include "Shield.hpp"
 
 class Game
 {
@@ -38,7 +39,7 @@ public:
 private:
     void initializeGameLoop();
     void showSplashScreen();
-    void showGameOverScreen();
+    void showGameOverScreen(bool gameOutcome);
     void loadResources();
     void recordHighScore();
 
@@ -50,8 +51,8 @@ private:
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;
     sf::Vector2i _resolution;
+    int _winCondition;
     Score _score;
-    bool _makePlayerInvulnerable;
 
 };
 

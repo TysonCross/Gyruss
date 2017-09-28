@@ -56,7 +56,9 @@ namespace entity
         PlayerBullet,
         EnemyBullet,
         Meteoroid,
+        Satellite,
         Explosion,
+        Shield,
         testEnemy,
         enemyID_end
     };
@@ -75,14 +77,18 @@ namespace textures
         EnemyShipPurple,
         SplashScreen,
         SplashScreenExtra,
-        GameOverScreen,
+        GameOverLoseScreen,
+        GameOverWinScreen,
         SplashControls,
         GameOverCredits,
         PlayerShip,
         BulletPlayer,
         BulletEnemy,
         Meteoroid,
+        Satellite,
         Explosion,
+        Shield,
+        Planet,
         testTexture,
         textureID_end
     };
@@ -100,7 +106,8 @@ namespace sounds
     {
         StartSound = 0,
         SpawnSound,
-        GameOverSound,
+        GameOverLoseSound,
+        GameOverWinSound,
         PlayerMove,
         PlayerShoot,
         EnemyShoot,
@@ -134,7 +141,8 @@ namespace game
     {
         Splash,
         Playing,
-        GameOver,
+        GameOverLose,
+        GameOverWin,
         Exiting
     };
 }

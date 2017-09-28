@@ -43,6 +43,13 @@ public:
              const FontHolder &fontHolder,
              const sf::Vector2i resolution);
 
+    void animatePlanet(sf::Sprite &sprite,
+                       sf::IntRect &rectArea,
+                       int columns,
+                       int rows,
+                       int frameTotal,
+                       int &i);
+
     std::string getHighScore();
 
 };

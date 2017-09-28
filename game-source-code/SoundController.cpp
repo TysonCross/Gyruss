@@ -61,7 +61,8 @@ void SoundController::loadResources()
     // Load Sounds
     _sounds.load(sounds::StartSound,"resources/startup.ogg");
     _sounds.load(sounds::SpawnSound,"resources/ship_spawn.ogg");
-    _sounds.load(sounds::GameOverSound,"resources/gameover.ogg");
+    _sounds.load(sounds::GameOverLoseSound,"resources/gameover.ogg");
+    _sounds.load(sounds::GameOverWinSound,"resources/win.ogg");
     _sounds.load(sounds::PlayerMove,"resources/thrust.ogg");
     _sounds.load(sounds::PlayerShoot,"resources/shoot_laser.ogg");
     _sounds.load(sounds::EnemyShoot,"resources/shoot_phaser.ogg");
