@@ -43,8 +43,7 @@ TEST_CASE ("Loading a texure that exists into a resourceHandler<sf::Texture, tex
 
 }
 
-TEST_CASE (
-        "Getting a texture previously loaded into a resourceHandler<sf::Texture, textures::ID> succeeds (i.e. does not throw an exception)") {
+TEST_CASE ("Getting a texture previously loaded into a resourceHandler<sf::Texture, textures::ID> succeeds (i.e. does not throw an exception)") {
     TextureHolder texture_holder;
             REQUIRE_NOTHROW(texture_holder.load(textures::testTexture, "resources/test_image.png"));
 
@@ -103,7 +102,7 @@ TEST_CASE (
 ///  Movement tests
 ////////////////////////////////////////////////////////////
 
-//PlayerShip movement tests
+// PlayerShip movement tests
 
 TEST_CASE ("Creating A PlayerShip object succeeds") {
     TextureHolder textures;
@@ -131,7 +130,7 @@ TEST_CASE ("Creating A PlayerShip object succeeds") {
 
 }
 
-//Check rotation works with .setMove & .update
+// Check rotation works with .setMove & .update
 TEST_CASE ("Moving a PlayerShip 10 degrees succeeds") {
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
@@ -191,7 +190,7 @@ TEST_CASE ("PlayerShip getPosition and underlying transformation both return the
             CHECK(spriteLocation == getPositionLocation);
 }
 
-//tets holding down move button
+// Tests holding down move button
 TEST_CASE ("Moving a PlayerShip multiple times succeeds") {
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
@@ -224,7 +223,7 @@ TEST_CASE ("Moving a PlayerShip multiple times succeeds") {
             CHECK(finalAngle == expectedAngle);
 }
 
-//correct circle imlemented
+// Correct circle implementedd
 TEST_CASE ("Moving a PlayerShip 360 degrees brings ship back to where it started") {
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
@@ -261,7 +260,7 @@ TEST_CASE ("Moving a PlayerShip 360 degrees brings ship back to where it started
 }
 
 
-//Check eular function
+// Check "angleFilter" function
 TEST_CASE ("Moving a PlayerShip -10 degrees correctly casts to 350 and succeeds") {
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
@@ -282,10 +281,10 @@ TEST_CASE ("Moving a PlayerShip -10 degrees correctly casts to 350 and succeeds"
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    playerShip.update(); //move playerShip to origin
+    playerShip.update(); // Move playerShip to origin
     auto originalAngle = playerShip.getAngle();
     auto moveAngle = -10.0f;
-    auto expectedFinalAngle = 350.0f; //using the eular filter to cast negative angle to <360
+    auto expectedFinalAngle = 350.0f; // Using the "angleFilter" to move negative angle to between 0 <-> 360
     playerShip.setMove(moveAngle);
     playerShip.update();
     auto finalAngle = playerShip.getAngle();
@@ -312,15 +311,15 @@ TEST_CASE ("Moving a PlayerShip moves the sprite the correct number of pixels (f
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    playerShip.update(); //move playerShip to origin
+    playerShip.update(); // Move playerShip to origin
     auto originalLocation = playerShip.getPosition();
     auto moveAngle = 180;
     playerShip.setMove(moveAngle);
     playerShip.update();
     auto finalLocation = playerShip.getPosition();
     auto expectedLocation = sf::Vector2f{originalLocation.x, resolution.y * shipPathRadiusPadding};
-            CHECK(int(finalLocation.y)==int(expectedLocation.y)); //cast to int to get closest pixel accuracy
-            CHECK(int(finalLocation.x)==int(expectedLocation.x)); //cast to int to get closest pixel accuracy
+            CHECK(int(finalLocation.y)==int(expectedLocation.y)); // Cast to int to get closest pixel accuracy
+            CHECK(int(finalLocation.x)==int(expectedLocation.x)); // Cast to int to get closest pixel accuracy
 }
 
 TEST_CASE ("Reseting ship position brings the ship back to spawning point sucessfully") {
@@ -343,7 +342,7 @@ TEST_CASE ("Reseting ship position brings the ship back to spawning point sucess
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    playerShip.update(); //move playerShip to origin
+    playerShip.update(); // Move playerShip to origin
     auto originalLocation = playerShip.getPosition();
     auto moveAngle = 180;
     playerShip.setMove(moveAngle);
@@ -351,8 +350,8 @@ TEST_CASE ("Reseting ship position brings the ship back to spawning point sucess
     playerShip.reset();
     playerShip.update();
     auto finalLocation = playerShip.getPosition();
-            CHECK(int(finalLocation.x)==int(originalLocation.x)); //cast to int to get closest pixel accuracy
-            CHECK(int(finalLocation.y)==int(originalLocation.y)); //cast to int to get closest pixel accuracy
+            CHECK(int(finalLocation.x)==int(originalLocation.x)); // Cast to int to get closest pixel
+            CHECK(int(finalLocation.y)==int(originalLocation.y)); // Cast to int to get closest pixel
 }
 
 TEST_CASE ("Killing the playerShip decrements a life") {
@@ -375,11 +374,11 @@ TEST_CASE ("Killing the playerShip decrements a life") {
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    playerShip.update(); //move playerShip to origin
+    playerShip.update(); // Move playerShip to origin
     auto startingLives = playerShip.getLives();
     auto startingPosition = playerShip.getPosition();
 
-    auto moveShipAmount = 90; //move the ship to simulate player interaction
+    auto moveShipAmount = 90; // Move the ship to simulate player interaction
     playerShip.setMove(moveShipAmount);
     playerShip.update();
 
@@ -409,11 +408,11 @@ TEST_CASE ("Killing the playerShip resets the ship location to centre") {
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    playerShip.update(); //move playerShip to origin
+    playerShip.update(); // Move playerShip to origin
     auto startingLives = playerShip.getLives();
     auto startingPosition = playerShip.getPosition();
 
-    auto moveShipAmount = 90; //move the ship to simulate player interaction
+    auto moveShipAmount = 90; // Move the ship to simulate player interaction
     playerShip.setMove(moveShipAmount);
     playerShip.update();
 
@@ -448,11 +447,11 @@ TEST_CASE ("Killing the playerShip makes the ship Invulnerable") {
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    playerShip.update(); //move playerShip to origin
+    playerShip.update(); //Move playerShip to origin
     auto startingLives = playerShip.getLives();
     auto startingPosition = playerShip.getPosition();
 
-    auto moveShipAmount = 90; //move the ship to simulate player interaction
+    auto moveShipAmount = 90; // Move the ship to simulate player interaction
     playerShip.setMove(moveShipAmount);
     playerShip.update();
 
@@ -463,7 +462,6 @@ TEST_CASE ("Killing the playerShip makes the ship Invulnerable") {
 }
 
 // Bullet movement tests
-
 TEST_CASE ("Creating a bullet entity succeeds") {
     TextureHolder textures;
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
@@ -472,7 +470,7 @@ TEST_CASE ("Creating a bullet entity succeeds") {
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto bulletShootAngle = 180;
-    auto bulletStartingPoint = resolution.y; //define the starting distance from centre;
+    auto bulletStartingPoint = resolution.y; // Define the starting distance from centre
             CHECK_NOTHROW(
             Bullet bullet(resolution,
                           bulletStartingPoint,
@@ -491,8 +489,8 @@ TEST_CASE ("Shooting a bullet stright up moves corretly") {
     SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
-    auto bulletShootAngle = 180; //bullet moves directly up
-    auto bulletStartingPoint = resolution.y; //define the starting distance from centre;
+    auto bulletShootAngle = 180; // Bullet moves directly up
+    auto bulletStartingPoint = resolution.y; // Define the starting distance from centre;
     Bullet bullet(resolution,
                   bulletStartingPoint,
                   bulletShootAngle,
@@ -501,11 +499,11 @@ TEST_CASE ("Shooting a bullet stright up moves corretly") {
                   textures,
                   textures::BulletPlayer);
     auto startingPosition = bullet.getPosition();
-    auto desiredBulletMove = -1; //move the bullet 2 pixels away from starting point, from point of fire
+    auto desiredBulletMove = -1; // Move the bullet 2 pixels away from starting point, from point of fire
     bullet.setMove(desiredBulletMove);
     bullet.update();
     auto finalPosition = bullet.getPosition();
-    auto expectedBulletMove = desiredBulletMove * 2; //double the desired move due to non-linear scaling at edg
+    auto expectedBulletMove = desiredBulletMove * 2; // Double the desired move due to non-linear scaling at edg
     auto expectedPosition = sf::Vector2f(startingPosition.x, startingPosition.y - expectedBulletMove);
             CHECK(int(finalPosition.x)==int(expectedPosition.x));
             CHECK(int(finalPosition.y)==int(expectedPosition.y));
@@ -519,7 +517,7 @@ TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly a
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto bulletShootAngle = 180;
-    auto bulletStartingPoint = resolution.y; //define the starting distance from centre;
+    auto bulletStartingPoint = resolution.y; // Define the starting distance from centre;
     Bullet bullet(resolution,
                   bulletStartingPoint,
                   bulletShootAngle,
@@ -532,7 +530,7 @@ TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly a
     bullet.setMove(desiredBulletMove);
     bullet.update();
     auto finalScale = bullet.getRadius();
-    //the position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the bullet
+    // The position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
             CHECK(finalScale < startingScale);
 }
 
@@ -557,12 +555,11 @@ TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwar
     bullet.setMove(desiredBulletMove);
     bullet.update();
     auto finalScale = bullet.getRadius();
-    //the position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
+    // The position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
             CHECK(finalScale > startingScale);
 }
 
-//Meteoride unit tests
-
+// Meteoroid unit tests
 TEST_CASE ("Creating a meteoroid entity succeeds") {
     TextureHolder textures;
     textures.load(textures::Meteoroid, "resources/meteoroid.png");
@@ -570,7 +567,7 @@ TEST_CASE ("Creating a meteoroid entity succeeds") {
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto meteoroidShootAngle = 180;
-    auto meteoroidStartingPoint = resolution.y; //define the starting distance from centre;
+    auto meteoroidStartingPoint = resolution.y; // Define the starting distance from centre;
             CHECK_NOTHROW(
             Bullet meteoroid(resolution,
                           meteoroidStartingPoint,
@@ -588,8 +585,8 @@ TEST_CASE ("Shooting a meteoroid stright up moves corretly") {
     SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
-    auto meteoroidShootAngle = 180; //meteoroid moves directly up
-    auto meteoroidStartingPoint = resolution.y; //define the starting distance from centre;
+    auto meteoroidShootAngle = 180; // Meteoroid moves directly up
+    auto meteoroidStartingPoint = resolution.y; //Define the starting distance from centre;
     Bullet meteoroid(resolution,
                   meteoroidStartingPoint,
                   meteoroidShootAngle,
@@ -598,11 +595,11 @@ TEST_CASE ("Shooting a meteoroid stright up moves corretly") {
                   textures,
                   textures::Meteoroid);
     auto startingPosition = meteoroid.getPosition();
-    auto desiredMeteoroidMove = -1; //move the meteoroid 2 pixels away from starting point, from point of fire
+    auto desiredMeteoroidMove = -1; // Move the meteoroid 2 pixels away from starting point, from point of fire
     meteoroid.setMove(desiredMeteoroidMove);
     meteoroid.update();
     auto finalPosition = meteoroid.getPosition();
-    auto expectedMeteoroidMove = desiredMeteoroidMove * 2; //double the desired move due to non-linear scaling at edg
+    auto expectedMeteoroidMove = desiredMeteoroidMove * 2; // Double the desired move due to non-linear scaling at edge
     auto expectedPosition = sf::Vector2f(startingPosition.x, startingPosition.y - expectedMeteoroidMove);
             CHECK(int(finalPosition.x)==int(expectedPosition.x));
             CHECK(int(finalPosition.y)==int(expectedPosition.y));
@@ -628,7 +625,7 @@ TEST_CASE ("Shooting a meteoroid stright up causes them to scale down as they fl
     meteoroid.setMove(desiredMeteoroidMove);
     meteoroid.update();
     auto finalScale = meteoroid.getRadius();
-    //the position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the meteoroid
+    // The position below if the original, +2 pixles due to the scaling of effect of the non-linear motion of the meteoroid
             CHECK(finalScale < startingScale);
 }
 
@@ -652,7 +649,7 @@ TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves out
     meteoroid.setMove(desiredMeteoroidMove);
     meteoroid.update();
     auto finalScale = meteoroid.getRadius();
-    //the position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
+    // The position below if the original, +2 pixels due to the scaling of effect of the non-linear motion of the bullet
             CHECK(finalScale > startingScale);
 }
 
@@ -718,7 +715,7 @@ TEST_CASE ("Instructing a basic enemy to move positions the transformation(linea
     auto radiusChange = 10;
     enemy.setMove(angleChange, radiusChange);
     enemy.update();
-// calculate the depth scale of the sprite to take int account non-linear scaling for predicted final position
+    // Calculate the depth scale of the sprite to take int account non-linear scaling for predicted final position
     auto offset = resolution.x * 0.3; //offset due to ship starting at centre of the screen
     auto depthScale = (enemy.getDistanceFromCentre() + offset) / (resolution.x / 2);
     auto distanceFromCentre = radiusChange * depthScale;
@@ -730,7 +727,7 @@ TEST_CASE ("Instructing a basic enemy to move positions the transformation(linea
             CHECK(int(enemy.getPosition().x)==int(xPosExpected));
 }
 
-TEST_CASE ("Instructing an enemy to move positions the transformation(angular motion included)") {
+TEST_CASE ("Instructing an enemy to move positions the transformation (angular motion included)") {
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -751,7 +748,7 @@ TEST_CASE ("Instructing an enemy to move positions the transformation(angular mo
     auto radiusChange = 10;
     enemy.setMove(angleChange, radiusChange);
     enemy.update();
-// calculate the depth scale of the sprite to take int account non-linear scaling for predicted final position
+    // Calculate the depth scale of the sprite to take int account non-linear scaling for predicted final position
     auto offset = resolution.x * 0.3; //offset due to ship starting at centre of the screen
     auto depthScale = (enemy.getDistanceFromCentre() + offset) / (resolution.x / 2);
     auto distanceFromCentre = radiusChange * depthScale;
@@ -763,7 +760,7 @@ TEST_CASE ("Instructing an enemy to move positions the transformation(angular mo
             CHECK(int(enemy.getPosition().x)==int(xPosExpected));
 }
 
-TEST_CASE ("Enemy scale up as moving outwards") {
+TEST_CASE ("Enemy scale up as moving outwards away from ") {
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -780,7 +777,7 @@ TEST_CASE ("Enemy scale up as moving outwards") {
                 MovementDirection::Clockwise);
     enemy.update();
     enemy.reset();
-    //getting the actual size of ths ship sprite to check that it scaled. looking at underlying sprite
+    // Getting the actual size of ths ship sprite to check that it scaled.
     auto originalShipScale = enemy.getRadius();
 
 
@@ -793,13 +790,13 @@ TEST_CASE ("Enemy scale up as moving outwards") {
 
 }
 
-TEST_CASE ("Enemy scale down as moving inwards") {
+TEST_CASE ("Enemy scale down as it moves inwards towards centre") {
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
 
     auto resolution = sf::Vector2i{1920, 1080};
-    //position the ship some distance away from the centre to start with
+    // Position the ship some distance away from the centre to start with
     auto startingShipRadius = resolution.y / 3;
 
     Enemy enemy(resolution,
@@ -816,14 +813,14 @@ TEST_CASE ("Enemy scale down as moving inwards") {
     enemy.setMove(angleChange,-initialMove);
     enemy.update();
     auto originalShipSize = enemy.getRadius();
-    auto radiusChange = -50; //negative to move the ship inwards(towards centre) to check it gets smaller
+    auto radiusChange = -50; // Negative to move the ship inwards (towards centre)
     enemy.setMove(angleChange, radiusChange);
     enemy.update();
     auto finalShipSize = enemy.getRadius();
             CHECK(finalShipSize < originalShipSize);
 }
 
-TEST_CASE ("killing the enemy ship resets the object") {
+TEST_CASE ("Killing the enemy ship resets the object") {
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -844,7 +841,7 @@ TEST_CASE ("killing the enemy ship resets the object") {
     auto startingAngle = enemy.getAngle();
     auto angleChange = 10;
     auto radiusChange = 10;
-    enemy.setMove(angleChange, radiusChange); //simulates the ship having moved away from the start
+    enemy.setMove(angleChange, radiusChange); // Simulates the ship having moved away from the start
     enemy.update();
 
     enemy.die();
@@ -858,7 +855,7 @@ TEST_CASE ("killing the enemy ship resets the object") {
 ///  Collision detection tests
 ////////////////////////////////////////////////////////////
 
-TEST_CASE("two objects on top of each other report a collision"){
+TEST_CASE("Two objects on top of each other report a collision"){
     auto resolution = sf::Vector2i{1920, 1080};
     TextureHolder textures;
 
@@ -867,12 +864,12 @@ TEST_CASE("two objects on top of each other report a collision"){
 
     sf::Sprite sprite2;
     sprite2.setPosition(10,10);
-    //each sprite needs a texture so it can have a size associated with it to simulate the collision detection
+    // Each sprite needs a texture so it can have a size associated with it to simulate the collision detection // ToDo: Remove
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     sprite1.setTexture(textures.get(textures::EnemyShipGrey));
     sprite2.setTexture(textures.get(textures::EnemyShipGrey));
 
-    //The EntityController requires the playership object as part of its constructor so we have to make one
+    // The EntityController requires the playerShip object as part of its constructor
 
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
 
@@ -885,15 +882,15 @@ TEST_CASE("two objects on top of each other report a collision"){
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    //Lastly, the EntityController needs a score and speedModifier
+    // EntityController needs a score and speedModifier
     Score score;
     float speedModifier = 1;
     EntityController entityController(resolution,playerShip,textures,score,speedModifier);
-//we can now check that the two sprites, at the same location, return a collision
+    // We can now check that the two sprites, at the same location, return a collision
     CHECK(entityController.collides(sprite1,sprite2));
 }
 
-TEST_CASE("two objects on that are not on top of eachother do not report a collission"){
+TEST_CASE("Two objects on that are not on top of each other do not report a collision"){
     auto resolution = sf::Vector2i{1920, 1080};
     TextureHolder textures;
 
@@ -908,7 +905,7 @@ TEST_CASE("two objects on that are not on top of eachother do not report a colli
     sprite1.setTexture(textures.get(textures::EnemyShipGrey));
     sprite2.setTexture(textures.get(textures::EnemyShipGrey));
 
-    //The EntityController requires the playership object as part of its constructor so we have to make one
+    // The EntityController requires the playerShip object as part of its constructor so we have to substantiate one
 
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
 
@@ -921,10 +918,10 @@ TEST_CASE("two objects on that are not on top of eachother do not report a colli
                           shipScale,
                           entity::PlayerShip,
                           textures);
-    //Lastly, the EntityController needs a score and speedModifier
+    // Lastly, the EntityController needs a score and speedModifier
     Score score;
     float speedModifier = 1;
     EntityController entityController(resolution,playerShip,textures,score,speedModifier);
-//we can now check that the two sprites, at diffrent locations, do not report true
+    // We can now check that the two sprites, at different locations, do not report true
             CHECK(!entityController.collides(sprite1,sprite2));
 }
