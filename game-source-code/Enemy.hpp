@@ -46,8 +46,7 @@ public:
           const TextureHolder &textureHolder,
           const textures::ID id,
           MovementState movementState,
-          MovementDirection movementDirection,
-          sf::Vector2f centre = {0,0});
+          MovementDirection movementDirection);
 
     void setMove(float angle, float distance) override;
     void setMove(float angle, float distance, sf::Vector2f centre);
@@ -65,6 +64,7 @@ public:
     const int getLives() const override;
     void die() override;
     const entity::ID getType() const;
+    void setScale(float scaleX,float scaleY);
 
     const MovementState getMovementState() const;
     const int getMovementDirectionSign() const;

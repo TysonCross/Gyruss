@@ -68,8 +68,8 @@ void EntityController::spawnSpiral(entity::ID id, textures::ID shipVariant, Move
                                          _textureHolder,      // const TextureHolder &textureHolder
                                          shipVariant,         // const textures::ID id
                                          movementState, // MovementState movementState
-                                         movementDirection,  // MovementDirection movementDirection
-                                         sf::Vector2f{0,0}); //Spawn at centre of screen
+                                         movementDirection);  // MovementDirection movementDirection
+
     _enemies.push_front(std::move(enemy));
 }
 
@@ -92,6 +92,8 @@ void EntityController::spawnMeteoroid()
 void EntityController::spawnSatellites()
 {
     _timerSatellite.restart();
+    auto satelliteCirclingRadius = _resolution.y/20;
+    auto satelliteSpawnScale = 0.7;
     auto movementDirection = static_cast<MovementDirection>(rand() % 2);
     auto numberOfSatellites = 3;
     _satellitesAlive = numberOfSatellites + 1;
@@ -100,8 +102,8 @@ void EntityController::spawnSatellites()
     auto currentShipAngle = _playerShip.getAngle();
     auto satelliteScaleSize = 0.4;
     //convert back from polar to x&y to define the offset of satellite
-    auto satelliteSpawnLocation = sf::Vector2f{float(satelliteScaleSize*currentShipRadius*sin(common::degreeToRad(currentShipAngle))),
-                                               float(satelliteScaleSize*currentShipRadius*cos(common::degreeToRad(currentShipAngle)))};
+    auto satelliteSpawnLocation = sf::Vector2f{float(satelliteScaleSize*currentShipRadius*sin(common::degreeToRad(currentShipAngle+180))),
+                                               float(satelliteScaleSize*currentShipRadius*cos(common::degreeToRad(currentShipAngle+180)))};
     for (auto i = 0; i < numberOfSatellites; i++)
     {
         //introduce a random element on spawn and add to the generic centre the others use
@@ -109,17 +111,19 @@ void EntityController::spawnSatellites()
         auto randomOffsetY = (rand() % 20 + 10.0f);
         satelliteSpawnLocation={satelliteSpawnLocation.x+randomOffsetX,satelliteSpawnLocation.y+randomOffsetY};
         auto enemy = std::make_unique<Enemy>(_resolution,         // const sf::Vector2i &resolution
-                                             50, // radius around spawn offset
+                                             satelliteCirclingRadius, // radius around spawn offset
                                              angle, // float angle
-                                             0.7,                 // float scale
+                                             satelliteSpawnScale,                 // float scale
                                              entity::Satellite,         // const entity::ID type
                                              _textureHolder,      // const TextureHolder &textureHolder
                                              textures::Satellite,         // const textures::ID id
                                              MovementState::SmallCircling, // MovementState movementState
-                                             movementDirection,  // MovementDirection movementDirection
-                                             satelliteSpawnLocation); //offset the satellite spawn
+                                             movementDirection);  // MovementDirection movementDirection
+
         angle += 120;
-        enemy->move(); //moves satellite on its spawn so its not off screen
+        enemy->setScale(0,0);
+        enemy->setMove(angle,satelliteCirclingRadius,satelliteSpawnLocation); //moves satellite on its spawn so its not off screen
+        enemy->move();
         _enemies.push_front(std::move(enemy));
     }
 }
@@ -248,7 +252,7 @@ void EntityController::setMove()
     auto growShipScreenZone = _resolution.y/5.f; // Prevents change in behaviour near boundary
     auto shipClipScreenZone = _resolution.y/2.5f; // Prevents change in behaviour near boundary
     auto minimumRadius = (_resolution.y/2)*0.06;
-    auto satelliteGrowIncrement = 3.5f;
+    auto satelliteGrowIncrement = 2.0f;
 //    auto satelliteAngle =
 
     for (auto &enemy : _enemies)
@@ -258,9 +262,9 @@ void EntityController::setMove()
         auto currentEnemyMovementState = enemy->getMovementState();
         auto currentEnemyAngle = enemy->getAngleWithOffset();
         auto currentEnemyRadius= enemy->getRadius();
+        auto currentEnemyDistenceFromCentre= enemy->getDistanceFromCentreWithOffset();
         auto currentEnemyCentre = enemy->getCentre();
         auto currentEnemyType = enemy->getType();
-
         if ((currentEnemyRadius > _resolution.y / 2.f)  // Don/t leave game play area, respawn in centre after leaving
              || ((currentEnemyMovementState == MovementState::SpiralIn) && (currentEnemyRadius < minimumRadius)))//reset from spiral inwards
         {
@@ -384,7 +388,6 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
                                                              _textureHolder,
                                                              textures::Explosion);
                 _explosions.push_back(std::move(explosion));
-                std::cout << "enemy type killed " << (*enemy)->getType() << std::endl;
                 bullet = _bulletsPlayer.erase(bullet);
                 (*enemy)->die();
                 _score.incrementEnemiesKilled((*enemy)->getType());

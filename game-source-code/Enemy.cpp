@@ -16,13 +16,12 @@ Enemy::Enemy(const sf::Vector2i &resolution,
              const TextureHolder &textureHolder,
              const textures::ID id,
              MovementState movementState,
-             MovementDirection movementDirection,
-             sf::Vector2f centre) : Entity{resolution,
-                                                           distanceFromCentre,
-                                                           angle,
-                                                           scale,
-                                                           type,
-                                                           textureHolder}
+             MovementDirection movementDirection) : Entity{resolution,
+                                           distanceFromCentre,
+                                           angle,
+                                           scale,
+                                           type,
+                                           textureHolder}
 {
     _id = id;
     _lives = 1;
@@ -33,9 +32,9 @@ Enemy::Enemy(const sf::Vector2i &resolution,
     _movementState = movementState;
     _movementDirection = movementDirection;
 
-    _centre == centre;
+    _centre = {0,0};
 
-    setMove(angle,distanceFromCentre,centre); //Initialised position at starting point
+    setMove(angle,distanceFromCentre,_centre); //Initialised position at starting point
 }
 
 void Enemy::setMove(float angle, float distance)
@@ -199,6 +198,11 @@ const float Enemy::getAngleWithOffset()
 void Enemy::shoot()
 {
     _isShooting = false;
+}
+
+void Enemy::setScale(float scaleX, float scaleY)
+{
+    _sprite.setScale(scaleX,scaleY);
 }
 
 void Enemy::move()
