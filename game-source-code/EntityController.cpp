@@ -176,7 +176,6 @@ void EntityController::spawnEntities()
 void EntityController::playerShoot()
 {
     auto numberOfBullets = 1;
-//        auto bulletOffset = _playerShip.getSprite().getLocalBounds().width;
     auto bulletOffset = 3.8f;
     auto bulletScale = _playerShip.getScale().x * 1.5f;
 
@@ -631,7 +630,6 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
 
 const void EntityController::draw(sf::RenderWindow &renderWindow)
 {
-
     for (auto &enemy : _enemies)
         renderWindow.draw(enemy->getSprite());
 
@@ -646,7 +644,6 @@ const void EntityController::draw(sf::RenderWindow &renderWindow)
 
     for (auto &explosion : _explosions)
         renderWindow.draw(explosion->getSprite());
-
 }
 
 void EntityController::changeGlobalSpeed(float amount = 0.1f)
