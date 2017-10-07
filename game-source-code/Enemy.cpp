@@ -250,3 +250,8 @@ void Enemy::resetShootTimer()
 {
     _timerShoot.restart();
 }
+
+const float Enemy::getAliveTimeElapsedTime() const
+{
+    return _timerAlive.getElapsedTime().asSeconds();
+}

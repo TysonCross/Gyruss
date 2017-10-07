@@ -46,7 +46,9 @@ set(SOURCE_FILES_BASE
         game-source-code/Meteoroid.cpp
         game-source-code/Meteoroid.hpp
         game-source-code/Shield.cpp
-        game-source-code/Shield.hpp)
+        game-source-code/Shield.hpp
+        game-source-code/perlinNoise.cpp
+        game-source-code/perlinNoise.hpp)
 
 set(SOURCE_FILES_TEST
         ${SOURCE_FILES_BASE}

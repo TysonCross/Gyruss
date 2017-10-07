@@ -34,6 +34,11 @@ EntityController::EntityController(sf::Vector2i resolution,
     _bulletPlayerSpeed = 25;    //  (will be made negative)
     _bulletEnemySpeed = 20;
     _meteoroidSpeed = 30;
+    auto seed0 = 4294967296;
+    auto seed1 = 1664525;
+    auto _xNoise = PerlinNoise(seed0);
+    auto _yNoise = PerlinNoise(seed1);
+
 }
 
 
@@ -47,7 +52,6 @@ void EntityController::spawnSpiral(entity::ID id, textures::ID shipVariant, Move
             spiralDistanceFromCentre=(_resolution.y/2)-1;
             spiralAngle=180+_playerShip.getAngle();
             _timerSpawnFromPerimeter.restart();
-
             break;
 
         case (MovementState::SpiralOut):
@@ -55,7 +59,11 @@ void EntityController::spawnSpiral(entity::ID id, textures::ID shipVariant, Move
             spiralAngle=0;
             _timerSpawnFromCentre.restart();
             break;
-
+        case (MovementState::Wandering):
+            spiralDistanceFromCentre=rand()%_resolution.x/4;
+            spiralAngle=rand()%360-180;
+            _timerSpawnFromCentre.restart();
+            break;
         default :
             break;
     }
@@ -151,9 +159,10 @@ void EntityController::spawnEntities()
 
             float enemySpawnFromPerimeterTimer = fmod(rand(),2.4f) + 1.6f;
             if ((_timerSpawnFromPerimeter.getElapsedTime().asSeconds() > enemySpawnFromPerimeterTimer)
-                || (_enemies.size() <= minNumberEnemies))
-                spawnSpiral(entity::Basic,shipVariant,movementDirection,MovementState::SpiralIn);
-
+                || (_enemies.size() <= minNumberEnemies)) {
+                auto movementState = static_cast<MovementState >(rand()%2+1); //random chance to spiral in or wander
+                spawnSpiral(entity::Basic, shipVariant, movementDirection, movementState);
+            }
         }
 
         if (_satellitesAlive == 0)
@@ -282,7 +291,8 @@ void EntityController::setMove()
             // Chance that the ship will enter a new movement state
             if (((currentEnemyType  == entity::Basic) || (currentEnemyType  == entity::BasicAlternate))
                 && (currentEnemyRadius > growShipScreenZone)
-                && (currentEnemyRadius < shipClipScreenZone))
+                && (currentEnemyRadius < shipClipScreenZone)
+                    &&(currentEnemyMovementState!= MovementState::Wandering)) //if the ship spawned in a wandering, then it must remain as such
             {
 
                 if (randomStateChange < 6)                                      //5% chance
@@ -326,7 +336,7 @@ void EntityController::setMove()
                     if (currentEnemyCentre.x < shipCircleRadius)
                     {
                         enemy->setMove(randomAngle * currentEnemyDirectionSign * _speedModifier,
-                                       -shipRadiusIncrease * _speedModifier,
+                                       0,
                                        {currentEnemyCentre.x + shipOffsetIncrement, currentEnemyCentre.y});
                     } else
                     {
@@ -341,8 +351,8 @@ void EntityController::setMove()
                     if (currentEnemyCentre.x > -shipCircleRadius)
                     {
                         enemy->setMove(randomAngle * currentEnemyDirectionSign * _speedModifier,
-                                       -shipRadiusIncrease * _speedModifier,
-                                       {currentEnemyCentre.x-shipOffsetIncrement,currentEnemyCentre.y});
+                                       0,
+                                       {currentEnemyCentre.x - shipOffsetIncrement,currentEnemyCentre.y});
                     } else
                     {
                         enemy->setMove(randomAngle * currentEnemyDirectionSign * _speedModifier,
@@ -355,6 +365,10 @@ void EntityController::setMove()
                                    satelliteGrowIncrement,
                                    currentEnemyCentre);
                     break;
+                case (MovementState::Wandering):
+                    enemy->setMove(float(_xNoise.noise(enemy->getAliveTimeElapsedTime())*5+2*currentEnemyDirectionSign)*_speedModifier,
+                                   float(_yNoise.noise(enemy->getAliveTimeElapsedTime()/3)*50-25)*_speedModifier,
+                                   {0,0});
             }
         }
     }

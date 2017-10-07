@@ -20,6 +20,7 @@
 #include "Explosion.hpp"
 #include "Meteoroid.hpp"
 #include "Score.hpp"
+#include "perlinNoise.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<Bullet>>;
@@ -88,6 +89,9 @@ private:
     float _bulletPlayerSpeed;
     float _bulletEnemySpeed;
     float _meteoroidSpeed;
+    PerlinNoise _xNoise;
+    PerlinNoise _yNoise;
+
 
 };
 
