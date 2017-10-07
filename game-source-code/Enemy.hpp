@@ -24,9 +24,10 @@ enum MovementState
 {
     SpiralOut=0,
     SpiralIn,
+    Wandering,
     CircleOffsetLeft,
     CircleOffsetRight,
-    SmallCircling
+    SmallCircling,
 };
 
 enum MovementDirection
@@ -78,6 +79,7 @@ public:
     const float getDirectionAngle() const;
     void resetShootTimer();
     const float getShootTimerElapsedTime() const;
+    const float getAliveTimeElapsedTime() const;
 
 
 private:
@@ -94,6 +96,7 @@ private:
                         _pointingPosition;
     sf::Vector2f _centre;
     sf::Clock _timerShoot;
+    sf::Clock _timerAlive;
 
     MovementState _movementState;
     MovementDirection _movementDirection;

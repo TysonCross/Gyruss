@@ -6,6 +6,7 @@
 #include <cmath> // M_PI is accessible
 #include <numeric>
 #include <random>
+#include <algorithm>
 
 class PerlinNoise
 {
