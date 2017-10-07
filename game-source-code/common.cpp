@@ -20,12 +20,12 @@ namespace common
 
     float degreeToRad(float degree)
     {
-        return degree * (pi / 180);
+        return degree * (float(M_PI) / 180);
     }
 
     float radToDegree(float radian)
     {
-        return radian * 180 / pi;
+        return radian * 180 / float(M_PI);
     }
 
     std::string padIntToString(unsigned int value, int paddingLength, char padChar)
