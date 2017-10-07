@@ -71,6 +71,9 @@ public:
     ///
     /// The playership position is reset back
     /// to the bottom of the screen, on the movement circle.
+    /// Invulnerability is turned on, and the invulnerability timer restarted,
+    /// The various boolean states are reset to their default values.
+    /// Any upgrades are lost, and these planned moves are immediately performed
     ////////////////////////////////////////////////////////////
     void reset() override;
 
@@ -80,6 +83,12 @@ public:
     ////////////////////////////////////////////////////////////
     void update() override;
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the boolean state of the playerShip upgrade status to true.
+    ///
+    /// If the player performs certain actions, an upgraded state will
+    /// grant a different, more powerful method of shooting.
+    ////////////////////////////////////////////////////////////
     void upgrade();
 
     ////////////////////////////////////////////////////////////
@@ -120,6 +129,11 @@ public:
     void die() override;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Boolean state of the playerShip (alive/dead)
+    ////////////////////////////////////////////////////////////
+    const bool isAlive() const;
+
+    ////////////////////////////////////////////////////////////
     /// \brief Boolean movement state of the playerShip
     ////////////////////////////////////////////////////////////
     const bool isMoving() const;
@@ -130,34 +144,51 @@ public:
     const bool isShooting() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Boolean state of the playerShip after respawning,
+    /// \brief Boolean state of the playerShip taking damage from collisions or not
+    ///
+    /// After respawning, the playerShip is briefly invulnerable, to avoid
+    /// immediate "unfair" deaths from collisions.
     ///
     ////////////////////////////////////////////////////////////
     const bool isInvulnerable() const;
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Boolean state of the playerShip upgrade status
+    ///
+    /// If the player performs certain actions, an upgraded state will
+    /// grant a different, more powerful method of shooting.
+    ////////////////////////////////////////////////////////////
     const bool isUpgraded() const;
-
-    const bool isAlive() const;
-
-    void makeInvulnerable(bool godMode);
-
-    void setShoot();
 
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the angle
+    /// \brief Makes the playerShip unaffected by damage
+    ///
+    /// Developer (debug) mode only. Used with hotkeys in non-release mode
+    /// for testing.
+    ////////////////////////////////////////////////////////////
+    void makeInvulnerable(bool godMode);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the _isShooting state of the playerShip
+    ////////////////////////////////////////////////////////////
+    void setShoot();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the current angle of the playership around the movement circle
     ////////////////////////////////////////////////////////////
     float getAngle();
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the future, intended angle of the playership around the movement circle,
+    /// which will be updated after the "update" method has completed.
+    ////////////////////////////////////////////////////////////
     float getFutureAngle();
 
 private:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Shooting ma lazers
-    ///
-    /// Spawns a projectile
-    ///
+    /// \brief resets the isShooting status to false.
     ////////////////////////////////////////////////////////////
     void shoot();
 
