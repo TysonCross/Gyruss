@@ -32,14 +32,12 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
     _soundMove.setBuffer(_buffer);
     _soundMove.setLoop(1);
     _soundMove.play();
-
     _rectArea = {0, 0, 366, 382}; // Individual sprite tile
     _spriteOffset = _rectArea.width; // Animated sprite tile-set width
     _sprite.setTexture(textureHolder.get(textures::PlayerShip));
     _sprite.setTextureRect(_rectArea);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-
     _isInvulnerable = true;
     _isShooting = false;
     _isMoving = false;
@@ -61,7 +59,6 @@ void PlayerShip::reset()
     _isUpgraded = false;
     _isInvulnerable = true;
     _invulnerabilityTimer.restart();
-
     setMove(0);
 }
 
@@ -187,6 +184,7 @@ void PlayerShip::move()
     _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
     _angle += _futureAngleValue;
     _angle = common::angleFilter(_angle);
+
     //Rotate coordinate system by 90 degrees
     _sprite.setPosition(_distanceFromCentre * sin(common::degreeToRad(_angle)) + _resolution.x / 2,
                         _distanceFromCentre * cos(common::degreeToRad(_angle)) + _resolution.y / 2);

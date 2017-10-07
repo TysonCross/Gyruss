@@ -41,9 +41,10 @@ void SoundController::stopMusic()
 
 void SoundController::getSounds()
 {
-    // Constructs the vector of sound obects by iterating through the enum
+    // Constructs the vector of sound objects by iterating through the enum
     // This relies upon the dummy enum entry soundID_end, and the first entry to
-    // the enum list being assigned to 0, with the remainder in default (non specified) numerical order
+    // the enum list being assigned to 0, with the remaining entries in the enum list
+    // in default (non-specified) numerical order
     sounds::ID id;
     int end = (sounds::soundID_end-1);
     for(auto i = 0; i < end ; i++)
@@ -54,7 +55,6 @@ void SoundController::getSounds()
         _soundList.at(i).setBuffer(_sounds.get(id));
     }
 }
-
 
 void SoundController::loadResources()
 {
