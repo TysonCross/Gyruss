@@ -16,6 +16,8 @@ set(SOURCE_FILES_BASE
         game-source-code/ResourceHolder.hpp
         game-source-code/Starfield.cpp
         game-source-code/Starfield.hpp
+        game-source-code/Animatable.hpp
+        game-source-code/Moveable.hpp
         game-source-code/Entity.hpp
         game-source-code/PlayerShip.cpp
         game-source-code/PlayerShip.hpp
