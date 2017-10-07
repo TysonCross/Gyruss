@@ -173,40 +173,44 @@ void EntityController::spawnEntities()
     }
 }
 
+void EntityController::playerShoot()
+{
+    auto numberOfBullets = 1;
+//        auto bulletOffset = _playerShip.getSprite().getLocalBounds().width;
+    auto bulletOffset = 3.8f;
+    auto bulletScale = _playerShip.getScale().x * 1.5f;
+
+    if (_playerShip.isUpgraded())
+    {
+        numberOfBullets = 2;
+    }
+
+    for (auto i = 0; i < numberOfBullets; i++)
+    {
+        if (numberOfBullets == 1)
+            bulletOffset = 0;
+        else
+            bulletOffset *= -1;
+
+
+        auto bullet = std::make_unique<Bullet>(_resolution,
+                                               _playerShip.getDistanceFromCentre(),
+                                               _playerShip.getAngle() + bulletOffset,
+                                               bulletScale,
+                                               entity::PlayerBullet,
+                                               _textureHolder,
+                                               textures::BulletPlayer);
+
+        _bulletsPlayer.push_front(std::move(bullet));
+        _score.incrementBulletsFired();
+    }
+}
 void EntityController::shoot()
 {
     // Player shooting (Bullet creation)
     if (_playerShip.isShooting())
     {
-        auto numberOfBullets = 1;
-//        auto bulletOffset = _playerShip.getSprite().getLocalBounds().width;
-        auto bulletOffset = 3.8f;
-        auto bulletScale = _playerShip.getScale().x * 1.5f;
-
-        if (_playerShip.isUpgraded())
-        {
-            numberOfBullets = 2;
-        }
-
-        for (auto i = 0; i < numberOfBullets; i++)
-        {
-            if (numberOfBullets == 1)
-                bulletOffset = 0;
-            else
-                bulletOffset *= -1;
-
-
-            auto bullet = std::make_unique<Bullet>(_resolution,
-                                                   _playerShip.getDistanceFromCentre(),
-                                                   _playerShip.getAngle() + bulletOffset,
-                                                   bulletScale,
-                                                   entity::PlayerBullet,
-                                                   _textureHolder,
-                                                   textures::BulletPlayer);
-
-            _bulletsPlayer.push_front(std::move(bullet));
-            _score.incrementBulletsFired();
-        }
+        playerShoot();
     }
 
     // Enemy Shooting

@@ -39,6 +39,7 @@ public:
     void spawnEntities();
     void setMove();
     void shoot();
+    void playerShoot();
     void checkClipping();
     bool checkCollisions();
     bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
