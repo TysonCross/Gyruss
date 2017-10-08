@@ -252,7 +252,7 @@ private:
     /// \param Timer for invulnerability
     sf::Clock _invulnerabilityTimer;
 
-    /// \param
+    /// \param How long the player is invulnerable for after respawning (in seconds)
     float _invulnerabilityTimeAmount;
 };
 
