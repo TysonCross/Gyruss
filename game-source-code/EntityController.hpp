@@ -20,7 +20,7 @@
 #include "Explosion.hpp"
 #include "Meteoroid.hpp"
 #include "Score.hpp"
-#include "perlinNoise.hpp"
+#include "PerlinNoise.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<Bullet>>;

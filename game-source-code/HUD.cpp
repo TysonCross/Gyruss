@@ -53,7 +53,7 @@ void HUD::draw()
 
 
     // Life blocks
-    auto lifeBlockRadius = fontSize/common::pi;
+    auto lifeBlockRadius = fontSize/ M_PI; //common::pi;
     auto lifeBlockSpacing = fontSize*0.9;
 
     sf::CircleShape lifeBlock1;

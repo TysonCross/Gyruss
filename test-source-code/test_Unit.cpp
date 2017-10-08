@@ -10,6 +10,9 @@
 
 #include "SFML/Audio.hpp"
 #include "SFML/Graphics.hpp"
+#include <chrono>
+#include <thread>
+#include "math.h"
 #include "../game-source-code/common.hpp"
 #include "../game-source-code/Bullet.hpp"
 #include "../game-source-code/Enemy.hpp"
@@ -26,6 +29,7 @@
 #include "../game-source-code/ScreenSplash.hpp"
 #include "../game-source-code/SoundController.hpp"
 #include "../game-source-code/Starfield.hpp"
+#include "../game-source-code/common.hpp"
 
 
 #include <iostream>
@@ -99,7 +103,7 @@ TEST_CASE (
 }
 
 ////////////////////////////////////////////////////////////
-///  Movement tests
+///  Movement tests for PlayerShip
 ////////////////////////////////////////////////////////////
 
 // PlayerShip movement tests
@@ -318,8 +322,8 @@ TEST_CASE ("Moving a PlayerShip moves the sprite the correct number of pixels (f
     playerShip.update();
     auto finalLocation = playerShip.getPosition();
     auto expectedLocation = sf::Vector2f{originalLocation.x, resolution.y * shipPathRadiusPadding};
-            CHECK(int(finalLocation.y)==int(expectedLocation.y)); // Cast to int to get closest pixel accuracy
-            CHECK(int(finalLocation.x)==int(expectedLocation.x)); // Cast to int to get closest pixel accuracy
+            CHECK(round(finalLocation.y)==round(expectedLocation.y)); // Cast to int to get closest pixel accuracy
+            CHECK(round(finalLocation.x)==round(expectedLocation.x)); // Cast to int to get closest pixel accuracy
 }
 
 TEST_CASE ("Reseting ship position brings the ship back to spawning point sucessfully") {
@@ -350,8 +354,8 @@ TEST_CASE ("Reseting ship position brings the ship back to spawning point sucess
     playerShip.reset();
     playerShip.update();
     auto finalLocation = playerShip.getPosition();
-            CHECK(int(finalLocation.x)==int(originalLocation.x)); // Cast to int to get closest pixel
-            CHECK(int(finalLocation.y)==int(originalLocation.y)); // Cast to int to get closest pixel
+            CHECK(round(finalLocation.x)==round(originalLocation.x)); // Cast to int to get closest pixel
+            CHECK(round(finalLocation.y)==round(originalLocation.y)); // Cast to int to get closest pixel
 }
 
 TEST_CASE ("Killing the playerShip decrements a life") {
@@ -461,6 +465,10 @@ TEST_CASE ("Killing the playerShip makes the ship Invulnerable") {
             CHECK(playerShip.isInvulnerable() == true);
 }
 
+////////////////////////////////////////////////////////////
+///  Movement tests for Bullet
+////////////////////////////////////////////////////////////
+
 // Bullet movement tests
 TEST_CASE ("Creating a bullet entity succeeds") {
     TextureHolder textures;
@@ -505,8 +513,8 @@ TEST_CASE ("Shooting a bullet stright up moves corretly") {
     auto finalPosition = bullet.getPosition();
     auto expectedBulletMove = desiredBulletMove * 2; // Double the desired move due to non-linear scaling at edg
     auto expectedPosition = sf::Vector2f(startingPosition.x, startingPosition.y - expectedBulletMove);
-            CHECK(int(finalPosition.x)==int(expectedPosition.x));
-            CHECK(int(finalPosition.y)==int(expectedPosition.y));
+            CHECK(round(finalPosition.x)==round(expectedPosition.x));
+            CHECK(round(finalPosition.y)==round(expectedPosition.y));
 }
 
 TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly away") {
@@ -559,6 +567,10 @@ TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwar
             CHECK(finalScale > startingScale);
 }
 
+////////////////////////////////////////////////////////////
+///  Movement tests for Meteoroid
+////////////////////////////////////////////////////////////
+
 // Meteoroid unit tests
 TEST_CASE ("Creating a meteoroid entity succeeds") {
     TextureHolder textures;
@@ -601,8 +613,8 @@ TEST_CASE ("Shooting a meteoroid stright up moves corretly") {
     auto finalPosition = meteoroid.getPosition();
     auto expectedMeteoroidMove = desiredMeteoroidMove * 2; // Double the desired move due to non-linear scaling at edge
     auto expectedPosition = sf::Vector2f(startingPosition.x, startingPosition.y - expectedMeteoroidMove);
-            CHECK(int(finalPosition.x)==int(expectedPosition.x));
-            CHECK(int(finalPosition.y)==int(expectedPosition.y));
+            CHECK(round(finalPosition.x)==round(expectedPosition.x));
+            CHECK(round(finalPosition.y)==round(expectedPosition.y));
 }
 
 TEST_CASE ("Shooting a meteoroid stright up causes them to scale down as they fly away") {
@@ -653,7 +665,9 @@ TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves out
             CHECK(finalScale > startingScale);
 }
 
-//Enemy Unit tests
+////////////////////////////////////////////////////////////
+///  Enemey Object Movement tests
+////////////////////////////////////////////////////////////
 
 TEST_CASE ("Creating an object enemy succeeds") {
 
@@ -690,8 +704,8 @@ TEST_CASE ("Basic enemy starts at centre of screen by default") {
                 MovementState::SpiralOut,
                 MovementDirection::Clockwise);
     enemy.update();
-            CHECK(enemy.getPosition().x == resolution.x / 2);
-            CHECK(enemy.getPosition().y == resolution.y / 2);
+            CHECK(round(enemy.getPosition().x) == round(resolution.x / 2));
+            CHECK(round(enemy.getPosition().y) == round(resolution.y / 2));
 }
 
 TEST_CASE ("Instructing a basic enemy to move positions the transformation(linear motion)") {
@@ -723,8 +737,8 @@ TEST_CASE ("Instructing a basic enemy to move positions the transformation(linea
     auto xPosExpected = distanceFromCentre * sin(common::degreeToRad(angleChange)) + (resolution.x / 2);
     auto yPosExpected = distanceFromCentre * cos(common::degreeToRad(angleChange)) + (resolution.y / 2);
 
-            CHECK(int(enemy.getPosition().y)==int(yPosExpected));
-            CHECK(int(enemy.getPosition().x)==int(xPosExpected));
+            CHECK(round(enemy.getPosition().y)==round(yPosExpected));
+            CHECK(round(enemy.getPosition().x)==round(xPosExpected));
 }
 
 TEST_CASE ("Instructing an enemy to move positions the transformation (angular motion included)") {
@@ -756,8 +770,8 @@ TEST_CASE ("Instructing an enemy to move positions the transformation (angular m
     auto xPosExpected = distanceFromCentre * sin(common::degreeToRad(angleChange)) + (resolution.x / 2);
     auto yPosExpected = distanceFromCentre * cos(common::degreeToRad(angleChange)) + (resolution.y / 2);
 
-            CHECK(int(enemy.getPosition().y)==int(yPosExpected));
-            CHECK(int(enemy.getPosition().x)==int(xPosExpected));
+            CHECK(round(enemy.getPosition().y)==round(yPosExpected));
+            CHECK(round(enemy.getPosition().x)==round(xPosExpected));
 }
 
 TEST_CASE ("Enemy scale up as moving outwards away from ") {
@@ -852,6 +866,115 @@ TEST_CASE ("Killing the enemy ship resets the object") {
 }
 
 ////////////////////////////////////////////////////////////
+///  Shield tests
+////////////////////////////////////////////////////////////
+
+TEST_CASE ("Shield Spawns at player ship location"){
+    TextureHolder textures;
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer, "resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    playerShip.update(); //move playerShip to origin
+    Shield shield(resolution,shipPathRadius,0,shipScale,entity::Shield,textures,playerShip);
+    shield.update();
+    auto endShipPosition = playerShip.getPosition();
+    auto endShieldPosition = shield.getSprite().getPosition();
+    CHECK(roundf(endShieldPosition.x)==roundf(endShieldPosition.x));
+            CHECK(roundf(endShieldPosition.y)==roundf(endShieldPosition.y));
+}
+
+
+TEST_CASE ("Shield follows the player ship location"){
+    TextureHolder textures;
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::BulletPlayer, "resources/bullet_player.png");
+
+    SoundHolder sounds;
+    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
+    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
+    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    playerShip.update(); //move playerShip to origin
+    Shield shield(resolution,shipPathRadius,0,shipScale,entity::Shield,textures,playerShip);
+    shield.update();
+    auto moveAngle = 90;
+    playerShip.setMove(moveAngle);
+    playerShip.update();
+    shield.update();
+    auto endShipPosition = playerShip.getPosition();
+    auto endShieldPosition = shield.getSprite().getPosition();
+            CHECK(roundf(endShieldPosition.x)==roundf(endShieldPosition.x));
+            CHECK(roundf(endShieldPosition.y)==roundf(endShieldPosition.y));}
+
+//This marks the end of the movement tests for all movable objects
+
+////////////////////////////////////////////////////////////
+///  Explosion tests
+////////////////////////////////////////////////////////////
+
+TEST_CASE("Explosion spawns at desired location")
+{
+    TextureHolder textures;
+    textures.load(textures::Explosion, "resources/explosion.png");
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+
+    auto resolution = sf::Vector2i{1920, 1080};
+    auto spawnRadius = 100;
+    auto spawnAngle = 100;
+    auto spawnScale = 0.5;
+
+    //will create a enemy ship to simulate the method used in the main game
+    Enemy enemy(resolution,
+                spawnRadius,
+                spawnAngle,
+                spawnScale,
+                entity::Basic,
+                textures,
+                textures::EnemyShipGrey,
+                MovementState::SpiralOut,
+                MovementDirection::Clockwise);
+    enemy.update();
+//spawn the explosion at the location of the ship. can then check the location without needing to go via polar
+    Explosion explosion{resolution,
+                        enemy.getRadius(),
+                        enemy.getAngleWithOffset(),
+                        enemy.getScale().x*2,
+                        entity::Explosion,
+                        textures,
+                        textures::Explosion};
+
+
+    CHECK(roundf(explosion.getPosition().x)==roundf(enemy.getPosition().x));
+            CHECK(roundf(explosion.getPosition().y)==roundf(enemy.getPosition().y));
+}
+
+
+////////////////////////////////////////////////////////////
 ///  Collision detection tests
 ////////////////////////////////////////////////////////////
 
@@ -924,4 +1047,148 @@ TEST_CASE("Two objects on that are not on top of each other do not report a coll
     EntityController entityController(resolution,playerShip,textures,score,speedModifier);
     // We can now check that the two sprites, at different locations, do not report true
             CHECK(!entityController.collides(sprite1,sprite2));
+}
+
+////////////////////////////////////////////////////////////
+///  Score object tests
+////////////////////////////////////////////////////////////
+
+TEST_CASE("Score object correctly calculates game score for killing enemy")
+{
+    Score score;
+    score.reset();
+    //simulate killing 3 enemies and check reports the correct score
+    score.incrementEnemiesKilled(entity::Basic);
+    score.incrementEnemiesKilled(entity::Basic);
+    score.incrementEnemiesKilled(entity::Satellite);
+    auto expectedScore = 500+500+150; //500 for basic and 150 for satellite
+    CHECK(expectedScore==score.getScore());
+}
+
+TEST_CASE("Score object correctly calculates records number of enemies killed")
+{
+    Score score;
+    score.reset();
+    //simulate killing 3 enemies and check reports the correct score
+    score.incrementEnemiesKilled(entity::Basic);
+    score.incrementEnemiesKilled(entity::Basic);
+    score.incrementEnemiesKilled(entity::Satellite);
+    auto expectedNumberOfEnemies =3;
+    CHECK(expectedNumberOfEnemies==score.getEnemiesKilled());
+}
+
+TEST_CASE("Score object correctly counts the number of bullets fired")
+{
+    Score score;
+    score.reset();
+    auto expectedBullets=0;
+    for(int i =0; i<10;i++){
+        score.incrementBulletsFired();
+        expectedBullets++;
+    }
+    CHECK(expectedBullets==score.getBulletsFired());
+}
+
+TEST_CASE("Score object correctly calculates player accuracy")
+{
+    Score score;
+    score.reset();
+    auto bulletesFired=0.0f;
+    for(int i =0; i<5;i++){
+        score.incrementBulletsFired();
+        bulletesFired++;
+    }
+    auto enemiesHit=0.0f;
+    for(int i =0; i<5;i++){
+        score.incrementBulletsFired();
+        score.incrementEnemiesKilled(entity::Satellite);
+        bulletesFired++;
+        enemiesHit++;
+    }
+    //accuracy is defines as hits/shotsfired
+    auto expectedAccuracy = enemiesHit/bulletesFired;
+            CHECK(expectedAccuracy==score.getPlayerAccuracy());
+}
+
+TEST_CASE("Score object correctly recoreds player life length")
+{
+    sf::Clock testClock;
+    Score score;
+    score.reset();
+    testClock.restart();
+    std::this_thread::sleep_for(std::chrono::milliseconds(100)); //put the sleep in a thread to not slow down tests
+    auto playerLife = score.getTimeAlive();
+    auto expectedLife = testClock.getElapsedTime().asSeconds();
+            CHECK((roundf(playerLife * 1000) / 1000)==(roundf(expectedLife * 1000) / 1000));
+}
+
+TEST_CASE("Score object correctly recoreds longest player life length")
+{
+    sf::Clock testClock;
+    Score score;
+    score.reset();
+    testClock.restart();
+    auto longestMeasuredLife = 0.0f;
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    score.resetLifeTimer();
+    if(testClock.getElapsedTime().asSeconds()>longestMeasuredLife)
+        longestMeasuredLife = testClock.getElapsedTime().asSeconds();
+    testClock.restart();
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    score.resetLifeTimer();
+    if(testClock.getElapsedTime().asSeconds()>longestMeasuredLife)
+        longestMeasuredLife = testClock.getElapsedTime().asSeconds();
+    testClock.restart();
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    score.resetLifeTimer();
+    if(testClock.getElapsedTime().asSeconds()>longestMeasuredLife)
+        longestMeasuredLife = testClock.getElapsedTime().asSeconds();
+    testClock.restart();
+
+    auto longestCalculatedPlayerLife = score.getLongestTimeAlive();
+    //rounding is done to 3 decimal places
+            CHECK((roundf(longestCalculatedPlayerLife * 1000) / 1000)==(roundf(longestMeasuredLife * 1000) / 1000));
+}
+
+////////////////////////////////////////////////////////////
+///  Common functions tests
+////////////////////////////////////////////////////////////
+
+TEST_CASE("Angle filter correctly casts angles to correct quadrent (incrementing over 360 degrees)")
+{
+    auto inputAngle = 300;
+    auto incrementAngle = 100;
+    auto expectedCastAngle = inputAngle+incrementAngle-360; //put into correct quad by -360 as positive
+    CHECK(common::angleFilter(inputAngle+incrementAngle)==expectedCastAngle);
+}
+
+TEST_CASE("Angle filter correctly casts angles to correct quadrent (decrement angle bellow 0)")
+{
+    auto inputAngle = 100;
+    auto incrementAngle = 200;
+    auto expectedCastAngle = inputAngle-incrementAngle+360; // put into correct quad by + 360 as negative
+            CHECK(common::angleFilter(inputAngle-incrementAngle)==expectedCastAngle);
+}
+
+TEST_CASE("Degrees to Radian conversion is correct")
+{
+    auto inputDegree = 90;
+    auto expectedRadian=inputDegree*(M_PI/180);
+    CHECK(round(common::degreeToRad(inputDegree)*1000)/1000==round(expectedRadian*1000)/1000);
+}
+
+TEST_CASE("Radian to Degrees conversion is correct")
+{
+    auto inputRadian = M_PI/2;
+    auto expectedDegree=inputRadian*(180/M_PI);
+            CHECK(round(common::radToDegree(inputRadian)*1000)/1000==round(expectedDegree*1000)/1000);
+}
+
+TEST_CASE("String padding correctly appends chars to an integer")
+{
+    auto inputInt = 10;
+    auto desiredStringLength = 3;
+    auto expectedString = " 10"; //space at the start of the string
+    auto charPadding = ' ';
+    CHECK(common::padIntToString(inputInt,desiredStringLength,charPadding)==expectedString);
 }

@@ -17,7 +17,7 @@
 //USEFUL FUNCTIONS and CONSTANTS
 namespace common
 {
-    const float pi = 3.1415;
+//      const float pi = 3.1415;
 
     /// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
     struct position
