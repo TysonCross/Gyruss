@@ -222,6 +222,5 @@ void ScreenSplash::animatePlanet(sf::Sprite &sprite,
     {
         i++;
     }
-
         sprite.setTextureRect(rectArea);
 }

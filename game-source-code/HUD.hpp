@@ -34,6 +34,10 @@ public:
     /// \param fontHolder is used to pass the required fonts to the HUD
     /// \param score object enables the HUD to display the current game score, calculated and stored in score object
     /// \param playerShip provides the playerShip state to the HUD, so the player can see if his is alive/dead/invulnerable
+    ///
+    /// \see sf::RenderWindow
+    /// \see sf::Vector2i
+    /// \see PlayerShip.hpp
     ////////////////////////////////////////////////////////////
     HUD(const sf::Vector2i resolution,
         sf::RenderWindow &renderWindow,
