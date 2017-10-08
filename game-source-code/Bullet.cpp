@@ -10,7 +10,7 @@
 
 #include "Bullet.hpp"
 
-Bullet::Bullet(const sf::Vector2i resolution,
+Bullet::Bullet(const Vector2i resolution,
                float distanceFromCentre,
                float angle,
                float scale,
@@ -33,7 +33,6 @@ Bullet::Bullet(const sf::Vector2i resolution,
     _sprite.setScale(_scale, _scale);
     _sprite.setRotation(-_angle);
     _isMoving = true;
-//    setMove((_distanceFromCentre - (_distanceFromCentre*0.5))); // Spawn at Ship Gun barrel
     setMove(0); // Spawn at Ship Gun barrel
     update();
 }
@@ -47,7 +46,7 @@ void Bullet::setMove(float distance)
 void Bullet::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
+    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move off-screen
     _sprite.setScale(0,0);
 }
 
@@ -59,7 +58,7 @@ void Bullet::update()
         {
             _animationFPSLimit = 0;
             _rectArea.left += _spriteOffset;
-            if (_rectArea.left > (420 - 70)) // Sprite tileset width - individual tile
+            if (_rectArea.left > (420 - 70)) // Sprite tile-set width - individual tile
             {
                 _rectArea.left = 0;
             }
@@ -74,9 +73,9 @@ void Bullet::update()
 
 const float Bullet::getRadius() const
 {
-    auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
-    auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
-    sf::Vector2f length = mid-pos;
+    auto mid = Vector2f{_resolution.x/2.f,_resolution.y/2.f};
+    auto pos = Vector2f{_sprite.getPosition().x,_sprite.getPosition().y};
+    Vector2f length = mid-pos;
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
@@ -85,17 +84,17 @@ const float Bullet::getDistanceFromCentre() const
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f Bullet::getPosition() const
+const Vector2f Bullet::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite& Bullet::getSprite() const
+const Sprite& Bullet::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Bullet::getScale() const
+const Vector2f Bullet::getScale() const
 {
     return _sprite.getScale();
 }
@@ -133,7 +132,7 @@ void Bullet::move()
     auto dimColor = (scale*200) + 55;
     if (getRadius() >= (_resolution.y/2))
 
-    _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
+    _sprite.setColor(Color(dimColor,dimColor,dimColor));
 }
 
 const float Bullet::getAngle() const

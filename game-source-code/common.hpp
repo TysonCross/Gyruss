@@ -14,12 +14,17 @@
 #include <SFML/Audio/Sound.hpp>
 #include "ResourceHolder.hpp"
 
+using std::string;
+using std::to_string;
+
 //USEFUL FUNCTIONS and CONSTANTS
 namespace common
 {
 //    const float pi = 3.1415;
 
+    ////////////////////////////////////////////////////////////
     /// \brief Simple struct of 3 floats, a co-ordinate system (x,y,z)
+    ////////////////////////////////////////////////////////////
     struct position
     {
         float x;
@@ -27,25 +32,35 @@ namespace common
         float z;
     };
 
+    ////////////////////////////////////////////////////////////
     /// \brief Ensures that the angle is always between 0 and 360
+    ////////////////////////////////////////////////////////////
     float angleFilter(float angle);
 
+    ////////////////////////////////////////////////////////////
     /// \brief Converts an angle from degrees to radians
+    ////////////////////////////////////////////////////////////
     float degreeToRad(float degree);
 
+    ////////////////////////////////////////////////////////////
     /// \brief Converts an angle from radians to degrees
+    ////////////////////////////////////////////////////////////
     float radToDegree(float radian);
 
+    ////////////////////////////////////////////////////////////
     /// \brief Converts an int to a string, with optional padding
-    std::string padIntToString(unsigned int value, int paddingLength=0, char padChar='0');
+    ////////////////////////////////////////////////////////////
+    string padIntToString(unsigned int value, int paddingLength=0, char padChar='0');
 
 
 }
 
+////////////////////////////////////////////////////////////
 /// \brief A namespace to collect the ID keys for the game entities
 ///
-/// note that the final entry is enemyID_end, a special empty entry which allows determination of
+/// Note that the final entry is enemyID_end, a special empty entry which allows determination of
 /// size and the first entry is specified as =0, hence enabling indexing of the enum.
+////////////////////////////////////////////////////////////
 namespace entity
 {
     enum ID
@@ -64,11 +79,13 @@ namespace entity
     };
 }
 
+////////////////////////////////////////////////////////////
 /// \brief A namespace to collect the ID keys for the game texture file resources
 ///
 /// This allows easy access while writing code to assign the textures to game objects by ID
 /// note that the final entry is textureID_end, a special empty entry which allows determination of
 /// size and the first entry is specified as =0, hence enabling indexing of the enum.
+////////////////////////////////////////////////////////////
 namespace textures
 {
     enum ID
@@ -93,12 +110,13 @@ namespace textures
         textureID_end
     };
 }
-
+////////////////////////////////////////////////////////////
 /// \brief A namespace to collect the ID keys for the game sound-fx file resources
 ///
 /// This allows easy access while writing code to assign the textures to game objects by ID
 /// note that the final entry is soundID_end, a special empty entry which allows determination of
 /// size and the first entry is specified as =0, hence enabling indexing of the enum.
+////////////////////////////////////////////////////////////
 
 namespace sounds
 {
@@ -118,11 +136,13 @@ namespace sounds
     };
 }
 
+////////////////////////////////////////////////////////////
 /// \brief A namespace to collect the ID keys for the game typeface resources
 ///
 /// This allows easy access while writing code to assign the textures to game objects by ID
 /// note that the final entry is fontID_end, a special empty entry which allows determination of
 /// size and the first entry is specified as =0, hence enabling indexing of the enum.
+////////////////////////////////////////////////////////////
 namespace fonts
 {
     enum ID
@@ -133,8 +153,9 @@ namespace fonts
         fontID_end
     };
 }
-
+////////////////////////////////////////////////////////////
 /// \brief A namespace for the possible game states
+////////////////////////////////////////////////////////////
 namespace game
 {
     enum GameState
@@ -147,7 +168,9 @@ namespace game
     };
 }
 
+////////////////////////////////////////////////////////////
 // Forward declaration
+////////////////////////////////////////////////////////////
 template<typename Resource, typename Identifier>
 class ResourceHolder;
 

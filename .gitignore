@@ -161,6 +161,7 @@ docs/elen3009-project-assessment-form-2017.pdf
 doxygen_source
 docygen_source/**
 Doxyfile
+DoxygenWarningLog.txt
 
 # Executables (Make releases work)
 !executables/game.exe

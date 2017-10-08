@@ -1,9 +1,7 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
-/// \file    ResourceMapper.cpp
-/// \authors Tyson Cross and Chris Maree
 /// \date    2017/09/10
-/// \brief Inline template class implementations for ResourceHolder
+/// \brief  Inline template class implementations for ResourceHolder
 ///
 /// Maps game resources from a key to set of values
 /// Used for determining texture paths, game resolution, etc.

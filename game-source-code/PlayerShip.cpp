@@ -11,7 +11,7 @@
 
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(const sf::Vector2i resolution,
+PlayerShip::PlayerShip(const Vector2i resolution,
                        float distanceFromCentre,
                        float angle,
                        float scale,
@@ -85,7 +85,7 @@ void PlayerShip::update()
     }
     if (_isShooting)
     {
-        shoot();
+        endShoot();
     }
     if (_invulnerabilityTimer.getElapsedTime().asSeconds() > _invulnerabilityTimeAmount)
     {
@@ -106,17 +106,17 @@ const float PlayerShip::getDistanceFromCentre() const
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f PlayerShip::getPosition() const
+const Vector2f PlayerShip::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite &PlayerShip::getSprite() const
+const Sprite &PlayerShip::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f PlayerShip::getScale() const
+const Vector2f PlayerShip::getScale() const
 {
     return _sprite.getScale();
 }
@@ -186,7 +186,7 @@ void PlayerShip::move()
     _sprite.setRotation(-1 * _angle);
 }
 
-void PlayerShip::shoot()
+void PlayerShip::endShoot()
 {
     _isShooting = false;
 }

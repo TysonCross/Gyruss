@@ -17,6 +17,8 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/System.hpp>
 
+using sf::Vector2f;
+
 class Moveable
 {
 public:
@@ -30,8 +32,8 @@ public:
     virtual void setMove(float, float){} // Other entities require change in position, change in radius and angle)
     virtual const float getRadius() const=0;
     virtual const float getDistanceFromCentre()const=0;
-    virtual const sf::Vector2f getScale()const=0;
-    virtual const sf::Vector2f getPosition()const=0;
+    virtual const Vector2f getScale()const=0;
+    virtual const Vector2f getPosition()const=0;
 
 protected:
     float _distanceFromCentre;
