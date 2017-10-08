@@ -82,14 +82,8 @@ public:
     void move() override;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Resets the player ship (intended to be called after
-    /// a player death event)
-    ///
-    /// The bullet position is reset back
-    /// to the centre of the screen, on the movement circle.
-    /// Invulnerability is turned on, and the invulnerability timer restarted,
-    /// The various boolean states are reset to their default values.
-    /// Any upgrades are lost, and these planned moves are immediately performed
+    /// \brief Resets the bullet (intended to be called after
+    /// a collision with the bullet)
     ////////////////////////////////////////////////////////////
     void reset() override;
 

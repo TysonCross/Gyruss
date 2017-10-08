@@ -1,15 +1,12 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    27/9/17
-/// \brief   Description of file in project Project
+/// \brief   Shield object
 ///
-/// Detailed description of file
+/// Used to indicate visually a state of invulnerability
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
-
-
-
 
 #ifndef PROJECT_SHIELD_HPP
 #define PROJECT_SHIELD_HPP
@@ -24,54 +21,109 @@
 #include "ResourceHolder.hpp"
 #include "PlayerShip.hpp"
 
+using sf::Vector2f;
+using sf::Vector2i;
+using sf::IntRect;
+using sf::Sprite;
+using sf::Color;
+
+////////////////////////////////////////////////////////////
+/// \brief Shield class. Used to represent a state of brief invulnerability
+/// upon re-spawning for the playerShip
+////////////////////////////////////////////////////////////
 class Shield
 {
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the Sprite object of the Class
+    /// \brief Constructor for the Sprite object
     ///
-    /// \param The screen resolution (to determine the radius
+    /// \param resolution The screen resolution (to determine the radius
     /// the Shield circles around
     /// \param distanceFromCentre The fixed radius of the circle
     /// that the ship flies around
     /// \param angle The angle in degrees around the circle of movement
     /// \param scale The scale of the sprite
-    /// \param type The entity::ID of the object
     /// \param textureHolder The resourceMapper object that
     /// contains the path to the texture(s) for the sprite
     /// \param playerShip The playerShip that the shield will be positioned on.
-    ///
     ////////////////////////////////////////////////////////////
     Shield(const sf::Vector2i resolution,
            float distanceFromCentre,
            float angle,
            float scale,
-           const entity::ID type,
            const TextureHolder &textureHolder,
            PlayerShip &playerShip);
 
     ////////////////////////////////////////////////////////////
+    /// \brief Performs the move, based on _futureMoveValue.
+    ////////////////////////////////////////////////////////////
+    void move();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Checks and updates the movement, calls
+    /// the actual movement translation with move()
+    ////////////////////////////////////////////////////////////
+    void update();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Resets the Shield object
+    ////////////////////////////////////////////////////////////
+    void reset();
+
+    ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
     ///
+    /// \return An sf::Sprite object, representing the game object spatially
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
     const sf::Sprite &getSprite() const;
-    void reset();
-    void move();
-    void update();
 
 private:
+    ////////////////////////////////////////////////////////////
+    /// \brief The game resolution in {x,y}
+    ////////////////////////////////////////////////////////////
     const sf::Vector2i _resolution;
-    sf::Sprite _sprite;
+
+    ////////////////////////////////////////////////////////////
+    /// \param The sprite object for the Entity
+    ////////////////////////////////////////////////////////////
+    Sprite _sprite;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Data member storing the distance from origin (centre of screen)
+    /// \see getDistanceFromCentre()
+    ////////////////////////////////////////////////////////////
     float _distanceFromCentre;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Data member storing the current angle
+    ////////////////////////////////////////////////////////////
     float _angle;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Data member storing the current scale (the same for both x and y)
+    ////////////////////////////////////////////////////////////
     float _scale;
-    textures::ID _id;
-    entity::ID _type;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Data member storing a reference to the playerShip object
+    ////////////////////////////////////////////////////////////
     PlayerShip &_playerShip;
+
+    ////////////////////////////////////////////////////////////
+    /// \param If the tile-set is designed to be less than the game frame-rate, it can be limited here
+    ////////////////////////////////////////////////////////////
     int _animationFPSLimit;
-    sf::IntRect _rectArea;
+
+    ////////////////////////////////////////////////////////////
+    /// \param The animatable texture's active tile area
+    ////////////////////////////////////////////////////////////
+    IntRect _rectArea;
+
+    ////////////////////////////////////////////////////////////
+    /// \param The pixel offset of the _rectArea, moving the image from frame to frame
+    ////////////////////////////////////////////////////////////
     int _spriteOffset;
 };
 

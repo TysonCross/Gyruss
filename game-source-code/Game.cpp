@@ -119,7 +119,6 @@ void Game::startGameLoop()
                   shipPathRadius,
                   0,
                   shipScale,
-                  entity::Shield,
                   _textures,
                   playerShip);
 

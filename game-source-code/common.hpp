@@ -34,21 +34,31 @@ namespace common
 
     ////////////////////////////////////////////////////////////
     /// \brief Ensures that the angle is always between 0 and 360
+    /// \param angle The angle to check
+    /// \return The float angle from 0 to 360
     ////////////////////////////////////////////////////////////
     float angleFilter(float angle);
 
     ////////////////////////////////////////////////////////////
     /// \brief Converts an angle from degrees to radians
+    /// \param degree The angle to convert
+    /// \return The angle in radians
     ////////////////////////////////////////////////////////////
     float degreeToRad(float degree);
 
     ////////////////////////////////////////////////////////////
     /// \brief Converts an angle from radians to degrees
+    /// \param radian The angle to convert
+    /// \return The angle in degrees
     ////////////////////////////////////////////////////////////
     float radToDegree(float radian);
 
     ////////////////////////////////////////////////////////////
     /// \brief Converts an int to a string, with optional padding
+    /// \param value The input number
+    /// \param paddingLength (Optional) the length to pad to
+    /// \param padChar (Optional) the char to pad with (defaults to '0' char)
+    /// \return The number as a string (optionally padded)
     ////////////////////////////////////////////////////////////
     string padIntToString(unsigned int value, int paddingLength=0, char padChar='0');
 
