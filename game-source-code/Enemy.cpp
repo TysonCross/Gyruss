@@ -221,6 +221,11 @@ void Enemy::move()
     auto dimColor = (scale*55) + 200;
     _sprite.setColor(Color(dimColor,dimColor,dimColor));
 
+    setOrientation();
+}
+
+void Enemy::setOrientation()
+{
     // Orientation
     _newPosition = _sprite.getPosition();
     _newPosition.x -= _resolution.x/2;
@@ -230,7 +235,6 @@ void Enemy::move()
     _angleOrientation = -1*common::radToDegree(_angleOrientation) - getAngleWithOffset();
     _sprite.setRotation(_angleOrientation);
 }
-
 const float Enemy::getShootTimerElapsedTime() const
 {
     return _timerShoot.getElapsedTime().asSeconds();

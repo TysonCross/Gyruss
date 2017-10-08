@@ -30,7 +30,6 @@ Explosion::Explosion(const sf::Vector2i resolution,
     _sprite.setTextureRect(_rectArea);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-//    _sprite.setRotation(-_angle);
     _sprite.setRotation(rand()%360);
     _isMoving = true;
     setMove(_angle,0); // Spawn on object
