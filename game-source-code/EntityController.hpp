@@ -47,6 +47,11 @@ public:
     /// \param textures used to create new entities that require this class for creation
     /// \param score object to track the current game score, enemies killed and player deaths. created in game.cpp
     /// \param speedModifier defines how fast the game runs at a particular time to speed up game as time progresses
+    ///
+    /// \see sf::Vector2i
+    /// \see PlayerShip.hpp
+    /// \see Score.hpp
+    /// \see ResourceHolder.hpp
     ///////////////////////////////////////////////////////////////
     EntityController(sf::Vector2i resolution,
                      PlayerShip &playerShip,
@@ -143,6 +148,7 @@ public:
     /// \param currentEnemyRadius defines the current size of the enemy ship
     ///
     /// \see setMove()
+    /// \see Enemy.hpp
     ////////////////////////////////////////////////////////////
     void preformEnemyMove(std::unique_ptr<Enemy> &enemy,
                           MovementState currentEnemyMovementState,
@@ -171,6 +177,9 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief used to check for collisions between two sprites
     ///
+    /// \param sprite1 first sprite that is fed in, compared to sprite2
+    /// \param sprite2 second sprite that is fed in, compared to sprite1
+    ///
     /// \see checkCollision()
     ///
     /// \return a bool, true if collision, false if not
@@ -187,6 +196,10 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief used to draw all game elements by looping over all vectors of entites
     /// and drawing the underlying sprite. Called on every frame.
+    ///
+    /// \param renderWindow feeds in the draw window to enable the Entity controlor to draw on the current window
+    ///
+    /// \see sf::RenderWindow
     ////////////////////////////////////////////////////////////
     const void draw(sf::RenderWindow &renderWindow);
 
@@ -211,6 +224,8 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief adjust the game speed as time goes on to make it more challenging.
     /// Has imposed maximum, minimum and default interval values.
+    ///
+    /// \param amount defines the amount to increase the global speed by
     ////////////////////////////////////////////////////////////
     void changeGlobalSpeed(float amount);
 
@@ -230,6 +245,8 @@ public:
     /// \brief Destroys all enemies of a particular type. This is useful
     /// When a game event requires all of one type of enemy to be removed. For example,
     /// if the player dies, all satellites that are still alive should be removed.
+    ///
+    /// \param type defines the type of enemy to kill
     ////////////////////////////////////////////////////////////
     void killAllEnemiesOfType(entity::ID type);
 
@@ -268,6 +285,8 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief used when any enemy is killed to preform additional enemy type
     /// spesific logic, such as upgrading a gun kf all satellites are killed
+    ///
+    /// \param type defines the type of enemy that is killed
     ////////////////////////////////////////////////////////////
     void enemyKilled(entity::ID type);
 
