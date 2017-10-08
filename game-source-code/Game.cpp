@@ -16,7 +16,8 @@
 #include <iostream>
 #endif // DEBUG_ONLY
 
-Game::Game() : _winCondition{100} {}// Number of enemies needed to kill to win.
+Game::Game() : _winCondition{100}, // Number of enemies needed to kill to win.
+               _gameState{game::GameState::Splash}{}
 
 void Game::Start()
 {
@@ -322,8 +323,10 @@ void Game::initializeGameLoop()
 
 void Game::showSplashScreen()
 {
-    _soundController.playSound(sounds::StartSound);
     _soundController.stopMusic();
+    _soundController.stopSound(sounds::PlayerMove);
+    _soundController.playSound(sounds::StartSound);
+
     ScreenSplash splashScreen;
 
     if (splashScreen.draw(_mainWindow, _textures, _fonts, _resolution) == 0)
@@ -336,6 +339,7 @@ void Game::showSplashScreen()
 
 void Game::showGameOverScreen(bool gameOutcome)
 {
+    _soundController.stopSound(sounds::PlayerMove);
     if (gameOutcome)
         _soundController.playSound(sounds::GameOverWinSound);
     else

@@ -22,6 +22,13 @@ void SoundController::playSound(sounds::ID id, float pitch, float volume, bool l
     _soundList.at(id).play();
 }
 
+void SoundController::stopSound(sounds::ID id)
+{
+    if (_soundList.at(id).getStatus() == sf::Sound::Playing)
+        _soundList.at(id).stop();
+}
+
+
 void SoundController::setPitch(sounds::ID id, float pitch)
 {
     _soundList.at(id).setPitch(pitch);

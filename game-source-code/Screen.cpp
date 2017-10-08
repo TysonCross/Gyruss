@@ -14,7 +14,7 @@
 
 void Screen::fadeTextInAndOut(sf::Text &text, sf::Color color, int frequency, sf::Clock& clock)
 {
-    float change = float(clock.getElapsedTime().asSeconds());
+    float change = clock.getElapsedTime().asSeconds();
     change = common::radToDegree(common::angleFilter(change));
     auto i = fabs(sin(change*1/frequency));
     text.setFillColor(sf::Color(i*color.r,i*color.g,i*color.b));
