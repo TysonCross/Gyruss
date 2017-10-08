@@ -17,7 +17,9 @@ class SoundController
 {
 public:
     SoundController();
-    void playSound(sounds::ID id, float pitch = 1.f, float volume = 100);
+    void playSound(sounds::ID id, float pitch = 1.f, float volume = 100, bool loop = 0);
+    void setPitch(sounds::ID id, float pitch);
+    void setPosition(sounds::ID id, common::position position);
     bool loadMusic();
     void playMusic();
     void stopMusic();

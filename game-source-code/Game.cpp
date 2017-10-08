@@ -16,10 +16,7 @@
 #include <iostream>
 #endif // DEBUG_ONLY
 
-Game::Game()
-{
-    _winCondition = 100; // Number of enemies needed to kill to win.
-}
+Game::Game() : _winCondition{100} {}// Number of enemies needed to kill to win.
 
 void Game::Start()
 {
@@ -129,6 +126,7 @@ void Game::initializeGameLoop()
             _score,
             playerShip);
 
+    _soundController.playSound(sounds::PlayerMove,1,200,1);
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
@@ -147,6 +145,7 @@ void Game::initializeGameLoop()
                                     event);
 
 #ifdef DEBUG_ONLY
+            // Debug keys for gameplay tuning and developer usage
             auto speedChange = 0.1f;
             if (event.type == sf::Event::EventType::KeyPressed)
             {
@@ -177,8 +176,8 @@ void Game::initializeGameLoop()
                     playerShip.upgrade();
             }
 #endif // DEBUG_ONLY
-
         }
+
 
         // Frame timing events
         timeSinceUpdate += mainClock.getElapsedTime();
@@ -197,12 +196,16 @@ void Game::initializeGameLoop()
         {
             timeSinceUpdate = sf::Time::Zero;
 
+
             _inputHandler.update(playerShip, timeStep);
             entityController.spawnEntities();
             entityController.shoot();
             entityController.setMove();
             entityController.checkClipping();
 
+            // Player move sound
+            _soundController.setPosition(sounds::PlayerMove, {playerShip.getPosition().x,playerShip.getPosition().y,-5});
+            _soundController.setPitch(sounds::PlayerMove, fabs(playerShip.getFutureAngle()/4));  // Engine pitch rises to be audible when moving
 
             ///-------------------------------------------
             ///  Player Death
@@ -320,7 +323,9 @@ void Game::initializeGameLoop()
 void Game::showSplashScreen()
 {
     _soundController.playSound(sounds::StartSound);
+    _soundController.stopMusic();
     ScreenSplash splashScreen;
+
     if (splashScreen.draw(_mainWindow, _textures, _fonts, _resolution) == 0)
     {
         _gameState = game::GameState::Playing;
@@ -335,7 +340,6 @@ void Game::showGameOverScreen(bool gameOutcome)
         _soundController.playSound(sounds::GameOverWinSound);
     else
         _soundController.playSound(sounds::GameOverLoseSound);
-
     _soundController.stopMusic();
     recordHighScore();
     ScreenGameOver gameOverScreen(gameOutcome);

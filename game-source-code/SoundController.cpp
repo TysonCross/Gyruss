@@ -14,11 +14,22 @@ SoundController::SoundController()
     getSounds();
 }
 
-void SoundController::playSound(sounds::ID id, float pitch, float volume)
+void SoundController::playSound(sounds::ID id, float pitch, float volume, bool loop)
 {
+    _soundList.at(id).setLoop(loop);
     _soundList.at(id).setVolume(volume);
     _soundList.at(id).setPitch(pitch);
     _soundList.at(id).play();
+}
+
+void SoundController::setPitch(sounds::ID id, float pitch)
+{
+    _soundList.at(id).setPitch(pitch);
+}
+
+void SoundController::setPosition(sounds::ID id, common::position position)
+{
+    _soundList.at(id).setPosition(position.x, position.y, position.z);
 }
 
 bool SoundController::loadMusic()

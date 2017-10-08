@@ -219,11 +219,6 @@ private:
     ////////////////////////////////////////////////////////////
     // Member data
     ////////////////////////////////////////////////////////////
-    /// \param A sound buffer used for the move sound
-    sf::SoundBuffer _buffer;
-
-    /// \param The sf::Sound object for the move sound
-    sf::Sound _soundMove;
 
     /// \param The animatable texture's active tile area
     sf::IntRect _rectArea;

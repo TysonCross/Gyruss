@@ -11,10 +11,8 @@
 
 #include "InputHandler.hpp"
 
-InputHandler::InputHandler()
-{
-    _previousButtonState = false;
-}
+InputHandler::InputHandler() : _previousButtonState{false}
+{}
 
 void InputHandler::pollInput(game::GameState &gameState,
                              PlayerShip &playerShip,

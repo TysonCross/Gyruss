@@ -28,10 +28,6 @@ PlayerShip::PlayerShip(const sf::Vector2i resolution,
     _isAlive = true;
     _invulnerabilityTimeAmount = 1.2f;
     _animationFPSLimit = 0;
-    _buffer.loadFromFile("resources/thrust.ogg");
-    _soundMove.setBuffer(_buffer);
-    _soundMove.setLoop(1);
-    _soundMove.play();
     _rectArea = {0, 0, 366, 382}; // Individual sprite tile
     _spriteOffset = _rectArea.width; // Animated sprite tile-set width
     _sprite.setTexture(textureHolder.get(textures::PlayerShip));
@@ -180,10 +176,6 @@ float PlayerShip::getFutureAngle()
 void PlayerShip::move()
 {
     _isAlive = true;
-
-    // Hacky but effective method to play a jet-engine sound when the player moves
-    _soundMove.setPitch(fabs(_futureAngleValue/4)); // Engine pitch rises when moving
-    _soundMove.setPosition(_sprite.getPosition().x,_sprite.getPosition().y,-5);
 
     _angle += _futureAngleValue;
     _angle = common::angleFilter(_angle);
