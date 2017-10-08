@@ -39,6 +39,7 @@ public:
 
     void spawnEntities();
     void setMove();
+    void PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementState currentEnemyMovementState, float growShipScreenZone, float currentEnemyRadius);
     void shoot();
     void playerShoot();
     void checkClipping();
