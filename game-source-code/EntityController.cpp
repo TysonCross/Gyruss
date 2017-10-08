@@ -491,8 +491,8 @@ void EntityController::checkEnemyBulletsToPlayerShipCollisions()
                                                          _playerShip.getAngle(),
                                                          _playerShip.getScale().x * 2,
                                                          entity::Explosion,
-                                                         _textureHolder, // ToDo : Remove me
-                                                         textures::Explosion); // ToDo : Remove me
+                                                         _textureHolder,
+                                                         textures::Explosion);
             _explosions.push_back(std::move(explosion));
             bullet = _bulletsEnemy.erase(bullet);
             if (!_playerShip.isInvulnerable())
@@ -518,8 +518,8 @@ void EntityController::checkMeteoroidToPlayerShipCollisions()
                                                          _playerShip.getAngle(),
                                                          (*meteoroid)->getScale().x,
                                                          entity::Explosion,
-                                                         _textureHolder, // ToDo : Remove me
-                                                         textures::Explosion); // ToDo : Remove me
+                                                         _textureHolder,
+                                                         textures::Explosion);
             _explosions.push_back(std::move(explosion));
             if (!_playerShip.isInvulnerable())
             {
@@ -541,8 +541,8 @@ void EntityController::checkEnemyToPlayerShipCollisions()
                                                          _playerShip.getAngle(),
                                                          (*enemy)->getScale().x * 2,
                                                          entity::Explosion,
-                                                         _textureHolder, // ToDo : Remove me
-                                                         textures::Explosion); // ToDo : Remove me
+                                                         _textureHolder,
+                                                         textures::Explosion);
             _explosions.push_back(move(explosion));
             _score.incrementEnemiesKilled((*enemy)->getType());
             enemyKilled((*enemy)->getType());
