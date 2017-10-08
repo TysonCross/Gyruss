@@ -9,7 +9,7 @@
 
 #include "Explosion.hpp"
 
-Explosion::Explosion(const sf::Vector2i resolution,
+Explosion::Explosion(const Vector2i resolution,
                      float distanceFromCentre,
                      float angle,
                      float scale,
@@ -25,7 +25,7 @@ Explosion::Explosion(const sf::Vector2i resolution,
     _id = id;
     _lives = 1;
     _rectArea = {0, 0, 128, 128}; // Individual sprite tile
-    _spriteOffset = _rectArea.width; // Animated sprite tileset width
+    _spriteOffset = _rectArea.width; // Animated sprite tile-set width
     _sprite.setTexture(textureHolder.get(_id));
     _sprite.setTextureRect(_rectArea);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
@@ -47,7 +47,7 @@ void Explosion::setMove(float angle, float distance)
 void Explosion::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
+    _sprite.setPosition(_resolution.x*3,_resolution.y*3); // Move off-screen
     _sprite.setScale(0,0);
 }
 
@@ -56,7 +56,7 @@ void Explosion::update()
     if (_isMoving)
     {
         _rectArea.left += _spriteOffset;
-        if (_rectArea.left > (2018 - 128)) // Sprite tileset width - individual tile
+        if (_rectArea.left > (2018 - 128)) // Sprite tile-set width - individual tile
         {
             die(); // only loop once
         }
@@ -66,9 +66,9 @@ void Explosion::update()
 
 const float Explosion::getRadius() const
 {
-    auto mid = sf::Vector2<float>{_resolution.x/2.f,_resolution.y/2.f};
-    auto pos = sf::Vector2<float>{_sprite.getPosition().x,_sprite.getPosition().y};
-    sf::Vector2f length = mid-pos;
+    auto mid = Vector2f{_resolution.x/2.f,_resolution.y/2.f};
+    auto pos = Vector2f{_sprite.getPosition().x,_sprite.getPosition().y};
+    Vector2f length = mid-pos;
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
@@ -77,17 +77,17 @@ const float Explosion::getDistanceFromCentre() const
     return _distanceFromCentre;
 }
 
-const sf::Vector2f Explosion::getPosition() const
+const Vector2f Explosion::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite& Explosion::getSprite() const
+const Sprite& Explosion::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Explosion::getScale() const
+const Vector2f Explosion::getScale() const
 {
     return _sprite.getScale();
 }
@@ -122,6 +122,6 @@ void Explosion::move()
     auto dimColor = (scale*200) + 55;
     if (getRadius() >= (_resolution.y/2))
     {
-        _sprite.setColor(sf::Color(dimColor, dimColor, dimColor));
+        _sprite.setColor(Color(dimColor, dimColor, dimColor));
     }
 }
