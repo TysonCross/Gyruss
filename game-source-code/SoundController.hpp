@@ -37,7 +37,7 @@ public:
     SoundController();
 
     ////////////////////////////////////////////////////////////
-    /// \brief playSound is used whenever a sound is needed to be played, from any contex
+    /// \brief PlaySound is used whenever a sound is needed to be played, from any contex
     ///
     /// \param id defines the sound ID that is to be played. these are unique. Using this ID,
     /// The caller of the function can define what sound they want to play
@@ -57,7 +57,7 @@ public:
     void setPitch(sounds::ID id, float pitch);
 
     ////////////////////////////////////////////////////////////
-    /// \brief provides a mechanism for generating "3D" sterio sound as the playership moves around the
+    /// \brief Provides a mechanism for generating "3D" sterio sound as the playership moves around the
     /// play circle
     /// \param id defines the sound to have position changed
     /// \param position defines the position to set for the associated sound
@@ -67,19 +67,19 @@ public:
     void setPosition(sounds::ID id, common::position position);
 
     ////////////////////////////////////////////////////////////
-    /// \brief stops a sound from playing, based on an id
-    /// 
+    /// \brief Stops a sound from playing, based on an id
+    ///
     /// \param id sound to stop playing
     ////////////////////////////////////////////////////////////
     void stopSound(sounds::ID id);
 
     ////////////////////////////////////////////////////////////
-    /// \brief loads the game music from disk into memory
+    /// \brief Loads the game music from disk into memory
     ////////////////////////////////////////////////////////////
     bool loadMusic();
 
     ////////////////////////////////////////////////////////////
-    /// \brief starts playing game music. Called main gameplay starts
+    /// \brief Starts playing game music. Called main gameplay starts
     ////////////////////////////////////////////////////////////
     void playMusic();
 
@@ -111,7 +111,7 @@ private:
     void getSounds();
 
     ////////////////////////////////////////////////////////////
-    /// \brief vector used to store all game sound objects and their associated ID's
+    /// \brief Vector used to store all game sound objects and their associated ID's
     ///
     /// \see std::vector
     /// \see sf::sound

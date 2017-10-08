@@ -30,47 +30,47 @@ public:
     void incrementEnemiesKilled(entity::ID type);
 
     ////////////////////////////////////////////////////////////
-    /// \brief on shooting a bullet, is called to increment the number of bullets shot
+    /// \brief On shooting a bullet, is called to increment the number of bullets shot
     ///
     /// \see _bulletsFired
     ////////////////////////////////////////////////////////////
     void incrementBulletsFired();
 
     ////////////////////////////////////////////////////////////
-    /// \brief run on every frame to update the player current lite time. adds points to the player
+    /// \brief Run on every frame to update the player current lite time. adds points to the player
     /// score for living longer
     ////////////////////////////////////////////////////////////
     void update();
 
     ////////////////////////////////////////////////////////////
-    /// \brief resets all private member veriables of relevents to game score. Used
+    /// \brief Resets all private member veriables of relevents to game score. Used
     /// when a new game is started.
     ////////////////////////////////////////////////////////////
     void reset();
 
     ////////////////////////////////////////////////////////////
-    /// \brief accessor to provide the current game score.
+    /// \brief Accessor to provide the current game score.
     ///
     /// \return _score the current score the player has achived
     ////////////////////////////////////////////////////////////
     const unsigned int getScore() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief accessor to provide the current number of enimies killed.
+    /// \brief Accessor to provide the current number of enimies killed.
     ///
     /// \return _enemiesKilled, the current number of killed
     ////////////////////////////////////////////////////////////
     const unsigned int getEnemiesKilled() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief accessor to provide the number of bullets fired
+    /// \brief Accessor to provide the number of bullets fired
     ///
     /// \return _bulletsFired the current number of bullets fired
     ////////////////////////////////////////////////////////////
     const unsigned int getBulletsFired() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief accessor to calculate the playerAccuracy. This is defined as the
+    /// \brief Accessor to calculate the playerAccuracy. This is defined as the
     /// number of enemies hit/number of bullet shot
     ///
     /// \return player accuracy
@@ -78,21 +78,21 @@ public:
     const float getPlayerAccuracy() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief accessor to return the time alive for the current player life
+    /// \brief Accessor to return the time alive for the current player life
     ///
     /// \return sf::Clock _lifeTimer, the current player life length
     ////////////////////////////////////////////////////////////
     const float getTimeAlive() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief accessor to return the longest life the player achived
+    /// \brief Accessor to return the longest life the player achived
     ///
     /// \return _longestTimeAlive, longest player life
     ////////////////////////////////////////////////////////////
     const float getLongestTimeAlive() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief resets current player life timer
+    /// \brief Resets current player life timer
     ////////////////////////////////////////////////////////////
     const void resetLifeTimer();
 
@@ -105,28 +105,28 @@ private:
     void addToScore(int points);
 
     ////////////////////////////////////////////////////////////
-    /// \brief integer to store the current player score
+    /// \brief Integer to store the current player score
     ///
     /// \see getScore()
     ////////////////////////////////////////////////////////////
     unsigned int _score;
 
     ////////////////////////////////////////////////////////////
-    /// \brief integer to store the number of Enemies killed
+    /// \brief Int to store the number of Enemies killed
     ///
     /// \see getEnemiesKilled()
     ////////////////////////////////////////////////////////////
     unsigned int _enemiesKilled;
 
     ////////////////////////////////////////////////////////////
-    /// \brief integer to store the number of bullets fired
+    /// \brief Int to store the number of bullets fired
     ///
     /// \see getBulletsFired()
     ////////////////////////////////////////////////////////////
     unsigned int _bulletsFired;
 
     ////////////////////////////////////////////////////////////
-    /// \brief integer to store the number of bullets hit
+    /// \brief int to store the number of bullets hit
     ////////////////////////////////////////////////////////////
     unsigned int _bulletsHit;
 
@@ -143,7 +143,7 @@ private:
     sf::Clock _updateTimer;
 
     ////////////////////////////////////////////////////////////
-    /// \brief float to store the longest player life
+    /// \brief Float to store the longest player life
     ///
     /// \see getLongestTimeAlive()
     ////////////////////////////////////////////////////////////

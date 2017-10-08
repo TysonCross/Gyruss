@@ -94,7 +94,7 @@ public:
     void spawnSatellites();
 
     ////////////////////////////////////////////////////////////
-    /// \brief inititates the spawn event for enemies, satellites and Meteoroid
+    /// \brief Inititates the spawn event for Enemy, Satellites and Meteoroid
     ///
     /// Defines the spawn chances based on a combination of delay between spawns
     /// and random event chances. Has imposed maximum & minimum number of enemys
@@ -110,7 +110,7 @@ public:
     void spawnEntities();
 
     ////////////////////////////////////////////////////////////
-    /// \brief initiates a player shoot event based on current gun level
+    /// \brief Initiates a player shoot event based on current gun level
     /// and adds bullet to bullet vector
     ///
     /// \see PlayerShip.hpp
@@ -118,7 +118,7 @@ public:
     void playerShoot();
 
     ////////////////////////////////////////////////////////////
-    /// \brief initiates a player shoot event based on current gun level
+    /// \brief Initiates a player shoot event based on current gun level
     /// and adds bullet to bullet vector
     ///
     /// \see playerShoot()
@@ -126,7 +126,7 @@ public:
     void shoot();
 
     ////////////////////////////////////////////////////////////
-    /// \brief changes enemy movement state based on current ship position and
+    /// \brief Changes enemy movement state based on current ship position and
     /// random chance to change flight pattern
     ///
     /// This function is directly responsible for how the game plays.
@@ -156,7 +156,7 @@ public:
                           float currentEnemyRadius);
 
     ////////////////////////////////////////////////////////////
-    /// \brief checks all playerShips to see if they are outside of the play range.
+    /// \brief Checks all playerShips to see if they are outside of the play range.
     /// In the event that they are, remove them from the game(reset the ships)
     ////////////////////////////////////////////////////////////
     void checkClipping();
@@ -170,12 +170,12 @@ public:
     ///
     /// \see collides()
     ///
-    /// \return a bool, true if collision occurred with playerShip. false if not.
+    /// \return A bool, true if collision occurred with playerShip. false if not.
     ////////////////////////////////////////////////////////////
     bool checkCollisions();
 
     ////////////////////////////////////////////////////////////
-    /// \brief used to check for collisions between two sprites
+    /// \brief Used to check for collisions between two sprites
     ///
     /// \param sprite1 first sprite that is fed in, compared to sprite2
     /// \param sprite2 second sprite that is fed in, compared to sprite1
@@ -194,7 +194,7 @@ public:
     void update();
 
     ////////////////////////////////////////////////////////////
-    /// \brief used to draw all game elements by looping over all vectors of entites
+    /// \brief Used to draw all game elements by looping over all vectors of entites
     /// and drawing the underlying sprite. Called on every frame.
     ///
     /// \param renderWindow feeds in the draw window to enable the Entity controlor to draw on the current window
@@ -210,19 +210,19 @@ public:
     ///
     /// \see SoundController.hpp
     ///
-    /// \return a bool relating to if an explosion occurred in the current frame
+    /// \return A bool relating to if an explosion occurred in the current frame
     ////////////////////////////////////////////////////////////
     const bool explosionOccurred();
 
     ////////////////////////////////////////////////////////////
     /// \brief Getter to return if an bullet has been shot in the current frame
     ///
-    /// \return a bool relating to if a bullet was fired in the current frame
+    /// \return A bool relating to if a bullet was fired in the current frame
     ////////////////////////////////////////////////////////////
     const bool shootingOccurred();
 
     ////////////////////////////////////////////////////////////
-    /// \brief adjust the game speed as time goes on to make it more challenging.
+    /// \brief Adjust the game speed as time goes on to make it more challenging.
     /// Has imposed maximum, minimum and default interval values.
     ///
     /// \param amount defines the amount to increase the global speed by
@@ -237,7 +237,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Getter to return the current game speed
     ///
-    /// \return the current speed of the gameplay
+    /// \return Current speed of the gameplay
     ////////////////////////////////////////////////////////////
     const float getSpeed() const;
 
@@ -246,44 +246,44 @@ public:
     /// When a game event requires all of one type of enemy to be removed. For example,
     /// if the player dies, all satellites that are still alive should be removed.
     ///
-    /// \param type defines the type of enemy to kill
+    /// \param Type defines the type of enemy to kill
     ////////////////////////////////////////////////////////////
     void killAllEnemiesOfType(entity::ID type);
 
 private:
     ////////////////////////////////////////////////////////////
-    /// \brief checks collisions between EnemyShips->PlayerShip,
+    /// \brief Checks collisions between EnemyShips->PlayerShip,
     /// removing both entities if they collide
     ////////////////////////////////////////////////////////////
     void checkEnemyToPlayerShipCollisions();
 
     ////////////////////////////////////////////////////////////
-    /// \brief checks collisions between EnemyBullet->PlayerShip,
+    /// \brief Checks collisions between EnemyBullet->PlayerShip,
     /// removing both entities if they collide
     ////////////////////////////////////////////////////////////
     void checkEnemyBulletsToPlayerShipCollisions();
 
     ////////////////////////////////////////////////////////////
-    /// \brief checks collisions between PlayerBullet->EnemyShip,
+    /// \brief Checks collisions between PlayerBullet->EnemyShip,
     /// removing both entities if they collide
     ////////////////////////////////////////////////////////////
     void checkPlayerBulletsToEnemyCollisions();
 
     ////////////////////////////////////////////////////////////
-    /// \brief checks collisions between Meteoroid->PlayerShip,
+    /// \brief Checks collisions between Meteoroid->PlayerShip,
     /// removing both entities if they collide
     ////////////////////////////////////////////////////////////
     void checkMeteoroidToPlayerShipCollisions();
 
     ////////////////////////////////////////////////////////////
-    /// \brief checks collisions between PlayerBullet->Meteoroid,
+    /// \brief Checks collisions between PlayerBullet->Meteoroid,
     /// removing only the bullet if they collide (meteoroid are
     /// invulnerable but bullets must still be removed)
     ////////////////////////////////////////////////////////////
     void checkPlayerBulletsToMeteoroidCollisions();
 
     ////////////////////////////////////////////////////////////
-    /// \brief used when any enemy is killed to preform additional enemy type
+    /// \brief Used when any enemy is killed to preform additional enemy type
     /// spesific logic, such as upgrading a gun kf all satellites are killed
     ///
     /// \param type defines the type of enemy that is killed
@@ -392,7 +392,7 @@ private:
     bool _playerHasBeenHit;
 
     ////////////////////////////////////////////////////////////
-    /// \brief float to store the current game speed modifier
+    /// \brief Float to store the current game speed modifier
     ///
     /// \see getSpeed()
     /// \see resetGlobalSpeed()
@@ -401,7 +401,7 @@ private:
     float _speedModifier;
 
     ////////////////////////////////////////////////////////////
-    /// \brief float to store the default game speed. The game speed is reset
+    /// \brief Float to store the default game speed. The game speed is reset
     /// to this value when the game starts and when the player looses a life
     ///
     /// \see resetGlobalSpeed()
@@ -409,7 +409,7 @@ private:
     float _defaultSpeed;
 
     ////////////////////////////////////////////////////////////
-    /// \brief int to count the total number of satellites that are alive at a point
+    /// \brief Int to count the total number of satellites that are alive at a point
     ///
     /// \see spawnSatellites()
     /// \see spawnEntities()
@@ -417,17 +417,17 @@ private:
     int _satellitesAlive;
 
     ////////////////////////////////////////////////////////////
-    /// \brief float to store the speed that a player bullet should fly at
+    /// \brief Float to store the speed that a player bullet should fly at
     ////////////////////////////////////////////////////////////
     float _bulletPlayerSpeed;
 
     ////////////////////////////////////////////////////////////
-    /// \brief float to store the speed that an enemy should fly at
+    /// \brief Float to store the speed that an enemy should fly at
     ////////////////////////////////////////////////////////////
     float _bulletEnemySpeed;
 
     ////////////////////////////////////////////////////////////
-    /// \brief float to store the speed that a meteoroid should fly at
+    /// \brief Float to store the speed that a meteoroid should fly at
     ///
     /// \see spawnMeteoroid()
     ////////////////////////////////////////////////////////////

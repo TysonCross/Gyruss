@@ -75,7 +75,7 @@ public:
 private:
 
     ////////////////////////////////////////////////////////////
-    /// \brief vector to store the starFields position in space.
+    /// \brief Vector to store the starFields position in space.
     /// This vector has all  stars stored in it ant any point in time
     ////////////////////////////////////////////////////////////
     std::vector<common::position> _starField;
@@ -86,22 +86,22 @@ private:
     sf::CircleShape _star_shape;
 
     ////////////////////////////////////////////////////////////
-    /// \brief width of the screen. extracted from the resolution at time of construction
+    /// \brief Width of the screen. extracted from the resolution at time of construction
     ////////////////////////////////////////////////////////////
     const unsigned int _width;
 
     ////////////////////////////////////////////////////////////
-    /// \brief height of the screen. extracted from the resolution at time of construction
+    /// \brief Height of the screen. extracted from the resolution at time of construction
     ////////////////////////////////////////////////////////////
     const unsigned int _height;
 
     ////////////////////////////////////////////////////////////
-    /// \brief defines the maximum depth(z index) that the star can be in
+    /// \brief Defines the maximum depth(z index) that the star can be in
     ////////////////////////////////////////////////////////////
     const int _max_depth;
 
     ////////////////////////////////////////////////////////////
-    /// \brief limits the number of stars that can be in the space at any point in time
+    /// \brief Limits the number of stars that can be in the space at any point in time
     ////////////////////////////////////////////////////////////
     const int _number_of_stars;
 

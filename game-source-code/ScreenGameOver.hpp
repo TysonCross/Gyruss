@@ -41,7 +41,7 @@ public:
     ScreenGameOver(bool gameOutcome);
 
     ////////////////////////////////////////////////////////////
-    /// \brief draw function displays  the ScreenGameOver to the current display window.
+    /// \brief Draw function displays  the ScreenGameOver to the current display window.
     ///
     /// \param window current game RenderWindow, to enable to GameOverScreen to print directly to it
     /// \param textureHolder enables the GameOverScreen to access the end game background
@@ -63,7 +63,7 @@ public:
 
 private:
     ////////////////////////////////////////////////////////////
-    /// \brief bool to store the current game won/lose state.
+    /// \brief Bool to store the current game won/lose state.
     ///
     /// \see ScreenGameOver()
     ////////////////////////////////////////////////////////////
