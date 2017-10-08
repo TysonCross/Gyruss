@@ -23,26 +23,44 @@
 /// \brief A Splashscreen, with information on how to play
 /// the game, titles, controls and version information
 ///
+/// Inheritance relationship from screen
+///
+/// \see Screen.hpp
 ////////////////////////////////////////////////////////////
 class ScreenSplash : public Screen
 {
 public:
 
-////////////////////////////////////////////////////////////
-/// \brief Shows the Splash screen
-///
-/// \param window The sf:Window object to draw and render to
-/// \param resourceMapper The resourceMapper containing assets for the splashscreen
-///
-/// \see sf::Window
-/// \see ResourceMapper
-///
-////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    /// \brief Shows the Splash screen. This occures at game launch.
+    ///
+    /// \param window The sf:Window object to draw and render to
+    /// \param textureHolder stores the images needed for the splash screen,
+    /// such as the background and keyboard bindings image
+    /// \param fontHolder is used to store the fonts needed for the splash screen
+    /// \param resolution is needed to determine where to place SplashScreen objects
+    ///
+    /// \return an int is returned to inform the game object what occurred on
+    /// the splashScreen: 1 game closed, 0 game continue
+    ///
+    /// \see ResourceHolder.hpp
+    ////////////////////////////////////////////////////////////
     int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
              const sf::Vector2i resolution);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Function used to animate the spinning planet on the SplashScreen
+    ///
+    /// \param The underlying planet is a sprite to enable the animation by  moving along the images that
+    /// constitute the animation.
+    /// \param rectArea defines the size of the planet to be drawn
+    /// \param columns defines the number columns in the underlying graphic for animation
+    /// \param rows defines the number rows in the underlying graphic for animation
+    /// \param frameTotal defines how many frames are in the underlying graphic
+    /// \param i is an incrementer to define what frame the draw process is currently on
+    ////////////////////////////////////////////////////////////
     void animatePlanet(sf::Sprite &sprite,
                        sf::IntRect &rectArea,
                        int columns,
