@@ -35,9 +35,9 @@ public:
     /// \brief Constructor for the Main game class. This class manages
     /// all game loops and creation of all game events and objects.
     ///
-    /// This class controls the games ability to move from one state(splashscreen, playing etc)
+    /// This class controls the games ability to move from one state(splashScreen, playing etc)
     /// to another. It also generates instances of all other controllers, like EntityController that
-    /// controls all other game objetcts. Called and generated from main.cpp
+    /// controls all other game objects. Called and generated from main.cpp
     ///
     /// \see Game.hpp
     ////////////////////////////////////////////////////////////
@@ -75,7 +75,7 @@ private:
     void startGameLoop();
 
     ////////////////////////////////////////////////////////////
-    /// \brief when called, displays the game splashscreen. used when the game starts up or when the game ends
+    /// \brief when called, displays the game splashScreen. used when the game starts up or when the game ends
     ////////////////////////////////////////////////////////////
     void showSplashScreen();
 
@@ -136,7 +136,7 @@ private:
     sf::Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
-    /// \breif integer to store the number of enimies that must be killed to end the game
+    /// \breif integer to store the number of enemies that must be killed to end the game
     ////////////////////////////////////////////////////////////
     int _winCondition;
 
