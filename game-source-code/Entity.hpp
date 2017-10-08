@@ -1,10 +1,9 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
-/// \file    Entity.hpp
 /// \date    14/9/17
 /// \brief   Basic entity class for game objects
 ///
-/// Enemies, lasers, missiles, and asteroids all inherit from this class
+/// PlayerShip, Enemies, Bullets, Shields, and Meteoroids all inherit from this class
 ///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////

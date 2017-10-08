@@ -47,7 +47,7 @@ void Bullet::setMove(float distance)
 void Bullet::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x,_resolution.y); // Move offscreen?
+    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
     _sprite.setScale(0,0);
 }
 

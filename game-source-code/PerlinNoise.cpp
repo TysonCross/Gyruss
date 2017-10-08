@@ -3,7 +3,7 @@
 /// Which is based on Ken Perlin's original Improved Perlin Noise java code,
 /// found at http://cs.nyu.edu/~perlin/noise/
 
-#include "perlinNoise.hpp"
+#include "PerlinNoise.hpp"
 
 PerlinNoise::PerlinNoise()
 {

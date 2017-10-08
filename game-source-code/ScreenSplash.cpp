@@ -50,7 +50,7 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     title.setPosition(titleWidth, titleHeight);
 
     // Version text
-    sf::Text version("version 2.0", fontHolder.get(fonts::Default), 24);
+    sf::Text version("version 3.0", fontHolder.get(fonts::Default), 24);
     sf::Color Gray = {70, 70, 70};
     version.setFillColor(Gray);
     version.setPosition(12, 12);

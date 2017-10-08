@@ -46,7 +46,6 @@ private:
     TextureHolder _textures;
     SoundController _soundController;
     FontHolder _fonts;
-    sf::Music _music;
     InputHandler _inputHandler;
     game::GameState _gameState;
     sf::RenderWindow _mainWindow;

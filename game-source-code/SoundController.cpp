@@ -30,7 +30,8 @@ bool SoundController::loadMusic()
 void SoundController::playMusic()
 {
     _music.setLoop(true);
-    _music.setVolume(25);
+    _music.setVolume(50);
+    _music.play();
 }
 
 void SoundController::stopMusic()

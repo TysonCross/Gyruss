@@ -89,14 +89,9 @@ void Game::initializeGameLoop()
     ///  Game Playing starts
     ///-------------------------------------------
     _score.reset();
-    _music.setLoop(true);
-    _music.setVolume(50);
-    if (!_music.openFromFile("resources/game_music.ogg"))
-    {
-        _gameState = game::GameState::Exiting;
-        return;// error
-    } else
-        _music.play();
+
+    if(_soundController.loadMusic())
+        _soundController.playMusic();
 
     auto number_of_stars = 60;
     StarField starField(_resolution, 3, number_of_stars);
@@ -121,12 +116,19 @@ void Game::initializeGameLoop()
 
     Shield shield(_resolution,
                   shipPathRadius,
-                  0, shipScale,
+                  0,
+                  shipScale,
                   entity::Shield,
                   _textures,
                   playerShip);
 
-    HUD hud(_resolution, _mainWindow, _textures, _fonts, _score, playerShip);
+    HUD hud(_resolution,
+            _mainWindow,
+            _textures,
+            _fonts,
+            _score,
+            playerShip);
+
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
@@ -334,7 +336,7 @@ void Game::showGameOverScreen(bool gameOutcome)
     else
         _soundController.playSound(sounds::GameOverLoseSound);
 
-    _music.stop();
+    _soundController.stopMusic();
     recordHighScore();
     ScreenGameOver gameOverScreen(gameOutcome);
     if (gameOverScreen.draw(_mainWindow, _textures, _fonts, _resolution, _score) == 0)
