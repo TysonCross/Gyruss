@@ -301,17 +301,23 @@ void EntityController::setMove()
                     enemy->setMovementState(MovementState::SpiralOut);
                 }
             }
-            PreformEnemyMove(enemy, currentEnemyMovementState, growShipScreenZone, currentEnemyRadius);
+            preformEnemyMove(enemy, currentEnemyMovementState, growShipScreenZone, currentEnemyRadius);
         }
     }
 }
-void EntityController::PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementState currentEnemyMovementState, float growShipScreenZone, float currentEnemyRadius){
+
+//void EntityController::P
+
+void EntityController::preformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementState currentEnemyMovementState, float growShipScreenZone, float currentEnemyRadius){
     // Common movement parameters
     auto shipCircleRadius=_resolution.y/3.f; // defines size of spiral side circle radius
     auto shipOffsetIncrement=rand()%3+1.f; // defines how circle offset changes. random on each frame
     auto shipRadiusIncrease=rand()%3+1.f; // defines how much to increment the ship radius by
-    auto distantSpeedMultiplier = 10.f; // effects how fast the ship circles grow
-    auto satelliteGrowIncrement = 2.0f; //satellites grow at a different rate, faster than other entities
+    auto distantSpeedMultiplier = 10.f; // effects how fast the ship circles grow in the small region of the screen
+    auto satelliteGrowIncrement = 2.0f; // satellites grow at a different rate, faster than other entities
+    auto perlinNoiseAngleOffset = 5.0f;// defines size of angle offset used in perlin noise movement
+    auto perlinNoiseSpeedScaler = 3.0f;
+    auto perlinRadiusOffset = 50.0f; // defines the change in radius for perlin noise
 
     auto currentEnemyDirectionSign = enemy->getMovementDirectionSign();
     auto currentEnemyCentre = enemy->getCentre();
@@ -321,7 +327,7 @@ void EntityController::PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementS
 // Movement (based on behaviour state)
     switch (currentEnemyMovementState)
     {
-        case (MovementState::SpiralOut) : //sStandard spiral-out movement
+        case (MovementState::SpiralOut) : //Standard spiral-out movement
         {
             if (currentEnemyRadius < growShipScreenZone) //grow faster if close to the centre
                 enemy->setMove(randomAngle * _speedModifier,
@@ -338,7 +344,7 @@ void EntityController::PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementS
                            -shipRadiusIncrease * _speedModifier,
                            currentEnemyCentre);
             break;
-        case (MovementState::CircleOffsetRight) : // Perform a "dive-bomb" move, by offsetting centre of circle
+        case (MovementState::CircleOffsetRight) : // Perform a "circle" move, by offsetting centre of circle
             if (currentEnemyCentre.x < shipCircleRadius)
             {
                 enemy->setMove(randomAngle * currentEnemyDirectionSign * _speedModifier,
@@ -351,7 +357,7 @@ void EntityController::PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementS
                                currentEnemyCentre);
             }
             break;
-        case (MovementState::CircleOffsetLeft) :
+        case (MovementState::CircleOffsetLeft) : // Perform a "circle" move, by offsetting centre of circle
             if (currentEnemyCentre.x > -shipCircleRadius)
             {
                 enemy->setMove(randomAngle * currentEnemyDirectionSign * _speedModifier,
@@ -364,18 +370,18 @@ void EntityController::PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementS
                                currentEnemyCentre);
             }
             break;
-        case (MovementState::SmallCircling) :
+        case (MovementState::SmallCircling) : // small circle movement, used for satellites
             enemy->setMove(randomAngle*_speedModifier,
                            satelliteGrowIncrement,
                            currentEnemyCentre);
             break;
-        case (MovementState::Wandering):
-            enemy->setMove(float(_xNoise.noise(enemy->getAliveTimeElapsedTime())*5+2*currentEnemyDirectionSign)*_speedModifier,
-                           float(_yNoise.noise(enemy->getAliveTimeElapsedTime()/3)*50-25)*_speedModifier,
+        case (MovementState::Wandering): //uses perlinNoise to direct ship position
+            //set the angle and radius position based on a perlinNoise value. this has defined offsets for both parameters
+            enemy->setMove(float(_xNoise.noise(enemy->getAliveTimeElapsedTime())*perlinNoiseAngleOffset+floor(perlinNoiseAngleOffset)*currentEnemyDirectionSign)*_speedModifier,
+                           float(_yNoise.noise(enemy->getAliveTimeElapsedTime()/perlinNoiseSpeedScaler)*perlinRadiusOffset-perlinRadiusOffset/2)*_speedModifier,
                            {0,0});
     }
 }
-
 
 bool EntityController::checkCollisions()
 {
@@ -537,7 +543,6 @@ void EntityController::checkEnemyToPlayerShipCollisions()
                                                          entity::Explosion,
                                                          _textureHolder, // ToDo : Remove me
                                                          textures::Explosion); // ToDo : Remove me
-
             _explosions.push_back(move(explosion));
             _score.incrementEnemiesKilled((*enemy)->getType());
             enemyKilled((*enemy)->getType());
@@ -606,6 +611,7 @@ void EntityController::checkClipping()
 
 void EntityController::update()
 {
+    // Itterate through all game objects, calling their update functions
     for (auto &enemy : _enemies)
         enemy->update();
 
@@ -647,6 +653,7 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
 
 const void EntityController::draw(sf::RenderWindow &renderWindow)
 {
+    // draw elements that are alive
     for (auto &enemy : _enemies)
         renderWindow.draw(enemy->getSprite());
 

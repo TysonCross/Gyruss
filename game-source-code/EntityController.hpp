@@ -39,14 +39,18 @@ public:
 
     void spawnEntities();
     void setMove();
-    void PreformEnemyMove(std::unique_ptr<Enemy> &enemy, MovementState currentEnemyMovementState, float growShipScreenZone, float currentEnemyRadius);
+    void preformEnemyMove(std::unique_ptr<Enemy> &enemy,
+                          MovementState currentEnemyMovementState,
+                          float growShipScreenZone,
+                          float currentEnemyRadius);
     void shoot();
     void playerShoot();
     void checkClipping();
     bool checkCollisions();
-    bool collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2);
+    bool collides(const sf::Sprite &sprite1,
+                  const sf::Sprite &sprite2);
     void update();
-    const void draw(sf::RenderWindow &renderWindow); // ToDo: remove
+    const void draw(sf::RenderWindow &renderWindow);
     const bool explosionOccurred();
     const bool shootingOccurred();
     void changeGlobalSpeed(float amount);
@@ -63,7 +67,10 @@ private:
     void enemyKilled(entity::ID type);
     void upgradePlayerShip();
 
-    void spawnSpiral(entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState);
+    void spawnSpiral(entity::ID id,
+                     textures::ID shipVariant,
+                     MovementDirection movementDirection,
+                     MovementState movementState);
     void spawnMeteoroid();
     void spawnSatellites();
 
@@ -92,8 +99,6 @@ private:
     float _meteoroidSpeed;
     PerlinNoise _xNoise;
     PerlinNoise _yNoise;
-
-
 };
 
 #endif //PROJECT_ENTITYCONTROLLER_HPP
