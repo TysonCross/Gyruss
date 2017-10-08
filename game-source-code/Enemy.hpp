@@ -18,7 +18,12 @@
 #include "common.hpp"
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
-#include "SoundController.hpp"
+
+using sf::Vector2f;
+using sf::Vector2i;
+using sf::Color;
+using sf::Clock;
+using sf::Sprite;
 
 enum MovementState
 {
@@ -52,54 +57,47 @@ public:
     void setMove(float angle, float distance) override;
     void setMove(float angle, float distance, sf::Vector2f centre);
     void setMovementState(MovementState movementState);
+    void setScale(float scaleX,float scaleY);
+    void setShoot();
 
     void move() override;
     void reset() override;
     void update() override;
-    const float getRadius() const override;
-    const float getDistanceFromCentre() const override;
-    const float getAngleWithOffset();
-    const sf::Vector2f getPosition() const override;
-    const sf::Sprite &getSprite() const override;
-    const sf::Vector2f getScale() const override;
-    const int getLives() const override;
     void die() override;
-    const entity::ID getType() const;
-    void setScale(float scaleX,float scaleY);
-
-    const MovementState getMovementState() const;
-    const int getMovementDirectionSign() const;
-    const float getDistanceFromCentreWithOffset() const;
-    const float getOffsetX() const;
-    const float getOffsetY() const;
-    const sf::Vector2f getCentre() const;
-    void setShoot();
-    const bool isShooting() const;
-    const float getAngle() const;
-    const float getDirectionAngle() const;
     void resetShootTimer();
-    const float getShootTimerElapsedTime() const;
-    const float getAliveTimeElapsedTime() const;
+
+    const Sprite&       getSprite() const override;
+    const float         getRadius() const override;
+    const float         getDistanceFromCentre() const override;
+    const float         getDistanceFromCentreWithOffset() const;
+    const float         getAngle() const;
+    const float         getAngleWithOffset();
+    const float         getOrientationAngle() const;
+    const Vector2f      getPosition() const override;
+    const Vector2f      getScale() const override;
+    const Vector2f      getCentre() const;
+    const MovementState getMovementState() const;
+    const int           getMovementDirectionSign() const;
+    const int           getLives() const override;
+    const entity::ID    getType() const;
+    const float         getShootTimerElapsedTime() const;
+    const float         getAliveTimeElapsedTime() const;
+    const bool          isShooting() const;
 
 
 private:
-    void shoot();
+    void stopShoot();
 
-    ////////////////////////////////////////////////////////////
-    // Member data
-    ////////////////////////////////////////////////////////////
-//    sf::Sound _soundShoot;
-    float _angleOrientation;
-    bool _isShooting;
-    sf::Vector2<float> _prevPosition,
-                        _newPosition,
-                        _pointingPosition;
-    sf::Vector2f _centre;
-    sf::Clock _timerShoot;
-    sf::Clock _timerAlive;
-
-    MovementState _movementState;
-    MovementDirection _movementDirection;
+    float               _angleOrientation;
+    bool                _isShooting;
+    Vector2f            _prevPosition;
+    Vector2f            _newPosition;
+    Vector2f            _pointingPosition;
+    Vector2f            _centre;
+    Clock               _timerShoot;
+    Clock               _timerAlive;
+    MovementState       _movementState;
+    MovementDirection   _movementDirection;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

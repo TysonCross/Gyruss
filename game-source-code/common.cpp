@@ -12,7 +12,7 @@ namespace common
 {
     float angleFilter(float angle)
     {
-        angle = fmod(angle, 360);
+        angle = float(fmod(angle, 360));
         if (angle < 0)
             angle += 360;
         return angle;
@@ -28,9 +28,9 @@ namespace common
         return radian * 180 / float(M_PI);
     }
 
-    std::string padIntToString(unsigned int value, int paddingLength, char padChar)
+    string padIntToString(unsigned int value, int paddingLength, char padChar)
     {
-        std::string s = std::to_string(value);
+        string s = to_string(value);
         if (paddingLength>s.length())
         {
             s.insert(s.begin(), paddingLength - s.size(), padChar);

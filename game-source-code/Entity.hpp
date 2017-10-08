@@ -19,10 +19,12 @@
 #include "Moveable.hpp"
 #include "Animatable.hpp"
 
+using sf::Vector2i;
+
 class Entity : public Moveable, public Animatable
 {
 public:
-    Entity(const sf::Vector2i resolution,
+    Entity(const Vector2i resolution,
            float distanceFromCentre,
            float angle,
            float scale,
@@ -41,10 +43,9 @@ public:
     virtual void move()=0;
 
 protected:
-    const sf::Vector2i _resolution;
+    const Vector2i _resolution;
     int _lives;
 
 };
-
 
 #endif //PROJECT_ENTITY_HPP

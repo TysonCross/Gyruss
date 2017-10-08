@@ -18,6 +18,11 @@
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
+using sf::Vector2f;
+using sf::Vector2i;
+using sf::IntRect;
+using sf::Sprite;
+
 ////////////////////////////////////////////////////////////
 /// \brief Projectile class, for either Player or Enemy bullets.
 ///
@@ -48,7 +53,7 @@ public:
     /// \see common.hpp
     /// \see ResourceHolder.hpp
     /// ////////////////////////////////////////////////////////////
-    Bullet(const sf::Vector2i resolution,
+    Bullet(const Vector2i resolution,
            float distanceFromCentre,
            float angle,
            float scale,
@@ -109,19 +114,19 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Returns the x,y position of the bullet on screen
     ////////////////////////////////////////////////////////////
-    const sf::Vector2f getPosition() const override;
+    const Vector2f getPosition() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
     ///
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
-    const sf::Sprite &getSprite() const override;
+    const Sprite &getSprite() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the scale (in width/height) of the playerShip object
     ////////////////////////////////////////////////////////////
-    const sf::Vector2f getScale() const override;
+    const Vector2f getScale() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the remaining number of lives of the bullet
@@ -135,14 +140,13 @@ public:
 
 private:
     ////////////////////////////////////////////////////////////
-    // Member data
+    /// \param The active area of the texture (in an animated tile-set, which will be a sub-rectangle of the total texture.
     ////////////////////////////////////////////////////////////
+    IntRect _rectArea;
 
-    /// \param The active area of the texture (in an animated tileset, which will be a
-    /// sub-rectangle of the total texture.
-    sf::IntRect _rectArea;
-
+    ////////////////////////////////////////////////////////////
     /// \param The pixel offset of the _rectArea, moving the image from frame to frame.
+    ////////////////////////////////////////////////////////////
     int _spriteOffset;
 };
 

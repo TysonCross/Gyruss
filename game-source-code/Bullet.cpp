@@ -33,7 +33,6 @@ Bullet::Bullet(const sf::Vector2i resolution,
     _sprite.setScale(_scale, _scale);
     _sprite.setRotation(-_angle);
     _isMoving = true;
-//    setMove((_distanceFromCentre - (_distanceFromCentre*0.5))); // Spawn at Ship Gun barrel
     setMove(0); // Spawn at Ship Gun barrel
     update();
 }
@@ -47,7 +46,7 @@ void Bullet::setMove(float distance)
 void Bullet::reset()
 {
     _isMoving = false;
-    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move offscreen?
+    _sprite.setPosition(_resolution.x*2,_resolution.y*2); // Move off-screen
     _sprite.setScale(0,0);
 }
 
@@ -59,7 +58,7 @@ void Bullet::update()
         {
             _animationFPSLimit = 0;
             _rectArea.left += _spriteOffset;
-            if (_rectArea.left > (420 - 70)) // Sprite tileset width - individual tile
+            if (_rectArea.left > (420 - 70)) // Sprite tile-set width - individual tile
             {
                 _rectArea.left = 0;
             }

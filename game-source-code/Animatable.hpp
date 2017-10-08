@@ -16,6 +16,8 @@
 #include "SFML/Graphics.hpp"
 #include "ResourceHolder.hpp"
 
+using sf::Sprite;
+
 ////////////////////////////////////////////////////////////
 /// \brief A component of the main Entity class for game objects
 ///
@@ -38,7 +40,7 @@ public:
     /// \see Entity.hpp
     /// \see common.hpp
     /// \see ResourceHolder.hpp
-    /// \see sf::Texture
+    /// \see sf::Texture.hpp
     ////////////////////////////////////////////////////////////
     Animatable(const TextureHolder &textureHolder,
                const entity::ID type) : _type{type} {}
@@ -50,19 +52,20 @@ public:
     ///
     /// \return The method returns the private data member _sprite
     ////////////////////////////////////////////////////////////
-    virtual const sf::Sprite &getSprite()const=0;
+    virtual const Sprite &getSprite()const=0;
 
 protected:
-    ////////////////////////////////////////////////////////////
-    // Member data
-    ////////////////////////////////////////////////////////////
+
     /// \param The sprite object for the Entity
-    sf::Sprite _sprite;
+    Sprite _sprite;
+
     /// \param The unique ID identifying the texture for the Entity
     textures::ID _id;
-    /// \param The ID identofying the Entity yype
+
+    /// \param The ID identifying the Entity type
     entity::ID _type;
-    /// \param If the tileset is designed to be less than the game framerate, it can be limited here
+
+    /// \param If the tile-set is designed to be less than the game frame-rate, it can be limited here
     int _animationFPSLimit;
 
 };
