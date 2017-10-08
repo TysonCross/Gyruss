@@ -52,6 +52,8 @@ public:
     ///
     /// \see ResourceHolder.hpp
     /// \see Score.hpp
+    /// \see sf::RenderWindow
+    /// \see sf:Vector2i
     ////////////////////////////////////////////////////////////
     virtual int draw(sf::RenderWindow &window,
                      const TextureHolder &textureHolder,

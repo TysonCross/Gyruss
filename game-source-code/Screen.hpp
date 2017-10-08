@@ -62,6 +62,7 @@ public:
     /// \see ResourceHolder.hpp
     /// \see sf::Window
     /// \see ResourceMapper
+    /// \see sf::Clock
     ////////////////////////////////////////////////////////////
     virtual int draw(sf::RenderWindow &window,
                      const TextureHolder &textureHolder,
@@ -82,6 +83,7 @@ protected:
 ///
 /// \see sf:Text
 /// \see sf::Color
+/// \see sf::Clock
 ////////////////////////////////////////////////////////////
     virtual void fadeTextInAndOut(sf::Text &text,
                           sf::Color color,

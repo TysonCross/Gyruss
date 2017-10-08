@@ -44,6 +44,7 @@ public:
     /// the splashScreen: 1 game closed, 0 game continue
     ///
     /// \see ResourceHolder.hpp
+    /// \see sf::RenderWindow
     ////////////////////////////////////////////////////////////
     int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
@@ -60,6 +61,8 @@ public:
     /// \param rows defines the number rows in the underlying graphic for animation
     /// \param frameTotal defines how many frames are in the underlying graphic
     /// \param i is an incrementer to define what frame the draw process is currently on
+    ///
+    /// \see sf::Sprite
     ////////////////////////////////////////////////////////////
     void animatePlanet(sf::Sprite &sprite,
                        sf::IntRect &rectArea,
