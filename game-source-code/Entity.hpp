@@ -43,7 +43,7 @@ class Entity : public Moveable, public Animatable
 {
 public:
     ////////////////////////////////////////////////////////////
-    /// \brief The Entity class constructor.
+    /// \brief The Entity class constructor
     /// Calls the Moveable and Animatable constructors,
     /// and sets the resolution
     ///

@@ -15,6 +15,9 @@
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
 
+using sf::Sprite;
+using sf::Vector2f;
+
 class Explosion : public Entity
 {
 public:
@@ -27,21 +30,20 @@ public:
               const textures::ID id);
 
     void setMove(float angle, float distance) override;
-    void move() override;
-    void reset() override;
-    void update() override;
-    const float getRadius() const override;
-    const float getDistanceFromCentre() const override;
-    const sf::Vector2f getPosition() const override;
-    const sf::Sprite &getSprite() const override;
-    const sf::Vector2f getScale() const override;
-    const int getLives() const override;
-    void die() override;
+
+    void move()     override;
+    void reset()    override;
+    void update()   override;
+    void die()      override;
+
+    const Sprite&   getSprite()     const override;
+    const float     getRadius()     const override;
+    const float     getDistanceFromCentre() const override;
+    const Vector2f  getPosition()   const override;
+    const Vector2f  getScale()      const override;
+    const int       getLives()      const override;
 
 private:
-    ////////////////////////////////////////////////////////////
-    // Member data
-    ////////////////////////////////////////////////////////////
     sf::IntRect _rectArea;
     int _spriteOffset;
 };

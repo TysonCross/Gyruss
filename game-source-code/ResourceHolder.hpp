@@ -22,7 +22,19 @@
 #include <cassert>
 #include "common.hpp"
 
+using std::string;
+using std::unique_ptr;
+using std::move;
 
+////////////////////////////////////////////////////////////
+/// \brief The ResourceType class
+///
+/// A mechanism to load all game art resources (textures, sounds and fonts) from disk,
+/// and to transfer the ownership of the unique_ptr to the object calling get()
+/// Several specific types are declared in common.hpp, TextureHolder, FontHolder and SoundHolder
+///
+/// \see common.hpp
+////////////////////////////////////////////////////////////
 template <typename ResourceType, typename IdentifierType>
 class ResourceHolder
 {
@@ -35,26 +47,28 @@ public:
     /// The load() method loads the file into an object of specifed type,
     /// transferring ownership of the resource to the private map container member _resourceMap/
     ///
-    /// \param The key (ID) to load the resource for (defined in common.hpp)
-    /// \param The file to load the resource from.
+    /// \param id The key (ID) to load the resource for (defined in common.hpp)
+    /// \param filename The file to load the resource from.
     ///
     /// \see Game.hpp
     ////////////////////////////////////////////////////////////
-    void load(IdentifierType id, const std::string& filename);
+    void load(IdentifierType id, const string &filename);
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the resource object
     ///
-    /// \param The key (ID) to load the resource for (defined in common.hpp)
+    /// \param id The key (ID) to load the resource for (defined in common.hpp)
+    /// \return An object of type resourceType (usually sf::Texture, sf::SoundBuffer or sf::Font
     ////////////////////////////////////////////////////////////
     ResourceType& get(IdentifierType id);
 
     ////////////////////////////////////////////////////////////
     /// \brief Overloaded const method
     ///
-    /// \param The key (ID) to load the resource for (defined in common.hpp)
+    /// \param id The key (ID) to load the resource for (defined in common.hpp)
+    /// \return An object of type resourceType (usually sf::Texture, sf::SoundBuffer or sf::Font
     ////////////////////////////////////////////////////////////
-    const ResourceType& get(IdentifierType id) const;
+    const ResourceType &get(IdentifierType id) const;
 
 private:
     ////////////////////////////////////////////////////////////
@@ -69,9 +83,9 @@ private:
     void insertResource(IdentifierType id, std::unique_ptr<ResourceType> resource);
 
     ////////////////////////////////////////////////////////////
-    // Member data
+    /// \brief Mapping of the resource to a unique pointer
     ////////////////////////////////////////////////////////////
-    std::map<IdentifierType, std::unique_ptr<ResourceType>>  _resourceMap;
+    std::map<IdentifierType, unique_ptr<ResourceType>>  _resourceMap;
 };
 
 // Template classes need to be defined inline
