@@ -28,29 +28,121 @@
 #include "FPS.hpp"
 #include "HUD.hpp"
 #include "Shield.hpp"
-
 class Game
 {
 public:
+    ////////////////////////////////////////////////////////////
+    /// \brief Constructor for the Main game class. This class manages
+    /// all game loops and creation of all game events and objects.
+    ///
+    /// This class controls the games ability to move from one state(splashscreen, playing etc)
+    /// to another. It also generates instances of all other controllers, like EntityController that
+    /// controls all other game objetcts. Called and generated from main.cpp
+    ///
+    /// \see Game.hpp
+    ////////////////////////////////////////////////////////////
     Game();
+
+    ////////////////////////////////////////////////////////////
+    /// \breif called when the game starts up to begin initialising all prerequisites
+    /// transisions the game into the "stateGameLoop" state that manages and runs the main game loop.
+    ///
+    /// Primary things set at this point are: game resolution and creation of game window
+    ////////////////////////////////////////////////////////////
     void Start();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief used when the game ends to close the game window. Called when the game falls out
+    /// of the startGameLoop state.
+    ///
+    /// \see Start
+    ////////////////////////////////////////////////////////////
     void Quit();
 
 private:
-    void initializeGameLoop();
+    ////////////////////////////////////////////////////////////
+    /// \brief This is the main game loop that is used throughout game play.
+    ///
+    /// Loop begins by setting up all things needed going forward, such as clocks and predefined variables.
+    /// It also is used in the creation of key objects, namely: PlayerShip, shield, entityController and HUD.
+    /// This function holds the game in the mainGame loop during game play and deals with player death sound and draw events
+    ///
+    /// \see PlayerShip.hpp
+    /// \see Shield.hpp
+    /// \see EntityController.hpp
+    /// \see HUD.hpp
+    ////////////////////////////////////////////////////////////
+    void startGameLoop();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief when called, displays the game splashscreen. used when the game starts up or when the game ends
+    ////////////////////////////////////////////////////////////
     void showSplashScreen();
+
+    ////////////////////////////////////////////////////////////
+    /// \breif shows the end game screen, whn the game ends. Based on if the player won or lost,
+    /// a different screen is displayed.
+    ///
+    /// \param gameOutcome boolean to represent if the player won the current game
+    ////////////////////////////////////////////////////////////
     void showGameOverScreen(bool gameOutcome);
+
+    ////////////////////////////////////////////////////////////
+    /// \breif Loads all required game resources when called. This Utilises the ResourceHolder object. Each resource
+    /// is intern loaded into the resourceHolder, where a map of all entities is created. When resources are required, the
+    /// resourceHolder returns a smart pointer to the resource
+    ////////////////////////////////////////////////////////////
     void loadResources();
+
+    ////////////////////////////////////////////////////////////
+    /// \breif Compares current game highscore to highscore stored on disk. If current is higher, saves to a text file
+    /// "highscore.txt" in the game root directory.
+    ////////////////////////////////////////////////////////////
     void recordHighScore();
 
+    ////////////////////////////////////////////////////////////
+    /// \breif Instant of Texture holder to store all game textures
+    ////////////////////////////////////////////////////////////
     TextureHolder _textures;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif Instant of SoundController to load and play all game sounds
+    ////////////////////////////////////////////////////////////
     SoundController _soundController;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif Instant of FontHolder to store and access all external game fonts
+    ////////////////////////////////////////////////////////////
     FontHolder _fonts;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif Instant of InputHandler to manage and process all user inputs to interact with the game
+    ////////////////////////////////////////////////////////////
     InputHandler _inputHandler;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif Game state to store what state the game is currently in, such as splash, Exiting, GameOverLose, GameOverWin
+    ////////////////////////////////////////////////////////////
     game::GameState _gameState;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Primary RenderWindow to store all rendered game content
+    ////////////////////////////////////////////////////////////
     sf::RenderWindow _mainWindow;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif a two dimensional vector to store the width and high of the game screen
+    ////////////////////////////////////////////////////////////
     sf::Vector2i _resolution;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif integer to store the number of enimies that must be killed to end the game
+    ////////////////////////////////////////////////////////////
     int _winCondition;
+
+    ////////////////////////////////////////////////////////////
+    /// \breif score object to store the current game score, such as enemies killed and longest life
+    ////////////////////////////////////////////////////////////
     Score _score;
 
 };

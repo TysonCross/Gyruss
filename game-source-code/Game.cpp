@@ -21,13 +21,11 @@ Game::Game() : _winCondition{100}, // Number of enemies needed to kill to win.
 
 void Game::Start()
 {
-    // Todo: Need to choose better way to set the resolution. settings screen and set Resource perhaps?
     _resolution = sf::Vector2i{1920, 1080};
-
     sf::Image icon;
     if (!icon.loadFromFile("resources/icon.png")) return;
 
-    loadResources();
+    loadResources(); //load all graphics into the resource holder
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
@@ -42,7 +40,7 @@ void Game::Start()
 
     while (_gameState != game::GameState::Exiting)
     {
-        initializeGameLoop();
+        startGameLoop();
     }
     Quit();
 }
@@ -52,18 +50,20 @@ void Game::Quit()
     _mainWindow.close();
 }
 
-void Game::initializeGameLoop()
+// Main game loop that runs while game is played. begins by setting up all vars and objects that need to be used.
+// during game play, sits within a sub-game loop
+void Game::startGameLoop()
 {
     sf::Clock mainClock;
     sf::Clock totalTimer;
     sf::Clock speedTimer;
     sf::Clock aliveTimer;
     sf::Time timeSinceUpdate = sf::Time::Zero;
-    float timeStep = 1.f / 60.f;
-    auto speedModifier = 0.5f;
+    float timeStep = 1.f / 60.f; //60 frames per second
+    auto speedModifier = 0.5f; //defines how fast the game should be at the start
     auto increaseSpeedThreshold = 1.5f;  // How often the game speeds up (in seconds)
     auto globalSpeedIncrease = 0.01f; // Game speeds up this amount every time
-    _inputHandler.reset();
+    _inputHandler.reset(); //clear all previous inputs in the input Handelr
 
 #ifdef DEBUG_ONLY
     FPS fps;
@@ -88,13 +88,15 @@ void Game::initializeGameLoop()
     ///-------------------------------------------
     _score.reset();
 
+    //load game music
     if(_soundController.loadMusic())
         _soundController.playMusic();
 
-    auto number_of_stars = 60;
-    StarField starField(_resolution, 3, number_of_stars);
+    // Generate starField
+    auto numberOfStars = 60;
+    StarField starField(_resolution, 3, numberOfStars);
 
-    // Todo: Config.ini file
+    //Generated playerShip object
     auto shipPathRadiusPadding = 0.05f;
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.22;
@@ -105,13 +107,14 @@ void Game::initializeGameLoop()
                           entity::PlayerShip,
                           _textures);
 
-
+    //Generate entityController object to manage all game objects movement, creation and destruction
     EntityController entityController(_resolution,
                                       playerShip,
                                       _textures,
                                       _score,
                                       speedModifier);
 
+    //Generate shield object for playerShip
     Shield shield(_resolution,
                   shipPathRadius,
                   0,
@@ -120,6 +123,7 @@ void Game::initializeGameLoop()
                   _textures,
                   playerShip);
 
+    //Create a hud object to show current lives and game stats
     HUD hud(_resolution,
             _mainWindow,
             _textures,
@@ -127,17 +131,19 @@ void Game::initializeGameLoop()
             _score,
             playerShip);
 
-    _soundController.playSound(sounds::PlayerMove,1,200,1);
+    _soundController.playSound(sounds::PlayerMove,0,100,1);
+
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
+    // Start of the main game loop that defines all game play
 
     while (_gameState == game::GameState::Playing)
     {
-
         ///-------------------------------------------
         /// Events
         ///-------------------------------------------
+        // Deal with user input
         sf::Event event;
         while (_mainWindow.pollEvent(event))
         {
@@ -178,8 +184,6 @@ void Game::initializeGameLoop()
             }
 #endif // DEBUG_ONLY
         }
-
-
         // Frame timing events
         timeSinceUpdate += mainClock.getElapsedTime();
         mainClock.restart();
@@ -193,10 +197,11 @@ void Game::initializeGameLoop()
         ///-------------------------------------------
         ///  Fixed Timestep
         ///-------------------------------------------
+        //On each descrete time step (frame) specific operations are done like spawning new enemies, entity
+        //shooting and entity clipping. Collision detection is done later.
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
-
 
             _inputHandler.update(playerShip, timeStep);
             entityController.spawnEntities();
@@ -211,7 +216,7 @@ void Game::initializeGameLoop()
             ///-------------------------------------------
             ///  Player Death
             ///-------------------------------------------
-            // \brief Returns true if the player has collided. (also does global entity collision check)
+            // Returns true if the player has collided. (also does global entity collision check)
             if (entityController.checkCollisions())
             {
                 if (!playerShip.isInvulnerable())
@@ -261,9 +266,11 @@ void Game::initializeGameLoop()
             for (const auto &element : starField.getStarField())
                 starField.moveAndDrawStars(_mainWindow, entityController.getSpeed() * 0.001f);
 
+            // All entities that are not the playerShip are managed by the entity controller. Tell it to draw on update
             entityController.draw(_mainWindow);
 
             _mainWindow.draw(playerShip.getSprite());
+            // Append shield sprite if the playerShip is invulnerable
             if (playerShip.isInvulnerable())
             {
                 shield.update();
@@ -274,7 +281,7 @@ void Game::initializeGameLoop()
                 shield.reset();
             }
             hud.draw();
-
+            //Shake the screen in the event the the playerShip dies. Move the location of screen around
             while (shaking > 0)
             {
                 sf::Event event;
@@ -345,7 +352,7 @@ void Game::showGameOverScreen(bool gameOutcome)
     else
         _soundController.playSound(sounds::GameOverLoseSound);
     _soundController.stopMusic();
-    recordHighScore();
+    recordHighScore(); //calls to save score to disk
     ScreenGameOver gameOverScreen(gameOutcome);
     if (gameOverScreen.draw(_mainWindow, _textures, _fonts, _resolution, _score) == 0)
     {
@@ -382,7 +389,6 @@ void Game::loadResources()
 
 void Game::recordHighScore()
 {
-
     std::string filename = "highscores.txt";
     std::ifstream inputFile(filename,
                             std::ios::in);
@@ -411,7 +417,6 @@ void Game::recordHighScore()
         outputFile << _score.getScore();
         outputFile.close();
     }
-
     inputFile.close();
     return;
 }
