@@ -26,17 +26,18 @@
 /// The field is made up of many stars (a struct of three floats
 /// The stars are psuedorandomly generated to fill the volume
 /// enclosed by screen height * screen widgth * maximum depth
-///
-/// \param resourceMapper The resourceMapper object that
-/// contains the path to the texture(s) for the sprite
-/// \param number_of_stars The number of stars in the vector
-/// \param max_depth distance from the "camera plane"
-/// \param max_size The maximum scale of the rectangle of a star
-///
 ////////////////////////////////////////////////////////////
 class StarField
 {
 public:
+    ////////////////////////////////////////////////////////////
+    /// \brief StarField constructor.
+    ///
+    /// \param resolution screen size used to calculate the dimensions of the screen
+    /// \param max_depth distance from the "camera plane"
+    /// \param number_of_stars The number of stars in the vector
+    /// \param max_size The maximum scale of the rectangle of a star
+    ////////////////////////////////////////////////////////////
     StarField(const sf::Vector2i resolution,
               const int max_depth,
               const int number_of_stars,
@@ -74,15 +75,44 @@ public:
 private:
 
     ////////////////////////////////////////////////////////////
-    // Member data
+    /// \brief vector to store the starFields position in space.
+    /// This vector has all  stars stored in it ant any point in time
     ////////////////////////////////////////////////////////////
     std::vector<common::position> _starField;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Defines the shape of the star that flys out of the centre of the screen
+    ////////////////////////////////////////////////////////////
     sf::CircleShape _star_shape;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief width of the screen. extracted from the resolution at time of construction
+    ////////////////////////////////////////////////////////////
     const unsigned int _width;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief height of the screen. extracted from the resolution at time of construction
+    ////////////////////////////////////////////////////////////
     const unsigned int _height;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief defines the maximum depth(z index) that the star can be in
+    ////////////////////////////////////////////////////////////
     const int _max_depth;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief limits the number of stars that can be in the space at any point in time
+    ////////////////////////////////////////////////////////////
     const int _number_of_stars;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Used to define the star shape radius and scaling
+    ////////////////////////////////////////////////////////////
     const float _max_size;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Used to define the star shape radius and scaling
+    ////////////////////////////////////////////////////////////
     float _star_scale;
 };
 
