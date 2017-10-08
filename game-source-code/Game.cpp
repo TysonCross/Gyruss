@@ -54,11 +54,11 @@ void Game::Quit()
 // during game play, sits within a sub-game loop
 void Game::startGameLoop()
 {
-    sf::Clock mainClock;
-    sf::Clock totalTimer;
-    sf::Clock speedTimer;
-    sf::Clock aliveTimer;
-    sf::Time timeSinceUpdate = sf::Time::Zero;
+    Clock mainClock;
+    Clock totalTimer;
+    Clock speedTimer;
+    Clock aliveTimer;
+    Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f; //60 frames per second
     auto speedModifier = 0.5f; //defines how fast the game should be at the start
     auto increaseSpeedThreshold = 1.5f;  // How often the game speeds up (in seconds)
@@ -142,7 +142,7 @@ void Game::startGameLoop()
         /// Events
         ///-------------------------------------------
         // Deal with user input
-        sf::Event event;
+        Event event;
         while (_mainWindow.pollEvent(event))
         {
             _inputHandler.pollInput(_gameState,
@@ -387,22 +387,21 @@ void Game::loadResources()
 
 void Game::recordHighScore()
 {
-    std::string filename = "highscores.txt";
-    std::ifstream inputFile(filename,
-                            std::ios::in);
+    string filename = "highscores.txt";
+    ifstream inputFile(filename, std::ios::in);
 
 
     if (!inputFile.is_open())
     {
-        throw std::runtime_error("Game::recordHighScore - Unable to open input file: " + filename);
+        throw runtime_error("Game::recordHighScore - Unable to open input file: " + filename);
     }
     inputFile.seekg(0, std::ios::beg);
 
 
-    std::string oldHighScore = "";
+    string oldHighScore = "";
     inputFile >> oldHighScore;
 
-    std::string::size_type sizeString;   // alias of size_t
+    string::size_type sizeString;   // alias of size_t
     int oldValue = std::stoi(oldHighScore, &sizeString);
 
     if (_score.getScore() > oldValue)
@@ -410,7 +409,7 @@ void Game::recordHighScore()
         std::ofstream outputFile(filename, std::ios::out);
         if (!outputFile.is_open())
         {
-            throw std::runtime_error("Game::recordHighScore - Unable to open output file: " + filename);
+            throw runtime_error("Game::recordHighScore - Unable to open output file: " + filename);
         }
         outputFile << _score.getScore();
         outputFile.close();

@@ -28,33 +28,48 @@
 #include "FPS.hpp"
 #include "HUD.hpp"
 #include "Shield.hpp"
+
+using sf::Vector2i;
+using sf::RenderWindow;
+using sf::Clock;
+using sf::Time;
+using std::string;
+using std::ifstream;
+using std::ofstream;
+using std::runtime_error;
+using sf::Event;
+
+////////////////////////////////////////////////////////////
+/// \brief The main Game class
+///
+/// This class manages all game loops and creation of all game events and objects,
+/// the game states, and basic game logic.
+/// It also generates instances of all other controllers and handlers,
+/// such as EntityController, InputHandler and the various types of ResourceHandler.
+/// It is directly responsible for the playerShipObject.
+////////////////////////////////////////////////////////////
 class Game
 {
 public:
     ////////////////////////////////////////////////////////////
-    /// \brief Constructor for the Main game class. This class manages
-    /// all game loops and creation of all game events and objects.
+    /// \brief Constructor for the main Game class.
     ///
-    /// This class controls the games ability to move from one state(splashScreen, playing etc)
-    /// to another. It also generates instances of all other controllers, like EntityController that
-    /// controls all other game objects. Called and generated from main.cpp
-    ///
-    /// \see Game.hpp
+    /// Sets the win condition, and the initial game state.
     ////////////////////////////////////////////////////////////
     Game();
 
     ////////////////////////////////////////////////////////////
-    /// \brief called when the game starts up to begin initialising all prerequisites
-    /// transisions the game into the "stateGameLoop" state that manages and runs the main game loop.
+    /// \brief Starts the game.
     ///
-    /// Primary things set at this point are: game resolution and creation of game window
+    /// The main window (sf::RenderWindow) is created.
+    /// \see SFML/Window
     ////////////////////////////////////////////////////////////
     void Start();
 
     ////////////////////////////////////////////////////////////
-    /// \brief used when the game ends to close the game window. Called when the game falls out
-    /// of the startGameLoop state.
+    /// \brief Quits the game.
     ///
+    /// The game ends when the window is closed, or the quit hotkey is used.
     /// \see Start
     ////////////////////////////////////////////////////////////
     void Quit();
@@ -64,76 +79,89 @@ private:
     /// \brief This is the main game loop that is used throughout game play.
     ///
     /// Loop begins by setting up all things needed going forward, such as clocks and predefined variables.
-    /// It also is used in the creation of key objects, namely: PlayerShip, shield, entityController and HUD.
-    /// This function holds the game in the mainGame loop during game play and deals with player death sound and draw events
+    /// It also is used in the creation of key objects, namely: PlayerShip, Shield, Score, EntityController and HUD.
+    /// This function holds the game in the mainGame loop during game play and deals with player death sound and draw events.
     ///
     /// \see PlayerShip.hpp
     /// \see Shield.hpp
+    /// \see Score.hpp
     /// \see EntityController.hpp
     /// \see HUD.hpp
     ////////////////////////////////////////////////////////////
     void startGameLoop();
 
     ////////////////////////////////////////////////////////////
-    /// \brief when called, displays the game splashScreen. used when the game starts up or when the game ends
+    /// \brief Displays the game splashScreen. Used when before a game starts.
     ////////////////////////////////////////////////////////////
     void showSplashScreen();
 
     ////////////////////////////////////////////////////////////
-    /// \brief shows the end game screen, whn the game ends. Based on if the player won or lost,
-    /// a different screen is displayed.
+    /// \brief Displays the end game screen.
     ///
-    /// \param gameOutcome boolean to represent if the player won the current game
+    /// Based on if the player won or lost, a different screen is displayed.
+    ///
+    /// \param gameOutcome Boolean to represent if the player won the current game
     ////////////////////////////////////////////////////////////
     void showGameOverScreen(bool gameOutcome);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Loads all required game resources when called. This Utilises the ResourceHolder object. Each resource
-    /// is intern loaded into the resourceHolder, where a map of all entities is created. When resources are required, the
-    /// resourceHolder returns a smart pointer to the resource
+    /// \brief Pre-loads all required game resources.
+    ///
+    /// This loads all requires game assets, using ResourceHolder objects
+    /// \see ResourceHolder.hpp
+    /// \see ResourceHolder.inl
     ////////////////////////////////////////////////////////////
     void loadResources();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Compares current game highscore to highscore stored on disk. If current is higher, saves to a text file
-    /// "highscore.txt" in the game root directory.
+    /// \brief Compares current to previous  game highscores.
+    ///
+    /// Previous highscore is stored in a text file on disk.
+    /// The higher value saved to "highscore.txt" in the game root directory.
     ////////////////////////////////////////////////////////////
     void recordHighScore();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Instant of Texture holder to store all game textures
+    /// \brief A ResourceHolder of type Texture to store all game art assets
+    /// \see sf::Texture
     ////////////////////////////////////////////////////////////
     TextureHolder _textures;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Instant of SoundController to load and play all game sounds
+    /// \brief A ResourceHolder of type SoundBuffer to load and play all game sounds
+    /// \see sf::Sound
+    /// \see sf::SoundBuffer
     ////////////////////////////////////////////////////////////
     SoundController _soundController;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Instant of FontHolder to store and access all external game fonts
+    /// \brief A ResourceHolder of type sf::Font to store and access typefaces
+    /// \see sf::Font
     ////////////////////////////////////////////////////////////
     FontHolder _fonts;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Instant of InputHandler to manage and process all user inputs to interact with the game
+    /// \brief Data member of type InputHandler to manage and process all user inputs to interact with the game
     ////////////////////////////////////////////////////////////
     InputHandler _inputHandler;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Game state to store what state the game is currently in, such as splash, Exiting, GameOverLose, GameOverWin
+    /// \brief Game state to store what state the game is currently in.
+    ///
+    /// The availible states are Game::Splash, Game::Exiting, Game::GameOverLose, Game::GameOverWin
     ////////////////////////////////////////////////////////////
     game::GameState _gameState;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Primary RenderWindow to store all rendered game content
+    /// \brief Primary RenderWindow for displaying the game
     ////////////////////////////////////////////////////////////
-    sf::RenderWindow _mainWindow;
+    RenderWindow _mainWindow;
 
     ////////////////////////////////////////////////////////////
-    /// \brief a two dimensional vector to store the width and high of the game screen
+    /// \brief A two dimensional vector to store the width and high of the game screen
+    /// \see sf::Vector2i
     ////////////////////////////////////////////////////////////
-    sf::Vector2i _resolution;
+    Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
     /// \brief integer to store the number of enemies that must be killed to end the game
