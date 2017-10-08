@@ -112,7 +112,7 @@ public:
     /// \brief initiates a player shoot event based on current gun level
     /// and adds bullet to bullet vector
     ///
-    /// \see playerShoot
+    /// \see playerShoot()
     ////////////////////////////////////////////////////////////
     void shoot();
 
@@ -123,7 +123,7 @@ public:
     /// This function is directly responsible for how the game plays.
     /// Actual movements are done by preformEnemyMove
     ///
-    /// \see preformEnemyMove
+    /// \see preformEnemyMove()
     ////////////////////////////////////////////////////////////
     void setMove();
 
@@ -133,7 +133,7 @@ public:
     ///
     /// Programatic method of moving ships around, based on movement state
     ///
-    /// \see setMove
+    /// \see setMove()
     ////////////////////////////////////////////////////////////
     void preformEnemyMove(std::unique_ptr<Enemy> &enemy,
                           MovementState currentEnemyMovementState,
@@ -153,7 +153,7 @@ public:
     /// In the event that they are, remove them from the game (reset the ships or delete bullets).
     /// Also responsible for generating explosion events on ship deaths
     ///
-    /// \see collides
+    /// \see collides()
     ///
     /// \return a bool, true if collision occurred with playerShip. false if not.
     ////////////////////////////////////////////////////////////
@@ -162,7 +162,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \breif used to check for collisions between two sprites
     ///
-    /// \see checkCollision
+    /// \see checkCollision()
     ///
     /// \return a bool, true if collision, false if not
     ////////////////////////////////////////////////////////////
@@ -344,32 +344,47 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \breif Boolean to store if an explosion has occurred on the current frame
+    ///
+    /// \see explosionOccurred()
     ////////////////////////////////////////////////////////////
     bool _explosionHasOccurred;
 
     ////////////////////////////////////////////////////////////
     /// \breif Boolean to store if an enemy has shot a bullet in the current frame
+    ///
+    /// \see shootingOccurred()
     ////////////////////////////////////////////////////////////
     bool _enemyShootEventHasOccurred;
 
     ////////////////////////////////////////////////////////////
     /// \breif Boolean to store if the playerShip was hit in the current frame
+    ///
+    /// \see collides()
     ////////////////////////////////////////////////////////////
     bool _playerHasBeenHit;
 
     ////////////////////////////////////////////////////////////
     /// \breif float to store the current game speed modifier
+    ///
+    /// \see getSpeed()
+    /// \see resetGlobalSpeed()
+    /// \see changeGlobalSpeed()
     ////////////////////////////////////////////////////////////
     float _speedModifier;
 
     ////////////////////////////////////////////////////////////
     /// \breif float to store the default game speed. The game speed is reset
     /// to this value when the game starts and when the player looses a life
+    ///
+    /// \see resetGlobalSpeed()
     ////////////////////////////////////////////////////////////
     float _defaultSpeed;
 
     ////////////////////////////////////////////////////////////
     /// \breif int to count the total number of satellites that are alive at a point
+    ///
+    /// \see spawnSatellites()
+    /// \see spawnEntities()
     ////////////////////////////////////////////////////////////
     int _satellitesAlive;
 
@@ -385,6 +400,8 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \breif float to store the speed that a meteoroid should fly at
+    ///
+    /// \see spawnMeteoroid()
     ////////////////////////////////////////////////////////////
     float _meteoroidSpeed;
 
