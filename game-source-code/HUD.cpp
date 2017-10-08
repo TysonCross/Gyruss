@@ -12,12 +12,10 @@
 
 HUD::HUD(const sf::Vector2i resolution,
          sf::RenderWindow &renderWindow,
-         const TextureHolder &textureHolder,
          const FontHolder &fontHolder,
          const Score &scoreValue,
          const PlayerShip &playerShip) : _resolution{resolution},
                                          _renderWindow{renderWindow},
-                                         _textures{textureHolder},
                                          _fonts{fontHolder},
                                          _score{scoreValue},
                                          _playerShip{playerShip}{}

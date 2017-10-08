@@ -126,7 +126,6 @@ void Game::startGameLoop()
     //Create a hud object to show current lives and game stats
     HUD hud(_resolution,
             _mainWindow,
-            _textures,
             _fonts,
             _score,
             playerShip);

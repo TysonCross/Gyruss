@@ -16,24 +16,58 @@
 #include "PlayerShip.hpp"
 #include "common.hpp"
 
+////////////////////////////////////////////////////////////
+/// \brief HUD class, to inform the user of remaining lives and other game information
+///
+/// Sources information from the score object from game
+///
+/// \see Score.hpp
+////////////////////////////////////////////////////////////
 class HUD
 {
 public:
+    ////////////////////////////////////////////////////////////
+    /// \brief HUD class constructor. Initiated on game start.
+    ///
+    /// \param resolution stores the size of the screen so the HUD knows where to position itself
+    /// \param renderWindow enables the HUD to draw directly onto the game screen
+    /// \param fontHolder is used to pass the required fonts to the HUD
+    /// \param score object enables the HUD to display the current game score, calculated and stored in score object
+    /// \param playerShip provides the playerShip state to the HUD, so the player can see if his is alive/dead/invulnerable
+    ////////////////////////////////////////////////////////////
     HUD(const sf::Vector2i resolution,
         sf::RenderWindow &renderWindow,
-        const TextureHolder &textureHolder,
         const FontHolder &fontHolder,
         const Score &score,
         const PlayerShip &playerShip);
-
+    ////////////////////////////////////////////////////////////
+    /// \param appends the HUD to the current game renderWindow for the current lives and game score
+    ////////////////////////////////////////////////////////////
     void draw();
 
 private:
+    ////////////////////////////////////////////////////////////
+    /// \param vector to store the game resultion, to enable the HUD to know its internal deterministically generated dimensions
+    ////////////////////////////////////////////////////////////
     const sf::Vector2i _resolution;
+
+    ////////////////////////////////////////////////////////////
+    /// \param reference to the main game renderWindow, to enable the HUD to draw itself over the main game window
+    ////////////////////////////////////////////////////////////
     sf::RenderWindow& _renderWindow;
-    const TextureHolder& _textures;
+    ////////////////////////////////////////////////////////////
+    /// \param reference to the main font holder, to give the HUD access to its required fonts
+    ////////////////////////////////////////////////////////////
     const FontHolder& _fonts;
+
+    ////////////////////////////////////////////////////////////
+    /// \param reference to the main score object, so the HUD to draw the latest player score
+    ////////////////////////////////////////////////////////////
     const Score& _score;
+
+    ////////////////////////////////////////////////////////////
+    /// \param reference to the main playerShip, the so HUD can know the ship current state.
+    ////////////////////////////////////////////////////////////
     const PlayerShip& _playerShip;
 };
 
