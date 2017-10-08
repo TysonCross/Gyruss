@@ -16,32 +16,32 @@ InputHandler::InputHandler() : _previousButtonState{false}
 
 void InputHandler::pollInput(game::GameState &gameState,
                              PlayerShip &playerShip,
-                             const sf::Event &event)
+                             const Event &event)
 {
-    if (event.type == sf::Event::Closed)
+    if (event.type == Event::Closed)
     {
         gameState = game::GameState::Exiting;
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)
-        && (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-            || sf::Keyboard::isKeyPressed(sf::Keyboard::RControl)))
+    if (Keyboard::isKeyPressed(Keyboard::Q)
+        && (Keyboard::isKeyPressed(Keyboard::LControl)
+            || Keyboard::isKeyPressed(Keyboard::RControl)))
     {
         gameState = game::GameState::Exiting;
     }
 
 
-    if (event.type == sf::Event::EventType::KeyPressed)
+    if (event.type == Event::EventType::KeyPressed)
     {
-        if (event.key.code == sf::Keyboard::Left)
+        if (event.key.code == Keyboard::Left)
         {
             _isMovingLeft = true;
         }
-        if (event.key.code == sf::Keyboard::Right)
+        if (event.key.code == Keyboard::Right)
         {
             _isMovingRight = true;
         }
-        if (event.key.code == sf::Keyboard::Space)
+        if (event.key.code == Keyboard::Space)
             if (_previousButtonState == 0)
             {
                 playerShip.setShoot();
@@ -49,17 +49,17 @@ void InputHandler::pollInput(game::GameState &gameState,
             }
     }
 
-    if (event.type == sf::Event::EventType::KeyReleased)
+    if (event.type == Event::EventType::KeyReleased)
     {
-        if (event.key.code == sf::Keyboard::Left)
+        if (event.key.code == Keyboard::Left)
         {
             _isMovingLeft = false;
         }
-        if (event.key.code == sf::Keyboard::Right)
+        if (event.key.code == Keyboard::Right)
         {
             _isMovingRight = false;
         }
-        if (event.key.code == sf::Keyboard::Space)
+        if (event.key.code == Keyboard::Space)
         {
             _previousButtonState = 0;
         }

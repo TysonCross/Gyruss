@@ -151,14 +151,14 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Returns the x,y position of the playership on screen
     ///
-    /// \return A Vector2f: two (float) values {x,y} of the screen space coordinates of the object
+    /// \return A Vector2f - two (float) values {x,y} of the screen space coordinates of the object
     ////////////////////////////////////////////////////////////
     const Vector2f getPosition() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the scale (in width/height) of the playerShip object
     ///
-    /// \return A Vector2f: two (float) values {x,y} of the scale in width and height
+    /// \return A Vector2f - two (float) values {x,y} of the scale in width and height
     ////////////////////////////////////////////////////////////
     const Vector2f getScale() const override;
 
@@ -243,10 +243,11 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \param The animatable texture's active tile area
+    ////////////////////////////////////////////////////////////
     IntRect _rectArea;
 
     ////////////////////////////////////////////////////////////
-    /// \param The pixel offset of the _rectArea, moving the image from frame to frame.
+    /// \param The pixel offset of the _rectArea, moving the image from frame to frame
     ////////////////////////////////////////////////////////////
     int _spriteOffset;
 

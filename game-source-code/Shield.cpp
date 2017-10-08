@@ -8,17 +8,12 @@
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
-
-
-
 #include "Shield.hpp"
 
-
-Shield::Shield(const sf::Vector2i resolution,
+Shield::Shield(const Vector2i resolution,
                float distanceFromCentre,
                float angle,
                float scale,
-               const entity::ID type,
                const TextureHolder &textureHolder,
                PlayerShip &playerShip) : _resolution{resolution},
                                          _distanceFromCentre{distanceFromCentre},
@@ -33,7 +28,6 @@ Shield::Shield(const sf::Vector2i resolution,
     _sprite.setTextureRect(_rectArea);
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     _sprite.setScale(_scale, _scale);
-
     reset(); //Initialised position invisible, offscreen
 }
 
@@ -51,7 +45,7 @@ void Shield::move()
     _sprite.setRotation(_playerShip.getSprite().getRotation());
 }
 
-const sf::Sprite &Shield::getSprite() const
+const Sprite &Shield::getSprite() const
 {
     return _sprite;
 }

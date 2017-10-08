@@ -43,7 +43,7 @@ class Entity : public Moveable, public Animatable
 {
 public:
     ////////////////////////////////////////////////////////////
-    /// \brief The Entity class constructor.
+    /// \brief The Entity class constructor
     /// Calls the Moveable and Animatable constructors,
     /// and sets the resolution
     ///
@@ -73,7 +73,6 @@ public:
                                                             type},
                                                  _resolution{resolution} {}
 
-
     ////////////////////////////////////////////////////////////
     /// \brief Pure virtual method definition for returning the
     /// remaining number of lives of the entity
@@ -83,9 +82,9 @@ public:
     virtual const int getLives() const=0;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Pure virtual method definition for resetting the entity to a default state
+    /// \brief Pure virtual method definition for performing a move
     ////////////////////////////////////////////////////////////
-    virtual void reset()=0;
+    virtual void move()=0;
 
     ////////////////////////////////////////////////////////////
     /// \brief Pure virtual method definition for performing an update on the entity object
@@ -93,14 +92,14 @@ public:
     virtual void update()=0;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Pure virtual method definition for resetting the entity to a default state
+    ////////////////////////////////////////////////////////////
+    virtual void reset()=0;
+
+    ////////////////////////////////////////////////////////////
     /// \brief Pure virtual method definition for decrementing an entity's lives count
     ////////////////////////////////////////////////////////////
     virtual void die()=0;
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Pure virtual method definition for performing a move
-    ////////////////////////////////////////////////////////////
-    virtual void move()=0;
 
 protected:
     ////////////////////////////////////////////////////////////

@@ -78,20 +78,12 @@ public:
 
     ////////////////////////////////////////////////////////////
     /// \brief Performs the actual move, based on _futureMoveValue.
-    ///
-    /// \see move()
-    ////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
     void move() override;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Resets the player ship (intended to be called after
-    /// a player death event)
-    ///
-    /// The bullet position is reset back
-    /// to the centre of the screen, on the movement circle.
-    /// Invulnerability is turned on, and the invulnerability timer restarted,
-    /// The various boolean states are reset to their default values.
-    /// Any upgrades are lost, and these planned moves are immediately performed
+    /// \brief Resets the bullet (intended to be called after
+    /// a collision with the bullet)
     ////////////////////////////////////////////////////////////
     void reset() override;
 
@@ -146,7 +138,7 @@ public:
     const Vector2f getPosition() const override;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the scale (in width/height) of the playerShip object
+    /// \brief Returns the scale (in width/height) of the bullet object
     ///
     /// \return An sf:Vector2f (two float values) of the {x,y} scale of the bullet
     ////////////////////////////////////////////////////////////

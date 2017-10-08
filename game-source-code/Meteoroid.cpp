@@ -8,7 +8,7 @@
 
 #include "Meteoroid.hpp"
 
-Meteoroid::Meteoroid(const sf::Vector2i resolution,
+Meteoroid::Meteoroid(const Vector2i resolution,
                float distanceFromCentre,
                float angle,
                float scale,
@@ -57,9 +57,9 @@ void Meteoroid::update()
 
 const float Meteoroid::getRadius() const
 {
-    auto mid = sf::Vector2<float>{_resolution.x/2.f, _resolution.y/2.f};
-    auto pos = sf::Vector2<float>{_sprite.getPosition().x, _sprite.getPosition().y};
-    sf::Vector2f length = mid-pos;
+    auto mid = Vector2f{_resolution.x/2.f, _resolution.y/2.f};
+    auto pos = Vector2f{_sprite.getPosition().x, _sprite.getPosition().y};
+    Vector2f length = mid-pos;
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
@@ -68,17 +68,17 @@ const float Meteoroid::getDistanceFromCentre() const
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
-const sf::Vector2f Meteoroid::getPosition() const
+const Vector2f Meteoroid::getPosition() const
 {
     return _sprite.getPosition();
 }
 
-const sf::Sprite& Meteoroid::getSprite() const
+const Sprite& Meteoroid::getSprite() const
 {
     return _sprite;
 }
 
-const sf::Vector2f Meteoroid::getScale() const
+const Vector2f Meteoroid::getScale() const
 {
     return _sprite.getScale();
 }
@@ -116,5 +116,5 @@ void Meteoroid::move()
     auto dimColor = (scale*200) + 55;
     if (getRadius() >= (_resolution.y/2))
 
-        _sprite.setColor(sf::Color(dimColor,dimColor,dimColor));
+        _sprite.setColor(Color(dimColor,dimColor,dimColor));
 }
