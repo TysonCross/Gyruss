@@ -78,7 +78,7 @@ private:
     std::vector<common::position> _starField;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Defines the shape of the star that flys out of the centre of the screen
+    /// \brief Defines the shape of the star that flies out of the centre of the screen
     ////////////////////////////////////////////////////////////
     sf::CircleShape _star_shape;
 

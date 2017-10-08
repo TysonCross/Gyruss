@@ -181,6 +181,7 @@ public:
     /// \param sprite2 second sprite that is fed in, compared to sprite1
     ///
     /// \see checkCollision()
+    /// \see sf::Sprite
     ///
     /// \return a bool, true if collision, false if not
     ////////////////////////////////////////////////////////////
