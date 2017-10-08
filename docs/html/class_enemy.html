@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -90,13 +90,18 @@ $(document).ready(function(){initNavTree('class_enemy.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract Base Class for enemy game objects.  
+ <a href="class_enemy.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Enemy:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy__inherit__graph.png" border="0" usemap="#_enemy_inherit__map" alt="Inheritance graph"/></div>
 <map name="_enemy_inherit__map" id="_enemy_inherit__map">
-<area shape="rect" id="node2" href="class_entity.html" title="Entity" alt="" coords="9,5,64,31"/>
+<area shape="rect" id="node2" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="71,79,126,104"/>
+<area shape="rect" id="node3" href="class_moveable.html" title="Moveable Class. " alt="" coords="5,5,84,31"/>
+<area shape="rect" id="node4" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,5,197,31"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -104,110 +109,171 @@ Collaboration diagram for Enemy:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy__coll__graph.png" border="0" usemap="#_enemy_coll__map" alt="Collaboration graph"/></div>
 <map name="_enemy_coll__map" id="_enemy_coll__map">
-<area shape="rect" id="node2" href="class_entity.html" title="Entity" alt="" coords="9,5,64,31"/>
+<area shape="rect" id="node2" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="126,179,180,204"/>
+<area shape="rect" id="node3" href="class_moveable.html" title="Moveable Class. " alt="" coords="5,92,84,117"/>
+<area shape="rect" id="node4" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,92,197,117"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a96b36169d7d8417a1d39530a1320a95b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a96b36169d7d8417a1d39530a1320a95b">Enemy</a> (const sf::Vector2i &amp;resolution, float distanceFromCentre, float angle, float scale, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, const <a class="el" href="namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683">textures::ID</a> id, <a class="el" href="_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4a">MovementState</a> movementState, <a class="el" href="_enemy_8hpp.html#a0b5e764f0ec9a407e9b8789f0259d754">MovementDirection</a> movementDirection)</td></tr>
-<tr class="memdesc:a96b36169d7d8417a1d39530a1320a95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of <a class="el" href="class_enemy.html">Enemy</a> ship types.  <a href="#a96b36169d7d8417a1d39530a1320a95b">More...</a><br /></td></tr>
+<tr class="memitem:a96b36169d7d8417a1d39530a1320a95b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a96b36169d7d8417a1d39530a1320a95b">Enemy</a> (const sf::Vector2i &amp;resolution, float distanceFromCentre, float angle, float scale, const entity::ID type, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const textures::ID id, MovementState movementState, MovementDirection movementDirection)</td></tr>
+<tr class="memdesc:a96b36169d7d8417a1d39530a1320a95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for an enemy object.  <a href="#a96b36169d7d8417a1d39530a1320a95b">More...</a><br /></td></tr>
 <tr class="separator:a96b36169d7d8417a1d39530a1320a95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2798f5714300fdd9c1fed1e9ea9dcb3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c">setMove</a> (float angle, float distance) override</td></tr>
+<tr class="memdesc:a2798f5714300fdd9c1fed1e9ea9dcb3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the next frame's position for the object.  <a href="#a2798f5714300fdd9c1fed1e9ea9dcb3c">More...</a><br /></td></tr>
 <tr class="separator:a2798f5714300fdd9c1fed1e9ea9dcb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67028a7fb5ef3717c9e5478637d153c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a67028a7fb5ef3717c9e5478637d153c7">setMove</a> (float angle, float distance, sf::Vector2f centre)</td></tr>
+<tr class="memdesc:a67028a7fb5ef3717c9e5478637d153c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the next frame's position for the object, with a different screen origin.  <a href="#a67028a7fb5ef3717c9e5478637d153c7">More...</a><br /></td></tr>
 <tr class="separator:a67028a7fb5ef3717c9e5478637d153c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b69b0ea4152d7dd801b15ace0657738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2b69b0ea4152d7dd801b15ace0657738">setMovementState</a> (<a class="el" href="_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4a">MovementState</a> movementState)</td></tr>
+<tr class="memitem:a2b69b0ea4152d7dd801b15ace0657738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2b69b0ea4152d7dd801b15ace0657738">setMovementState</a> (MovementState movementState)</td></tr>
+<tr class="memdesc:a2b69b0ea4152d7dd801b15ace0657738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the movement state of the enemy.  <a href="#a2b69b0ea4152d7dd801b15ace0657738">More...</a><br /></td></tr>
 <tr class="separator:a2b69b0ea4152d7dd801b15ace0657738"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90a135c93792574d2675a670ac25b081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a90a135c93792574d2675a670ac25b081">move</a> () override</td></tr>
+<tr class="memitem:a2fba194a7e54e4172906d5f3d167ca61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61">setScale</a> (float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a2fba194a7e54e4172906d5f3d167ca61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scale of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> screen object.  <a href="#a2fba194a7e54e4172906d5f3d167ca61">More...</a><br /></td></tr>
+<tr class="separator:a2fba194a7e54e4172906d5f3d167ca61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7fe4dc9b027ccc9220030f9225089c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c">setOrientation</a> ()</td></tr>
+<tr class="memdesc:aeb7fe4dc9b027ccc9220030f9225089c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the orientation of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> screen object.  <a href="#aeb7fe4dc9b027ccc9220030f9225089c">More...</a><br /></td></tr>
+<tr class="separator:aeb7fe4dc9b027ccc9220030f9225089c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2483215f29987289edb5f90fa2d4ab68"><td class="memItemLeft" align="right" valign="top"><a id="a2483215f29987289edb5f90fa2d4ab68"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2483215f29987289edb5f90fa2d4ab68">setShoot</a> ()</td></tr>
+<tr class="memdesc:a2483215f29987289edb5f90fa2d4ab68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the _isShooting state of the enemy. <br /></td></tr>
+<tr class="separator:a2483215f29987289edb5f90fa2d4ab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90a135c93792574d2675a670ac25b081"><td class="memItemLeft" align="right" valign="top"><a id="a90a135c93792574d2675a670ac25b081"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a90a135c93792574d2675a670ac25b081">move</a> () override</td></tr>
+<tr class="memdesc:a90a135c93792574d2675a670ac25b081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the enemy ship around screen space (performs the planned move) <br /></td></tr>
 <tr class="separator:a90a135c93792574d2675a670ac25b081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad162072e34f5a2ba9efce7ebe9295d80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ad162072e34f5a2ba9efce7ebe9295d80">reset</a> () override</td></tr>
+<tr class="memdesc:ad162072e34f5a2ba9efce7ebe9295d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the enemy (after an enemy is killed, or leaves the outer circle)  <a href="#ad162072e34f5a2ba9efce7ebe9295d80">More...</a><br /></td></tr>
 <tr class="separator:ad162072e34f5a2ba9efce7ebe9295d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa70d742da02995011f1618acc9e303db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aa70d742da02995011f1618acc9e303db">update</a> () override</td></tr>
+<tr class="memdesc:aa70d742da02995011f1618acc9e303db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks and updates the movement, shooting and calls the actual movement translation.  <a href="#aa70d742da02995011f1618acc9e303db">More...</a><br /></td></tr>
 <tr class="separator:aa70d742da02995011f1618acc9e303db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad764b00a84735def86b410b4695a98"><td class="memItemLeft" align="right" valign="top"><a id="afad764b00a84735def86b410b4695a98"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#afad764b00a84735def86b410b4695a98">die</a> () override</td></tr>
+<tr class="memdesc:afad764b00a84735def86b410b4695a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrements the enemy's lives. <br /></td></tr>
+<tr class="separator:afad764b00a84735def86b410b4695a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34714124192b9bfee1c743a26b1c49fd"><td class="memItemLeft" align="right" valign="top"><a id="a34714124192b9bfee1c743a26b1c49fd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a34714124192b9bfee1c743a26b1c49fd">resetShootTimer</a> ()</td></tr>
+<tr class="memdesc:a34714124192b9bfee1c743a26b1c49fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the object timer, measuring when the enemy last shot a bullet. <br /></td></tr>
+<tr class="separator:a34714124192b9bfee1c743a26b1c49fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4620df8d33ce1e23d4d3018ee34af9"><td class="memItemLeft" align="right" valign="top">const Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a3d4620df8d33ce1e23d4d3018ee34af9">getSprite</a> () const override</td></tr>
+<tr class="memdesc:a3d4620df8d33ce1e23d4d3018ee34af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object of the Class by ref.  <a href="#a3d4620df8d33ce1e23d4d3018ee34af9">More...</a><br /></td></tr>
+<tr class="separator:a3d4620df8d33ce1e23d4d3018ee34af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18b30fb59601ac04aef5d68b7740f0b6"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6">getRadius</a> () const override</td></tr>
+<tr class="memdesc:a18b30fb59601ac04aef5d68b7740f0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance from origin (screen space)  <a href="#a18b30fb59601ac04aef5d68b7740f0b6">More...</a><br /></td></tr>
 <tr class="separator:a18b30fb59601ac04aef5d68b7740f0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78d732564cb0fadae19a6859b62dbee7"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a78d732564cb0fadae19a6859b62dbee7">getDistanceFromCentre</a> () const override</td></tr>
+<tr class="memdesc:a78d732564cb0fadae19a6859b62dbee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance from origin (non-linear distance)  <a href="#a78d732564cb0fadae19a6859b62dbee7">More...</a><br /></td></tr>
 <tr class="separator:a78d732564cb0fadae19a6859b62dbee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ab6bbeeb0698bd79ce17970c13ae9fa55">getDistanceFromCentreWithOffset</a> () const</td></tr>
+<tr class="memdesc:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance from origin (non-linear distance), explicitly checking the _centre member.  <a href="#ab6bbeeb0698bd79ce17970c13ae9fa55">More...</a><br /></td></tr>
+<tr class="separator:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f">getAngle</a> () const</td></tr>
+<tr class="memdesc:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current angle of the enemy from the origin(screen space)  <a href="#a1485305ad3da0007328fa7ac4ff9bb3f">More...</a><br /></td></tr>
+<tr class="separator:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7facea8cb1434f88506a19b9e2369fb2"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2">getAngleWithOffset</a> ()</td></tr>
+<tr class="memdesc:a7facea8cb1434f88506a19b9e2369fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current angle of the enemy from the centre in z, from the _centre member.  <a href="#a7facea8cb1434f88506a19b9e2369fb2">More...</a><br /></td></tr>
 <tr class="separator:a7facea8cb1434f88506a19b9e2369fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a613dad8f83bfc780f41b82c9ceef312c"><td class="memItemLeft" align="right" valign="top">const sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a613dad8f83bfc780f41b82c9ceef312c">getPosition</a> () const override</td></tr>
-<tr class="separator:a613dad8f83bfc780f41b82c9ceef312c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a242906a94254ac9c71c1ba9c92353765"><td class="memItemLeft" align="right" valign="top">const sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a242906a94254ac9c71c1ba9c92353765">getSprite</a> () const override</td></tr>
-<tr class="separator:a242906a94254ac9c71c1ba9c92353765"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae038da69abb6dbaabc5e59bdcba451b6"><td class="memItemLeft" align="right" valign="top">const sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ae038da69abb6dbaabc5e59bdcba451b6">getScale</a> () const override</td></tr>
-<tr class="separator:ae038da69abb6dbaabc5e59bdcba451b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee05f31ee146a254866f8f4d30ea88e9"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aee05f31ee146a254866f8f4d30ea88e9">getLives</a> () const override</td></tr>
-<tr class="separator:aee05f31ee146a254866f8f4d30ea88e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afad764b00a84735def86b410b4695a98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#afad764b00a84735def86b410b4695a98">die</a> () override</td></tr>
-<tr class="separator:afad764b00a84735def86b410b4695a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ddae1bc16bce855d19fd2261bf1461"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ad6ddae1bc16bce855d19fd2261bf1461">getType</a> () const</td></tr>
-<tr class="separator:ad6ddae1bc16bce855d19fd2261bf1461"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fba194a7e54e4172906d5f3d167ca61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61">setScale</a> (float scaleX, float scaleY)</td></tr>
-<tr class="separator:a2fba194a7e54e4172906d5f3d167ca61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96536e87ca1ca9864a5bdc0816c61fd3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4a">MovementState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a96536e87ca1ca9864a5bdc0816c61fd3">getMovementState</a> () const</td></tr>
+<tr class="memitem:abe3b02cffabb2fb89dfdcfdd39928263"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#abe3b02cffabb2fb89dfdcfdd39928263">getOrientationAngle</a> () const</td></tr>
+<tr class="memdesc:abe3b02cffabb2fb89dfdcfdd39928263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current rotation of the enemy sprite.  <a href="#abe3b02cffabb2fb89dfdcfdd39928263">More...</a><br /></td></tr>
+<tr class="separator:abe3b02cffabb2fb89dfdcfdd39928263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43bbc4c455417233707b7a233f4fac32"><td class="memItemLeft" align="right" valign="top">const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a43bbc4c455417233707b7a233f4fac32">getPosition</a> () const override</td></tr>
+<tr class="memdesc:a43bbc4c455417233707b7a233f4fac32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current rotation of the enemy sprite.  <a href="#a43bbc4c455417233707b7a233f4fac32">More...</a><br /></td></tr>
+<tr class="separator:a43bbc4c455417233707b7a233f4fac32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9111277813cadfbbecb19eb23298b41"><td class="memItemLeft" align="right" valign="top">const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aa9111277813cadfbbecb19eb23298b41">getScale</a> () const override</td></tr>
+<tr class="memdesc:aa9111277813cadfbbecb19eb23298b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the width/height scale of the enemy on screen.  <a href="#aa9111277813cadfbbecb19eb23298b41">More...</a><br /></td></tr>
+<tr class="separator:aa9111277813cadfbbecb19eb23298b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57179f344931c09190329c0745ba08b3"><td class="memItemLeft" align="right" valign="top">const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a57179f344931c09190329c0745ba08b3">getCentre</a> () const</td></tr>
+<tr class="memdesc:a57179f344931c09190329c0745ba08b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the x/y position of the _centre member of the enemy on screen.  <a href="#a57179f344931c09190329c0745ba08b3">More...</a><br /></td></tr>
+<tr class="separator:a57179f344931c09190329c0745ba08b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96536e87ca1ca9864a5bdc0816c61fd3"><td class="memItemLeft" align="right" valign="top">const MovementState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a96536e87ca1ca9864a5bdc0816c61fd3">getMovementState</a> () const</td></tr>
+<tr class="memdesc:a96536e87ca1ca9864a5bdc0816c61fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current Movement state for the enemy.  <a href="#a96536e87ca1ca9864a5bdc0816c61fd3">More...</a><br /></td></tr>
 <tr class="separator:a96536e87ca1ca9864a5bdc0816c61fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0594c32b27cb812392baa7c3c65d5af"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ac0594c32b27cb812392baa7c3c65d5af">getMovementDirectionSign</a> () const</td></tr>
+<tr class="memdesc:ac0594c32b27cb812392baa7c3c65d5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently set movement direction for the enemy.  <a href="#ac0594c32b27cb812392baa7c3c65d5af">More...</a><br /></td></tr>
 <tr class="separator:ac0594c32b27cb812392baa7c3c65d5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ab6bbeeb0698bd79ce17970c13ae9fa55">getDistanceFromCentreWithOffset</a> () const</td></tr>
-<tr class="separator:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca0226eedf741354217f64bcddc8781f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aca0226eedf741354217f64bcddc8781f">getOffsetX</a> () const</td></tr>
-<tr class="separator:aca0226eedf741354217f64bcddc8781f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e1f3f1e2e7e073f911172e68cd25e3"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a88e1f3f1e2e7e073f911172e68cd25e3">getOffsetY</a> () const</td></tr>
-<tr class="separator:a88e1f3f1e2e7e073f911172e68cd25e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbdaeea615a4262cf6c92d7f5b728868"><td class="memItemLeft" align="right" valign="top">const sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#acbdaeea615a4262cf6c92d7f5b728868">getCentre</a> () const</td></tr>
-<tr class="separator:acbdaeea615a4262cf6c92d7f5b728868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2483215f29987289edb5f90fa2d4ab68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a2483215f29987289edb5f90fa2d4ab68">setShoot</a> ()</td></tr>
-<tr class="separator:a2483215f29987289edb5f90fa2d4ab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17983463b832290455d853d680a37fe0"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a17983463b832290455d853d680a37fe0">isShooting</a> () const</td></tr>
-<tr class="separator:a17983463b832290455d853d680a37fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f">getAngle</a> () const</td></tr>
-<tr class="separator:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5af917e59d184792d9ae775e69f00b7"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#af5af917e59d184792d9ae775e69f00b7">getDirectionAngle</a> () const</td></tr>
-<tr class="separator:af5af917e59d184792d9ae775e69f00b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34714124192b9bfee1c743a26b1c49fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a34714124192b9bfee1c743a26b1c49fd">resetShootTimer</a> ()</td></tr>
-<tr class="separator:a34714124192b9bfee1c743a26b1c49fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee05f31ee146a254866f8f4d30ea88e9"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#aee05f31ee146a254866f8f4d30ea88e9">getLives</a> () const override</td></tr>
+<tr class="memdesc:aee05f31ee146a254866f8f4d30ea88e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remaining number of lives of the enemy.  <a href="#aee05f31ee146a254866f8f4d30ea88e9">More...</a><br /></td></tr>
+<tr class="separator:aee05f31ee146a254866f8f4d30ea88e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ddae1bc16bce855d19fd2261bf1461"><td class="memItemLeft" align="right" valign="top">const entity::ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ad6ddae1bc16bce855d19fd2261bf1461">getType</a> () const</td></tr>
+<tr class="memdesc:ad6ddae1bc16bce855d19fd2261bf1461"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entity type of the enemy.  <a href="#ad6ddae1bc16bce855d19fd2261bf1461">More...</a><br /></td></tr>
+<tr class="separator:ad6ddae1bc16bce855d19fd2261bf1461"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a531d6598bbdbdf24a181d9cc58bbcab1"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a531d6598bbdbdf24a181d9cc58bbcab1">getShootTimerElapsedTime</a> () const</td></tr>
+<tr class="memdesc:a531d6598bbdbdf24a181d9cc58bbcab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns amount of time since the enemy last shot a bullet.  <a href="#a531d6598bbdbdf24a181d9cc58bbcab1">More...</a><br /></td></tr>
 <tr class="separator:a531d6598bbdbdf24a181d9cc58bbcab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f086e14734fbec4d0ee9fe5a66efea"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a00f086e14734fbec4d0ee9fe5a66efea">getAliveTimeElapsedTime</a> () const</td></tr>
+<tr class="memdesc:a00f086e14734fbec4d0ee9fe5a66efea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of time that the enemy has been alive for.  <a href="#a00f086e14734fbec4d0ee9fe5a66efea">More...</a><br /></td></tr>
+<tr class="separator:a00f086e14734fbec4d0ee9fe5a66efea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17983463b832290455d853d680a37fe0"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a17983463b832290455d853d680a37fe0">isShooting</a> () const</td></tr>
+<tr class="memdesc:a17983463b832290455d853d680a37fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shooting status of the enemy.  <a href="#a17983463b832290455d853d680a37fe0">More...</a><br /></td></tr>
+<tr class="separator:a17983463b832290455d853d680a37fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a980f368aa07ce358583982821533a54a inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a> ()</td></tr>
-<tr class="separator:a980f368aa07ce358583982821533a54a inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9efef0cdef3dd642f7687208df014363 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9efef0cdef3dd642f7687208df014363">Entity</a> (const sf::Vector2i resolution, float distanceFromCentre, float angle, float scale, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder)</td></tr>
-<tr class="separator:a9efef0cdef3dd642f7687208df014363 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ed0d4d7c3c33bce9ba8c66e2503fa7 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a86ed0d4d7c3c33bce9ba8c66e2503fa7">setMove</a> (float)</td></tr>
-<tr class="separator:a86ed0d4d7c3c33bce9ba8c66e2503fa7 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a834847e68c24a42c83d984455b6b4ba4 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4">Entity</a> (const Vector2i resolution, float distanceFromCentre, float angle, float scale, const entity::ID type, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder)</td></tr>
+<tr class="memdesc:a834847e68c24a42c83d984455b6b4ba4 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> class constructor Calls the <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> and <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> constructors, and sets the resolution.  <a href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4">More...</a><br /></td></tr>
+<tr class="separator:a834847e68c24a42c83d984455b6b4ba4 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_moveable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
+<tr class="memitem:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">Moveable</a> (float distanceFromCentre, float angle, float scale)</td></tr>
+<tr class="memdesc:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> class constructor.  <a href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">More...</a><br /></td></tr>
+<tr class="separator:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">setMove</a> (float value)</td></tr>
+<tr class="memdesc:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the future movement, either by change in angle or change in distance.  <a href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">More...</a><br /></td></tr>
+<tr class="separator:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_animatable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
+<tr class="memitem:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">Animatable</a> (const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const entity::ID type)</td></tr>
+<tr class="memdesc:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> class.  <a href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">More...</a><br /></td></tr>
+<tr class="separator:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a4d841959ff82d04fa8bca5897c5ecb20 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">const sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4d841959ff82d04fa8bca5897c5ecb20">_resolution</a></td></tr>
-<tr class="separator:a4d841959ff82d04fa8bca5897c5ecb20 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040bd9d02a9c5d0c7f07348bc15cc0a3 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a040bd9d02a9c5d0c7f07348bc15cc0a3">_sprite</a></td></tr>
-<tr class="separator:a040bd9d02a9c5d0c7f07348bc15cc0a3 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af114a6582c9a3811b4681d14b516b1f2 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af114a6582c9a3811b4681d14b516b1f2">_distanceFromCentre</a></td></tr>
-<tr class="separator:af114a6582c9a3811b4681d14b516b1f2 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ea7d0f9af807e9b17256eb27933b0a8 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1ea7d0f9af807e9b17256eb27933b0a8">_futureAngleValue</a></td></tr>
-<tr class="separator:a1ea7d0f9af807e9b17256eb27933b0a8 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e82cf77b309ddd4050173fbfa1c31b inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a73e82cf77b309ddd4050173fbfa1c31b">_futureMoveValue</a></td></tr>
-<tr class="separator:a73e82cf77b309ddd4050173fbfa1c31b inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8af32a9a6161e9ab8c43c5b0a15bae inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aaa8af32a9a6161e9ab8c43c5b0a15bae">_angle</a></td></tr>
-<tr class="separator:aaa8af32a9a6161e9ab8c43c5b0a15bae inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043affe166433081b18fcb2deea4a613 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a043affe166433081b18fcb2deea4a613">_scale</a></td></tr>
-<tr class="separator:a043affe166433081b18fcb2deea4a613 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84bc91bd82c6173b6dda752aa7f86348 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a84bc91bd82c6173b6dda752aa7f86348">_isMoving</a></td></tr>
-<tr class="separator:a84bc91bd82c6173b6dda752aa7f86348 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0fd76b4690aee4a244f3f77a77854f5 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="af0fd76b4690aee4a244f3f77a77854f5"></a>
+const Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af0fd76b4690aee4a244f3f77a77854f5">_resolution</a></td></tr>
+<tr class="memdesc:af0fd76b4690aee4a244f3f77a77854f5 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The game resolution in {x,y}. <br /></td></tr>
+<tr class="separator:af0fd76b4690aee4a244f3f77a77854f5 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b3d3f11c9034e91112f724203f4513 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513">_lives</a></td></tr>
+<tr class="memdesc:aa3b3d3f11c9034e91112f724203f4513 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of lives remaining of an entity.  <a href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513">More...</a><br /></td></tr>
 <tr class="separator:aa3b3d3f11c9034e91112f724203f4513 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcbd384d49f43cd9947ba422393f69fb inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683">textures::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#abcbd384d49f43cd9947ba422393f69fb">_id</a></td></tr>
-<tr class="separator:abcbd384d49f43cd9947ba422393f69fb inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b22b079d0112030ff32c91f83588964 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1b22b079d0112030ff32c91f83588964">_type</a></td></tr>
-<tr class="separator:a1b22b079d0112030ff32c91f83588964 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a591f65d2a7f61f11a35b5ba99a0f554b inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a591f65d2a7f61f11a35b5ba99a0f554b">_animationFPSLimit</a></td></tr>
-<tr class="separator:a591f65d2a7f61f11a35b5ba99a0f554b inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_moveable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
+<tr class="memitem:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">_distanceFromCentre</a></td></tr>
+<tr class="memdesc:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the distance from origin (centre of screen)  <a href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">More...</a><br /></td></tr>
+<tr class="separator:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a613f9733767607d2f64a04d045817d8b inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a613f9733767607d2f64a04d045817d8b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a613f9733767607d2f64a04d045817d8b">_futureAngleValue</a></td></tr>
+<tr class="memdesc:a613f9733767607d2f64a04d045817d8b inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the angle change on the next frame. <br /></td></tr>
+<tr class="separator:a613f9733767607d2f64a04d045817d8b inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad389e189304fce2a297bc819ca1492 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a4ad389e189304fce2a297bc819ca1492"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a4ad389e189304fce2a297bc819ca1492">_futureMoveValue</a></td></tr>
+<tr class="memdesc:a4ad389e189304fce2a297bc819ca1492 inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the distance change on the next frame. <br /></td></tr>
+<tr class="separator:a4ad389e189304fce2a297bc819ca1492 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="ac2a68042fa5a3847a34a14b0105efb3d"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ac2a68042fa5a3847a34a14b0105efb3d">_angle</a></td></tr>
+<tr class="memdesc:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current angle. <br /></td></tr>
+<tr class="separator:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a0e49af81ec9b03149a8704c6f1bc51b1"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0e49af81ec9b03149a8704c6f1bc51b1">_scale</a></td></tr>
+<tr class="memdesc:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current scale (the same for both x and y) <br /></td></tr>
+<tr class="separator:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a0addc6d9eee002a0750a3293cd6d673c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0addc6d9eee002a0750a3293cd6d673c">_isMoving</a></td></tr>
+<tr class="memdesc:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the boolean state of whether the object is moving or not. <br /></td></tr>
+<tr class="separator:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_animatable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
+<tr class="memitem:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#af157c80921e5afac531de85c1b63caef">_sprite</a></td></tr>
+<tr class="separator:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810e3fb0ae7097bf90c5cc7d745a0dde inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">textures::ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a810e3fb0ae7097bf90c5cc7d745a0dde">_id</a></td></tr>
+<tr class="separator:a810e3fb0ae7097bf90c5cc7d745a0dde inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0c6a5d49b6d4fde06bab2ed0dd0680 inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">entity::ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a8f0c6a5d49b6d4fde06bab2ed0dd0680">_type</a></td></tr>
+<tr class="separator:a8f0c6a5d49b6d4fde06bab2ed0dd0680 inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1280f9cc58e0c28ad2adb64d096ef1bb">_animationFPSLimit</a></td></tr>
+<tr class="separator:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_enemy_8hpp_source.html#l00038">38</a> of file <a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a>.</p>
+<div class="textblock"><p>Abstract Base Class for enemy game objects. </p>
+<p>Inherits from <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a></p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8hpp_source.html#l00057">57</a> of file <a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a96b36169d7d8417a1d39530a1320a95b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96b36169d7d8417a1d39530a1320a95b">&#9670;&nbsp;</a></span>Enemy()</h2>
@@ -242,31 +308,31 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td>
+          <td class="paramtype">const entity::ID&#160;</td>
           <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>textureHolder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683">textures::ID</a>&#160;</td>
+          <td class="paramtype">const textures::ID&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4a">MovementState</a>&#160;</td>
+          <td class="paramtype">MovementState&#160;</td>
           <td class="paramname"><em>movementState</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_enemy_8hpp.html#a0b5e764f0ec9a407e9b8789f0259d754">MovementDirection</a>&#160;</td>
+          <td class="paramtype">MovementDirection&#160;</td>
           <td class="paramname"><em>movementDirection</em>&#160;</td>
         </tr>
         <tr>
@@ -277,7 +343,22 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implementation of <a class="el" href="class_enemy.html">Enemy</a> ship types. </p>
+<p>Constructor for an enemy object. </p>
+<p>Implementation of <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> ship types.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resolution</td><td>The screen resolution (to determine the radius the playerShip circles around </td></tr>
+    <tr><td class="paramname">distanceFromCentre</td><td>The fixed radius of the circle that the ship flies around </td></tr>
+    <tr><td class="paramname">angle</td><td>The angle in degrees around the circle of movement </td></tr>
+    <tr><td class="paramname">scale</td><td>The scale of the sprite </td></tr>
+    <tr><td class="paramname">type</td><td>An enum that identifies the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> type. Defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>, passed to the <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> base class </td></tr>
+    <tr><td class="paramname">textureHolder</td><td>The textureHolder object, passed by const ref. provides a unique_ptr to an sf::Texture for the sprite data member </td></tr>
+    <tr><td class="paramname">id</td><td>The unique ID identifying the texture for the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> variant </td></tr>
+    <tr><td class="paramname">movementState</td><td>Enum identifying the pattern of movement for the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> </td></tr>
+    <tr><td class="paramname">movementDirection</td><td>Enum for the movement direction (clockwise or counterclockwise)</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>14/9/17 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -287,47 +368,32 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_a96b36169d7d8417a1d39530a1320a95b_cgraph.png" border="0" usemap="#class_enemy_a96b36169d7d8417a1d39530a1320a95b_cgraph" alt=""/></div>
 <map name="class_enemy_a96b36169d7d8417a1d39530a1320a95b_cgraph" id="class_enemy_a96b36169d7d8417a1d39530a1320a95b_cgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Enemy::setMove" alt="" coords="165,5,286,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="165,5,286,31"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afad764b00a84735def86b410b4695a98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afad764b00a84735def86b410b4695a98">&#9670;&nbsp;</a></span>die()</h2>
+<a id="a00f086e14734fbec4d0ee9fe5a66efea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f086e14734fbec4d0ee9fe5a66efea">&#9670;&nbsp;</a></span>getAliveTimeElapsedTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Enemy::die </td>
+          <td class="memname">const float Enemy::getAliveTimeElapsedTime </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e">Entity</a>.</p>
+<p>Returns the amount of time that the enemy has been alive for. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value (in seconds) of the time the enemy object has been alive. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00151">151</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_enemy_afad764b00a84735def86b410b4695a98_cgraph.png" border="0" usemap="#class_enemy_afad764b00a84735def86b410b4695a98_cgraph" alt=""/></div>
-<map name="class_enemy_afad764b00a84735def86b410b4695a98_cgraph" id="class_enemy_afad764b00a84735def86b410b4695a98_cgraph">
-<area shape="rect" id="node2" href="class_enemy.html#ad162072e34f5a2ba9efce7ebe9295d80" title="Enemy::reset" alt="" coords="141,5,241,31"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00248">248</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -346,7 +412,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00180">180</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns the current angle of the enemy from the origin(screen space) </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value, the angle around the screen centre origin </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00170">170</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -365,7 +434,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00190">190</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns the current angle of the enemy from the centre in z, from the _centre member. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value, the angle around the _centre member origin </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00180">180</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -380,21 +452,22 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph.png" border="0" usemap="#class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph" alt=""/></div>
 <map name="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph" id="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="238,5,341,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="389,5,500,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="238,5,391,31"/>
+<area shape="rect" id="node3" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="439,5,542,31"/>
+<area shape="rect" id="node4" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="590,5,701,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="acbdaeea615a4262cf6c92d7f5b728868"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbdaeea615a4262cf6c92d7f5b728868">&#9670;&nbsp;</a></span>getCentre()</h2>
+<a id="a57179f344931c09190329c0745ba08b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57179f344931c09190329c0745ba08b3">&#9670;&nbsp;</a></span>getCentre()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Vector2f Enemy::getCentre </td>
+          <td class="memname">const Vector2f Enemy::getCentre </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -402,26 +475,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00113">113</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns the x/y position of the _centre member of the enemy on screen. </p>
+<dl class="section return"><dt>Returns</dt><dd>An sf:Vector2f (two float values) of the {x,y} position considered the current origin of the enemy </dd></dl>
 
-</div>
-</div>
-<a id="af5af917e59d184792d9ae775e69f00b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5af917e59d184792d9ae775e69f00b7">&#9670;&nbsp;</a></span>getDirectionAngle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::getDirectionAngle </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00185">185</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00103">103</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,7 +505,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_entity.html#a18ae35ec14f8c0ebbcaf234c26f5429e">Entity</a>.</p>
+<p>Returns the distance from origin (non-linear distance) </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value, the depth from the centre in z </dd></dl>
+
+<p>Implements <a class="el" href="class_moveable.html#a724061b235c2a66939bbcc327648cb58">Moveable</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00093">93</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
@@ -468,6 +528,9 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the distance from origin (non-linear distance), explicitly checking the _centre member. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value, the depth from the centre in z, from the _centre member </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00098">98</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
@@ -496,9 +559,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the remaining number of lives of the enemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>An integer value of the remaining enemy lives (usually 0 or 1) </dd></dl>
+
 <p>Implements <a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">Entity</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00160">160</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00150">150</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -517,7 +583,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00123">123</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns the currently set movement direction for the enemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>An enum value of the current movement direction, clockwise or counterclockwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00113">113</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -528,7 +597,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4a">MovementState</a> Enemy::getMovementState </td>
+          <td class="memname">const MovementState Enemy::getMovementState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -536,50 +605,37 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00118">118</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aca0226eedf741354217f64bcddc8781f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca0226eedf741354217f64bcddc8781f">&#9670;&nbsp;</a></span>getOffsetX()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::getOffsetX </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00103">103</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a88e1f3f1e2e7e073f911172e68cd25e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88e1f3f1e2e7e073f911172e68cd25e3">&#9670;&nbsp;</a></span>getOffsetY()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::getOffsetY </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Returns current Movement state for the enemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>An enum value of the current movement state </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00108">108</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a613dad8f83bfc780f41b82c9ceef312c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a613dad8f83bfc780f41b82c9ceef312c">&#9670;&nbsp;</a></span>getPosition()</h2>
+<a id="abe3b02cffabb2fb89dfdcfdd39928263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3b02cffabb2fb89dfdcfdd39928263">&#9670;&nbsp;</a></span>getOrientationAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Enemy::getOrientationAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current rotation of the enemy sprite. </p>
+<dl class="section return"><dt>Returns</dt><dd>The angle of rotation of the sprite </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00175">175</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a43bbc4c455417233707b7a233f4fac32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bbc4c455417233707b7a233f4fac32">&#9670;&nbsp;</a></span>getPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -588,7 +644,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Vector2f Enemy::getPosition </td>
+          <td class="memname">const Vector2f Enemy::getPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -601,9 +657,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_entity.html#a9edc43f1bf4d31ed1d51aa2dfbf6fb23">Entity</a>.</p>
+<p>Returns the current rotation of the enemy sprite. </p>
+<dl class="section return"><dt>Returns</dt><dd>The angle of rotation of the sprite </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00135">135</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Implements <a class="el" href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">Moveable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00125">125</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -630,7 +689,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_entity.html#adb509e7ecf0f3e998a67657bdf2076e6">Entity</a>.</p>
+<p>Returns the distance from origin (screen space) </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value, the distance from the origin (on camera plane) </dd></dl>
+
+<p>Implements <a class="el" href="class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c">Moveable</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00085">85</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
@@ -638,15 +700,15 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph.png" border="0" usemap="#class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph" alt=""/></div>
 <map name="class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph" id="class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="184,5,286,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="334,5,445,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="184,5,286,31"/>
+<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="334,5,445,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae038da69abb6dbaabc5e59bdcba451b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae038da69abb6dbaabc5e59bdcba451b6">&#9670;&nbsp;</a></span>getScale()</h2>
+<a id="aa9111277813cadfbbecb19eb23298b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9111277813cadfbbecb19eb23298b41">&#9670;&nbsp;</a></span>getScale()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -655,7 +717,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Vector2f Enemy::getScale </td>
+          <td class="memname">const Vector2f Enemy::getScale </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -668,9 +730,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_entity.html#aa216cd54efce968f742e06f816a8f3b0">Entity</a>.</p>
+<p>Returns the width/height scale of the enemy on screen. </p>
+<dl class="section return"><dt>Returns</dt><dd>An sf:Vector2f (two float values) of the {x,y} scale of the enemy </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00145">145</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Implements <a class="el" href="class_moveable.html#a7ab210f45d5558742196fc408d04056a">Moveable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00135">135</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -689,12 +754,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00244">244</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns amount of time since the enemy last shot a bullet. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value (in seconds) of the amount of elapsed time </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00238">238</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a242906a94254ac9c71c1ba9c92353765"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a242906a94254ac9c71c1ba9c92353765">&#9670;&nbsp;</a></span>getSprite()</h2>
+<a id="a3d4620df8d33ce1e23d4d3018ee34af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4620df8d33ce1e23d4d3018ee34af9">&#9670;&nbsp;</a></span>getSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -703,7 +771,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Sprite &amp; Enemy::getSprite </td>
+          <td class="memname">const Sprite &amp; Enemy::getSprite </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -716,9 +784,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_entity.html#aea546eec846ec6a7c5668db7b79cd2ac">Entity</a>.</p>
+<p>Returns the Sprite object of the Class by ref. </p>
+<dl class="section return"><dt>Returns</dt><dd>The sf::Sprite object representing the entity in the game (dimensions, position, texture)</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>sf:Sprite </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00140">140</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Implements <a class="el" href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">Animatable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00130">130</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +801,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> Enemy::getType </td>
+          <td class="memname">const entity::ID Enemy::getType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -737,7 +809,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00165">165</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns the entity type of the enemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>An enum value (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) of the entity type </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="common_8hpp_source.html">common.hpp</a> </dd>
+<dd>
+<a class="el" href="_entity_8hpp_source.html">Entity.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00155">155</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -756,56 +834,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00175">175</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Returns the shooting status of the enemy. </p>
+<dl class="section return"><dt>Returns</dt><dd>If true, then the enemy is shooting on this frame </dd></dl>
 
-</div>
-</div>
-<a id="a90a135c93792574d2675a670ac25b081"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90a135c93792574d2675a670ac25b081">&#9670;&nbsp;</a></span>move()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Enemy::move </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf">Entity</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00208">208</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_enemy_a90a135c93792574d2675a670ac25b081_cgraph.png" border="0" usemap="#class_enemy_a90a135c93792574d2675a670ac25b081_cgraph" alt=""/></div>
-<map name="class_enemy_a90a135c93792574d2675a670ac25b081_cgraph" id="class_enemy_a90a135c93792574d2675a670ac25b081_cgraph">
-<area shape="rect" id="node2" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="396,113,539,138"/>
-<area shape="rect" id="node3" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="169,38,329,63"/>
-<area shape="rect" id="node4" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Enemy::getRadius" alt="" coords="183,87,314,113"/>
-<area shape="rect" id="node5" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="389,162,546,187"/>
-<area shape="rect" id="node6" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Enemy::getAngleWithOffset" alt="" coords="156,137,341,162"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_enemy_a90a135c93792574d2675a670ac25b081_icgraph.png" border="0" usemap="#class_enemy_a90a135c93792574d2675a670ac25b081_icgraph" alt=""/></div>
-<map name="class_enemy_a90a135c93792574d2675a670ac25b081_icgraph" id="class_enemy_a90a135c93792574d2675a670ac25b081_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="156,5,267,31"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00165">165</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -832,6 +864,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Resets the enemy (after an enemy is killed, or leaves the outer circle) </p>
+<p>The enemy position is reset back to the centre of the screen. </p>
+
 <p>Implements <a class="el" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d">Entity</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00061">61</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
@@ -840,28 +875,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph.png" border="0" usemap="#class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph" alt=""/></div>
 <map name="class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph" id="class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#afad764b00a84735def86b410b4695a98" title="Enemy::die" alt="" coords="153,5,241,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#afad764b00a84735def86b410b4695a98" title="Decrements the enemy&#39;s lives. " alt="" coords="153,5,241,31"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a34714124192b9bfee1c743a26b1c49fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34714124192b9bfee1c743a26b1c49fd">&#9670;&nbsp;</a></span>resetShootTimer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Enemy::resetShootTimer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00249">249</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -899,7 +915,17 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb">Entity</a>.</p>
+<p>Sets up the next frame's position for the object. </p>
+<p>The actual position of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> is not altered until the <a class="el" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) ">move()</a> method is called, which performs the actual translation</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>The angle the enemy should move for the next frame (0-360, with 0 being the positive horizontal x axis, with the centre of the screen as the origin) </td></tr>
+    <tr><td class="paramname">distance</td><td>How far the enemy should move for the next frame (in screen space) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">Moveable</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00040">40</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
@@ -907,7 +933,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph.png" border="0" usemap="#class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph" alt=""/></div>
 <map name="class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph" id="class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Implementation of Enemy ship types. " alt="" coords="174,5,286,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Constructor for an enemy object. " alt="" coords="174,5,286,31"/>
 </map>
 </div>
 
@@ -945,7 +971,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00048">48</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Sets up the next frame's position for the object, with a different screen origin. </p>
+<p>The actual position of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> is not altered until the <a class="el" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) ">move()</a> method is called, which performs the actual translation</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>The angle the enemy should move for the next frame (0-360, with 0 being the positive horizontal x axis, with the specified centre argument as the origin) </td></tr>
+    <tr><td class="paramname">distance</td><td>How far the enemy should move for the next frame (in screen space) </td></tr>
+    <tr><td class="paramname">centre</td><td>The coordinate {x,y} to be considered as the origin for this move </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -958,14 +993,64 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Enemy::setMovementState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4a">MovementState</a>&#160;</td>
+          <td class="paramtype">MovementState&#160;</td>
           <td class="paramname"><em>movementState</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the movement state of the enemy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">movementState</td><td>The enum value of the movement state.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>MovementDirection </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00056">56</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aeb7fe4dc9b027ccc9220030f9225089c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7fe4dc9b027ccc9220030f9225089c">&#9670;&nbsp;</a></span>setOrientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Enemy::setOrientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the orientation of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> screen object. </p>
+<p>The previous and future positions are converted to vectors at the origin, and the final position is then subtracted from the initial position, to determine the new pointing vector. Then the sprite of the enemy is rotated to match this direction </p>
+
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00227">227</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph.png" border="0" usemap="#class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph" alt=""/></div>
+<map name="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph" id="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph">
+<area shape="rect" id="node2" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="439,5,596,31"/>
+<area shape="rect" id="node3" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="207,55,391,80"/>
+<area shape="rect" id="node4" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="447,55,589,80"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph.png" border="0" usemap="#class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph" alt=""/></div>
+<map name="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph" id="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph">
+<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="207,5,309,31"/>
+<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="357,5,468,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -995,26 +1080,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00203">203</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p>Sets the scale of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> screen object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scaleX</td><td>The X scale of the enemy sprite </td></tr>
+    <tr><td class="paramname">scaleY</td><td>The Y scale of the emeny sprite </td></tr>
+  </table>
+  </dd>
+</dl>
 
-</div>
-</div>
-<a id="a2483215f29987289edb5f90fa2d4ab68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2483215f29987289edb5f90fa2d4ab68">&#9670;&nbsp;</a></span>setShoot()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Enemy::setShoot </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00170">170</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00193">193</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1041,6 +1116,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Checks and updates the movement, shooting and calls the actual movement translation. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) ">move()</a> </dd></dl>
+
 <p>Implements <a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">Entity</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00073">73</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
@@ -1049,12 +1127,13 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_aa70d742da02995011f1618acc9e303db_cgraph.png" border="0" usemap="#class_enemy_aa70d742da02995011f1618acc9e303db_cgraph" alt=""/></div>
 <map name="class_enemy_aa70d742da02995011f1618acc9e303db_cgraph" id="class_enemy_aa70d742da02995011f1618acc9e303db_cgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="164,87,267,113"/>
-<area shape="rect" id="node3" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="555,113,698,138"/>
-<area shape="rect" id="node4" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="328,38,488,63"/>
-<area shape="rect" id="node5" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Enemy::getRadius" alt="" coords="342,87,473,113"/>
-<area shape="rect" id="node6" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="548,162,705,187"/>
-<area shape="rect" id="node7" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Enemy::getAngleWithOffset" alt="" coords="315,137,500,162"/>
+<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="164,59,267,85"/>
+<area shape="rect" id="node3" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="763,58,906,83"/>
+<area shape="rect" id="node4" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="315,34,475,59"/>
+<area shape="rect" id="node5" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="330,83,460,109"/>
+<area shape="rect" id="node6" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="319,133,472,158"/>
+<area shape="rect" id="node7" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="756,107,913,133"/>
+<area shape="rect" id="node8" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="523,82,708,107"/>
 </map>
 </div>
 

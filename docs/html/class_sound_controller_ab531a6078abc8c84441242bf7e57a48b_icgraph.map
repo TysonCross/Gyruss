@@ -1,0 +1,4 @@
+<map id="SoundController::stopSound" name="SoundController::stopSound">
+<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="242,5,332,31"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="380,5,473,31"/>
+</map>

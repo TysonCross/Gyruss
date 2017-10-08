@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -90,35 +90,39 @@ $(document).ready(function(){initNavTree('class_shield.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Description of file in project Project.  
+<p><a class="el" href="class_shield.html" title="Shield class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip...">Shield</a> class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip.  
  <a href="class_shield.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_shield_8hpp_source.html">Shield.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3e19b1679c963e59a62d3ee6a04cc70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#ac3e19b1679c963e59a62d3ee6a04cc70">Shield</a> (const sf::Vector2i resolution, float distanceFromCentre, float angle, float scale, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip)</td></tr>
-<tr class="memdesc:ac3e19b1679c963e59a62d3ee6a04cc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object of the Class.  <a href="#ac3e19b1679c963e59a62d3ee6a04cc70">More...</a><br /></td></tr>
-<tr class="separator:ac3e19b1679c963e59a62d3ee6a04cc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae286bbff311ba2d5156a5eb900229907"><td class="memItemLeft" align="right" valign="top">const sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#ae286bbff311ba2d5156a5eb900229907">getSprite</a> () const</td></tr>
-<tr class="memdesc:ae286bbff311ba2d5156a5eb900229907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object of the Class by ref.  <a href="#ae286bbff311ba2d5156a5eb900229907">More...</a><br /></td></tr>
-<tr class="separator:ae286bbff311ba2d5156a5eb900229907"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3895cca033e2401fb9fb299dd096e026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#a3895cca033e2401fb9fb299dd096e026">reset</a> ()</td></tr>
-<tr class="separator:a3895cca033e2401fb9fb299dd096e026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c5a60cac4a0c7516c18c7bd418b864d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d">move</a> ()</td></tr>
+<tr class="memitem:a5c28405f3a1439661f36651107e3baad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#a5c28405f3a1439661f36651107e3baad">Shield</a> (const sf::Vector2i resolution, float distanceFromCentre, float angle, float scale, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip)</td></tr>
+<tr class="memdesc:a5c28405f3a1439661f36651107e3baad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the Sprite object.  <a href="#a5c28405f3a1439661f36651107e3baad">More...</a><br /></td></tr>
+<tr class="separator:a5c28405f3a1439661f36651107e3baad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c5a60cac4a0c7516c18c7bd418b864d"><td class="memItemLeft" align="right" valign="top"><a id="a4c5a60cac4a0c7516c18c7bd418b864d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d">move</a> ()</td></tr>
+<tr class="memdesc:a4c5a60cac4a0c7516c18c7bd418b864d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the move, based on _futureMoveValue. <br /></td></tr>
 <tr class="separator:a4c5a60cac4a0c7516c18c7bd418b864d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac27e51621d183abc5280480b3155cfb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#ac27e51621d183abc5280480b3155cfb0">update</a> ()</td></tr>
+<tr class="memitem:ac27e51621d183abc5280480b3155cfb0"><td class="memItemLeft" align="right" valign="top"><a id="ac27e51621d183abc5280480b3155cfb0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#ac27e51621d183abc5280480b3155cfb0">update</a> ()</td></tr>
+<tr class="memdesc:ac27e51621d183abc5280480b3155cfb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks and updates the movement, calls the actual movement translation with <a class="el" href="class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d" title="Performs the move, based on _futureMoveValue. ">move()</a> <br /></td></tr>
 <tr class="separator:ac27e51621d183abc5280480b3155cfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3895cca033e2401fb9fb299dd096e026"><td class="memItemLeft" align="right" valign="top"><a id="a3895cca033e2401fb9fb299dd096e026"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#a3895cca033e2401fb9fb299dd096e026">reset</a> ()</td></tr>
+<tr class="memdesc:a3895cca033e2401fb9fb299dd096e026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the <a class="el" href="class_shield.html" title="Shield class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip...">Shield</a> object. <br /></td></tr>
+<tr class="separator:a3895cca033e2401fb9fb299dd096e026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfaf485e71d7b5709f0dda44acd9c3e0"><td class="memItemLeft" align="right" valign="top">const sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shield.html#abfaf485e71d7b5709f0dda44acd9c3e0">getSprite</a> () const</td></tr>
+<tr class="memdesc:abfaf485e71d7b5709f0dda44acd9c3e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object of the Class by ref.  <a href="#abfaf485e71d7b5709f0dda44acd9c3e0">More...</a><br /></td></tr>
+<tr class="separator:abfaf485e71d7b5709f0dda44acd9c3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Description of file in project Project. </p>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>27/9/17 Detailed description of file</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<div class="textblock"><p><a class="el" href="class_shield.html" title="Shield class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip...">Shield</a> class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip. </p>
 
-<p class="definition">Definition at line <a class="el" href="_shield_8hpp_source.html#l00027">27</a> of file <a class="el" href="_shield_8hpp_source.html">Shield.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_shield_8hpp_source.html#l00034">34</a> of file <a class="el" href="_shield_8hpp_source.html">Shield.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac3e19b1679c963e59a62d3ee6a04cc70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3e19b1679c963e59a62d3ee6a04cc70">&#9670;&nbsp;</a></span>Shield()</h2>
+<a id="a5c28405f3a1439661f36651107e3baad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c28405f3a1439661f36651107e3baad">&#9670;&nbsp;</a></span>Shield()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,13 +154,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>textureHolder</em>, </td>
         </tr>
         <tr>
@@ -173,15 +171,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the Sprite object of the Class. </p>
+<p>Constructor for the Sprite object. </p>
 <p>Description of file in project Project.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>screen resolution (to determine the radius the <a class="el" href="class_shield.html" title="Description of file in project Project. ">Shield</a> circles around </td></tr>
+    <tr><td class="paramname">resolution</td><td>The screen resolution (to determine the radius the <a class="el" href="class_shield.html" title="Shield class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip...">Shield</a> circles around </td></tr>
     <tr><td class="paramname">distanceFromCentre</td><td>The fixed radius of the circle that the ship flies around </td></tr>
     <tr><td class="paramname">angle</td><td>The angle in degrees around the circle of movement </td></tr>
     <tr><td class="paramname">scale</td><td>The scale of the sprite </td></tr>
-    <tr><td class="paramname">type</td><td>The <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> of the object </td></tr>
     <tr><td class="paramname">textureHolder</td><td>The resourceMapper object that contains the path to the texture(s) for the sprite </td></tr>
     <tr><td class="paramname">playerShip</td><td>The playerShip that the shield will be positioned on.</td></tr>
   </table>
@@ -190,27 +187,27 @@ Public Member Functions</h2></td></tr>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>27/9/17 Detailed description of file</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00017">17</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00013">13</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_shield_ac3e19b1679c963e59a62d3ee6a04cc70_cgraph.png" border="0" usemap="#class_shield_ac3e19b1679c963e59a62d3ee6a04cc70_cgraph" alt=""/></div>
-<map name="class_shield_ac3e19b1679c963e59a62d3ee6a04cc70_cgraph" id="class_shield_ac3e19b1679c963e59a62d3ee6a04cc70_cgraph">
-<area shape="rect" id="node2" href="class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Shield::reset" alt="" coords="156,5,252,31"/>
+<div class="center"><img src="class_shield_a5c28405f3a1439661f36651107e3baad_cgraph.png" border="0" usemap="#class_shield_a5c28405f3a1439661f36651107e3baad_cgraph" alt=""/></div>
+<map name="class_shield_a5c28405f3a1439661f36651107e3baad_cgraph" id="class_shield_a5c28405f3a1439661f36651107e3baad_cgraph">
+<area shape="rect" id="node2" href="class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Resets the Shield object. " alt="" coords="156,5,252,31"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae286bbff311ba2d5156a5eb900229907"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae286bbff311ba2d5156a5eb900229907">&#9670;&nbsp;</a></span>getSprite()</h2>
+<a id="abfaf485e71d7b5709f0dda44acd9c3e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfaf485e71d7b5709f0dda44acd9c3e0">&#9670;&nbsp;</a></span>getSprite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Sprite &amp; Shield::getSprite </td>
+          <td class="memname">const Sprite &amp; Shield::getSprite </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -219,126 +216,17 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Returns the Sprite object of the Class by ref. </p>
+<dl class="section return"><dt>Returns</dt><dd>An sf::Sprite object, representing the game object spatially </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>sf:Sprite </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00054">54</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00048">48</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_shield_ae286bbff311ba2d5156a5eb900229907_icgraph.png" border="0" usemap="#class_shield_ae286bbff311ba2d5156a5eb900229907_icgraph" alt=""/></div>
-<map name="class_shield_ae286bbff311ba2d5156a5eb900229907_icgraph" id="class_shield_ae286bbff311ba2d5156a5eb900229907_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="173,5,262,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="310,5,403,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="451,5,501,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a4c5a60cac4a0c7516c18c7bd418b864d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c5a60cac4a0c7516c18c7bd418b864d">&#9670;&nbsp;</a></span>move()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Shield::move </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00047">47</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_cgraph.png" border="0" usemap="#class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_cgraph" alt=""/></div>
-<map name="class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_cgraph" id="class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39" title="Returns the Sprite object of the Class by ref. " alt="" coords="152,5,298,31"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_icgraph.png" border="0" usemap="#class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_icgraph" alt=""/></div>
-<map name="class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_icgraph" id="class_shield_a4c5a60cac4a0c7516c18c7bd418b864d_icgraph">
-<area shape="rect" id="node2" href="class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Shield::update" alt="" coords="152,5,258,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="306,5,396,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="444,5,537,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="585,5,635,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a3895cca033e2401fb9fb299dd096e026"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3895cca033e2401fb9fb299dd096e026">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Shield::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00040">40</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_shield_a3895cca033e2401fb9fb299dd096e026_icgraph.png" border="0" usemap="#class_shield_a3895cca033e2401fb9fb299dd096e026_icgraph" alt=""/></div>
-<map name="class_shield_a3895cca033e2401fb9fb299dd096e026_icgraph" id="class_shield_a3895cca033e2401fb9fb299dd096e026_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="303,23,393,48"/>
-<area shape="rect" id="node5" href="class_shield.html#ac3e19b1679c963e59a62d3ee6a04cc70" title="Returns the Sprite object of the Class. " alt="" coords="151,23,254,48"/>
-<area shape="rect" id="node6" href="class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Shield::update" alt="" coords="149,72,255,97"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="441,23,534,48"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="582,23,632,48"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ac27e51621d183abc5280480b3155cfb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac27e51621d183abc5280480b3155cfb0">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Shield::update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_shield_8cpp_source.html#l00059">59</a> of file <a class="el" href="_shield_8cpp_source.html">Shield.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_shield_ac27e51621d183abc5280480b3155cfb0_cgraph.png" border="0" usemap="#class_shield_ac27e51621d183abc5280480b3155cfb0_cgraph" alt=""/></div>
-<map name="class_shield_ac27e51621d183abc5280480b3155cfb0_cgraph" id="class_shield_ac27e51621d183abc5280480b3155cfb0_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="160,5,335,31"/>
-<area shape="rect" id="node3" href="class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d" title="Shield::move" alt="" coords="198,55,297,80"/>
-<area shape="rect" id="node5" href="class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Shield::reset" alt="" coords="200,104,295,129"/>
-<area shape="rect" id="node4" href="class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39" title="Returns the Sprite object of the Class by ref. " alt="" coords="383,55,530,80"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_shield_ac27e51621d183abc5280480b3155cfb0_icgraph.png" border="0" usemap="#class_shield_ac27e51621d183abc5280480b3155cfb0_icgraph" alt=""/></div>
-<map name="class_shield_ac27e51621d183abc5280480b3155cfb0_icgraph" id="class_shield_ac27e51621d183abc5280480b3155cfb0_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="160,5,249,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="297,5,391,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="439,5,489,31"/>
+<div class="center"><img src="class_shield_abfaf485e71d7b5709f0dda44acd9c3e0_icgraph.png" border="0" usemap="#class_shield_abfaf485e71d7b5709f0dda44acd9c3e0_icgraph" alt=""/></div>
+<map name="class_shield_abfaf485e71d7b5709f0dda44acd9c3e0_icgraph" id="class_shield_abfaf485e71d7b5709f0dda44acd9c3e0_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="173,5,262,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="310,5,403,31"/>
 </map>
 </div>
 

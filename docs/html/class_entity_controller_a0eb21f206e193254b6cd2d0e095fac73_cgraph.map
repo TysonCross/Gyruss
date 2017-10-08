@@ -1,8 +1,9 @@
 <map id="EntityController::shoot" name="EntityController::shoot">
-<area shape="rect" id="node2" href="$class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="PlayerShip::isShooting" alt="" coords="225,5,381,31"/>
-<area shape="rect" id="node3" href="$class_player_ship.html#af002b45b1a5f935998f674beb011d999" title="PlayerShip::getScale" alt="" coords="231,55,376,80"/>
-<area shape="rect" id="node4" href="$class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="PlayerShip::isUpgraded" alt="" coords="223,104,384,129"/>
-<area shape="rect" id="node5" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="206,153,401,192"/>
-<area shape="rect" id="node6" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="230,216,376,241"/>
-<area shape="rect" id="node7" href="$class_score.html#a52540ac16336966a6805da3a0f88845f" title="Score::incrementBulletsFired" alt="" coords="207,265,399,291"/>
+<area shape="rect" id="node2" href="$class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="Boolean shooting state of the playerShip. " alt="" coords="206,55,362,80"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="206,104,362,143"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="435,5,580,31"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="427,55,588,80"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="410,104,605,143"/>
+<area shape="rect" id="node7" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="434,167,580,192"/>
+<area shape="rect" id="node8" href="$class_score.html#a52540ac16336966a6805da3a0f88845f" title="On shooting a bullet, is called to increment the number of bullets shot. " alt="" coords="411,216,604,241"/>
 </map>

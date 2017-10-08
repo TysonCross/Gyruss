@@ -1,0 +1,7 @@
+<map id="Bullet::Bullet" name="Bullet::Bullet">
+<area shape="rect" id="node2" href="$class_bullet.html#a6b88a2b4189268dfebc0b354940c7f65" title="Sets up the next frame&#39;s position for the object. " alt="" coords="149,5,261,31"/>
+<area shape="rect" id="node3" href="$class_bullet.html#a738b3fde0d24a67ea0a922cbf9693803" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="154,55,256,80"/>
+<area shape="rect" id="node4" href="$class_bullet.html#a88af6034543e11dd8e4b5539b7634838" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="309,55,404,80"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="452,29,612,55"/>
+<area shape="rect" id="node6" href="$class_bullet.html#af2095626beecfcd32ab0bf279afca233" title="Returns the distance from origin (screen space) " alt="" coords="471,79,593,104"/>
+</map>

@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -97,36 +97,48 @@ $(document).ready(function(){initNavTree('class_score.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab130dd02bdd3e026421ad426741637e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#ab130dd02bdd3e026421ad426741637e8">incrementEnemiesKilled</a> (<a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type)</td></tr>
+<tr class="memitem:ab130dd02bdd3e026421ad426741637e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#ab130dd02bdd3e026421ad426741637e8">incrementEnemiesKilled</a> (entity::ID type)</td></tr>
+<tr class="memdesc:ab130dd02bdd3e026421ad426741637e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">When the player Killes an enemy, this is called with the defined enemy type. Based on the type of enemy, different scores are given to the player. these scores are stored.  <a href="#ab130dd02bdd3e026421ad426741637e8">More...</a><br /></td></tr>
 <tr class="separator:ab130dd02bdd3e026421ad426741637e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52540ac16336966a6805da3a0f88845f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a52540ac16336966a6805da3a0f88845f">incrementBulletsFired</a> ()</td></tr>
+<tr class="memdesc:a52540ac16336966a6805da3a0f88845f"><td class="mdescLeft">&#160;</td><td class="mdescRight">On shooting a bullet, is called to increment the number of bullets shot.  <a href="#a52540ac16336966a6805da3a0f88845f">More...</a><br /></td></tr>
 <tr class="separator:a52540ac16336966a6805da3a0f88845f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a476a2a2bc3a65a050e512fad500d02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a1a476a2a2bc3a65a050e512fad500d02">update</a> ()</td></tr>
-<tr class="memdesc:a1a476a2a2bc3a65a050e512fad500d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object and methods to keep score of player actions.  <a href="#a1a476a2a2bc3a65a050e512fad500d02">More...</a><br /></td></tr>
+<tr class="memdesc:a1a476a2a2bc3a65a050e512fad500d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run on every frame to update the player current lite time. adds points to the player score for living longer.  <a href="#a1a476a2a2bc3a65a050e512fad500d02">More...</a><br /></td></tr>
 <tr class="separator:a1a476a2a2bc3a65a050e512fad500d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32804ba9a847e58160e6e0cef46e1f25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a32804ba9a847e58160e6e0cef46e1f25">reset</a> ()</td></tr>
+<tr class="memitem:a32804ba9a847e58160e6e0cef46e1f25"><td class="memItemLeft" align="right" valign="top"><a id="a32804ba9a847e58160e6e0cef46e1f25"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a32804ba9a847e58160e6e0cef46e1f25">reset</a> ()</td></tr>
+<tr class="memdesc:a32804ba9a847e58160e6e0cef46e1f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all private member veriables of relevents to game score. Used when a new game is started. <br /></td></tr>
 <tr class="separator:a32804ba9a847e58160e6e0cef46e1f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9925b73e3f421878dbb192ab9924560b"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a9925b73e3f421878dbb192ab9924560b">getScore</a> () const</td></tr>
+<tr class="memdesc:a9925b73e3f421878dbb192ab9924560b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor to provide the current game score.  <a href="#a9925b73e3f421878dbb192ab9924560b">More...</a><br /></td></tr>
 <tr class="separator:a9925b73e3f421878dbb192ab9924560b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2ad5c64290bc1baf6d929b2118ac240"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#ad2ad5c64290bc1baf6d929b2118ac240">getEnemiesKilled</a> () const</td></tr>
+<tr class="memdesc:ad2ad5c64290bc1baf6d929b2118ac240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor to provide the current number of enimies killed.  <a href="#ad2ad5c64290bc1baf6d929b2118ac240">More...</a><br /></td></tr>
 <tr class="separator:ad2ad5c64290bc1baf6d929b2118ac240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47d57069de0d92d2f52b34bf43e481c0"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a47d57069de0d92d2f52b34bf43e481c0">getBulletsFired</a> () const</td></tr>
+<tr class="memdesc:a47d57069de0d92d2f52b34bf43e481c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor to provide the number of bullets fired.  <a href="#a47d57069de0d92d2f52b34bf43e481c0">More...</a><br /></td></tr>
 <tr class="separator:a47d57069de0d92d2f52b34bf43e481c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d6310f7a4f5c4c2ad15bc62f6999fc6"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a6d6310f7a4f5c4c2ad15bc62f6999fc6">getPlayerAccuracy</a> () const</td></tr>
+<tr class="memdesc:a6d6310f7a4f5c4c2ad15bc62f6999fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor to calculate the playerAccuracy. This is defined as the number of enemies hit/number of bullet shot.  <a href="#a6d6310f7a4f5c4c2ad15bc62f6999fc6">More...</a><br /></td></tr>
 <tr class="separator:a6d6310f7a4f5c4c2ad15bc62f6999fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81b38b72c9ab9b4fb623fc8604477e61"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a81b38b72c9ab9b4fb623fc8604477e61">getTimeAlive</a> () const</td></tr>
+<tr class="memdesc:a81b38b72c9ab9b4fb623fc8604477e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor to return the time alive for the current player life.  <a href="#a81b38b72c9ab9b4fb623fc8604477e61">More...</a><br /></td></tr>
 <tr class="separator:a81b38b72c9ab9b4fb623fc8604477e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b88df6ae934c981425ea004dad39f9"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#ae0b88df6ae934c981425ea004dad39f9">getLongestTimeAlive</a> () const</td></tr>
+<tr class="memdesc:ae0b88df6ae934c981425ea004dad39f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor to return the longest life the player achived.  <a href="#ae0b88df6ae934c981425ea004dad39f9">More...</a><br /></td></tr>
 <tr class="separator:ae0b88df6ae934c981425ea004dad39f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a141a1c42f44900824c15049c23aaba0c"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a141a1c42f44900824c15049c23aaba0c">resetLifeTimer</a> ()</td></tr>
+<tr class="memitem:a141a1c42f44900824c15049c23aaba0c"><td class="memItemLeft" align="right" valign="top"><a id="a141a1c42f44900824c15049c23aaba0c"></a>
+const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_score.html#a141a1c42f44900824c15049c23aaba0c">resetLifeTimer</a> ()</td></tr>
+<tr class="memdesc:a141a1c42f44900824c15049c23aaba0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets current player life timer. <br /></td></tr>
 <tr class="separator:a141a1c42f44900824c15049c23aaba0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Object and methods to keep score of player actions. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>23/9/17 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits UniversityScore class, to store and calculate all player game scores. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_score_8hpp_source.html#l00015">15</a> of file <a class="el" href="_score_8hpp_source.html">Score.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_score_8hpp_source.html#l00018">18</a> of file <a class="el" href="_score_8hpp_source.html">Score.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a47d57069de0d92d2f52b34bf43e481c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47d57069de0d92d2f52b34bf43e481c0">&#9670;&nbsp;</a></span>getBulletsFired()</h2>
@@ -143,16 +155,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Accessor to provide the number of bullets fired. </p>
+<dl class="section return"><dt>Returns</dt><dd>_bulletsFired the current number of bullets fired </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00090">90</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_a47d57069de0d92d2f52b34bf43e481c0_icgraph.png" border="0" usemap="#class_score_a47d57069de0d92d2f52b34bf43e481c0_icgraph" alt=""/></div>
 <map name="class_score_a47d57069de0d92d2f52b34bf43e481c0_icgraph" id="class_score_a47d57069de0d92d2f52b34bf43e481c0_icgraph">
-<area shape="rect" id="node2" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="206,5,371,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="419,5,508,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="556,5,650,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="698,5,748,31"/>
+<area shape="rect" id="node2" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="206,5,371,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="419,5,508,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="556,5,650,31"/>
 </map>
 </div>
 
@@ -173,16 +187,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Accessor to provide the current number of enimies killed. </p>
+<dl class="section return"><dt>Returns</dt><dd>_enemiesKilled, the current number of killed </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00085">85</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_ad2ad5c64290bc1baf6d929b2118ac240_icgraph.png" border="0" usemap="#class_score_ad2ad5c64290bc1baf6d929b2118ac240_icgraph" alt=""/></div>
 <map name="class_score_ad2ad5c64290bc1baf6d929b2118ac240_icgraph" id="class_score_ad2ad5c64290bc1baf6d929b2118ac240_icgraph">
-<area shape="rect" id="node2" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="EntityController::spawnEntities" alt="" coords="220,5,422,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="470,31,560,56"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="608,31,701,56"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="749,31,799,56"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="220,5,309,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="357,5,451,31"/>
 </map>
 </div>
 
@@ -203,16 +218,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Accessor to return the longest life the player achived. </p>
+<dl class="section return"><dt>Returns</dt><dd>_longestTimeAlive, longest player life </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00100">100</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_ae0b88df6ae934c981425ea004dad39f9_icgraph.png" border="0" usemap="#class_score_ae0b88df6ae934c981425ea004dad39f9_icgraph" alt=""/></div>
 <map name="class_score_ae0b88df6ae934c981425ea004dad39f9_icgraph" id="class_score_ae0b88df6ae934c981425ea004dad39f9_icgraph">
-<area shape="rect" id="node2" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="241,5,406,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="454,5,544,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="592,5,685,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="733,5,783,31"/>
+<area shape="rect" id="node2" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="241,5,406,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="454,5,544,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="592,5,685,31"/>
 </map>
 </div>
 
@@ -233,16 +250,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Accessor to calculate the playerAccuracy. This is defined as the number of enemies hit/number of bullet shot. </p>
+<dl class="section return"><dt>Returns</dt><dd>player accuracy </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00068">68</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_a6d6310f7a4f5c4c2ad15bc62f6999fc6_icgraph.png" border="0" usemap="#class_score_a6d6310f7a4f5c4c2ad15bc62f6999fc6_icgraph" alt=""/></div>
 <map name="class_score_a6d6310f7a4f5c4c2ad15bc62f6999fc6_icgraph" id="class_score_a6d6310f7a4f5c4c2ad15bc62f6999fc6_icgraph">
-<area shape="rect" id="node2" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="228,5,393,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="441,5,531,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="579,5,672,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="720,5,770,31"/>
+<area shape="rect" id="node2" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="228,5,393,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="441,5,531,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="579,5,672,31"/>
 </map>
 </div>
 
@@ -263,17 +282,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Accessor to provide the current game score. </p>
+<dl class="section return"><dt>Returns</dt><dd>_score the current score the player has achived </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00080">80</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_a9925b73e3f421878dbb192ab9924560b_icgraph.png" border="0" usemap="#class_score_a9925b73e3f421878dbb192ab9924560b_icgraph" alt=""/></div>
 <map name="class_score_a9925b73e3f421878dbb192ab9924560b_icgraph" id="class_score_a9925b73e3f421878dbb192ab9924560b_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="383,25,473,50"/>
-<area shape="rect" id="node5" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="210,25,296,50"/>
-<area shape="rect" id="node6" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="170,74,335,100"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="521,25,614,50"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="662,25,712,50"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="383,25,473,50"/>
+<area shape="rect" id="node4" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="210,25,296,50"/>
+<area shape="rect" id="node5" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="170,74,335,100"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="521,25,614,50"/>
 </map>
 </div>
 
@@ -294,16 +315,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Accessor to return the time alive for the current player life. </p>
+<dl class="section return"><dt>Returns</dt><dd>sf::Clock _lifeTimer, the current player life length </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00095">95</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_a81b38b72c9ab9b4fb623fc8604477e61_icgraph.png" border="0" usemap="#class_score_a81b38b72c9ab9b4fb623fc8604477e61_icgraph" alt=""/></div>
 <map name="class_score_a81b38b72c9ab9b4fb623fc8604477e61_icgraph" id="class_score_a81b38b72c9ab9b4fb623fc8604477e61_icgraph">
-<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="193,5,280,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="328,5,418,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="466,5,559,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="607,5,657,31"/>
+<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="193,5,280,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="328,5,418,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="466,5,559,31"/>
 </map>
 </div>
 
@@ -324,16 +347,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>On shooting a bullet, is called to increment the number of bullets shot. </p>
+<dl class="section see"><dt>See also</dt><dd>_bulletsFired </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00063">63</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_a52540ac16336966a6805da3a0f88845f_icgraph.png" border="0" usemap="#class_score_a52540ac16336966a6805da3a0f88845f_icgraph" alt=""/></div>
 <map name="class_score_a52540ac16336966a6805da3a0f88845f_icgraph" id="class_score_a52540ac16336966a6805da3a0f88845f_icgraph">
-<area shape="rect" id="node2" href="class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="EntityController::shoot" alt="" coords="246,5,398,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="446,5,536,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="584,5,677,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="725,5,775,31"/>
+<area shape="rect" id="node2" href="class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="246,5,402,44"/>
+<area shape="rect" id="node3" href="class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="450,12,603,37"/>
+<area shape="rect" id="node4" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="651,12,740,37"/>
+<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="788,12,881,37"/>
 </map>
 </div>
 
@@ -348,12 +374,23 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Score::incrementEnemiesKilled </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td>
+          <td class="paramtype">entity::ID&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>When the player Killes an enemy, this is called with the defined enemy type. Based on the type of enemy, different scores are given to the player. these scores are stored. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>provides the kind of enemy that was killed</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="common_8cpp_source.html">Common.cpp</a> </dd>
+<dd>
+addToScore() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00027">27</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
 <div class="dynheader">
@@ -361,69 +398,10 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_ab130dd02bdd3e026421ad426741637e8_icgraph.png" border="0" usemap="#class_score_ab130dd02bdd3e026421ad426741637e8_icgraph" alt=""/></div>
 <map name="class_score_ab130dd02bdd3e026421ad426741637e8_icgraph" id="class_score_ab130dd02bdd3e026421ad426741637e8_icgraph">
-<area shape="rect" id="node2" href="class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="EntityController::checkCollisions" alt="" coords="260,5,472,31"/>
-<area shape="rect" id="node6" href="class_entity_controller.html#a795606fe9223180467575190e725a18a" title="EntityController::killAll\lEnemiesOfType" alt="" coords="291,55,441,93"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="520,33,609,59"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="657,33,750,59"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="798,33,849,59"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a32804ba9a847e58160e6e0cef46e1f25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32804ba9a847e58160e6e0cef46e1f25">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Score::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00052">52</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_score_a32804ba9a847e58160e6e0cef46e1f25_icgraph.png" border="0" usemap="#class_score_a32804ba9a847e58160e6e0cef46e1f25_icgraph" alt=""/></div>
-<map name="class_score_a32804ba9a847e58160e6e0cef46e1f25_icgraph" id="class_score_a32804ba9a847e58160e6e0cef46e1f25_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="147,5,236,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="284,5,377,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="425,5,475,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a141a1c42f44900824c15049c23aaba0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a141a1c42f44900824c15049c23aaba0c">&#9670;&nbsp;</a></span>resetLifeTimer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const void Score::resetLifeTimer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_score_8cpp_source.html#l00105">105</a> of file <a class="el" href="_score_8cpp_source.html">Score.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_score_a141a1c42f44900824c15049c23aaba0c_icgraph.png" border="0" usemap="#class_score_a141a1c42f44900824c15049c23aaba0c_icgraph" alt=""/></div>
-<map name="class_score_a141a1c42f44900824c15049c23aaba0c_icgraph" id="class_score_a141a1c42f44900824c15049c23aaba0c_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="202,5,291,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="339,5,432,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="480,5,531,31"/>
+<area shape="rect" id="node2" href="class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="260,5,472,31"/>
+<area shape="rect" id="node5" href="class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="291,55,441,93"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="520,33,609,59"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="657,33,750,59"/>
 </map>
 </div>
 
@@ -444,7 +422,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Object and methods to keep score of player actions. </p>
+<p>Run on every frame to update the player current lite time. adds points to the player score for living longer. </p>
+<p>Object and methods to keep score of player actions.</p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>23/9/17 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -454,9 +433,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_score_a1a476a2a2bc3a65a050e512fad500d02_icgraph.png" border="0" usemap="#class_score_a1a476a2a2bc3a65a050e512fad500d02_icgraph" alt=""/></div>
 <map name="class_score_a1a476a2a2bc3a65a050e512fad500d02_icgraph" id="class_score_a1a476a2a2bc3a65a050e512fad500d02_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="158,5,247,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="295,5,388,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="436,5,487,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="158,5,247,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="295,5,388,31"/>
 </map>
 </div>
 

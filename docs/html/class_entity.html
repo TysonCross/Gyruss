@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -91,101 +91,154 @@ $(document).ready(function(){initNavTree('class_entity.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> Class, inherited from <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> and <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a>.  
+ <a href="class_entity.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Entity:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity__inherit__graph.png" border="0" usemap="#_entity_inherit__map" alt="Inheritance graph"/></div>
 <map name="_entity_inherit__map" id="_entity_inherit__map">
-<area shape="rect" id="node2" href="class_bullet.html" title="Projectiles/bullets for PlayerShip and EnemyShip. " alt="" coords="5,79,60,104"/>
-<area shape="rect" id="node3" href="class_enemy.html" title="Enemy" alt="" coords="84,79,147,104"/>
-<area shape="rect" id="node4" href="class_explosion.html" title="Explosion entity for destroyed screen objects. " alt="" coords="170,79,250,104"/>
-<area shape="rect" id="node5" href="class_meteoroid.html" title="Meteroid Entity (cannot be destroyed by bullets) " alt="" coords="274,79,354,104"/>
-<area shape="rect" id="node6" href="class_player_ship.html" title="Player ship. " alt="" coords="378,79,464,104"/>
+<area shape="rect" id="node4" href="class_bullet.html" title="Projectile class, for either Player or Enemy bullets. " alt="" coords="5,152,60,177"/>
+<area shape="rect" id="node5" href="class_enemy.html" title="Abstract Base Class for enemy game objects. " alt="" coords="84,152,147,177"/>
+<area shape="rect" id="node6" href="class_explosion.html" title="Explosion class, for objects that collide. " alt="" coords="170,152,250,177"/>
+<area shape="rect" id="node7" href="class_meteoroid.html" title="Meteoroid class. " alt="" coords="274,152,354,177"/>
+<area shape="rect" id="node8" href="class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="378,152,464,177"/>
+<area shape="rect" id="node2" href="class_moveable.html" title="Moveable Class. " alt="" coords="117,5,196,31"/>
+<area shape="rect" id="node3" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="221,5,309,31"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Entity:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity__coll__graph.png" border="0" usemap="#_entity_coll__map" alt="Collaboration graph"/></div>
+<map name="_entity_coll__map" id="_entity_coll__map">
+<area shape="rect" id="node2" href="class_moveable.html" title="Moveable Class. " alt="" coords="5,92,84,117"/>
+<area shape="rect" id="node3" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,92,197,117"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a980f368aa07ce358583982821533a54a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a980f368aa07ce358583982821533a54a">Entity</a> ()</td></tr>
-<tr class="separator:a980f368aa07ce358583982821533a54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9efef0cdef3dd642f7687208df014363"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9efef0cdef3dd642f7687208df014363">Entity</a> (const sf::Vector2i resolution, float distanceFromCentre, float angle, float scale, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder)</td></tr>
-<tr class="separator:a9efef0cdef3dd642f7687208df014363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ed0d4d7c3c33bce9ba8c66e2503fa7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a86ed0d4d7c3c33bce9ba8c66e2503fa7">setMove</a> (float)</td></tr>
-<tr class="separator:a86ed0d4d7c3c33bce9ba8c66e2503fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad901449ea32a9cace98ab926ca249bfb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb">setMove</a> (float, float)</td></tr>
-<tr class="separator:ad901449ea32a9cace98ab926ca249bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a089f2a22bbd6f91cb433e0893b5a3a8d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d">reset</a> ()=0</td></tr>
-<tr class="separator:a089f2a22bbd6f91cb433e0893b5a3a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59a29d9b7474baf13c9c76859242287d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">update</a> ()=0</td></tr>
-<tr class="separator:a59a29d9b7474baf13c9c76859242287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb509e7ecf0f3e998a67657bdf2076e6"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adb509e7ecf0f3e998a67657bdf2076e6">getRadius</a> () const =0</td></tr>
-<tr class="separator:adb509e7ecf0f3e998a67657bdf2076e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ae35ec14f8c0ebbcaf234c26f5429e"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a18ae35ec14f8c0ebbcaf234c26f5429e">getDistanceFromCentre</a> () const =0</td></tr>
-<tr class="separator:a18ae35ec14f8c0ebbcaf234c26f5429e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa216cd54efce968f742e06f816a8f3b0"><td class="memItemLeft" align="right" valign="top">virtual const sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa216cd54efce968f742e06f816a8f3b0">getScale</a> () const =0</td></tr>
-<tr class="separator:aa216cd54efce968f742e06f816a8f3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9edc43f1bf4d31ed1d51aa2dfbf6fb23"><td class="memItemLeft" align="right" valign="top">virtual const sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9edc43f1bf4d31ed1d51aa2dfbf6fb23">getPosition</a> () const =0</td></tr>
-<tr class="separator:a9edc43f1bf4d31ed1d51aa2dfbf6fb23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea546eec846ec6a7c5668db7b79cd2ac"><td class="memItemLeft" align="right" valign="top">virtual const sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aea546eec846ec6a7c5668db7b79cd2ac">getSprite</a> () const =0</td></tr>
-<tr class="separator:aea546eec846ec6a7c5668db7b79cd2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a834847e68c24a42c83d984455b6b4ba4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4">Entity</a> (const Vector2i resolution, float distanceFromCentre, float angle, float scale, const entity::ID type, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder)</td></tr>
+<tr class="memdesc:a834847e68c24a42c83d984455b6b4ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> class constructor Calls the <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> and <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> constructors, and sets the resolution.  <a href="#a834847e68c24a42c83d984455b6b4ba4">More...</a><br /></td></tr>
+<tr class="separator:a834847e68c24a42c83d984455b6b4ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55cb2ea6bcc7cdbe4c388aa01cbc48fc"><td class="memItemLeft" align="right" valign="top">virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">getLives</a> () const =0</td></tr>
+<tr class="memdesc:a55cb2ea6bcc7cdbe4c388aa01cbc48fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for returning the remaining number of lives of the entity.  <a href="#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">More...</a><br /></td></tr>
 <tr class="separator:a55cb2ea6bcc7cdbe4c388aa01cbc48fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a3cf13d22d4f8a6ac5b6ffaff41205e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e">die</a> ()=0</td></tr>
-<tr class="separator:a2a3cf13d22d4f8a6ac5b6ffaff41205e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf">move</a> ()=0</td></tr>
+<tr class="memitem:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="memItemLeft" align="right" valign="top"><a id="a624e85b5e363a70b0a7b2e04912c6cdf"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf">move</a> ()=0</td></tr>
+<tr class="memdesc:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for performing a move. <br /></td></tr>
 <tr class="separator:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a29d9b7474baf13c9c76859242287d"><td class="memItemLeft" align="right" valign="top"><a id="a59a29d9b7474baf13c9c76859242287d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">update</a> ()=0</td></tr>
+<tr class="memdesc:a59a29d9b7474baf13c9c76859242287d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for performing an update on the entity object. <br /></td></tr>
+<tr class="separator:a59a29d9b7474baf13c9c76859242287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089f2a22bbd6f91cb433e0893b5a3a8d"><td class="memItemLeft" align="right" valign="top"><a id="a089f2a22bbd6f91cb433e0893b5a3a8d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d">reset</a> ()=0</td></tr>
+<tr class="memdesc:a089f2a22bbd6f91cb433e0893b5a3a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for resetting the entity to a default state. <br /></td></tr>
+<tr class="separator:a089f2a22bbd6f91cb433e0893b5a3a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3cf13d22d4f8a6ac5b6ffaff41205e"><td class="memItemLeft" align="right" valign="top"><a id="a2a3cf13d22d4f8a6ac5b6ffaff41205e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e">die</a> ()=0</td></tr>
+<tr class="memdesc:a2a3cf13d22d4f8a6ac5b6ffaff41205e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for decrementing an entity's lives count. <br /></td></tr>
+<tr class="separator:a2a3cf13d22d4f8a6ac5b6ffaff41205e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_moveable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
+<tr class="memitem:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">Moveable</a> (float distanceFromCentre, float angle, float scale)</td></tr>
+<tr class="memdesc:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> class constructor.  <a href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">More...</a><br /></td></tr>
+<tr class="separator:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">setMove</a> (float value)</td></tr>
+<tr class="memdesc:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the future movement, either by change in angle or change in distance.  <a href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">More...</a><br /></td></tr>
+<tr class="separator:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">setMove</a> (float angle, float distance)</td></tr>
+<tr class="memdesc:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to set the future movement, by both angle and distance.  <a href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">More...</a><br /></td></tr>
+<tr class="separator:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9eb0005b9ae6b41e2b04f55a273e4c inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c">getRadius</a> () const =0</td></tr>
+<tr class="memdesc:a9f9eb0005b9ae6b41e2b04f55a273e4c inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to return the distance from origin (screen space)  <a href="class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c">More...</a><br /></td></tr>
+<tr class="separator:a9f9eb0005b9ae6b41e2b04f55a273e4c inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a724061b235c2a66939bbcc327648cb58 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a724061b235c2a66939bbcc327648cb58">getDistanceFromCentre</a> () const =0</td></tr>
+<tr class="memdesc:a724061b235c2a66939bbcc327648cb58 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to return the distance from origin (non-linear distance)  <a href="class_moveable.html#a724061b235c2a66939bbcc327648cb58">More...</a><br /></td></tr>
+<tr class="separator:a724061b235c2a66939bbcc327648cb58 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab210f45d5558742196fc408d04056a inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a7ab210f45d5558742196fc408d04056a">getScale</a> () const =0</td></tr>
+<tr class="memdesc:a7ab210f45d5558742196fc408d04056a inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to return the scale (in width/height) of the object.  <a href="class_moveable.html#a7ab210f45d5558742196fc408d04056a">More...</a><br /></td></tr>
+<tr class="separator:a7ab210f45d5558742196fc408d04056a inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7b46138211ec0c2db78c737353d9825 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">getPosition</a> () const =0</td></tr>
+<tr class="memdesc:ab7b46138211ec0c2db78c737353d9825 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to return the x,y position of the object on screen.  <a href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">More...</a><br /></td></tr>
+<tr class="separator:ab7b46138211ec0c2db78c737353d9825 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_animatable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
+<tr class="memitem:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">Animatable</a> (const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const entity::ID type)</td></tr>
+<tr class="memdesc:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> class.  <a href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">More...</a><br /></td></tr>
+<tr class="separator:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6def49e82426038b2478d868ee1feac8 inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual const Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">getSprite</a> () const =0</td></tr>
+<tr class="memdesc:a6def49e82426038b2478d868ee1feac8 inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object.  <a href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">More...</a><br /></td></tr>
+<tr class="separator:a6def49e82426038b2478d868ee1feac8 inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4d841959ff82d04fa8bca5897c5ecb20"><td class="memItemLeft" align="right" valign="top">const sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4d841959ff82d04fa8bca5897c5ecb20">_resolution</a></td></tr>
-<tr class="separator:a4d841959ff82d04fa8bca5897c5ecb20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040bd9d02a9c5d0c7f07348bc15cc0a3"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a040bd9d02a9c5d0c7f07348bc15cc0a3">_sprite</a></td></tr>
-<tr class="separator:a040bd9d02a9c5d0c7f07348bc15cc0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af114a6582c9a3811b4681d14b516b1f2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af114a6582c9a3811b4681d14b516b1f2">_distanceFromCentre</a></td></tr>
-<tr class="separator:af114a6582c9a3811b4681d14b516b1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ea7d0f9af807e9b17256eb27933b0a8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1ea7d0f9af807e9b17256eb27933b0a8">_futureAngleValue</a></td></tr>
-<tr class="separator:a1ea7d0f9af807e9b17256eb27933b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e82cf77b309ddd4050173fbfa1c31b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a73e82cf77b309ddd4050173fbfa1c31b">_futureMoveValue</a></td></tr>
-<tr class="separator:a73e82cf77b309ddd4050173fbfa1c31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8af32a9a6161e9ab8c43c5b0a15bae"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aaa8af32a9a6161e9ab8c43c5b0a15bae">_angle</a></td></tr>
-<tr class="separator:aaa8af32a9a6161e9ab8c43c5b0a15bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043affe166433081b18fcb2deea4a613"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a043affe166433081b18fcb2deea4a613">_scale</a></td></tr>
-<tr class="separator:a043affe166433081b18fcb2deea4a613"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84bc91bd82c6173b6dda752aa7f86348"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a84bc91bd82c6173b6dda752aa7f86348">_isMoving</a></td></tr>
-<tr class="separator:a84bc91bd82c6173b6dda752aa7f86348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0fd76b4690aee4a244f3f77a77854f5"><td class="memItemLeft" align="right" valign="top"><a id="af0fd76b4690aee4a244f3f77a77854f5"></a>
+const Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af0fd76b4690aee4a244f3f77a77854f5">_resolution</a></td></tr>
+<tr class="memdesc:af0fd76b4690aee4a244f3f77a77854f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The game resolution in {x,y}. <br /></td></tr>
+<tr class="separator:af0fd76b4690aee4a244f3f77a77854f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b3d3f11c9034e91112f724203f4513"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513">_lives</a></td></tr>
+<tr class="memdesc:aa3b3d3f11c9034e91112f724203f4513"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of lives remaining of an entity.  <a href="#aa3b3d3f11c9034e91112f724203f4513">More...</a><br /></td></tr>
 <tr class="separator:aa3b3d3f11c9034e91112f724203f4513"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcbd384d49f43cd9947ba422393f69fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683">textures::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#abcbd384d49f43cd9947ba422393f69fb">_id</a></td></tr>
-<tr class="separator:abcbd384d49f43cd9947ba422393f69fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b22b079d0112030ff32c91f83588964"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1b22b079d0112030ff32c91f83588964">_type</a></td></tr>
-<tr class="separator:a1b22b079d0112030ff32c91f83588964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a591f65d2a7f61f11a35b5ba99a0f554b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a591f65d2a7f61f11a35b5ba99a0f554b">_animationFPSLimit</a></td></tr>
-<tr class="separator:a591f65d2a7f61f11a35b5ba99a0f554b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_moveable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
+<tr class="memitem:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">_distanceFromCentre</a></td></tr>
+<tr class="memdesc:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the distance from origin (centre of screen)  <a href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">More...</a><br /></td></tr>
+<tr class="separator:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a613f9733767607d2f64a04d045817d8b inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a613f9733767607d2f64a04d045817d8b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a613f9733767607d2f64a04d045817d8b">_futureAngleValue</a></td></tr>
+<tr class="memdesc:a613f9733767607d2f64a04d045817d8b inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the angle change on the next frame. <br /></td></tr>
+<tr class="separator:a613f9733767607d2f64a04d045817d8b inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad389e189304fce2a297bc819ca1492 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a4ad389e189304fce2a297bc819ca1492"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a4ad389e189304fce2a297bc819ca1492">_futureMoveValue</a></td></tr>
+<tr class="memdesc:a4ad389e189304fce2a297bc819ca1492 inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the distance change on the next frame. <br /></td></tr>
+<tr class="separator:a4ad389e189304fce2a297bc819ca1492 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="ac2a68042fa5a3847a34a14b0105efb3d"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ac2a68042fa5a3847a34a14b0105efb3d">_angle</a></td></tr>
+<tr class="memdesc:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current angle. <br /></td></tr>
+<tr class="separator:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a0e49af81ec9b03149a8704c6f1bc51b1"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0e49af81ec9b03149a8704c6f1bc51b1">_scale</a></td></tr>
+<tr class="memdesc:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current scale (the same for both x and y) <br /></td></tr>
+<tr class="separator:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a0addc6d9eee002a0750a3293cd6d673c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0addc6d9eee002a0750a3293cd6d673c">_isMoving</a></td></tr>
+<tr class="memdesc:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the boolean state of whether the object is moving or not. <br /></td></tr>
+<tr class="separator:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_animatable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
+<tr class="memitem:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#af157c80921e5afac531de85c1b63caef">_sprite</a></td></tr>
+<tr class="separator:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810e3fb0ae7097bf90c5cc7d745a0dde inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">textures::ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a810e3fb0ae7097bf90c5cc7d745a0dde">_id</a></td></tr>
+<tr class="separator:a810e3fb0ae7097bf90c5cc7d745a0dde inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0c6a5d49b6d4fde06bab2ed0dd0680 inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">entity::ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a8f0c6a5d49b6d4fde06bab2ed0dd0680">_type</a></td></tr>
+<tr class="separator:a8f0c6a5d49b6d4fde06bab2ed0dd0680 inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1280f9cc58e0c28ad2adb64d096ef1bb">_animationFPSLimit</a></td></tr>
+<tr class="separator:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00023">23</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<div class="textblock"><p><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> Class, inherited from <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> and <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a>. </p>
+<p>An abstract base class for game objects</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> </dd>
+<dd>
+<a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> </dd>
+<dd>
+<a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a> </dd>
+<dd>
+<a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> </dd>
+<dd>
+<a class="el" href="class_meteoroid.html" title="Meteoroid class. ">Meteoroid</a> </dd>
+<dd>
+<a class="el" href="class_bullet.html" title="Projectile class, for either Player or Enemy bullets. ">Bullet</a> </dd>
+<dd>
+<a class="el" href="class_explosion.html" title="Explosion class, for objects that collide. ">Explosion</a> </dd>
+<dd>
+<a class="el" href="class_shield.html" title="Shield class. Used to represent a state of brief invulnerability upon re-spawning for the playerShip...">Shield</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00042">42</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a980f368aa07ce358583982821533a54a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a980f368aa07ce358583982821533a54a">&#9670;&nbsp;</a></span>Entity() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Entity::Entity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9efef0cdef3dd642f7687208df014363"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9efef0cdef3dd642f7687208df014363">&#9670;&nbsp;</a></span>Entity() <span class="overload">[2/2]</span></h2>
+<a id="a834847e68c24a42c83d984455b6b4ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a834847e68c24a42c83d984455b6b4ba4">&#9670;&nbsp;</a></span>Entity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +249,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">Entity::Entity </td>
           <td>(</td>
-          <td class="paramtype">const sf::Vector2i&#160;</td>
+          <td class="paramtype">const Vector2i&#160;</td>
           <td class="paramname"><em>resolution</em>, </td>
         </tr>
         <tr>
@@ -220,13 +273,13 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td>
+          <td class="paramtype">const entity::ID&#160;</td>
           <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>textureHolder</em>&#160;</td>
         </tr>
         <tr>
@@ -242,81 +295,43 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00027">27</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>The <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> class constructor Calls the <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> and <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> constructors, and sets the resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resolution</td><td>The screen resolution of the game </td></tr>
+    <tr><td class="paramname">distanceFromCentre</td><td>The radius from centre of an entity </td></tr>
+    <tr><td class="paramname">angle</td><td>The angle in degrees from positive x-axis (screen centre as origin) </td></tr>
+    <tr><td class="paramname">scale</td><td>The scale of the entity </td></tr>
+    <tr><td class="paramname">type</td><td>An enum that identifies the entity type. Defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>, passed to the <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> base class </td></tr>
+    <tr><td class="paramname">textureHolder</td><td>The resourceMapper object that contains the path to the texture(s) for the entity's sprite</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> </dd>
+<dd>
+<a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> </dd>
+<dd>
+<a class="el" href="common_8hpp_source.html">common.hpp</a> </dd>
+<dd>
+<a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00064">64</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph.png" border="0" usemap="#class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph" alt=""/></div>
+<map name="class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph" id="class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph">
+<area shape="rect" id="node2" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Pure virtual method definition for returning the remaining number of lives of the entity..." alt="" coords="149,5,261,31"/>
+<area shape="rect" id="node3" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf" title="Pure virtual method definition for performing a move. " alt="" coords="157,55,252,80"/>
+<area shape="rect" id="node4" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Pure virtual method definition for performing an update on the entity object. " alt="" coords="153,104,256,129"/>
+<area shape="rect" id="node5" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Pure virtual method definition for resetting the entity to a default state. " alt="" coords="159,153,251,179"/>
+<area shape="rect" id="node6" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Pure virtual method definition for decrementing an entity&#39;s lives count. " alt="" coords="165,203,245,228"/>
+</map>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2a3cf13d22d4f8a6ac5b6ffaff41205e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a3cf13d22d4f8a6ac5b6ffaff41205e">&#9670;&nbsp;</a></span>die()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Entity::die </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d">PlayerShip</a>, <a class="el" href="class_enemy.html#afad764b00a84735def86b410b4695a98">Enemy</a>, <a class="el" href="class_bullet.html#af41843fcf97ad6cf0634b0c3e97213c8">Bullet</a>, <a class="el" href="class_meteoroid.html#a84eac69f87842f7b5cc2930556c07158">Meteoroid</a>, and <a class="el" href="class_explosion.html#a7f9691fcb02fb57725968b95f4c43590">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_a2a3cf13d22d4f8a6ac5b6ffaff41205e_icgraph.png" border="0" usemap="#class_entity_a2a3cf13d22d4f8a6ac5b6ffaff41205e_icgraph" alt=""/></div>
-<map name="class_entity_a2a3cf13d22d4f8a6ac5b6ffaff41205e_icgraph" id="class_entity_a2a3cf13d22d4f8a6ac5b6ffaff41205e_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="133,5,246,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a18ae35ec14f8c0ebbcaf234c26f5429e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18ae35ec14f8c0ebbcaf234c26f5429e">&#9670;&nbsp;</a></span>getDistanceFromCentre()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const float Entity::getDistanceFromCentre </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119">PlayerShip</a>, <a class="el" href="class_enemy.html#a78d732564cb0fadae19a6859b62dbee7">Enemy</a>, <a class="el" href="class_bullet.html#aad55ac0ba783454e986b8f2abca619ca">Bullet</a>, <a class="el" href="class_meteoroid.html#a440c2468321dec00a1b15e4f7a8bcc88">Meteoroid</a>, and <a class="el" href="class_explosion.html#af28f905926b5158cca7c3261f923b1cd">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_a18ae35ec14f8c0ebbcaf234c26f5429e_icgraph.png" border="0" usemap="#class_entity_a18ae35ec14f8c0ebbcaf234c26f5429e_icgraph" alt=""/></div>
-<map name="class_entity_a18ae35ec14f8c0ebbcaf234c26f5429e_icgraph" id="class_entity_a18ae35ec14f8c0ebbcaf234c26f5429e_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="257,5,369,31"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a55cb2ea6bcc7cdbe4c388aa01cbc48fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">&#9670;&nbsp;</a></span>getLives()</h2>
 
@@ -340,519 +355,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449">PlayerShip</a>, <a class="el" href="class_enemy.html#aee05f31ee146a254866f8f4d30ea88e9">Enemy</a>, <a class="el" href="class_bullet.html#aa519ff26a25e40a70c596d4bab00026d">Bullet</a>, <a class="el" href="class_meteoroid.html#a07866040ddea66bf42f4d13394c85c93">Meteoroid</a>, and <a class="el" href="class_explosion.html#afd09e9490eb9b5fe7421f43f8a265660">Explosion</a>.</p>
+<p>Pure virtual method definition for returning the remaining number of lives of the entity. </p>
+<dl class="section return"><dt>Returns</dt><dd>An integer value of the number of remaining lives </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513" title="The number of lives remaining of an entity. ">_lives</a> </dd></dl>
+
+<p>Implemented in <a class="el" href="class_enemy.html#aee05f31ee146a254866f8f4d30ea88e9">Enemy</a>, <a class="el" href="class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449">PlayerShip</a>, <a class="el" href="class_bullet.html#aa519ff26a25e40a70c596d4bab00026d">Bullet</a>, <a class="el" href="class_meteoroid.html#a07866040ddea66bf42f4d13394c85c93">Meteoroid</a>, and <a class="el" href="class_explosion.html#afd09e9490eb9b5fe7421f43f8a265660">Explosion</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_a55cb2ea6bcc7cdbe4c388aa01cbc48fc_icgraph.png" border="0" usemap="#class_entity_a55cb2ea6bcc7cdbe4c388aa01cbc48fc_icgraph" alt=""/></div>
 <map name="class_entity_a55cb2ea6bcc7cdbe4c388aa01cbc48fc_icgraph" id="class_entity_a55cb2ea6bcc7cdbe4c388aa01cbc48fc_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="165,5,278,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9edc43f1bf4d31ed1d51aa2dfbf6fb23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9edc43f1bf4d31ed1d51aa2dfbf6fb23">&#9670;&nbsp;</a></span>getPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const sf::Vector2f Entity::getPosition </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_player_ship.html#a23299d56b63aab5f65df7d6eb6e4ff8a">PlayerShip</a>, <a class="el" href="class_enemy.html#a613dad8f83bfc780f41b82c9ceef312c">Enemy</a>, <a class="el" href="class_bullet.html#a377473efa6a88dd5e869cfb31b2f7ff1">Bullet</a>, <a class="el" href="class_meteoroid.html#ad3b9a6db3265b56565fe369a875bea4e">Meteoroid</a>, and <a class="el" href="class_explosion.html#a40fc081e5d491d352ab74bbe7e6db567">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_a9edc43f1bf4d31ed1d51aa2dfbf6fb23_icgraph.png" border="0" usemap="#class_entity_a9edc43f1bf4d31ed1d51aa2dfbf6fb23_icgraph" alt=""/></div>
-<map name="class_entity_a9edc43f1bf4d31ed1d51aa2dfbf6fb23_icgraph" id="class_entity_a9edc43f1bf4d31ed1d51aa2dfbf6fb23_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="181,5,294,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="adb509e7ecf0f3e998a67657bdf2076e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb509e7ecf0f3e998a67657bdf2076e6">&#9670;&nbsp;</a></span>getRadius()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const float Entity::getRadius </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_player_ship.html#af4b4060652f725125bc2704826ab9abe">PlayerShip</a>, <a class="el" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6">Enemy</a>, <a class="el" href="class_bullet.html#af2095626beecfcd32ab0bf279afca233">Bullet</a>, <a class="el" href="class_meteoroid.html#a9bd731b64f214e715cc3b2f66d79f072">Meteoroid</a>, and <a class="el" href="class_explosion.html#a7e257ebae584c732ed61d83b3ff2d9da">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_adb509e7ecf0f3e998a67657bdf2076e6_icgraph.png" border="0" usemap="#class_entity_adb509e7ecf0f3e998a67657bdf2076e6_icgraph" alt=""/></div>
-<map name="class_entity_adb509e7ecf0f3e998a67657bdf2076e6_icgraph" id="class_entity_adb509e7ecf0f3e998a67657bdf2076e6_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="175,5,288,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa216cd54efce968f742e06f816a8f3b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa216cd54efce968f742e06f816a8f3b0">&#9670;&nbsp;</a></span>getScale()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const sf::Vector2f Entity::getScale </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_player_ship.html#af002b45b1a5f935998f674beb011d999">PlayerShip</a>, <a class="el" href="class_enemy.html#ae038da69abb6dbaabc5e59bdcba451b6">Enemy</a>, <a class="el" href="class_bullet.html#a90a33de0f9865266fb9f862551d0da34">Bullet</a>, <a class="el" href="class_meteoroid.html#a599dc31b1d3dad0074d4a77576b713e4">Meteoroid</a>, and <a class="el" href="class_explosion.html#a6d707e9ced8a5f74e65194483fb3d269">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_aa216cd54efce968f742e06f816a8f3b0_icgraph.png" border="0" usemap="#class_entity_aa216cd54efce968f742e06f816a8f3b0_icgraph" alt=""/></div>
-<map name="class_entity_aa216cd54efce968f742e06f816a8f3b0_icgraph" id="class_entity_aa216cd54efce968f742e06f816a8f3b0_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="167,5,280,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aea546eec846ec6a7c5668db7b79cd2ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea546eec846ec6a7c5668db7b79cd2ac">&#9670;&nbsp;</a></span>getSprite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const sf::Sprite&amp; Entity::getSprite </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39">PlayerShip</a>, <a class="el" href="class_enemy.html#a242906a94254ac9c71c1ba9c92353765">Enemy</a>, <a class="el" href="class_bullet.html#a3a697562e18f84caceed614faf5b6b45">Bullet</a>, <a class="el" href="class_meteoroid.html#a70b99257b2e5995d7bbb05a2234cc45d">Meteoroid</a>, and <a class="el" href="class_explosion.html#afc95fbd2e04d287970cc2a706d419490">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_aea546eec846ec6a7c5668db7b79cd2ac_icgraph.png" border="0" usemap="#class_entity_aea546eec846ec6a7c5668db7b79cd2ac_icgraph" alt=""/></div>
-<map name="class_entity_aea546eec846ec6a7c5668db7b79cd2ac_icgraph" id="class_entity_aea546eec846ec6a7c5668db7b79cd2ac_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="169,5,281,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a624e85b5e363a70b0a7b2e04912c6cdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a624e85b5e363a70b0a7b2e04912c6cdf">&#9670;&nbsp;</a></span>move()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Entity::move </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_enemy.html#a90a135c93792574d2675a670ac25b081">Enemy</a>, <a class="el" href="class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba">PlayerShip</a>, <a class="el" href="class_bullet.html#a88af6034543e11dd8e4b5539b7634838">Bullet</a>, <a class="el" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97">Meteoroid</a>, and <a class="el" href="class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_a624e85b5e363a70b0a7b2e04912c6cdf_icgraph.png" border="0" usemap="#class_entity_a624e85b5e363a70b0a7b2e04912c6cdf_icgraph" alt=""/></div>
-<map name="class_entity_a624e85b5e363a70b0a7b2e04912c6cdf_icgraph" id="class_entity_a624e85b5e363a70b0a7b2e04912c6cdf_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="148,5,261,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a089f2a22bbd6f91cb433e0893b5a3a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a089f2a22bbd6f91cb433e0893b5a3a8d">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Entity::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_enemy.html#ad162072e34f5a2ba9efce7ebe9295d80">Enemy</a>, <a class="el" href="class_player_ship.html#ad81d932e4d1a3495af55da0593411e23">PlayerShip</a>, <a class="el" href="class_bullet.html#a8679c9f2d7f684b2d986a8202d59e57e">Bullet</a>, <a class="el" href="class_meteoroid.html#aa3dc7fa6b2b485a2e6038de5016ddbd8">Meteoroid</a>, and <a class="el" href="class_explosion.html#a658e43a61e4eda49565386a388da1db8">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_a089f2a22bbd6f91cb433e0893b5a3a8d_icgraph.png" border="0" usemap="#class_entity_a089f2a22bbd6f91cb433e0893b5a3a8d_icgraph" alt=""/></div>
-<map name="class_entity_a089f2a22bbd6f91cb433e0893b5a3a8d_icgraph" id="class_entity_a089f2a22bbd6f91cb433e0893b5a3a8d_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="145,5,258,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a86ed0d4d7c3c33bce9ba8c66e2503fa7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86ed0d4d7c3c33bce9ba8c66e2503fa7">&#9670;&nbsp;</a></span>setMove() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Entity::setMove </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d">PlayerShip</a>, <a class="el" href="class_bullet.html#a6b88a2b4189268dfebc0b354940c7f65">Bullet</a>, and <a class="el" href="class_meteoroid.html#ab5a456d497bf434b2549e0fc617eee0e">Meteoroid</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00039">39</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad901449ea32a9cace98ab926ca249bfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad901449ea32a9cace98ab926ca249bfb">&#9670;&nbsp;</a></span>setMove() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Entity::setMove </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c">Enemy</a>, and <a class="el" href="class_explosion.html#ab10194d3a8a5b19064a36cc0fd197361">Explosion</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00040">40</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_ad901449ea32a9cace98ab926ca249bfb_cgraph.png" border="0" usemap="#class_entity_ad901449ea32a9cace98ab926ca249bfb_cgraph" alt=""/></div>
-<map name="class_entity_ad901449ea32a9cace98ab926ca249bfb_cgraph" id="class_entity_ad901449ea32a9cace98ab926ca249bfb_cgraph">
-<area shape="rect" id="node2" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Entity::reset" alt="" coords="222,5,313,31"/>
-<area shape="rect" id="node3" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Entity::update" alt="" coords="216,55,319,80"/>
-<area shape="rect" id="node4" href="class_entity.html#adb509e7ecf0f3e998a67657bdf2076e6" title="Entity::getRadius" alt="" coords="207,104,329,129"/>
-<area shape="rect" id="node5" href="class_entity.html#a18ae35ec14f8c0ebbcaf234c26f5429e" title="Entity::getDistanceFromCentre" alt="" coords="166,153,369,179"/>
-<area shape="rect" id="node6" href="class_entity.html#aa216cd54efce968f742e06f816a8f3b0" title="Entity::getScale" alt="" coords="211,203,325,228"/>
-<area shape="rect" id="node7" href="class_entity.html#a9edc43f1bf4d31ed1d51aa2dfbf6fb23" title="Entity::getPosition" alt="" coords="204,252,332,277"/>
-<area shape="rect" id="node8" href="class_entity.html#aea546eec846ec6a7c5668db7b79cd2ac" title="Entity::getSprite" alt="" coords="210,301,325,327"/>
-<area shape="rect" id="node9" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Entity::getLives" alt="" coords="212,351,324,376"/>
-<area shape="rect" id="node10" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Entity::die" alt="" coords="228,400,308,425"/>
-<area shape="rect" id="node11" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf" title="Entity::move" alt="" coords="220,449,315,475"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a59a29d9b7474baf13c9c76859242287d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59a29d9b7474baf13c9c76859242287d">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Entity::update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_enemy.html#aa70d742da02995011f1618acc9e303db">Enemy</a>, <a class="el" href="class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca">PlayerShip</a>, <a class="el" href="class_bullet.html#a738b3fde0d24a67ea0a922cbf9693803">Bullet</a>, <a class="el" href="class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92">Meteoroid</a>, and <a class="el" href="class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9">Explosion</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_a59a29d9b7474baf13c9c76859242287d_icgraph.png" border="0" usemap="#class_entity_a59a29d9b7474baf13c9c76859242287d_icgraph" alt=""/></div>
-<map name="class_entity_a59a29d9b7474baf13c9c76859242287d_icgraph" id="class_entity_a59a29d9b7474baf13c9c76859242287d_icgraph">
-<area shape="rect" id="node2" href="class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="156,5,269,31"/>
+<area shape="rect" id="node2" href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4" title="The Entity class constructor Calls the Moveable and Animatable constructors, and sets the resolution..." alt="" coords="165,5,261,31"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aaa8af32a9a6161e9ab8c43c5b0a15bae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa8af32a9a6161e9ab8c43c5b0a15bae">&#9670;&nbsp;</a></span>_angle</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Entity::_angle</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00058">58</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a591f65d2a7f61f11a35b5ba99a0f554b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a591f65d2a7f61f11a35b5ba99a0f554b">&#9670;&nbsp;</a></span>_animationFPSLimit</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Entity::_animationFPSLimit</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00064">64</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af114a6582c9a3811b4681d14b516b1f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af114a6582c9a3811b4681d14b516b1f2">&#9670;&nbsp;</a></span>_distanceFromCentre</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Entity::_distanceFromCentre</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00055">55</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1ea7d0f9af807e9b17256eb27933b0a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ea7d0f9af807e9b17256eb27933b0a8">&#9670;&nbsp;</a></span>_futureAngleValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Entity::_futureAngleValue</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00056">56</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a73e82cf77b309ddd4050173fbfa1c31b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73e82cf77b309ddd4050173fbfa1c31b">&#9670;&nbsp;</a></span>_futureMoveValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Entity::_futureMoveValue</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00057">57</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abcbd384d49f43cd9947ba422393f69fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcbd384d49f43cd9947ba422393f69fb">&#9670;&nbsp;</a></span>_id</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683">textures::ID</a> Entity::_id</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00062">62</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a84bc91bd82c6173b6dda752aa7f86348"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84bc91bd82c6173b6dda752aa7f86348">&#9670;&nbsp;</a></span>_isMoving</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Entity::_isMoving</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00060">60</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
 <a id="aa3b3d3f11c9034e91112f724203f4513"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3b3d3f11c9034e91112f724203f4513">&#9670;&nbsp;</a></span>_lives</h2>
 
@@ -873,103 +392,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00061">61</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>The number of lives remaining of an entity. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Pure virtual method definition for returning the remaining number of lives of the entity...">getLives()</a> </dd></dl>
 
-</div>
-</div>
-<a id="a4d841959ff82d04fa8bca5897c5ecb20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d841959ff82d04fa8bca5897c5ecb20">&#9670;&nbsp;</a></span>_resolution</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const sf::Vector2i Entity::_resolution</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00053">53</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a043affe166433081b18fcb2deea4a613"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a043affe166433081b18fcb2deea4a613">&#9670;&nbsp;</a></span>_scale</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Entity::_scale</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00059">59</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a040bd9d02a9c5d0c7f07348bc15cc0a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a040bd9d02a9c5d0c7f07348bc15cc0a3">&#9670;&nbsp;</a></span>_sprite</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sf::Sprite Entity::_sprite</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00054">54</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1b22b079d0112030ff32c91f83588964"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b22b079d0112030ff32c91f83588964">&#9670;&nbsp;</a></span>_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> Entity::_type</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00063">63</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00114">114</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>

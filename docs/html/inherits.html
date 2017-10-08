@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -94,84 +94,91 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <area shape="rect" id="node1" href="structcommon_1_1position.html" title="Simple struct of 3 floats, a co&#45;ordinate system (x,y,z) " alt="" coords="5,5,131,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#_entity"/>
-<map name="_entity" id="_entity">
-<area shape="rect" id="node1" href="class_entity.html" title="Entity" alt="" coords="5,104,60,129"/>
-<area shape="rect" id="node2" href="class_bullet.html" title="Projectiles/bullets for PlayerShip and EnemyShip. " alt="" coords="124,5,178,31"/>
-<area shape="rect" id="node3" href="class_enemy.html" title="Enemy" alt="" coords="120,55,182,80"/>
-<area shape="rect" id="node4" href="class_explosion.html" title="Explosion entity for destroyed screen objects. " alt="" coords="111,104,190,129"/>
-<area shape="rect" id="node5" href="class_meteoroid.html" title="Meteroid Entity (cannot be destroyed by bullets) " alt="" coords="111,153,191,179"/>
-<area shape="rect" id="node6" href="class_player_ship.html" title="Player ship. " alt="" coords="108,203,194,228"/>
-</map>
-</td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_entity_controller"/>
+<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#_entity_controller"/>
 <map name="_entity_controller" id="_entity_controller">
-<area shape="rect" id="node1" href="class_entity_controller.html" title="EntityController" alt="" coords="5,5,118,31"/>
+<area shape="rect" id="node1" href="class_entity_controller.html" title="EntityController Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. " alt="" coords="5,5,118,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_f_p_s"/>
+<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_f_p_s"/>
 <map name="_f_p_s" id="_f_p_s">
 <area shape="rect" id="node1" href="class_f_p_s.html" title="Check the FPS. " alt="" coords="5,5,53,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_game"/>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_game"/>
 <map name="_game" id="_game">
-<area shape="rect" id="node1" href="class_game.html" title="Main Game controller. " alt="" coords="5,5,63,31"/>
+<area shape="rect" id="node1" href="class_game.html" title="The main Game class. " alt="" coords="5,5,63,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_h_u_d"/>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_h_u_d"/>
 <map name="_h_u_d" id="_h_u_d">
 <area shape="rect" id="node1" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. " alt="" coords="5,5,56,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_input_handler"/>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_input_handler"/>
 <map name="_input_handler" id="_input_handler">
-<area shape="rect" id="node1" href="class_input_handler.html" title="InputHandler" alt="" coords="5,5,103,31"/>
+<area shape="rect" id="node1" href="class_input_handler.html" title="The InputHandler class. " alt="" coords="5,5,103,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_resource_holder_3_01_resource_type_00_01_identifier_type_01_4"/>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_moveable"/>
+<map name="_moveable" id="_moveable">
+<area shape="rect" id="node1" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="5,79,93,104"/>
+<area shape="rect" id="node2" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="141,104,196,129"/>
+<area shape="rect" id="node3" href="class_bullet.html" title="Projectile class, for either Player or Enemy bullets. " alt="" coords="260,5,314,31"/>
+<area shape="rect" id="node4" href="class_enemy.html" title="Abstract Base Class for enemy game objects. " alt="" coords="256,55,318,80"/>
+<area shape="rect" id="node5" href="class_explosion.html" title="Explosion class, for objects that collide. " alt="" coords="247,104,327,129"/>
+<area shape="rect" id="node6" href="class_meteoroid.html" title="Meteoroid class. " alt="" coords="247,153,327,179"/>
+<area shape="rect" id="node7" href="class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="244,203,330,228"/>
+<area shape="rect" id="node8" href="class_moveable.html" title="Moveable Class. " alt="" coords="10,128,89,153"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_perlin_noise"/>
+<map name="_perlin_noise" id="_perlin_noise">
+<area shape="rect" id="node1" href="class_perlin_noise.html" title="Perlin Noise Class. " alt="" coords="5,5,95,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_resource_holder_3_01_resource_type_00_01_identifier_type_01_4"/>
 <map name="_resource_holder_3_01_resource_type_00_01_identifier_type_01_4" id="_resource_holder_3_01_resource_type_00_01_identifier_type_01_4">
-<area shape="rect" id="node1" href="class_resource_holder.html" title="Loads and returns pointers to requested resources from file. " alt="" coords="5,5,192,44"/>
+<area shape="rect" id="node1" href="class_resource_holder.html" title="The ResourceType class. " alt="" coords="5,5,192,44"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_resource_holder_3_01sf_1_1_font_00_01fonts_1_1_i_d_01_4"/>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_resource_holder_3_01sf_1_1_font_00_01fonts_1_1_i_d_01_4"/>
 <map name="_resource_holder_3_01sf_1_1_font_00_01fonts_1_1_i_d_01_4" id="_resource_holder_3_01sf_1_1_font_00_01fonts_1_1_i_d_01_4">
 <area shape="rect" id="node1" href="class_resource_holder.html" title="ResourceHolder\&lt; sf\l::Font, fonts::ID \&gt;" alt="" coords="5,5,145,44"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_resource_holder_3_01sf_1_1_sound_buffer_00_01sounds_1_1_i_d_01_4"/>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_resource_holder_3_01sf_1_1_sound_buffer_00_01sounds_1_1_i_d_01_4"/>
 <map name="_resource_holder_3_01sf_1_1_sound_buffer_00_01sounds_1_1_i_d_01_4" id="_resource_holder_3_01sf_1_1_sound_buffer_00_01sounds_1_1_i_d_01_4">
 <area shape="rect" id="node1" href="class_resource_holder.html" title="ResourceHolder\&lt; sf\l::SoundBuffer, sounds::ID \&gt;" alt="" coords="5,5,190,44"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_resource_holder_3_01sf_1_1_texture_00_01textures_1_1_i_d_01_4"/>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_resource_holder_3_01sf_1_1_texture_00_01textures_1_1_i_d_01_4"/>
 <map name="_resource_holder_3_01sf_1_1_texture_00_01textures_1_1_i_d_01_4" id="_resource_holder_3_01sf_1_1_texture_00_01textures_1_1_i_d_01_4">
 <area shape="rect" id="node1" href="class_resource_holder.html" title="ResourceHolder\&lt; sf\l::Texture, textures::ID \&gt;" alt="" coords="5,5,165,44"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_score"/>
+<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_score"/>
 <map name="_score" id="_score">
 <area shape="rect" id="node1" href="class_score.html" title="Object and methods to keep score of player actions. " alt="" coords="5,5,61,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_screen"/>
+<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_screen"/>
 <map name="_screen" id="_screen">
 <area shape="rect" id="node1" href="class_screen.html" title="Base class interface for a &quot;Screen&quot;. " alt="" coords="5,31,69,56"/>
 <area shape="rect" id="node2" href="class_screen_game_over.html" title="Description of file in project Project. " alt="" coords="117,5,246,31"/>
 <area shape="rect" id="node3" href="class_screen_splash.html" title="Simple Splash Screen. " alt="" coords="129,55,233,80"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_shield"/>
+<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#_shield"/>
 <map name="_shield" id="_shield">
-<area shape="rect" id="node1" href="class_shield.html" title="Description of file in project Project. " alt="" coords="5,5,64,31"/>
+<area shape="rect" id="node1" href="class_shield.html" title="Shield class. Used to represent a state of brief invulnerability upon re&#45;spawning for the playerShip..." alt="" coords="5,5,64,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#_sound_controller"/>
+<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#_sound_controller"/>
 <map name="_sound_controller" id="_sound_controller">
 <area shape="rect" id="node1" href="class_sound_controller.html" title="Controller for all sound events. " alt="" coords="5,5,123,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#_star_field"/>
+<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#_star_field"/>
 <map name="_star_field" id="_star_field">
 <area shape="rect" id="node1" href="class_star_field.html" title="Background Starfield effect. " alt="" coords="5,5,80,31"/>
 </map>

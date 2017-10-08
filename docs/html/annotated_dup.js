@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "common", "namespacecommon.html", "namespacecommon" ],
+    [ "Animatable", "class_animatable.html", "class_animatable" ],
     [ "Bullet", "class_bullet.html", "class_bullet" ],
     [ "Enemy", "class_enemy.html", "class_enemy" ],
     [ "Entity", "class_entity.html", "class_entity" ],
@@ -11,6 +12,8 @@ var annotated_dup =
     [ "HUD", "class_h_u_d.html", "class_h_u_d" ],
     [ "InputHandler", "class_input_handler.html", "class_input_handler" ],
     [ "Meteoroid", "class_meteoroid.html", "class_meteoroid" ],
+    [ "Moveable", "class_moveable.html", "class_moveable" ],
+    [ "PerlinNoise", "class_perlin_noise.html", "class_perlin_noise" ],
     [ "PlayerShip", "class_player_ship.html", "class_player_ship" ],
     [ "ResourceHolder", "class_resource_holder.html", "class_resource_holder" ],
     [ "Score", "class_score.html", "class_score" ],

@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -113,15 +113,18 @@ Collaboration diagram for ScreenSplash:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad365b0f8013b9535347daa47adb576f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution)</td></tr>
-<tr class="memdesc:ad365b0f8013b9535347daa47adb576f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows the Splash screen.  <a href="#ad365b0f8013b9535347daa47adb576f0">More...</a><br /></td></tr>
+<tr class="memitem:ad365b0f8013b9535347daa47adb576f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution)</td></tr>
+<tr class="memdesc:ad365b0f8013b9535347daa47adb576f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows the Splash screen. This occures at game launch.  <a href="#ad365b0f8013b9535347daa47adb576f0">More...</a><br /></td></tr>
 <tr class="separator:ad365b0f8013b9535347daa47adb576f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6a75af943a07905ad1cbdb1829aab52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen_splash.html#ac6a75af943a07905ad1cbdb1829aab52">animatePlanet</a> (sf::Sprite &amp;sprite, sf::IntRect &amp;rectArea, int columns, int rows, int frameTotal, int &amp;i)</td></tr>
+<tr class="memdesc:ac6a75af943a07905ad1cbdb1829aab52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to animate the spinning planet on the SplashScreen.  <a href="#ac6a75af943a07905ad1cbdb1829aab52">More...</a><br /></td></tr>
 <tr class="separator:ac6a75af943a07905ad1cbdb1829aab52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae869e65e3457e1eccfd51537651be4d6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen_splash.html#ae869e65e3457e1eccfd51537651be4d6">getHighScore</a> ()</td></tr>
+<tr class="memdesc:ae869e65e3457e1eccfd51537651be4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to fetch the highscore.  <a href="#ae869e65e3457e1eccfd51537651be4d6">More...</a><br /></td></tr>
 <tr class="separator:ae869e65e3457e1eccfd51537651be4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_screen"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_screen')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_screen.html">Screen</a></td></tr>
-<tr class="memitem:a2789ef03e5b9aaee55ae841c75a1a679 inherit pub_methods_class_screen"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution, const <a class="el" href="class_score.html">Score</a> &amp;score, const sf::Clock &amp;timeAlive)</td></tr>
+<tr class="memitem:a2789ef03e5b9aaee55ae841c75a1a679 inherit pub_methods_class_screen"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution, const <a class="el" href="class_score.html">Score</a> &amp;score, const sf::Clock &amp;timeAlive)</td></tr>
+<tr class="memdesc:a2789ef03e5b9aaee55ae841c75a1a679 inherit pub_methods_class_screen"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen.  <a href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679">More...</a><br /></td></tr>
 <tr class="separator:a2789ef03e5b9aaee55ae841c75a1a679 inherit pub_methods_class_screen"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -134,9 +137,11 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple Splash <a class="el" href="class_screen.html" title="Base class interface for a &quot;Screen&quot;. ">Screen</a>. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/10 Class interface for showing a splash screen with information on how to play the game</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University A Splashscreen, with information on how to play the game, titles, controls and version information </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University A Splashscreen, with information on how to play the game, titles, controls and version information</dd></dl>
+<p>Inheritance relationship from screen</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_screen_8hpp_source.html">Screen.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_screen_splash_8hpp_source.html#l00027">27</a> of file <a class="el" href="_screen_splash_8hpp_source.html">ScreenSplash.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_screen_splash_8hpp_source.html#l00030">30</a> of file <a class="el" href="_screen_splash_8hpp_source.html">ScreenSplash.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac6a75af943a07905ad1cbdb1829aab52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6a75af943a07905ad1cbdb1829aab52">&#9670;&nbsp;</a></span>animatePlanet()</h2>
@@ -188,16 +193,29 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Function used to animate the spinning planet on the SplashScreen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite</td><td>The underlying planet is a sprite to enable the animation by moving along the images that constitute the animation. </td></tr>
+    <tr><td class="paramname">rectArea</td><td>defines the size of the planet to be drawn </td></tr>
+    <tr><td class="paramname">columns</td><td>defines the number columns in the underlying graphic for animation </td></tr>
+    <tr><td class="paramname">rows</td><td>defines the number rows in the underlying graphic for animation </td></tr>
+    <tr><td class="paramname">frameTotal</td><td>defines how many frames are in the underlying graphic </td></tr>
+    <tr><td class="paramname">i</td><td>is an incrementer to define what frame the draw process is currently on</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>sf::Sprite </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="_screen_splash_8cpp_source.html#l00194">194</a> of file <a class="el" href="_screen_splash_8cpp_source.html">ScreenSplash.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_screen_splash_ac6a75af943a07905ad1cbdb1829aab52_icgraph.png" border="0" usemap="#class_screen_splash_ac6a75af943a07905ad1cbdb1829aab52_icgraph" alt=""/></div>
 <map name="class_screen_splash_ac6a75af943a07905ad1cbdb1829aab52_icgraph" id="class_screen_splash_ac6a75af943a07905ad1cbdb1829aab52_icgraph">
-<area shape="rect" id="node2" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="250,5,391,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="439,5,528,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="576,5,670,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="718,5,768,31"/>
+<area shape="rect" id="node2" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="250,5,391,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="439,5,528,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="576,5,670,31"/>
 </map>
 </div>
 
@@ -221,13 +239,13 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>textureHolder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>fontHolder</em>, </td>
         </tr>
         <tr>
@@ -249,18 +267,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Shows the Splash screen. </p>
+<p>Shows the Splash screen. This occures at game launch. </p>
 <p>Simple Splash <a class="el" href="class_screen.html" title="Base class interface for a &quot;Screen&quot;. ">Screen</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">window</td><td>The sf:Window object to draw and render to </td></tr>
-    <tr><td class="paramname">resourceMapper</td><td>The resourceMapper containing assets for the splashscreen</td></tr>
+    <tr><td class="paramname">textureHolder</td><td>stores the images needed for the splash screen, such as the background and keyboard bindings image </td></tr>
+    <tr><td class="paramname">fontHolder</td><td>is used to store the fonts needed for the splash screen </td></tr>
+    <tr><td class="paramname">resolution</td><td>is needed to determine where to place SplashScreen objects</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>sf::Window </dd>
+<dl class="section return"><dt>Returns</dt><dd>an int is returned to inform the game object what occurred on the splashScreen: 1 game closed, 0 game continue</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a> </dd>
 <dd>
-ResourceMapper</dd></dl>
+sf::RenderWindow</dd></dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/10 Class implementation for showing a splash screen with information on how to play the game</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -273,9 +294,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="class_screen_splash_ad365b0f8013b9535347daa47adb576f0_cgraph.png" border="0" usemap="#class_screen_splash_ad365b0f8013b9535347daa47adb576f0_cgraph" alt=""/></div>
 <map name="class_screen_splash_ad365b0f8013b9535347daa47adb576f0_cgraph" id="class_screen_splash_ad365b0f8013b9535347daa47adb576f0_cgraph">
 <area shape="rect" id="node2" href="class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="223,5,366,31"/>
-<area shape="rect" id="node3" href="class_screen_splash.html#ae869e65e3457e1eccfd51537651be4d6" title="ScreenSplash::getHighScore" alt="" coords="198,55,391,80"/>
+<area shape="rect" id="node3" href="class_screen_splash.html#ae869e65e3457e1eccfd51537651be4d6" title="Function used to fetch the highscore. " alt="" coords="198,55,391,80"/>
 <area shape="rect" id="node4" href="class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="205,104,383,129"/>
-<area shape="rect" id="node7" href="class_screen_splash.html#ac6a75af943a07905ad1cbdb1829aab52" title="ScreenSplash::animatePlanet" alt="" coords="196,153,393,179"/>
+<area shape="rect" id="node7" href="class_screen_splash.html#ac6a75af943a07905ad1cbdb1829aab52" title="Function used to animate the spinning planet on the SplashScreen. " alt="" coords="196,153,393,179"/>
 <area shape="rect" id="node8" href="class_star_field.html#acc5e764762506119799c3e37b912564a" title="Returns a reference to the StarField object (for iterating through the elements) " alt="" coords="217,203,371,228"/>
 <area shape="rect" id="node9" href="class_star_field.html#a12b98fd26428d39c62cad82492f2b853" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="194,252,395,277"/>
 <area shape="rect" id="node5" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="443,80,600,105"/>
@@ -287,9 +308,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_screen_splash_ad365b0f8013b9535347daa47adb576f0_icgraph.png" border="0" usemap="#class_screen_splash_ad365b0f8013b9535347daa47adb576f0_icgraph" alt=""/></div>
 <map name="class_screen_splash_ad365b0f8013b9535347daa47adb576f0_icgraph" id="class_screen_splash_ad365b0f8013b9535347daa47adb576f0_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="194,5,283,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="331,5,425,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="473,5,523,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="194,5,283,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="331,5,425,31"/>
 </map>
 </div>
 
@@ -310,16 +330,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Function used to fetch the highscore. </p>
+<p>The highscore is fetched from disk when the game runs to show the player the previous highscores </p>
+
 <p class="definition">Definition at line <a class="el" href="_screen_splash_8cpp_source.html#l00173">173</a> of file <a class="el" href="_screen_splash_8cpp_source.html">ScreenSplash.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_screen_splash_ae869e65e3457e1eccfd51537651be4d6_icgraph.png" border="0" usemap="#class_screen_splash_ae869e65e3457e1eccfd51537651be4d6_icgraph" alt=""/></div>
 <map name="class_screen_splash_ae869e65e3457e1eccfd51537651be4d6_icgraph" id="class_screen_splash_ae869e65e3457e1eccfd51537651be4d6_icgraph">
-<area shape="rect" id="node2" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="246,5,387,31"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="435,5,524,31"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="572,5,665,31"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="713,5,763,31"/>
+<area shape="rect" id="node2" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="246,5,387,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="435,5,524,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="572,5,665,31"/>
 </map>
 </div>
 

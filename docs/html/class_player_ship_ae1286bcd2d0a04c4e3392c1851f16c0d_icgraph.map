@@ -1,9 +1,8 @@
 <map id="PlayerShip::setMove" name="PlayerShip::setMove">
-<area shape="rect" id="node2" href="$class_input_handler.html#a4755fd435c868b7f4d281144e913ff9c" title="InputHandler::update" alt="" coords="197,5,343,31"/>
-<area shape="rect" id="node6" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="PlayerShip::reset" alt="" coords="208,55,331,80"/>
-<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="597,55,686,80"/>
-<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="734,55,827,80"/>
-<area shape="rect" id="node5" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="875,55,925,80"/>
-<area shape="rect" id="node7" href="$class_player_ship.html#a54d05ec62b29d5a29a3c5a110f51d84c" title="Returns the Sprite object of the Class. " alt="" coords="391,55,549,80"/>
-<area shape="rect" id="node8" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="PlayerShip::die" alt="" coords="414,104,525,129"/>
+<area shape="rect" id="node2" href="$class_input_handler.html#a4755fd435c868b7f4d281144e913ff9c" title="Sets up any player movement on the playerShip setMove() command, depending on the input during the po..." alt="" coords="197,5,343,31"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="Resets the player ship (intended to be called after a player death event) " alt="" coords="208,55,331,80"/>
+<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="597,55,686,80"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="734,55,827,80"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a30a6a93443ac49ab5c6b021b04e3a10f" title="Creates a playerShip object. " alt="" coords="391,55,549,80"/>
+<area shape="rect" id="node7" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="Decrements the player lives. " alt="" coords="414,104,525,129"/>
 </map>

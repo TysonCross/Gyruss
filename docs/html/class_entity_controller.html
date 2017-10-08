@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -90,45 +90,81 @@ $(document).ready(function(){initNavTree('class_entity_controller.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_entity_controller.html" title="EntityController Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. ">EntityController</a> Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids.  
+ <a href="class_entity_controller.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_entity_controller_8hpp_source.html">EntityController.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac63b711dd1650f945ddf72d05917d4a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#ac63b711dd1650f945ddf72d05917d4a3">EntityController</a> (sf::Vector2i resolution, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textures, <a class="el" href="class_score.html">Score</a> &amp;score, float speedModifier)</td></tr>
-<tr class="memdesc:ac63b711dd1650f945ddf72d05917d4a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controller and manager for game entity objects.  <a href="#ac63b711dd1650f945ddf72d05917d4a3">More...</a><br /></td></tr>
+<tr class="memitem:ac63b711dd1650f945ddf72d05917d4a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#ac63b711dd1650f945ddf72d05917d4a3">EntityController</a> (sf::Vector2i resolution, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textures, <a class="el" href="class_score.html">Score</a> &amp;score, float speedModifier)</td></tr>
+<tr class="memdesc:ac63b711dd1650f945ddf72d05917d4a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_entity_controller.html" title="EntityController Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. ">EntityController</a> class. Called directly from game object to handel the creation, destruction and drawing of all game objects.  <a href="#ac63b711dd1650f945ddf72d05917d4a3">More...</a><br /></td></tr>
 <tr class="separator:ac63b711dd1650f945ddf72d05917d4a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8655d696f326d08ad9a9db8702716c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3">spawnSpiral</a> (entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState)</td></tr>
+<tr class="memdesc:ae8655d696f326d08ad9a9db8702716c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called from spawnEntities.  <a href="#ae8655d696f326d08ad9a9db8702716c3">More...</a><br /></td></tr>
+<tr class="separator:ae8655d696f326d08ad9a9db8702716c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07015aef5ce07f74db32abb25f10ddd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2">spawnMeteoroid</a> ()</td></tr>
+<tr class="memdesc:a07015aef5ce07f74db32abb25f10ddd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns a meteoroid function is called from spawnEntities.  <a href="#a07015aef5ce07f74db32abb25f10ddd2">More...</a><br /></td></tr>
+<tr class="separator:a07015aef5ce07f74db32abb25f10ddd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a37104d6dfde0f5d721d9af5218593"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593">spawnSatellites</a> ()</td></tr>
+<tr class="memdesc:a40a37104d6dfde0f5d721d9af5218593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns a Satellite, a type of <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a>. function is called from spawnEntities.  <a href="#a40a37104d6dfde0f5d721d9af5218593">More...</a><br /></td></tr>
+<tr class="separator:a40a37104d6dfde0f5d721d9af5218593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e3e3bfbb24a964d110e15566f89dc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5">spawnEntities</a> ()</td></tr>
+<tr class="memdesc:a11e3e3bfbb24a964d110e15566f89dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inititates the spawn event for <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a>, Satellites and <a class="el" href="class_meteoroid.html" title="Meteoroid class. ">Meteoroid</a>.  <a href="#a11e3e3bfbb24a964d110e15566f89dc5">More...</a><br /></td></tr>
 <tr class="separator:a11e3e3bfbb24a964d110e15566f89dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa983e489331de567d420724c42924b22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#aa983e489331de567d420724c42924b22">setMove</a> ()</td></tr>
-<tr class="separator:aa983e489331de567d420724c42924b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f49a575c75483b93be92ae7c02db743"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743">playerShoot</a> ()</td></tr>
+<tr class="memdesc:a0f49a575c75483b93be92ae7c02db743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates a player shoot event based on current gun level and adds bullet to bullet vector.  <a href="#a0f49a575c75483b93be92ae7c02db743">More...</a><br /></td></tr>
+<tr class="separator:a0f49a575c75483b93be92ae7c02db743"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eb21f206e193254b6cd2d0e095fac73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73">shoot</a> ()</td></tr>
+<tr class="memdesc:a0eb21f206e193254b6cd2d0e095fac73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates a player shoot event based on current gun level and adds bullet to bullet vector.  <a href="#a0eb21f206e193254b6cd2d0e095fac73">More...</a><br /></td></tr>
 <tr class="separator:a0eb21f206e193254b6cd2d0e095fac73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea66506a320de6c4b760a344cc4a2f03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#aea66506a320de6c4b760a344cc4a2f03">checkClipping</a> ()</td></tr>
+<tr class="memitem:aa983e489331de567d420724c42924b22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#aa983e489331de567d420724c42924b22">setMove</a> ()</td></tr>
+<tr class="memdesc:aa983e489331de567d420724c42924b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes enemy movement state based on current ship position and random chance to change flight pattern.  <a href="#aa983e489331de567d420724c42924b22">More...</a><br /></td></tr>
+<tr class="separator:aa983e489331de567d420724c42924b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3366d2887d85d3cec916c8c63dd6f385"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a3366d2887d85d3cec916c8c63dd6f385">preformEnemyMove</a> (std::unique_ptr&lt; <a class="el" href="class_enemy.html">Enemy</a> &gt; &amp;enemy, MovementState currentEnemyMovementState, float growShipScreenZone, float currentEnemyRadius)</td></tr>
+<tr class="memdesc:a3366d2887d85d3cec916c8c63dd6f385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes ship movement, based on ship movement state defined in setMove function.  <a href="#a3366d2887d85d3cec916c8c63dd6f385">More...</a><br /></td></tr>
+<tr class="separator:a3366d2887d85d3cec916c8c63dd6f385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea66506a320de6c4b760a344cc4a2f03"><td class="memItemLeft" align="right" valign="top"><a id="aea66506a320de6c4b760a344cc4a2f03"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#aea66506a320de6c4b760a344cc4a2f03">checkClipping</a> ()</td></tr>
+<tr class="memdesc:aea66506a320de6c4b760a344cc4a2f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks all playerShips to see if they are outside of the play range. In the event that they are, remove them from the game(reset the ships) <br /></td></tr>
 <tr class="separator:aea66506a320de6c4b760a344cc4a2f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33fd19438e4d3e289f3423f311696e0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b">checkCollisions</a> ()</td></tr>
+<tr class="memdesc:a33fd19438e4d3e289f3423f311696e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Responsible for dealing with all collision with all game objects. PlayerBullet-&gt;<a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a>, EnemyBullet-&gt;<a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a>, PlayerBullet-&gt;EnemyBullet,.  <a href="#a33fd19438e4d3e289f3423f311696e0b">More...</a><br /></td></tr>
 <tr class="separator:a33fd19438e4d3e289f3423f311696e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1d2163d3835f05a17ec67f76a6d2634"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634">collides</a> (const sf::Sprite &amp;sprite1, const sf::Sprite &amp;sprite2)</td></tr>
+<tr class="memdesc:ae1d2163d3835f05a17ec67f76a6d2634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to check for collisions between two sprites.  <a href="#ae1d2163d3835f05a17ec67f76a6d2634">More...</a><br /></td></tr>
 <tr class="separator:ae1d2163d3835f05a17ec67f76a6d2634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d7a4f7f330f070be70103bd00cf0f16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16">update</a> ()</td></tr>
+<tr class="memitem:a3d7a4f7f330f070be70103bd00cf0f16"><td class="memItemLeft" align="right" valign="top"><a id="a3d7a4f7f330f070be70103bd00cf0f16"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16">update</a> ()</td></tr>
+<tr class="memdesc:a3d7a4f7f330f070be70103bd00cf0f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates all game objects by calling the underlying update functions. Called on every frame, to move entities around the screen as well as other functions. <br /></td></tr>
 <tr class="separator:a3d7a4f7f330f070be70103bd00cf0f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e8df192bb7a1dbb0d1471a943282135"><td class="memItemLeft" align="right" valign="top">const void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a6e8df192bb7a1dbb0d1471a943282135">draw</a> (sf::RenderWindow &amp;renderWindow)</td></tr>
+<tr class="memdesc:a6e8df192bb7a1dbb0d1471a943282135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to draw all game elements by looping over all vectors of entites and drawing the underlying sprite. Called on every frame.  <a href="#a6e8df192bb7a1dbb0d1471a943282135">More...</a><br /></td></tr>
 <tr class="separator:a6e8df192bb7a1dbb0d1471a943282135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87a665252f2c949815d21eac24ef470"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#af87a665252f2c949815d21eac24ef470">explosionOccurred</a> ()</td></tr>
+<tr class="memdesc:af87a665252f2c949815d21eac24ef470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter to return if an explosion has occurred on the current frame. Used to deal with multiple explosions occurred in quick succession to reset the explosion object and sound generation.  <a href="#af87a665252f2c949815d21eac24ef470">More...</a><br /></td></tr>
 <tr class="separator:af87a665252f2c949815d21eac24ef470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a745f45e10249cbb831e10361a7ef161e"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e">shootingOccurred</a> ()</td></tr>
+<tr class="memdesc:a745f45e10249cbb831e10361a7ef161e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter to return if an bullet has been shot in the current frame.  <a href="#a745f45e10249cbb831e10361a7ef161e">More...</a><br /></td></tr>
 <tr class="separator:a745f45e10249cbb831e10361a7ef161e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a266fed1b08301a21d6f9202f44be0c33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a266fed1b08301a21d6f9202f44be0c33">changeGlobalSpeed</a> (float amount)</td></tr>
+<tr class="memdesc:a266fed1b08301a21d6f9202f44be0c33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust the game speed as time goes on to make it more challenging. Has imposed maximum, minimum and default interval values.  <a href="#a266fed1b08301a21d6f9202f44be0c33">More...</a><br /></td></tr>
 <tr class="separator:a266fed1b08301a21d6f9202f44be0c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6386fca5171a9e0d5595c4b236983829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a6386fca5171a9e0d5595c4b236983829">resetGlobalSpeed</a> ()</td></tr>
+<tr class="memitem:a6386fca5171a9e0d5595c4b236983829"><td class="memItemLeft" align="right" valign="top"><a id="a6386fca5171a9e0d5595c4b236983829"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a6386fca5171a9e0d5595c4b236983829">resetGlobalSpeed</a> ()</td></tr>
+<tr class="memdesc:a6386fca5171a9e0d5595c4b236983829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverts the game speed to the stock default value. <br /></td></tr>
 <tr class="separator:a6386fca5171a9e0d5595c4b236983829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a392fe1a574a77ba809b5731aada54f15"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a392fe1a574a77ba809b5731aada54f15">getSpeed</a> () const</td></tr>
+<tr class="memdesc:a392fe1a574a77ba809b5731aada54f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter to return the current game speed.  <a href="#a392fe1a574a77ba809b5731aada54f15">More...</a><br /></td></tr>
 <tr class="separator:a392fe1a574a77ba809b5731aada54f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a795606fe9223180467575190e725a18a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a795606fe9223180467575190e725a18a">killAllEnemiesOfType</a> (<a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type)</td></tr>
+<tr class="memitem:a795606fe9223180467575190e725a18a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a795606fe9223180467575190e725a18a">killAllEnemiesOfType</a> (entity::ID type)</td></tr>
+<tr class="memdesc:a795606fe9223180467575190e725a18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys all enemies of a particular type. This is useful When a game event requires all of one type of enemy to be removed. For example, if the player dies, all satellites that are still alive should be removed.  <a href="#a795606fe9223180467575190e725a18a">More...</a><br /></td></tr>
 <tr class="separator:a795606fe9223180467575190e725a18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8hpp_source.html#l00030">30</a> of file <a class="el" href="_entity_controller_8hpp_source.html">EntityController.hpp</a>.</p>
+<div class="textblock"><p><a class="el" href="class_entity_controller.html" title="EntityController Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. ">EntityController</a> Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. </p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8hpp_source.html#l00035">35</a> of file <a class="el" href="_entity_controller_8hpp_source.html">EntityController.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac63b711dd1650f945ddf72d05917d4a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac63b711dd1650f945ddf72d05917d4a3">&#9670;&nbsp;</a></span>EntityController()</h2>
@@ -151,8 +187,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
-          <td class="paramname"><em>textureHolder</em>, </td>
+          <td class="paramtype"><a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramname"><em>textures</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -174,22 +210,30 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Controller and manager for game entity objects. </p>
+<p>Constructor for the <a class="el" href="class_entity_controller.html" title="EntityController Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. ">EntityController</a> class. Called directly from game object to handel the creation, destruction and drawing of all game objects. </p>
+<p>Controller and manager for game entity objects.</p>
+<p>On every game frame, respective functions are called to evaluate game entity states, such as spawning new enemies, collisions and enemy bullet shooting</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resolution</td><td>The <a class="el" href="class_screen.html" title="Base class interface for a &quot;Screen&quot;. ">Screen</a> resolution of the game </td></tr>
+    <tr><td class="paramname">playerShip</td><td>The playership, generated from the <a class="el" href="_game_8cpp_source.html">game.cpp</a>. needed for collision detection </td></tr>
+    <tr><td class="paramname">textures</td><td>used to create new entities that require this class for creation </td></tr>
+    <tr><td class="paramname">score</td><td>object to track the current game score, enemies killed and player deaths. created in <a class="el" href="_game_8cpp_source.html">game.cpp</a> </td></tr>
+    <tr><td class="paramname">speedModifier</td><td>defines how fast the game runs at a particular time to speed up game as time progresses</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>sf::Vector2i </dd>
+<dd>
+<a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a> </dd>
+<dd>
+<a class="el" href="_score_8hpp_source.html">Score.hpp</a> </dd>
+<dd>
+<a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a></dd></dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>20/9/17 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00015">15</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_controller_ac63b711dd1650f945ddf72d05917d4a3_cgraph.png" border="0" usemap="#class_entity_controller_ac63b711dd1650f945ddf72d05917d4a3_cgraph" alt=""/></div>
-<map name="class_entity_controller_ac63b711dd1650f945ddf72d05917d4a3_cgraph" id="class_entity_controller_ac63b711dd1650f945ddf72d05917d4a3_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="214,5,359,31"/>
-<area shape="rect" id="node3" href="class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin. " alt="" coords="210,55,363,80"/>
-<area shape="rect" id="node5" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="207,104,366,129"/>
-<area shape="rect" id="node4" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="414,48,609,87"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -210,44 +254,22 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00648">648</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Adjust the game speed as time goes on to make it more challenging. Has imposed maximum, minimum and default interval values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amount</td><td>defines the amount to increase the global speed by </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00673">673</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a266fed1b08301a21d6f9202f44be0c33_icgraph.png" border="0" usemap="#class_entity_controller_a266fed1b08301a21d6f9202f44be0c33_icgraph" alt=""/></div>
 <map name="class_entity_controller_a266fed1b08301a21d6f9202f44be0c33_icgraph" id="class_entity_controller_a266fed1b08301a21d6f9202f44be0c33_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="217,12,306,37"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="354,12,448,37"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="496,12,546,37"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aea66506a320de6c4b760a344cc4a2f03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea66506a320de6c4b760a344cc4a2f03">&#9670;&nbsp;</a></span>checkClipping()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void EntityController::checkClipping </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00541">541</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_entity_controller_aea66506a320de6c4b760a344cc4a2f03_icgraph.png" border="0" usemap="#class_entity_controller_aea66506a320de6c4b760a344cc4a2f03_icgraph" alt=""/></div>
-<map name="class_entity_controller_aea66506a320de6c4b760a344cc4a2f03_icgraph" id="class_entity_controller_aea66506a320de6c4b760a344cc4a2f03_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="256,5,346,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="394,5,487,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="535,5,585,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="217,12,306,37"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="354,12,448,37"/>
 </map>
 </div>
 
@@ -268,14 +290,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00360">360</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Responsible for dealing with all collision with all game objects. PlayerBullet-&gt;<a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a>, EnemyBullet-&gt;<a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a>, PlayerBullet-&gt;EnemyBullet,. </p>
+<p>In the event that they are, remove them from the game (reset the ships or delete bullets). Also responsible for generating explosion events on ship deaths</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="Used to check for collisions between two sprites. ">collides()</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A bool, true if collision occurred with playerShip. false if not. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00386">386</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_cgraph.png" border="0" usemap="#class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_cgraph" alt=""/></div>
 <map name="class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_cgraph" id="class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_cgraph">
-<area shape="rect" id="node2" href="class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="EntityController::collides" alt="" coords="286,5,451,31"/>
-<area shape="rect" id="node3" href="class_score.html#ab130dd02bdd3e026421ad426741637e8" title="Score::incrementEnemiesKilled" alt="" coords="265,55,472,80"/>
+<area shape="rect" id="node2" href="class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="Used to check for collisions between two sprites. " alt="" coords="286,5,451,31"/>
+<area shape="rect" id="node3" href="class_score.html#ab130dd02bdd3e026421ad426741637e8" title="When the player Killes an enemy, this is called with the defined enemy type. Based on the type of ene..." alt="" coords="265,55,472,80"/>
 </map>
 </div>
 <div class="dynheader">
@@ -283,9 +310,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_icgraph.png" border="0" usemap="#class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_icgraph" alt=""/></div>
 <map name="class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_icgraph" id="class_entity_controller_a33fd19438e4d3e289f3423f311696e0b_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="265,5,355,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="403,5,496,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="544,5,594,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="265,5,355,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="403,5,496,31"/>
 </map>
 </div>
 
@@ -317,17 +343,29 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00617">617</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Used to check for collisions between two sprites. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sprite1</td><td>first sprite that is fed in, compared to sprite2 </td></tr>
+    <tr><td class="paramname">sprite2</td><td>second sprite that is fed in, compared to sprite1</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>checkCollision() </dd>
+<dd>
+sf::Sprite</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a bool, true if collision, false if not </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00643">643</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_ae1d2163d3835f05a17ec67f76a6d2634_icgraph.png" border="0" usemap="#class_entity_controller_ae1d2163d3835f05a17ec67f76a6d2634_icgraph" alt=""/></div>
 <map name="class_entity_controller_ae1d2163d3835f05a17ec67f76a6d2634_icgraph" id="class_entity_controller_ae1d2163d3835f05a17ec67f76a6d2634_icgraph">
-<area shape="rect" id="node2" href="class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="EntityController::checkCollisions" alt="" coords="218,5,429,31"/>
-<area shape="rect" id="node6" href="class_entity_controller.html#a795606fe9223180467575190e725a18a" title="EntityController::killAll\lEnemiesOfType" alt="" coords="248,55,399,93"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="477,33,567,59"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="615,33,708,59"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="756,33,806,59"/>
+<area shape="rect" id="node2" href="class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="218,5,429,31"/>
+<area shape="rect" id="node5" href="class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="248,55,399,93"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="477,33,567,59"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="615,33,708,59"/>
 </map>
 </div>
 
@@ -349,15 +387,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00628">628</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Used to draw all game elements by looping over all vectors of entites and drawing the underlying sprite. Called on every frame. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderWindow</td><td>feeds in the draw window to enable the <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> controlor to draw on the current window</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>sf::RenderWindow </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00654">654</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a6e8df192bb7a1dbb0d1471a943282135_icgraph.png" border="0" usemap="#class_entity_controller_a6e8df192bb7a1dbb0d1471a943282135_icgraph" alt=""/></div>
 <map name="class_entity_controller_a6e8df192bb7a1dbb0d1471a943282135_icgraph" id="class_entity_controller_a6e8df192bb7a1dbb0d1471a943282135_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="202,5,292,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="340,5,433,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="481,5,531,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="202,5,292,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="340,5,433,31"/>
 </map>
 </div>
 
@@ -378,15 +424,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00536">536</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Getter to return if an explosion has occurred on the current frame. Used to deal with multiple explosions occurred in quick succession to reset the explosion object and sound generation. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_sound_controller_8hpp_source.html">SoundController.hpp</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A bool relating to if an explosion occurred in the current frame </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00561">561</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_af87a665252f2c949815d21eac24ef470_icgraph.png" border="0" usemap="#class_entity_controller_af87a665252f2c949815d21eac24ef470_icgraph" alt=""/></div>
 <map name="class_entity_controller_af87a665252f2c949815d21eac24ef470_icgraph" id="class_entity_controller_af87a665252f2c949815d21eac24ef470_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="230,12,319,37"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="367,12,460,37"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="508,12,559,37"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="230,12,319,37"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="367,12,460,37"/>
 </map>
 </div>
 
@@ -407,15 +456,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00657">657</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Getter to return the current game speed. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current speed of the gameplay </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00682">682</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a392fe1a574a77ba809b5731aada54f15_icgraph.png" border="0" usemap="#class_entity_controller_a392fe1a574a77ba809b5731aada54f15_icgraph" alt=""/></div>
 <map name="class_entity_controller_a392fe1a574a77ba809b5731aada54f15_icgraph" id="class_entity_controller_a392fe1a574a77ba809b5731aada54f15_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="230,5,320,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="368,5,461,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="509,5,559,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="230,5,320,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="368,5,461,31"/>
 </map>
 </div>
 
@@ -430,26 +481,34 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void EntityController::killAllEnemiesOfType </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td>
+          <td class="paramtype">entity::ID&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00414">414</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Destroys all enemies of a particular type. This is useful When a game event requires all of one type of enemy to be removed. For example, if the player dies, all satellites that are still alive should be removed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Type</td><td>defines the type of enemy to kill </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00440">440</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a795606fe9223180467575190e725a18a_cgraph.png" border="0" usemap="#class_entity_controller_a795606fe9223180467575190e725a18a_cgraph" alt=""/></div>
 <map name="class_entity_controller_a795606fe9223180467575190e725a18a_cgraph" id="class_entity_controller_a795606fe9223180467575190e725a18a_cgraph">
-<area shape="rect" id="node2" href="class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="EntityController::collides" alt="" coords="225,5,389,31"/>
-<area shape="rect" id="node3" href="class_player_ship.html#a25940b8707f6876b0b8843fb3c393f39" title="Returns the Sprite object of the Class by ref. " alt="" coords="234,55,380,80"/>
-<area shape="rect" id="node4" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="210,104,404,143"/>
-<area shape="rect" id="node5" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="234,167,380,192"/>
-<area shape="rect" id="node6" href="class_player_ship.html#af002b45b1a5f935998f674beb011d999" title="PlayerShip::getScale" alt="" coords="234,216,379,241"/>
-<area shape="rect" id="node7" href="class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="219,265,395,291"/>
-<area shape="rect" id="node8" href="class_score.html#ab130dd02bdd3e026421ad426741637e8" title="Score::incrementEnemiesKilled" alt="" coords="204,315,410,340"/>
+<area shape="rect" id="node2" href="class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634" title="Used to check for collisions between two sprites. " alt="" coords="225,5,389,31"/>
+<area shape="rect" id="node3" href="class_player_ship.html#a140d0da9785b423c9384c98c755d70c9" title="Returns the Sprite object of the Class by ref. " alt="" coords="234,55,380,80"/>
+<area shape="rect" id="node4" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="210,104,404,143"/>
+<area shape="rect" id="node5" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="234,167,380,192"/>
+<area shape="rect" id="node6" href="class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="234,216,379,241"/>
+<area shape="rect" id="node7" href="class_player_ship.html#a971ef4107082b2040598101b416b1214" title="Boolean state of the playerShip taking damage from collisions or not. " alt="" coords="219,265,395,291"/>
+<area shape="rect" id="node8" href="class_score.html#ab130dd02bdd3e026421ad426741637e8" title="When the player Killes an enemy, this is called with the defined enemy type. Based on the type of ene..." alt="" coords="204,315,410,340"/>
 </map>
 </div>
 <div class="dynheader">
@@ -457,22 +516,21 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a795606fe9223180467575190e725a18a_icgraph.png" border="0" usemap="#class_entity_controller_a795606fe9223180467575190e725a18a_icgraph" alt=""/></div>
 <map name="class_entity_controller_a795606fe9223180467575190e725a18a_icgraph" id="class_entity_controller_a795606fe9223180467575190e725a18a_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="204,12,293,37"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="341,12,434,37"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="482,12,533,37"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="204,12,293,37"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="341,12,434,37"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6386fca5171a9e0d5595c4b236983829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6386fca5171a9e0d5595c4b236983829">&#9670;&nbsp;</a></span>resetGlobalSpeed()</h2>
+<a id="a0f49a575c75483b93be92ae7c02db743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f49a575c75483b93be92ae7c02db743">&#9670;&nbsp;</a></span>playerShoot()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void EntityController::resetGlobalSpeed </td>
+          <td class="memname">void EntityController::playerShoot </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -480,23 +538,105 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00662">662</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Initiates a player shoot event based on current gun level and adds bullet to bullet vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00189">189</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_entity_controller_a6386fca5171a9e0d5595c4b236983829_cgraph.png" border="0" usemap="#class_entity_controller_a6386fca5171a9e0d5595c4b236983829_cgraph" alt=""/></div>
-<map name="class_entity_controller_a6386fca5171a9e0d5595c4b236983829_cgraph" id="class_entity_controller_a6386fca5171a9e0d5595c4b236983829_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d" title="PlayerShip::upgrade" alt="" coords="241,12,384,37"/>
+<div class="center"><img src="class_entity_controller_a0f49a575c75483b93be92ae7c02db743_cgraph.png" border="0" usemap="#class_entity_controller_a0f49a575c75483b93be92ae7c02db743_cgraph" alt=""/></div>
+<map name="class_entity_controller_a0f49a575c75483b93be92ae7c02db743_cgraph" id="class_entity_controller_a0f49a575c75483b93be92ae7c02db743_cgraph">
+<area shape="rect" id="node2" href="class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="234,5,379,31"/>
+<area shape="rect" id="node3" href="class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="226,55,388,80"/>
+<area shape="rect" id="node4" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="210,104,404,143"/>
+<area shape="rect" id="node5" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="234,167,380,192"/>
+<area shape="rect" id="node6" href="class_score.html#a52540ac16336966a6805da3a0f88845f" title="On shooting a bullet, is called to increment the number of bullets shot. " alt="" coords="211,216,403,241"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_entity_controller_a6386fca5171a9e0d5595c4b236983829_icgraph.png" border="0" usemap="#class_entity_controller_a6386fca5171a9e0d5595c4b236983829_icgraph" alt=""/></div>
-<map name="class_entity_controller_a6386fca5171a9e0d5595c4b236983829_icgraph" id="class_entity_controller_a6386fca5171a9e0d5595c4b236983829_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="241,12,331,37"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="379,12,472,37"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="520,12,570,37"/>
+<div class="center"><img src="class_entity_controller_a0f49a575c75483b93be92ae7c02db743_icgraph.png" border="0" usemap="#class_entity_controller_a0f49a575c75483b93be92ae7c02db743_icgraph" alt=""/></div>
+<map name="class_entity_controller_a0f49a575c75483b93be92ae7c02db743_icgraph" id="class_entity_controller_a0f49a575c75483b93be92ae7c02db743_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="210,12,362,37"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="410,12,500,37"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="548,12,641,37"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3366d2887d85d3cec916c8c63dd6f385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3366d2887d85d3cec916c8c63dd6f385">&#9670;&nbsp;</a></span>preformEnemyMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityController::preformEnemyMove </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_enemy.html">Enemy</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>enemy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MovementState&#160;</td>
+          <td class="paramname"><em>currentEnemyMovementState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>growShipScreenZone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>currentEnemyRadius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes ship movement, based on ship movement state defined in setMove function. </p>
+<p>Programmatic method of moving ships around, based on movement state</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enemy</td><td>enemy ship to be moved </td></tr>
+    <tr><td class="paramname">currentEnemyMovementState</td><td>movement state that the ship should preform operation in. be it spiral in or others </td></tr>
+    <tr><td class="paramname">growShipScreenZone</td><td>defines region where the ship should grow and not change state </td></tr>
+    <tr><td class="paramname">currentEnemyRadius</td><td>defines the current size of the enemy ship</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity_controller.html#aa983e489331de567d420724c42924b22" title="Changes enemy movement state based on current ship position and random chance to change flight patter...">setMove()</a> </dd>
+<dd>
+<a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00311">311</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_cgraph.png" border="0" usemap="#class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_cgraph" alt=""/></div>
+<map name="class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_cgraph" id="class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_cgraph">
+<area shape="rect" id="node2" href="class_perlin_noise.html#af46a26b451f68a5955aca99cbb05fe1f" title="Chooses a point inside a unit cube, and calculating the gradients from the corner of the cube to this..." alt="" coords="219,12,348,37"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_icgraph.png" border="0" usemap="#class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_icgraph" alt=""/></div>
+<map name="class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_icgraph" id="class_entity_controller_a3366d2887d85d3cec916c8c63dd6f385_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#aa983e489331de567d420724c42924b22" title="Changes enemy movement state based on current ship position and random chance to change flight patter..." alt="" coords="219,12,389,37"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="437,12,527,37"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="575,12,668,37"/>
 </map>
 </div>
 
@@ -517,15 +657,27 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00245">245</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Changes enemy movement state based on current ship position and random chance to change flight pattern. </p>
+<p>This function is directly responsible for how the game plays. Actual movements are done by preformEnemyMove</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity_controller.html#a3366d2887d85d3cec916c8c63dd6f385" title="Executes ship movement, based on ship movement state defined in setMove function. ...">preformEnemyMove()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00260">260</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_aa983e489331de567d420724c42924b22_cgraph.png" border="0" usemap="#class_entity_controller_aa983e489331de567d420724c42924b22_cgraph" alt=""/></div>
+<map name="class_entity_controller_aa983e489331de567d420724c42924b22_cgraph" id="class_entity_controller_aa983e489331de567d420724c42924b22_cgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a3366d2887d85d3cec916c8c63dd6f385" title="Executes ship movement, based on ship movement state defined in setMove function. ..." alt="" coords="224,5,389,44"/>
+<area shape="rect" id="node3" href="class_perlin_noise.html#af46a26b451f68a5955aca99cbb05fe1f" title="Chooses a point inside a unit cube, and calculating the gradients from the corner of the cube to this..." alt="" coords="437,12,566,37"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_aa983e489331de567d420724c42924b22_icgraph.png" border="0" usemap="#class_entity_controller_aa983e489331de567d420724c42924b22_icgraph" alt=""/></div>
 <map name="class_entity_controller_aa983e489331de567d420724c42924b22_icgraph" id="class_entity_controller_aa983e489331de567d420724c42924b22_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="224,5,313,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="361,5,454,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="502,5,553,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="224,5,313,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="361,5,454,31"/>
 </map>
 </div>
 
@@ -546,18 +698,22 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00176">176</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Initiates a player shoot event based on current gun level and adds bullet to bullet vector. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector...">playerShoot()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00219">219</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_cgraph.png" border="0" usemap="#class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_cgraph" alt=""/></div>
 <map name="class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_cgraph" id="class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="PlayerShip::isShooting" alt="" coords="225,5,381,31"/>
-<area shape="rect" id="node3" href="class_player_ship.html#af002b45b1a5f935998f674beb011d999" title="PlayerShip::getScale" alt="" coords="231,55,376,80"/>
-<area shape="rect" id="node4" href="class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="PlayerShip::isUpgraded" alt="" coords="223,104,384,129"/>
-<area shape="rect" id="node5" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin. " alt="" coords="206,153,401,192"/>
-<area shape="rect" id="node6" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the angle. " alt="" coords="230,216,376,241"/>
-<area shape="rect" id="node7" href="class_score.html#a52540ac16336966a6805da3a0f88845f" title="Score::incrementBulletsFired" alt="" coords="207,265,399,291"/>
+<area shape="rect" id="node2" href="class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="Boolean shooting state of the playerShip. " alt="" coords="206,55,362,80"/>
+<area shape="rect" id="node3" href="class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="206,104,362,143"/>
+<area shape="rect" id="node4" href="class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="435,5,580,31"/>
+<area shape="rect" id="node5" href="class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="427,55,588,80"/>
+<area shape="rect" id="node6" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="410,104,605,143"/>
+<area shape="rect" id="node7" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="434,167,580,192"/>
+<area shape="rect" id="node8" href="class_score.html#a52540ac16336966a6805da3a0f88845f" title="On shooting a bullet, is called to increment the number of bullets shot. " alt="" coords="411,216,604,241"/>
 </map>
 </div>
 <div class="dynheader">
@@ -565,9 +721,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_icgraph.png" border="0" usemap="#class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_icgraph" alt=""/></div>
 <map name="class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_icgraph" id="class_entity_controller_a0eb21f206e193254b6cd2d0e095fac73_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="206,5,295,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="343,5,437,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="485,5,535,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="206,5,295,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="343,5,437,31"/>
 </map>
 </div>
 
@@ -588,15 +743,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00240">240</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Getter to return if an bullet has been shot in the current frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>A bool relating to if a bullet was fired in the current frame </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00255">255</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a745f45e10249cbb831e10361a7ef161e_icgraph.png" border="0" usemap="#class_entity_controller_a745f45e10249cbb831e10361a7ef161e_icgraph" alt=""/></div>
 <map name="class_entity_controller_a745f45e10249cbb831e10361a7ef161e_icgraph" id="class_entity_controller_a745f45e10249cbb831e10361a7ef161e_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="224,12,313,37"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="361,12,454,37"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="502,12,553,37"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="224,12,313,37"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="361,12,454,37"/>
 </map>
 </div>
 
@@ -617,13 +774,33 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00131">131</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Inititates the spawn event for <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a>, Satellites and <a class="el" href="class_meteoroid.html" title="Meteoroid class. ">Meteoroid</a>. </p>
+<p>Defines the spawn chances based on a combination of delay between spawns and random event chances. Has imposed maximum &amp; minimum number of enemys that can be alive at one time</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a> </dd>
+<dd>
+<a class="el" href="class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2" title="Spawns a meteoroid function is called from spawnEntities. ">spawnMeteoroid</a> </dd>
+<dd>
+<a class="el" href="class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. ">spawnSatellites</a> </dd>
+<dd>
+<a class="el" href="class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f...">spawnSpiral</a> </dd>
+<dd>
+<a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a> </dd>
+<dd>
+Meteorid.hpp </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00142">142</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_cgraph.png" border="0" usemap="#class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_cgraph" alt=""/></div>
 <map name="class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_cgraph" id="class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_cgraph">
-<area shape="rect" id="node2" href="class_score.html#ad2ad5c64290bc1baf6d929b2118ac240" title="Score::getEnemiesKilled" alt="" coords="255,5,422,31"/>
+<area shape="rect" id="node2" href="class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="268,5,461,31"/>
+<area shape="rect" id="node4" href="class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="258,55,471,80"/>
+<area shape="rect" id="node8" href="class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2" title="Spawns a meteoroid function is called from spawnEntities. " alt="" coords="255,104,473,129"/>
+<area shape="rect" id="node3" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="528,5,674,31"/>
+<area shape="rect" id="node5" href="class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="525,55,678,80"/>
+<area shape="rect" id="node7" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="521,104,681,129"/>
+<area shape="rect" id="node6" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="729,48,924,87"/>
 </map>
 </div>
 <div class="dynheader">
@@ -631,22 +808,21 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_icgraph.png" border="0" usemap="#class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_icgraph" alt=""/></div>
 <map name="class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_icgraph" id="class_entity_controller_a11e3e3bfbb24a964d110e15566f89dc5_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="255,5,345,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="393,5,486,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="534,5,584,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="255,5,345,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="393,5,486,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a3d7a4f7f330f070be70103bd00cf0f16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d7a4f7f330f070be70103bd00cf0f16">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a07015aef5ce07f74db32abb25f10ddd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07015aef5ce07f74db32abb25f10ddd2">&#9670;&nbsp;</a></span>spawnMeteoroid()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void EntityController::update </td>
+          <td class="memname">void EntityController::spawnMeteoroid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -654,15 +830,134 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00587">587</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<p>Spawns a meteoroid function is called from spawnEntities. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_meteoroid_8hpp_source.html">Meteoroid.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00086">86</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_entity_controller_a3d7a4f7f330f070be70103bd00cf0f16_icgraph.png" border="0" usemap="#class_entity_controller_a3d7a4f7f330f070be70103bd00cf0f16_icgraph" alt=""/></div>
-<map name="class_entity_controller_a3d7a4f7f330f070be70103bd00cf0f16_icgraph" id="class_entity_controller_a3d7a4f7f330f070be70103bd00cf0f16_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="214,5,304,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="352,5,445,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="493,5,543,31"/>
+<div class="center"><img src="class_entity_controller_a07015aef5ce07f74db32abb25f10ddd2_icgraph.png" border="0" usemap="#class_entity_controller_a07015aef5ce07f74db32abb25f10ddd2_icgraph" alt=""/></div>
+<map name="class_entity_controller_a07015aef5ce07f74db32abb25f10ddd2_icgraph" id="class_entity_controller_a07015aef5ce07f74db32abb25f10ddd2_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="271,5,473,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="521,5,611,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="659,5,752,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a40a37104d6dfde0f5d721d9af5218593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a37104d6dfde0f5d721d9af5218593">&#9670;&nbsp;</a></span>spawnSatellites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityController::spawnSatellites </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Spawns a Satellite, a type of <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a>. function is called from spawnEntities. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00101">101</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_cgraph.png" border="0" usemap="#class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_cgraph" alt=""/></div>
+<map name="class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_cgraph" id="class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_cgraph">
+<area shape="rect" id="node2" href="class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="269,12,422,37"/>
+<area shape="rect" id="node4" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="273,61,419,87"/>
+<area shape="rect" id="node5" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="266,111,426,136"/>
+<area shape="rect" id="node3" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="474,5,669,44"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_icgraph.png" border="0" usemap="#class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_icgraph" alt=""/></div>
+<map name="class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_icgraph" id="class_entity_controller_a40a37104d6dfde0f5d721d9af5218593_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="266,5,468,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="516,5,606,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="654,5,747,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae8655d696f326d08ad9a9db8702716c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8655d696f326d08ad9a9db8702716c3">&#9670;&nbsp;</a></span>spawnSpiral()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityController::spawnSpiral </td>
+          <td>(</td>
+          <td class="paramtype">entity::ID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">textures::ID&#160;</td>
+          <td class="paramname"><em>shipVariant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MovementDirection&#160;</td>
+          <td class="paramname"><em>movementDirection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MovementState&#160;</td>
+          <td class="paramname"><em>movementState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called from spawnEntities. </p>
+<p>This function includes: spiral inwards, spiral outwards and wandering movement</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>defines the kind of ship spawned </td></tr>
+    <tr><td class="paramname">shipVariant</td><td>defines the look of the ship spawned </td></tr>
+    <tr><td class="paramname">movementDirection</td><td>enum, showing clockwise or counterclockwise ship direction </td></tr>
+    <tr><td class="paramname">movementState</td><td>spesifies what kind of spiral the ship is doing: inwards, outwards or wandering</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_enemy_8hpp_source.html">Enemy.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_controller_8cpp_source.html#l00046">46</a> of file <a class="el" href="_entity_controller_8cpp_source.html">EntityController.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_cgraph.png" border="0" usemap="#class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_cgraph" alt=""/></div>
+<map name="class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_cgraph" id="class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_cgraph">
+<area shape="rect" id="node2" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="246,5,392,31"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_icgraph.png" border="0" usemap="#class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_icgraph" alt=""/></div>
+<map name="class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_icgraph" id="class_entity_controller_ae8655d696f326d08ad9a9db8702716c3_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="246,5,448,31"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="496,5,586,31"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="634,5,727,31"/>
 </map>
 </div>
 

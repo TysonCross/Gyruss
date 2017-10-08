@@ -1,4 +1,4 @@
 <map id="Enemy::getRadius" name="Enemy::getRadius">
-<area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="184,5,286,31"/>
-<area shape="rect" id="node3" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="334,5,445,31"/>
+<area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="184,5,286,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="334,5,445,31"/>
 </map>

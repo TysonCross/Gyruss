@@ -1,0 +1,5 @@
+<map id="ResourceHolder::load" name="ResourceHolder::load">
+<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="437,5,526,31"/>
+<area shape="rect" id="node4" href="$class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="Stops playing game music. Called when main gameplay stops. " alt="" coords="204,31,389,56"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="574,5,667,31"/>
+</map>

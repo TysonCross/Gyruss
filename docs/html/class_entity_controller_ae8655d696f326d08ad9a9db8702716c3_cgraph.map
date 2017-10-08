@@ -1,0 +1,3 @@
+<map id="EntityController::spawnSpiral" name="EntityController::spawnSpiral">
+<area shape="rect" id="node2" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="246,5,392,31"/>
+</map>

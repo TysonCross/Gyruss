@@ -1,0 +1,4 @@
+<map id="Enemy::setOrientation" name="Enemy::setOrientation">
+<area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="207,5,309,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="357,5,468,31"/>
+</map>

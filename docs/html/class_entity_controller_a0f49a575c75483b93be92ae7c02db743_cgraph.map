@@ -1,0 +1,7 @@
+<map id="EntityController::playerShoot" name="EntityController::playerShoot">
+<area shape="rect" id="node2" href="$class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="234,5,379,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="226,55,388,80"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="210,104,404,143"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="234,167,380,192"/>
+<area shape="rect" id="node6" href="$class_score.html#a52540ac16336966a6805da3a0f88845f" title="On shooting a bullet, is called to increment the number of bullets shot. " alt="" coords="211,216,403,241"/>
+</map>

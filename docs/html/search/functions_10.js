@@ -1,5 +1,23 @@
 var searchData=
 [
-  ['update',['update',['../class_bullet.html#a738b3fde0d24a67ea0a922cbf9693803',1,'Bullet::update()'],['../class_enemy.html#aa70d742da02995011f1618acc9e303db',1,'Enemy::update()'],['../class_entity.html#a59a29d9b7474baf13c9c76859242287d',1,'Entity::update()'],['../class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16',1,'EntityController::update()'],['../class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9',1,'Explosion::update()'],['../class_f_p_s.html#a230d52d9a0b736e73d43100f6441a4bf',1,'FPS::update()'],['../class_input_handler.html#a4755fd435c868b7f4d281144e913ff9c',1,'InputHandler::update()'],['../class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92',1,'Meteoroid::update()'],['../class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca',1,'PlayerShip::update()'],['../class_score.html#a1a476a2a2bc3a65a050e512fad500d02',1,'Score::update()'],['../class_shield.html#ac27e51621d183abc5280480b3155cfb0',1,'Shield::update()']]],
-  ['upgrade',['upgrade',['../class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d',1,'PlayerShip']]]
+  ['screengameover',['ScreenGameOver',['../class_screen_game_over.html#ab9a7987197ca19f80d57c45c5e9ee36b',1,'ScreenGameOver']]],
+  ['setmove',['setMove',['../class_bullet.html#a6b88a2b4189268dfebc0b354940c7f65',1,'Bullet::setMove()'],['../class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c',1,'Enemy::setMove(float angle, float distance) override'],['../class_enemy.html#a67028a7fb5ef3717c9e5478637d153c7',1,'Enemy::setMove(float angle, float distance, sf::Vector2f centre)'],['../class_entity_controller.html#aa983e489331de567d420724c42924b22',1,'EntityController::setMove()'],['../class_explosion.html#ab10194d3a8a5b19064a36cc0fd197361',1,'Explosion::setMove()'],['../class_meteoroid.html#ab5a456d497bf434b2549e0fc617eee0e',1,'Meteoroid::setMove()'],['../class_moveable.html#a226fc9b401e0510a5dcd95eaae039494',1,'Moveable::setMove(float value)'],['../class_moveable.html#a6f23dff32442db390d0232e10c199be1',1,'Moveable::setMove(float angle, float distance)'],['../class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d',1,'PlayerShip::setMove()']]],
+  ['setmovementstate',['setMovementState',['../class_enemy.html#a2b69b0ea4152d7dd801b15ace0657738',1,'Enemy']]],
+  ['setorientation',['setOrientation',['../class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c',1,'Enemy']]],
+  ['setpitch',['setPitch',['../class_sound_controller.html#a0c5d0f352e0c792cf97d3bc46b634721',1,'SoundController']]],
+  ['setposition',['setPosition',['../class_sound_controller.html#af5078268ad0c88dd71f18ba572165508',1,'SoundController']]],
+  ['setscale',['setScale',['../class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61',1,'Enemy']]],
+  ['setshoot',['setShoot',['../class_enemy.html#a2483215f29987289edb5f90fa2d4ab68',1,'Enemy::setShoot()'],['../class_player_ship.html#abc675303e0479506beabfe48a8041879',1,'PlayerShip::setShoot()']]],
+  ['shield',['Shield',['../class_shield.html#a5c28405f3a1439661f36651107e3baad',1,'Shield']]],
+  ['shoot',['shoot',['../class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73',1,'EntityController']]],
+  ['shootingoccurred',['shootingOccurred',['../class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e',1,'EntityController']]],
+  ['soundcontroller',['SoundController',['../class_sound_controller.html#ae9d4c141022e6955993e3633263b61f2',1,'SoundController']]],
+  ['spawnentities',['spawnEntities',['../class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5',1,'EntityController']]],
+  ['spawnmeteoroid',['spawnMeteoroid',['../class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2',1,'EntityController']]],
+  ['spawnsatellites',['spawnSatellites',['../class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593',1,'EntityController']]],
+  ['spawnspiral',['spawnSpiral',['../class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3',1,'EntityController']]],
+  ['starfield',['StarField',['../class_star_field.html#afbececa11c506cc34ba22b720674224f',1,'StarField']]],
+  ['start',['Start',['../class_game.html#adb05b20574551a26f8cf1dc664782790',1,'Game']]],
+  ['stopmusic',['stopMusic',['../class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24',1,'SoundController']]],
+  ['stopsound',['stopSound',['../class_sound_controller.html#ab531a6078abc8c84441242bf7e57a48b',1,'SoundController']]]
 ];

@@ -1,8 +1,10 @@
 <map id="PlayerShip::getAngle" name="PlayerShip::getAngle">
-<area shape="rect" id="node2" href="$class_entity_controller.html#ac63b711dd1650f945ddf72d05917d4a3" title="Controller and manager for game entity objects. " alt="" coords="199,5,352,44"/>
-<area shape="rect" id="node3" href="$class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="EntityController::shoot" alt="" coords="200,68,352,93"/>
-<area shape="rect" id="node7" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="EntityController::killAll\lEnemiesOfType" alt="" coords="201,117,351,156"/>
-<area shape="rect" id="node4" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="400,96,490,121"/>
-<area shape="rect" id="node5" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="538,96,631,121"/>
-<area shape="rect" id="node6" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="679,96,729,121"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="209,5,402,31"/>
+<area shape="rect" id="node6" href="$class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="199,55,412,80"/>
+<area shape="rect" id="node7" href="$class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="227,104,384,143"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="486,160,636,199"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="460,55,662,80"/>
+<area shape="rect" id="node4" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="710,111,799,136"/>
+<area shape="rect" id="node5" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="847,111,941,136"/>
+<area shape="rect" id="node8" href="$class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="485,111,637,136"/>
 </map>

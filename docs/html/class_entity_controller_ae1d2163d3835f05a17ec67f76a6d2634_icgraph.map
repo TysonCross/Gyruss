@@ -1,7 +1,6 @@
 <map id="EntityController::collides" name="EntityController::collides">
-<area shape="rect" id="node2" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="EntityController::checkCollisions" alt="" coords="218,5,429,31"/>
-<area shape="rect" id="node6" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="EntityController::killAll\lEnemiesOfType" alt="" coords="248,55,399,93"/>
-<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="477,33,567,59"/>
-<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="615,33,708,59"/>
-<area shape="rect" id="node5" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="756,33,806,59"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="218,5,429,31"/>
+<area shape="rect" id="node5" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="248,55,399,93"/>
+<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="477,33,567,59"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="615,33,708,59"/>
 </map>

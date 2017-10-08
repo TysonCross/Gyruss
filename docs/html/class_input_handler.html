@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -90,23 +90,32 @@ $(document).ready(function(){initNavTree('class_input_handler.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>The <a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> class.  
+ <a href="class_input_handler.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a698aa4af4f326a9881835fda251ca996"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a698aa4af4f326a9881835fda251ca996">InputHandler</a> ()</td></tr>
-<tr class="memdesc:a698aa4af4f326a9881835fda251ca996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in the map of current keypresses.  <a href="#a698aa4af4f326a9881835fda251ca996">More...</a><br /></td></tr>
+<tr class="memdesc:a698aa4af4f326a9881835fda251ca996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a698aa4af4f326a9881835fda251ca996">More...</a><br /></td></tr>
 <tr class="separator:a698aa4af4f326a9881835fda251ca996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6774fa1b6782ecfba8aeb412fec7ea26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a6774fa1b6782ecfba8aeb412fec7ea26">pollInput</a> (<a class="el" href="namespacegame.html#ade18e0427d43400c7539d36c85c87657">game::GameState</a> &amp;gameState, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const sf::Event &amp;event)</td></tr>
-<tr class="separator:a6774fa1b6782ecfba8aeb412fec7ea26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a7bfd24153cb5d2513f6c3eea45222f2e">pollInput</a> (game::GameState &amp;gameState, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const Event &amp;event)</td></tr>
+<tr class="memdesc:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls the keyboard input events.  <a href="#a7bfd24153cb5d2513f6c3eea45222f2e">More...</a><br /></td></tr>
+<tr class="separator:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4755fd435c868b7f4d281144e913ff9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a4755fd435c868b7f4d281144e913ff9c">update</a> (<a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const float deltaTime)</td></tr>
+<tr class="memdesc:a4755fd435c868b7f4d281144e913ff9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up any player movement on the playerShip setMove() command, depending on the input during the polling.  <a href="#a4755fd435c868b7f4d281144e913ff9c">More...</a><br /></td></tr>
 <tr class="separator:a4755fd435c868b7f4d281144e913ff9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7028e9c3c69eaf9749a2b6cc8d5967"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967">reset</a> ()</td></tr>
+<tr class="memitem:a1e7028e9c3c69eaf9749a2b6cc8d5967"><td class="memItemLeft" align="right" valign="top"><a id="a1e7028e9c3c69eaf9749a2b6cc8d5967"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967">reset</a> ()</td></tr>
+<tr class="memdesc:a1e7028e9c3c69eaf9749a2b6cc8d5967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the inputHandler object. <br /></td></tr>
 <tr class="separator:a1e7028e9c3c69eaf9749a2b6cc8d5967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_input_handler_8hpp_source.html#l00023">23</a> of file <a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>.</p>
+<div class="textblock"><p>The <a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> class. </p>
+<p>Handles player input to control the playerShip (moving, shooting) </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_handler_8hpp_source.html#l00030">30</a> of file <a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a698aa4af4f326a9881835fda251ca996"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a698aa4af4f326a9881835fda251ca996">&#9670;&nbsp;</a></span>InputHandler()</h2>
@@ -123,7 +132,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read in the map of current keypresses. </p>
+<p>Default constructor. </p>
+<p>Read in the map of current keypresses.</p>
+<p>Initialises the default button state for the SpaceBar (to 0, i.e not pressed)</p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/09 Reads in the key presses during the last polled game Loop, and maps these keys to actions</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -132,8 +143,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6774fa1b6782ecfba8aeb412fec7ea26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6774fa1b6782ecfba8aeb412fec7ea26">&#9670;&nbsp;</a></span>pollInput()</h2>
+<a id="a7bfd24153cb5d2513f6c3eea45222f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bfd24153cb5d2513f6c3eea45222f2e">&#9670;&nbsp;</a></span>pollInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,7 +152,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void InputHandler::pollInput </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacegame.html#ade18e0427d43400c7539d36c85c87657">game::GameState</a> &amp;&#160;</td>
+          <td class="paramtype">game::GameState &amp;&#160;</td>
           <td class="paramname"><em>gameState</em>, </td>
         </tr>
         <tr>
@@ -153,7 +164,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sf::Event &amp;&#160;</td>
+          <td class="paramtype">const Event &amp;&#160;</td>
           <td class="paramname"><em>event</em>&#160;</td>
         </tr>
         <tr>
@@ -164,52 +175,37 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00019">19</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
+<p>Polls the keyboard input events. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameState</td><td>Closing the window sets the gameState to Exiting, so the game will close. </td></tr>
+    <tr><td class="paramname">playerShip</td><td>The playerShip is strongly coupled to inputHandler, as the objects are interdependent </td></tr>
+    <tr><td class="paramname">event</td><td>The sf::Event Object is passed by ref from <a class="el" href="class_game.html" title="The main Game class. ">Game</a>, to capture keyboard input during the polling period </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a> </dd>
+<dd>
+sf::Event </dd>
+<dd>
+<a class="el" href="_game_8hpp_source.html">Game.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00017">17</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_cgraph.png" border="0" usemap="#class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_cgraph" alt=""/></div>
-<map name="class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_cgraph" id="class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#abc675303e0479506beabfe48a8041879" title="PlayerShip::setShoot" alt="" coords="209,5,355,31"/>
+<div class="center"><img src="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_cgraph.png" border="0" usemap="#class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_cgraph" alt=""/></div>
+<map name="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_cgraph" id="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_cgraph">
+<area shape="rect" id="node2" href="class_player_ship.html#abc675303e0479506beabfe48a8041879" title="Sets the _isShooting state of the playerShip. " alt="" coords="209,5,355,31"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_icgraph.png" border="0" usemap="#class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_icgraph" alt=""/></div>
-<map name="class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_icgraph" id="class_input_handler_a6774fa1b6782ecfba8aeb412fec7ea26_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="209,5,298,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="346,5,440,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="488,5,538,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a1e7028e9c3c69eaf9749a2b6cc8d5967"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e7028e9c3c69eaf9749a2b6cc8d5967">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void InputHandler::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00089">89</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967_icgraph.png" border="0" usemap="#class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967_icgraph" alt=""/></div>
-<map name="class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967_icgraph" id="class_input_handler_a1e7028e9c3c69eaf9749a2b6cc8d5967_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="188,5,278,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="326,5,419,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="467,5,517,31"/>
+<div class="center"><img src="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph.png" border="0" usemap="#class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph" alt=""/></div>
+<map name="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph" id="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="209,5,298,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="346,5,440,31"/>
 </map>
 </div>
 
@@ -241,13 +237,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00071">71</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
+<p>Sets up any player movement on the playerShip setMove() command, depending on the input during the polling. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerShip</td><td>The playerShip object to set a move up for (planned but not performed) </td></tr>
+    <tr><td class="paramname">deltaTime</td><td>The amount of time that has passed since the previous update </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a> </dd>
+<dd>
+<a class="el" href="_game_8hpp_source.html">Game.hpp</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00069">69</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph.png" border="0" usemap="#class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph" alt=""/></div>
 <map name="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph" id="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="PlayerShip::setMove" alt="" coords="199,5,343,31"/>
+<area shape="rect" id="node2" href="class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="Sets the future player movement, rotating the the player ship around a circle by this angle..." alt="" coords="199,5,343,31"/>
 </map>
 </div>
 <div class="dynheader">
@@ -255,9 +263,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph.png" border="0" usemap="#class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph" alt=""/></div>
 <map name="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph" id="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="199,5,289,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="337,5,430,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="478,5,528,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="199,5,289,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="337,5,430,31"/>
 </map>
 </div>
 

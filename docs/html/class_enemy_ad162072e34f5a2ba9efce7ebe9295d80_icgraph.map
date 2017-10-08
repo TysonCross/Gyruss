@@ -1,3 +1,3 @@
 <map id="Enemy::reset" name="Enemy::reset">
-<area shape="rect" id="node2" href="$class_enemy.html#afad764b00a84735def86b410b4695a98" title="Enemy::die" alt="" coords="153,5,241,31"/>
+<area shape="rect" id="node2" href="$class_enemy.html#afad764b00a84735def86b410b4695a98" title="Decrements the enemy&#39;s lives. " alt="" coords="153,5,241,31"/>
 </map>

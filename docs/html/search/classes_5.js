@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputhandler',['InputHandler',['../class_input_handler.html',1,'']]]
+  ['hud',['HUD',['../class_h_u_d.html',1,'']]]
 ];

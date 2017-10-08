@@ -1,0 +1,6 @@
+<map id="EntityController::spawnSatellites" name="EntityController::spawnSatellites">
+<area shape="rect" id="node2" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="269,12,422,37"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="273,61,419,87"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="266,111,426,136"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="474,5,669,44"/>
+</map>

@@ -1,4 +1,5 @@
 <map id="Enemy::getAngleWithOffset" name="Enemy::getAngleWithOffset">
-<area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="238,5,341,31"/>
-<area shape="rect" id="node3" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="389,5,500,31"/>
+<area shape="rect" id="node2" href="$class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="238,5,391,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="439,5,542,31"/>
+<area shape="rect" id="node4" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="590,5,701,31"/>
 </map>

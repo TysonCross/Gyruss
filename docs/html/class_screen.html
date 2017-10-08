@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -107,10 +107,11 @@ Inheritance diagram for Screen:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac97870062b642e689a9884643f7936dd"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen.html#ac97870062b642e689a9884643f7936dd">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution)</td></tr>
+<tr class="memitem:ac97870062b642e689a9884643f7936dd"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen.html#ac97870062b642e689a9884643f7936dd">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution)</td></tr>
 <tr class="memdesc:ac97870062b642e689a9884643f7936dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows An info screen.  <a href="#ac97870062b642e689a9884643f7936dd">More...</a><br /></td></tr>
 <tr class="separator:ac97870062b642e689a9884643f7936dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2789ef03e5b9aaee55ae841c75a1a679"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution, const <a class="el" href="class_score.html">Score</a> &amp;score, const sf::Clock &amp;timeAlive)</td></tr>
+<tr class="memitem:a2789ef03e5b9aaee55ae841c75a1a679"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679">draw</a> (sf::RenderWindow &amp;window, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;fontHolder, const sf::Vector2i resolution, const <a class="el" href="class_score.html">Score</a> &amp;score, const sf::Clock &amp;timeAlive)</td></tr>
+<tr class="memdesc:a2789ef03e5b9aaee55ae841c75a1a679"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen.  <a href="#a2789ef03e5b9aaee55ae841c75a1a679">More...</a><br /></td></tr>
 <tr class="separator:a2789ef03e5b9aaee55ae841c75a1a679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -122,9 +123,12 @@ Protected Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class interface for a "Screen". </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>20/9/17 A screen is an additional graphical interface in the game which provides information about the game, before/after playing the game</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University Virtual class that is used in other screen-like displays such as <a class="el" href="class_screen_splash.html" title="Simple Splash Screen. ">ScreenSplash</a> and <a class="el" href="class_screen_game_over.html" title="Description of file in project Project. ">ScreenGameOver</a></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_screen_game_over_8hpp_source.html">ScreenGameOver.hpp</a> </dd>
+<dd>
+<a class="el" href="_screen_game_over_8hpp_source.html">ScreenGameOver.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_screen_8hpp_source.html#l00023">23</a> of file <a class="el" href="_screen_8hpp_source.html">Screen.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_screen_8hpp_source.html#l00030">30</a> of file <a class="el" href="_screen_8hpp_source.html">Screen.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac97870062b642e689a9884643f7936dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac97870062b642e689a9884643f7936dd">&#9670;&nbsp;</a></span>draw() <span class="overload">[1/2]</span></h2>
@@ -144,13 +148,13 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>textureHolder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>fontHolder</em>, </td>
         </tr>
         <tr>
@@ -176,17 +180,20 @@ Protected Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">window</td><td>The sf:Window object to draw and render to </td></tr>
-    <tr><td class="paramname">resourceMapper</td><td>The resourceMapper containing assets for the infoscreen</td></tr>
+    <tr><td class="paramname">textureHolder</td><td>The resourceMapper containing assets for the infoscreen </td></tr>
+    <tr><td class="paramname">resolution</td><td>used to define where elements on the screen should be placed </td></tr>
+    <tr><td class="paramname">fontHolder</td><td>used to store fonts needed for screen objects</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>integer to indicate if player chose to go to play screen or quit the game</dd></dl>
 <dl class="section see"><dt>See also</dt><dd>sf::Window </dd>
 <dd>
 ResourceMapper </dd></dl>
 
 <p>Reimplemented in <a class="el" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0">ScreenSplash</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_screen_8hpp_source.html#l00037">37</a> of file <a class="el" href="_screen_8hpp_source.html">Screen.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_screen_8hpp_source.html#l00047">47</a> of file <a class="el" href="_screen_8hpp_source.html">Screen.hpp</a>.</p>
 
 </div>
 </div>
@@ -208,13 +215,13 @@ ResourceMapper </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>textureHolder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>fontHolder</em>, </td>
         </tr>
         <tr>
@@ -248,7 +255,30 @@ ResourceMapper </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_screen_8hpp_source.html#l00043">43</a> of file <a class="el" href="_screen_8hpp_source.html">Screen.hpp</a>.</p>
+<p>Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The sf:Window object to draw and render to </td></tr>
+    <tr><td class="paramname">textureHolder</td><td>The resourceMapper containing assets for the infoscreen </td></tr>
+    <tr><td class="paramname">fontHolder</td><td>stores the fonts required for the screen object to function </td></tr>
+    <tr><td class="paramname">resolution</td><td>used to define where elements on the screen should be placed </td></tr>
+    <tr><td class="paramname">score</td><td>track the current game score as well as end game scores </td></tr>
+    <tr><td class="paramname">timeAlive</td><td>is used to show the end game screen the longest life that the player had</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>integer to indicate if player chose to go to play screen or quit the game</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Score.pp </dd>
+<dd>
+<a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a> </dd>
+<dd>
+sf::Window </dd>
+<dd>
+ResourceMapper </dd>
+<dd>
+sf::Clock </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_screen_8hpp_source.html#l00072">72</a> of file <a class="el" href="_screen_8hpp_source.html">Screen.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -315,14 +345,15 @@ Here is the call graph for this function:</div>
     <tr><td class="paramname">text</td><td>The sf:Text object to fade in and out </td></tr>
     <tr><td class="paramname">color</td><td>The sf::Color to fade up to </td></tr>
     <tr><td class="paramname">frequency</td><td>The frequency of the fade </td></tr>
-    <tr><td class="paramname">frequency</td><td>The frequency of the fade </td></tr>
     <tr><td class="paramname">clock</td><td>A changing value to alter the time step</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd>sf:Text </dd>
 <dd>
-sf::Color</dd></dl>
+sf::Color </dd>
+<dd>
+sf::Clock</dd></dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>20/9/17 A screen is an additional graphical interface in the game which provides information about the game, before/after playing the game</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -341,12 +372,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_screen_a888f338f352fdb0d1de1bd67a1bd8f84_icgraph.png" border="0" usemap="#class_screen_a888f338f352fdb0d1de1bd67a1bd8f84_icgraph" alt=""/></div>
 <map name="class_screen_a888f338f352fdb0d1de1bd67a1bd8f84_icgraph" id="class_screen_a888f338f352fdb0d1de1bd67a1bd8f84_icgraph">
-<area shape="rect" id="node2" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Screen::draw" alt="" coords="264,5,364,31"/>
-<area shape="rect" id="node3" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="231,55,396,80"/>
-<area shape="rect" id="node7" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="243,104,384,129"/>
-<area shape="rect" id="node4" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="444,80,534,105"/>
-<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="582,80,675,105"/>
-<area shape="rect" id="node6" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="723,80,773,105"/>
+<area shape="rect" id="node2" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="264,5,364,31"/>
+<area shape="rect" id="node3" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="231,55,396,80"/>
+<area shape="rect" id="node6" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="243,104,384,129"/>
+<area shape="rect" id="node4" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="444,80,534,105"/>
+<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="582,80,675,105"/>
 </map>
 </div>
 

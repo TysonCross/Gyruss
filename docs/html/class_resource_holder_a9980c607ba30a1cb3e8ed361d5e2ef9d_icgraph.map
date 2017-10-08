@@ -1,9 +1,8 @@
 <map id="ResourceHolder::get" name="ResourceHolder::get">
-<area shape="rect" id="node2" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="246,5,333,31"/>
-<area shape="rect" id="node6" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="207,55,372,80"/>
-<area shape="rect" id="node7" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="219,104,360,129"/>
-<area shape="rect" id="node8" href="$class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="SoundController::stopMusic" alt="" coords="197,153,382,179"/>
-<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="430,55,520,80"/>
-<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="568,55,661,80"/>
-<area shape="rect" id="node5" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="709,55,759,80"/>
+<area shape="rect" id="node2" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="246,5,333,31"/>
+<area shape="rect" id="node5" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="207,55,372,80"/>
+<area shape="rect" id="node6" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="219,104,360,129"/>
+<area shape="rect" id="node7" href="$class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="Stops playing game music. Called when main gameplay stops. " alt="" coords="197,153,382,179"/>
+<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="430,80,520,105"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="568,80,661,105"/>
 </map>

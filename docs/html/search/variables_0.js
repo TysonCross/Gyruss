@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['_5fangle',['_angle',['../class_entity.html#aaa8af32a9a6161e9ab8c43c5b0a15bae',1,'Entity']]],
-  ['_5fanimationfpslimit',['_animationFPSLimit',['../class_entity.html#a591f65d2a7f61f11a35b5ba99a0f554b',1,'Entity']]],
-  ['_5fdistancefromcentre',['_distanceFromCentre',['../class_entity.html#af114a6582c9a3811b4681d14b516b1f2',1,'Entity']]],
-  ['_5ffutureanglevalue',['_futureAngleValue',['../class_entity.html#a1ea7d0f9af807e9b17256eb27933b0a8',1,'Entity']]],
-  ['_5ffuturemovevalue',['_futureMoveValue',['../class_entity.html#a73e82cf77b309ddd4050173fbfa1c31b',1,'Entity']]],
-  ['_5fid',['_id',['../class_entity.html#abcbd384d49f43cd9947ba422393f69fb',1,'Entity']]],
-  ['_5fismoving',['_isMoving',['../class_entity.html#a84bc91bd82c6173b6dda752aa7f86348',1,'Entity']]],
+  ['_5fangle',['_angle',['../class_moveable.html#ac2a68042fa5a3847a34a14b0105efb3d',1,'Moveable']]],
+  ['_5fanimationfpslimit',['_animationFPSLimit',['../class_animatable.html#a1280f9cc58e0c28ad2adb64d096ef1bb',1,'Animatable']]],
+  ['_5fdistancefromcentre',['_distanceFromCentre',['../class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd',1,'Moveable']]],
+  ['_5ffutureanglevalue',['_futureAngleValue',['../class_moveable.html#a613f9733767607d2f64a04d045817d8b',1,'Moveable']]],
+  ['_5ffuturemovevalue',['_futureMoveValue',['../class_moveable.html#a4ad389e189304fce2a297bc819ca1492',1,'Moveable']]],
+  ['_5fid',['_id',['../class_animatable.html#a810e3fb0ae7097bf90c5cc7d745a0dde',1,'Animatable']]],
+  ['_5fismoving',['_isMoving',['../class_moveable.html#a0addc6d9eee002a0750a3293cd6d673c',1,'Moveable']]],
   ['_5flives',['_lives',['../class_entity.html#aa3b3d3f11c9034e91112f724203f4513',1,'Entity']]],
-  ['_5fresolution',['_resolution',['../class_entity.html#a4d841959ff82d04fa8bca5897c5ecb20',1,'Entity']]],
-  ['_5fscale',['_scale',['../class_entity.html#a043affe166433081b18fcb2deea4a613',1,'Entity']]],
-  ['_5fsprite',['_sprite',['../class_entity.html#a040bd9d02a9c5d0c7f07348bc15cc0a3',1,'Entity']]],
-  ['_5ftype',['_type',['../class_entity.html#a1b22b079d0112030ff32c91f83588964',1,'Entity']]]
+  ['_5fresolution',['_resolution',['../class_entity.html#af0fd76b4690aee4a244f3f77a77854f5',1,'Entity']]],
+  ['_5fscale',['_scale',['../class_moveable.html#a0e49af81ec9b03149a8704c6f1bc51b1',1,'Moveable']]],
+  ['_5fsprite',['_sprite',['../class_animatable.html#af157c80921e5afac531de85c1b63caef',1,'Animatable']]],
+  ['_5ftype',['_type',['../class_animatable.html#a8f0c6a5d49b6d4fde06bab2ed0dd0680',1,'Animatable']]]
 ];

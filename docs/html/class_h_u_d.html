@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -97,21 +97,25 @@ $(document).ready(function(){initNavTree('class_h_u_d.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8ff722128b70b44b16e915f37147d2fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_u_d.html#a8ff722128b70b44b16e915f37147d2fe">HUD</a> (const sf::Vector2i resolution, sf::RenderWindow &amp;renderWindow, const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;textureHolder, const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;fontHolder, const <a class="el" href="class_score.html">Score</a> &amp;score, const <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip)</td></tr>
-<tr class="memdesc:a8ff722128b70b44b16e915f37147d2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Head Up Display showing the score, player lives.  <a href="#a8ff722128b70b44b16e915f37147d2fe">More...</a><br /></td></tr>
-<tr class="separator:a8ff722128b70b44b16e915f37147d2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace77b78644c4dae7f73ff518b39fc553"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553">draw</a> ()</td></tr>
+<tr class="memitem:aba8bfc6d27ab365ad70ca95f2737052d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_u_d.html#aba8bfc6d27ab365ad70ca95f2737052d">HUD</a> (const sf::Vector2i resolution, sf::RenderWindow &amp;renderWindow, const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;fontHolder, const <a class="el" href="class_score.html">Score</a> &amp;score, const <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip)</td></tr>
+<tr class="memdesc:aba8bfc6d27ab365ad70ca95f2737052d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> class constructor. Initiated on game start.  <a href="#aba8bfc6d27ab365ad70ca95f2737052d">More...</a><br /></td></tr>
+<tr class="separator:aba8bfc6d27ab365ad70ca95f2737052d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace77b78644c4dae7f73ff518b39fc553"><td class="memItemLeft" align="right" valign="top"><a id="ace77b78644c4dae7f73ff518b39fc553"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553">draw</a> ()</td></tr>
+<tr class="memdesc:ace77b78644c4dae7f73ff518b39fc553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> to the current game renderWindow for the current lives and game score. <br /></td></tr>
 <tr class="separator:ace77b78644c4dae7f73ff518b39fc553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Head Up Display showing the score, player lives. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>21/9/17 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> class, to inform the user of remaining lives and other game information</dd></dl>
+<p>Sources information from the score object from game</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_score_8hpp_source.html">Score.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_h_u_d_8hpp_source.html#l00019">19</a> of file <a class="el" href="_h_u_d_8hpp_source.html">HUD.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_h_u_d_8hpp_source.html#l00026">26</a> of file <a class="el" href="_h_u_d_8hpp_source.html">HUD.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8ff722128b70b44b16e915f37147d2fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ff722128b70b44b16e915f37147d2fe">&#9670;&nbsp;</a></span>HUD()</h2>
+<a id="aba8bfc6d27ab365ad70ca95f2737052d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba8bfc6d27ab365ad70ca95f2737052d">&#9670;&nbsp;</a></span>HUD()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,13 +135,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa491bb27b03b0e6a7b4f30be4e85f4c8">TextureHolder</a> &amp;&#160;</td>
-          <td class="paramname"><em>textureHolder</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="common_8hpp.html#aa47072d7bbb8db62a96d5c022267753b">FontHolder</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_resource_holder.html">FontHolder</a> &amp;&#160;</td>
           <td class="paramname"><em>fontHolder</em>, </td>
         </tr>
         <tr>
@@ -160,54 +158,27 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Head Up Display showing the score, player lives. </p>
+<p><a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> class constructor. Initiated on game start. </p>
+<p>Head Up Display showing the score, player lives.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resolution</td><td>stores the size of the screen so the <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> knows where to position itself </td></tr>
+    <tr><td class="paramname">renderWindow</td><td>enables the <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> to draw directly onto the game screen </td></tr>
+    <tr><td class="paramname">fontHolder</td><td>is used to pass the required fonts to the <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> </td></tr>
+    <tr><td class="paramname">score</td><td>object enables the <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> to display the current game score, calculated and stored in score object </td></tr>
+    <tr><td class="paramname">playerShip</td><td>provides the playerShip state to the <a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a>, so the player can see if his is alive/dead/invulnerable</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>sf::RenderWindow </dd>
+<dd>
+sf::Vector2i </dd>
+<dd>
+<a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a></dd></dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>21/9/17 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_h_u_d_8cpp_source.html#l00013">13</a> of file <a class="el" href="_h_u_d_8cpp_source.html">HUD.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ace77b78644c4dae7f73ff518b39fc553"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace77b78644c4dae7f73ff518b39fc553">&#9670;&nbsp;</a></span>draw()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HUD::draw </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_h_u_d_8cpp_source.html#l00025">25</a> of file <a class="el" href="_h_u_d_8cpp_source.html">HUD.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_cgraph.png" border="0" usemap="#class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_cgraph" alt=""/></div>
-<map name="class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_cgraph" id="class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449" title="PlayerShip::getLives" alt="" coords="156,5,299,31"/>
-<area shape="rect" id="node3" href="class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="156,55,299,80"/>
-<area shape="rect" id="node4" href="namespacecommon.html#a57d85e335a22618353b464b768a3818c" title="Converts an int to a string, with optional padding. " alt="" coords="145,104,311,129"/>
-<area shape="rect" id="node5" href="class_score.html#a9925b73e3f421878dbb192ab9924560b" title="Score::getScore" alt="" coords="169,153,286,179"/>
-<area shape="rect" id="node6" href="class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="140,203,315,228"/>
-<area shape="rect" id="node7" href="class_score.html#a81b38b72c9ab9b4fb623fc8604477e61" title="Score::getTimeAlive" alt="" coords="158,252,298,277"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_icgraph.png" border="0" usemap="#class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_icgraph" alt=""/></div>
-<map name="class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_icgraph" id="class_h_u_d_ace77b78644c4dae7f73ff518b39fc553_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="140,5,229,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="277,5,371,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="419,5,469,31"/>
-</map>
-</div>
 
 </div>
 </div>

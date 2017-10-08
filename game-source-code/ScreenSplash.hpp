@@ -71,8 +71,10 @@ public:
                        int frameTotal,
                        int &i);
     ////////////////////////////////////////////////////////////
-    /// \brief Function used to fetch the highscore from disk when the game runs to show the player the
-    /// previous highscores
+    /// \brief Function used to fetch the highscore.
+    ///
+    /// The highscore is fetched from disk when the game runs to
+    /// show the player the previous highscores
     ////////////////////////////////////////////////////////////
     std::string getHighScore();
 

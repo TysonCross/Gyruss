@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -98,23 +98,40 @@ $(document).ready(function(){initNavTree('class_sound_controller.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9d4c141022e6955993e3633263b61f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ae9d4c141022e6955993e3633263b61f2">SoundController</a> ()</td></tr>
-<tr class="memdesc:ae9d4c141022e6955993e3633263b61f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controller for all sound events.  <a href="#ae9d4c141022e6955993e3633263b61f2">More...</a><br /></td></tr>
+<tr class="memdesc:ae9d4c141022e6955993e3633263b61f2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> constructor. when called, calles the loadResources to load the sounds into memory and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now ready to be called from any game object to be played. All the game object needs to know is the ID of the sound (i.e. its name) and it can be played without having to load the sound in from disk first.  <a href="#ae9d4c141022e6955993e3633263b61f2">More...</a><br /></td></tr>
 <tr class="separator:ae9d4c141022e6955993e3633263b61f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad166b1139448dd0549facbb8a31693fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ad166b1139448dd0549facbb8a31693fb">playSound</a> (<a class="el" href="namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fe">sounds::ID</a> id, float pitch=1.f, float volume=100)</td></tr>
-<tr class="separator:ad166b1139448dd0549facbb8a31693fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a006740b8f08a9d288800807f75626c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#a9a006740b8f08a9d288800807f75626c">playSound</a> (sounds::ID id, float pitch=1.f, float volume=100, bool loop=0)</td></tr>
+<tr class="memdesc:a9a006740b8f08a9d288800807f75626c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PlaySound is used whenever a sound is needed to be played, from any contex.  <a href="#a9a006740b8f08a9d288800807f75626c">More...</a><br /></td></tr>
+<tr class="separator:a9a006740b8f08a9d288800807f75626c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5d0f352e0c792cf97d3bc46b634721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#a0c5d0f352e0c792cf97d3bc46b634721">setPitch</a> (sounds::ID id, float pitch)</td></tr>
+<tr class="memdesc:a0c5d0f352e0c792cf97d3bc46b634721"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPitch enables the caller to change the pitch of a particular sound by ID  <a href="#a0c5d0f352e0c792cf97d3bc46b634721">More...</a><br /></td></tr>
+<tr class="separator:a0c5d0f352e0c792cf97d3bc46b634721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5078268ad0c88dd71f18ba572165508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#af5078268ad0c88dd71f18ba572165508">setPosition</a> (sounds::ID id, <a class="el" href="structcommon_1_1position.html">common::position</a> position)</td></tr>
+<tr class="memdesc:af5078268ad0c88dd71f18ba572165508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a mechanism for generating "3D" sterio sound as the playership moves around the play circle.  <a href="#af5078268ad0c88dd71f18ba572165508">More...</a><br /></td></tr>
+<tr class="separator:af5078268ad0c88dd71f18ba572165508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab531a6078abc8c84441242bf7e57a48b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ab531a6078abc8c84441242bf7e57a48b">stopSound</a> (sounds::ID id)</td></tr>
+<tr class="memdesc:ab531a6078abc8c84441242bf7e57a48b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a sound from playing, based on an id.  <a href="#ab531a6078abc8c84441242bf7e57a48b">More...</a><br /></td></tr>
+<tr class="separator:ab531a6078abc8c84441242bf7e57a48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab645f2a1e754457bc8c822e784f8ba8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ab645f2a1e754457bc8c822e784f8ba8c">loadMusic</a> ()</td></tr>
+<tr class="memdesc:ab645f2a1e754457bc8c822e784f8ba8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the game music from disk into memory.  <a href="#ab645f2a1e754457bc8c822e784f8ba8c">More...</a><br /></td></tr>
 <tr class="separator:ab645f2a1e754457bc8c822e784f8ba8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd1cce218aa81692c8359349a93daeef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#afd1cce218aa81692c8359349a93daeef">playMusic</a> ()</td></tr>
+<tr class="memitem:afd1cce218aa81692c8359349a93daeef"><td class="memItemLeft" align="right" valign="top"><a id="afd1cce218aa81692c8359349a93daeef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#afd1cce218aa81692c8359349a93daeef">playMusic</a> ()</td></tr>
+<tr class="memdesc:afd1cce218aa81692c8359349a93daeef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts playing game music. Called main gameplay starts. <br /></td></tr>
 <tr class="separator:afd1cce218aa81692c8359349a93daeef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4149c542d65f8036ad438982b5f9e24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24">stopMusic</a> ()</td></tr>
+<tr class="memitem:ab4149c542d65f8036ad438982b5f9e24"><td class="memItemLeft" align="right" valign="top"><a id="ab4149c542d65f8036ad438982b5f9e24"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24">stopMusic</a> ()</td></tr>
+<tr class="memdesc:ab4149c542d65f8036ad438982b5f9e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops playing game music. Called when main gameplay stops. <br /></td></tr>
 <tr class="separator:ab4149c542d65f8036ad438982b5f9e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Controller for all sound events. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>21/9/17 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University <a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> Class used to handle all game sounds generated through the game</dd></dl>
+<p>Whenever a game sound is made, in any form, the <a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> is responsible for playing it. The sound controler is also responsible for loading the sounds in to the game from disk Its design is very similar to that of <a class="el" href="class_resource_holder.html" title="The ResourceType class. ">ResourceHolder</a>, except it has the ability to play sounds</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_sound_controller_8hpp_source.html#l00016">16</a> of file <a class="el" href="_sound_controller_8hpp_source.html">SoundController.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_sound_controller_8hpp_source.html#l00024">24</a> of file <a class="el" href="_sound_controller_8hpp_source.html">SoundController.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae9d4c141022e6955993e3633263b61f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9d4c141022e6955993e3633263b61f2">&#9670;&nbsp;</a></span>SoundController()</h2>
@@ -131,7 +148,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Controller for all sound events. </p>
+<p><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> constructor. when called, calles the loadResources to load the sounds into memory and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now ready to be called from any game object to be played. All the game object needs to know is the ID of the sound (i.e. its name) and it can be played without having to load the sound in from disk first. </p>
+<p>Controller for all sound events.</p>
+<dl class="section see"><dt>See also</dt><dd>loadResources() </dd>
+<dd>
+getSounds()</dd></dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>21/9/17 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -155,31 +176,24 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00024">24</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
+<p>Loads the game music from disk into memory. </p>
+<dl class="section return"><dt>Returns</dt><dd>A bool to indicate success </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00042">42</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sound_controller_ab645f2a1e754457bc8c822e784f8ba8c_icgraph.png" border="0" usemap="#class_sound_controller_ab645f2a1e754457bc8c822e784f8ba8c_icgraph" alt=""/></div>
+<map name="class_sound_controller_ab645f2a1e754457bc8c822e784f8ba8c_icgraph" id="class_sound_controller_ab645f2a1e754457bc8c822e784f8ba8c_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="238,5,328,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="376,5,469,31"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="afd1cce218aa81692c8359349a93daeef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd1cce218aa81692c8359349a93daeef">&#9670;&nbsp;</a></span>playMusic()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SoundController::playMusic </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00030">30</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ad166b1139448dd0549facbb8a31693fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad166b1139448dd0549facbb8a31693fb">&#9670;&nbsp;</a></span>playSound()</h2>
+<a id="a9a006740b8f08a9d288800807f75626c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a006740b8f08a9d288800807f75626c">&#9670;&nbsp;</a></span>playSound()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +201,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SoundController::playSound </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fe">sounds::ID</a>&#160;</td>
+          <td class="paramtype">sounds::ID&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
@@ -200,7 +214,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>volume</em> = <code>100</code>&#160;</td>
+          <td class="paramname"><em>volume</em> = <code>100</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>loop</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,43 +230,159 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>PlaySound is used whenever a sound is needed to be played, from any contex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>defines the sound ID that is to be played. these are unique. Using this ID, The caller of the function can define what sound they want to play </td></tr>
+    <tr><td class="paramname">pitch</td><td>enables the caller to set the pitch of the sound </td></tr>
+    <tr><td class="paramname">volume</td><td>enables the caller to set the volume of the sound </td></tr>
+    <tr><td class="paramname">loop</td><td>enables or disables the looping of the played sound. i.e. when the sound ends, if looping is set to true, the sound will start playing again. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00017">17</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_sound_controller_ad166b1139448dd0549facbb8a31693fb_icgraph.png" border="0" usemap="#class_sound_controller_ad166b1139448dd0549facbb8a31693fb_icgraph" alt=""/></div>
-<map name="class_sound_controller_ad166b1139448dd0549facbb8a31693fb_icgraph" id="class_sound_controller_ad166b1139448dd0549facbb8a31693fb_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="241,5,331,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="379,5,472,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="520,5,570,31"/>
+<div class="center"><img src="class_sound_controller_a9a006740b8f08a9d288800807f75626c_icgraph.png" border="0" usemap="#class_sound_controller_a9a006740b8f08a9d288800807f75626c_icgraph" alt=""/></div>
+<map name="class_sound_controller_a9a006740b8f08a9d288800807f75626c_icgraph" id="class_sound_controller_a9a006740b8f08a9d288800807f75626c_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="241,5,331,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="379,5,472,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ab4149c542d65f8036ad438982b5f9e24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4149c542d65f8036ad438982b5f9e24">&#9670;&nbsp;</a></span>stopMusic()</h2>
+<a id="a0c5d0f352e0c792cf97d3bc46b634721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5d0f352e0c792cf97d3bc46b634721">&#9670;&nbsp;</a></span>setPitch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SoundController::stopMusic </td>
+          <td class="memname">void SoundController::setPitch </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">sounds::ID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>pitch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setPitch enables the caller to change the pitch of a particular sound by ID </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the spesific ID of a sound to change the pitch for </td></tr>
+    <tr><td class="paramname">pitch</td><td>the desired pitch to be set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00032">32</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sound_controller_a0c5d0f352e0c792cf97d3bc46b634721_icgraph.png" border="0" usemap="#class_sound_controller_a0c5d0f352e0c792cf97d3bc46b634721_icgraph" alt=""/></div>
+<map name="class_sound_controller_a0c5d0f352e0c792cf97d3bc46b634721_icgraph" id="class_sound_controller_a0c5d0f352e0c792cf97d3bc46b634721_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="226,5,315,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="363,5,457,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af5078268ad0c88dd71f18ba572165508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5078268ad0c88dd71f18ba572165508">&#9670;&nbsp;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SoundController::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">sounds::ID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcommon_1_1position.html">common::position</a>&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provides a mechanism for generating "3D" sterio sound as the playership moves around the play circle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>defines the sound to have position changed </td></tr>
+    <tr><td class="paramname">position</td><td>defines the position to set for the associated sound</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>SFML/sound </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00037">37</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sound_controller_af5078268ad0c88dd71f18ba572165508_icgraph.png" border="0" usemap="#class_sound_controller_af5078268ad0c88dd71f18ba572165508_icgraph" alt=""/></div>
+<map name="class_sound_controller_af5078268ad0c88dd71f18ba572165508_icgraph" id="class_sound_controller_af5078268ad0c88dd71f18ba572165508_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="244,5,333,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="381,5,474,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab531a6078abc8c84441242bf7e57a48b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab531a6078abc8c84441242bf7e57a48b">&#9670;&nbsp;</a></span>stopSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SoundController::stopSound </td>
+          <td>(</td>
+          <td class="paramtype">sounds::ID&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00036">36</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
+<p>Stops a sound from playing, based on an id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>sound to stop playing </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_sound_controller_8cpp_source.html#l00025">25</a> of file <a class="el" href="_sound_controller_8cpp_source.html">SoundController.cpp</a>.</p>
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_sound_controller_ab4149c542d65f8036ad438982b5f9e24_cgraph.png" border="0" usemap="#class_sound_controller_ab4149c542d65f8036ad438982b5f9e24_cgraph" alt=""/></div>
-<map name="class_sound_controller_ab4149c542d65f8036ad438982b5f9e24_cgraph" id="class_sound_controller_ab4149c542d65f8036ad438982b5f9e24_cgraph">
-<area shape="rect" id="node2" href="class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="242,5,385,31"/>
-<area shape="rect" id="node3" href="class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="238,55,389,80"/>
+<div class="center"><img src="class_sound_controller_ab531a6078abc8c84441242bf7e57a48b_icgraph.png" border="0" usemap="#class_sound_controller_ab531a6078abc8c84441242bf7e57a48b_icgraph" alt=""/></div>
+<map name="class_sound_controller_ab531a6078abc8c84441242bf7e57a48b_icgraph" id="class_sound_controller_ab531a6078abc8c84441242bf7e57a48b_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="242,5,332,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="380,5,473,31"/>
 </map>
 </div>
 

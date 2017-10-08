@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('class_star_field.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afbececa11c506cc34ba22b720674224f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_star_field.html#afbececa11c506cc34ba22b720674224f">StarField</a> (const sf::Vector2i resolution, const int max_depth, const int number_of_stars, float max_size=6.0f)</td></tr>
-<tr class="memdesc:afbececa11c506cc34ba22b720674224f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the background star effect.  <a href="#afbececa11c506cc34ba22b720674224f">More...</a><br /></td></tr>
+<tr class="memdesc:afbececa11c506cc34ba22b720674224f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> constructor.  <a href="#afbececa11c506cc34ba22b720674224f">More...</a><br /></td></tr>
 <tr class="separator:afbececa11c506cc34ba22b720674224f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b98fd26428d39c62cad82492f2b853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_star_field.html#a12b98fd26428d39c62cad82492f2b853">moveAndDrawStars</a> (sf::RenderWindow &amp;renderWindow, float speed=0.0008, int light_shift_amount=3)</td></tr>
 <tr class="memdesc:a12b98fd26428d39c62cad82492f2b853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the star positions along -Z in the starField object, then draws a square at each position in the starField.  <a href="#a12b98fd26428d39c62cad82492f2b853">More...</a><br /></td></tr>
@@ -110,18 +110,9 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Background Starfield effect. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/11 Definition for the starfield effect, a moving field of pixels creating the illusion of flying down a tunnel in space.</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University Creates a starfield object, a vector of 3d points The field is made up of many stars (a struct of three floats The stars are psuedorandomly generated to fill the volume enclosed by screen height * screen widgth * maximum depth</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">resourceMapper</td><td>The resourceMapper object that contains the path to the texture(s) for the sprite </td></tr>
-    <tr><td class="paramname">number_of_stars</td><td>The number of stars in the vector </td></tr>
-    <tr><td class="paramname">max_depth</td><td>distance from the "camera plane" </td></tr>
-    <tr><td class="paramname">max_size</td><td>The maximum scale of the rectangle of a star </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University Creates a starfield object, a vector of 3d points The field is made up of many stars (a struct of three floats The stars are psuedorandomly generated to fill the volume enclosed by screen height * screen widgth * maximum depth </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_starfield_8hpp_source.html#l00037">37</a> of file <a class="el" href="_starfield_8hpp_source.html">Starfield.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_starfield_8hpp_source.html#l00027">27</a> of file <a class="el" href="_starfield_8hpp_source.html">Starfield.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afbececa11c506cc34ba22b720674224f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afbececa11c506cc34ba22b720674224f">&#9670;&nbsp;</a></span>StarField()</h2>
@@ -161,7 +152,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implementation of the background star effect. </p>
+<p><a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> constructor. </p>
+<p>Implementation of the background star effect.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resolution</td><td>screen size used to calculate the dimensions of the screen </td></tr>
+    <tr><td class="paramname">max_depth</td><td>distance from the "camera plane" </td></tr>
+    <tr><td class="paramname">number_of_stars</td><td>The number of stars in the vector </td></tr>
+    <tr><td class="paramname">max_size</td><td>The maximum scale of the rectangle of a star</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/11 Creates a distribution of stars, and simulates moving through this field, scaling and dimming them to fake a a perspective motion with parallax (An orthographic projection)</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 
@@ -186,6 +187,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a reference to the <a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> object (for iterating through the elements) </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector of type position (the star objects) </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00091">91</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
 <div class="dynheader">
@@ -193,10 +195,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_star_field_acc5e764762506119799c3e37b912564a_icgraph.png" border="0" usemap="#class_star_field_acc5e764762506119799c3e37b912564a_icgraph" alt=""/></div>
 <map name="class_star_field_acc5e764762506119799c3e37b912564a_icgraph" id="class_star_field_acc5e764762506119799c3e37b912564a_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="396,5,485,31"/>
-<area shape="rect" id="node5" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="207,31,348,56"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="533,5,627,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="675,5,725,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="396,5,485,31"/>
+<area shape="rect" id="node4" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="207,31,348,56"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="533,5,627,31"/>
 </map>
 </div>
 
@@ -238,8 +239,8 @@ Here is the caller graph for this function:</div>
 <p>The movement along Z is not physically accurate, but uses a fast approximation: (Δposition - max_depth) / max_depth</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">renderWindow</td><td>The sf:Window object to draw and render to </td></tr>
     <tr><td class="paramname">speed</td><td>The delta to move the stars </td></tr>
-    <tr><td class="paramname">window</td><td>The sf:Window object to draw and render to </td></tr>
     <tr><td class="paramname">light_shift_amount</td><td>Controls amount of colorful stars light_shift_amount = 0 : undefined behaviour light_shift_amount = 1 : all stars are colorful light_shift_amount &gt; 1 : reduces no. of colorful stars</td></tr>
   </table>
   </dd>
@@ -252,10 +253,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph.png" border="0" usemap="#class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph" alt=""/></div>
 <map name="class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph" id="class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="443,5,532,31"/>
-<area shape="rect" id="node5" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="254,31,395,56"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="580,5,673,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="721,5,772,31"/>
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="443,5,532,31"/>
+<area shape="rect" id="node4" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="254,31,395,56"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="580,5,673,31"/>
 </map>
 </div>
 

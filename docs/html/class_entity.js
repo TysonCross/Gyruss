@@ -1,29 +1,11 @@
 var class_entity =
 [
-    [ "Entity", "class_entity.html#a980f368aa07ce358583982821533a54a", null ],
-    [ "Entity", "class_entity.html#a9efef0cdef3dd642f7687208df014363", null ],
+    [ "Entity", "class_entity.html#a834847e68c24a42c83d984455b6b4ba4", null ],
     [ "die", "class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e", null ],
-    [ "getDistanceFromCentre", "class_entity.html#a18ae35ec14f8c0ebbcaf234c26f5429e", null ],
     [ "getLives", "class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc", null ],
-    [ "getPosition", "class_entity.html#a9edc43f1bf4d31ed1d51aa2dfbf6fb23", null ],
-    [ "getRadius", "class_entity.html#adb509e7ecf0f3e998a67657bdf2076e6", null ],
-    [ "getScale", "class_entity.html#aa216cd54efce968f742e06f816a8f3b0", null ],
-    [ "getSprite", "class_entity.html#aea546eec846ec6a7c5668db7b79cd2ac", null ],
     [ "move", "class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf", null ],
     [ "reset", "class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d", null ],
-    [ "setMove", "class_entity.html#a86ed0d4d7c3c33bce9ba8c66e2503fa7", null ],
-    [ "setMove", "class_entity.html#ad901449ea32a9cace98ab926ca249bfb", null ],
     [ "update", "class_entity.html#a59a29d9b7474baf13c9c76859242287d", null ],
-    [ "_angle", "class_entity.html#aaa8af32a9a6161e9ab8c43c5b0a15bae", null ],
-    [ "_animationFPSLimit", "class_entity.html#a591f65d2a7f61f11a35b5ba99a0f554b", null ],
-    [ "_distanceFromCentre", "class_entity.html#af114a6582c9a3811b4681d14b516b1f2", null ],
-    [ "_futureAngleValue", "class_entity.html#a1ea7d0f9af807e9b17256eb27933b0a8", null ],
-    [ "_futureMoveValue", "class_entity.html#a73e82cf77b309ddd4050173fbfa1c31b", null ],
-    [ "_id", "class_entity.html#abcbd384d49f43cd9947ba422393f69fb", null ],
-    [ "_isMoving", "class_entity.html#a84bc91bd82c6173b6dda752aa7f86348", null ],
     [ "_lives", "class_entity.html#aa3b3d3f11c9034e91112f724203f4513", null ],
-    [ "_resolution", "class_entity.html#a4d841959ff82d04fa8bca5897c5ecb20", null ],
-    [ "_scale", "class_entity.html#a043affe166433081b18fcb2deea4a613", null ],
-    [ "_sprite", "class_entity.html#a040bd9d02a9c5d0c7f07348bc15cc0a3", null ],
-    [ "_type", "class_entity.html#a1b22b079d0112030ff32c91f83588964", null ]
+    [ "_resolution", "class_entity.html#af0fd76b4690aee4a244f3f77a77854f5", null ]
 ];

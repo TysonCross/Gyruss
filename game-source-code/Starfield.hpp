@@ -48,8 +48,8 @@ public:
     /// but uses a fast approximation:
     /// (Δposition - max_depth) / max_depth
     ///
+    /// \param renderWindow The sf:Window object to draw and render to
     /// \param speed The delta to move the stars
-    /// \param window The sf:Window object to draw and render to
     /// \param light_shift_amount Controls amount of colorful stars
     /// light_shift_amount = 0 : undefined behaviour
     /// light_shift_amount = 1 : all stars are colorful
@@ -65,15 +65,15 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Returns a reference to the StarField object
     /// (for iterating through the elements)
-    ///
+    /// \return A vector of type position (the star objects)
     ////////////////////////////////////////////////////////////
     std::vector<common::position> &getStarField();
 
 private:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Vector to store the starFields position in space.
-    /// This vector has all  stars stored in it ant any point in time
+    /// \brief Vector to store the starField point positions in space.
+    /// This vector has all stars stored in it at any point in time
     ////////////////////////////////////////////////////////////
     std::vector<common::position> _starField;
 

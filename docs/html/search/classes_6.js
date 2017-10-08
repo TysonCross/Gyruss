@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['meteoroid',['Meteoroid',['../class_meteoroid.html',1,'']]]
+  ['inputhandler',['InputHandler',['../class_input_handler.html',1,'']]]
 ];

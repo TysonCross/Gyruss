@@ -1,3 +1,3 @@
 <map id="Entity::getLives" name="Entity::getLives">
-<area shape="rect" id="node2" href="$class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="165,5,278,31"/>
+<area shape="rect" id="node2" href="$class_entity.html#a834847e68c24a42c83d984455b6b4ba4" title="The Entity class constructor Calls the Moveable and Animatable constructors, and sets the resolution..." alt="" coords="165,5,261,31"/>
 </map>

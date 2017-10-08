@@ -1,12 +1,12 @@
 <map id="common::radToDegree" name="common::radToDegree">
-<area shape="rect" id="node2" href="$class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Enemy::getAngleWithOffset" alt="" coords="210,5,395,31"/>
-<area shape="rect" id="node3" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="474,7,577,32"/>
-<area shape="rect" id="node5" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="214,107,392,132"/>
-<area shape="rect" id="node4" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="656,7,767,32"/>
-<area shape="rect" id="node6" href="$class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Screen::draw" alt="" coords="476,57,576,83"/>
-<area shape="rect" id="node7" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="443,107,608,132"/>
-<area shape="rect" id="node11" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="455,156,596,181"/>
-<area shape="rect" id="node8" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="667,131,757,156"/>
-<area shape="rect" id="node9" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="815,131,908,156"/>
-<area shape="rect" id="node10" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="956,131,1007,156"/>
+<area shape="rect" id="node2" href="$class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="210,5,395,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="449,7,602,32"/>
+<area shape="rect" id="node6" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="214,107,392,132"/>
+<area shape="rect" id="node4" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="656,7,759,32"/>
+<area shape="rect" id="node5" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="807,7,918,32"/>
+<area shape="rect" id="node7" href="$class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="476,57,576,83"/>
+<area shape="rect" id="node8" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="443,107,608,132"/>
+<area shape="rect" id="node11" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="455,156,596,181"/>
+<area shape="rect" id="node9" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="663,131,752,156"/>
+<area shape="rect" id="node10" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="816,131,909,156"/>
 </map>

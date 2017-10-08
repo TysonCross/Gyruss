@@ -1,6 +1,5 @@
 <map id="StarField::getStarField" name="StarField::getStarField">
-<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="396,5,485,31"/>
-<area shape="rect" id="node5" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="207,31,348,56"/>
-<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="533,5,627,31"/>
-<area shape="rect" id="node4" href="$_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="675,5,725,31"/>
+<area shape="rect" id="node2" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="396,5,485,31"/>
+<area shape="rect" id="node4" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="207,31,348,56"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="533,5,627,31"/>
 </map>

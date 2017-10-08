@@ -1,3 +1,9 @@
 <map id="EntityController::spawnEntities" name="EntityController::spawnEntities">
-<area shape="rect" id="node2" href="$class_score.html#ad2ad5c64290bc1baf6d929b2118ac240" title="Score::getEnemiesKilled" alt="" coords="255,5,422,31"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="268,5,461,31"/>
+<area shape="rect" id="node4" href="$class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="258,55,471,80"/>
+<area shape="rect" id="node8" href="$class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2" title="Spawns a meteoroid function is called from spawnEntities. " alt="" coords="255,104,473,129"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="528,5,674,31"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="525,55,678,80"/>
+<area shape="rect" id="node7" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="521,104,681,129"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="729,48,924,87"/>
 </map>

@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -84,8 +84,7 @@ $(document).ready(function(){initNavTree('namespacecommon.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">common Namespace Reference</div>  </div>
 </div><!--header-->
@@ -111,20 +110,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a3a591c848dd2277e863cef6d98e5264f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f">radToDegree</a> (float radian)</td></tr>
 <tr class="memdesc:a3a591c848dd2277e863cef6d98e5264f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an angle from radians to degrees.  <a href="#a3a591c848dd2277e863cef6d98e5264f">More...</a><br /></td></tr>
 <tr class="separator:a3a591c848dd2277e863cef6d98e5264f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57d85e335a22618353b464b768a3818c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecommon.html#a57d85e335a22618353b464b768a3818c">padIntToString</a> (unsigned int value, int paddingLength=0, char padChar='0')</td></tr>
-<tr class="memdesc:a57d85e335a22618353b464b768a3818c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an int to a string, with optional padding.  <a href="#a57d85e335a22618353b464b768a3818c">More...</a><br /></td></tr>
-<tr class="separator:a57d85e335a22618353b464b768a3818c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a5de464f2359b59ead6b28bddd43fbaaa"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecommon.html#a5de464f2359b59ead6b28bddd43fbaaa">pi</a> = 3.1415</td></tr>
-<tr class="separator:a5de464f2359b59ead6b28bddd43fbaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e40ecdfb1aa22659c65654e8bea8c43"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecommon.html#a2e40ecdfb1aa22659c65654e8bea8c43">padIntToString</a> (unsigned int value, int paddingLength=0, char padChar='0')</td></tr>
+<tr class="memdesc:a2e40ecdfb1aa22659c65654e8bea8c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an int to a string, with optional padding.  <a href="#a2e40ecdfb1aa22659c65654e8bea8c43">More...</a><br /></td></tr>
+<tr class="separator:a2e40ecdfb1aa22659c65654e8bea8c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Common functions, aliases and global constants. </p>
 <p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/11 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University</dd></dl>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/10 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a74d734dc5c34bf1938b4384806c74b63"></a>
@@ -144,6 +136,13 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Ensures that the angle is always between 0 and 360. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>The angle to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The float angle from 0 to 360 </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00013">13</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
 <div class="dynheader">
@@ -151,18 +150,18 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacecommon_a74d734dc5c34bf1938b4384806c74b63_icgraph.png" border="0" usemap="#namespacecommon_a74d734dc5c34bf1938b4384806c74b63_icgraph" alt=""/></div>
 <map name="namespacecommon_a74d734dc5c34bf1938b4384806c74b63_icgraph" id="namespacecommon_a74d734dc5c34bf1938b4384806c74b63_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Enemy::getAngleWithOffset" alt="" coords="195,5,380,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="459,25,562,51"/>
-<area shape="rect" id="node5" href="class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba" title="Moves the player ship around a circle by this angle. " alt="" coords="225,107,351,132"/>
-<area shape="rect" id="node10" href="class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="199,168,377,193"/>
-<area shape="rect" id="node4" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="641,25,752,51"/>
-<area shape="rect" id="node6" href="class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="PlayerShip::update" alt="" coords="444,93,578,119"/>
-<area shape="rect" id="node7" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="652,192,742,217"/>
-<area shape="rect" id="node8" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="800,192,894,217"/>
-<area shape="rect" id="node9" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="942,192,992,217"/>
-<area shape="rect" id="node11" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Screen::draw" alt="" coords="461,143,561,168"/>
-<area shape="rect" id="node12" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="428,192,593,217"/>
-<area shape="rect" id="node13" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="441,241,581,267"/>
+<area shape="rect" id="node2" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="195,5,380,31"/>
+<area shape="rect" id="node4" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="641,31,744,56"/>
+<area shape="rect" id="node6" href="class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba" title="Moves the player ship around a circle by this angle, based on the futureAngleValue and futureMoveValu..." alt="" coords="225,107,351,132"/>
+<area shape="rect" id="node10" href="class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="199,180,377,205"/>
+<area shape="rect" id="node3" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="434,5,587,31"/>
+<area shape="rect" id="node5" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="792,31,903,56"/>
+<area shape="rect" id="node7" href="class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="444,107,578,132"/>
+<area shape="rect" id="node8" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="648,205,738,231"/>
+<area shape="rect" id="node9" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="801,205,894,231"/>
+<area shape="rect" id="node11" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="461,156,561,181"/>
+<area shape="rect" id="node12" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="428,205,593,231"/>
+<area shape="rect" id="node13" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="441,255,581,280"/>
 </map>
 </div>
 
@@ -185,6 +184,13 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Converts an angle from degrees to radians. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>The angle to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The angle in radians </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00021">21</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
 <div class="dynheader">
@@ -192,35 +198,35 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacecommon_a3ccc991a71e316bb738d931ce5d36cf0_icgraph.png" border="0" usemap="#namespacecommon_a3ccc991a71e316bb738d931ce5d36cf0_icgraph" alt=""/></div>
 <map name="namespacecommon_a3ccc991a71e316bb738d931ce5d36cf0_icgraph" id="namespacecommon_a3ccc991a71e316bb738d931ce5d36cf0_icgraph">
-<area shape="rect" id="node2" href="class_bullet.html#a88af6034543e11dd8e4b5539b7634838" title="Bullet::move" alt="" coords="243,5,337,31"/>
-<area shape="rect" id="node5" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="238,55,341,80"/>
-<area shape="rect" id="node7" href="class_entity_controller.html#ac63b711dd1650f945ddf72d05917d4a3" title="Controller and manager for game entity objects. " alt="" coords="213,104,366,143"/>
-<area shape="rect" id="node8" href="class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314" title="Explosion::move" alt="" coords="230,167,349,192"/>
-<area shape="rect" id="node10" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Meteoroid::move" alt="" coords="230,216,350,241"/>
-<area shape="rect" id="node13" href="class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba" title="Moves the player ship around a circle by this angle. " alt="" coords="227,265,353,291"/>
-<area shape="rect" id="node3" href="class_bullet.html#a738b3fde0d24a67ea0a922cbf9693803" title="Bullet::update" alt="" coords="435,5,538,31"/>
-<area shape="rect" id="node4" href="class_bullet.html#aa0a1221b6830356728480b0ccf36ec83" title="Projectile bullet Class. " alt="" coords="633,5,728,31"/>
-<area shape="rect" id="node6" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="431,55,542,80"/>
-<area shape="rect" id="node9" href="class_explosion.html#af7c26d8e42739a756be8653d3faa5823" title="Explosion entity for destroyed screen objects. " alt="" coords="414,167,559,192"/>
-<area shape="rect" id="node11" href="class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Meteoroid::update" alt="" coords="422,216,551,241"/>
-<area shape="rect" id="node12" href="class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7" title="Meteroid Entity (cannot be destroyed by bullets) " alt="" coords="607,216,754,241"/>
-<area shape="rect" id="node14" href="class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="PlayerShip::update" alt="" coords="420,265,554,291"/>
-<area shape="rect" id="node15" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="636,265,725,291"/>
-<area shape="rect" id="node16" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="802,265,895,291"/>
-<area shape="rect" id="node17" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="943,265,994,291"/>
+<area shape="rect" id="node2" href="class_bullet.html#a88af6034543e11dd8e4b5539b7634838" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="272,5,367,31"/>
+<area shape="rect" id="node5" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="268,55,371,80"/>
+<area shape="rect" id="node7" href="class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="213,104,426,129"/>
+<area shape="rect" id="node11" href="class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314" title="Performs the actual move, based on _futureMoveValue and _futureAngleValue. " alt="" coords="260,153,379,179"/>
+<area shape="rect" id="node13" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="259,252,380,277"/>
+<area shape="rect" id="node16" href="class_player_ship.html#a49ba3bcc6222a15ec2ee6d49a19f89ba" title="Moves the player ship around a circle by this angle, based on the futureAngleValue and futureMoveValu..." alt="" coords="257,203,382,228"/>
+<area shape="rect" id="node3" href="class_bullet.html#a738b3fde0d24a67ea0a922cbf9693803" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="523,5,626,31"/>
+<area shape="rect" id="node4" href="class_bullet.html#a90d25395aef44c43176b93b6829e9db6" title="Constructor for the Bullet Class. Calls the ABC constructors for the inheritance hierarchy, Entity, Moveable and Animatable. " alt="" coords="750,5,845,31"/>
+<area shape="rect" id="node6" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="519,55,630,80"/>
+<area shape="rect" id="node8" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="474,104,676,129"/>
+<area shape="rect" id="node9" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="753,153,842,179"/>
+<area shape="rect" id="node10" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="919,153,1012,179"/>
+<area shape="rect" id="node12" href="class_explosion.html#af7c26d8e42739a756be8653d3faa5823" title="Constructor for the Explosion Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="503,153,647,179"/>
+<area shape="rect" id="node14" href="class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="510,252,639,277"/>
+<area shape="rect" id="node15" href="class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7" title="Constructor for the Meteoroid Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="724,252,871,277"/>
+<area shape="rect" id="node17" href="class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="508,203,642,228"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a57d85e335a22618353b464b768a3818c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57d85e335a22618353b464b768a3818c">&#9670;&nbsp;</a></span>padIntToString()</h2>
+<a id="a2e40ecdfb1aa22659c65654e8bea8c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e40ecdfb1aa22659c65654e8bea8c43">&#9670;&nbsp;</a></span>padIntToString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string common::padIntToString </td>
+          <td class="memname">string common::padIntToString </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>value</em>, </td>
@@ -229,13 +235,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>paddingLength</em>, </td>
+          <td class="paramname"><em>paddingLength</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>padChar</em>&#160;</td>
+          <td class="paramname"><em>padChar</em> = <code>'0'</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -246,18 +252,26 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Converts an int to a string, with optional padding. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The input number </td></tr>
+    <tr><td class="paramname">paddingLength</td><td>(Optional) the length to pad to </td></tr>
+    <tr><td class="paramname">padChar</td><td>(Optional) the char to pad with (defaults to '0' char) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number as a string (optionally padded) </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00031">31</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacecommon_a57d85e335a22618353b464b768a3818c_icgraph.png" border="0" usemap="#namespacecommon_a57d85e335a22618353b464b768a3818c_icgraph" alt=""/></div>
-<map name="namespacecommon_a57d85e335a22618353b464b768a3818c_icgraph" id="namespacecommon_a57d85e335a22618353b464b768a3818c_icgraph">
-<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="258,5,345,31"/>
-<area shape="rect" id="node6" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="219,55,384,80"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="432,31,522,56"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="570,31,663,56"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="711,31,761,56"/>
+<div class="center"><img src="namespacecommon_a2e40ecdfb1aa22659c65654e8bea8c43_icgraph.png" border="0" usemap="#namespacecommon_a2e40ecdfb1aa22659c65654e8bea8c43_icgraph" alt=""/></div>
+<map name="namespacecommon_a2e40ecdfb1aa22659c65654e8bea8c43_icgraph" id="namespacecommon_a2e40ecdfb1aa22659c65654e8bea8c43_icgraph">
+<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="258,5,345,31"/>
+<area shape="rect" id="node5" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="219,55,384,80"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="432,31,522,56"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="570,31,663,56"/>
 </map>
 </div>
 
@@ -280,6 +294,13 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Converts an angle from radians to degrees. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">radian</td><td>The angle to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The angle in degrees </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00026">26</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
 <div class="dynheader">
@@ -287,35 +308,18 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacecommon_a3a591c848dd2277e863cef6d98e5264f_icgraph.png" border="0" usemap="#namespacecommon_a3a591c848dd2277e863cef6d98e5264f_icgraph" alt=""/></div>
 <map name="namespacecommon_a3a591c848dd2277e863cef6d98e5264f_icgraph" id="namespacecommon_a3a591c848dd2277e863cef6d98e5264f_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Enemy::getAngleWithOffset" alt="" coords="210,5,395,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Enemy::move" alt="" coords="474,7,577,32"/>
-<area shape="rect" id="node5" href="class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="214,107,392,132"/>
-<area shape="rect" id="node4" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Enemy::update" alt="" coords="656,7,767,32"/>
-<area shape="rect" id="node6" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Screen::draw" alt="" coords="476,57,576,83"/>
-<area shape="rect" id="node7" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="443,107,608,132"/>
-<area shape="rect" id="node11" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="455,156,596,181"/>
-<area shape="rect" id="node8" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="667,131,757,156"/>
-<area shape="rect" id="node9" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="815,131,908,156"/>
-<area shape="rect" id="node10" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="956,131,1007,156"/>
+<area shape="rect" id="node2" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="210,5,395,31"/>
+<area shape="rect" id="node3" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="449,7,602,32"/>
+<area shape="rect" id="node6" href="class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="214,107,392,132"/>
+<area shape="rect" id="node4" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="656,7,759,32"/>
+<area shape="rect" id="node5" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="807,7,918,32"/>
+<area shape="rect" id="node7" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="476,57,576,83"/>
+<area shape="rect" id="node8" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="443,107,608,132"/>
+<area shape="rect" id="node11" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="455,156,596,181"/>
+<area shape="rect" id="node9" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="663,131,752,156"/>
+<area shape="rect" id="node10" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="816,131,909,156"/>
 </map>
 </div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a5de464f2359b59ead6b28bddd43fbaaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5de464f2359b59ead6b28bddd43fbaaa">&#9670;&nbsp;</a></span>pi</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float common::pi = 3.1415</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="common_8hpp_source.html#l00020">20</a> of file <a class="el" href="common_8hpp_source.html">common.hpp</a>.</p>
 
 </div>
 </div>

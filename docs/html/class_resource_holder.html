@@ -30,9 +30,9 @@
   <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN30009 Software Development II Project</div>
+   <div id="projectbrief">ELEN3009 Software Development II Project</div>
   </td>
  </tr>
  </tbody>
@@ -90,16 +90,16 @@ $(document).ready(function(){initNavTree('class_resource_holder.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Loads and returns pointers to requested resources from file.  
+<p>The ResourceType class.  
  <a href="class_resource_holder.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="common_8hpp_source.html">common.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a57866fa9057ad7253d44b6da36014cf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9">load</a> (IdentifierType id, const std::string &amp;filename)</td></tr>
-<tr class="memdesc:a57866fa9057ad7253d44b6da36014cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the object which holds the file information.  <a href="#a57866fa9057ad7253d44b6da36014cf9">More...</a><br /></td></tr>
-<tr class="separator:a57866fa9057ad7253d44b6da36014cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade0233bc8edb8bc8da851bf56b7ae912"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource_holder.html#ade0233bc8edb8bc8da851bf56b7ae912">load</a> (IdentifierType id, const string &amp;filename)</td></tr>
+<tr class="memdesc:ade0233bc8edb8bc8da851bf56b7ae912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the object which holds the file information.  <a href="#ade0233bc8edb8bc8da851bf56b7ae912">More...</a><br /></td></tr>
+<tr class="separator:ade0233bc8edb8bc8da851bf56b7ae912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9980c607ba30a1cb3e8ed361d5e2ef9d"><td class="memItemLeft" align="right" valign="top">ResourceType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d">get</a> (IdentifierType id)</td></tr>
 <tr class="memdesc:a9980c607ba30a1cb3e8ed361d5e2ef9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the resource object.  <a href="#a9980c607ba30a1cb3e8ed361d5e2ef9d">More...</a><br /></td></tr>
 <tr class="separator:a9980c607ba30a1cb3e8ed361d5e2ef9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,10 +111,11 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ResourceType, typename IdentifierType&gt;<br />
 class ResourceHolder&lt; ResourceType, IdentifierType &gt;</h3>
 
-<p>Loads and returns pointers to requested resources from file. </p>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/10 Maps game resources from a key to set of values Used for determining texture paths, game resolution, etc. Based on examples from SFML <a class="el" href="class_game.html" title="Main Game controller. ">Game</a> Development by Jan Haller <a href="https://github.com/LaurentGomila/SFML-Game-Development-Book">https://github.com/LaurentGomila/SFML-Game-Development-Book</a> </dd></dl>
+<p>The ResourceType class. </p>
+<p>A mechanism to load all game art resources (textures, sounds and fonts) from disk, and to transfer the ownership of the unique_ptr to the object calling <a class="el" href="class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. ">get()</a> Several specific types are declared in <a class="el" href="common_8hpp_source.html">common.hpp</a>, TextureHolder, FontHolder and SoundHolder</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="common_8hpp_source.html">common.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="common_8hpp_source.html#l00152">152</a> of file <a class="el" href="common_8hpp_source.html">common.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="common_8hpp_source.html#l00185">185</a> of file <a class="el" href="common_8hpp_source.html">common.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9980c607ba30a1cb3e8ed361d5e2ef9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9980c607ba30a1cb3e8ed361d5e2ef9d">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
@@ -135,26 +136,33 @@ template&lt;typename Resource , typename Identifier&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the resource object. </p>
+<p>Transfers the unique pointer to the requesting object.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="common_8hpp.html">common.hpp</a>) </td></tr>
+    <tr><td class="paramname">id</td><td>The key (ID) to load the resource for (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An object of type resourceType (usually sf::Texture, sf::SoundBuffer or sf::Font</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>An identifying key to load the resource for (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_resource_holder_8inl_source.html#l00028">28</a> of file <a class="el" href="_resource_holder_8inl_source.html">ResourceHolder.inl</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_resource_holder_8inl_source.html#l00037">37</a> of file <a class="el" href="_resource_holder_8inl_source.html">ResourceHolder.inl</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph.png" border="0" usemap="#class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph" alt=""/></div>
 <map name="class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph" id="class_resource_holder_a9980c607ba30a1cb3e8ed361d5e2ef9d_icgraph">
-<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="246,5,333,31"/>
-<area shape="rect" id="node6" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="ScreenGameOver::draw" alt="" coords="207,55,372,80"/>
-<area shape="rect" id="node7" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. " alt="" coords="219,104,360,129"/>
-<area shape="rect" id="node8" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="SoundController::stopMusic" alt="" coords="197,153,382,179"/>
-<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="430,55,520,80"/>
-<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="568,55,661,80"/>
-<area shape="rect" id="node5" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="709,55,759,80"/>
+<area shape="rect" id="node2" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="246,5,333,31"/>
+<area shape="rect" id="node5" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="207,55,372,80"/>
+<area shape="rect" id="node6" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="219,104,360,129"/>
+<area shape="rect" id="node7" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="Stops playing game music. Called when main gameplay stops. " alt="" coords="197,153,382,179"/>
+<area shape="rect" id="node3" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="430,80,520,105"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="568,80,661,105"/>
 </map>
 </div>
 
@@ -179,19 +187,27 @@ template&lt;typename Resource , typename Identifier&gt; </div>
 </div><div class="memdoc">
 
 <p>Overloaded const method. </p>
+<p>Transfers the unique pointer to the requesting object with a const overloaded method.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="common_8hpp.html">common.hpp</a>) </td></tr>
+    <tr><td class="paramname">id</td><td>The key (ID) to load the resource for (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An object of type resourceType (usually sf::Texture, sf::SoundBuffer or sf::Font</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>An identifying key to load the resource for (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_resource_holder_8inl_source.html#l00035">35</a> of file <a class="el" href="_resource_holder_8inl_source.html">ResourceHolder.inl</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_resource_holder_8inl_source.html#l00049">49</a> of file <a class="el" href="_resource_holder_8inl_source.html">ResourceHolder.inl</a>.</p>
 
 </div>
 </div>
-<a id="a57866fa9057ad7253d44b6da36014cf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57866fa9057ad7253d44b6da36014cf9">&#9670;&nbsp;</a></span>load()</h2>
+<a id="ade0233bc8edb8bc8da851bf56b7ae912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade0233bc8edb8bc8da851bf56b7ae912">&#9670;&nbsp;</a></span>load()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +223,7 @@ template&lt;typename ResourceType , typename IdentifierType&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>filename</em>&#160;</td>
         </tr>
         <tr>
@@ -219,26 +235,34 @@ template&lt;typename ResourceType , typename IdentifierType&gt; </div>
 </div><div class="memdoc">
 
 <p>Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the object which holds the file information. </p>
-<p>The <a class="el" href="class_resource_holder.html#a57866fa9057ad7253d44b6da36014cf9" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob...">load()</a> method loads the file into an object of specifed type, transferring ownership of the resource to the private map container member _resourceMap/</p>
+<p>Inline template class implementations for <a class="el" href="class_resource_holder.html" title="The ResourceType class. ">ResourceHolder</a>.</p>
+<p>The <a class="el" href="class_resource_holder.html#ade0233bc8edb8bc8da851bf56b7ae912" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob...">load()</a> method loads the file into an object of specifed type, transferring ownership of the resource to the private map container member _resourceMap/</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>key (ID) to load the resource for (defined in <a class="el" href="common_8hpp.html">common.hpp</a>) </td></tr>
-    <tr><td class="paramname">The</td><td>file to load the resource from.</td></tr>
+    <tr><td class="paramname">id</td><td>The key (ID) to load the resource for (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) </td></tr>
+    <tr><td class="paramname">filename</td><td>The file to load the resource from.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="_game_8hpp.html">Game.hpp</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_game_8hpp_source.html">Game.hpp</a></dd></dl>
+<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/10 Maps game resources from a key to set of values Used for determining texture paths, game resolution, etc. Based on examples from SFML <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Development by Jan Haller <a href="https://github.com/LaurentGomila/SFML-Game-Development-Book">https://github.com/LaurentGomila/SFML-Game-Development-Book</a> Loads the resource from a file on disk</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>An identifying key to load the resource for (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) </td></tr>
+    <tr><td class="paramname">filename</td><td>A string to the name of the file on disk to be loaded </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="_resource_holder_8inl_source.html#l00015">15</a> of file <a class="el" href="_resource_holder_8inl_source.html">ResourceHolder.inl</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_resource_holder_8inl_source.html#l00019">19</a> of file <a class="el" href="_resource_holder_8inl_source.html">ResourceHolder.inl</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph.png" border="0" usemap="#class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph" alt=""/></div>
-<map name="class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph" id="class_resource_holder_a57866fa9057ad7253d44b6da36014cf9_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Game::Quit" alt="" coords="251,5,341,31"/>
-<area shape="rect" id="node5" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="SoundController::stopMusic" alt="" coords="204,55,389,80"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Game::Start" alt="" coords="437,5,530,31"/>
-<area shape="rect" id="node4" href="_main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Project 2017 &#45; Gyruss. " alt="" coords="578,5,628,31"/>
+<div class="center"><img src="class_resource_holder_ade0233bc8edb8bc8da851bf56b7ae912_icgraph.png" border="0" usemap="#class_resource_holder_ade0233bc8edb8bc8da851bf56b7ae912_icgraph" alt=""/></div>
+<map name="class_resource_holder_ade0233bc8edb8bc8da851bf56b7ae912_icgraph" id="class_resource_holder_ade0233bc8edb8bc8da851bf56b7ae912_icgraph">
+<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="437,5,526,31"/>
+<area shape="rect" id="node4" href="class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="Stops playing game music. Called when main gameplay stops. " alt="" coords="204,31,389,56"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="574,5,667,31"/>
 </map>
 </div>
 
