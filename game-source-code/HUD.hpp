@@ -45,22 +45,22 @@ public:
         const Score &score,
         const PlayerShip &playerShip);
     ////////////////////////////////////////////////////////////
-    /// \brief appends the HUD to the current game renderWindow for the current lives and game score
+    /// \brief Appends the HUD to the current game renderWindow for the current lives and game score
     ////////////////////////////////////////////////////////////
     void draw();
 
 private:
     ////////////////////////////////////////////////////////////
-    /// \brief vector to store the game resultion, to enable the HUD to know its internal deterministically generated dimensions
+    /// \brief Aector to store the game resultion, to enable the HUD to know its internal deterministically generated dimensions
     ////////////////////////////////////////////////////////////
     const sf::Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
-    /// \brief reference to the main game renderWindow, to enable the HUD to draw itself over the main game window
+    /// \brief Reference to the main game renderWindow, to enable the HUD to draw itself over the main game window
     ////////////////////////////////////////////////////////////
     sf::RenderWindow& _renderWindow;
     ////////////////////////////////////////////////////////////
-    /// \brief reference to the main font holder, to give the HUD access to its required fonts
+    /// \brief Reference to the main font holder, to give the HUD access to its required fonts
     ////////////////////////////////////////////////////////////
     const FontHolder& _fonts;
 

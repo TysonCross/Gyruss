@@ -35,8 +35,11 @@ public:
 /// \brief Shows An info screen
 ///
 /// \param window The sf:Window object to draw and render to
-/// \param resourceMapper The resourceMapper containing assets for the infoscreen
+/// \param textureHolder The resourceMapper containing assets for the infoscreen
 /// \param resolution used to define where elements on the screen should be placed
+/// \param fontHolder used to store fonts needed for screen objects
+///
+/// \return integer to indicate if player chose to go to play screen or quit the game
 ///
 /// \see sf::Window
 /// \see ResourceMapper
@@ -57,6 +60,8 @@ public:
     /// \param resolution used to define where elements on the screen should be placed
     /// \param score track the current game score as well as end game scores
     /// \param timeAlive is used to show the end game screen the longest life that the player had
+    ///
+    /// \return integer to indicate if player chose to go to play screen or quit the game
     ///
     /// \see Score.pp
     /// \see ResourceHolder.hpp

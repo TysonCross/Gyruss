@@ -54,7 +54,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Function used to animate the spinning planet on the SplashScreen
     ///
-    /// \param The underlying planet is a sprite to enable the animation by  moving along the images that
+    /// \param sprite The underlying planet is a sprite to enable the animation by  moving along the images that
     /// constitute the animation.
     /// \param rectArea defines the size of the planet to be drawn
     /// \param columns defines the number columns in the underlying graphic for animation
