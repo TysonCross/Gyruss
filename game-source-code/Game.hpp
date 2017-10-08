@@ -44,7 +44,7 @@ public:
     Game();
 
     ////////////////////////////////////////////////////////////
-    /// \breif called when the game starts up to begin initialising all prerequisites
+    /// \brief called when the game starts up to begin initialising all prerequisites
     /// transisions the game into the "stateGameLoop" state that manages and runs the main game loop.
     ///
     /// Primary things set at this point are: game resolution and creation of game window
@@ -80,7 +80,7 @@ private:
     void showSplashScreen();
 
     ////////////////////////////////////////////////////////////
-    /// \breif shows the end game screen, whn the game ends. Based on if the player won or lost,
+    /// \brief shows the end game screen, whn the game ends. Based on if the player won or lost,
     /// a different screen is displayed.
     ///
     /// \param gameOutcome boolean to represent if the player won the current game
@@ -88,40 +88,40 @@ private:
     void showGameOverScreen(bool gameOutcome);
 
     ////////////////////////////////////////////////////////////
-    /// \breif Loads all required game resources when called. This Utilises the ResourceHolder object. Each resource
+    /// \brief Loads all required game resources when called. This Utilises the ResourceHolder object. Each resource
     /// is intern loaded into the resourceHolder, where a map of all entities is created. When resources are required, the
     /// resourceHolder returns a smart pointer to the resource
     ////////////////////////////////////////////////////////////
     void loadResources();
 
     ////////////////////////////////////////////////////////////
-    /// \breif Compares current game highscore to highscore stored on disk. If current is higher, saves to a text file
+    /// \brief Compares current game highscore to highscore stored on disk. If current is higher, saves to a text file
     /// "highscore.txt" in the game root directory.
     ////////////////////////////////////////////////////////////
     void recordHighScore();
 
     ////////////////////////////////////////////////////////////
-    /// \breif Instant of Texture holder to store all game textures
+    /// \brief Instant of Texture holder to store all game textures
     ////////////////////////////////////////////////////////////
     TextureHolder _textures;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Instant of SoundController to load and play all game sounds
+    /// \brief Instant of SoundController to load and play all game sounds
     ////////////////////////////////////////////////////////////
     SoundController _soundController;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Instant of FontHolder to store and access all external game fonts
+    /// \brief Instant of FontHolder to store and access all external game fonts
     ////////////////////////////////////////////////////////////
     FontHolder _fonts;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Instant of InputHandler to manage and process all user inputs to interact with the game
+    /// \brief Instant of InputHandler to manage and process all user inputs to interact with the game
     ////////////////////////////////////////////////////////////
     InputHandler _inputHandler;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Game state to store what state the game is currently in, such as splash, Exiting, GameOverLose, GameOverWin
+    /// \brief Game state to store what state the game is currently in, such as splash, Exiting, GameOverLose, GameOverWin
     ////////////////////////////////////////////////////////////
     game::GameState _gameState;
 
@@ -131,17 +131,17 @@ private:
     sf::RenderWindow _mainWindow;
 
     ////////////////////////////////////////////////////////////
-    /// \breif a two dimensional vector to store the width and high of the game screen
+    /// \brief a two dimensional vector to store the width and high of the game screen
     ////////////////////////////////////////////////////////////
     sf::Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
-    /// \breif integer to store the number of enemies that must be killed to end the game
+    /// \brief integer to store the number of enemies that must be killed to end the game
     ////////////////////////////////////////////////////////////
     int _winCondition;
 
     ////////////////////////////////////////////////////////////
-    /// \breif score object to store the current game score, such as enemies killed and longest life
+    /// \brief score object to store the current game score, such as enemies killed and longest life
     ////////////////////////////////////////////////////////////
     Score _score;
 
