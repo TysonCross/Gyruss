@@ -890,7 +890,7 @@ TEST_CASE ("Shield Spawns at player ship location"){
                           entity::PlayerShip,
                           textures);
     playerShip.update(); //move playerShip to origin
-    Shield shield(resolution,shipPathRadius,0,shipScale,entity::Shield,textures,playerShip);
+    Shield shield(resolution, shipPathRadius, 0, shipScale, textures, playerShip);
     shield.update();
     auto endShipPosition = playerShip.getPosition();
     auto endShieldPosition = shield.getSprite().getPosition();
@@ -920,7 +920,7 @@ TEST_CASE ("Shield follows the player ship location"){
                           entity::PlayerShip,
                           textures);
     playerShip.update(); //move playerShip to origin
-    Shield shield(resolution,shipPathRadius,0,shipScale,entity::Shield,textures,playerShip);
+    Shield shield(resolution, shipPathRadius, 0, shipScale, textures, playerShip);
     shield.update();
     auto moveAngle = 90;
     playerShip.setMove(moveAngle);
@@ -1174,7 +1174,7 @@ TEST_CASE("Degrees to Radian conversion is correct")
 {
     auto inputDegree = 90;
     auto expectedRadian=inputDegree*(M_PI/180);
-    CHECK(round(common::degreeToRad(inputDegree)*1000)/1000==round(expectedRadian*1000)/1000);
+    CHECK(roundf(common::degreeToRad(inputDegree)*1000)/1000==roundf(expectedRadian*1000)/1000);
 }
 
 TEST_CASE("Radian to Degrees conversion is correct")
