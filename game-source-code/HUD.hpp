@@ -51,7 +51,7 @@ public:
 
 private:
     ////////////////////////////////////////////////////////////
-    /// \brief Aector to store the game resultion, to enable the HUD to know its internal deterministically generated dimensions
+    /// \brief Vector to store the game resolution, to enable the HUD to know its internal deterministically generated dimensions
     ////////////////////////////////////////////////////////////
     const sf::Vector2i _resolution;
 
@@ -65,12 +65,12 @@ private:
     const FontHolder& _fonts;
 
     ////////////////////////////////////////////////////////////
-    /// \brief reference to the main score object, so the HUD to draw the latest player score
+    /// \brief Reference to the main score object, so the HUD to draw the latest player score
     ////////////////////////////////////////////////////////////
     const Score& _score;
 
     ////////////////////////////////////////////////////////////
-    /// \brief reference to the main playerShip, the so HUD can know the ship current state.
+    /// \brief Reference to the main playerShip, the so HUD can know the ship current state.
     ////////////////////////////////////////////////////////////
     const PlayerShip& _playerShip;
 };
