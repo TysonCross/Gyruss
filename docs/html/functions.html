@@ -20,6 +20,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -167,8 +168,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 , <a class="el" href="class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d">PlayerShip</a>
 </li>
 <li>draw()
-: <a class="el" href="class_entity_controller.html#a6e8df192bb7a1dbb0d1471a943282135">EntityController</a>
-, <a class="el" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553">HUD</a>
+: <a class="el" href="class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553">HUD</a>
 , <a class="el" href="class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679">Screen</a>
 , <a class="el" href="class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766">ScreenGameOver</a>
 , <a class="el" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0">ScreenSplash</a>
@@ -220,11 +220,14 @@ $(document).ready(function(){initNavTree('functions.html','');});
 , <a class="el" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f">Enemy</a>
 , <a class="el" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142">PlayerShip</a>
 </li>
-<li>getAngleWithOffset()
-: <a class="el" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2">Enemy</a>
+<li>getBulletsEnemy()
+: <a class="el" href="class_entity_controller.html#aa48971080243155c198a9dd6d1afe969">EntityController</a>
 </li>
 <li>getBulletsFired()
 : <a class="el" href="class_score.html#a47d57069de0d92d2f52b34bf43e481c0">Score</a>
+</li>
+<li>getBulletsPlayer()
+: <a class="el" href="class_entity_controller.html#a7b7873b9276c1028bd4c02f0361b1c0e">EntityController</a>
 </li>
 <li>getCentre()
 : <a class="el" href="class_enemy.html#a57179f344931c09190329c0745ba08b3">Enemy</a>
@@ -237,11 +240,14 @@ $(document).ready(function(){initNavTree('functions.html','');});
 , <a class="el" href="class_moveable.html#a724061b235c2a66939bbcc327648cb58">Moveable</a>
 , <a class="el" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119">PlayerShip</a>
 </li>
-<li>getDistanceFromCentreWithOffset()
-: <a class="el" href="class_enemy.html#ab6bbeeb0698bd79ce17970c13ae9fa55">Enemy</a>
+<li>getEnemies()
+: <a class="el" href="class_entity_controller.html#aa181b30399739394385324edff5e2c4d">EntityController</a>
 </li>
 <li>getEnemiesKilled()
 : <a class="el" href="class_score.html#ad2ad5c64290bc1baf6d929b2118ac240">Score</a>
+</li>
+<li>getExplosions()
+: <a class="el" href="class_entity_controller.html#ae6670d7e4da08f665998b506ee272911">EntityController</a>
 </li>
 <li>getFPS()
 : <a class="el" href="class_f_p_s.html#ae04fc22fb84c28d4660f98cab0e6e9b6">FPS</a>
@@ -262,6 +268,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 </li>
 <li>getLongestTimeAlive()
 : <a class="el" href="class_score.html#ae0b88df6ae934c981425ea004dad39f9">Score</a>
+</li>
+<li>getMeteoroids()
+: <a class="el" href="class_entity_controller.html#a09f6944c1c20a8e5efe1fda885f188e3">EntityController</a>
 </li>
 <li>getMovementDirectionSign()
 : <a class="el" href="class_enemy.html#ac0594c32b27cb812392baa7c3c65d5af">Enemy</a>
@@ -511,11 +520,11 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>SoundController()
 : <a class="el" href="class_sound_controller.html#ae9d4c141022e6955993e3633263b61f2">SoundController</a>
 </li>
+<li>spawnBasicEnemy()
+: <a class="el" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165">EntityController</a>
+</li>
 <li>spawnEntities()
 : <a class="el" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5">EntityController</a>
-</li>
-<li>spawnSpiral()
-: <a class="el" href="class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3">EntityController</a>
 </li>
 <li>StarField()
 : <a class="el" href="class_star_field.html#afbececa11c506cc34ba22b720674224f">StarField</a>

@@ -1,5 +1,5 @@
 <map id="Enemy::setOrientation" name="Enemy::setOrientation">
-<area shape="rect" id="node2" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="439,5,596,31"/>
-<area shape="rect" id="node3" href="$class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="207,55,391,80"/>
-<area shape="rect" id="node4" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="447,55,589,80"/>
+<area shape="rect" id="node2" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="377,5,534,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="207,55,329,80"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="385,55,527,80"/>
 </map>

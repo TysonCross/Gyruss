@@ -20,6 +20,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -166,15 +167,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a78d732564cb0fadae19a6859b62dbee7"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a78d732564cb0fadae19a6859b62dbee7">getDistanceFromCentre</a> () const override</td></tr>
 <tr class="memdesc:a78d732564cb0fadae19a6859b62dbee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance from origin (non-linear distance)  <a href="#a78d732564cb0fadae19a6859b62dbee7">More...</a><br /></td></tr>
 <tr class="separator:a78d732564cb0fadae19a6859b62dbee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#ab6bbeeb0698bd79ce17970c13ae9fa55">getDistanceFromCentreWithOffset</a> () const</td></tr>
-<tr class="memdesc:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance from origin (non-linear distance), explicitly checking the _centre member.  <a href="#ab6bbeeb0698bd79ce17970c13ae9fa55">More...</a><br /></td></tr>
-<tr class="separator:ab6bbeeb0698bd79ce17970c13ae9fa55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f">getAngle</a> () const</td></tr>
 <tr class="memdesc:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current angle of the enemy from the origin(screen space)  <a href="#a1485305ad3da0007328fa7ac4ff9bb3f">More...</a><br /></td></tr>
 <tr class="separator:a1485305ad3da0007328fa7ac4ff9bb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7facea8cb1434f88506a19b9e2369fb2"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2">getAngleWithOffset</a> ()</td></tr>
-<tr class="memdesc:a7facea8cb1434f88506a19b9e2369fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current angle of the enemy from the centre in z, from the _centre member.  <a href="#a7facea8cb1434f88506a19b9e2369fb2">More...</a><br /></td></tr>
-<tr class="separator:a7facea8cb1434f88506a19b9e2369fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe3b02cffabb2fb89dfdcfdd39928263"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_enemy.html#abe3b02cffabb2fb89dfdcfdd39928263">getOrientationAngle</a> () const</td></tr>
 <tr class="memdesc:abe3b02cffabb2fb89dfdcfdd39928263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current rotation of the enemy sprite.  <a href="#abe3b02cffabb2fb89dfdcfdd39928263">More...</a><br /></td></tr>
 <tr class="separator:abe3b02cffabb2fb89dfdcfdd39928263"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -393,7 +388,16 @@ Here is the call graph for this function:</div>
 <p>Returns the amount of time that the enemy has been alive for. </p>
 <dl class="section return"><dt>Returns</dt><dd>A float value (in seconds) of the time the enemy object has been alive. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00248">248</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00250">250</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a00f086e14734fbec4d0ee9fe5a66efea_icgraph.png" border="0" usemap="#class_enemy_a00f086e14734fbec4d0ee9fe5a66efea_icgraph" alt=""/></div>
+<map name="class_enemy_a00f086e14734fbec4d0ee9fe5a66efea_icgraph" id="class_enemy_a00f086e14734fbec4d0ee9fe5a66efea_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="277,5,448,44"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="496,12,589,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -415,46 +419,29 @@ Here is the call graph for this function:</div>
 <p>Returns the current angle of the enemy from the origin(screen space) </p>
 <dl class="section return"><dt>Returns</dt><dd>A float value, the angle around the screen centre origin </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00170">170</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a7facea8cb1434f88506a19b9e2369fb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7facea8cb1434f88506a19b9e2369fb2">&#9670;&nbsp;</a></span>getAngleWithOffset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::getAngleWithOffset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the current angle of the enemy from the centre in z, from the _centre member. </p>
-<dl class="section return"><dt>Returns</dt><dd>A float value, the angle around the _centre member origin </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00180">180</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00177">177</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_cgraph.png" border="0" usemap="#class_enemy_a7facea8cb1434f88506a19b9e2369fb2_cgraph" alt=""/></div>
-<map name="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_cgraph" id="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_cgraph">
-<area shape="rect" id="node2" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="246,5,388,31"/>
-<area shape="rect" id="node3" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="238,55,395,80"/>
+<div class="center"><img src="class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_cgraph.png" border="0" usemap="#class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_cgraph" alt=""/></div>
+<map name="class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_cgraph" id="class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_cgraph">
+<area shape="rect" id="node2" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="184,5,326,31"/>
+<area shape="rect" id="node3" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="176,55,333,80"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph.png" border="0" usemap="#class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph" alt=""/></div>
-<map name="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph" id="class_enemy_a7facea8cb1434f88506a19b9e2369fb2_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="238,5,391,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="439,5,542,31"/>
-<area shape="rect" id="node4" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="590,5,701,31"/>
+<div class="center"><img src="class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_icgraph.png" border="0" usemap="#class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_icgraph" alt=""/></div>
+<map name="class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_icgraph" id="class_enemy_a1485305ad3da0007328fa7ac4ff9bb3f_icgraph">
+<area shape="rect" id="node2" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="176,65,329,91"/>
+<area shape="rect" id="node8" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="767,109,969,135"/>
+<area shape="rect" id="node3" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="377,61,480,87"/>
+<area shape="rect" id="node4" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="568,5,679,31"/>
+<area shape="rect" id="node7" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="528,55,719,93"/>
+<area shape="rect" id="node5" href="class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="788,8,949,33"/>
+<area shape="rect" id="node6" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="1017,60,1111,85"/>
+<area shape="rect" id="node9" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="824,60,913,85"/>
 </map>
 </div>
 
@@ -478,7 +465,16 @@ Here is the caller graph for this function:</div>
 <p>Returns the x/y position of the _centre member of the enemy on screen. </p>
 <dl class="section return"><dt>Returns</dt><dd>An sf:Vector2f (two float values) of the {x,y} position considered the current origin of the enemy </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00103">103</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00110">110</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a57179f344931c09190329c0745ba08b3_icgraph.png" border="0" usemap="#class_enemy_a57179f344931c09190329c0745ba08b3_icgraph" alt=""/></div>
+<map name="class_enemy_a57179f344931c09190329c0745ba08b3_icgraph" id="class_enemy_a57179f344931c09190329c0745ba08b3_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="182,5,352,44"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="400,12,494,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -510,29 +506,16 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#a724061b235c2a66939bbcc327648cb58">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00093">93</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00103">103</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a78d732564cb0fadae19a6859b62dbee7_icgraph.png" border="0" usemap="#class_enemy_a78d732564cb0fadae19a6859b62dbee7_icgraph" alt=""/></div>
+<map name="class_enemy_a78d732564cb0fadae19a6859b62dbee7_icgraph" id="class_enemy_a78d732564cb0fadae19a6859b62dbee7_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="265,5,467,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="515,5,608,31"/>
+</map>
 </div>
-</div>
-<a id="ab6bbeeb0698bd79ce17970c13ae9fa55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6bbeeb0698bd79ce17970c13ae9fa55">&#9670;&nbsp;</a></span>getDistanceFromCentreWithOffset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float Enemy::getDistanceFromCentreWithOffset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the distance from origin (non-linear distance), explicitly checking the _centre member. </p>
-<dl class="section return"><dt>Returns</dt><dd>A float value, the depth from the centre in z, from the _centre member </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00098">98</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -564,7 +547,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">Entity</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00150">150</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00157">157</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -586,7 +569,16 @@ Here is the caller graph for this function:</div>
 <p>Returns the currently set movement direction for the enemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>An enum value of the current movement direction, clockwise or counterclockwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00113">113</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00120">120</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_ac0594c32b27cb812392baa7c3c65d5af_icgraph.png" border="0" usemap="#class_enemy_ac0594c32b27cb812392baa7c3c65d5af_icgraph" alt=""/></div>
+<map name="class_enemy_ac0594c32b27cb812392baa7c3c65d5af_icgraph" id="class_enemy_ac0594c32b27cb812392baa7c3c65d5af_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="284,5,454,44"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="502,12,595,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -608,7 +600,16 @@ Here is the caller graph for this function:</div>
 <p>Returns current Movement state for the enemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>An enum value of the current movement state </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00108">108</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00115">115</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a96536e87ca1ca9864a5bdc0816c61fd3_icgraph.png" border="0" usemap="#class_enemy_a96536e87ca1ca9864a5bdc0816c61fd3_icgraph" alt=""/></div>
+<map name="class_enemy_a96536e87ca1ca9864a5bdc0816c61fd3_icgraph" id="class_enemy_a96536e87ca1ca9864a5bdc0816c61fd3_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="235,5,406,44"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="454,12,547,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -630,7 +631,7 @@ Here is the caller graph for this function:</div>
 <p>Returns the current rotation of the enemy sprite. </p>
 <dl class="section return"><dt>Returns</dt><dd>The angle of rotation of the sprite </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00175">175</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00185">185</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -662,7 +663,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00125">125</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00132">132</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -694,14 +695,20 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00085">85</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00095">95</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph.png" border="0" usemap="#class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph" alt=""/></div>
 <map name="class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph" id="class_enemy_a18b30fb59601ac04aef5d68b7740f0b6_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="184,5,286,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="334,5,445,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="217,61,320,87"/>
+<area shape="rect" id="node7" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="641,111,843,136"/>
+<area shape="rect" id="node9" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="184,169,354,208"/>
+<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="442,5,553,31"/>
+<area shape="rect" id="node6" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="402,55,593,93"/>
+<area shape="rect" id="node4" href="class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="662,9,822,35"/>
+<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="891,87,984,112"/>
+<area shape="rect" id="node8" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="697,61,787,87"/>
 </map>
 </div>
 
@@ -735,7 +742,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#a7ab210f45d5558742196fc408d04056a">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00135">135</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00142">142</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -757,7 +764,16 @@ Here is the caller graph for this function:</div>
 <p>Returns amount of time since the enemy last shot a bullet. </p>
 <dl class="section return"><dt>Returns</dt><dd>A float value (in seconds) of the amount of elapsed time </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00238">238</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00240">240</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a531d6598bbdbdf24a181d9cc58bbcab1_icgraph.png" border="0" usemap="#class_enemy_a531d6598bbdbdf24a181d9cc58bbcab1_icgraph" alt=""/></div>
+<map name="class_enemy_a531d6598bbdbdf24a181d9cc58bbcab1_icgraph" id="class_enemy_a531d6598bbdbdf24a181d9cc58bbcab1_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="288,5,490,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="538,5,631,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -790,7 +806,15 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">Animatable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00130">130</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00137">137</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a3d4620df8d33ce1e23d4d3018ee34af9_icgraph.png" border="0" usemap="#class_enemy_a3d4620df8d33ce1e23d4d3018ee34af9_icgraph" alt=""/></div>
+<map name="class_enemy_a3d4620df8d33ce1e23d4d3018ee34af9_icgraph" id="class_enemy_a3d4620df8d33ce1e23d4d3018ee34af9_icgraph">
+<area shape="rect" id="node2" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="177,5,270,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -815,7 +839,16 @@ Here is the caller graph for this function:</div>
 <dd>
 <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00155">155</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00162">162</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_ad6ddae1bc16bce855d19fd2261bf1461_icgraph.png" border="0" usemap="#class_enemy_ad6ddae1bc16bce855d19fd2261bf1461_icgraph" alt=""/></div>
+<map name="class_enemy_ad6ddae1bc16bce855d19fd2261bf1461_icgraph" id="class_enemy_ad6ddae1bc16bce855d19fd2261bf1461_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="171,5,341,44"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="389,12,483,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -837,7 +870,7 @@ Here is the caller graph for this function:</div>
 <p>Returns the shooting status of the enemy. </p>
 <dl class="section return"><dt>Returns</dt><dd>If true, then the enemy is shooting on this frame </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00165">165</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00172">172</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 
 </div>
 </div>
@@ -875,7 +908,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph.png" border="0" usemap="#class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph" alt=""/></div>
 <map name="class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph" id="class_enemy_ad162072e34f5a2ba9efce7ebe9295d80_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#afad764b00a84735def86b410b4695a98" title="Decrements the enemy&#39;s lives. " alt="" coords="153,5,241,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#afad764b00a84735def86b410b4695a98" title="Decrements the enemy&#39;s lives. " alt="" coords="194,5,282,31"/>
+<area shape="rect" id="node3" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="153,55,324,93"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="372,61,465,87"/>
 </map>
 </div>
 
@@ -933,7 +968,12 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph.png" border="0" usemap="#class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph" alt=""/></div>
 <map name="class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph" id="class_enemy_a2798f5714300fdd9c1fed1e9ea9dcb3c_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Constructor for an enemy object. " alt="" coords="174,5,286,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Constructor for an enemy object. " alt="" coords="214,5,325,31"/>
+<area shape="rect" id="node3" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="174,55,365,93"/>
+<area shape="rect" id="node7" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="429,112,599,151"/>
+<area shape="rect" id="node4" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="413,13,615,39"/>
+<area shape="rect" id="node6" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="469,63,559,88"/>
+<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="663,63,756,88"/>
 </map>
 </div>
 
@@ -1010,6 +1050,15 @@ Here is the caller graph for this function:</div>
 <dl class="section see"><dt>See also</dt><dd>MovementDirection </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00056">56</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a2b69b0ea4152d7dd801b15ace0657738_icgraph.png" border="0" usemap="#class_enemy_a2b69b0ea4152d7dd801b15ace0657738_icgraph" alt=""/></div>
+<map name="class_enemy_a2b69b0ea4152d7dd801b15ace0657738_icgraph" id="class_enemy_a2b69b0ea4152d7dd801b15ace0657738_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="235,5,405,44"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="453,12,546,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1031,15 +1080,15 @@ Here is the caller graph for this function:</div>
 <p>Sets the orientation of the <a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> screen object. </p>
 <p>The previous and future positions are converted to vectors at the origin, and the final position is then subtracted from the initial position, to determine the new pointing vector. Then the sprite of the enemy is rotated to match this direction </p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00227">227</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00229">229</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph.png" border="0" usemap="#class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph" alt=""/></div>
 <map name="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph" id="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_cgraph">
-<area shape="rect" id="node2" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="439,5,596,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="207,55,391,80"/>
-<area shape="rect" id="node4" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="447,55,589,80"/>
+<area shape="rect" id="node2" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="377,5,534,31"/>
+<area shape="rect" id="node3" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="207,55,329,80"/>
+<area shape="rect" id="node4" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="385,55,527,80"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1047,8 +1096,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph.png" border="0" usemap="#class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph" alt=""/></div>
 <map name="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph" id="class_enemy_aeb7fe4dc9b027ccc9220030f9225089c_icgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="207,5,309,31"/>
-<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="357,5,468,31"/>
+<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="207,33,309,59"/>
+<area shape="rect" id="node3" href="class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="397,5,508,31"/>
+<area shape="rect" id="node6" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="357,55,548,93"/>
+<area shape="rect" id="node4" href="class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="617,5,778,31"/>
+<area shape="rect" id="node5" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="847,55,940,80"/>
+<area shape="rect" id="node7" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="596,55,799,80"/>
+<area shape="rect" id="node8" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="653,104,742,129"/>
 </map>
 </div>
 
@@ -1089,7 +1143,18 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00193">193</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00195">195</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_a2fba194a7e54e4172906d5f3d167ca61_icgraph.png" border="0" usemap="#class_enemy_a2fba194a7e54e4172906d5f3d167ca61_icgraph" alt=""/></div>
+<map name="class_enemy_a2fba194a7e54e4172906d5f3d167ca61_icgraph" id="class_enemy_a2fba194a7e54e4172906d5f3d167ca61_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="175,24,366,63"/>
+<area shape="rect" id="node3" href="class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="414,5,616,31"/>
+<area shape="rect" id="node5" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="470,55,560,80"/>
+<area shape="rect" id="node4" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="664,31,757,56"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1121,19 +1186,28 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">Entity</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00073">73</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_enemy_8cpp_source.html#l00083">83</a> of file <a class="el" href="_enemy_8cpp_source.html">Enemy.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_enemy_aa70d742da02995011f1618acc9e303db_cgraph.png" border="0" usemap="#class_enemy_aa70d742da02995011f1618acc9e303db_cgraph" alt=""/></div>
 <map name="class_enemy_aa70d742da02995011f1618acc9e303db_cgraph" id="class_enemy_aa70d742da02995011f1618acc9e303db_cgraph">
-<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="164,59,267,85"/>
-<area shape="rect" id="node3" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="763,58,906,83"/>
-<area shape="rect" id="node4" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="315,34,475,59"/>
-<area shape="rect" id="node5" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="330,83,460,109"/>
-<area shape="rect" id="node6" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="319,133,472,158"/>
-<area shape="rect" id="node7" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="756,107,913,133"/>
-<area shape="rect" id="node8" href="class_enemy.html#a7facea8cb1434f88506a19b9e2369fb2" title="Returns the current angle of the enemy from the centre in z, from the _centre member. " alt="" coords="523,82,708,107"/>
+<area shape="rect" id="node2" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="164,57,267,82"/>
+<area shape="rect" id="node3" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="701,55,844,81"/>
+<area shape="rect" id="node4" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="315,31,475,57"/>
+<area shape="rect" id="node5" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="330,81,460,106"/>
+<area shape="rect" id="node6" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="319,130,472,155"/>
+<area shape="rect" id="node7" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="694,105,851,130"/>
+<area shape="rect" id="node8" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="523,79,646,105"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_enemy_aa70d742da02995011f1618acc9e303db_icgraph.png" border="0" usemap="#class_enemy_aa70d742da02995011f1618acc9e303db_icgraph" alt=""/></div>
+<map name="class_enemy_aa70d742da02995011f1618acc9e303db_icgraph" id="class_enemy_aa70d742da02995011f1618acc9e303db_icgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="164,5,325,31"/>
+<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="373,5,466,31"/>
 </map>
 </div>
 

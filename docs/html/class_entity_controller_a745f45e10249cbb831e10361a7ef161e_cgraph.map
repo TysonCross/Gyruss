@@ -1,3 +1,12 @@
 <map id="EntityController::shootingOccurred" name="EntityController::shootingOccurred">
-<area shape="rect" id="node2" href="$class_perlin_noise.html#af46a26b451f68a5955aca99cbb05fe1f" title="Chooses a point inside a unit cube, and calculating the gradients from the corner of the cube to this..." alt="" coords="224,12,352,37"/>
+<area shape="rect" id="node2" href="$class_enemy.html#a96536e87ca1ca9864a5bdc0816c61fd3" title="Returns current Movement state for the enemy. " alt="" coords="248,5,430,31"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="274,55,404,80"/>
+<area shape="rect" id="node4" href="$class_enemy.html#ad6ddae1bc16bce855d19fd2261bf1461" title="Returns the entity type of the enemy. " alt="" coords="280,104,398,129"/>
+<area shape="rect" id="node5" href="$class_enemy.html#ad162072e34f5a2ba9efce7ebe9295d80" title="Resets the enemy (after an enemy is killed, or leaves the outer circle) " alt="" coords="289,153,389,179"/>
+<area shape="rect" id="node6" href="$class_enemy.html#a2b69b0ea4152d7dd801b15ace0657738" title="Sets the movement state of the enemy. " alt="" coords="248,203,429,228"/>
+<area shape="rect" id="node7" href="$class_enemy.html#ac0594c32b27cb812392baa7c3c65d5af" title="Returns the currently set movement direction for the enemy. " alt="" coords="224,252,454,277"/>
+<area shape="rect" id="node8" href="$class_enemy.html#a00f086e14734fbec4d0ee9fe5a66efea" title="Returns the amount of time that the enemy has been alive for. " alt="" coords="227,301,451,327"/>
+<area shape="rect" id="node9" href="$class_enemy.html#a57179f344931c09190329c0745ba08b3" title="Returns the x/y position of the _centre member of the enemy on screen. " alt="" coords="274,351,403,376"/>
+<area shape="rect" id="node10" href="$class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="278,400,399,425"/>
+<area shape="rect" id="node11" href="$class_perlin_noise.html#af46a26b451f68a5955aca99cbb05fe1f" title="Chooses a point inside a unit cube, and calculating the gradients from the corner of the cube to this..." alt="" coords="274,449,403,475"/>
 </map>

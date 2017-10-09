@@ -1,3 +1,5 @@
 <map id="Enemy::reset" name="Enemy::reset">
-<area shape="rect" id="node2" href="$class_enemy.html#afad764b00a84735def86b410b4695a98" title="Decrements the enemy&#39;s lives. " alt="" coords="153,5,241,31"/>
+<area shape="rect" id="node2" href="$class_enemy.html#afad764b00a84735def86b410b4695a98" title="Decrements the enemy&#39;s lives. " alt="" coords="194,5,282,31"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="153,55,324,93"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="372,61,465,87"/>
 </map>

@@ -1,3 +1,8 @@
-<map id="Enemy::setMove" name="Enemy::setEnemyMoveState">
-<area shape="rect" id="node2" href="$class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Constructor for an enemy object. " alt="" coords="174,5,286,31"/>
+<map id="Enemy::setMove" name="Enemy::setMove">
+<area shape="rect" id="node2" href="$class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Constructor for an enemy object. " alt="" coords="214,5,325,31"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="174,55,365,93"/>
+<area shape="rect" id="node7" href="$class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="429,112,599,151"/>
+<area shape="rect" id="node4" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="413,13,615,39"/>
+<area shape="rect" id="node6" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="469,63,559,88"/>
+<area shape="rect" id="node5" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="663,63,756,88"/>
 </map>

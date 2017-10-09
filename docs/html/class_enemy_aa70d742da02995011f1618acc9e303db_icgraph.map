@@ -1,0 +1,4 @@
+<map id="Enemy::update" name="Enemy::update">
+<area shape="rect" id="node2" href="$class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="164,5,325,31"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="373,5,466,31"/>
+</map>

@@ -20,6 +20,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -114,7 +115,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The main <a class="el" href="class_game.html" title="The main Game class. ">Game</a> class. </p>
-<p>This class manages all game loops and creation of all game events and objects, the game states, and basic game logic. It also generates instances of all other controllers and handlers, such as <a class="el" href="class_entity_controller.html" title="EntityController Class, used to manage the process of all game objects, such as bullets, enemy ships and Meteroids. ">EntityController</a>, <a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> and the various types of ResourceHandler. It is directly responsible for the playerShipObject. </p>
+<p>This class manages all game loops and creation of all game events and objects, the game states, and basic game logic. It also generates instances of all other controllers and handlers, such as <a class="el" href="class_entity_controller.html" title="EntityController Class. ">EntityController</a>, <a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> and the various types of ResourceHandler. It is directly responsible for the playerShipObject. </p>
 
 <p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00051">51</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -163,7 +164,30 @@ Public Member Functions</h2></td></tr>
 <p>Quits the game. </p>
 <p>The game ends when the window is closed, or the quit hotkey is used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. ">Start</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00445">445</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00433">433</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_game_a1827c75a4b4ab4a543bf99772a55337c_cgraph.png" border="0" usemap="#class_game_a1827c75a4b4ab4a543bf99772a55337c_cgraph" alt=""/></div>
+<map name="class_game_a1827c75a4b4ab4a543bf99772a55337c_cgraph" id="class_game_a1827c75a4b4ab4a543bf99772a55337c_cgraph">
+<area shape="rect" id="node2" href="class_entity_controller.html#a266fed1b08301a21d6f9202f44be0c33" title="Adjust the game speed as time goes on to make it more challenging. Has imposed maximum, minimum and default interval values. " alt="" coords="160,5,324,44"/>
+<area shape="rect" id="node3" href="class_player_ship.html#a0d4cc1200ed8d172c84c0013d454d0ca" title="Makes the playerShip unaffected by damage. " alt="" coords="143,68,341,93"/>
+<area shape="rect" id="node4" href="class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d" title="Sets the boolean state of the playerShip upgrade status to true. " alt="" coords="171,117,313,143"/>
+<area shape="rect" id="node5" href="class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="147,167,338,205"/>
+<area shape="rect" id="node6" href="class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="393,49,539,75"/>
+<area shape="rect" id="node7" href="class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61" title="Sets the scale of the Enemy screen object. " alt="" coords="405,99,527,124"/>
+<area shape="rect" id="node8" href="class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="406,148,526,173"/>
+<area shape="rect" id="node9" href="class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="415,249,517,275"/>
+<area shape="rect" id="node11" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="608,173,768,199"/>
+<area shape="rect" id="node16" href="class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="389,327,543,352"/>
+<area shape="rect" id="node10" href="namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="1012,251,1154,276"/>
+<area shape="rect" id="node12" href="class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="623,275,753,300"/>
+<area shape="rect" id="node13" href="class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="611,324,765,349"/>
+<area shape="rect" id="node14" href="namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="1004,300,1161,325"/>
+<area shape="rect" id="node15" href="class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="833,275,956,300"/>
+<area shape="rect" id="node17" href="class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="591,373,785,412"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

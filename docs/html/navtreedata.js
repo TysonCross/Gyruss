@@ -28,7 +28,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animatable_8hpp_source.html",
-"classes.html"
+"class_star_field.html#acc5e764762506119799c3e37b912564a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

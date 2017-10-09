@@ -1,7 +1,8 @@
 <map id="PlayerShip::getDistanceFromCentre" name="PlayerShip::getDistanceFromCentre">
-<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="690,56,892,81"/>
-<area shape="rect" id="node4" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="470,107,621,145"/>
-<area shape="rect" id="node5" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="248,5,401,31"/>
-<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="940,84,1033,109"/>
-<area shape="rect" id="node6" href="$class_entity_controller.html#ae8655d696f326d08ad9a9db8702716c3" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="449,5,642,31"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="688,72,891,97"/>
+<area shape="rect" id="node4" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="470,5,620,44"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="248,123,401,148"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="939,72,1032,97"/>
+<area shape="rect" id="node6" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="449,120,640,159"/>
+<area shape="rect" id="node7" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="745,123,834,148"/>
 </map>
