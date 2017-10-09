@@ -195,6 +195,10 @@ void PlayerShip::endShoot()
 void PlayerShip::makeInvulnerable(bool invulnerability)
 {
     _isInvulnerable = invulnerability;
+    if (invulnerability)
+        _invulnerabilityTimeAmount = 99999.f;
+    else
+        _invulnerabilityTimeAmount = 1.2f;
 }
 
 

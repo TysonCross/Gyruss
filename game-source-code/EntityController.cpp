@@ -21,6 +21,7 @@ EntityController::EntityController(sf::Vector2i resolution,
     _satellitesAlive = 0;
     _timerSpawnFromCentre.restart();
     _timerSpawnFromPerimeter.restart();
+    _timerSpawnWanderer.restart();
     _timerSatellite.restart();
     _timerMeteoroid.restart();
     _totalTime.restart();
@@ -39,28 +40,40 @@ EntityController::EntityController(sf::Vector2i resolution,
 }
 
 
-void EntityController::spawnSpiral(entity::ID id, textures::ID shipVariant, MovementDirection movementDirection, MovementState movementState)
+void EntityController::spawnBasicEnemy(entity::ID id,
+                                       textures::ID shipVariant,
+                                       MovementDirection movementDirection,
+                                       MovementState movementState)
 {
     float spiralDistanceFromCentre;
     float spiralAngle;
+
     switch (movementState)
     {
         case (MovementState::SpiralIn):
-            spiralDistanceFromCentre=(_resolution.y/2)-1;//Spawn just inside play zone,1 pixel in
-            spiralAngle=180+_playerShip.getAngle(); //Spawn opposite side to playership
+        {
+            spiralDistanceFromCentre = (_resolution.y / 2) - 1;//Spawn just inside play zone,1 pixel in
+            spiralAngle = 180 + _playerShip.getAngle(); //Spawn opposite side to playerShip
             _timerSpawnFromPerimeter.restart();
             break;
+        }
 
         case (MovementState::SpiralOut):
-            spiralDistanceFromCentre=0;
-            spiralAngle=0;
+        {
+            spiralDistanceFromCentre = 0;
+            spiralAngle = 0;
             _timerSpawnFromCentre.restart();
             break;
+        }
+
         case (MovementState::Wandering):
-            spiralDistanceFromCentre=rand()%_resolution.x/4; //random position to start wandering
-            spiralAngle=rand()%360-180;
-            _timerSpawnFromCentre.restart();
+        {
+            spiralDistanceFromCentre = rand() % _resolution.x / 4; //random position to start wandering
+            spiralAngle = rand() % 360 - 180;
+            _timerSpawnWanderer.restart();
             break;
+        }
+
         default :
             break;
     }
@@ -75,7 +88,13 @@ void EntityController::spawnSpiral(entity::ID id, textures::ID shipVariant, Move
                                          movementState,
                                          movementDirection);
 
-    _enemies.push_front(std::move(enemy)); //add enemy to enemy vector
+    if (enemy->getType() == entity::BasicWanderer)
+    {
+        enemy->setScale(0, 0);
+        enemy->setMove(spiralAngle, spiralDistanceFromCentre); // Ensure  not off-screen
+        enemy->move();
+    }
+    _enemies.push_front(std::move(enemy)); // Add enemy to enemy vector
 }
 
 
@@ -97,24 +116,25 @@ void EntityController::spawnMeteoroid()
 void EntityController::spawnSatellites()
 {
     _timerSatellite.restart();
-    auto satelliteCirclingRadius = _resolution.y/20;
-    auto satelliteSpawnScale = 0.7;
-    auto movementDirection = static_cast<MovementDirection>(rand() % 2); //random clock or couterclockwise
     auto numberOfSatellites = 3;
-    _satellitesAlive = numberOfSatellites + 1; //only ever want 3 alive at a time. add to the counter
+    _satellitesAlive = numberOfSatellites + 1; // Only ever want 3 alive at a time (index starts at 1)
+    auto satelliteCirclingRadius = _resolution.y / 20;
+    auto satelliteSpawnScale = 0.7;
+    auto movementDirection = static_cast<MovementDirection>(rand() % 2); // Random clockwise or counter-clockwise
     auto angle = 0;
-    auto currentShipRadius = _playerShip.getRadius(); //current playership location is used for satellite spawn
+    auto currentShipRadius = _playerShip.getRadius(); // Current playership location is used for satellite spawn
     auto currentShipAngle = _playerShip.getAngle();
     auto satelliteScaleSize = 0.4;
-    //convert back from polar to x&y to define the offset of satellite
-    auto spawnAngle = common::degreeToRad(currentShipAngle+180); //spawn on other side to playership
+    auto spawnAngle = common::degreeToRad(currentShipAngle+180);     // Offset of satellite
+                                                                     // Spawn on other side to playerShip
     auto satelliteSpawnLocation = sf::Vector2f{float(satelliteScaleSize*currentShipRadius*sin(spawnAngle)),
                                                float(satelliteScaleSize*currentShipRadius*cos(spawnAngle))};
     for (auto i = 0; i < numberOfSatellites; i++) //need to spawn 3 Satellites. run loop 3 times
     {
         //introduce a random element on spawn and add to the generic centre the others use
-        auto randomOffsetX = (rand() % 20 + 10.0f);
-        auto randomOffsetY = (rand() % 20 + 10.0f);
+        auto randomOffsetX = rand() % 20 + 10.0f;
+        auto randomOffsetY = rand() % 20 + 10.0f;
+
         //spawn ships at a slight random offset from centre of rotation point
         satelliteSpawnLocation={satelliteSpawnLocation.x+randomOffsetX,satelliteSpawnLocation.y+randomOffsetY};
         auto enemy = std::make_unique<Enemy>(_resolution,
@@ -127,9 +147,9 @@ void EntityController::spawnSatellites()
                                              MovementState::SmallCircling,
                                              movementDirection);
 
-        angle += 120; //increment by 360/3 to provide symetric spawning
+        angle += 120; // Symmetric spawning
         enemy->setScale(0,0);
-        enemy->setMove(angle,satelliteCirclingRadius,satelliteSpawnLocation); //moves satellite on its spawn so its not off screen
+        enemy->setMove(angle,satelliteCirclingRadius,satelliteSpawnLocation); // Ensure  satellite not off-screen
         enemy->move();
         _enemies.push_front(std::move(enemy));
     }
@@ -141,33 +161,43 @@ void EntityController::spawnEntities()
     if (_totalTime.getElapsedTime().asSeconds() > 1)
     {
         auto minNumberEnemies = 1;
-        auto maxNumberEnemies = 7;
+        auto maxNumberEnemies = 8;
         if (_enemies.size() < maxNumberEnemies)
         {
 
-            //spawn enemy spiral out
-            float enemySpawnFromCentreTimer = fmod(rand(),1.2f) + 0.8f;
+            // Spawn enemy spiral out
+            float enemySpawnFromCentreTimer = float(fmod(rand(), 1.2f) + 0.8f);
             auto shipVariant = static_cast<textures::ID>(rand() % 2);
+            auto shipType = static_cast<entity::ID>(shipVariant);
             auto movementDirection = static_cast<MovementDirection>(rand()%2);
 
             if ((_timerSpawnFromCentre.getElapsedTime().asSeconds() > enemySpawnFromCentreTimer)
                 || (_enemies.size() <= minNumberEnemies))
             {
-                spawnSpiral(entity::Basic,shipVariant,movementDirection,MovementState::SpiralOut);
+                spawnBasicEnemy(shipType, shipVariant, movementDirection, MovementState::SpiralOut);
             }
 
-            // spawn enemy spiral in(or wander)
-            float enemySpawnFromPerimeterTimer = fmod(rand(),2.4f) + 1.6f;
+            // Spawn enemy spiral in
+            float enemySpawnFromPerimeterTimer = float(fmod(rand(), 2.4f) + 1.6f);
             if ((_timerSpawnFromPerimeter.getElapsedTime().asSeconds() > enemySpawnFromPerimeterTimer)
-                || (_enemies.size() <= minNumberEnemies)) {
-                auto movementState = static_cast<MovementState >(rand()%2+1); //random chance to spiral in or wander
-                spawnSpiral(entity::Basic, shipVariant, movementDirection, movementState);
+                || (_enemies.size() <= minNumberEnemies))
+            {
+                spawnBasicEnemy(shipType, shipVariant, movementDirection, MovementState::SpiralIn);
             }
+
+            // Spawn enemy wanderer
+            float enemySpawnWandererTimer = float(fmod(rand(), 2.4f) + 1.6f);
+            if ((_timerSpawnWanderer.getElapsedTime().asSeconds() > enemySpawnWandererTimer)
+                || (_enemies.size() <= minNumberEnemies))
+            {
+                spawnBasicEnemy(entity::BasicWanderer, textures::EnemyShipYellow, movementDirection, MovementState::Wandering);
+            }
+
         }
-        // spawn satellites
+        // Spawn satellites
         if (_satellitesAlive == 0)
         {
-            float satelliteSpawn = fmod(rand(), 5.f) + 15.f;
+            float satelliteSpawn = float(fmod(rand(), 5.f) + 15.f);
             if (_timerSatellite.getElapsedTime().asSeconds() > satelliteSpawn)
                 spawnSatellites();
         }
@@ -175,7 +205,7 @@ void EntityController::spawnEntities()
         {
             _timerSatellite.restart();
         }
-        //spawn meteroids
+        // Spawn meteoroids
         auto meteoroidSpawnEventTimer = fmod(rand(),8.f) + 10.f;
         if (_timerMeteoroid.getElapsedTime().asSeconds() > meteoroidSpawnEventTimer)
             spawnMeteoroid();
@@ -185,7 +215,7 @@ void EntityController::spawnEntities()
 void EntityController::playerShoot()
 {
     auto numberOfBullets = 1;
-    auto bulletOffset = 3.8f; //adjust so bullet spawns just ahead of ship
+    auto bulletOffset = 3.8f; // Adjust so bullet spawns just in front of ship
     auto bulletScale = _playerShip.getScale().x * 1.5f;
 
     if (_playerShip.isUpgraded())
@@ -193,7 +223,7 @@ void EntityController::playerShoot()
         numberOfBullets = 2;
     }
 
-    for (auto i = 0; i < numberOfBullets; i++) //based on 1, or 2 bullets
+    for (auto i = 0; i < numberOfBullets; i++) // 1 or 2 bullets
     {
         if (numberOfBullets == 1)
             bulletOffset = 0;
@@ -212,20 +242,14 @@ void EntityController::playerShoot()
         _score.incrementBulletsFired();
     }
 }
-void EntityController::shoot()
-{
-    // Player shooting (Bullet creation)
-    if (_playerShip.isShooting())
-    {
-        playerShoot();
-    }
 
-    // Enemy Shooting
+void EntityController::enemyShoot()
+{
     _enemyShootEventHasOccurred = false;
-    auto minNumberEnemyBullets = 0;
-    auto doNotFireInsideThisRadius = (_resolution.y/2)*0.05; // only shoot when closer ( 5% of circle radius)
+    auto minNumberEnemyBullets = rand()%2;
+    auto doNotFireInsideThisRadius = (_resolution.y / 2) * 0.05; // Only shoot when closer (5% of circle radius)
     float enemyShootTime = float(fmod(rand(),2.5f) + 3.2f);
-    for (auto &enemy : _enemies)    //all enemies need a chance to shoot
+    for (auto &enemy : _enemies)    // All enemies need a chance to shoot
     {
         if (enemy->getDistanceFromCentre() > doNotFireInsideThisRadius)
         {
@@ -241,11 +265,21 @@ void EntityController::shoot()
                                                              _textureHolder,
                                                              textures::BulletEnemy);
 
-                _bulletsEnemy.push_front(std::move(bullet_enemy));
+                _bulletsEnemy.push_front(move(bullet_enemy));
                 _enemyShootEventHasOccurred = true;
             }
         }
     }
+}
+
+void EntityController::shoot()
+{
+    // Player shooting (Bullet creation)
+    if (_playerShip.isShooting())
+        playerShoot();
+
+    // Enemy Shooting
+    enemyShoot();
 }
 
 const bool EntityController::shootingOccurred()
@@ -257,16 +291,16 @@ void EntityController::setEnemyMoveState()
 {
     auto growShipScreenZone = _resolution.y/5.f; // Prevents change in behaviour near boundary
     auto shipClipScreenZone = _resolution.y/2.5f; // Prevents change in behaviour near boundary
-    auto minimumRadius = (_resolution.y/2)*0.06; // specifies minimum radius that within no behavour changes occur
+    auto minimumRadius = (_resolution.y/2)*0.06; // Specifies minimum radius that within no behaviour changes occur
 
     for (auto &enemy : _enemies)
     {
-        // Generic properties for each enemy. defined in the loop as per enemy spesific
+        // Generic properties for each enemy. defined in the loop as per enemy specific
         auto currentEnemyMovementState = enemy->getMovementState();
         auto currentEnemyRadius= enemy->getRadius();
         auto currentEnemyType = enemy->getType();
-        if ((currentEnemyRadius > _resolution.y / 2.f)  // Don/t leave game play area, respawn in centre after leaving
-             || ((currentEnemyMovementState == MovementState::SpiralIn) && (currentEnemyRadius < minimumRadius)))//reset from spiral inwards
+        if ((currentEnemyRadius > _resolution.y / 2.f)  // Don't leave game play area, re-spawn in centre after leaving
+             || ((currentEnemyMovementState == MovementState::SpiralIn) && (currentEnemyRadius < minimumRadius))) // Reset from spiral inwards
         {
             enemy->reset();
         }
@@ -276,23 +310,22 @@ void EntityController::setEnemyMoveState()
             auto randomStateChange = rand()%100+1; // 1 to 100%, chance to change state
 
             // Chance that the ship will enter a new movement state
-            if (((currentEnemyType  == entity::Basic) || (currentEnemyType  == entity::BasicAlternate)) //only apply changes to normal ships
-                && (currentEnemyRadius > growShipScreenZone) //dont change state if ship is too small
-                && (currentEnemyRadius < shipClipScreenZone) //dont change state if ship is too big and is going to fly off screen
-                    &&(currentEnemyMovementState!= MovementState::Wandering)) //if the ship spawned in a wandering, then it must remain as such
+            if (((currentEnemyType  == entity::Basic) || (currentEnemyType  == entity::BasicAlternate)) // Only apply changes to normal ships
+                && (currentEnemyRadius > growShipScreenZone)  // Don't change state if ship is too small
+                && (currentEnemyRadius < shipClipScreenZone)) // Don't change state if ship is too big and is going to fly off screen
             {
 
-                if (randomStateChange < 6)                                      //5% chance
+                if (randomStateChange < 6)                                          // 5% chance
                 {
                     enemy->setMovementState(MovementState::CircleOffsetLeft);
                 }
-                if (randomStateChange > 6 && randomStateChange < 13)            //5% chance
+                if (randomStateChange > 6 && randomStateChange < 13)                // 5% chance
                 {
                     enemy->setMovementState(MovementState::CircleOffsetRight);
-                } else if ((randomStateChange > 50) && (randomStateChange < 52))  // 2% chance
+                } else if ((randomStateChange > 50) && (randomStateChange < 52))    // 2% chance
                 {
                     enemy->setMovementState(MovementState::SpiralIn);
-                } else if (randomStateChange == 60)                               //1% change
+                } else if (randomStateChange == 60)                                 // 1% change
                 {
                     enemy->setMovementState(MovementState::SpiralOut);
                 }
@@ -704,22 +737,29 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
     return radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
 }
 
-const void EntityController::draw(sf::RenderWindow &renderWindow)
+const bulletList& EntityController::getBulletsPlayer() const
 {
-    for (auto &enemy : _enemies)
-        renderWindow.draw(enemy->getSprite());
+    return _bulletsPlayer;
+}
 
-    for (auto &bullet : _bulletsEnemy)
-        renderWindow.draw(bullet->getSprite());
+const bulletList& EntityController::getBulletsEnemy() const
+{
+    return _bulletsEnemy;
+}
 
-    for (auto &bullet : _bulletsPlayer)
-        renderWindow.draw(bullet->getSprite());
+const enemyList& EntityController::getEnemies() const
+{
+    return _enemies;
+}
 
-    for (auto &meteoroid : _meteoroids)
-        renderWindow.draw(meteoroid->getSprite());
+const meteoroidList& EntityController::getMeteoroids() const
+{
+    return _meteoroids;
+}
 
-    for (auto &explosion : _explosions)
-        renderWindow.draw(explosion->getSprite());
+const explosionList& EntityController::getExplosions() const
+{
+    return _explosions;
 }
 
 void EntityController::changeGlobalSpeed(float amount = 0.1f)

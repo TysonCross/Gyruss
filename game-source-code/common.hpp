@@ -77,6 +77,7 @@ namespace entity
     {
         Basic = 0,
         BasicAlternate,
+        BasicWanderer,
         PlayerShip,
         PlayerBullet,
         EnemyBullet,
@@ -102,6 +103,7 @@ namespace textures
     {
         EnemyShipGrey = 0,
         EnemyShipPurple,
+        EnemyShipYellow,
         SplashScreen,
         SplashScreenExtra,
         GameOverLoseScreen,
