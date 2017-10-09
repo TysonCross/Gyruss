@@ -1,6 +1,6 @@
-<map id="Entity::setMove" name="Entity::setMove">
+<map id="Entity::setMove" name="Entity::setEnemyMoveState">
 <area shape="rect" id="node2" href="$class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Entity::reset" alt="" coords="222,5,313,31"/>
-<area shape="rect" id="node3" href="$class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Entity::update" alt="" coords="216,55,319,80"/>
+<area shape="rect" id="node3" href="$class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Entity::setPlayerShipMove" alt="" coords="216,55,319,80"/>
 <area shape="rect" id="node4" href="$class_entity.html#adb509e7ecf0f3e998a67657bdf2076e6" title="Entity::getRadius" alt="" coords="207,104,329,129"/>
 <area shape="rect" id="node5" href="$class_entity.html#a18ae35ec14f8c0ebbcaf234c26f5429e" title="Entity::getDistanceFromCentre" alt="" coords="166,153,369,179"/>
 <area shape="rect" id="node6" href="$class_entity.html#aa216cd54efce968f742e06f816a8f3b0" title="Entity::getScale" alt="" coords="211,203,325,228"/>

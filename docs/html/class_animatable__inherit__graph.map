@@ -1,8 +1,8 @@
 <map id="Animatable" name="Animatable">
-<area shape="rect" id="node2" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="183,79,237,104"/>
-<area shape="rect" id="node3" href="$class_bullet.html" title="Projectile class, for either Player or Enemy bullets. " alt="" coords="5,152,60,177"/>
-<area shape="rect" id="node4" href="$class_enemy.html" title="Abstract Base Class for enemy game objects. " alt="" coords="84,152,147,177"/>
-<area shape="rect" id="node5" href="$class_explosion.html" title="Explosion class, for objects that collide. " alt="" coords="170,152,250,177"/>
-<area shape="rect" id="node6" href="$class_meteoroid.html" title="Meteoroid class. " alt="" coords="274,152,354,177"/>
-<area shape="rect" id="node7" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="378,152,464,177"/>
+<area shape="rect" id="node2" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="432,180,530,333"/>
+<area shape="rect" id="node3" href="$class_bullet.html" title="Projectile class, for either Player or Enemy bullets. " alt="" coords="5,381,189,615"/>
+<area shape="rect" id="node4" href="$class_enemy.html" title="Abstract Base Class for enemy game objects. " alt="" coords="213,395,365,601"/>
+<area shape="rect" id="node5" href="$class_explosion.html" title="Explosion class, for objects that collide. " alt="" coords="389,388,573,608"/>
+<area shape="rect" id="node6" href="$class_meteoroid.html" title="Meteoroid class. " alt="" coords="596,388,779,608"/>
+<area shape="rect" id="node7" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="803,395,911,601"/>
 </map>

@@ -1,4 +1,4 @@
-<map id="Explosion::update" name="Explosion::update">
+<map id="Explosion::update" name="Explosion::setPlayerShipMove">
 <area shape="rect" id="node2" href="$class_explosion.html#a7f9691fcb02fb57725968b95f4c43590" title="Explosion::die" alt="" coords="181,5,285,31"/>
 <area shape="rect" id="node3" href="$class_explosion.html#a658e43a61e4eda49565386a388da1db8" title="Explosion::reset" alt="" coords="333,5,449,31"/>
 </map>

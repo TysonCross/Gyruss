@@ -1,5 +1,5 @@
 <map id="Explosion::reset" name="Explosion::reset">
 <area shape="rect" id="node2" href="$class_explosion.html#a7f9691fcb02fb57725968b95f4c43590" title="Explosion::die" alt="" coords="170,5,274,31"/>
-<area shape="rect" id="node3" href="$class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9" title="Explosion::update" alt="" coords="322,5,449,31"/>
+<area shape="rect" id="node3" href="$class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9" title="Explosion::setPlayerShipMove" alt="" coords="322,5,449,31"/>
 <area shape="rect" id="node4" href="$class_explosion.html#af7c26d8e42739a756be8653d3faa5823" title="Explosion entity for destroyed screen objects. " alt="" coords="497,5,642,31"/>
 </map>

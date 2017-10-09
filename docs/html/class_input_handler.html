@@ -27,7 +27,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Earth_logo.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
    &#160;<span id="projectnumber">v3.0</span>
@@ -94,6 +94,11 @@ $(document).ready(function(){initNavTree('class_input_handler.html','');});
  <a href="class_input_handler.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for InputHandler:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_input_handler__coll__graph.png" border="0" usemap="#_input_handler_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,9 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a7bfd24153cb5d2513f6c3eea45222f2e">pollInput</a> (game::GameState &amp;gameState, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const Event &amp;event)</td></tr>
 <tr class="memdesc:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls the keyboard input events.  <a href="#a7bfd24153cb5d2513f6c3eea45222f2e">More...</a><br /></td></tr>
 <tr class="separator:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4755fd435c868b7f4d281144e913ff9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a4755fd435c868b7f4d281144e913ff9c">update</a> (<a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const float deltaTime)</td></tr>
-<tr class="memdesc:a4755fd435c868b7f4d281144e913ff9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up any player movement on the playerShip setMove() command, depending on the input during the polling.  <a href="#a4755fd435c868b7f4d281144e913ff9c">More...</a><br /></td></tr>
-<tr class="separator:a4755fd435c868b7f4d281144e913ff9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5479da72df328129910c33589c3cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a9f5479da72df328129910c33589c3cf4">setPlayerShipMove</a> (<a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const float deltaTime)</td></tr>
+<tr class="memdesc:a9f5479da72df328129910c33589c3cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up any player movement on the playerShip setMove() command, depending on the input during the polling.  <a href="#a9f5479da72df328129910c33589c3cf4">More...</a><br /></td></tr>
+<tr class="separator:a9f5479da72df328129910c33589c3cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e7028e9c3c69eaf9749a2b6cc8d5967"><td class="memItemLeft" align="right" valign="top"><a id="a1e7028e9c3c69eaf9749a2b6cc8d5967"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967">reset</a> ()</td></tr>
 <tr class="memdesc:a1e7028e9c3c69eaf9749a2b6cc8d5967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the inputHandler object. <br /></td></tr>
@@ -204,21 +209,20 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph.png" border="0" usemap="#class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph" alt=""/></div>
 <map name="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph" id="class_input_handler_a7bfd24153cb5d2513f6c3eea45222f2e_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="209,5,298,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="346,5,440,31"/>
+<area shape="rect" id="node2" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="209,5,302,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a4755fd435c868b7f4d281144e913ff9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4755fd435c868b7f4d281144e913ff9c">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a9f5479da72df328129910c33589c3cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5479da72df328129910c33589c3cf4">&#9670;&nbsp;</a></span>setPlayerShipMove()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void InputHandler::update </td>
+          <td class="memname">void InputHandler::setPlayerShipMove </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_player_ship.html">PlayerShip</a> &amp;&#160;</td>
           <td class="paramname"><em>playerShip</em>, </td>
@@ -253,18 +257,17 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph.png" border="0" usemap="#class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph" alt=""/></div>
-<map name="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph" id="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_cgraph">
-<area shape="rect" id="node2" href="class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="Sets the future player movement, rotating the the player ship around a circle by this angle..." alt="" coords="199,5,343,31"/>
+<div class="center"><img src="class_input_handler_a9f5479da72df328129910c33589c3cf4_cgraph.png" border="0" usemap="#class_input_handler_a9f5479da72df328129910c33589c3cf4_cgraph" alt=""/></div>
+<map name="class_input_handler_a9f5479da72df328129910c33589c3cf4_cgraph" id="class_input_handler_a9f5479da72df328129910c33589c3cf4_cgraph">
+<area shape="rect" id="node2" href="class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="Sets the future player movement, rotating the the player ship around a circle by this angle..." alt="" coords="273,5,417,31"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph.png" border="0" usemap="#class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph" alt=""/></div>
-<map name="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph" id="class_input_handler_a4755fd435c868b7f4d281144e913ff9c_icgraph">
-<area shape="rect" id="node2" href="class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="199,5,289,31"/>
-<area shape="rect" id="node3" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="337,5,430,31"/>
+<div class="center"><img src="class_input_handler_a9f5479da72df328129910c33589c3cf4_icgraph.png" border="0" usemap="#class_input_handler_a9f5479da72df328129910c33589c3cf4_icgraph" alt=""/></div>
+<map name="class_input_handler_a9f5479da72df328129910c33589c3cf4_icgraph" id="class_input_handler_a9f5479da72df328129910c33589c3cf4_icgraph">
+<area shape="rect" id="node2" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="273,5,367,31"/>
 </map>
 </div>
 

@@ -1,4 +1,4 @@
 <map id="Meteoroid::move" name="Meteoroid::move">
-<area shape="rect" id="node2" href="$class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Meteoroid::update" alt="" coords="174,5,303,31"/>
+<area shape="rect" id="node2" href="$class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Meteoroid::setPlayerShipMove" alt="" coords="174,5,303,31"/>
 <area shape="rect" id="node3" href="$class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7" title="Meteroid Entity (cannot be destroyed by bullets) " alt="" coords="351,5,498,31"/>
 </map>

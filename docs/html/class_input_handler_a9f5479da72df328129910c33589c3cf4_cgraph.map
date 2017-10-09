@@ -1,0 +1,3 @@
+<map id="InputHandler::setPlayerShipMove" name="InputHandler::setPlayerShipMove">
+<area shape="rect" id="node2" href="$class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="Sets the future player movement, rotating the the player ship around a circle by this angle..." alt="" coords="273,5,417,31"/>
+</map>

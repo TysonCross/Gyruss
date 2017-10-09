@@ -1,3 +1,3 @@
 <map id="Entity::getRadius" name="Entity::getRadius">
-<area shape="rect" id="node2" href="$class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="175,5,288,31"/>
+<area shape="rect" id="node2" href="$class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setEnemyMoveState" alt="" coords="175,5,288,31"/>
 </map>

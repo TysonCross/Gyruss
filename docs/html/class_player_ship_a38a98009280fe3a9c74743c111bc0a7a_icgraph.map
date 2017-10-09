@@ -1,6 +1,4 @@
 <map id="PlayerShip::isUpgraded" name="PlayerShip::isUpgraded">
-<area shape="rect" id="node2" href="$class_entity_controller.html#a0f49a575c75483b93be92ae7c02db743" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="215,5,371,44"/>
-<area shape="rect" id="node3" href="$class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="Initiates a player shoot event based on current gun level and adds bullet to bullet vector..." alt="" coords="419,12,571,37"/>
-<area shape="rect" id="node4" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="619,12,709,37"/>
-<area shape="rect" id="node5" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="757,12,850,37"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="215,5,417,31"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="465,5,558,31"/>
 </map>

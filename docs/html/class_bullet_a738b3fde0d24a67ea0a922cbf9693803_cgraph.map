@@ -1,4 +1,4 @@
-<map id="Bullet::update" name="Bullet::update">
+<map id="Bullet::update" name="Bullet::setPlayerShipMove">
 <area shape="rect" id="node2" href="$class_bullet.html#a88af6034543e11dd8e4b5539b7634838" title="Bullet::move" alt="" coords="156,31,251,56"/>
 <area shape="rect" id="node3" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="299,5,459,31"/>
 <area shape="rect" id="node4" href="$class_bullet.html#af2095626beecfcd32ab0bf279afca233" title="Bullet::getRadius" alt="" coords="318,55,440,80"/>

@@ -1,3 +1,3 @@
 <map id="Entity::die" name="Entity::die">
-<area shape="rect" id="node2" href="$class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setMove" alt="" coords="133,5,246,31"/>
+<area shape="rect" id="node2" href="$class_entity.html#ad901449ea32a9cace98ab926ca249bfb" title="Entity::setEnemyMoveState" alt="" coords="133,5,246,31"/>
 </map>

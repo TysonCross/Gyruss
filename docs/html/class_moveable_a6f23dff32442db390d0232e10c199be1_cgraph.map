@@ -1,4 +1,4 @@
-<map id="Moveable::setMove" name="Moveable::setMove">
+<map id="Moveable::setMove" name="Moveable::setEnemyMoveState">
 <area shape="rect" id="node2" href="$class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c" title="Virtual method to return the distance from origin (screen space) " alt="" coords="211,5,358,31"/>
 <area shape="rect" id="node3" href="$class_moveable.html#a724061b235c2a66939bbcc327648cb58" title="Virtual method to return the distance from origin (non&#45;linear distance) " alt="" coords="190,55,378,93"/>
 <area shape="rect" id="node4" href="$class_moveable.html#a7ab210f45d5558742196fc408d04056a" title="Virtual method to return the scale (in width/height) of the object. " alt="" coords="215,117,354,143"/>

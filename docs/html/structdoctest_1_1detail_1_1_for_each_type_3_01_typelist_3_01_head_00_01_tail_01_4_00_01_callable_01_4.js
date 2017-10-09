@@ -1,0 +1,5 @@
+var structdoctest_1_1detail_1_1_for_each_type_3_01_typelist_3_01_head_00_01_tail_01_4_00_01_callable_01_4 =
+[
+    [ "value", "structdoctest_1_1detail_1_1_for_each_type_3_01_typelist_3_01_head_00_01_tail_01_4_00_01_callable_01_4.html#a7f6386443f0c987ce695e7cee59a28c2ae25e88250a2003a14bb72252a8caef0c", null ],
+    [ "ForEachType", "structdoctest_1_1detail_1_1_for_each_type_3_01_typelist_3_01_head_00_01_tail_01_4_00_01_callable_01_4.html#a26ad732f69e2a1b71526bf206c1659f9", null ]
+];

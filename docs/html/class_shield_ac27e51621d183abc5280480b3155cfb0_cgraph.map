@@ -1,4 +1,4 @@
-<map id="Shield::update" name="Shield::update">
+<map id="Shield::update" name="Shield::setPlayerShipMove">
 <area shape="rect" id="node2" href="$class_player_ship.html#a971ef4107082b2040598101b416b1214" title="PlayerShip::isInvulnerable" alt="" coords="160,5,335,31"/>
 <area shape="rect" id="node3" href="$class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d" title="Shield::move" alt="" coords="198,55,297,80"/>
 <area shape="rect" id="node5" href="$class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Shield::reset" alt="" coords="200,104,295,129"/>

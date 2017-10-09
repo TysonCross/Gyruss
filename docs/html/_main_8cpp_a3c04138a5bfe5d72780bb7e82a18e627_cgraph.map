@@ -19,7 +19,7 @@
 <area shape="rect" id="node25" href="$class_score.html#ad2ad5c64290bc1baf6d929b2118ac240" title="Score::getEnemiesKilled" alt="" coords="659,1221,826,1247"/>
 <area shape="rect" id="node26" href="$class_entity_controller.html#a0eb21f206e193254b6cd2d0e095fac73" title="EntityController::shoot" alt="" coords="412,692,564,717"/>
 <area shape="rect" id="node27" href="$class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="PlayerShip::isShooting" alt="" coords="665,789,820,815"/>
-<area shape="rect" id="node28" href="$class_entity_controller.html#aa983e489331de567d420724c42924b22" title="EntityController::setMove" alt="" coords="403,1297,573,1323"/>
+<area shape="rect" id="node28" href="$class_entity_controller.html#aa983e489331de567d420724c42924b22" title="EntityController::setEnemyMoveState" alt="" coords="403,1297,573,1323"/>
 <area shape="rect" id="node29" href="$class_entity_controller.html#aea66506a320de6c4b760a344cc4a2f03" title="EntityController::checkClipping" alt="" coords="387,1347,590,1372"/>
 <area shape="rect" id="node30" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="EntityController::checkCollisions" alt="" coords="382,528,594,553"/>
 <area shape="rect" id="node31" href="$class_entity_controller.html#af87a665252f2c949815d21eac24ef470" title="EntityController::explosion\lOccurred" alt="" coords="400,1396,576,1435"/>
@@ -31,7 +31,7 @@
 <area shape="rect" id="node37" href="$class_star_field.html#a12b98fd26428d39c62cad82492f2b853" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="642,1747,843,1772"/>
 <area shape="rect" id="node38" href="$class_entity_controller.html#a392fe1a574a77ba809b5731aada54f15" title="EntityController::getSpeed" alt="" coords="400,1823,577,1848"/>
 <area shape="rect" id="node39" href="$class_entity_controller.html#a6e8df192bb7a1dbb0d1471a943282135" title="EntityController::draw" alt="" coords="414,1872,563,1897"/>
-<area shape="rect" id="node40" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Shield::update" alt="" coords="435,844,541,869"/>
+<area shape="rect" id="node40" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Shield::setPlayerShipMove" alt="" coords="435,844,541,869"/>
 <area shape="rect" id="node41" href="$class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Shield::reset" alt="" coords="695,893,790,919"/>
 <area shape="rect" id="node42" href="$class_shield.html#ae286bbff311ba2d5156a5eb900229907" title="Returns the Sprite object of the Class by ref. " alt="" coords="429,1921,548,1947"/>
 <area shape="rect" id="node43" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="HUD::draw" alt="" coords="445,996,531,1021"/>

@@ -1,4 +1,4 @@
-<map id="Enemy::update" name="Enemy::update">
+<map id="Enemy::update" name="Enemy::setPlayerShipMove">
 <area shape="rect" id="node2" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="164,59,267,85"/>
 <area shape="rect" id="node3" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="763,58,906,83"/>
 <area shape="rect" id="node4" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="315,34,475,59"/>

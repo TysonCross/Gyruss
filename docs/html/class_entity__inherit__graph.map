@@ -1,9 +1,9 @@
 <map id="Entity" name="Entity">
-<area shape="rect" id="node4" href="$class_bullet.html" title="Projectile class, for either Player or Enemy bullets. " alt="" coords="5,152,60,177"/>
-<area shape="rect" id="node5" href="$class_enemy.html" title="Abstract Base Class for enemy game objects. " alt="" coords="84,152,147,177"/>
-<area shape="rect" id="node6" href="$class_explosion.html" title="Explosion class, for objects that collide. " alt="" coords="170,152,250,177"/>
-<area shape="rect" id="node7" href="$class_meteoroid.html" title="Meteoroid class. " alt="" coords="274,152,354,177"/>
-<area shape="rect" id="node8" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="378,152,464,177"/>
-<area shape="rect" id="node2" href="$class_moveable.html" title="Moveable Class. " alt="" coords="117,5,196,31"/>
-<area shape="rect" id="node3" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="221,5,309,31"/>
+<area shape="rect" id="node4" href="$class_bullet.html" title="Projectile class, for either Player or Enemy bullets. " alt="" coords="5,475,189,708"/>
+<area shape="rect" id="node5" href="$class_enemy.html" title="Abstract Base Class for enemy game objects. " alt="" coords="213,488,365,695"/>
+<area shape="rect" id="node6" href="$class_explosion.html" title="Explosion class, for objects that collide. " alt="" coords="389,481,573,701"/>
+<area shape="rect" id="node7" href="$class_meteoroid.html" title="Meteoroid class. " alt="" coords="596,481,779,701"/>
+<area shape="rect" id="node8" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="803,488,911,695"/>
+<area shape="rect" id="node2" href="$class_moveable.html" title="Moveable Class. " alt="" coords="293,5,477,225"/>
+<area shape="rect" id="node3" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="501,52,653,179"/>
 </map>

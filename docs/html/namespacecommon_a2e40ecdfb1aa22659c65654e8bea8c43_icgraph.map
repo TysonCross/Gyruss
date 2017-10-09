@@ -1,6 +1,5 @@
 <map id="common::padIntToString" name="common::padIntToString">
 <area shape="rect" id="node2" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="258,5,345,31"/>
-<area shape="rect" id="node5" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="219,55,384,80"/>
-<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="432,31,522,56"/>
-<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="570,31,663,56"/>
+<area shape="rect" id="node4" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="219,55,384,80"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="432,31,525,56"/>
 </map>

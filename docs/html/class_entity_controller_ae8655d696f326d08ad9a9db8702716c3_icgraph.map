@@ -1,5 +1,4 @@
 <map id="EntityController::spawnSpiral" name="EntityController::spawnSpiral">
 <area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="246,5,448,31"/>
-<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="496,5,586,31"/>
-<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="634,5,727,31"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="496,5,589,31"/>
 </map>

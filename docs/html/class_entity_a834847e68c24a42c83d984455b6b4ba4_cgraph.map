@@ -1,7 +1,7 @@
 <map id="Entity::Entity" name="Entity::Entity">
 <area shape="rect" id="node2" href="$class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Pure virtual method definition for returning the remaining number of lives of the entity..." alt="" coords="149,5,261,31"/>
 <area shape="rect" id="node3" href="$class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf" title="Pure virtual method definition for performing a move. " alt="" coords="157,55,252,80"/>
-<area shape="rect" id="node4" href="$class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Pure virtual method definition for performing an update on the entity object. " alt="" coords="153,104,256,129"/>
+<area shape="rect" id="node4" href="$class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Pure virtual method definition for performing an setPlayerShipMove on the entity object. " alt="" coords="153,104,256,129"/>
 <area shape="rect" id="node5" href="$class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Pure virtual method definition for resetting the entity to a default state. " alt="" coords="159,153,251,179"/>
 <area shape="rect" id="node6" href="$class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Pure virtual method definition for decrementing an entity&#39;s lives count. " alt="" coords="165,203,245,228"/>
 </map>

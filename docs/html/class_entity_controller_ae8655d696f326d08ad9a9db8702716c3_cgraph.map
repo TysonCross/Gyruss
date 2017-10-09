@@ -1,3 +1,6 @@
 <map id="EntityController::spawnSpiral" name="EntityController::spawnSpiral">
-<area shape="rect" id="node2" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="246,5,392,31"/>
+<area shape="rect" id="node2" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="253,5,399,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="249,55,402,80"/>
+<area shape="rect" id="node5" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="246,104,406,129"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="454,48,649,87"/>
 </map>

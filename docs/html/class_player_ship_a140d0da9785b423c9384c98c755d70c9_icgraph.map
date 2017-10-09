@@ -1,7 +1,6 @@
 <map id="PlayerShip::getSprite" name="PlayerShip::getSprite">
 <area shape="rect" id="node2" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="346,5,497,44"/>
-<area shape="rect" id="node3" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="545,69,634,95"/>
-<area shape="rect" id="node5" href="$class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d" title="Performs the move, based on _futureMoveValue. " alt="" coords="200,120,298,145"/>
-<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="682,69,775,95"/>
-<area shape="rect" id="node6" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Checks and updates the movement, calls the actual movement translation with move() ..." alt="" coords="368,120,475,145"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="545,69,638,95"/>
+<area shape="rect" id="node4" href="$class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d" title="Performs the move, based on _futureMoveValue. " alt="" coords="200,120,298,145"/>
+<area shape="rect" id="node5" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Checks and updates the movement, calls the actual movement translation with move() ..." alt="" coords="368,120,475,145"/>
 </map>

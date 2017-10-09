@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project 2017 - Gyruss: Main Page</title>
+<title>Project 2017 - Gyruss: Release Notes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Gyruss_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Earth_logo.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project 2017 - Gyruss
    &#160;<span id="projectnumber">v3.0</span>
@@ -83,10 +83,112 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Project 2017 - Gyruss Documentation</div>  </div>
+<div class="title">Release Notes </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><div class="image">
+<img src="Gyruss_logo.png" align="left" hspace="20" vspace="10"/>
+</div>
+<p> <br />
+ <br />
+ </p><hr/>
+ <hr/>
+ <h1><center>ELEN3009 Project 2017 - Gyruss </center></h1>
+<hr/>
+ <hr/>
+<p> <br />
+ </p><h1><a class="el" href="class_game.html" title="The main Game class. ">Game</a> Features and Development</h1>
+<h2>*Core Features*</h2>
+<ul>
+<li>Player ship moves smoothly around perimeter of circular game area, can fire bullets to destroy enemy entities.</li>
+<li>Collision detection between all relevant entities.</li>
+<li>Explosions indicate collisions on relevant events.</li>
+<li><a class="el" href="class_enemy.html" title="Abstract Base Class for enemy game objects. ">Enemy</a> ships spawn two variants. Either of these variants can appear either at edge of game circle, or from at centre in distance.</li>
+<li>Enemies change behaviour, and exhibit different flying patterns.</li>
+<li>After leaving screen, enemy respawns.</li>
+<li>Player has three lives. Upon losing last life, game ends.</li>
+<li>If the player kills 100 enemies, then the game ends, with a different <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Over screen, indicating victory.</li>
+<li>Meteoroids randomly fly out from centre, they are indestructible and kill the player upon collision.</li>
+<li>Satellite enemy types spawn more rarely, in a group of three. Killing all of them upgrades the player weapon. If the player dies, any surviving satellites disapper. Upon death, the player weapon reverts to the basic lazer gun.</li>
+<li>The game speed starts slow, and scales up the longer a player lives. Upon death, the game speeds resets down.</li>
+<li>Visual window effects and sounds upon player death event.</li>
+</ul>
+<h3>SplashScreen:</h3>
+<ul>
+<li>Implements splash screen on application load.</li>
+<li>User Controls information displayed.</li>
+<li>Application icon (multiplatform).</li>
+<li>Window can be closed in SplashScreen.</li>
+<li>Instructions on how to proceed ( no longer "any key", to prevent accidental start).</li>
+<li>SplashScreen is animated (visual cue that game is not frozen).</li>
+<li>Quit hot-key (Ctrl-Q) works in SplashScreen and main application</li>
+<li>SplashScreen is frame-limited to 60 fps.</li>
+</ul>
+<h3><a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a>:</h3>
+<ul>
+<li><a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a> rotates around circle on screen in response to player keyboard input, with visual cues of movment (animated sprite) and sound for actions.</li>
+<li>Bullets can be fired, originating from the player location towards the centre.</li>
+<li>Bullets are correctly oriented to angle of firing.</li>
+<li>Bullets are animated.</li>
+<li>Player dies if hit by a bullet, meteoroid or enemy ship.</li>
+<li>Upon respawn, the player is briefly invulnerable. A visual shield animation indicates this temporary state.</li>
+</ul>
+<h3><a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a>:</h3>
+<ul>
+<li>A score is shown during gameplay.</li>
+<li><a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> shows player state (alive/invulnerable/dead).</li>
+<li><a class="el" href="class_h_u_d.html" title="Head Up Display showing the score, player lives. ">HUD</a> shows how long the player has been alive.</li>
+<li>Killing enemies awards points (depending on enemy type).</li>
+<li><a class="el" href="class_score.html" title="Object and methods to keep score of player actions. ">Score</a> also accumulates according to length of life.</li>
+</ul>
+<h3><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> behavior:</h3>
+<ul>
+<li>Bullets and Enemies scale when moving around play arena.</li>
+<li>Enemies orient to direction of movement.</li>
+<li>Behaviours include Hovering, spiralling in, spiralling out, and circling around.</li>
+</ul>
+<h3>Object-Oriented design:</h3>
+<ul>
+<li><a class="el" href="class_resource_holder.html" title="The ResourceType class. ">ResourceHolder</a> template class for flexible handling of different resource types.</li>
+<li>Seperate SoundHolder object controls and plays all sounds and music.</li>
+<li><a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> only handles keyboard press/release events.</li>
+<li>PlayerShip/EnemyShip/Bullet/Meteoroid all derived classed from Base <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> class.</li>
+</ul>
+<h3>Other Application features:</h3>
+<ul>
+<li>Highscore stored and displayed between games.</li>
+<li>Player performance metrics shown on <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Over <a class="el" href="class_screen.html" title="Base class interface for a &quot;Screen&quot;. ">Screen</a>.</li>
+<li><a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> effect (immersion and visual complexity.)</li>
+<li>Improved <a class="el" href="class_game.html" title="The main Game class. ">Game</a> art assets and sound.</li>
+<li>Varied, looping music soundtrack.</li>
+<li>Frame limited by explicit time-step (60 frames per second) and uses VSync.</li>
+<li>Basic separation of entity/setPlayerShipMove/draw methods.</li>
+<li>Early Doxygen documentation (incomplete)</li>
+<li>Included CMakeLists.txt for ease of compiling (works multiplatform OSX and Win32.)</li>
+<li>Developer mode (in OSX only) has "cheat" hotkeys for adjusting gameplay <hr/>
+ <h2>*Testing*</h2>
+</li>
+</ul>
+<h3>Unit tests</h3>
+<ul>
+<li>Movement unit tests for all Entities</li>
+<li>Logic tests for collision</li>
+<li>Resource loading and exception tests</li>
+<li><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> spawning and functionality tests</li>
+<li>Death and score logic tests</li>
+</ul>
+<h3>Interactive (user) tests</h3>
+<ul>
+<li>SplashScreen interactive tests (user must follow instructions to complete UI tests)</li>
+<li>Added images to instruct tester visually</li>
+</ul>
+<hr/>
+ <h5>*Free <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Art Asset Credits:*</h5>
+<p>Royalty-free Music by Eric Matyas [www.http://soundimage.org]()</p>
+<p>Free <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Art by Kenney [www.kenney.nl]()</p>
+<p>Royalty-free SoundFX from [www.freesound.org]()</p>
+<p>All other art and assets by Tyson Cross [www.tysoncross.com]() </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

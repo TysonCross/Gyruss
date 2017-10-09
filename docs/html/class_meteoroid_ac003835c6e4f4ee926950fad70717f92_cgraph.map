@@ -1,4 +1,4 @@
-<map id="Meteoroid::update" name="Meteoroid::update">
+<map id="Meteoroid::update" name="Meteoroid::setPlayerShipMove">
 <area shape="rect" id="node2" href="$class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Meteoroid::move" alt="" coords="182,31,303,56"/>
 <area shape="rect" id="node3" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="351,5,511,31"/>
 <area shape="rect" id="node4" href="$class_meteoroid.html#a9bd731b64f214e715cc3b2f66d79f072" title="Meteoroid::getRadius" alt="" coords="357,55,505,80"/>

@@ -1,3 +1,3 @@
-<map id="Enemy::setMove" name="Enemy::setMove">
+<map id="Enemy::setMove" name="Enemy::setEnemyMoveState">
 <area shape="rect" id="node2" href="$class_enemy.html#a96b36169d7d8417a1d39530a1320a95b" title="Constructor for an enemy object. " alt="" coords="174,5,286,31"/>
 </map>
