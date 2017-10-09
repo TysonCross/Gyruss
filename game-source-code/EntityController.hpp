@@ -22,7 +22,7 @@
 #include "Score.hpp"
 #include "PerlinNoise.hpp"
 
-using entityList = std::list<std::unique_ptr<Entity>>;
+//using entityList = std::list<std::unique_ptr<Entity>>;
 using bulletList = std::list<std::unique_ptr<Bullet>>;
 using enemyList = std::list<std::unique_ptr<Enemy>>;
 using explosionList = std::list<std::unique_ptr<Explosion>>;
@@ -103,10 +103,10 @@ public:
     ///
     /// \see Enemy.hpp
     ////////////////////////////////////////////////////////////
-    void spawnSpiral(entity::ID id,
-                     textures::ID shipVariant,
-                     MovementDirection movementDirection,
-                     MovementState movementState);
+    void spawnBasicEnemy(entity::ID id,
+                         textures::ID shipVariant,
+                         MovementDirection movementDirection,
+                         MovementState movementState);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initiates a player shoot event based on current gun level
@@ -204,14 +204,29 @@ public:
     ////////////////////////////////////////////////////////////
     void killAllEnemiesOfType(entity::ID type);
 
+    ////////////////////////////////////////////////////////////
+    /// /ToDo
+    ////////////////////////////////////////////////////////////
     const bulletList& getBulletsPlayer() const;
 
+    ////////////////////////////////////////////////////////////
+    /// /ToDo
+    ////////////////////////////////////////////////////////////
     const bulletList& getBulletsEnemy() const;
 
+    ////////////////////////////////////////////////////////////
+    /// /ToDo
+    ////////////////////////////////////////////////////////////
     const enemyList& getEnemies() const;
 
+    ////////////////////////////////////////////////////////////
+    /// /ToDo
+    ////////////////////////////////////////////////////////////
     const meteoroidList& getMeteoroids() const;
 
+    ////////////////////////////////////////////////////////////
+    /// /ToDo
+    ////////////////////////////////////////////////////////////
     const explosionList& getExplosions() const;
 
 private:
@@ -371,13 +386,19 @@ private:
     /// \brief A Clock to store time from last ship spawn from perimeter. Used to stagger
     /// the spawn event of a ship flying with this formation
     ////////////////////////////////////////////////////////////
-    sf::Clock _timerSpawnFromPerimeter;
+    Clock _timerSpawnFromPerimeter;
 
     ////////////////////////////////////////////////////////////
     /// \brief A Clock to store time from last ship spawn from centre. Used to stagger
     /// the spawn event of a ship flying with this formation
     ////////////////////////////////////////////////////////////
-    sf::Clock _timerSpawnFromCentre;
+    Clock _timerSpawnFromCentre;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief A Clock to store time from last wandering ship. Used to stagger
+    /// the spawn event of a ship flying with this formation
+    ////////////////////////////////////////////////////////////
+    Clock _timerSpawnWanderer;
 
     ////////////////////////////////////////////////////////////
     /// \brief A clock to store the time from when a Satellite was las spawned
@@ -474,6 +495,8 @@ private:
     /// playerShip movement
     ////////////////////////////////////////////////////////////
     PerlinNoise _yNoise;
+
+    void enemyShoot();
 };
 
 #endif //PROJECT_ENTITYCONTROLLER_HPP

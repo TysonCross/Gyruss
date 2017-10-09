@@ -360,6 +360,7 @@ void Game::loadResources()
     _textures.load(textures::Planet, "resources/earth.png");
     _textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     _textures.load(textures::EnemyShipPurple, "resources/enemyship_purple.png");
+    _textures.load(textures::EnemyShipYellow, "resources/enemyship_yellow.png");
     _textures.load(textures::Satellite, "resources/satellite.png");
     _textures.load(textures::Explosion, "resources/explosion.png");
     _textures.load(textures::Shield, "resources/shield.png");
@@ -458,10 +459,10 @@ void Game::debugKeys(const Event &event, PlayerShip &playerShip, EntityControlle
             auto textureVariant = static_cast<textures::ID>(rand() % 2);
             auto movementDir = static_cast<MovementDirection >(rand() % 2);
             auto movementState = static_cast<MovementState>(rand() % 5);
-            entityController.spawnSpiral(enemyType,
-                                         textureVariant,
-                                         movementDir,
-                                         movementState);
+            entityController.spawnBasicEnemy(enemyType,
+                                             textureVariant,
+                                             movementDir,
+                                             movementState);
         }
     }
 }
