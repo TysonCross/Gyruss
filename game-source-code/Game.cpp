@@ -26,7 +26,12 @@ Game::Game()
     loadResources(); //load all graphics into the resource holder
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss", sf::Style::Close, settings);
+    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32),
+                       "Gyruss",
+                       sf::Style::Close,
+//                       sf::Style::Fullscreen,
+                       settings);
+
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
@@ -53,11 +58,11 @@ void Game::startGameLoop()
     Clock speedTimer;
     Clock aliveTimer;
     Time timeSinceUpdate = sf::Time::Zero;
-    float timeStep = 1.f / 60.f; //60 frames per second
-    auto speedModifier = 0.5f; //defines how fast the game should be at the start
-    auto increaseSpeedThreshold = 1.5f;  // How often the game speeds up (in seconds)
-    auto globalSpeedIncrease = 0.02f; // Game speeds up this amount every time
-    _inputHandler.reset(); //clear all previous inputs in the inputHandler
+    float timeStep = 1.f / 60.f;            // 60 frames per second
+    auto speedModifier = 0.35f;              // Defines how fast the game should be at the start
+    auto increaseSpeedThreshold = 1.5f;     // How often the game speeds up (in seconds)
+    auto globalSpeedIncrease = 0.025f;       // Game speeds up this amount every time that it increases
+    _inputHandler.reset();                  // Clear all previous inputs in the inputHandler
 
     _mainWindow.clear(sf::Color::Black);
 
@@ -164,8 +169,8 @@ void Game::startGameLoop()
             timeSinceUpdate = sf::Time::Zero;
 
             entityController.spawnEntities();
-            _inputHandler.setPlayerShipMove(playerShip, timeStep);
             entityController.setMove();
+            _inputHandler.setPlayerShipMove(playerShip, timeStep);
             entityController.shoot();
             entityController.checkClipping();
 
@@ -185,7 +190,6 @@ void Game::startGameLoop()
             ///-------------------------------------------
             /// Pre update() Sound events
             ///-------------------------------------------
-
             playEventSounds(playerShip, entityController);
 
             ///-------------------------------------------
@@ -352,6 +356,7 @@ void Game::loadResources()
     _textures.load(textures::GameOverLoseScreen, "resources/gameoverlose.png");
     _textures.load(textures::GameOverWinScreen, "resources/gameoverwin.png");
     _textures.load(textures::SplashControls, "resources/splash_controls.png");
+    _textures.load(textures::SplashPoints, "resources/splash_points.png");
     _textures.load(textures::GameOverCredits, "resources/gameover_credits.png");
     _textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     _textures.load(textures::BulletPlayer, "resources/bullet_player.png");

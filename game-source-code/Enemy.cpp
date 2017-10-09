@@ -31,10 +31,8 @@ Enemy::Enemy(const Vector2i &resolution,
     _isShooting = false;
     _movementState = movementState;
     _movementDirection = movementDirection;
-
     _centre = {0,0};
-
-    setMove(angle,distanceFromCentre,_centre); //Initialised position at starting point
+    setMove(angle, distanceFromCentre, _centre); //Initialised position at starting point
 }
 
 void Enemy::setMove(float angle, float distance)
@@ -61,16 +59,16 @@ void Enemy::setMovementState(MovementState movementState)
 void Enemy::reset()
 {
     _angleOrientation = 0;
-    _sprite.setScale(0,0);
-    _sprite.setPosition(_resolution.x/2,_resolution.y/2);
+    _sprite.setScale(0, 0);
+    _sprite.setPosition(_resolution.x / 2, _resolution.y / 2);
     _isShooting = false;
-    _centre={0,0};
+    _centre = {0, 0};
     // if the ship is a wanderer and hits the side of the screen, needs to respawn with its previous movement type
-    if (_movementState==MovementState::Wandering)
+    if (_movementState == MovementState::Wandering)
     {
-        _angle=rand()%360;
-        _distanceFromCentre=_resolution.y/7;
-        _movementState= MovementState::Wandering;
+        _angle = rand() % 360;
+        _distanceFromCentre = _resolution.y / 7;
+        _movementState = MovementState::Wandering;
     }
     else
     {
@@ -102,9 +100,8 @@ const float Enemy::getRadius() const
 
 const float Enemy::getDistanceFromCentre() const
 {
-    return (float(_distanceFromCentre
-            + sqrt(_centre.x * _centre.x + _centre.y * _centre.y))
-            - _sprite.getGlobalBounds().height / 2);
+    auto hypotenuse = sqrt((_centre.x * _centre.x) + (_centre.y * _centre.y));
+    return (_distanceFromCentre + hypotenuse) - (_sprite.getGlobalBounds().height / 2);
 }
 
 const Vector2f Enemy::getCentre() const

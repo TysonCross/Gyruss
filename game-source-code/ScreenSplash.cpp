@@ -32,11 +32,11 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     sf::Sprite planet(textureHolder.get(textures::Planet));
     planet.setOrigin(planet.getLocalBounds().width / 12, planet.getLocalBounds().height / 10);
     auto planetWidth = resolution.x / 2;
-    auto planetHeight = resolution.y / 2;
+    auto planetHeight = resolution.y / 2 + resolution.y / 20;
     sf::IntRect rectArea = {0, 0, 256, 256};
     planet.setTextureRect(rectArea);
     planet.setPosition(planetWidth, planetHeight);
-//    planet.setScale(1.5,1.5);
+    planet.setScale(1.25,1.25);
     auto frame = 1;
     auto incrementer = 1;
     auto animationFPSLimit = 3;
@@ -68,8 +68,15 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     sf::Sprite controls(textureHolder.get(textures::SplashControls));
     controls.setOrigin(controls.getGlobalBounds().width / 2, controls.getGlobalBounds().height / 2);
     auto controlsWidth = resolution.x / 2 + resolution.x / 3;
-    auto controlHeight = resolution.y / 2 + resolution.y / 12;
-    controls.setPosition(controlsWidth, controlHeight);
+    auto controlsHeight = resolution.y / 2 + resolution.y / 12;
+    controls.setPosition(controlsWidth, controlsHeight);
+
+    // Points Info
+    sf::Sprite points(textureHolder.get(textures::SplashPoints));
+    points.setOrigin(points.getGlobalBounds().width / 2, points.getGlobalBounds().height / 2);
+    auto pointsWidth = resolution.x / 5;
+    auto pointsHeight = resolution.y / 2 + resolution.y / 5;
+    points.setPosition(pointsWidth, pointsHeight);
 
     // highScore info
     // Title
@@ -80,7 +87,7 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     highScoreTitle.setOrigin(highScoreTitle.getLocalBounds().width / 2,
                              highScoreTitle.getLocalBounds().height / 2);
     auto highScoreTitlePositionX = resolution.x / 5;
-    auto highScoreTitlePositionY = resolution.y / 2 - resolution.y / 12;
+    auto highScoreTitlePositionY = resolution.y / 2 - resolution.y / 10;
     highScoreTitle.setPosition(highScoreTitlePositionX,
                                highScoreTitlePositionY);
 
@@ -120,6 +127,8 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
 
             renderWindow.clear();
 
+//            renderWindow.draw(splash);
+
             if (frame == animationFPSLimit)
             {
                 frame = 1;
@@ -135,9 +144,10 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
 
             renderWindow.draw(planet);
             renderWindow.draw(title);
-            renderWindow.draw(spacefight);
+//            renderWindow.draw(spacefight);
             renderWindow.draw(version);
             renderWindow.draw(controls);
+            renderWindow.draw(points);
             renderWindow.draw(highScoreTitle);
             renderWindow.draw(highScore);
 

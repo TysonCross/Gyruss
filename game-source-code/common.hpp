@@ -109,6 +109,7 @@ namespace textures
         GameOverLoseScreen,
         GameOverWinScreen,
         SplashControls,
+        SplashPoints,
         GameOverCredits,
         PlayerShip,
         BulletPlayer,

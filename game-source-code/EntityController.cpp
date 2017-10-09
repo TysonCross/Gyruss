@@ -25,6 +25,7 @@ EntityController::EntityController(sf::Vector2i resolution,
     _timerSatellite.restart();
     _timerMeteoroid.restart();
     _totalTime.restart();
+
     _explosionHasOccurred = false;
     _defaultSpeed = speedModifier;
     _speedModifier = _defaultSpeed;
@@ -35,8 +36,8 @@ EntityController::EntityController(sf::Vector2i resolution,
     _meteoroidSpeed = 30;
     auto seed0 = 4294967296; //Seeds for PerlinNoise (prime numbers)
     auto seed1 = 1664525;
-    auto _xNoise = PerlinNoise(seed0);
-    auto _yNoise = PerlinNoise(seed1);
+    _xNoise = PerlinNoise(seed0);
+    _yNoise = PerlinNoise(seed1);
 }
 
 
@@ -52,8 +53,8 @@ void EntityController::spawnBasicEnemy(entity::ID id,
     {
         case (MovementState::SpiralIn):
         {
-            spiralDistanceFromCentre = (_resolution.y / 3) - 1;//Spawn just inside play zone,1 pixel in
-            spiralAngle = 180 + _playerShip.getAngle(); //Spawn opposite side to playerShip
+            spiralDistanceFromCentre = (_resolution.y / 3) - 1;//Spawn just inside play zone
+            spiralAngle = _playerShip.getAngle() + 180; //Spawn opposite side to playerShip
             _timerSpawnFromPerimeter.restart();
             break;
         }
@@ -68,8 +69,8 @@ void EntityController::spawnBasicEnemy(entity::ID id,
 
         case (MovementState::Wandering):
         {
-            spiralDistanceFromCentre = _resolution.y/7; //random position to start wandering
-            spiralAngle = _playerShip.getAngle()+180;
+            spiralDistanceFromCentre = (_resolution.y / 3) - rand() % 10; // Slightly random position to start wandering
+            spiralAngle = _playerShip.getAngle() + rand() % 90 + 180; // Random angle, avoiding playerShip
             _timerSpawnWanderer.restart();
             break;
         }
@@ -87,13 +88,15 @@ void EntityController::spawnBasicEnemy(entity::ID id,
                                          shipVariant,
                                          movementState,
                                          movementDirection);
+
     //SpiralIn and Wandering need to have their move set on spawn to prevent clipping. SpiralOut does not
     // need this as it is in the centre to begin with.
-    if(movementState!=MovementState::SpiralOut)
+    if((movementState==MovementState::Wandering)||(movementState==MovementState::SpiralIn))
     {
         enemy->setScale(0, 0);
         enemy->setMove(0, 0);
-        enemy->move();
+        enemy->move();  // ToDo This can cause the explosion bug, but disabling this means nothing spawns from perimeter
+                        // ToDo Update: Have solved this problem by changing the parameters of spawnBasicEnemy()
     }
     _enemies.push_front(std::move(enemy)); // Add enemy to enemy vector
 }
@@ -162,16 +165,15 @@ void EntityController::spawnEntities()
     if (_totalTime.getElapsedTime().asSeconds() > 1)
     {
         auto minNumberEnemies = 1;
-        auto maxNumberEnemies = 7;
+        auto maxNumberEnemies = 8;
         if (_enemies.size() < maxNumberEnemies)
         {
-
-            float enemySpawnFromCentreTimer = float(fmod(rand(), 1.2f) + 0.8f);
             auto shipVariant = static_cast<textures::ID>(rand() % 2);
             auto shipType = static_cast<entity::ID>(shipVariant);
-            auto movementDirection = static_cast<MovementDirection>(rand()%2);
+            auto movementDirection = static_cast<MovementDirection>(rand() % 2);
 
             // Spawn enemy spiral out
+            float enemySpawnFromCentreTimer = float(fmod(rand(), 1.2f) + 0.8f);
             if ((_timerSpawnFromCentre.getElapsedTime().asSeconds() > enemySpawnFromCentreTimer)
                 || (_enemies.size() <= minNumberEnemies))
             {
@@ -188,6 +190,7 @@ void EntityController::spawnEntities()
 
             // Spawn enemy wanderer
             float enemySpawnWandererTimer = float(fmod(rand(), 3.4f) + 2.6f);
+
             if ((_timerSpawnWanderer.getElapsedTime().asSeconds() > enemySpawnWandererTimer)
                 || (_enemies.size() <= minNumberEnemies))
             {
@@ -247,7 +250,7 @@ void EntityController::playerShoot()
 void EntityController::enemyShoot()
 {
     _enemyShootEventHasOccurred = false;
-    auto minNumberEnemyBullets = rand()%2;
+    auto minNumberEnemyBullets = 0; //rand() % 2;
     auto doNotFireInsideThisRadius = (_resolution.y / 2) * 0.05; // Only shoot when closer (5% of circle radius)
     float enemyShootTime = float(fmod(rand(),2.5f) + 3.2f);
     for (auto &enemy : _enemies)    // All enemies need a chance to shoot
@@ -553,25 +556,6 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
     }
 }
 
-void EntityController::killAllEnemiesOfType(entity::ID type)
-{
-    for (auto enemy = _enemies.begin(); enemy != _enemies.end();)
-    {
-        auto enemyType = (*enemy)->getType();
-        if (enemyType == entity::Satellite)
-        {
-            _satellitesAlive = 0;
-        }
-
-        if (enemyType == type)
-        {
-            enemy = _enemies.erase(enemy);
-        }
-        else
-            enemy++;
-    }
-}
-
 void EntityController::checkPlayerBulletsToMeteoroidCollisions()
 {
     // PlayerBullets -> Enemy (enemy explodes, PlayerBullet disappears)
@@ -707,7 +691,7 @@ void EntityController::checkClipping()
     }
 
     // Clip away player bullets at centre
-    auto radius_buffer = 20; // should be smaller than playableZoneRadiusFactor above
+    auto radius_buffer = 20;
     for (auto bullet = _bulletsPlayer.begin(); bullet != _bulletsPlayer.end();)
     {
         if (((*bullet)->getPosition().x > (_resolution.x / 2) - radius_buffer)
@@ -742,6 +726,25 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
     float distance_y = sprite1.getPosition().y - sprite2.getPosition().y;
 
     return radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
+}
+
+void EntityController::killAllEnemiesOfType(entity::ID type)
+{
+    for (auto enemy = _enemies.begin(); enemy != _enemies.end();)
+    {
+        auto enemyType = (*enemy)->getType();
+        if (enemyType == entity::Satellite)
+        {
+            _satellitesAlive = 0;
+        }
+
+        if (enemyType == type)
+        {
+            enemy = _enemies.erase(enemy);
+        }
+        else
+            enemy++;
+    }
 }
 
 const bulletList& EntityController::getBulletsPlayer() const
