@@ -196,27 +196,12 @@ public:
     const float         getDistanceFromCentre() const override;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the distance from origin (non-linear distance),
-    /// explicitly checking the _centre member
-    ///
-    /// \return A float value, the depth from the centre in z, from the _centre member
-    ////////////////////////////////////////////////////////////
-    const float         getDistanceFromCentreWithOffset() const;
-
-    ////////////////////////////////////////////////////////////
     /// \brief Returns the current angle of the enemy from the origin(screen space)
     ///
     /// \return A float value, the angle around the screen centre origin
     ////////////////////////////////////////////////////////////
     const float         getAngle() const;
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Returns the current angle of the enemy from the centre in z, from the _centre member
-    ///
-    /// \return A float value, the angle around the _centre member origin
-    ////////////////////////////////////////////////////////////
-    const float         getAngleWithOffset();
-
+    
     ////////////////////////////////////////////////////////////
     /// \brief Returns the current rotation of the enemy sprite
     ///

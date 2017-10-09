@@ -227,7 +227,7 @@ void EntityController::shoot()
     float enemyShootTime = float(fmod(rand(),2.5f) + 3.2f);
     for (auto &enemy : _enemies)    //all enemies need a chance to shoot
     {
-        if (enemy->getDistanceFromCentreWithOffset() > doNotFireInsideThisRadius)
+        if (enemy->getDistanceFromCentre() > doNotFireInsideThisRadius)
         {
             if ((enemy->getShootTimerElapsedTime() > enemyShootTime)
                 || (_bulletsEnemy.size() < minNumberEnemyBullets))
@@ -235,7 +235,7 @@ void EntityController::shoot()
                 enemy->resetShootTimer();
                 auto bullet_enemy = std::make_unique<Bullet>(_resolution,
                                                              enemy->getRadius(),
-                                                             enemy->getAngleWithOffset(),
+                                                             enemy->getAngle(),
                                                              0.3,
                                                              entity::EnemyBullet,
                                                              _textureHolder,
@@ -483,7 +483,7 @@ void EntityController::checkPlayerBulletsToEnemyCollisions()
             {
                 auto explosion = std::make_unique<Explosion>(_resolution,
                                                              (*enemy)->getRadius(),
-                                                             (*enemy)->getAngleWithOffset(),
+                                                             (*enemy)->getAngle(),
                                                              (*enemy)->getScale().x * 2,
                                                              entity::Explosion,
                                                              _textureHolder,

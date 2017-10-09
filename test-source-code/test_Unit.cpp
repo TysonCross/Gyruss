@@ -35,19 +35,22 @@
 #include <iostream>
 #include "doctest.h"
 
-TEST_CASE ("Loading a missing file into a resourceHandler<sf::Texture, textures::ID> throws an exception") {
+TEST_CASE ("Loading a missing file into a resourceHandler<sf::Texture, textures::ID> throws an exception")
+{
     TextureHolder texture_holder;
 
             CHECK_THROWS(texture_holder.load(textures::testTexture, "resources/NO_IMAGE"));
 }
 
-TEST_CASE ("Loading a texure that exists into a resourceHandler<sf::Texture, textures::ID> succeeds") {
+TEST_CASE ("Loading a texure that exists into a resourceHandler<sf::Texture, textures::ID> succeeds")
+{
     TextureHolder texture_holder;
             CHECK_NOTHROW(texture_holder.load(textures::testTexture, "resources/test_image.png"));
 
 }
 
-TEST_CASE ("Getting a texture previously loaded into a resourceHandler<sf::Texture, textures::ID> succeeds (i.e. does not throw an exception)") {
+TEST_CASE ("Getting a texture previously loaded into a resourceHandler<sf::Texture, textures::ID> succeeds (i.e. does not throw an exception)")
+{
     TextureHolder texture_holder;
             REQUIRE_NOTHROW(texture_holder.load(textures::testTexture, "resources/test_image.png"));
 
@@ -56,14 +59,16 @@ TEST_CASE ("Getting a texture previously loaded into a resourceHandler<sf::Textu
 }
 
 //Check SoundHolder
-TEST_CASE ("Loading a missing file into a resourceHandler<sf::SoundBuffer, sounds::ID> throws an exception") {
+TEST_CASE ("Loading a missing file into a resourceHandler<sf::SoundBuffer, sounds::ID> throws an exception")
+{
     SoundHolder sound_holder;
 
             CHECK_THROWS(sound_holder.load(sounds::testSound, "resources/NO_IMAGE"));
 }
 
 TEST_CASE (
-        "Loading a sound buffer from a file that exists into a resourceHandler<sf::SoundBuffer, sounds::ID> succeeds (i.e. does not throw an exception)") {
+        "Loading a sound buffer from a file that exists into a resourceHandler<sf::SoundBuffer, sounds::ID> succeeds (i.e. does not throw an exception)")
+{
     SoundHolder sound_holder;
             REQUIRE_NOTHROW(sound_holder.load(sounds::testSound, "resources/test.ogg"));
 
@@ -73,7 +78,8 @@ TEST_CASE (
 
 
 TEST_CASE (
-        "Playing a sound previously loaded into a resourceHandler<sf::SoundBuffer, sounds::ID> succeeds (i.e. does not throw an exception)") {
+        "Playing a sound previously loaded into a resourceHandler<sf::SoundBuffer, sounds::ID> succeeds (i.e. does not throw an exception)")
+{
     SoundHolder sound_holder;
             REQUIRE_NOTHROW(sound_holder.load(sounds::testSound, "resources/test.ogg"));
 
@@ -83,20 +89,23 @@ TEST_CASE (
 }
 
 // Check FontHolder
-TEST_CASE ("Loading a missing file into a resourceHandler<sf::Font, fonts::ID> throws an exception") {
+TEST_CASE ("Loading a missing file into a resourceHandler<sf::Font, fonts::ID> throws an exception")
+{
     FontHolder font_holder;
 
             CHECK_THROWS(font_holder.load(fonts::testFont, "resources/NO_FONT"));
 }
 
-TEST_CASE ("Loading a font that exists into a resourceHandler<sf::Font, fonts::ID> succeeds") {
+TEST_CASE ("Loading a font that exists into a resourceHandler<sf::Font, fonts::ID> succeeds")
+{
     FontHolder font_holder;
             CHECK_NOTHROW(font_holder.load(fonts::testFont, "resources/danube.ttf"));
 
 }
 
 TEST_CASE (
-        "Getting a font previously loaded into a resourceHandler<sf::Font, fonts::ID> succeeds (i.e. does not throw an exception)") {
+        "Getting a font previously loaded into a resourceHandler<sf::Font, fonts::ID> succeeds (i.e. does not throw an exception)")
+{
     FontHolder font_holder;
             REQUIRE_NOTHROW(font_holder.load(fonts::testFont, "resources/danube.ttf"));
             CHECK_NOTHROW(sf::Text text_test("TEST", font_holder.get(fonts::testFont)));
@@ -108,15 +117,11 @@ TEST_CASE (
 
 // PlayerShip movement tests
 
-TEST_CASE ("Creating A PlayerShip object succeeds") {
+TEST_CASE ("Creating A PlayerShip object succeeds")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -135,15 +140,11 @@ TEST_CASE ("Creating A PlayerShip object succeeds") {
 }
 
 // Check rotation works with .setEnemyMoveState & .setPlayerShipMove
-TEST_CASE ("Moving a PlayerShip 10 degrees succeeds") {
+TEST_CASE ("Moving a PlayerShip 10 degrees succeeds")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -164,15 +165,11 @@ TEST_CASE ("Moving a PlayerShip 10 degrees succeeds") {
             CHECK(finalAngle == moveAngle);
 }
 
-TEST_CASE ("PlayerShip getPosition and underlying transformation both return the same location correctly") {
+TEST_CASE ("PlayerShip getPosition and underlying transformation both return the same location correctly")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -195,15 +192,11 @@ TEST_CASE ("PlayerShip getPosition and underlying transformation both return the
 }
 
 // Tests holding down move button
-TEST_CASE ("Moving a PlayerShip multiple times succeeds") {
+TEST_CASE ("Moving a PlayerShip multiple times succeeds")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -228,15 +221,11 @@ TEST_CASE ("Moving a PlayerShip multiple times succeeds") {
 }
 
 // Correct circle implementedd
-TEST_CASE ("Moving a PlayerShip 360 degrees brings ship back to where it started") {
+TEST_CASE ("Moving a PlayerShip 360 degrees brings ship back to where it started")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -265,15 +254,11 @@ TEST_CASE ("Moving a PlayerShip 360 degrees brings ship back to where it started
 
 
 // Check "angleFilter" function
-TEST_CASE ("Moving a PlayerShip -10 degrees correctly casts to 350 and succeeds") {
+TEST_CASE ("Moving a PlayerShip -10 degrees correctly casts to 350 and succeeds")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -295,15 +280,11 @@ TEST_CASE ("Moving a PlayerShip -10 degrees correctly casts to 350 and succeeds"
             CHECK(finalAngle == expectedFinalAngle);
 }
 
-TEST_CASE ("Moving a PlayerShip moves the sprite the correct number of pixels (flip 180)") {
+TEST_CASE ("Moving a PlayerShip moves the sprite the correct number of pixels (flip 180)")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -326,15 +307,11 @@ TEST_CASE ("Moving a PlayerShip moves the sprite the correct number of pixels (f
             CHECK(round(finalLocation.x)==round(expectedLocation.x)); // Cast to int to get closest pixel accuracy
 }
 
-TEST_CASE ("Reseting ship position brings the ship back to spawning point sucessfully") {
+TEST_CASE ("Reseting ship position brings the ship back to spawning point sucessfully")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -358,15 +335,11 @@ TEST_CASE ("Reseting ship position brings the ship back to spawning point sucess
             CHECK(round(finalLocation.y)==round(originalLocation.y)); // Cast to int to get closest pixel
 }
 
-TEST_CASE ("Killing the playerShip decrements a life") {
+TEST_CASE ("Killing the playerShip decrements a life")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -392,15 +365,11 @@ TEST_CASE ("Killing the playerShip decrements a life") {
             CHECK(playerShip.getLives() == startingLives - 1);
 }
 
-TEST_CASE ("Killing the playerShip resets the ship location to centre") {
+TEST_CASE ("Killing the playerShip resets the ship location to centre")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -425,21 +394,17 @@ TEST_CASE ("Killing the playerShip resets the ship location to centre") {
 
             CHECK(playerShip.getAngle() == 0);
             CHECK(playerShip.getFutureAngle() == 0);
-            CHECK(playerShip.isShooting() == false);
-            CHECK(playerShip.isMoving() == false);
+            CHECK(!playerShip.isShooting());
+            CHECK(!playerShip.isMoving());
             CHECK(playerShip.getPosition().x == startingPosition.x);
             CHECK(playerShip.getPosition().y == startingPosition.y);
 }
 
-TEST_CASE ("Killing the playerShip makes the ship Invulnerable") {
+TEST_CASE ("Killing the playerShip makes the ship Invulnerable")
+{
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -470,11 +435,10 @@ TEST_CASE ("Killing the playerShip makes the ship Invulnerable") {
 ////////////////////////////////////////////////////////////
 
 // Bullet movement tests
-TEST_CASE ("Creating a bullet entity succeeds") {
+TEST_CASE ("Creating a bullet entity succeeds")
+{
     TextureHolder textures;
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto bulletShootAngle = 180;
@@ -490,11 +454,10 @@ TEST_CASE ("Creating a bullet entity succeeds") {
     );
 }
 
-TEST_CASE ("Shooting a bullet stright up moves corretly") {
+TEST_CASE ("Shooting a bullet stright up moves corretly")
+{
     TextureHolder textures;
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto bulletShootAngle = 180; // Bullet moves directly up
@@ -517,11 +480,10 @@ TEST_CASE ("Shooting a bullet stright up moves corretly") {
             CHECK(round(finalPosition.y)==round(expectedPosition.y));
 }
 
-TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly away") {
+TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly away")
+{
     TextureHolder textures;
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto bulletShootAngle = 180;
@@ -542,11 +504,10 @@ TEST_CASE ("Shooting a bullet stright up causes them to scale down as they fly a
             CHECK(finalScale < startingScale);
 }
 
-TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwards") {
+TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwards")
+{
     TextureHolder textures;
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto bulletShootAngle = 180;
@@ -572,10 +533,10 @@ TEST_CASE ("Shooting a bullet fired from the centre scales up as it moves outwar
 ////////////////////////////////////////////////////////////
 
 // Meteoroid unit tests
-TEST_CASE ("Creating a meteoroid entity succeeds") {
+TEST_CASE ("Creating a meteoroid entity succeeds")
+{
     TextureHolder textures;
     textures.load(textures::Meteoroid, "resources/meteoroid.png");
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto meteoroidShootAngle = 180;
@@ -591,10 +552,10 @@ TEST_CASE ("Creating a meteoroid entity succeeds") {
     );
 }
 
-TEST_CASE ("Shooting a meteoroid stright up moves corretly") {
+TEST_CASE ("Shooting a meteoroid stright up moves corretly")
+x{
     TextureHolder textures;
     textures.load(textures::Meteoroid, "resources/meteoroid.png");
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto meteoroidShootAngle = 180; // Meteoroid moves directly up
@@ -617,10 +578,10 @@ TEST_CASE ("Shooting a meteoroid stright up moves corretly") {
             CHECK(round(finalPosition.y)==round(expectedPosition.y));
 }
 
-TEST_CASE ("Shooting a meteoroid stright up causes them to scale down as they fly away") {
+TEST_CASE ("Shooting a meteoroid stright up causes them to scale down as they fly away")
+{
     TextureHolder textures;
     textures.load(textures::Meteoroid, "resources/meteoroid.png");
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto meteoroidShootAngle = 180;
@@ -641,10 +602,10 @@ TEST_CASE ("Shooting a meteoroid stright up causes them to scale down as they fl
             CHECK(finalScale < startingScale);
 }
 
-TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves outwards") {
+TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves outwards")
+{
     TextureHolder textures;
     textures.load(textures::Meteoroid, "resources/meteoroid.png");
-    SoundHolder sounds;
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto meteoroidShootAngle = 180;
@@ -669,8 +630,8 @@ TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves out
 ///  Enemey Object Movement tests
 ////////////////////////////////////////////////////////////
 
-TEST_CASE ("Creating an object enemy succeeds") {
-
+TEST_CASE ("Creating an object enemy succeeds")
+{
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
 
@@ -688,7 +649,8 @@ TEST_CASE ("Creating an object enemy succeeds") {
     );
 }
 
-TEST_CASE ("Basic enemy starts at centre of screen by default") {
+TEST_CASE ("Basic enemy starts at centre of screen by default")
+{
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -708,7 +670,8 @@ TEST_CASE ("Basic enemy starts at centre of screen by default") {
             CHECK(round(enemy.getPosition().y) == round(resolution.y / 2));
 }
 
-TEST_CASE ("Instructing a basic enemy to move positions the transformation(linear motion)") {
+TEST_CASE ("Instructing a basic enemy to move positions the transformation(linear motion)")
+{
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -741,8 +704,8 @@ TEST_CASE ("Instructing a basic enemy to move positions the transformation(linea
             CHECK(round(enemy.getPosition().x)==round(xPosExpected));
 }
 
-TEST_CASE ("Instructing an enemy to move positions the transformation (angular motion included)") {
-
+TEST_CASE ("Instructing an enemy to move positions the transformation (angular motion included)")
+{
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
 
@@ -774,7 +737,8 @@ TEST_CASE ("Instructing an enemy to move positions the transformation (angular m
             CHECK(round(enemy.getPosition().x)==round(xPosExpected));
 }
 
-TEST_CASE ("Enemy scale up as moving outwards away from ") {
+TEST_CASE ("Enemy scale up as moving outwards away from ")
+{
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -804,7 +768,8 @@ TEST_CASE ("Enemy scale up as moving outwards away from ") {
 
 }
 
-TEST_CASE ("Enemy scale down as it moves inwards towards centre") {
+TEST_CASE ("Enemy scale down as it moves inwards towards centre")
+{
 
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
@@ -834,8 +799,8 @@ TEST_CASE ("Enemy scale down as it moves inwards towards centre") {
             CHECK(finalShipSize < originalShipSize);
 }
 
-TEST_CASE ("Killing the enemy ship resets the object") {
-
+TEST_CASE ("Killing the enemy ship resets the object")
+{
     TextureHolder textures;
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
 
@@ -874,11 +839,6 @@ TEST_CASE ("Shield Spawns at player ship location"){
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
 
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
-
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
     auto shipScale = 1;
@@ -903,11 +863,6 @@ TEST_CASE ("Shield follows the player ship location"){
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
-
-    SoundHolder sounds;
-    sounds.load(sounds::SpawnSound, "resources/ship_spawn.ogg");
-    sounds.load(sounds::PlayerMove, "resources/thrust.ogg");
-    sounds.load(sounds::PlayerShoot, "resources/shoot_laser.ogg");
 
     auto resolution = sf::Vector2i{1920, 1080};
     auto shipPathRadiusPadding = 0.05f;
@@ -962,7 +917,7 @@ TEST_CASE("Explosion spawns at desired location")
 //spawn the explosion at the location of the ship. can then check the location without needing to go via polar
     Explosion explosion{resolution,
                         enemy.getRadius(),
-                        enemy.getAngleWithOffset(),
+                        enemy.getAngle(),
                         enemy.getScale().x*2,
                         entity::Explosion,
                         textures,
@@ -978,7 +933,8 @@ TEST_CASE("Explosion spawns at desired location")
 ///  Collision detection tests
 ////////////////////////////////////////////////////////////
 
-TEST_CASE("Two objects on top of each other report a collision"){
+TEST_CASE("Two objects on top of each other report a collision")
+{
     auto resolution = sf::Vector2i{1920, 1080};
     TextureHolder textures;
 
@@ -988,6 +944,7 @@ TEST_CASE("Two objects on top of each other report a collision"){
     sf::Sprite sprite2;
     sprite2.setPosition(10,10);
     // Each sprite needs a texture so it can have a size associated with it to simulate the collision detection // ToDo: Remove
+
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     sprite1.setTexture(textures.get(textures::EnemyShipGrey));
     sprite2.setTexture(textures.get(textures::EnemyShipGrey));
@@ -995,6 +952,7 @@ TEST_CASE("Two objects on top of each other report a collision"){
     // The EntityController requires the playerShip object as part of its constructor
 
     textures.load(textures::BulletPlayer, "resources/bullet_player.png");
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
 
     auto shipPathRadiusPadding = 0.05f;
     auto shipScale = 1;

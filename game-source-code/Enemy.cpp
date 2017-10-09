@@ -92,12 +92,9 @@ const float Enemy::getRadius() const
 
 const float Enemy::getDistanceFromCentre() const
 {
-    return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
-}
-
-const float Enemy::getDistanceFromCentreWithOffset() const
-{
-    return (_distanceFromCentre+sqrt(_centre.x*_centre.x+_centre.y*_centre.y)) - _sprite.getGlobalBounds().height/2;
+    return (float(_distanceFromCentre
+            + sqrt(_centre.x * _centre.x + _centre.y * _centre.y))
+            - _sprite.getGlobalBounds().height / 2);
 }
 
 const Vector2f Enemy::getCentre() const
@@ -169,20 +166,15 @@ const bool Enemy::isShooting() const
 
 const float Enemy::getAngle() const
 {
-    return _angle;
+    auto x_pos = _sprite.getPosition().x - _resolution.x/2;
+    auto y_pos = _sprite.getPosition().y - _resolution.y/2;
+    auto radianAngle = atan2(x_pos,y_pos);
+    return common::angleFilter(common::radToDegree(radianAngle));
 }
 
 const float Enemy::getOrientationAngle() const
 {
     return _angleOrientation;
-}
-
-const float Enemy::getAngleWithOffset()
-{
-    auto x_pos = _sprite.getPosition().x - _resolution.x/2;
-    auto y_pos = _sprite.getPosition().y - _resolution.y/2;
-    auto radianAngle = atan2(x_pos,y_pos);
-    return common::angleFilter(common::radToDegree(radianAngle));
 }
 
 void Enemy::stopShoot()
@@ -232,7 +224,7 @@ void Enemy::setOrientation()
     _newPosition.y -= _resolution.y/2;
     _pointingPosition = _newPosition - _prevPosition;
     _angleOrientation = _futureAngleValue = atan2(_pointingPosition.x,_pointingPosition.y) - atan2(_prevPosition.x,_prevPosition.y); // ? Should be -?
-    _angleOrientation = -1*common::radToDegree(_angleOrientation) - getAngleWithOffset();
+    _angleOrientation = -1*common::radToDegree(_angleOrientation) - getAngle();
     _sprite.setRotation(_angleOrientation);
 }
 const float Enemy::getShootTimerElapsedTime() const
