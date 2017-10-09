@@ -66,7 +66,7 @@ void InputHandler::pollInput(game::GameState &gameState,
     }
 }
 
-void InputHandler::update(PlayerShip &playerShip, const float deltaTime)
+void InputHandler::setPlayerShipMove(PlayerShip &playerShip, const float deltaTime)
 {
     const auto moveAmount = 260.f;
     auto move = 0.f;

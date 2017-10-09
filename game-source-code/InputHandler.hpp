@@ -60,8 +60,8 @@ public:
     /// \see PlayerShip.hpp
     /// \see Game.hpp
     ////////////////////////////////////////////////////////////
-    void update(PlayerShip &playerShip,
-                const float deltaTime);
+    void setPlayerShipMove(PlayerShip &playerShip,
+                           const float deltaTime);
 
     ////////////////////////////////////////////////////////////
     /// \brief Resets the inputHandler object

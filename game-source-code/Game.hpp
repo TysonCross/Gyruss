@@ -61,10 +61,18 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Starts the game.
     ///
+    /// Main game loop that runs while game is played. begins by
+    /// setting up all vars and objects that need to be used.
+    /// during game play, sits within a sub-game loop.
     /// The main window (sf::RenderWindow) is created.
+    ///
     /// \see SFML/Window
     ////////////////////////////////////////////////////////////
     void Start();
+
+
+
+
 
     ////////////////////////////////////////////////////////////
     /// \brief Quits the game.
@@ -121,6 +129,21 @@ private:
     ////////////////////////////////////////////////////////////
     void recordHighScore();
 
+    void playEventSounds(PlayerShip &playerShip, EntityController &entityController);
+
+    void update(PlayerShip &playerShip, EntityController &entityController);
+
+    void render(StarField &starField, const PlayerShip &playerShip,
+                EntityController &entityController, Shield &shield, HUD &hud);
+
+    void endGameCheck(const PlayerShip &playerShip);
+
+    void playerDeathEvents(PlayerShip &playerShip, EntityController &entityController);
+
+    void shakeWindow();
+
+    void debugKeys(const Event &event, PlayerShip &playerShip, EntityController &entityController);
+
     ////////////////////////////////////////////////////////////
     /// \brief A ResourceHolder of type Texture to store all game art assets
     /// \see sf::Texture
@@ -173,6 +196,9 @@ private:
     ////////////////////////////////////////////////////////////
     Score _score;
 
+    Vector2i _windowPosition;
+
+    int _shaking; // Controls the shaking of the main renderWindow when a player loses a life
 };
 
 #endif //PROJECT_GAME_HPP

@@ -134,7 +134,7 @@ TEST_CASE ("Creating A PlayerShip object succeeds") {
 
 }
 
-// Check rotation works with .setMove & .update
+// Check rotation works with .setEnemyMoveState & .setPlayerShipMove
 TEST_CASE ("Moving a PlayerShip 10 degrees succeeds") {
     TextureHolder textures;
     textures.load(textures::PlayerShip, "resources/player_ship_animated.png");

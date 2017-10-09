@@ -6,6 +6,8 @@
 /// Implements the Game loop, and game states
 ///
 /// Music by Eric Matyas (www.http://soundimage.org)
+/// Sounds from Freesounds (www.freesounds.org)
+///
 /// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
@@ -16,28 +18,27 @@
 #include <iostream>
 #endif // DEBUG_ONLY
 
-Game::Game() : _winCondition{100}, // Number of enemies needed to kill to win.
-               _gameState{game::GameState::Splash}{}
-
-void Game::Start()
+Game::Game()
 {
     _resolution = sf::Vector2i{1920, 1080};
     sf::Image icon;
     if (!icon.loadFromFile("resources/icon.png")) return;
-
     loadResources(); //load all graphics into the resource holder
-
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32),
-                       "Gyruss",
-                       sf::Style::Close,
-                       settings);
-
+    _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32), "Gyruss", sf::Style::Close, settings);
     _mainWindow.setMouseCursorVisible(false);
     _mainWindow.setVerticalSyncEnabled(true);
     _mainWindow.setIcon(32, 32, icon.getPixelsPtr());
+    _windowPosition = _mainWindow.getPosition();
 
+    _winCondition = 100; // Number of enemies needed to kill to win.
+    _gameState = game::GameState::Splash;
+    _shaking = 0;
+}
+
+void Game::Start()
+{
     while (_gameState != game::GameState::Exiting)
     {
         startGameLoop();
@@ -45,13 +46,6 @@ void Game::Start()
     Quit();
 }
 
-void Game::Quit()
-{
-    _mainWindow.close();
-}
-
-// Main game loop that runs while game is played. begins by setting up all vars and objects that need to be used.
-// during game play, sits within a sub-game loop
 void Game::startGameLoop()
 {
     Clock mainClock;
@@ -62,15 +56,9 @@ void Game::startGameLoop()
     float timeStep = 1.f / 60.f; //60 frames per second
     auto speedModifier = 0.5f; //defines how fast the game should be at the start
     auto increaseSpeedThreshold = 1.5f;  // How often the game speeds up (in seconds)
-    auto globalSpeedIncrease = 0.01f; // Game speeds up this amount every time
-    _inputHandler.reset(); //clear all previous inputs in the input Handelr
+    auto globalSpeedIncrease = 0.02f; // Game speeds up this amount every time
+    _inputHandler.reset(); //clear all previous inputs in the inputHandler
 
-#ifdef DEBUG_ONLY
-    FPS fps;
-#endif // DEBUG_ONLY
-
-    auto shaking = 0; // Controls the shaking of the main renderWindow when a player loses a life
-    auto pos = _mainWindow.getPosition();
     _mainWindow.clear(sf::Color::Black);
 
     //First Game State
@@ -83,12 +71,17 @@ void Game::startGameLoop()
     if (_gameState == game::GameState::GameOverWin)
         showGameOverScreen(true);
 
+    #ifdef DEBUG_ONLY
+    // Debug mode: displays frames-per-second in title bar
+    FPS fps;
+    #endif // DEBUG_ONLY
+
     ///-------------------------------------------
     ///  Game Playing starts
     ///-------------------------------------------
     _score.reset();
 
-    //load game music
+    // Load game music
     if(_soundController.loadMusic())
         _soundController.playMusic();
 
@@ -96,7 +89,7 @@ void Game::startGameLoop()
     auto numberOfStars = 60;
     StarField starField(_resolution, 3, numberOfStars);
 
-    //Generated playerShip object
+    // Generate playerShip object
     auto shipPathRadiusPadding = 0.05f;
     const auto shipPathRadius = (_resolution.y / 2) - (_resolution.y * shipPathRadiusPadding);
     const auto shipScale = 0.22;
@@ -107,14 +100,14 @@ void Game::startGameLoop()
                           entity::PlayerShip,
                           _textures);
 
-    //Generate entityController object to manage all game objects movement, creation and destruction
+    // Generate entityController object to manage all game objects movement, creation and destruction
     EntityController entityController(_resolution,
                                       playerShip,
                                       _textures,
                                       _score,
                                       speedModifier);
 
-    //Generate shield object for playerShip
+    // Generate shield object for playerShip
     Shield shield(_resolution,
                   shipPathRadius,
                   0,
@@ -122,20 +115,19 @@ void Game::startGameLoop()
                   _textures,
                   playerShip);
 
-    //Create a hud object to show current lives and game stats
+    // Create a hud object to show current lives and game stats
     HUD hud(_resolution,
             _mainWindow,
             _fonts,
             _score,
             playerShip);
 
+    // Initialise the playerShip move sound
     _soundController.playSound(sounds::PlayerMove,0,100,1);
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
     ///-------------------------------------------
-    // Start of the main game loop that defines all game play
-
     while (_gameState == game::GameState::Playing)
     {
         ///-------------------------------------------
@@ -145,43 +137,14 @@ void Game::startGameLoop()
         Event event;
         while (_mainWindow.pollEvent(event))
         {
-            _inputHandler.pollInput(_gameState,
-                                    playerShip,
-                                    event);
+            _inputHandler.pollInput(_gameState, playerShip, event);
 
-#ifdef DEBUG_ONLY
-            // Debug keys for gameplay tuning and developer usage
-            auto speedChange = 0.1f;
-            if (event.type == sf::Event::EventType::KeyPressed)
-            {
-                if (event.key.code == sf::Keyboard::RBracket)
-                    entityController.changeGlobalSpeed(speedChange);
-
-                if (event.key.code == sf::Keyboard::LBracket)
-                    entityController.changeGlobalSpeed(-speedChange);
-
-                if (event.key.code == sf::Keyboard::P)
-                    playerShip.makeInvulnerable(true);
-                if (event.key.code == sf::Keyboard::O)
-                    playerShip.makeInvulnerable(false);
-
-                if (event.key.code == sf::Keyboard::K)
-                {
-                    playerShip.die();
-                    _score.resetLifeTimer();
-                    _soundController.playSound(sounds::PlayerDeath);
-                    _soundController.playSound(sounds::Explosion);
-                    _inputHandler.reset();
-                    entityController.resetGlobalSpeed();
-                    entityController.killAllEnemiesOfType(entity::Satellite);
-                    shaking = 1;
-                }
-
-                if (event.key.code == sf::Keyboard::L)
-                    playerShip.upgrade();
-            }
-#endif // DEBUG_ONLY
+            #ifdef DEBUG_ONLY
+            // Debug function (developer cheat keys to tweak and test game-play)
+            debugKeys(event, playerShip, entityController);
+            #endif // DEBUG_ONLY
         }
+
         // Frame timing events
         timeSinceUpdate += mainClock.getElapsedTime();
         mainClock.restart();
@@ -192,138 +155,172 @@ void Game::startGameLoop()
             speedTimer.restart();
             entityController.changeGlobalSpeed(globalSpeedIncrease);
         }
+
         ///-------------------------------------------
         ///  Fixed Timestep
         ///-------------------------------------------
-        //On each descrete time step (frame) specific operations are done like spawning new enemies, entity
-        //shooting and entity clipping. Collision detection is done later.
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
 
-            _inputHandler.update(playerShip, timeStep);
             entityController.spawnEntities();
-            entityController.shoot();
+            _inputHandler.setPlayerShipMove(playerShip, timeStep);
             entityController.setMove();
+            entityController.shoot();
             entityController.checkClipping();
-
-            // Player move sound
-            _soundController.setPosition(sounds::PlayerMove, {playerShip.getPosition().x,playerShip.getPosition().y,-5});
-            _soundController.setPitch(sounds::PlayerMove, fabs(playerShip.getFutureAngle()/4));  // Engine pitch rises to be audible when moving
 
             ///-------------------------------------------
             ///  Player Death
             ///-------------------------------------------
+
             // Returns true if the player has collided. (also does global entity collision check)
             if (entityController.checkCollisions())
             {
                 if (!playerShip.isInvulnerable())
                 {
-                    playerShip.die();
-                    _score.resetLifeTimer();
-                    _soundController.playSound(sounds::PlayerDeath);
-                    _soundController.playSound(sounds::Explosion);
-                    _inputHandler.reset();
-                    entityController.resetGlobalSpeed();
-                    entityController.killAllEnemiesOfType(entity::Satellite);
-                    shaking = 1;
+                    playerDeathEvents(playerShip, entityController);
                 }
             }
+
             ///-------------------------------------------
             /// Pre update() Sound events
             ///-------------------------------------------
-            if (playerShip.isShooting())
+
+            playEventSounds(playerShip, entityController);
+
+            ///-------------------------------------------
+            /// Update() all entities
+            ///-------------------------------------------
+            update(playerShip, entityController);
+
+            ///-------------------------------------------
+            ///  Render
+            ///-------------------------------------------
+            render(starField, playerShip, entityController, shield, hud);
+
+            #ifdef DEBUG_ONLY
+            fps.update();
+            std::ostringstream ss;
+            ss << fps.getFPS();
+            _mainWindow.setTitle(ss.str());
+            #endif // DEBUG_ONLY
+
+            ///-------------------------------------------
+            ///  End game state
+            ///-------------------------------------------
+            endGameCheck(playerShip);
+
+        }
+    }
+}
+
+void Game::debugKeys(const Event &event, PlayerShip &playerShip, EntityController &entityController)
+{
+    // Debug keys for gameplay tuning and developer usage
+    auto speedChange = 0.1f;
+    if (event.type == Event::KeyPressed)
+            {
+                if (event.key.code == Keyboard::RBracket)
+                    entityController.changeGlobalSpeed(speedChange);
+
+                if (event.key.code == Keyboard::LBracket)
+                    entityController.changeGlobalSpeed(-speedChange);
+
+                if (event.key.code == Keyboard::P)
+                    playerShip.makeInvulnerable(true);
+                if (event.key.code == Keyboard::O)
+                    playerShip.makeInvulnerable(false);
+
+                if (event.key.code == Keyboard::K)
+                {
+                    playerDeathEvents(playerShip, entityController);
+                    _shaking = 1;
+                }
+
+                if (event.key.code == Keyboard::L)
+                    playerShip.upgrade();
+            }
+}
+
+
+void Game::update(PlayerShip &playerShip, EntityController &entityController)
+{
+    _score.update();
+    playerShip.update();
+    entityController.update();
+}
+
+void Game::shakeWindow()
+{
+    Event event;
+    while (_mainWindow.pollEvent(event))
+    {
+        if (event.type == Event::Closed) _mainWindow.close();
+    }
+
+    if (_shaking > 0)
+    {
+        auto pos_temp = _windowPosition;
+        _mainWindow.setPosition(Vector2i(pos_temp.x + rand() % 25, pos_temp.y + rand() % 25));
+
+        if (++_shaking >= 5)
+            _shaking = 0;
+    }
+    _mainWindow.display(); // Display window for each shaking frame
+}
+
+void Game::render(StarField &starField,
+                  const PlayerShip &playerShip,
+                  EntityController &entityController,
+                  Shield &shield,
+                  HUD &hud)
+{
+    _mainWindow.clear(Color::Black);
+
+    for (const auto &element : starField.getStarField())
+                starField.moveAndDrawStars(_mainWindow, entityController.getSpeed() * 0.001f);
+
+    entityController.draw(_mainWindow);
+
+    _mainWindow.draw(playerShip.getSprite());
+
+    if (playerShip.isInvulnerable())
+            {
+                shield.update();
+                _mainWindow.draw(shield.getSprite());
+            }
+            else shield.reset();
+
+    hud.draw();
+
+    // Shake the screen in the event the the playerShip dies.
+    while (_shaking > 0) shakeWindow();
+    _mainWindow.setPosition(_windowPosition);
+
+    _mainWindow.display(); // Main Render call
+}
+
+void Game::playEventSounds( PlayerShip &playerShip, EntityController &entityController)
+{// Player move sound
+    _soundController.setPosition(sounds::PlayerMove, {playerShip.getPosition().x, playerShip.getPosition().y, -5});
+    _soundController.setPitch(sounds::PlayerMove, fabs(playerShip.getFutureAngle() / 4));  // Engine pitch rises to be audible when moving
+
+    if (playerShip.isShooting())
                 _soundController.playSound(sounds::PlayerShoot);
 
-            if (entityController.explosionOccurred())
+    if (entityController.explosionOccurred())
             {
                 // Vary the pitch of the explosions
                 auto pitch = (rand() % 3 + 0.8) / 3.f;
                 _soundController.playSound(sounds::Explosion, pitch, 50);
             }
 
-            if (entityController.shootingOccurred())
+    if (entityController.shootingOccurred())
             {
                 // Vary the pitch of the explosions
                 auto pitch = (rand() % 3 + 0.8) / 3.f;
                 _soundController.playSound(sounds::EnemyShoot, pitch, 90);
             }
-
-            ///-------------------------------------------
-            /// Update() all entities
-            ///-------------------------------------------
-            _score.update();
-            playerShip.update();
-            entityController.update();
-
-            ///-------------------------------------------
-            ///  Render
-            ///-------------------------------------------
-            _mainWindow.clear(sf::Color::Black);
-
-            for (const auto &element : starField.getStarField())
-                starField.moveAndDrawStars(_mainWindow, entityController.getSpeed() * 0.001f);
-
-            // All entities that are not the playerShip are managed by the entity controller. Tell it to draw on update
-            entityController.draw(_mainWindow);
-
-            _mainWindow.draw(playerShip.getSprite());
-            // Append shield sprite if the playerShip is invulnerable
-            if (playerShip.isInvulnerable())
-            {
-                shield.update();
-                _mainWindow.draw(shield.getSprite());
-            }
-            else
-            {
-                shield.reset();
-            }
-            hud.draw();
-            //Shake the screen in the event the the playerShip dies. Move the location of screen around
-            while (shaking > 0)
-            {
-                sf::Event event;
-                while (_mainWindow.pollEvent(event))
-                {
-                    if (event.type == sf::Event::Closed) _mainWindow.close();
-                }
-
-                if (shaking > 0)
-                {
-                    auto pos_temp = pos;
-                    _mainWindow.setPosition(sf::Vector2i(pos_temp.x + rand() % 25, pos_temp.y + rand() % 25));
-
-                    if (++shaking >= 5)
-                        shaking = 0;
-                }
-                _mainWindow.display();
-            }
-
-            _mainWindow.setPosition(pos);
-            _mainWindow.display();
-
-#ifdef DEBUG_ONLY
-            fps.update();
-            std::ostringstream ss;
-            ss << fps.getFPS();
-            _mainWindow.setTitle(ss.str());
-#endif // DEBUG_ONLY
-
-            // End Game
-            if (playerShip.getLives() <= 0)
-            {
-                //_score.resetLifeTimer();
-                _gameState = game::GameState::GameOverLose;
-            }
-
-            if(_score.getEnemiesKilled() >= _winCondition)
-            {
-                _score.resetLifeTimer();
-                _gameState = game::GameState::GameOverWin;
-            }
-
-        }
-    }
 }
 
 void Game::showSplashScreen()
@@ -416,4 +413,36 @@ void Game::recordHighScore()
     }
     inputFile.close();
     return;
+}
+
+void Game::playerDeathEvents(PlayerShip &playerShip, EntityController &entityController)
+{
+    playerShip.die();
+    _score.resetLifeTimer();
+    _soundController.playSound(sounds::PlayerDeath);
+    _soundController.playSound(sounds::Explosion);
+    _inputHandler.reset();
+    entityController.resetGlobalSpeed();
+    entityController.killAllEnemiesOfType(entity::Satellite);
+    _shaking = 1;
+}
+
+void Game::endGameCheck(const PlayerShip &playerShip)
+{
+    if (playerShip.getLives() <= 0)
+    {
+        //_score.resetLifeTimer();
+        _gameState = game::GameOverLose;
+    }
+
+    if(_score.getEnemiesKilled() >= _winCondition)
+    {
+        _score.resetLifeTimer();
+        _gameState = game::GameOverWin;
+    }
+}
+
+void Game::Quit()
+{
+    _mainWindow.close();
 }

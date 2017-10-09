@@ -78,82 +78,39 @@ public:
                      MovementState movementState);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Spawns a meteoroid
-    /// function is called from spawnEntities
+    /// \brief Sets up next frame' movement on all entities (in EntityController)
     ///
-    /// \see Meteoroid.hpp
+    /// \see setEnemyMove()
+    /// \see setEnemyMoveState()
+    /// \see setBulletMove()
+    /// \see setMeteoroidMove()
+    /// \see Enemy
     ////////////////////////////////////////////////////////////
-    void spawnMeteoroid();
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Spawns a Satellite, a type of Enemy.
-    /// function is called from spawnEntities
-    ///
-    /// \see Enemy.hpp
-    ////////////////////////////////////////////////////////////
-    void spawnSatellites();
+    void setMove();
 
     ////////////////////////////////////////////////////////////
     /// \brief Inititates the spawn event for Enemy, Satellites and Meteoroid
     ///
-    /// Defines the spawn chances based on a combination of delay between spawns
-    /// and random event chances. Has imposed maximum & minimum number of enemys
+    /// Defines the spawn chances based on a combination of delay between spawns,
+    /// and random event chances. There is a maximum & minimum number of enemies
     /// that can be alive at one time
     ///
-    /// \see Enemy.hpp
+    /// \see Enemy
     /// \see spawnMeteoroid
     /// \see spawnSatellites
     /// \see spawnSpiral
-    /// \see Enemy.hpp
-    /// \see Meteorid.hpp
+    /// \see Enemy
+    /// \see Meteorid
     ////////////////////////////////////////////////////////////
     void spawnEntities();
 
     ////////////////////////////////////////////////////////////
     /// \brief Initiates a player shoot event based on current gun level
-    /// and adds bullet to bullet vector
-    ///
-    /// \see PlayerShip.hpp
-    ////////////////////////////////////////////////////////////
-    void playerShoot();
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Initiates a player shoot event based on current gun level
-    /// and adds bullet to bullet vector
+    /// and adds a bullet to the bulletList
     ///
     /// \see playerShoot()
     ////////////////////////////////////////////////////////////
     void shoot();
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Changes enemy movement state based on current ship position and
-    /// random chance to change flight pattern
-    ///
-    /// This function is directly responsible for how the game plays.
-    /// Actual movements are done by preformEnemyMove
-    ///
-    /// \see preformEnemyMove()
-    ////////////////////////////////////////////////////////////
-    void setMove();
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Executes ship movement, based on ship movement state defined in
-    /// setMove function
-    ///
-    /// Programmatic method of moving ships around, based on movement state
-    ///
-    /// \param enemy enemy ship to be moved
-    /// \param currentEnemyMovementState movement state that the ship should preform operation in. be it spiral in or others
-    /// \param growShipScreenZone defines region where the ship should grow and not change state
-    /// \param currentEnemyRadius defines the current size of the enemy ship
-    ///
-    /// \see setMove()
-    /// \see Enemy.hpp
-    ////////////////////////////////////////////////////////////
-    void preformEnemyMove(std::unique_ptr<Enemy> &enemy,
-                          MovementState currentEnemyMovementState,
-                          float growShipScreenZone,
-                          float currentEnemyRadius);
 
     ////////////////////////////////////////////////////////////
     /// \brief Checks all playerShips to see if they are outside of the play range.
@@ -165,12 +122,14 @@ public:
     /// \brief Responsible for dealing with all collision with all game objects.
     /// PlayerBullet->Enemy, EnemyBullet->PlayerShip, PlayerBullet->EnemyBullet,
     ///
-    /// In the event that they are, remove them from the game (reset the ships or delete bullets).
-    /// Also responsible for generating explosion events on ship deaths
+    /// In the event that there is a collision between entities,
+    /// remove them from the game (reset the ships or delete bullets).
+    /// This function is also responsible for generating explosion events on ship deaths
     ///
     /// \see collides()
     ///
-    /// \return A bool, true if collision occurred with playerShip. false if not.
+    /// \return A bool that is true if collision occurred with playerShip
+    /// (false if no player collision occurred)
     ////////////////////////////////////////////////////////////
     bool checkCollisions();
 
@@ -252,6 +211,72 @@ public:
     void killAllEnemiesOfType(entity::ID type);
 
 private:
+    ////////////////////////////////////////////////////////////
+    /// \brief Changes enemy movement state based on current ship position and
+    /// random chance to change flight pattern
+    ///
+    /// \see setEnemyMove()
+    ////////////////////////////////////////////////////////////
+    void setEnemyMoveState();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Executes ship movement, based on ship movement state defined in
+    /// setMove function
+    ///
+    /// Programmatic method of moving ships around, based on movement state
+    ///
+    /// \param enemy enemy ship to be moved
+    /// \param currentEnemyMovementState movement state that the ship should preform operation in. be it spiral in or others
+    /// \param growShipScreenZone defines region where the ship should grow and not change state
+    /// \param currentEnemyRadius defines the current size of the enemy ship
+    ///
+    /// \see setMove()
+    /// \see Enemy.hpp
+    ////////////////////////////////////////////////////////////
+    void setEnemyMove(std::unique_ptr<Enemy> &enemy,
+                      MovementState currentEnemyMovementState,
+                      float growShipScreenZone,
+                      float currentEnemyRadius);
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the next frame's movement on all bullets (Player and Enemy)
+    ///
+    /// \see setMove()
+    ////////////////////////////////////////////////////////////
+    void setBulletMove();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the next frame's movement on all Meteoroids
+    ///
+    /// \see setMove()
+    ////////////////////////////////////////////////////////////
+    void setMeteoroidMove();
+
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Spawns a meteoroid
+    /// function is called from spawnEntities
+    ///
+    /// \see Meteoroid.hpp
+    ////////////////////////////////////////////////////////////
+    void spawnMeteoroid();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Spawns a Satellite, a type of Enemy.
+    /// function is called from spawnEntities
+    ///
+    /// \see Enemy.hpp
+    ////////////////////////////////////////////////////////////
+    void spawnSatellites();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Initiates a player shoot event based on current gun level
+    /// and adds bullet to bullet vector
+    ///
+    /// \see PlayerShip.hpp
+    ////////////////////////////////////////////////////////////
+    void playerShoot();
+
     ////////////////////////////////////////////////////////////
     /// \brief Checks collisions between EnemyShips->PlayerShip,
     /// removing both entities if they collide
