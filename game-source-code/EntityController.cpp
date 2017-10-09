@@ -52,7 +52,7 @@ void EntityController::spawnBasicEnemy(entity::ID id,
     {
         case (MovementState::SpiralIn):
         {
-            spiralDistanceFromCentre = (_resolution.y / 2) - 1;//Spawn just inside play zone,1 pixel in
+            spiralDistanceFromCentre = (_resolution.y / 3) - 1;//Spawn just inside play zone,1 pixel in
             spiralAngle = 180 + _playerShip.getAngle(); //Spawn opposite side to playerShip
             _timerSpawnFromPerimeter.restart();
             break;
@@ -68,8 +68,8 @@ void EntityController::spawnBasicEnemy(entity::ID id,
 
         case (MovementState::Wandering):
         {
-            spiralDistanceFromCentre = rand() % _resolution.x / 4; //random position to start wandering
-            spiralAngle = rand() % 360 - 180;
+            spiralDistanceFromCentre = _resolution.y/7; //random position to start wandering
+            spiralAngle = _playerShip.getAngle()+180;
             _timerSpawnWanderer.restart();
             break;
         }
@@ -87,11 +87,12 @@ void EntityController::spawnBasicEnemy(entity::ID id,
                                          shipVariant,
                                          movementState,
                                          movementDirection);
-
-    if (enemy->getType() == entity::BasicWanderer)
+    //SpiralIn and Wandering need to have their move set on spawn to prevent clipping. SpiralOut does not
+    // need this as it is in the centre to begin with.
+    if(movementState!=MovementState::SpiralOut)
     {
         enemy->setScale(0, 0);
-        enemy->setMove(spiralAngle, spiralDistanceFromCentre); // Ensure  not off-screen
+        enemy->setMove(0, 0);
         enemy->move();
     }
     _enemies.push_front(std::move(enemy)); // Add enemy to enemy vector
@@ -149,7 +150,7 @@ void EntityController::spawnSatellites()
 
         angle += 120; // Symmetric spawning
         enemy->setScale(0,0);
-        enemy->setMove(angle,satelliteCirclingRadius,satelliteSpawnLocation); // Ensure  satellite not off-screen
+        enemy->setMove(0,0,satelliteSpawnLocation); // Ensure  satellite not off-screen
         enemy->move();
         _enemies.push_front(std::move(enemy));
     }
@@ -161,16 +162,16 @@ void EntityController::spawnEntities()
     if (_totalTime.getElapsedTime().asSeconds() > 1)
     {
         auto minNumberEnemies = 1;
-        auto maxNumberEnemies = 8;
+        auto maxNumberEnemies = 7;
         if (_enemies.size() < maxNumberEnemies)
         {
 
-            // Spawn enemy spiral out
             float enemySpawnFromCentreTimer = float(fmod(rand(), 1.2f) + 0.8f);
             auto shipVariant = static_cast<textures::ID>(rand() % 2);
             auto shipType = static_cast<entity::ID>(shipVariant);
             auto movementDirection = static_cast<MovementDirection>(rand()%2);
 
+            // Spawn enemy spiral out
             if ((_timerSpawnFromCentre.getElapsedTime().asSeconds() > enemySpawnFromCentreTimer)
                 || (_enemies.size() <= minNumberEnemies))
             {
@@ -186,7 +187,7 @@ void EntityController::spawnEntities()
             }
 
             // Spawn enemy wanderer
-            float enemySpawnWandererTimer = float(fmod(rand(), 2.4f) + 1.6f);
+            float enemySpawnWandererTimer = float(fmod(rand(), 3.4f) + 2.6f);
             if ((_timerSpawnWanderer.getElapsedTime().asSeconds() > enemySpawnWandererTimer)
                 || (_enemies.size() <= minNumberEnemies))
             {
@@ -297,7 +298,7 @@ void EntityController::setEnemyMoveState()
     {
         // Generic properties for each enemy. defined in the loop as per enemy specific
         auto currentEnemyMovementState = enemy->getMovementState();
-        auto currentEnemyRadius= enemy->getRadius();
+        auto currentEnemyRadius = enemy->getRadius();
         auto currentEnemyType = enemy->getType();
         if ((currentEnemyRadius > _resolution.y / 2.f)  // Don't leave game play area, re-spawn in centre after leaving
              || ((currentEnemyMovementState == MovementState::SpiralIn) && (currentEnemyRadius < minimumRadius))) // Reset from spiral inwards
@@ -346,10 +347,11 @@ void EntityController::setEnemyMove(std::unique_ptr<Enemy> &enemy,
     auto shipRadiusIncrease = rand() % 3 + 1.f;     // How much to increment the ship radius by
     auto distantSpeedMultiplier = 10.f;             // How fast the ship circles grow in the small region of the screen
     auto satelliteGrowIncrement = 2.0f;             // Satellites grow at a different rate, faster than other entities
+    auto randomAngle = rand() % 2 + 2.0f;           // Constantly increasing random angle of rotation
     auto perlinNoiseAngleOffset = 5.0f;             // Size of angle offset used in perlinNoise movement
     auto perlinNoiseSpeedScaler = 3.0f;             // Scales speed of perlinNoise
-    auto perlinRadiusOffset = 50.0f;                // Change in radius for perlinNoise
-    auto randomAngle = rand() % 2 + 2.0f;           // Constantly increasing random angle of rotation
+    auto perlinRadiusOffset = 70.0f;                // Change in radius for perlinNoise
+
 
     auto currentEnemyDirectionSign = enemy->getMovementDirectionSign();
     auto currentEnemyTimeAlive = enemy->getAliveTimeElapsedTime();
@@ -426,11 +428,16 @@ void EntityController::setEnemyMove(std::unique_ptr<Enemy> &enemy,
 
         case (MovementState::Wandering): // Set the angle and radius position based on a perlinNoise value
         {
-            enemy->setMove(float(_xNoise.noise(currentEnemyTimeAlive) * perlinNoiseAngleOffset
-                                 + floor(perlinNoiseAngleOffset) * currentEnemyDirectionSign) * _speedModifier,
-                           float(_yNoise.noise(currentEnemyTimeAlive / perlinNoiseSpeedScaler)
-                                 * perlinRadiusOffset - perlinRadiusOffset / 2) * _speedModifier,
+            //calculate a angle and radius change based on the perlinNoise generator that is then scaled and offset
+            auto perlinX = float(_xNoise.noise(currentEnemyTimeAlive) * perlinNoiseAngleOffset -
+                             floor(perlinNoiseAngleOffset / 2));
+            auto perlinY = float((_yNoise.noise(currentEnemyTimeAlive / perlinNoiseSpeedScaler) * perlinRadiusOffset -
+                                  perlinRadiusOffset / 2));
+
+            enemy->setMove(perlinX * currentEnemyDirectionSign * _speedModifier,
+                           perlinY * _speedModifier,
                            {0, 0});
+            break;
         }
     }
 }

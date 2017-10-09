@@ -60,14 +60,24 @@ void Enemy::setMovementState(MovementState movementState)
 
 void Enemy::reset()
 {
-    _angle = 0;
     _angleOrientation = 0;
-    _distanceFromCentre = 0;
     _sprite.setScale(0,0);
     _sprite.setPosition(_resolution.x/2,_resolution.y/2);
     _isShooting = false;
     _centre={0,0};
-    _movementState = MovementState::SpiralOut;
+    // if the ship is a wanderer and hits the side of the screen, needs to respawn with its previous movement type
+    if (_movementState==MovementState::Wandering)
+    {
+        _angle=rand()%360;
+        _distanceFromCentre=_resolution.y/7;
+        _movementState= MovementState::Wandering;
+    }
+    else
+    {
+        _angle = 0;
+        _distanceFromCentre = 0;
+        _movementState = MovementState::SpiralOut;
+    }
 }
 
 void Enemy::update()

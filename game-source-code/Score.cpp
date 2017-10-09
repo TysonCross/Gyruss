@@ -41,8 +41,11 @@ void Score::incrementEnemiesKilled(entity::ID type)
             break;
 
         case entity::Satellite :
-            addToScore(150);
+            addToScore(500);
             break;
+
+        case entity::BasicWanderer :
+            addToScore(500);
 
         default :
             break;
