@@ -214,35 +214,6 @@ void Game::startGameLoop()
     }
 }
 
-void Game::debugKeys(const Event &event, PlayerShip &playerShip, EntityController &entityController)
-{
-    // Debug keys for gameplay tuning and developer usage
-    auto speedChange = 0.1f;
-    if (event.type == Event::KeyPressed)
-            {
-                if (event.key.code == Keyboard::RBracket)
-                    entityController.changeGlobalSpeed(speedChange);
-
-                if (event.key.code == Keyboard::LBracket)
-                    entityController.changeGlobalSpeed(-speedChange);
-
-                if (event.key.code == Keyboard::P)
-                    playerShip.makeInvulnerable(true);
-                if (event.key.code == Keyboard::O)
-                    playerShip.makeInvulnerable(false);
-
-                if (event.key.code == Keyboard::K)
-                {
-                    playerDeathEvents(playerShip, entityController);
-                    _shaking = 1;
-                }
-
-                if (event.key.code == Keyboard::L)
-                    playerShip.upgrade();
-            }
-}
-
-
 void Game::update(PlayerShip &playerShip, EntityController &entityController)
 {
     _score.update();
@@ -261,7 +232,9 @@ void Game::shakeWindow()
     if (_shaking > 0)
     {
         auto pos_temp = _windowPosition;
-        _mainWindow.setPosition(Vector2i(pos_temp.x + rand() % 25, pos_temp.y + rand() % 25));
+        auto shake_amount = 25;
+        _mainWindow.setPosition(Vector2i(pos_temp.x + rand() % shake_amount,
+                                         pos_temp.y + rand() % shake_amount));
 
         if (++_shaking >= 5)
             _shaking = 0;
@@ -275,12 +248,26 @@ void Game::render(StarField &starField,
                   Shield &shield,
                   HUD &hud)
 {
+    _windowPosition = _mainWindow.getPosition();
     _mainWindow.clear(Color::Black);
 
     for (const auto &element : starField.getStarField())
-                starField.moveAndDrawStars(_mainWindow, entityController.getSpeed() * 0.001f);
+        starField.moveAndDrawStars(_mainWindow, entityController.getSpeed() * 0.001f);
 
-    entityController.draw(_mainWindow);
+    for (auto &enemy : entityController.getEnemies())
+        _mainWindow.draw(enemy->getSprite());
+
+    for (auto &bullet : entityController.getBulletsEnemy())
+        _mainWindow.draw(bullet->getSprite());
+
+    for (auto &bullet : entityController.getBulletsPlayer())
+        _mainWindow.draw(bullet->getSprite());
+
+    for (auto &meteoroid : entityController.getMeteoroids())
+        _mainWindow.draw(meteoroid->getSprite());
+
+    for (auto &explosion : entityController.getExplosions())
+        _mainWindow.draw(explosion->getSprite());
 
     _mainWindow.draw(playerShip.getSprite());
 
@@ -445,4 +432,36 @@ void Game::endGameCheck(const PlayerShip &playerShip)
 void Game::Quit()
 {
     _mainWindow.close();
+}
+
+void Game::debugKeys(const Event &event, PlayerShip &playerShip, EntityController &entityController)
+{
+    // Debug keys for game-play tuning and developer usage
+    auto speedChange = 0.1f;
+    if (event.type == Event::KeyPressed)
+    {
+        if (event.key.code == Keyboard::RBracket)
+            entityController.changeGlobalSpeed(speedChange);
+        if (event.key.code == Keyboard::LBracket)
+            entityController.changeGlobalSpeed(-speedChange);
+        if (event.key.code == Keyboard::P)
+            playerShip.makeInvulnerable(true);
+        if (event.key.code == Keyboard::O)
+            playerShip.makeInvulnerable(false);
+        if (event.key.code == Keyboard::K)
+            playerDeathEvents(playerShip, entityController);
+        if (event.key.code == Keyboard::L)
+            playerShip.upgrade();
+        if (event.key.code == Keyboard::I)
+        {
+            auto enemyType = static_cast<entity::ID >(rand() % 2);
+            auto textureVariant = static_cast<textures::ID>(rand() % 2);
+            auto movementDir = static_cast<MovementDirection >(rand() % 2);
+            auto movementState = static_cast<MovementState>(rand() % 5);
+            entityController.spawnSpiral(enemyType,
+                                         textureVariant,
+                                         movementDir,
+                                         movementState);
+        }
+    }
 }

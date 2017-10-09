@@ -704,22 +704,29 @@ bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &spr
     return radius_1 + radius_2 >= sqrt((distance_x * distance_x) + (distance_y * distance_y));
 }
 
-const void EntityController::draw(sf::RenderWindow &renderWindow)
+const bulletList& EntityController::getBulletsPlayer() const
 {
-    for (auto &enemy : _enemies)
-        renderWindow.draw(enemy->getSprite());
+    return _bulletsPlayer;
+}
 
-    for (auto &bullet : _bulletsEnemy)
-        renderWindow.draw(bullet->getSprite());
+const bulletList& EntityController::getBulletsEnemy() const
+{
+    return _bulletsEnemy;
+}
 
-    for (auto &bullet : _bulletsPlayer)
-        renderWindow.draw(bullet->getSprite());
+const enemyList& EntityController::getEnemies() const
+{
+    return _enemies;
+}
 
-    for (auto &meteoroid : _meteoroids)
-        renderWindow.draw(meteoroid->getSprite());
+const meteoroidList& EntityController::getMeteoroids() const
+{
+    return _meteoroids;
+}
 
-    for (auto &explosion : _explosions)
-        renderWindow.draw(explosion->getSprite());
+const explosionList& EntityController::getExplosions() const
+{
+    return _explosions;
 }
 
 void EntityController::changeGlobalSpeed(float amount = 0.1f)

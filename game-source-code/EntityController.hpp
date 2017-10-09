@@ -29,8 +29,12 @@ using explosionList = std::list<std::unique_ptr<Explosion>>;
 using meteoroidList = std::list<std::unique_ptr<Meteoroid>>;
 
 ////////////////////////////////////////////////////////////
-/// \brief EntityController Class, used to manage the process of all game objects, such as bullets,
-/// enemy ships and Meteroids.
+/// \brief EntityController Class
+///
+/// Responsible for spawning and destroying non-player game entities (bullets, enemies, meteoroids, explosions)
+/// Responsible for the behaviour and logic of all non-player entities
+/// Responsible for collision detection between these entities and playerShip
+/// Responsible for updating the movement of all non-player entities
 ////////////////////////////////////////////////////////////
 class EntityController
 {
@@ -60,24 +64,6 @@ public:
                      float speedModifier);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Spawns an enemy of a defined id and variant in a spiral direction(movementState)
-    /// function is called from spawnEntities
-    ///
-    /// This function includes: spiral inwards, spiral outwards and wandering movement
-    ///
-    /// \param id defines the kind of ship spawned
-    /// \param shipVariant defines the look of the ship spawned
-    /// \param movementDirection enum, showing clockwise or counterclockwise ship direction
-    /// \param movementState spesifies what kind of spiral the ship is doing: inwards, outwards or wandering
-    ///
-    /// \see Enemy.hpp
-    ////////////////////////////////////////////////////////////
-    void spawnSpiral(entity::ID id,
-                     textures::ID shipVariant,
-                     MovementDirection movementDirection,
-                     MovementState movementState);
-
-    ////////////////////////////////////////////////////////////
     /// \brief Sets up next frame' movement on all entities (in EntityController)
     ///
     /// \see setEnemyMove()
@@ -103,6 +89,24 @@ public:
     /// \see Meteorid
     ////////////////////////////////////////////////////////////
     void spawnEntities();
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Spawns an enemy of a defined id and variant in a spiral direction(movementState)
+    /// function is called from spawnEntities
+    ///
+    /// This function includes: spiral inwards, spiral outwards and wandering movement
+    ///
+    /// \param id defines the kind of ship spawned
+    /// \param shipVariant defines the look of the ship spawned
+    /// \param movementDirection enum, showing clockwise or counterclockwise ship direction
+    /// \param movementState spesifies what kind of spiral the ship is doing: inwards, outwards or wandering
+    ///
+    /// \see Enemy.hpp
+    ////////////////////////////////////////////////////////////
+    void spawnSpiral(entity::ID id,
+                     textures::ID shipVariant,
+                     MovementDirection movementDirection,
+                     MovementState movementState);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initiates a player shoot event based on current gun level
@@ -154,16 +158,6 @@ public:
     void update();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Used to draw all game elements by looping over all vectors of entites
-    /// and drawing the underlying sprite. Called on every frame.
-    ///
-    /// \param renderWindow feeds in the draw window to enable the Entity controlor to draw on the current window
-    ///
-    /// \see sf::RenderWindow
-    ////////////////////////////////////////////////////////////
-    const void draw(sf::RenderWindow &renderWindow);
-
-    ////////////////////////////////////////////////////////////
     /// \brief Getter to return if an explosion has occurred on the current frame.
     /// Used to deal with multiple explosions occurred in quick succession to reset
     /// the explosion object and sound generation.
@@ -209,6 +203,16 @@ public:
     /// \param Type defines the type of enemy to kill
     ////////////////////////////////////////////////////////////
     void killAllEnemiesOfType(entity::ID type);
+
+    const bulletList& getBulletsPlayer() const;
+
+    const bulletList& getBulletsEnemy() const;
+
+    const enemyList& getEnemies() const;
+
+    const meteoroidList& getMeteoroids() const;
+
+    const explosionList& getExplosions() const;
 
 private:
     ////////////////////////////////////////////////////////////
@@ -322,21 +326,21 @@ private:
     void upgradePlayerShip();
 
     ////////////////////////////////////////////////////////////
-    /// \brief PlayerShip object generated from game.cpp. Is a reference
-    /// as is not created in the EntityController
-    ////////////////////////////////////////////////////////////
-    PlayerShip& _playerShip;
-
-    ////////////////////////////////////////////////////////////
     /// \brief Vector to store the screen size
     ////////////////////////////////////////////////////////////
-    sf::Vector2i _resolution;
+    Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
     /// \brief Texture holder, to access all game assets loaded in other context.
     /// Is a reference as is not created in the EntityController
     ////////////////////////////////////////////////////////////
     TextureHolder& _textureHolder;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief PlayerShip object generated from game.cpp. Is a reference
+    /// as is not created in the EntityController
+    ////////////////////////////////////////////////////////////
+    PlayerShip& _playerShip;
 
     ////////////////////////////////////////////////////////////
     /// \brief A vector of unique_ptr of type <Bullet> to store all Enemy Bullets
