@@ -553,7 +553,7 @@ TEST_CASE ("Creating a meteoroid entity succeeds")
 }
 
 TEST_CASE ("Shooting a meteoroid stright up moves corretly")
-x{
+{
     TextureHolder textures;
     textures.load(textures::Meteoroid, "resources/meteoroid.png");
 
