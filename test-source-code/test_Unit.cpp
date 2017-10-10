@@ -35,6 +35,9 @@
 #include <iostream>
 #include "doctest.h"
 
+////////////////////////////////////////////////////////////
+///  TextureHolder UnitTests
+////////////////////////////////////////////////////////////
 TEST_CASE ("Loading a missing file into a resourceHandler<sf::Texture, textures::ID> throws an exception")
 {
     TextureHolder texture_holder;
@@ -88,7 +91,9 @@ TEST_CASE (
             CHECK_NOTHROW(testSound.play());
 }
 
-// Check FontHolder
+////////////////////////////////////////////////////////////
+///  Font Holder Unit tests
+////////////////////////////////////////////////////////////
 TEST_CASE ("Loading a missing file into a resourceHandler<sf::Font, fonts::ID> throws an exception")
 {
     FontHolder font_holder;
@@ -1019,7 +1024,7 @@ TEST_CASE("Score object correctly calculates game score for killing enemy")
     score.incrementEnemiesKilled(entity::Basic);
     score.incrementEnemiesKilled(entity::Basic);
     score.incrementEnemiesKilled(entity::Satellite);
-    auto expectedScore = 500+500+150; //500 for basic and 150 for satellite
+    auto expectedScore = 500*3; //500 for basic and 150 for satellite
     CHECK(expectedScore==score.getScore());
 }
 
@@ -1052,6 +1057,7 @@ TEST_CASE("Score object correctly calculates player accuracy")
     Score score;
     score.reset();
     auto bulletesFired=0.0f;
+    //loop used to simulate shooting 5 bullets
     for(int i =0; i<5;i++){
         score.incrementBulletsFired();
         bulletesFired++;
@@ -1087,6 +1093,7 @@ TEST_CASE("Score object correctly recoreds longest player life length")
     score.reset();
     testClock.restart();
     auto longestMeasuredLife = 0.0f;
+    //create a score object, kill the player 3 times with 3 diffrent delays between them
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
     score.resetLifeTimer();
     if(testClock.getElapsedTime().asSeconds()>longestMeasuredLife)
@@ -1150,3 +1157,210 @@ TEST_CASE("String padding correctly appends chars to an integer")
     auto charPadding = ' ';
     CHECK(common::padIntToString(inputInt,desiredStringLength,charPadding)==expectedString);
 }
+
+////////////////////////////////////////////////////////////
+///  Entity controller tests
+////////////////////////////////////////////////////////////
+
+TEST_CASE("Calling spawn basic enemy generates an enemy ship in the defined spawn type")
+{
+    TextureHolder textures;
+    auto resolution = sf::Vector2i{1920, 1080};
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    // Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+    //create an arbitary kind of enemy ship, using the entity controller
+
+    auto enemySpawnType = entity::Basic;
+    entityController.spawnBasicEnemy(enemySpawnType,textures::EnemyShipGrey,MovementDirection::Clockwise,MovementState::SpiralOut);
+    //Only one enemy was spawned but the function returns a vector. this Provides a more logical method of itteration
+    for(auto &enemy : entityController.getEnemies()){
+        CHECK(enemySpawnType==enemy->getType());
+    }
+}
+
+TEST_CASE("Calling spawn basic enemy generates an enemy ship in the defined movement direction")
+{
+    TextureHolder textures;
+    auto resolution = sf::Vector2i{1920, 1080};
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    // Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+    //create an arbitary kind of enemy ship, using the entity controller
+
+    auto enemyMoveDirection = MovementDirection::Clockwise;
+    entityController.spawnBasicEnemy(entity::Basic,textures::EnemyShipGrey,enemyMoveDirection,MovementState::SpiralOut);
+    //Only one enemy was spawned but the function returns a vector. this Provides a more logical method of itteration
+    for(auto &enemy : entityController.getEnemies()){
+        //clockwise rotation is represented by a +1 multiplier on direction sign
+                CHECK(enemy->getMovementDirectionSign()==+1);
+    }
+}
+
+TEST_CASE("Calling spawn basic enemy generates an enemy ship in the defined movement State")
+{
+    TextureHolder textures;
+    auto resolution = sf::Vector2i{1920, 1080};
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    // Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+    //create an arbitary kind of enemy ship, using the entity controller
+
+    auto enemyMoveState = MovementState::SpiralOut;
+    entityController.spawnBasicEnemy(entity::Basic,textures::EnemyShipGrey,MovementDirection::Clockwise,enemyMoveState);
+    //Only one enemy was spawned but the function returns a vector. this Provides a more logical method of itteration
+    for(auto &enemy : entityController.getEnemies()){
+                CHECK(enemy->getMovementState()==enemyMoveState);
+    }
+}
+
+TEST_CASE("Calling spawn spawnSatellites correctly spawns 3 enemies of the right type")
+{
+    TextureHolder textures;
+    auto resolution = sf::Vector2i{1920, 1080};
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::Satellite, "resources/satellite.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    // Lastly, the EntityController needs a score and speedModifier
+    playerShip.update();
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+    //create an arbitary kind of enemy ship, using the entity controller
+
+    auto enemyType = entity::Satellite;
+    auto enemyMoveState = MovementState::SmallCircling;
+    auto ExpectedAngle = playerShip.getAngle()+180;
+
+    entityController.spawnSatellites();
+    //Only one enemy was spawned but the function returns a vector. this Provides a more logical method of itteration
+auto numberOfShipsSpawned = 0;
+    for(auto &enemy : entityController.getEnemies()){
+        numberOfShipsSpawned++;
+        CHECK(enemy->getType()==enemyType);
+        CHECK(enemy->getMovementState()==enemyMoveState);
+        CHECK(enemy->getAngle()>ExpectedAngle-90); //Satellites spawn in a random range opposite the player
+        CHECK(enemy->getAngle()<ExpectedAngle+90);
+    }
+    CHECK(numberOfShipsSpawned==3); //should spawn 3 satellites
+}
+
+TEST_CASE("Calling spawn Meteorid actually spawns a meteorid")
+{
+    TextureHolder textures;
+    auto resolution = sf::Vector2i{1920, 1080};
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    // Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+    //create an arbitary kind of enemy ship, using the entity controller
+
+    entityController.spawnMeteoroid();
+    //Only one enemy was spawned but the function returns a vector. this Provides a more logical method of itteration
+    auto numberOfMeteoroidsSpawned=0;
+    for(auto &meteoroid : entityController.getMeteoroids()){
+                numberOfMeteoroidsSpawned++;
+    }
+    CHECK(numberOfMeteoroidsSpawned==1);
+}
+
+TEST_CASE("Calling killAllEnemiesOfType removes all of that type")
+{
+    TextureHolder textures;
+    auto resolution = sf::Vector2i{1920, 1080};
+    textures.load(textures::PlayerShip, "resources/player_ship_animated.png");
+    textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
+    textures.load(textures::Satellite, "resources/satellite.png");
+
+    auto shipPathRadiusPadding = 0.05f;
+    auto shipScale = 1;
+    const auto shipPathRadius = (resolution.y / 2) - (resolution.y * shipPathRadiusPadding);
+    PlayerShip playerShip(resolution,
+                          shipPathRadius,
+                          0,
+                          shipScale,
+                          entity::PlayerShip,
+                          textures);
+    // Lastly, the EntityController needs a score and speedModifier
+    Score score;
+    float speedModifier = 1;
+    EntityController entityController(resolution,playerShip,textures,score,speedModifier);
+    //create an arbitary kind of enemy ship, using the entity controller
+    entityController.spawnSatellites();
+    entityController.spawnBasicEnemy(entity::Basic,textures::EnemyShipGrey,MovementDirection::Clockwise,MovementState::SpiralOut);
+    auto numberOfEnemiesSpawned = 0;
+    for(auto &enemy : entityController.getEnemies()){
+        numberOfEnemiesSpawned++;
+    }
+    CHECK(numberOfEnemiesSpawned==4); //should have spawned one basic and one satellite
+    //now kill all type satellite
+    entityController.killAllEnemiesOfType(entity::Satellite);
+    auto numberOfEnemiesLeft = 0;
+    for(auto &enemy : entityController.getEnemies()){
+        numberOfEnemiesLeft++;
+        CHECK(enemy->getType()!=entity::Satellite); //verify no satellits are left
+    }
+            CHECK(numberOfEnemiesLeft==1); //should have spawned one basic and one satellite
+}
+
+//Other entityController functions accessor and mutator spesific and dont need direct testing if the above tests pass
