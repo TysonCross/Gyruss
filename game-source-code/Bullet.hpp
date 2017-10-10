@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    15/9/17
 /// \brief   Projectiles/bullets for PlayerShip and EnemyShip
 /////////////////////////////////////////////////////////////////////
 
@@ -10,7 +8,6 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "SFML/Graphics.hpp"
 #include <cmath>
 #include "common.hpp"
 #include "Entity.hpp"
@@ -51,9 +48,9 @@ public:
     /// provides a unique_ptr to an sf::Texture for the sprite data member
     /// \param id The unique ID identifying the texture for the Entity
     ///
-    /// \see Entity.hpp
-    /// \see common.hpp
-    /// \see ResourceHolder.hpp
+    /// \see Entity
+    /// \see common
+    /// \see ResourceHolder
     /// ////////////////////////////////////////////////////////////
     Bullet(const Vector2i resolution,
            float distanceFromCentre,
@@ -72,7 +69,7 @@ public:
     /// \param distance How far the bullet should move for the next frame
     /// (in screen space)
     ////////////////////////////////////////////////////////////
-    void        setMove(float distance) override;
+    void setMove(float distance) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Performs the actual move, based on _futureMoveValue.
@@ -102,7 +99,7 @@ public:
     /// \return The sf::Sprite object representing the position,
     /// dimensions and texture of the bullet
     ///
-    /// \see sf:Sprite
+    /// \see [SFML/Sprite](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sprite.php)
     ////////////////////////////////////////////////////////////
     const Sprite &getSprite() const override;
 
@@ -132,6 +129,7 @@ public:
     /// \brief Returns the x,y position of the bullet on screen
     ///
     /// \return An sf:Vector2f (two float values) of the {x,y} position of the bullet
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     ////////////////////////////////////////////////////////////
     const Vector2f getPosition() const override;
 
@@ -139,6 +137,7 @@ public:
     /// \brief Returns the scale (in width/height) of the bullet object
     ///
     /// \return An sf:Vector2f (two float values) of the {x,y} scale of the bullet
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     ////////////////////////////////////////////////////////////
     const Vector2f getScale() const override;
 

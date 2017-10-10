@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
 /// \brief   Explosion entity for destroyed screen objects
 /////////////////////////////////////////////////////////////////////
 
@@ -8,7 +6,6 @@
 #ifndef PROJECT_EXPLOSION_HPP
 #define PROJECT_EXPLOSION_HPP
 
-#include "SFML/Graphics.hpp"
 #include "common.hpp"
 #include "Entity.hpp"
 #include "ResourceHolder.hpp"
@@ -32,7 +29,7 @@ public:
     /// Explosion are spawned by collision events, at a specific location,
     /// where they cycle through their frame animation, and then die.
     ///
-    /// \param resolution The Screen resolution of the game
+    /// \param resolution The screen resolution of the game
     /// \param distanceFromCentre The radius from centre at which the
     /// explosion should be created
     /// \param angle The argument (angle) at which the explosion should be
@@ -50,7 +47,7 @@ public:
     /// \see common
     /// \see ResourceHolder
     /// ////////////////////////////////////////////////////////////
-    Explosion(const sf::Vector2i resolution,
+    Explosion(const Vector2i resolution,
               float distanceFromCentre,
               float angle,
               float scale,
@@ -99,26 +96,27 @@ public:
     ///
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
-    const Sprite&   getSprite()     const override;
+    const Sprite& getSprite()     const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin (screen space)
     ///
     /// \return A float value of the distance from centre of the screen
     ////////////////////////////////////////////////////////////
-    const float     getRadius()     const override;
+    const float getRadius()     const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the distance from origin (non-linear distance)
     ///
     /// \return A float value, the depth from the centre in z
     ////////////////////////////////////////////////////////////
-    const float     getDistanceFromCentre() const override;
+    const float getDistanceFromCentre() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the x,y position of the explosion on screen
     ///
     /// \return An sf:Vector2f (two float values) of the {x,y} position of the explosion
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     ////////////////////////////////////////////////////////////
     const Vector2f  getPosition()   const override;
 
@@ -126,6 +124,7 @@ public:
     /// \brief Returns the scale (in width/height) of the explosion object
     ///
     /// \return An sf:Vector2f (two float values) of the {x,y} scale of the explosion
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     ////////////////////////////////////////////////////////////
     const Vector2f  getScale()      const override;
 
@@ -134,7 +133,7 @@ public:
     ///
     /// \return An integer value of the remaining explosion lives (usually 0 or 1)
     ////////////////////////////////////////////////////////////
-    const int       getLives()      const override;
+    const int getLives()      const override;
 
 private:
     ////////////////////////////////////////////////////////////

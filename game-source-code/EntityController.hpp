@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
 /// \brief   Controller and manager for game entity objects
 /////////////////////////////////////////////////////////////////////
 
@@ -39,23 +37,23 @@ class EntityController
 public:
     ////////////////////////////////////////////////////////////
     /// \brief Constructor for the EntityController class. Called directly
-    /// from game object to handel the creation, destruction and drawing of all game objects.
+    /// from game object to handle the creation, destruction and drawing of all game objects.
     ///
     /// On every game frame, respective functions are called to evaluate game entity states, such
     /// as spawning new enemies, collisions and enemy bullet shooting
     ///
     /// \param resolution The Screen resolution of the game
-    /// \param playerShip The playership, generated from the game.cpp. needed for collision detection
+    /// \param playerShip The playerShip, generated from the game.cpp. needed for collision detection
     /// \param textures used to create new entities that require this class for creation
     /// \param score object to track the current game score, enemies killed and player deaths. created in game.cpp
     /// \param speedModifier defines how fast the game runs at a particular time to speed up game as time progresses
     ///
-    /// \see sf::Vector2i
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     /// \see PlayerShip
     /// \see Score
     /// \see ResourceHolder
     ///////////////////////////////////////////////////////////////
-    EntityController(sf::Vector2i resolution,
+    EntityController(Vector2i resolution,
                      PlayerShip &playerShip,
                      TextureHolder &textures,
                      Score &score,
@@ -142,12 +140,12 @@ public:
     /// \param sprite2 second sprite that is fed in, compared to sprite1
     ///
     /// \see checkCollision
-    /// \see sf::Sprite
+    /// \see [SFML/Sprite](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sprite.php)
     ///
     /// \return a bool, true if collision, false if not
     ////////////////////////////////////////////////////////////
-    bool collides(const sf::Sprite &sprite1,
-                  const sf::Sprite &sprite2);
+    bool collides(const Sprite &sprite1,
+                  const Sprite &sprite2);
 
     ////////////////////////////////////////////////////////////
     /// \brief Updates all game objects by calling the underlying update functions.
@@ -198,7 +196,7 @@ public:
     /// When a game event requires all of one type of enemy to be removed. For example,
     /// if the player dies, all satellites that are still alive should be removed.
     ///
-    /// \param Type defines the type of enemy to kill
+    /// \param type defines the type of enemy to kill
     ////////////////////////////////////////////////////////////
     void killAllEnemiesOfType(entity::ID type);
 
@@ -210,28 +208,28 @@ public:
     const bulletList& getBulletsPlayer() const;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Returns a vector of all current enemy bullets. Used to draw in other context.
+    /// \brief Returns a vector of all current enemy bullets. Used to draw in other context.
     ///
     /// \return Vector of all enemy bullets
     ////////////////////////////////////////////////////////////
     const bulletList& getBulletsEnemy() const;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Returns a vector of all current enemies. Used to draw in other context.
+    /// \brief Returns a vector of all current enemies. Used to draw in other context.
     ///
     /// \return vector of all enemies currently in play
     ////////////////////////////////////////////////////////////
     const enemyList& getEnemies() const;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Returns a vector of all current meteoroid. Used to draw in other context.
+    /// \brief Returns a vector of all current meteoroid. Used to draw in other context.
     ///
     /// \return Vector of current meteoroids in play
     ////////////////////////////////////////////////////////////
     const meteoroidList& getMeteoroids() const;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Returns a vector of all current explosions. Used to draw in other context.
+    /// \brief Returns a vector of all current explosions. Used to draw in other context.
     ///
     /// \return Vector of current explosions in play
     ////////////////////////////////////////////////////////////

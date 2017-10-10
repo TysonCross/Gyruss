@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
 /// \brief   Base class interface for a "Screen"
 ///
 /// A screen is an additional graphical interface in the game which
@@ -39,7 +37,7 @@ public:
 ///
 /// \return integer to indicate if player chose to go to play screen or quit the game
 ///
-/// \see sf::Window
+    /// \see [SFML/Window](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Window.php)
 /// \see ResourceMapper
 ////////////////////////////////////////////////////////////
     virtual int draw(sf::RenderWindow &window,
@@ -63,9 +61,9 @@ public:
     ///
     /// \see Score.pp
     /// \see ResourceHolder
-    /// \see sf::Window
+    /// \see [SFML/Window](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Window.php)
     /// \see ResourceMapper
-    /// \see sf::Clock
+    /// \see [SFML/Clock](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Clock.php)
     ////////////////////////////////////////////////////////////
     virtual int draw(sf::RenderWindow &window,
                      const TextureHolder &textureHolder,
@@ -76,18 +74,18 @@ public:
     {return 0;}
 
 protected:
-////////////////////////////////////////////////////////////
-/// \brief Loops through fading in and out a text object
-///
-/// \param text The sf:Text object to fade in and out
-/// \param color The sf::Color to fade up to
-/// \param frequency The frequency of the fade
-/// \param clock A changing value to alter the time step
-///
-/// \see sf:Text
-/// \see sf::Color
-/// \see sf::Clock
-////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    /// \brief Loops through fading in and out a text object
+    ///
+    /// \param text The sf:Text object to fade in and out
+    /// \param color The sf::Color to fade up to
+    /// \param frequency The frequency of the fade
+    /// \param clock A changing value to alter the time step
+    ///
+    /// \see [SFML/Text](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Text.php)
+    /// \see [SFML/Color](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Color.php)
+    /// \see [SFML/Clock](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Clock.php)
+    ////////////////////////////////////////////////////////////
     virtual void fadeTextInAndOut(sf::Text &text,
                           sf::Color color,
                           int frequency,

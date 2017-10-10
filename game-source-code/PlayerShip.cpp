@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/09
 /// \brief   The main player ship
 ///
 /// The player's ship flies around the centre of the screen in a circle of fixed

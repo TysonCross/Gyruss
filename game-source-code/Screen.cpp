@@ -1,12 +1,9 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
 /// \brief   Base class implementation for a "Screen"
 ///
 /// A screen is an additional graphical interface in the game which
 /// provides information about the game, before/after playing the game
 /////////////////////////////////////////////////////////////////////
-
 
 #include "Screen.hpp"
 

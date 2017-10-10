@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    27/9/17
 /// \brief   Shield object interface
 ///
 /// Used to indicate visually a state of invulnerability
@@ -75,13 +73,13 @@ public:
     /// \return An sf::Sprite object, representing the game object spatially
     /// \see sf:Sprite
     ////////////////////////////////////////////////////////////
-    const sf::Sprite &getSprite() const;
+    const Sprite &getSprite() const;
 
 private:
     ////////////////////////////////////////////////////////////
     /// \brief The game resolution in {x,y}
     ////////////////////////////////////////////////////////////
-    const sf::Vector2i _resolution;
+    const Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
     /// \param The sprite object for the Entity

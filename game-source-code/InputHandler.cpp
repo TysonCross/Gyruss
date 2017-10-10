@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/09
 /// \brief   Read in the map of current keypresses
 ///
 /// Reads in the key presses during the last polled game Loop,

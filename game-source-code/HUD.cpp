@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    21/9/17
 /// \brief   Head Up Display showing the score, player lives
 /////////////////////////////////////////////////////////////////////
 
@@ -21,7 +19,7 @@ HUD::HUD(const sf::Vector2i resolution,
 void HUD::draw()
 {
     auto numberOfLivesLeft = _playerShip.getLives();
-    auto fontSize =static_cast<unsigned int>(36);
+    auto fontSize = static_cast<unsigned int>(36);
     auto rowSpacing = fontSize/2;
 
     ///////////////////////////////////

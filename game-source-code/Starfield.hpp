@@ -1,9 +1,7 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/11
 /// \brief   Background Starfield effect
 ///
-/// Definition for the starfield effect, a moving field of pixels
+/// Definition for the starField effect, a moving field of pixels
 /// creating the illusion of flying down a tunnel in space.
 /////////////////////////////////////////////////////////////////////
 
@@ -11,16 +9,19 @@
 #define PROJECT_STARFIELD_HPP
 
 #include "SFML/Graphics.hpp"
-#include "SFML/Window.hpp"
 #include <vector>
 #include <iterator>
 #include "common.hpp"
 
+using sf::CircleShape;
+using sf::Vector2i;
+
 ////////////////////////////////////////////////////////////
-/// \brief Creates a starfield object, a vector of 3d points
-/// The field is made up of many stars (a struct of three floats
-/// The stars are psuedorandomly generated to fill the volume
-/// enclosed by screen height * screen widgth * maximum depth
+/// \brief Creates a starField object, a vector of 3d points
+/// The field is made up of many stars (each star is a
+/// common::position, a struct of three floats
+/// The stars are psuedo-randomly generated to fill the volume
+/// enclosed by screen height * screen width * maximum depth
 ////////////////////////////////////////////////////////////
 class StarField
 {
@@ -33,7 +34,7 @@ public:
     /// \param number_of_stars The number of stars in the vector
     /// \param max_size The maximum scale of the rectangle of a star
     ////////////////////////////////////////////////////////////
-    StarField(const sf::Vector2i resolution,
+    StarField(const Vector2i resolution,
               const int max_depth,
               const int number_of_stars,
               float max_size = 6.0f);
@@ -53,7 +54,7 @@ public:
     /// light_shift_amount = 1 : all stars are colorful
     /// light_shift_amount > 1 : reduces no. of colorful stars
     ///
-    /// \see sf::Window
+    /// \see [SFML/Window](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Window.php)
     ////////////////////////////////////////////////////////////
     void moveAndDrawStars(
                           sf::RenderWindow &renderWindow,
@@ -78,7 +79,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Defines the shape of the star that flies out of the centre of the screen
     ////////////////////////////////////////////////////////////
-    sf::CircleShape _star_shape;
+    CircleShape _star_shape;
 
     ////////////////////////////////////////////////////////////
     /// \brief Width of the screen. extracted from the resolution at time of construction

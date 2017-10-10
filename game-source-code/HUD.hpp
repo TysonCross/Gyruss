@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    21/9/17
 /// \brief   Head Up Display showing the score, player lives
 /////////////////////////////////////////////////////////////////////
 
@@ -13,6 +11,9 @@
 #include "Score.hpp"
 #include "PlayerShip.hpp"
 #include "common.hpp"
+
+using sf::RenderWindow;
+using sf::Vector2i;
 
 ////////////////////////////////////////////////////////////
 /// \brief HUD class, to inform the user of remaining lives and other game information
@@ -33,12 +34,12 @@ public:
     /// \param score object enables the HUD to display the current game score, calculated and stored in score object
     /// \param playerShip provides the playerShip state to the HUD, so the player can see if his is alive/dead/invulnerable
     ///
-    /// \see sf::RenderWindow
-    /// \see sf::Vector2i
+    /// \see [SFML/RenderWindow](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1RenderWindow.php)
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     /// \see PlayerShip
     ////////////////////////////////////////////////////////////
-    HUD(const sf::Vector2i resolution,
-        sf::RenderWindow &renderWindow,
+    HUD(const Vector2i resolution,
+        RenderWindow &renderWindow,
         const FontHolder &fontHolder,
         const Score &score,
         const PlayerShip &playerShip);
@@ -51,19 +52,22 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Vector to store the game resolution, to enable the HUD to know its internal deterministically generated dimensions
     ////////////////////////////////////////////////////////////
-    const sf::Vector2i _resolution;
+    const Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
     /// \brief Reference to the main game renderWindow, to enable the HUD to draw itself over the main game window
+    /// \see [SFML/RenderWindow](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1RenderWindow.php)
     ////////////////////////////////////////////////////////////
-    sf::RenderWindow& _renderWindow;
+    RenderWindow& _renderWindow;
     ////////////////////////////////////////////////////////////
     /// \brief Reference to the main font holder, to give the HUD access to its required fonts
+    /// \see ResourceHolder
     ////////////////////////////////////////////////////////////
     const FontHolder& _fonts;
 
     ////////////////////////////////////////////////////////////
     /// \brief Reference to the main score object, so the HUD to draw the latest player score
+    /// \see Score
     ////////////////////////////////////////////////////////////
     const Score& _score;
 

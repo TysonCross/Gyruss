@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/10
-/// \brief   Simple Splash Screen
+/// \brief  Splash Screen
 ///
 /// Class interface for showing a splash screen with information on how to play the game
 /////////////////////////////////////////////////////////////////////
@@ -16,6 +14,8 @@
 #include "Screen.hpp"
 #include "Starfield.hpp"
 #include <fstream>
+
+using sf::Vector2i;
 
 ////////////////////////////////////////////////////////////
 /// \brief A Splashscreen, with information on how to play
@@ -42,12 +42,12 @@ public:
     /// the splashScreen: 1 game closed, 0 game continue
     ///
     /// \see ResourceHolder
-    /// \see sf::RenderWindow
+    /// \see [SFML/RenderWindow](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1RenderWindow.php)
     ////////////////////////////////////////////////////////////
     int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
-             const sf::Vector2i resolution);
+             const Vector2i resolution);
 
     ////////////////////////////////////////////////////////////
     /// \brief Function used to animate the spinning planet on the SplashScreen
@@ -60,7 +60,7 @@ public:
     /// \param frameTotal defines how many frames are in the underlying graphic
     /// \param i is an incrementer to define what frame the draw process is currently on
     ///
-    /// \see sf::Sprite
+    /// \see [SFML/Sprite](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sprite.php)
     ////////////////////////////////////////////////////////////
     void animatePlanet(sf::Sprite &sprite,
                        sf::IntRect &rectArea,

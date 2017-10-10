@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    21/9/17
 /// \brief   Controller for all sound events
 /////////////////////////////////////////////////////////////////////
 
@@ -91,7 +89,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Music object to fasilitate the playing of music as a background for the game
     ///
-    /// \see sf::Music
+    /// \see [SFML/Music](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Music.php)
     ////////////////////////////////////////////////////////////
     sf::Music _music;
 
@@ -112,8 +110,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Vector used to store all game sound objects and their associated ID's
     ///
-    /// \see vector
-    /// \see sf::sound
+    /// \see [SFML/Sound](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sound.php)
     ////////////////////////////////////////////////////////////
     std::vector<sf::Sound> _soundList;
 

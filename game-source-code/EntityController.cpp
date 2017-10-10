@@ -1,12 +1,10 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
 /// \brief   Controller and manager for game entity objects
 /////////////////////////////////////////////////////////////////////
 
 #include "EntityController.hpp"
 
-EntityController::EntityController(sf::Vector2i resolution,
+EntityController::EntityController(Vector2i resolution,
                                    PlayerShip &playerShip,
                                    TextureHolder &textureHolder,
                                    Score &score,
@@ -128,7 +126,7 @@ void EntityController::spawnSatellites()
     auto satelliteScaleSize = 0.4;
     auto spawnAngle = common::degreeToRad(currentShipAngle+180);     // Offset of satellite
                                                                      // Spawn on other side to playerShip
-    auto satelliteSpawnLocation = sf::Vector2f{float(satelliteScaleSize*currentShipRadius*sin(spawnAngle)),
+    auto satelliteSpawnLocation = Vector2f{float(satelliteScaleSize*currentShipRadius*sin(spawnAngle)),
                                                float(satelliteScaleSize*currentShipRadius*cos(spawnAngle))};
     for (auto i = 0; i < numberOfSatellites; i++) //need to spawn 3 Satellites. run loop 3 times
     {
@@ -714,7 +712,7 @@ void EntityController::checkClipping()
     }
 }
 
-bool EntityController::collides(const sf::Sprite &sprite1, const sf::Sprite &sprite2)
+bool EntityController::collides(const Sprite &sprite1, const Sprite &sprite2)
 {
     auto shrink_factor = 4 + 0.2f;
     float radius_1 = (sprite1.getGlobalBounds().width + sprite1.getGlobalBounds().height) / shrink_factor;

@@ -1,20 +1,19 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
-/// \brief   Description of file in project Project
+/// \brief  GameOver screen object definition
 ///
-/// Detailed description of file
+/// To display a splash screen upon game ending, either by fulfilling
+/// the victory conditions (win screen), or by losing all lives (lose screen)
 /////////////////////////////////////////////////////////////////////
-
 
 #ifndef PROJECT_GAMEOVERSCREEN_HPP
 #define PROJECT_GAMEOVERSCREEN_HPP
-
 
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
 #include "Screen.hpp"
+
+using sf::Vector2i;
 
 ////////////////////////////////////////////////////////////
 /// \brief ScreenGameOver, to display the end game screen
@@ -50,13 +49,13 @@ public:
     ///
     /// \see ResourceHolder
     /// \see Score
-    /// \see sf::RenderWindow
-    /// \see sf:Vector2i
+    /// \see [SFML/RenderWindow](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1RenderWindow.php)
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     ////////////////////////////////////////////////////////////
     virtual int draw(sf::RenderWindow &window,
                      const TextureHolder &textureHolder,
                      const FontHolder &fontHolder,
-                     const sf::Vector2i resolution,
+                     const Vector2i resolution,
                      const Score &score);
 
 private:

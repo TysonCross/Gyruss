@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    7/10/17
 /// \brief   Display and animatable Class
 /////////////////////////////////////////////////////////////////////
 
@@ -38,7 +36,7 @@ public:
     /// \see Entity
     /// \see common
     /// \see ResourceHolder
-    /// \see sf::Texture
+    /// \see [SFML/Texture](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Texture.php)
     ////////////////////////////////////////////////////////////
     Animatable(const TextureHolder &textureHolder,
                const entity::ID type) : _type{type} {}

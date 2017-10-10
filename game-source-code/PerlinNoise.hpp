@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    27/9/17
 /// \brief   Perlin Noise Class
 ///
 /// A widely used method (first proposed by Ken Perlin in 1984) to interpolate

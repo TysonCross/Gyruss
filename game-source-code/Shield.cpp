@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    27/9/17
 /// \brief   Shield object implementation
 ///
 /// Used to indicate visually a state of invulnerability

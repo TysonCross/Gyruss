@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/09
 /// \brief   Main Game controller implementation
 ///
 /// Implements the Game loop, and game states

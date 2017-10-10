@@ -81,7 +81,6 @@ double PerlinNoise::smootherStep(double t)
 double PerlinNoise::lerp(double t, double a, double b)
 {
 //    return a + t * (b - a); // Linear interpolation
-
     auto f = (1 - cos(t * M_PI)) * 0.5; // Ease in and out interpolation (cosine interpolation)
     return a * (1 - f) + b * f;
 }

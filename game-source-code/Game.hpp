@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/09
 /// \brief   Main Game controller
 ///
 /// Handles the Game loop, and game states
@@ -64,7 +62,7 @@ public:
     /// during game play, sits within a sub-game loop.
     /// The main window (sf::RenderWindow) is created.
     ///
-    /// \see SFML/Window
+    /// \see [SFML/Window](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Window.php)
     ////////////////////////////////////////////////////////////
     void Start();
 
@@ -191,20 +189,20 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \brief A ResourceHolder of type Texture to store all game art assets
-    /// \see sf::Texture
+    /// \see [SFML/Texture](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Texture.php)
     ////////////////////////////////////////////////////////////
     TextureHolder _textures;
 
     ////////////////////////////////////////////////////////////
     /// \brief A ResourceHolder of type SoundBuffer to load and play all game sounds
-    /// \see sf::Sound
-    /// \see sf::SoundBuffer
+    /// \see [SFML/Sound](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sound.php)
+    /// \see [SFML/SoundBuffer](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1SoundBuffer.php)
     ////////////////////////////////////////////////////////////
     SoundController _soundController;
 
     ////////////////////////////////////////////////////////////
     /// \brief A ResourceHolder of type sf::Font to store and access typefaces
-    /// \see sf::Font
+    /// \see [SFML/Font](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Font.php)
     ////////////////////////////////////////////////////////////
     FontHolder _fonts;
 
@@ -216,7 +214,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Game state to store what state the game is currently in.
     ///
-    /// The availible states are Game::Splash, Game::Exiting, Game::GameOverLose, Game::GameOverWin
+    /// The available states are Game::Splash, Game::Exiting, Game::GameOverLose, Game::GameOverWin
     ////////////////////////////////////////////////////////////
     game::GameState _gameState;
 
@@ -227,7 +225,7 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \brief A two dimensional vector to store the width and high of the game screen
-    /// \see sf::Vector2i
+    /// \see [SFML/Vector2](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Vector2.php)
     ////////////////////////////////////////////////////////////
     Vector2i _resolution;
 
@@ -242,7 +240,7 @@ private:
     Score _score;
 
     ////////////////////////////////////////////////////////////
-    /// \breif Vector to store the starting location of the screen so after a shaking event the
+    /// \brief Vector to store the starting location of the screen so after a shaking event the
     /// screen is position back where it started
     ////////////////////////////////////////////////////////////
     Vector2i _windowPosition;

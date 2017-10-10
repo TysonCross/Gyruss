@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    26/9/17
 /// \brief   Meteroid Entity (cannot be destroyed by bullets)
 /////////////////////////////////////////////////////////////////////
 
@@ -10,7 +8,6 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "SFML/Graphics.hpp"
 #include <cmath>
 #include "common.hpp"
 #include "Entity.hpp"
@@ -57,7 +54,7 @@ public:
     /// \see common.hpp
     /// \see ResourceHolder.hpp
     /// ////////////////////////////////////////////////////////////
-    Meteoroid(const sf::Vector2i resolution,
+    Meteoroid(const Vector2i resolution,
            float distanceFromCentre,
            float angle,
            float scale,

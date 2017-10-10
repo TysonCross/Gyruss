@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    7/10/17
 /// \brief   Definition of the Moveable class
 ///
 /// Class interface for movement, position and distance from centre, angle

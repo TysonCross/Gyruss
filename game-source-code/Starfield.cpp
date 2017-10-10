@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/11
 /// \brief   Implementation of the background star effect
 ///
 /// Creates a distribution of stars, and simulates moving
@@ -43,7 +41,7 @@ void StarField::moveAndDrawStars(sf::RenderWindow &renderWindow,
     auto i = 0;
     for (auto &star_pos : _starField)
     {
-        //srand(i); // Colors streak instead of flicker
+        // srand(i); // Colors streak instead of flicker
         // Move
         star_pos.z += speed;            //Move the stars along z, towards camera
         i++;                            // For counting which stars to make colorful

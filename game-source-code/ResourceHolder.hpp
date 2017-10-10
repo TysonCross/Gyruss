@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/10
 /// \brief   Loads and returns pointers to requested resources from file
 ///
 /// Maps game resources from a key to set of values

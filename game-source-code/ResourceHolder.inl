@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/10
 /// \brief  Inline template class implementations for ResourceHolder
 ///
 /// Maps game resources from a key to set of values

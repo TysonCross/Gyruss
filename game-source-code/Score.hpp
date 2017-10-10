@@ -1,9 +1,6 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    23/9/17
 /// \brief   Object and methods to keep score of player actions
 /////////////////////////////////////////////////////////////////////
-
 
 #ifndef PROJECT_SCORE_HPP
 #define PROJECT_SCORE_HPP
@@ -22,7 +19,7 @@ public:
     ///
     /// \param type provides the kind of enemy that was killed
     ///
-    /// \see Common
+    /// \see common
     /// \see addToScore
     ////////////////////////////////////////////////////////////
     void incrementEnemiesKilled(entity::ID type);
@@ -41,7 +38,7 @@ public:
     void update();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Resets all private member veriables of relevents to game score. Used
+    /// \brief Resets all private member variables relevant to game score. Used
     /// when a new game is started.
     ////////////////////////////////////////////////////////////
     void reset();
@@ -49,29 +46,29 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Accessor to provide the current game score.
     ///
-    /// \return _score the current score the player has achived
+    /// \return _score The current score of the player
     ////////////////////////////////////////////////////////////
     const unsigned int getScore() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Accessor to provide the current number of enimies killed.
+    /// \brief Accessor to provide the current number of enemies killed.
     ///
-    /// \return _enemiesKilled, the current number of killed
+    /// \return _enemiesKilled The current number of killed
     ////////////////////////////////////////////////////////////
     const unsigned int getEnemiesKilled() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Accessor to provide the number of bullets fired
+    /// \brief Accessor to provide the total number of player bullets fire events
     ///
-    /// \return _bulletsFired the current number of bullets fired
+    /// \return The value of _bulletsFired (The total number of player bullets fired)
     ////////////////////////////////////////////////////////////
     const unsigned int getBulletsFired() const;
 
     ////////////////////////////////////////////////////////////
     /// \brief Accessor to calculate the playerAccuracy. This is defined as the
-    /// number of enemies hit/number of bullet shot
+    /// (total enemies hit)/(total number of bullets fired)
     ///
-    /// \return player accuracy
+    /// \return Calculated Player accuracy value
     ////////////////////////////////////////////////////////////
     const float getPlayerAccuracy() const;
 
@@ -83,7 +80,7 @@ public:
     const float getTimeAlive() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Accessor to return the longest life the player achived
+    /// \brief Accessor to return the longest life the player achieved
     ///
     /// \return _longestTimeAlive, longest player life
     ////////////////////////////////////////////////////////////

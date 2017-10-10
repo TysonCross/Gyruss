@@ -1,9 +1,8 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    20/9/17
-/// \brief   Description of file in project Project
+/// \brief  GameOVer screen object implementation
 ///
-/// Detailed description of file
+/// To display a splash screen upon game ending, either by fulfilling
+/// the victory conditions (win screen), or by losing all lives (lose screen)
 /////////////////////////////////////////////////////////////////////
 
 #include "ScreenGameOver.hpp"
@@ -63,7 +62,6 @@ int ScreenGameOver::draw(sf::RenderWindow &renderWindow,
     // Score
     ///--------------------------------
     // Title
-    auto scoreTitleFontSize = (fontSize);
     sf::Text scoreTitle("SCORE", fontHolder.get(fonts::Default),
                         fontSize);
     scoreTitle.setFillColor(sf::Color::White);

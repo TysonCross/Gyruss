@@ -1,7 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    2017/09/10
-/// \brief   Simple Splash Screen
+/// \brief  Splash Screen
 ///
 /// Class implementation for showing a splash screen with information on how to play the game
 /////////////////////////////////////////////////////////////////////

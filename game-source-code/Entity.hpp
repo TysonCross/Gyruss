@@ -1,6 +1,4 @@
 /////////////////////////////////////////////////////////////////////
-/// Students 1239448 & 1101946
-/// \date    14/9/17
 /// \brief   Basic entity class for game objects
 ///
 /// PlayerShip, Enemies, Bullets, Shields, and Meteoroids all inherit from this class
