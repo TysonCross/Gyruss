@@ -9,6 +9,7 @@
 /////////////////////////////////////////////////////////////////////
 
 #include "ScreenSplash.hpp"
+#include "PerlinNoise.hpp"
 #include <iostream>
 
 int ScreenSplash::draw(sf::RenderWindow &renderWindow,
@@ -16,17 +17,36 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
                        const FontHolder &fontHolder,
                        const sf::Vector2i resolution)
 {
+    sf::Event event;
+    sf::Clock timer;
+    sf::Clock clock;
+    sf::Time timeSinceUpdate = sf::Time::Zero;
+    float timeStep = 1.f / 60.f;
+
     //Get the Splashscreen image
     sf::Sprite splash(textureHolder.get(textures::SplashScreen));
     auto scaleFactor = resolution.x / splash.getGlobalBounds().width;
     splash.setScale(scaleFactor, scaleFactor);
+    auto seedR = 497;
+    auto seedG = 537;
+    auto seedB = 127;
+    PerlinNoise rNoise(seedR);
+    PerlinNoise gNoise(seedG);
+    PerlinNoise bNoise(seedB);
+    sf::Vector3f noiseColor;
 
-    // Dramatic spacefight
-    sf::Sprite spacefight(textureHolder.get(textures::SplashScreenExtra));
-    spacefight.setOrigin(spacefight.getGlobalBounds().width / 2, spacefight.getGlobalBounds().height / 2);
-    auto spacefightWidth = resolution.x / 2;
-    auto spacefightHeight = resolution.y / 2;
-    spacefight.setPosition(spacefightWidth, spacefightHeight);
+    // Spaceship
+    sf::Sprite spaceship(textureHolder.get(textures::SplashScreenExtra));
+    spaceship.setOrigin(spaceship.getGlobalBounds().width / 2, spaceship.getGlobalBounds().height / 2);
+    auto spaceshipWidth = resolution.x / 2 + resolution.x / 9;
+    auto spaceshipHeight = resolution.y / 2 + resolution.y / 3.5f;
+    spaceship.setPosition(spaceshipWidth, spaceshipHeight);
+    spaceship.setScale(0.5, 0.5);
+    auto seedx = 4294967296;
+    auto seedy = 1664525;
+    PerlinNoise xNoise(seedx);
+    PerlinNoise yNoise(seedy);
+    sf::Vector2f noise;
 
     // Planet animation
     sf::Sprite planet(textureHolder.get(textures::Planet));
@@ -36,7 +56,7 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     sf::IntRect rectArea = {0, 0, 256, 256};
     planet.setTextureRect(rectArea);
     planet.setPosition(planetWidth, planetHeight);
-    planet.setScale(1.25,1.25);
+    planet.setScale(1.35,1.35);
     auto frame = 1;
     auto incrementer = 1;
     auto animationFPSLimit = 3;
@@ -87,7 +107,7 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     highScoreTitle.setOrigin(highScoreTitle.getLocalBounds().width / 2,
                              highScoreTitle.getLocalBounds().height / 2);
     auto highScoreTitlePositionX = resolution.x / 5;
-    auto highScoreTitlePositionY = resolution.y / 2 - resolution.y / 10;
+    auto highScoreTitlePositionY = resolution.y / 2 - resolution.y / 9;
     highScoreTitle.setPosition(highScoreTitlePositionX,
                                highScoreTitlePositionY);
 
@@ -108,12 +128,6 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     StarField starField(resolution, 3, number_of_stars);
 
     // Render
-    sf::Event event;
-    sf::Clock timer;
-    sf::Clock clock;
-    sf::Time timeSinceUpdate = sf::Time::Zero;
-    float timeStep = 1.f / 60.f;
-
     while (true)
     {
         timeSinceUpdate += timer.getElapsedTime();
@@ -121,13 +135,33 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
 
         fadeTextInAndOut(info, Purple, 50, clock);
 
+        noise.x = float(xNoise.noise(clock.getElapsedTime().asSeconds() / 5.f));
+        noise.y = float(yNoise.noise(clock.getElapsedTime().asSeconds() / 5.f));
+
+        sf::Vector2f moveAmount = {spaceshipWidth + noise.x*20,
+                                   spaceshipHeight + noise.y*30};
+
+        spaceship.setPosition(moveAmount);
+        spaceship.setRotation(noise.y*5);
+
+        noiseColor.x = float(rNoise.noise(clock.getElapsedTime().asSeconds()) / 100.f);
+        noiseColor.y = float(gNoise.noise(clock.getElapsedTime().asSeconds()) / 200.f);
+        noiseColor.z = float(bNoise.noise(clock.getElapsedTime().asSeconds()) / 150.f);
+
+        auto colorR = sf::Uint8(255-(noiseColor.x * 128)*50);
+        auto colorG = sf::Uint8(255-(noiseColor.y * 128)*40);
+        auto colorB = sf::Uint8(255-(noiseColor.z * 128)*30);
+
+        splash.setColor(sf::Color{colorR, colorG, colorB});
+
+
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
 
             renderWindow.clear();
 
-//            renderWindow.draw(splash);
+            renderWindow.draw(splash);
 
             if (frame == animationFPSLimit)
             {
@@ -144,15 +178,14 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
 
             renderWindow.draw(planet);
             renderWindow.draw(title);
-//            renderWindow.draw(spacefight);
+            renderWindow.draw(spaceship);
             renderWindow.draw(version);
             renderWindow.draw(controls);
             renderWindow.draw(points);
             renderWindow.draw(highScoreTitle);
             renderWindow.draw(highScore);
-
-
             renderWindow.draw(info);
+
             renderWindow.display();
 
             while (renderWindow.pollEvent(event))

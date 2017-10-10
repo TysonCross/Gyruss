@@ -96,7 +96,6 @@ void EntityController::spawnBasicEnemy(entity::ID id,
         enemy->setScale(0, 0);
         enemy->setMove(0, 0);
         enemy->move();  // ToDo This can cause the explosion bug, but disabling this means nothing spawns from perimeter
-                        // ToDo Update: Have solved this problem by changing the parameters of spawnBasicEnemy()
     }
     _enemies.push_front(std::move(enemy)); // Add enemy to enemy vector
 }
