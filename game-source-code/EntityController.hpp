@@ -205,27 +205,37 @@ public:
     void killAllEnemiesOfType(entity::ID type);
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \brief Returns a vector of all current player bullets. Used to draw in other context.
+    ///
+    /// \return Vector of all player bullets currently in play
     ////////////////////////////////////////////////////////////
     const bulletList& getBulletsPlayer() const;
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \breif Returns a vector of all current enemy bullets. Used to draw in other context.
+    ///
+    /// \return Vector of all enemy bullets
     ////////////////////////////////////////////////////////////
     const bulletList& getBulletsEnemy() const;
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \breif Returns a vector of all current enemies. Used to draw in other context.
+    ///
+    /// \return vector of all enemies currently in play
     ////////////////////////////////////////////////////////////
     const enemyList& getEnemies() const;
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \breif Returns a vector of all current meteoroid. Used to draw in other context.
+    ///
+    /// \return Vector of current meteoroids in play
     ////////////////////////////////////////////////////////////
     const meteoroidList& getMeteoroids() const;
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \breif Returns a vector of all current explosions. Used to draw in other context.
+    ///
+    /// \return Vector of current explosions in play
     ////////////////////////////////////////////////////////////
     const explosionList& getExplosions() const;
 

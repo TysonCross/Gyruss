@@ -14,7 +14,7 @@ EntityController::EntityController(sf::Vector2i resolution,
                                    Score &score,
                                    float speedModifier) : _resolution{resolution},
                                                           _playerShip{playerShip},
-                                                          _textureHolder{textureHolder}, // ToDo: remove
+                                                          _textureHolder{textureHolder},
                                                           _score{score}
 {
     // Reset timers for the enemy spawning and shooting
@@ -95,7 +95,7 @@ void EntityController::spawnBasicEnemy(entity::ID id,
     {
         enemy->setScale(0, 0);
         enemy->setMove(0, 0);
-        enemy->move();  // ToDo This can cause the explosion bug, but disabling this means nothing spawns from perimeter
+        enemy->move();
     }
     _enemies.push_front(std::move(enemy)); // Add enemy to enemy vector
 }
