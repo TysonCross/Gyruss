@@ -4,8 +4,6 @@
 /// \brief   Main Game controller
 ///
 /// Handles the Game loop, and game states
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_GAME_HPP

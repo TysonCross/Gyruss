@@ -5,8 +5,6 @@
 ///
 /// Definition for the starfield effect, a moving field of pixels
 /// creating the illusion of flying down a tunnel in space.
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_STARFIELD_HPP

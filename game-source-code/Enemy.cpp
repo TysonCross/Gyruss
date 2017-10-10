@@ -2,8 +2,6 @@
 /// Students 1239448 & 1101946
 /// \date    14/9/17
 /// \brief   Implementation of Enemy ship types
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "Enemy.hpp"

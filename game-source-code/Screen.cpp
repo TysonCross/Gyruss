@@ -5,8 +5,6 @@
 ///
 /// A screen is an additional graphical interface in the game which
 /// provides information about the game, before/after playing the game
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 

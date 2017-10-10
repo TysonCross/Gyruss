@@ -4,8 +4,6 @@
 /// \brief   Simple Splash Screen
 ///
 /// Class implementation for showing a splash screen with information on how to play the game
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "ScreenSplash.hpp"

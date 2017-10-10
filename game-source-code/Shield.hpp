@@ -1,11 +1,9 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    27/9/17
-/// \brief   Shield object
+/// \brief   Shield object interface
 ///
 /// Used to indicate visually a state of invulnerability
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_SHIELD_HPP

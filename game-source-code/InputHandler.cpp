@@ -5,8 +5,6 @@
 ///
 /// Reads in the key presses during the last polled game Loop,
 /// and maps these keys to actions
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "InputHandler.hpp"

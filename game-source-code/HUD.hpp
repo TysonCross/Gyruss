@@ -2,8 +2,6 @@
 /// Students 1239448 & 1101946
 /// \date    21/9/17
 /// \brief   Head Up Display showing the score, player lives
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 

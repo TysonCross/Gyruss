@@ -6,8 +6,6 @@
 /// Creates a distribution of stars, and simulates moving
 /// through this field, scaling and dimming them to fake a
 /// a perspective motion with parallax (An orthographic projection)
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "Starfield.hpp"

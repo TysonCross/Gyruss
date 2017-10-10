@@ -4,8 +4,6 @@
 /// \brief   Definition of the Moveable class
 ///
 /// Class interface for movement, position and distance from centre, angle
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_MOVEABLE_HPP
