@@ -56,8 +56,8 @@ public:
     ///
     /// \see Moveable
     /// \see Animatable
-    /// \see common.hpp
-    /// \see ResourceHolder.hpp
+    /// \see common
+    /// \see ResourceHolder
     ////////////////////////////////////////////////////////////
     Entity(const Vector2i resolution,
            float distanceFromCentre,

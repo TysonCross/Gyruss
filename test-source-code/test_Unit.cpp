@@ -943,7 +943,7 @@ TEST_CASE("Two objects on top of each other report a collision")
 
     sf::Sprite sprite2;
     sprite2.setPosition(10,10);
-    // Each sprite needs a texture so it can have a size associated with it to simulate the collision detection // ToDo: Remove
+    // Each sprite needs a texture so it can have a size associated with it to simulate the collision detection
 
     textures.load(textures::EnemyShipGrey, "resources/enemyship_grey.png");
     sprite1.setTexture(textures.get(textures::EnemyShipGrey));

@@ -123,36 +123,69 @@ private:
     ////////////////////////////////////////////////////////////
     void recordHighScore();
 
+    ////////////////////////////////////////////////////////////
+    /// \brief When game sounds are generated in the main game loop(playershooting, explosions etc.)
+    /// this function plays the sound.
+    ///
+    /// \param playerShip checks for the playerShip shooting event and plays a sound accordingly
+    /// \param entityController check entities for shooting and explosions and plays sounds accordingly
+    ////////////////////////////////////////////////////////////
     void playEventSounds(PlayerShip &playerShip, EntityController &entityController);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Updates all game events, called on every frame.
+    ///
+    /// Updates score object, playership status and all game entities
+    ///
+    /// \param playerShip is updated to execute its next planned move
+    /// \param entityController updates all current alive entities.
+    ////////////////////////////////////////////////////////////
     void update(PlayerShip &playerShip, EntityController &entityController);
 
     ////////////////////////////////////////////////////////////
     /// \brief Used to draw all game elements by looping over all vectors of entites
     /// and drawing the underlying sprite. Called on every frame.
     ///
-    /// /ToDo
+    /// \param starField object drawn on every frame
+    /// \param playerShip current playership sprit at location is drawn
+    /// \param entityController returns all other non-playership sprites to be drawn
+    /// \param shield is drawn, irrespective if its visible or not
+    /// \param hud object is drawn to screen to show play statistics
     ////////////////////////////////////////////////////////////
     void render(StarField &starField, const PlayerShip &playerShip,
                 EntityController &entityController, Shield &shield, HUD &hud);
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \breif On each frame, verify if the player has lost all lives or has met the win condition
+    ///
+    /// When the end game condition is met, the game state is changed to either a loose or win
+    /// based on how the game ended
+    ///
+    /// \param playerShip object is needed to check current number of player lives
     ////////////////////////////////////////////////////////////
     void endGameCheck(const PlayerShip &playerShip);
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \brief When the player dies, specific functions need to be called such as reducing a player
+    /// life, playing sounds, remmove all satelites from play and resetting the game speed.
+    ///
+    /// \param playerShip object is needed to decremnt a life from the player
+    /// \param entityController is needed to remove all current flying Satellites
     ////////////////////////////////////////////////////////////
     void playerDeathEvents(PlayerShip &playerShip, EntityController &entityController);
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \brief When the player dies, the game window shakes to give visual feedback.
     ////////////////////////////////////////////////////////////
     void shakeWindow();
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \brief set of keys are bound to enable the developer to add extra sprites, make the PlayerShip invunreble
+    /// or change the game speed.
+    ///
+    /// \param event used to read in key presses
+    /// \param playerShip used to change the player ship state
+    /// \param entityController spawn enemies on key press
     ////////////////////////////////////////////////////////////
     void debugKeys(const Event &event, PlayerShip &playerShip, EntityController &entityController);
 
@@ -199,24 +232,25 @@ private:
     Vector2i _resolution;
 
     ////////////////////////////////////////////////////////////
-    /// \brief integer to store the number of enemies that must be killed to end the game
+    /// \brief Integer to store the number of enemies that must be killed to end the game
     ////////////////////////////////////////////////////////////
     int _winCondition;
 
     ////////////////////////////////////////////////////////////
-    /// \brief score object to store the current game score, such as enemies killed and longest life
+    /// \brief Score object to store the current game score, such as enemies killed and longest life
     ////////////////////////////////////////////////////////////
     Score _score;
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \breif Vector to store the starting location of the screen so after a shaking event the
+    /// screen is position back where it started
     ////////////////////////////////////////////////////////////
     Vector2i _windowPosition;
 
     ////////////////////////////////////////////////////////////
-    /// /ToDo
+    /// \brief Controls the shaking of the main renderWindow when a player loses a life
     ////////////////////////////////////////////////////////////
-    int _shaking; // Controls the shaking of the main renderWindow when a player loses a life
+    int _shaking;
 };
 
 #endif //PROJECT_GAME_HPP
