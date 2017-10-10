@@ -23,7 +23,7 @@
 ///
 /// Inherets from the screen base class
 ///
-/// \see screen.hpp
+/// \see screen
 ////////////////////////////////////////////////////////////
 class ScreenGameOver : public Screen
 {
@@ -36,7 +36,7 @@ public:
     ///
     /// \param gameOutcome defines if the player won or lost the game
     ///
-    /// \see screen.hpp
+    /// \see screen
     ////////////////////////////////////////////////////////////
     ScreenGameOver(bool gameOutcome);
 
@@ -50,8 +50,8 @@ public:
     /// on diffrent screen sizes more effectivly and consistently
     /// \param score is used to get the player score, longest life, bullets fired, accuracy and enemies killed.
     ///
-    /// \see ResourceHolder.hpp
-    /// \see Score.hpp
+    /// \see ResourceHolder
+    /// \see Score
     /// \see sf::RenderWindow
     /// \see sf:Vector2i
     ////////////////////////////////////////////////////////////
@@ -65,7 +65,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Bool to store the current game won/lose state.
     ///
-    /// \see ScreenGameOver()
+    /// \see ScreenGameOver
     ////////////////////////////////////////////////////////////
     bool _wonGame;
 };

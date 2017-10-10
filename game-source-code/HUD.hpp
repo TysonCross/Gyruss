@@ -21,7 +21,7 @@
 ///
 /// Sources information from the score object from game
 ///
-/// \see Score.hpp
+/// \see Score
 ////////////////////////////////////////////////////////////
 class HUD
 {
@@ -37,7 +37,7 @@ public:
     ///
     /// \see sf::RenderWindow
     /// \see sf::Vector2i
-    /// \see PlayerShip.hpp
+    /// \see PlayerShip
     ////////////////////////////////////////////////////////////
     HUD(const sf::Vector2i resolution,
         sf::RenderWindow &renderWindow,

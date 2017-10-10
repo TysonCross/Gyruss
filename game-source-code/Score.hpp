@@ -24,8 +24,8 @@ public:
     ///
     /// \param type provides the kind of enemy that was killed
     ///
-    /// \see Common.cpp
-    /// \see addToScore()
+    /// \see Common
+    /// \see addToScore
     ////////////////////////////////////////////////////////////
     void incrementEnemiesKilled(entity::ID type);
 
@@ -114,14 +114,14 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Int to store the number of Enemies killed
     ///
-    /// \see getEnemiesKilled()
+    /// \see getEnemiesKilled
     ////////////////////////////////////////////////////////////
     unsigned int _enemiesKilled;
 
     ////////////////////////////////////////////////////////////
     /// \brief Int to store the number of bullets fired
     ///
-    /// \see getBulletsFired()
+    /// \see getBulletsFired
     ////////////////////////////////////////////////////////////
     unsigned int _bulletsFired;
 
@@ -133,7 +133,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief sf::Clock to store the length of the current player life
     ///
-    /// \see getTimeAlive()
+    /// \see getTimeAlive
     ////////////////////////////////////////////////////////////
     sf::Clock _lifeTimer;
 
@@ -145,7 +145,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Float to store the longest player life
     ///
-    /// \see getLongestTimeAlive()
+    /// \see getLongestTimeAlive
     ////////////////////////////////////////////////////////////
     float _longestTimeAlive;
 

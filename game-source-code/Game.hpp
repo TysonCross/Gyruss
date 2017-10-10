@@ -86,11 +86,11 @@ private:
     /// It also is used in the creation of key objects, namely: PlayerShip, Shield, Score, EntityController and HUD.
     /// This function holds the game in the mainGame loop during game play and deals with player death sound and draw events.
     ///
-    /// \see PlayerShip.hpp
-    /// \see Shield.hpp
-    /// \see Score.hpp
-    /// \see EntityController.hpp
-    /// \see HUD.hpp
+    /// \see PlayerShip
+    /// \see Shield
+    /// \see Score
+    /// \see EntityController
+    /// \see HUD
     ////////////////////////////////////////////////////////////
     void startGameLoop();
 
@@ -112,7 +112,7 @@ private:
     /// \brief Pre-loads all required game resources.
     ///
     /// This loads all requires game assets, using ResourceHolder objects
-    /// \see ResourceHolder.hpp
+    /// \see ResourceHolder
     /// \see ResourceHolder.inl
     ////////////////////////////////////////////////////////////
     void loadResources();

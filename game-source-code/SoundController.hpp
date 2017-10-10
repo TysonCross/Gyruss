@@ -31,8 +31,8 @@ public:
     /// is the ID of the sound (i.e. its name) and it can be played without having to load the sound
     /// in from disk first.
     ///
-    /// \see loadResources()
-    /// \see getSounds()
+    /// \see loadResources
+    /// \see getSounds
     ////////////////////////////////////////////////////////////
     SoundController();
 

@@ -33,7 +33,7 @@ using std::move;
 /// and to transfer the ownership of the unique_ptr to the object calling get()
 /// Several specific types are declared in common.hpp, TextureHolder, FontHolder and SoundHolder
 ///
-/// \see common.hpp
+/// \see common
 ////////////////////////////////////////////////////////////
 template <typename ResourceType, typename IdentifierType>
 class ResourceHolder
@@ -47,17 +47,17 @@ public:
     /// The load() method loads the file into an object of specifed type,
     /// transferring ownership of the resource to the private map container member _resourceMap/
     ///
-    /// \param id The key (ID) to load the resource for (defined in common.hpp)
+    /// \param id The key (ID) to load the resource for (defined in common)
     /// \param filename The file to load the resource from.
     ///
-    /// \see Game.hpp
+    /// \see Game
     ////////////////////////////////////////////////////////////
     void load(IdentifierType id, const string &filename);
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the resource object
     ///
-    /// \param id The key (ID) to load the resource for (defined in common.hpp)
+    /// \param id The key (ID) to load the resource for (defined in common)
     /// \return An object of type resourceType (usually sf::Texture, sf::SoundBuffer or sf::Font
     ////////////////////////////////////////////////////////////
     ResourceType& get(IdentifierType id);
@@ -65,7 +65,7 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Overloaded const method
     ///
-    /// \param id The key (ID) to load the resource for (defined in common.hpp)
+    /// \param id The key (ID) to load the resource for (defined in common)
     /// \return An object of type resourceType (usually sf::Texture, sf::SoundBuffer or sf::Font
     ////////////////////////////////////////////////////////////
     const ResourceType &get(IdentifierType id) const;
@@ -75,10 +75,10 @@ private:
     /// \brief internal method to insert the unique pointer into the private
     /// map member
     ///
-    /// \param id The identifying key to load the resource for (defined in common.hpp)
+    /// \param id The identifying key to load the resource for (defined in common)
     /// \param resource A unique pointer to the object containing the resource
     ///
-    /// \see common.hpp
+    /// \see common
     ////////////////////////////////////////////////////////////
     void insertResource(IdentifierType id, std::unique_ptr<ResourceType> resource);
 

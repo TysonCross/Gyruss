@@ -53,9 +53,9 @@ public:
     /// \param speedModifier defines how fast the game runs at a particular time to speed up game as time progresses
     ///
     /// \see sf::Vector2i
-    /// \see PlayerShip.hpp
-    /// \see Score.hpp
-    /// \see ResourceHolder.hpp
+    /// \see PlayerShip
+    /// \see Score
+    /// \see ResourceHolder
     ///////////////////////////////////////////////////////////////
     EntityController(sf::Vector2i resolution,
                      PlayerShip &playerShip,
@@ -66,10 +66,10 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Sets up next frame' movement on all entities (in EntityController)
     ///
-    /// \see setEnemyMove()
-    /// \see setEnemyMoveState()
-    /// \see setBulletMove()
-    /// \see setMeteoroidMove()
+    /// \see setEnemyMove
+    /// \see setEnemyMoveState
+    /// \see setBulletMove
+    /// \see setMeteoroidMove
     /// \see Enemy
     ////////////////////////////////////////////////////////////
     void setMove();
@@ -101,7 +101,7 @@ public:
     /// \param movementDirection enum, showing clockwise or counterclockwise ship direction
     /// \param movementState spesifies what kind of spiral the ship is doing: inwards, outwards or wandering
     ///
-    /// \see Enemy.hpp
+    /// \see Enemy
     ////////////////////////////////////////////////////////////
     void spawnBasicEnemy(entity::ID id,
                          textures::ID shipVariant,
@@ -112,7 +112,7 @@ public:
     /// \brief Initiates a player shoot event based on current gun level
     /// and adds a bullet to the bulletList
     ///
-    /// \see playerShoot()
+    /// \see playerShoot
     ////////////////////////////////////////////////////////////
     void shoot();
 
@@ -130,7 +130,7 @@ public:
     /// remove them from the game (reset the ships or delete bullets).
     /// This function is also responsible for generating explosion events on ship deaths
     ///
-    /// \see collides()
+    /// \see collides
     ///
     /// \return A bool that is true if collision occurred with playerShip
     /// (false if no player collision occurred)
@@ -143,7 +143,7 @@ public:
     /// \param sprite1 first sprite that is fed in, compared to sprite2
     /// \param sprite2 second sprite that is fed in, compared to sprite1
     ///
-    /// \see checkCollision()
+    /// \see checkCollision
     /// \see sf::Sprite
     ///
     /// \return a bool, true if collision, false if not
@@ -162,7 +162,7 @@ public:
     /// Used to deal with multiple explosions occurred in quick succession to reset
     /// the explosion object and sound generation.
     ///
-    /// \see SoundController.hpp
+    /// \see SoundController
     ///
     /// \return A bool relating to if an explosion occurred in the current frame
     ////////////////////////////////////////////////////////////
@@ -249,8 +249,8 @@ private:
     /// \param growShipScreenZone defines region where the ship should grow and not change state
     /// \param currentEnemyRadius defines the current size of the enemy ship
     ///
-    /// \see setMove()
-    /// \see Enemy.hpp
+    /// \see setMove
+    /// \see Enemy
     ////////////////////////////////////////////////////////////
     void setEnemyMove(std::unique_ptr<Enemy> &enemy,
                       MovementState currentEnemyMovementState,
@@ -260,14 +260,14 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Sets the next frame's movement on all bullets (Player and Enemy)
     ///
-    /// \see setMove()
+    /// \see setMove
     ////////////////////////////////////////////////////////////
     void setBulletMove();
 
     ////////////////////////////////////////////////////////////
     /// \brief Sets the next frame's movement on all Meteoroids
     ///
-    /// \see setMove()
+    /// \see setMove
     ////////////////////////////////////////////////////////////
     void setMeteoroidMove();
 
@@ -276,7 +276,7 @@ private:
     /// \brief Spawns a meteoroid
     /// function is called from spawnEntities
     ///
-    /// \see Meteoroid.hpp
+    /// \see Meteoroid
     ////////////////////////////////////////////////////////////
     void spawnMeteoroid();
 
@@ -284,7 +284,7 @@ private:
     /// \brief Spawns a Satellite, a type of Enemy.
     /// function is called from spawnEntities
     ///
-    /// \see Enemy.hpp
+    /// \see Enemy
     ////////////////////////////////////////////////////////////
     void spawnSatellites();
 
@@ -292,7 +292,7 @@ private:
     /// \brief Initiates a player shoot event based on current gun level
     /// and adds bullet to bullet vector
     ///
-    /// \see PlayerShip.hpp
+    /// \see PlayerShip
     ////////////////////////////////////////////////////////////
     void playerShoot();
 
@@ -424,30 +424,30 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Boolean to store if an explosion has occurred on the current frame
     ///
-    /// \see explosionOccurred()
+    /// \see explosionOccurred
     ////////////////////////////////////////////////////////////
     bool _explosionHasOccurred;
 
     ////////////////////////////////////////////////////////////
     /// \brief Boolean to store if an enemy has shot a bullet in the current frame
     ///
-    /// \see shootingOccurred()
+    /// \see shootingOccurred
     ////////////////////////////////////////////////////////////
     bool _enemyShootEventHasOccurred;
 
     ////////////////////////////////////////////////////////////
     /// \brief Boolean to store if the playerShip was hit in the current frame
     ///
-    /// \see collides()
+    /// \see collides
     ////////////////////////////////////////////////////////////
     bool _playerHasBeenHit;
 
     ////////////////////////////////////////////////////////////
     /// \brief Float to store the current game speed modifier
     ///
-    /// \see getSpeed()
-    /// \see resetGlobalSpeed()
-    /// \see changeGlobalSpeed()
+    /// \see getSpeed
+    /// \see resetGlobalSpeed
+    /// \see changeGlobalSpeed
     ////////////////////////////////////////////////////////////
     float _speedModifier;
 
@@ -455,15 +455,15 @@ private:
     /// \brief Float to store the default game speed. The game speed is reset
     /// to this value when the game starts and when the player looses a life
     ///
-    /// \see resetGlobalSpeed()
+    /// \see resetGlobalSpeed
     ////////////////////////////////////////////////////////////
     float _defaultSpeed;
 
     ////////////////////////////////////////////////////////////
     /// \brief Int to count the total number of satellites that are alive at a point
     ///
-    /// \see spawnSatellites()
-    /// \see spawnEntities()
+    /// \see spawnSatellites
+    /// \see spawnEntities
     ////////////////////////////////////////////////////////////
     int _satellitesAlive;
 
@@ -480,7 +480,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Float to store the speed that a meteoroid should fly at
     ///
-    /// \see spawnMeteoroid()
+    /// \see spawnMeteoroid
     ////////////////////////////////////////////////////////////
     float _meteoroidSpeed;
 

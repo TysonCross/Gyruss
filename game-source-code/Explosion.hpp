@@ -47,10 +47,10 @@ public:
     /// provides a unique_ptr to an sf::Texture for the sprite data member
     /// \param id The unique ID identifying the texture for the entity
     ///
-    /// \see Entity.hpp
-    /// \see EntityController.hpp
-    /// \see common.hpp
-    /// \see ResourceHolder.hpp
+    /// \see Entity
+    /// \see EntityController
+    /// \see common
+    /// \see ResourceHolder
     /// ////////////////////////////////////////////////////////////
     Explosion(const sf::Vector2i resolution,
               float distanceFromCentre,

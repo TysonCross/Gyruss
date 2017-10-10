@@ -37,10 +37,10 @@ public:
     ///
     /// \param type An enum that identifies the Entity type. Defined in common.hpp
     ///
-    /// \see Entity.hpp
-    /// \see common.hpp
-    /// \see ResourceHolder.hpp
-    /// \see sf::Texture.hpp
+    /// \see Entity
+    /// \see common
+    /// \see ResourceHolder
+    /// \see sf::Texture
     ////////////////////////////////////////////////////////////
     Animatable(const TextureHolder &textureHolder,
                const entity::ID type) : _type{type} {}

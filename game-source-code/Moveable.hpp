@@ -57,7 +57,7 @@ public:
     /// \param value The delta change in angle or distance (will be added to
     /// the current angle/distance
     ///
-    /// \see move()
+    /// \see move
     ////////////////////////////////////////////////////////////
     virtual void setMove(float value){}
 
@@ -73,7 +73,7 @@ public:
     /// \param distance The delta change in distance (will be added to
     /// the current distance
     ///
-    /// \see move()
+    /// \see move
     ////////////////////////////////////////////////////////////
     virtual void setMove(float angle, float distance){}
 
@@ -108,7 +108,7 @@ public:
 protected:
     ////////////////////////////////////////////////////////////
     /// \brief Data member storing the distance from origin (centre of screen)
-    /// \see getDistanceFromCentre()
+    /// \see getDistanceFromCentre
     ////////////////////////////////////////////////////////////
     float _distanceFromCentre;
 

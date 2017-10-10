@@ -25,7 +25,7 @@
 ///
 /// Inheritance relationship from screen
 ///
-/// \see Screen.hpp
+/// \see Screen
 ////////////////////////////////////////////////////////////
 class ScreenSplash : public Screen
 {
@@ -43,7 +43,7 @@ public:
     /// \return an int is returned to inform the game object what occurred on
     /// the splashScreen: 1 game closed, 0 game continue
     ///
-    /// \see ResourceHolder.hpp
+    /// \see ResourceHolder
     /// \see sf::RenderWindow
     ////////////////////////////////////////////////////////////
     int draw(sf::RenderWindow &window,

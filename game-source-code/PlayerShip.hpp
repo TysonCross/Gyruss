@@ -55,9 +55,9 @@ public:
     /// \param textureHolder The resourceMapper object that
     /// contains the path to the texture(s) for the sprite
     ///
-    /// \see Entity.hpp
-    /// \see common.hpp
-    /// \see ResourceHolder.hpp
+    /// \see Entity
+    /// \see common
+    /// \see ResourceHolder
     ////////////////////////////////////////////////////////////
     PlayerShip(const Vector2i resolution,
                float distanceFromCentre,
@@ -76,7 +76,7 @@ public:
     /// \param angle The delta change in angle (will be added to
     /// the current angle.
     ///
-    /// \see move()
+    /// \see move
     ////////////////////////////////////////////////////////////
     void setMove(float angle) override;
 
@@ -107,7 +107,7 @@ public:
     /// \brief Checks and updates the movement, shooting and calls
     /// the actual movement translation
     ///
-    /// \see move()
+    /// \see move
     ////////////////////////////////////////////////////////////
     void update() override;
 

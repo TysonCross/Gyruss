@@ -157,7 +157,7 @@ public:
     /// \brief Checks and updates the movement, shooting and calls
     /// the actual movement translation
     ///
-    /// \see move()
+    /// \see move
     ////////////////////////////////////////////////////////////
     void update() override;
 
@@ -177,7 +177,7 @@ public:
     /// \return The sf::Sprite object representing the entity in the game
     /// (dimensions, position, texture)
     ///
-    /// \see sf:Sprite
+    /// \see sf::Sprite
     ////////////////////////////////////////////////////////////
     const Sprite&       getSprite() const override;
 
@@ -257,8 +257,8 @@ public:
     /// \brief Returns the entity type of the enemy
     ///
     /// \return An enum value (defined in common.hpp) of the entity type
-    /// \see common.hpp
-    /// \see Entity.hpp
+    /// \see common
+    /// \see Entity
     ////////////////////////////////////////////////////////////
     const entity::ID    getType() const;
 
@@ -325,27 +325,27 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \param A timer since last bullet shooting occurred
-    /// \see getShootTimerElapsedTime()
+    /// \see getShootTimerElapsedTime
     ////////////////////////////////////////////////////////////
     Clock               _timerShoot;
 
     ////////////////////////////////////////////////////////////
     /// \param A timer measuring how long the enemy has been alive
-    /// \see getAliveTimeElapsedTime()
+    /// \see getAliveTimeElapsedTime
     ////////////////////////////////////////////////////////////
     Clock               _timerAlive;
 
     ////////////////////////////////////////////////////////////
     /// \param Stores the movement state of the enemy
-    /// \see getMovementState()
-    /// \see setMovementState()
+    /// \see getMovementState
+    /// \see setMovementState
     ////////////////////////////////////////////////////////////
     MovementState       _movementState;
 
     ////////////////////////////////////////////////////////////
     /// \param Stores the movement direction (clockwise or counterclockwise)
-    /// \see getMovementDirectionSign()
-    /// \see setMovementDirectionSign()
+    /// \see getMovementDirectionSign
+    /// \see setMovementDirectionSign
     ////////////////////////////////////////////////////////////
     MovementDirection   _movementDirection;
 };

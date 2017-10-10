@@ -24,8 +24,8 @@
 /// \brief Virtual class that is used in other screen-like displays
 /// such as ScreenSplash and ScreenGameOver
 ///
-/// \see ScreenGameOver.hpp
-/// \see ScreenGameOver.hpp
+/// \see ScreenGameOver
+/// \see ScreenGameOver
 ////////////////////////////////////////////////////////////
 class Screen
 {
@@ -64,7 +64,7 @@ public:
     /// \return integer to indicate if player chose to go to play screen or quit the game
     ///
     /// \see Score.pp
-    /// \see ResourceHolder.hpp
+    /// \see ResourceHolder
     /// \see sf::Window
     /// \see ResourceMapper
     /// \see sf::Clock

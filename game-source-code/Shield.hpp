@@ -92,7 +92,7 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \brief Data member storing the distance from origin (centre of screen)
-    /// \see getDistanceFromCentre()
+    /// \see getDistanceFromCentre
     ////////////////////////////////////////////////////////////
     float _distanceFromCentre;
 
