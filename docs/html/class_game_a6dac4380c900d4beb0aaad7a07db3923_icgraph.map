@@ -1,0 +1,5 @@
+<map id="Game::playerDeathEvents" name="Game::playerDeathEvents">
+<area shape="rect" id="node2" href="$class_game.html#a4af2008f2edcf1aea093539a2dd0288e" title="This is the main game loop that is used throughout game play. " alt="" coords="411,5,568,31"/>
+<area shape="rect" id="node4" href="$class_game.html#a95d68e4db6310beb1bab1dd36d01844f" title="set of keys are bound to enable the developer to add extra sprites, make the PlayerShip invunreble or..." alt="" coords="231,31,363,56"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="616,5,709,31"/>
+</map>

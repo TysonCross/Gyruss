@@ -1,3 +1,4 @@
 <map id="Score::getEnemiesKilled" name="Score::getEnemiesKilled">
-<area shape="rect" id="node2" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="220,5,313,31"/>
+<area shape="rect" id="node2" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="354,5,448,31"/>
+<area shape="rect" id="node3" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="220,31,306,56"/>
 </map>

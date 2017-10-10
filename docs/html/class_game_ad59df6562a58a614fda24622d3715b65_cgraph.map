@@ -1,0 +1,4 @@
+<map id="Game::Game" name="Game::Game">
+<area shape="rect" id="node2" href="$class_game.html#ae6200a0bffc7eb91ef49c624a9a10faf" title="Pre&#45;loads all required game resources. " alt="" coords="155,5,309,31"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html#ade0233bc8edb8bc8da851bf56b7ae912" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="357,5,507,31"/>
+</map>

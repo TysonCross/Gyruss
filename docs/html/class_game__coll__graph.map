@@ -1,2 +1,8 @@
 <map id="Game" name="Game">
+<area shape="rect" id="node3" href="$class_sound_controller.html" title="Controller for all sound events. " alt="" coords="344,66,462,91"/>
+<area shape="rect" id="node4" href="$class_resource_holder.html" title="ResourceHolder\&lt; sf\l::SoundBuffer, sounds::ID \&gt;" alt="" coords="5,59,190,98"/>
+<area shape="rect" id="node5" href="$class_input_handler.html" title="The InputHandler class. " alt="" coords="354,115,452,141"/>
+<area shape="rect" id="node6" href="$class_resource_holder.html" title="ResourceHolder\&lt; sf\l::Texture, textures::ID \&gt;" alt="" coords="323,165,483,203"/>
+<area shape="rect" id="node8" href="$class_score.html" title="Object and methods to keep score of player actions. " alt="" coords="375,277,431,302"/>
+<area shape="rect" id="node10" href="$class_resource_holder.html" title="ResourceHolder\&lt; sf\l::Font, fonts::ID \&gt;" alt="" coords="333,326,473,365"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="PerlinNoise::noise" name="PerlinNoise::noise">
+<area shape="rect" id="node2" href="$class_perlin_noise.html#a9a9a896d4e4a70f74c06677dcdadd52b" title="Smooths the input, producing an eased in and out value from 0 to 1 over time. " alt="" coords="182,5,362,31"/>
+<area shape="rect" id="node3" href="$class_perlin_noise.html#a1b5066555730d99a1dbc1fbf1387f728" title="Interpolates the input, using cosine interpolation. " alt="" coords="213,55,332,80"/>
+<area shape="rect" id="node4" href="$class_perlin_noise.html#a7edcff4ff7a095734f3d5faccae92338" title="Converts lower 4 bits of hash into 12 gradient directions. " alt="" coords="210,104,334,129"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Enemy::stopShoot" name="Enemy::stopShoot">
+<area shape="rect" id="node2" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="184,5,295,31"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="343,5,503,31"/>
+<area shape="rect" id="node4" href="$class_game.html#a543021ddad0e03b328374c565d684993" title="Updates all game events, called on every frame. " alt="" coords="551,5,657,31"/>
+<area shape="rect" id="node5" href="$class_game.html#a4af2008f2edcf1aea093539a2dd0288e" title="This is the main game loop that is used throughout game play. " alt="" coords="705,5,862,31"/>
+<area shape="rect" id="node6" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="910,5,1003,31"/>
+</map>

@@ -1,2 +1,9 @@
 <map id="EntityController" name="EntityController">
+<area shape="rect" id="node7" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="363,58,417,83"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html" title="The ResourceType class. " alt="" coords="595,302,781,341"/>
+<area shape="rect" id="node4" href="$class_perlin_noise.html" title="Perlin Noise Class. " alt="" coords="644,365,733,390"/>
+<area shape="rect" id="node6" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="645,74,731,99"/>
+<area shape="rect" id="node12" href="$class_score.html" title="Object and methods to keep score of player actions. " alt="" coords="660,253,716,278"/>
+<area shape="rect" id="node8" href="$class_moveable.html" title="Moveable Class. " alt="" coords="158,113,237,138"/>
+<area shape="rect" id="node9" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="153,63,241,89"/>
 </map>

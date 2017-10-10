@@ -1,4 +1,4 @@
 <map id="Score::getBulletsFired" name="Score::getBulletsFired">
-<area shape="rect" id="node2" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="206,5,371,31"/>
+<area shape="rect" id="node2" href="$class_screen_game_over.html#a6b6ab72c51b46b05d63c7bd2127673db" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="206,5,371,31"/>
 <area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="419,5,512,31"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="Bullet" name="Bullet">
-<area shape="rect" id="node2" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="243,421,335,561"/>
-<area shape="rect" id="node3" href="$class_moveable.html" title="Moveable Class. " alt="" coords="5,140,189,360"/>
-<area shape="rect" id="node4" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="213,193,365,307"/>
+<area shape="rect" id="node2" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="126,179,180,204"/>
+<area shape="rect" id="node3" href="$class_moveable.html" title="Moveable Class. " alt="" coords="5,92,84,117"/>
+<area shape="rect" id="node4" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,92,197,117"/>
 </map>

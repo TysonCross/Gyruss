@@ -1,0 +1,10 @@
+<map id="Score::addToScore" name="Score::addToScore">
+<area shape="rect" id="node2" href="$class_score.html#a1a476a2a2bc3a65a050e512fad500d02" title="Run on every frame to update the player current lite time. adds points to the player score for living..." alt="" coords="239,5,344,31"/>
+<area shape="rect" id="node6" href="$class_score.html#ab130dd02bdd3e026421ad426741637e8" title="When the player Killes an enemy, this is called with the defined enemy type. Based on the type of ene..." alt="" coords="188,59,395,84"/>
+<area shape="rect" id="node3" href="$class_game.html#a543021ddad0e03b328374c565d684993" title="Updates all game events, called on every frame. " alt="" coords="740,5,846,31"/>
+<area shape="rect" id="node4" href="$class_game.html#a4af2008f2edcf1aea093539a2dd0288e" title="This is the main game loop that is used throughout game play. " alt="" coords="947,35,1104,60"/>
+<area shape="rect" id="node5" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="1152,35,1245,60"/>
+<area shape="rect" id="node7" href="$class_entity_controller.html#a0139fe1d080978c11845570a7030bc39" title="Checks collisions between PlayerBullet&#45;&gt;EnemyShip, removing both entities if they collide..." alt="" coords="445,52,637,91"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a2ef6f45aca96e5b077106b889ebde5ae" title="Checks collisions between EnemyShips&#45;&gt;PlayerShip, removing both entities if they collide. " alt="" coords="443,115,639,153"/>
+<area shape="rect" id="node8" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="687,59,899,84"/>
+</map>

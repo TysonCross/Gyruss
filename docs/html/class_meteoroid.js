@@ -1,6 +1,6 @@
 var class_meteoroid =
 [
-    [ "Meteoroid", "class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7", null ],
+    [ "Meteoroid", "class_meteoroid.html#a86bf02562ce5807ccd0fbb12d8b6dcd4", null ],
     [ "die", "class_meteoroid.html#a84eac69f87842f7b5cc2930556c07158", null ],
     [ "getDistanceFromCentre", "class_meteoroid.html#a440c2468321dec00a1b15e4f7a8bcc88", null ],
     [ "getLives", "class_meteoroid.html#a07866040ddea66bf42f4d13394c85c93", null ],

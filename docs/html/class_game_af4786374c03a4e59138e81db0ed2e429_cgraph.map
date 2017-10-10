@@ -1,0 +1,26 @@
+<map id="Game::render" name="Game::render">
+<area shape="rect" id="node2" href="$class_star_field.html#acc5e764762506119799c3e37b912564a" title="Returns a reference to the StarField object (for iterating through the elements) " alt="" coords="182,5,336,31"/>
+<area shape="rect" id="node3" href="$class_star_field.html#a12b98fd26428d39c62cad82492f2b853" title="Moves the star positions along &#45;Z in the starField object, then draws a square at each position in th..." alt="" coords="159,55,359,80"/>
+<area shape="rect" id="node4" href="$class_entity_controller.html#a392fe1a574a77ba809b5731aada54f15" title="Getter to return the current game speed. " alt="" coords="171,104,348,129"/>
+<area shape="rect" id="node5" href="$class_entity_controller.html#aa181b30399739394385324edff5e2c4d" title="EntityController::getEnemies" alt="" coords="164,153,354,179"/>
+<area shape="rect" id="node6" href="$class_enemy.html#a3d4620df8d33ce1e23d4d3018ee34af9" title="Returns the Sprite object of the Class by ref. " alt="" coords="197,203,321,228"/>
+<area shape="rect" id="node7" href="$class_entity_controller.html#aa48971080243155c198a9dd6d1afe969" title="EntityController::getBullets\lEnemy" alt="" coords="170,252,348,291"/>
+<area shape="rect" id="node8" href="$class_entity_controller.html#a7b7873b9276c1028bd4c02f0361b1c0e" title="Returns a vector of all current player bullets. Used to draw in other context. " alt="" coords="170,315,348,353"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a09f6944c1c20a8e5efe1fda885f188e3" title="EntityController::getMeteoroids" alt="" coords="157,377,361,403"/>
+<area shape="rect" id="node10" href="$class_entity_controller.html#ae6670d7e4da08f665998b506ee272911" title="EntityController::getExplosions" alt="" coords="158,427,361,452"/>
+<area shape="rect" id="node11" href="$class_player_ship.html#a140d0da9785b423c9384c98c755d70c9" title="Returns the Sprite object of the Class by ref. " alt="" coords="633,528,779,553"/>
+<area shape="rect" id="node12" href="$class_player_ship.html#a971ef4107082b2040598101b416b1214" title="Boolean state of the playerShip taking damage from collisions or not. " alt="" coords="409,627,585,652"/>
+<area shape="rect" id="node13" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Checks and updates the movement, calls the actual movement translation with move() ..." alt="" coords="206,579,312,604"/>
+<area shape="rect" id="node15" href="$class_shield.html#a3895cca033e2401fb9fb299dd096e026" title="Resets the Shield object. " alt="" coords="449,528,545,553"/>
+<area shape="rect" id="node16" href="$class_shield.html#abfaf485e71d7b5709f0dda44acd9c3e0" title="Returns the Sprite object of the Class by ref. " alt="" coords="200,680,319,705"/>
+<area shape="rect" id="node17" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="216,752,302,777"/>
+<area shape="rect" id="node25" href="$class_game.html#a591b77cb281740f9b51ec91eb8e52a5e" title="When the player dies, the game window shakes to give visual feedback. " alt="" coords="185,801,333,827"/>
+<area shape="rect" id="node14" href="$class_shield.html#a4c5a60cac4a0c7516c18c7bd418b864d" title="Performs the move, based on _futureMoveValue. " alt="" coords="448,577,546,603"/>
+<area shape="rect" id="node18" href="$class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449" title="Returns the remaining number of lives of the player. " alt="" coords="426,873,568,899"/>
+<area shape="rect" id="node19" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="425,923,569,948"/>
+<area shape="rect" id="node20" href="$namespacecommon.html#a2e40ecdfb1aa22659c65654e8bea8c43" title="Converts an int to a string, with optional padding. " alt="" coords="414,972,580,997"/>
+<area shape="rect" id="node21" href="$class_score.html#ad2ad5c64290bc1baf6d929b2118ac240" title="Accessor to provide the current number of enimies killed. " alt="" coords="414,676,580,701"/>
+<area shape="rect" id="node22" href="$class_score.html#a9925b73e3f421878dbb192ab9924560b" title="Accessor to provide the current game score. " alt="" coords="439,725,556,751"/>
+<area shape="rect" id="node23" href="$class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="416,775,578,800"/>
+<area shape="rect" id="node24" href="$class_score.html#a81b38b72c9ab9b4fb623fc8604477e61" title="Accessor to return the time alive for the current player life. " alt="" coords="427,824,567,849"/>
+</map>

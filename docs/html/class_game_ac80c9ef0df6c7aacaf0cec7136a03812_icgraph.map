@@ -1,0 +1,4 @@
+<map id="Game::endGameCheck" name="Game::endGameCheck">
+<area shape="rect" id="node2" href="$class_game.html#a4af2008f2edcf1aea093539a2dd0288e" title="This is the main game loop that is used throughout game play. " alt="" coords="215,5,372,31"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="420,5,513,31"/>
+</map>

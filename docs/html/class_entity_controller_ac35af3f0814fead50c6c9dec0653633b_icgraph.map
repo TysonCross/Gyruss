@@ -1,0 +1,7 @@
+<map id="EntityController::enemyKilled" name="EntityController::enemyKilled">
+<area shape="rect" id="node2" href="$class_entity_controller.html#a0139fe1d080978c11845570a7030bc39" title="Checks collisions between PlayerBullet&#45;&gt;EnemyShip, removing both entities if they collide..." alt="" coords="248,5,440,44"/>
+<area shape="rect" id="node6" href="$class_entity_controller.html#a2ef6f45aca96e5b077106b889ebde5ae" title="Checks collisions between EnemyShips&#45;&gt;PlayerShip, removing both entities if they collide. " alt="" coords="246,68,442,107"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="490,44,702,69"/>
+<area shape="rect" id="node4" href="$class_game.html#a4af2008f2edcf1aea093539a2dd0288e" title="This is the main game loop that is used throughout game play. " alt="" coords="750,44,907,69"/>
+<area shape="rect" id="node5" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="955,44,1048,69"/>
+</map>

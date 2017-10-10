@@ -1,2 +1,6 @@
 <map id="Shield" name="Shield">
+<area shape="rect" id="node4" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="163,265,248,291"/>
+<area shape="rect" id="node7" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="79,92,167,117"/>
+<area shape="rect" id="node5" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="286,179,341,204"/>
+<area shape="rect" id="node6" href="$class_moveable.html" title="Moveable Class. " alt="" coords="299,92,378,117"/>
 </map>

@@ -1,0 +1,25 @@
+<map id="Game::debugKeys" name="Game::debugKeys">
+<area shape="rect" id="node2" href="$class_entity_controller.html#a266fed1b08301a21d6f9202f44be0c33" title="Adjust the game speed as time goes on to make it more challenging. Has imposed maximum, minimum and default interval values. " alt="" coords="203,41,366,80"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a0d4cc1200ed8d172c84c0013d454d0ca" title="Makes the playerShip unaffected by damage. " alt="" coords="185,104,384,129"/>
+<area shape="rect" id="node4" href="$class_game.html#a6dac4380c900d4beb0aaad7a07db3923" title="When the player dies, specific functions need to be called such as reducing a player life..." alt="" coords="195,153,373,179"/>
+<area shape="rect" id="node13" href="$class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d" title="Sets the boolean state of the playerShip upgrade status to true. " alt="" coords="213,203,355,228"/>
+<area shape="rect" id="node14" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="189,371,380,409"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="Decrements the player lives. " alt="" coords="470,5,581,31"/>
+<area shape="rect" id="node8" href="$class_score.html#a141a1c42f44900824c15049c23aaba0c" title="Resets current player life timer. " alt="" coords="451,55,600,80"/>
+<area shape="rect" id="node9" href="$class_sound_controller.html#a9a006740b8f08a9d288800807f75626c" title="PlaySound is used whenever a sound is needed to be played, from any contex. " alt="" coords="432,104,620,129"/>
+<area shape="rect" id="node10" href="$class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967" title="Resets the inputHandler object. " alt="" coords="458,153,593,179"/>
+<area shape="rect" id="node11" href="$class_entity_controller.html#a6386fca5171a9e0d5595c4b236983829" title="Reverts the game speed to the stock default value. " alt="" coords="432,203,620,241"/>
+<area shape="rect" id="node12" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="450,265,601,304"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="Resets the player ship (intended to be called after a player death event) " alt="" coords="686,5,809,31"/>
+<area shape="rect" id="node7" href="$class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="Sets the future player movement, rotating the the player ship around a circle by this angle..." alt="" coords="876,5,1019,31"/>
+<area shape="rect" id="node15" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="453,328,599,353"/>
+<area shape="rect" id="node16" href="$class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61" title="Sets the scale of the Enemy screen object. " alt="" coords="465,377,586,403"/>
+<area shape="rect" id="node17" href="$class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="465,427,586,452"/>
+<area shape="rect" id="node18" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="474,476,577,501"/>
+<area shape="rect" id="node19" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="1075,475,1217,500"/>
+<area shape="rect" id="node20" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="668,451,828,476"/>
+<area shape="rect" id="node21" href="$class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="683,500,813,525"/>
+<area shape="rect" id="node22" href="$class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="671,549,824,575"/>
+<area shape="rect" id="node23" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="1067,524,1224,549"/>
+<area shape="rect" id="node24" href="$class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="886,499,1009,524"/>
+</map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project 2017 - Gyruss: StarField Class Reference</title>
+<title>ELEN3009 Software Development II Project: StarField Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="Earth_logo.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Project 2017 - Gyruss
+   <div id="projectname">ELEN3009 Software Development II Project
    &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN3009 Software Development II Project</div>
+   <div id="projectbrief">Tyson Cross 1239448  ᐧ Chris Maree 1101946</div>
   </td>
  </tr>
  </tbody>
@@ -91,37 +91,30 @@ $(document).ready(function(){initNavTree('class_star_field.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Background Starfield effect.  
+<p>Creates a starField object, a vector of 3d points The field is made up of many stars (each star is a <a class="el" href="structcommon_1_1position.html" title="Simple struct of 3 floats, a co-ordinate system (x,y,z) ">common::position</a>, a struct of three floats The stars are psuedo-randomly generated to fill the volume enclosed by screen height * screen width * maximum depth.  
  <a href="class_star_field.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_starfield_8hpp_source.html">Starfield.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for StarField:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_star_field__coll__graph.png" border="0" usemap="#_star_field_coll__map" alt="Collaboration graph"/></div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afbececa11c506cc34ba22b720674224f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_star_field.html#afbececa11c506cc34ba22b720674224f">StarField</a> (const sf::Vector2i resolution, const int max_depth, const int number_of_stars, float max_size=6.0f)</td></tr>
-<tr class="memdesc:afbececa11c506cc34ba22b720674224f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> constructor.  <a href="#afbececa11c506cc34ba22b720674224f">More...</a><br /></td></tr>
-<tr class="separator:afbececa11c506cc34ba22b720674224f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363e8939c0810b7eadd47f90552edce3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_star_field.html#a363e8939c0810b7eadd47f90552edce3">StarField</a> (const Vector2i resolution, const int max_depth, const int number_of_stars, float max_size=6.0f)</td></tr>
+<tr class="memdesc:a363e8939c0810b7eadd47f90552edce3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_star_field.html" title="Creates a starField object, a vector of 3d points The field is made up of many stars (each star is a ...">StarField</a> constructor.  <a href="#a363e8939c0810b7eadd47f90552edce3">More...</a><br /></td></tr>
+<tr class="separator:a363e8939c0810b7eadd47f90552edce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b98fd26428d39c62cad82492f2b853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_star_field.html#a12b98fd26428d39c62cad82492f2b853">moveAndDrawStars</a> (sf::RenderWindow &amp;renderWindow, float speed=0.0008, int light_shift_amount=3)</td></tr>
 <tr class="memdesc:a12b98fd26428d39c62cad82492f2b853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the star positions along -Z in the starField object, then draws a square at each position in the starField.  <a href="#a12b98fd26428d39c62cad82492f2b853">More...</a><br /></td></tr>
 <tr class="separator:a12b98fd26428d39c62cad82492f2b853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc5e764762506119799c3e37b912564a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structcommon_1_1position.html">common::position</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_star_field.html#acc5e764762506119799c3e37b912564a">getStarField</a> ()</td></tr>
-<tr class="memdesc:acc5e764762506119799c3e37b912564a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the <a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> object (for iterating through the elements)  <a href="#acc5e764762506119799c3e37b912564a">More...</a><br /></td></tr>
+<tr class="memdesc:acc5e764762506119799c3e37b912564a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the <a class="el" href="class_star_field.html" title="Creates a starField object, a vector of 3d points The field is made up of many stars (each star is a ...">StarField</a> object (for iterating through the elements)  <a href="#acc5e764762506119799c3e37b912564a">More...</a><br /></td></tr>
 <tr class="separator:acc5e764762506119799c3e37b912564a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Background Starfield effect. </p>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/11 Definition for the starfield effect, a moving field of pixels creating the illusion of flying down a tunnel in space.</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University Creates a starfield object, a vector of 3d points The field is made up of many stars (a struct of three floats The stars are psuedorandomly generated to fill the volume enclosed by screen height * screen widgth * maximum depth </dd></dl>
+<div class="textblock"><p>Creates a starField object, a vector of 3d points The field is made up of many stars (each star is a <a class="el" href="structcommon_1_1position.html" title="Simple struct of 3 floats, a co-ordinate system (x,y,z) ">common::position</a>, a struct of three floats The stars are psuedo-randomly generated to fill the volume enclosed by screen height * screen width * maximum depth. </p>
 
-<p class="definition">Definition at line <a class="el" href="_starfield_8hpp_source.html#l00027">27</a> of file <a class="el" href="_starfield_8hpp_source.html">Starfield.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_starfield_8hpp_source.html#l00026">26</a> of file <a class="el" href="_starfield_8hpp_source.html">Starfield.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afbececa11c506cc34ba22b720674224f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbececa11c506cc34ba22b720674224f">&#9670;&nbsp;</a></span>StarField()</h2>
+<a id="a363e8939c0810b7eadd47f90552edce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363e8939c0810b7eadd47f90552edce3">&#9670;&nbsp;</a></span>StarField()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,7 +122,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">StarField::StarField </td>
           <td>(</td>
-          <td class="paramtype">const sf::Vector2i&#160;</td>
+          <td class="paramtype">const Vector2i&#160;</td>
           <td class="paramname"><em>resolution</em>, </td>
         </tr>
         <tr>
@@ -158,7 +151,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> constructor. </p>
+<p><a class="el" href="class_star_field.html" title="Creates a starField object, a vector of 3d points The field is made up of many stars (each star is a ...">StarField</a> constructor. </p>
 <p>Implementation of the background star effect.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -169,10 +162,9 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/11 Creates a distribution of stars, and simulates moving through this field, scaling and dimming them to fake a a perspective motion with parallax (An orthographic projection)</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<p>Creates a distribution of stars, and simulates moving through this field, scaling and dimming them to fake a a perspective motion with parallax (An orthographic projection) </p>
 
-<p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00015">15</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00011">11</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
 
 </div>
 </div>
@@ -192,17 +184,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the <a class="el" href="class_star_field.html" title="Background Starfield effect. ">StarField</a> object (for iterating through the elements) </p>
+<p>Returns a reference to the <a class="el" href="class_star_field.html" title="Creates a starField object, a vector of 3d points The field is made up of many stars (each star is a ...">StarField</a> object (for iterating through the elements) </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of type position (the star objects) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00091">91</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00087">87</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_star_field_acc5e764762506119799c3e37b912564a_icgraph.png" border="0" usemap="#class_star_field_acc5e764762506119799c3e37b912564a_icgraph" alt=""/></div>
 <map name="class_star_field_acc5e764762506119799c3e37b912564a_icgraph" id="class_star_field_acc5e764762506119799c3e37b912564a_icgraph">
 <area shape="rect" id="node2" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="396,5,489,31"/>
-<area shape="rect" id="node3" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="207,31,348,56"/>
+<area shape="rect" id="node3" href="class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="207,31,348,56"/>
 </map>
 </div>
 
@@ -250,16 +242,16 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>sf::Window </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Window.php">SFML/Window</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00041">41</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_starfield_8cpp_source.html#l00037">37</a> of file <a class="el" href="_starfield_8cpp_source.html">Starfield.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph.png" border="0" usemap="#class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph" alt=""/></div>
 <map name="class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph" id="class_star_field_a12b98fd26428d39c62cad82492f2b853_icgraph">
 <area shape="rect" id="node2" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="443,5,536,31"/>
-<area shape="rect" id="node3" href="class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="254,31,395,56"/>
+<area shape="rect" id="node3" href="class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="254,31,395,56"/>
 </map>
 </div>
 

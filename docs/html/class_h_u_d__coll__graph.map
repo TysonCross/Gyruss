@@ -1,2 +1,8 @@
 <map id="HUD" name="HUD">
+<area shape="rect" id="node2" href="$class_player_ship.html" title="playerShip Class, inherited from Entity " alt="" coords="229,285,314,311"/>
+<area shape="rect" id="node3" href="$class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="126,179,180,204"/>
+<area shape="rect" id="node4" href="$class_moveable.html" title="Moveable Class. " alt="" coords="5,92,84,117"/>
+<area shape="rect" id="node5" href="$class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,92,197,117"/>
+<area shape="rect" id="node10" href="$class_score.html" title="Object and methods to keep score of player actions. " alt="" coords="437,285,493,311"/>
+<area shape="rect" id="node11" href="$class_resource_holder.html" title="ResourceHolder\&lt; sf\l::Font, fonts::ID \&gt;" alt="" coords="516,279,656,317"/>
 </map>

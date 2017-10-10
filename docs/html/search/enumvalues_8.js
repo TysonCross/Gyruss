@@ -1,15 +1,9 @@
 var searchData=
 [
-  ['satellite',['Satellite',['../namespaceentity.html#aa349ee1acd461ee9c30a65288284e630a482a2609e181d7a5ef12b27589e15af1',1,'entity::Satellite()'],['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a31855a1fade550056ae543964088be50',1,'textures::Satellite()']]],
-  ['shield',['Shield',['../namespaceentity.html#aa349ee1acd461ee9c30a65288284e630a0bb2e00499d2d902d6db88cd5957a744',1,'entity::Shield()'],['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a9b7ce0a2dff3fb826e5062e5f335ea1e',1,'textures::Shield()']]],
-  ['smallcircling',['SmallCircling',['../_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4aa93e2d59fe59e0bf4ebe7bb84ad0758e7',1,'Enemy.hpp']]],
-  ['soundid_5fend',['soundID_end',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2feae3cc46f9dd105f794b44531e57326c13',1,'sounds']]],
-  ['spawnsound',['SpawnSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea1899db6d37bc177dad20f88ace6cc8f3',1,'sounds']]],
-  ['spiralin',['SpiralIn',['../_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4aa5053187ed35a382c298aead4b017a45a',1,'Enemy.hpp']]],
-  ['spiralout',['SpiralOut',['../_enemy_8hpp.html#ab5e9a2252870710908096f54ecb89c4aa14f996a873ed5834e8f6f1e170b426a0',1,'Enemy.hpp']]],
-  ['splash',['Splash',['../namespacegame.html#ade18e0427d43400c7539d36c85c87657a4b7a1f5b98bbdaa5492926aa33312bf4',1,'game']]],
-  ['splashcontrols',['SplashControls',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a63335d5e23cfafdbbdd0629744dd7f1f',1,'textures']]],
-  ['splashscreen',['SplashScreen',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a1736086ed7b2ad8d15d8269943d14ca3',1,'textures']]],
-  ['splashscreenextra',['SplashScreenExtra',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683aa70f58445ea83cd7bdf67e4428e9dedf',1,'textures']]],
-  ['startsound',['StartSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea145fded9da03301f195032613e6e26b8',1,'sounds']]]
+  ['testenemy',['testEnemy',['../namespaceentity.html#aa349ee1acd461ee9c30a65288284e630ab3573197b18f3785f4c398c226674ca0',1,'entity']]],
+  ['testfont',['testFont',['../namespacefonts.html#a976096a450dcfd2aa6bc9f8864cbc42fa5668903508eb3de6cee88a93c7c9d3f4',1,'fonts']]],
+  ['testsound',['testSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea576b004dd875f2576bcef08abb1de23c',1,'sounds']]],
+  ['testtexture',['testTexture',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683aef043dbd34ef8540a9af375eb5820f87',1,'textures']]],
+  ['textureid_5fend',['textureID_end',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a0dabf626dfc554678b9426b55bd86ed6',1,'textures']]],
+  ['title',['Title',['../namespacefonts.html#a976096a450dcfd2aa6bc9f8864cbc42fad4bcce390791950c4106334272742bd0',1,'fonts']]]
 ];

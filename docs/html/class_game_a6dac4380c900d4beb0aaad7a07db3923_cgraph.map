@@ -1,0 +1,10 @@
+<map id="Game::playerDeathEvents" name="Game::playerDeathEvents">
+<area shape="rect" id="node2" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="Decrements the player lives. " alt="" coords="270,5,381,31"/>
+<area shape="rect" id="node5" href="$class_score.html#a141a1c42f44900824c15049c23aaba0c" title="Resets current player life timer. " alt="" coords="251,55,399,80"/>
+<area shape="rect" id="node6" href="$class_sound_controller.html#a9a006740b8f08a9d288800807f75626c" title="PlaySound is used whenever a sound is needed to be played, from any contex. " alt="" coords="231,104,419,129"/>
+<area shape="rect" id="node7" href="$class_input_handler.html#a1e7028e9c3c69eaf9749a2b6cc8d5967" title="Resets the inputHandler object. " alt="" coords="258,153,392,179"/>
+<area shape="rect" id="node8" href="$class_entity_controller.html#a6386fca5171a9e0d5595c4b236983829" title="Reverts the game speed to the stock default value. " alt="" coords="231,203,419,241"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="250,265,400,304"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="Resets the player ship (intended to be called after a player death event) " alt="" coords="467,5,590,31"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#ae1286bcd2d0a04c4e3392c1851f16c0d" title="Sets the future player movement, rotating the the player ship around a circle by this angle..." alt="" coords="638,5,782,31"/>
+</map>

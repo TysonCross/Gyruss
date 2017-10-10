@@ -1,0 +1,4 @@
+<map id="Game::render" name="Game::render">
+<area shape="rect" id="node2" href="$class_game.html#a4af2008f2edcf1aea093539a2dd0288e" title="This is the main game loop that is used throughout game play. " alt="" coords="157,5,314,31"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="362,5,455,31"/>
+</map>

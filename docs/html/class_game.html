@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project 2017 - Gyruss: Game Class Reference</title>
+<title>ELEN3009 Software Development II Project: Game Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="Earth_logo.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Project 2017 - Gyruss
+   <div id="projectname">ELEN3009 Software Development II Project
    &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN3009 Software Development II Project</div>
+   <div id="projectbrief">Tyson Cross 1239448  ᐧ Chris Maree 1101946</div>
   </td>
  </tr>
  </tbody>
@@ -95,11 +95,6 @@ $(document).ready(function(){initNavTree('class_game.html','');});
  <a href="class_game.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_game_8hpp_source.html">Game.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Game:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_game__coll__graph.png" border="0" usemap="#_game_coll__map" alt="Collaboration graph"/></div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -117,7 +112,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The main <a class="el" href="class_game.html" title="The main Game class. ">Game</a> class. </p>
 <p>This class manages all game loops and creation of all game events and objects, the game states, and basic game logic. It also generates instances of all other controllers and handlers, such as <a class="el" href="class_entity_controller.html" title="EntityController Class. ">EntityController</a>, <a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> and the various types of ResourceHandler. It is directly responsible for the playerShipObject. </p>
 
-<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00051">51</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_8hpp_source.html#l00047">47</a> of file <a class="el" href="_game_8hpp_source.html">Game.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad59df6562a58a614fda24622d3715b65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad59df6562a58a614fda24622d3715b65">&#9670;&nbsp;</a></span>Game()</h2>
@@ -137,11 +132,10 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for the main <a class="el" href="class_game.html" title="The main Game class. ">Game</a> class. </p>
 <p>Main <a class="el" href="class_game.html" title="The main Game class. ">Game</a> controller implementation.</p>
 <p>Sets the win condition, and the initial game state.</p>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/09 Implements the <a class="el" href="class_game.html" title="The main Game class. ">Game</a> loop, and game states</dd></dl>
-<p>Music by Eric Matyas (www.http://soundimage.org) Sounds from Freesounds (www.freesounds.org)</p>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<p>Implements the <a class="el" href="class_game.html" title="The main Game class. ">Game</a> loop, and game states</p>
+<p>Music by Eric Matyas (www.http://soundimage.org) Sounds from Freesounds (www.freesounds.org) </p>
 
-<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00021">21</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00017">17</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -164,7 +158,7 @@ Public Member Functions</h2></td></tr>
 <p>Quits the game. </p>
 <p>The game ends when the window is closed, or the quit hotkey is used. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. ">Start</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00433">433</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00434">434</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -216,9 +210,9 @@ Here is the caller graph for this function:</div>
 
 <p>Starts the game. </p>
 <p>Main game loop that runs while game is played. begins by setting up all vars and objects that need to be used. during game play, sits within a sub-game loop. The main window (sf::RenderWindow) is created.</p>
-<dl class="section see"><dt>See also</dt><dd>SFML/Window </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Window.php">SFML/Window</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00040">40</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00041">41</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>

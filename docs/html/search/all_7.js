@@ -1,6 +1,14 @@
 var searchData=
 [
   ['game',['Game',['../class_game.html',1,'Game'],['../namespacegame.html',1,'game'],['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()']]],
+  ['gameovercredits',['GameOverCredits',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a9bd6dddb70351ac755d953f808b58471',1,'textures']]],
+  ['gameoverlose',['GameOverLose',['../namespacegame.html#ade18e0427d43400c7539d36c85c87657a813ac4e5f636c4c91738cc792daf9f6c',1,'game']]],
+  ['gameoverlosescreen',['GameOverLoseScreen',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683acde1ab0c5edfb3c15c09bc82c02f81d5',1,'textures']]],
+  ['gameoverlosesound',['GameOverLoseSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2feafe0e8f1588fd6d56b2b223e0c4511388',1,'sounds']]],
+  ['gameoverwin',['GameOverWin',['../namespacegame.html#ade18e0427d43400c7539d36c85c87657a0a8635a60f43ddb68412be0ae557977f',1,'game']]],
+  ['gameoverwinscreen',['GameOverWinScreen',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a155a73cffa53168a3a5a98707c46092d',1,'textures']]],
+  ['gameoverwinsound',['GameOverWinSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2feae91358505322908be7399ae141905017',1,'sounds']]],
+  ['gamestate',['GameState',['../namespacegame.html#ade18e0427d43400c7539d36c85c87657',1,'game']]],
   ['get',['get',['../class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d',1,'ResourceHolder::get(IdentifierType id)'],['../class_resource_holder.html#a9ba4b24fa542249241d719c30a1b4aac',1,'ResourceHolder::get(IdentifierType id) const']]],
   ['getalivetimeelapsedtime',['getAliveTimeElapsedTime',['../class_enemy.html#a00f086e14734fbec4d0ee9fe5a66efea',1,'Enemy']]],
   ['getangle',['getAngle',['../class_bullet.html#af3f8f39683a6c15b190f150007572a3a',1,'Bullet::getAngle()'],['../class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f',1,'Enemy::getAngle()'],['../class_player_ship.html#afc3c24681cd72512aafdac84e37a8142',1,'PlayerShip::getAngle()']]],

@@ -1,10 +1,10 @@
 var class_entity_controller =
 [
-    [ "EntityController", "class_entity_controller.html#ac63b711dd1650f945ddf72d05917d4a3", null ],
+    [ "EntityController", "class_entity_controller.html#a8812c9d07edf73b8ec1587192edeceb2", null ],
     [ "changeGlobalSpeed", "class_entity_controller.html#a266fed1b08301a21d6f9202f44be0c33", null ],
     [ "checkClipping", "class_entity_controller.html#aea66506a320de6c4b760a344cc4a2f03", null ],
     [ "checkCollisions", "class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b", null ],
-    [ "collides", "class_entity_controller.html#ae1d2163d3835f05a17ec67f76a6d2634", null ],
+    [ "collides", "class_entity_controller.html#a0c4c7ccd010ae3ba3598fcaa623460b8", null ],
     [ "explosionOccurred", "class_entity_controller.html#af87a665252f2c949815d21eac24ef470", null ],
     [ "getBulletsEnemy", "class_entity_controller.html#aa48971080243155c198a9dd6d1afe969", null ],
     [ "getBulletsPlayer", "class_entity_controller.html#a7b7873b9276c1028bd4c02f0361b1c0e", null ],

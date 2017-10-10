@@ -12,6 +12,6 @@
 <area shape="rect" id="node10" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="1045,55,1134,80"/>
 <area shape="rect" id="node12" href="$class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="568,155,702,180"/>
 <area shape="rect" id="node14" href="$class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="1040,255,1140,280"/>
-<area shape="rect" id="node15" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="1007,205,1172,231"/>
-<area shape="rect" id="node16" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="1019,304,1160,329"/>
+<area shape="rect" id="node15" href="$class_screen_game_over.html#a6b6ab72c51b46b05d63c7bd2127673db" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="1007,205,1172,231"/>
+<area shape="rect" id="node16" href="$class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="1019,304,1160,329"/>
 </map>

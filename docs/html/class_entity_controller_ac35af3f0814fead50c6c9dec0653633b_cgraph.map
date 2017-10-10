@@ -1,0 +1,4 @@
+<map id="EntityController::enemyKilled" name="EntityController::enemyKilled">
+<area shape="rect" id="node2" href="$class_entity_controller.html#a53aa1499256da54a0c0061eaddb59e11" title="Called to upgrade the PlayerShip. " alt="" coords="246,5,415,44"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d" title="Sets the boolean state of the playerShip upgrade status to true. " alt="" coords="463,12,605,37"/>
+</map>

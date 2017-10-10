@@ -1207,6 +1207,82 @@ dl.section dd {
         text-align: center;
 }
 
+div.image img[src="player_ship_animated.png"]{ 
+    width:512px; 
+}
+
+div.image img[src="splash.png"]{
+    width:512px; 
+}
+
+div.image img[src="splash_spacefight.png"]{
+    width:512px;
+}
+
+div.image img[src="gameoverlose.png"]{
+    width:512px; 
+}
+
+div.image img[src="gameoverwin.png"]{
+    width:512px;
+}
+
+div.image img[src="splash_controls.png"]{
+    width:512px;
+}
+
+div.image img[src="splash_points.png"]{
+    width:512px;
+}
+  
+div.image img[src="gameover_credits.png"]{
+    width:512px;
+}
+
+div.image img[src="player_ship_animated.png"]{
+    width:512px;
+}
+
+div.image img[src="bullet_player.png"]{
+    width:256px;
+}
+
+div.image img[src="bullet_enemy.png"]{
+    width:256px;
+}
+
+div.image img[src="meteoroid.png"]{
+    width:100px;
+}
+
+div.image img[src="earth.png"]{
+    width:512px;
+}
+
+div.image img[src="enemyship_grey.png"]{
+    width:128px;
+}
+
+div.image img[src="enemyship_purple.png"]{
+    width:128px;
+}
+
+div.image img[src="enemyship_yellow.png"]{
+    width:128px;
+}
+
+div.image img[src="satellite.png"]{
+    width:128px;
+}
+
+div.image img[src="explosion.png"]{
+    width:512px;
+}
+
+div.image img[src="shield.png"]{
+    width:512px;
+}
+
 .dotgraph
 {
         text-align: center;

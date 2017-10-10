@@ -1,0 +1,5 @@
+<map id="Game::endGameCheck" name="Game::endGameCheck">
+<area shape="rect" id="node2" href="$class_player_ship.html#a5a7e69bb5cc102ad121286f197bd5449" title="Returns the remaining number of lives of the player. " alt="" coords="227,5,369,31"/>
+<area shape="rect" id="node3" href="$class_score.html#ad2ad5c64290bc1baf6d929b2118ac240" title="Accessor to provide the current number of enimies killed. " alt="" coords="215,55,381,80"/>
+<area shape="rect" id="node4" href="$class_score.html#a141a1c42f44900824c15049c23aaba0c" title="Resets current player life timer. " alt="" coords="224,104,372,129"/>
+</map>

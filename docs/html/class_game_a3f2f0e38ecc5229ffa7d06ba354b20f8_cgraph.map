@@ -1,0 +1,10 @@
+<map id="Game::playEventSounds" name="Game::playEventSounds">
+<area shape="rect" id="node2" href="$class_sound_controller.html#af5078268ad0c88dd71f18ba572165508" title="Provides a mechanism for generating &quot;3D&quot; sterio sound as the playership moves around the play circle..." alt="" coords="222,5,412,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a5d937c9b7900a976dc03f5976c450cef" title="Returns the x,y position of the playership on screen. " alt="" coords="238,55,397,80"/>
+<area shape="rect" id="node4" href="$class_sound_controller.html#a0c5d0f352e0c792cf97d3bc46b634721" title="setPitch enables the caller to change the pitch of a particular sound by ID " alt="" coords="231,104,404,129"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#ac48ea1ff511f5aa8e841547fbe760ea5" title="Returns the future, intended angle of the playership around the movement circle, which will be update..." alt="" coords="225,153,410,179"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#aca9a01453738c11700e98fc1b6cb24dd" title="Boolean shooting state of the playerShip. " alt="" coords="240,203,395,228"/>
+<area shape="rect" id="node7" href="$class_sound_controller.html#a9a006740b8f08a9d288800807f75626c" title="PlaySound is used whenever a sound is needed to be played, from any contex. " alt="" coords="223,252,411,277"/>
+<area shape="rect" id="node8" href="$class_entity_controller.html#af87a665252f2c949815d21eac24ef470" title="Getter to return if an explosion has occurred on the current frame. Used to deal with multiple explos..." alt="" coords="229,301,405,340"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="232,364,402,403"/>
+</map>

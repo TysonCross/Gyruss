@@ -1,0 +1,6 @@
+<map id="SoundController::SoundController" name="SoundController::SoundController">
+<area shape="rect" id="node2" href="$class_sound_controller.html#a05cc847909a4e651238563d30fbcdd03" title="Private function used to load the sounds into memory from disk. called at game start. " alt="" coords="275,5,489,31"/>
+<area shape="rect" id="node4" href="$class_sound_controller.html#ac7c8865e7215d051c1d43b618b25acfc" title="Builds a map linking the game sounds to the game unique ID&#39;s. " alt="" coords="287,55,476,80"/>
+<area shape="rect" id="node3" href="$class_resource_holder.html#ade0233bc8edb8bc8da851bf56b7ae912" title="Loads a resource from file into memory, using a key/pair relationship to map onto a pointer to the ob..." alt="" coords="537,5,687,31"/>
+<area shape="rect" id="node5" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="540,55,684,80"/>
+</map>

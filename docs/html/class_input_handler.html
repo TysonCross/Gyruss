@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project 2017 - Gyruss: InputHandler Class Reference</title>
+<title>ELEN3009 Software Development II Project: InputHandler Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="Earth_logo.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Project 2017 - Gyruss
+   <div id="projectname">ELEN3009 Software Development II Project
    &#160;<span id="projectnumber">v3.0</span>
    </div>
-   <div id="projectbrief">ELEN3009 Software Development II Project</div>
+   <div id="projectbrief">Tyson Cross 1239448  ᐧ Chris Maree 1101946</div>
   </td>
  </tr>
  </tbody>
@@ -95,18 +95,13 @@ $(document).ready(function(){initNavTree('class_input_handler.html','');});
  <a href="class_input_handler.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for InputHandler:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_input_handler__coll__graph.png" border="0" usemap="#_input_handler_coll__map" alt="Collaboration graph"/></div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a698aa4af4f326a9881835fda251ca996"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a698aa4af4f326a9881835fda251ca996">InputHandler</a> ()</td></tr>
 <tr class="memdesc:a698aa4af4f326a9881835fda251ca996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a698aa4af4f326a9881835fda251ca996">More...</a><br /></td></tr>
 <tr class="separator:a698aa4af4f326a9881835fda251ca996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a7bfd24153cb5d2513f6c3eea45222f2e">pollInput</a> (game::GameState &amp;gameState, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const Event &amp;event)</td></tr>
+<tr class="memitem:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a7bfd24153cb5d2513f6c3eea45222f2e">pollInput</a> (<a class="el" href="namespacegame.html#ade18e0427d43400c7539d36c85c87657">game::GameState</a> &amp;gameState, <a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const Event &amp;event)</td></tr>
 <tr class="memdesc:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls the keyboard input events.  <a href="#a7bfd24153cb5d2513f6c3eea45222f2e">More...</a><br /></td></tr>
 <tr class="separator:a7bfd24153cb5d2513f6c3eea45222f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f5479da72df328129910c33589c3cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_handler.html#a9f5479da72df328129910c33589c3cf4">setPlayerShipMove</a> (<a class="el" href="class_player_ship.html">PlayerShip</a> &amp;playerShip, const float deltaTime)</td></tr>
@@ -121,7 +116,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="textblock"><p>The <a class="el" href="class_input_handler.html" title="The InputHandler class. ">InputHandler</a> class. </p>
 <p>Handles player input to control the playerShip (moving, shooting) </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_handler_8hpp_source.html#l00030">30</a> of file <a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_handler_8hpp_source.html#l00026">26</a> of file <a class="el" href="_input_handler_8hpp_source.html">InputHandler.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a698aa4af4f326a9881835fda251ca996"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a698aa4af4f326a9881835fda251ca996">&#9670;&nbsp;</a></span>InputHandler()</h2>
@@ -141,10 +136,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Default constructor. </p>
 <p>Read in the map of current keypresses.</p>
 <p>Initialises the default button state for the SpaceBar (to 0, i.e not pressed)</p>
-<p>Students 1239448 &amp; 1101946 </p><dl class="section date"><dt>Date</dt><dd>2017/09/09 Reads in the key presses during the last polled game Loop, and maps these keys to actions</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2017 Tyson Cross and Chris Maree, Wits University </dd></dl>
+<p>Reads in the key presses during the last polled game Loop, and maps these keys to actions </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00014">14</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00010">10</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -158,7 +152,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="memname">void InputHandler::pollInput </td>
           <td>(</td>
-          <td class="paramtype">game::GameState &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacegame.html#ade18e0427d43400c7539d36c85c87657">game::GameState</a> &amp;&#160;</td>
           <td class="paramname"><em>gameState</em>, </td>
         </tr>
         <tr>
@@ -190,13 +184,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a> </dd>
 <dd>
-sf::Event </dd>
+[SFML/Event]<a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Event.php()">https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Event.php()</a> </dd>
 <dd>
-<a class="el" href="_game_8hpp_source.html">Game.hpp</a> </dd></dl>
+<a class="el" href="class_game.html" title="The main Game class. ">Game</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00017">17</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00013">13</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -250,11 +244,11 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="_player_ship_8hpp_source.html">PlayerShip.hpp</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a> </dd>
 <dd>
-<a class="el" href="_game_8hpp_source.html">Game.hpp</a> </dd></dl>
+<a class="el" href="class_game.html" title="The main Game class. ">Game</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00069">69</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_handler_8cpp_source.html#l00065">65</a> of file <a class="el" href="_input_handler_8cpp_source.html">InputHandler.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

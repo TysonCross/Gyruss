@@ -1,6 +1,6 @@
 var class_explosion =
 [
-    [ "Explosion", "class_explosion.html#af7c26d8e42739a756be8653d3faa5823", null ],
+    [ "Explosion", "class_explosion.html#ad10c948b76a187156184fce4151fa0f8", null ],
     [ "die", "class_explosion.html#a7f9691fcb02fb57725968b95f4c43590", null ],
     [ "getDistanceFromCentre", "class_explosion.html#af28f905926b5158cca7c3261f923b1cd", null ],
     [ "getLives", "class_explosion.html#afd09e9490eb9b5fe7421f43f8a265660", null ],

@@ -12,8 +12,8 @@
 <area shape="rect" id="node8" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="876,135,969,160"/>
 <area shape="rect" id="node10" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="626,109,828,135"/>
 <area shape="rect" id="node11" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="682,159,772,184"/>
-<area shape="rect" id="node13" href="$class_explosion.html#af7c26d8e42739a756be8653d3faa5823" title="Constructor for the Explosion Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="410,167,555,192"/>
+<area shape="rect" id="node13" href="$class_explosion.html#ad10c948b76a187156184fce4151fa0f8" title="Constructor for the Explosion Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="410,167,555,192"/>
 <area shape="rect" id="node15" href="$class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="418,216,547,241"/>
-<area shape="rect" id="node16" href="$class_meteoroid.html#a9520b3bfe56fb0203e5dc794f22c7ad7" title="Constructor for the Meteoroid Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="654,216,801,241"/>
+<area shape="rect" id="node16" href="$class_meteoroid.html#a86bf02562ce5807ccd0fbb12d8b6dcd4" title="Constructor for the Meteoroid Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="654,216,801,241"/>
 <area shape="rect" id="node18" href="$class_player_ship.html#a618c1a8fd743a8fcbe9e60b44bd21dca" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="660,265,794,291"/>
 </map>

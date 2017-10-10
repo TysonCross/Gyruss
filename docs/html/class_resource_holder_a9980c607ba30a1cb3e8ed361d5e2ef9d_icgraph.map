@@ -1,7 +1,7 @@
 <map id="ResourceHolder::get" name="ResourceHolder::get">
 <area shape="rect" id="node2" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="246,5,333,31"/>
-<area shape="rect" id="node4" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="207,55,372,80"/>
-<area shape="rect" id="node5" href="$class_screen_splash.html#ad365b0f8013b9535347daa47adb576f0" title="Shows the Splash screen. This occures at game launch. " alt="" coords="219,104,360,129"/>
+<area shape="rect" id="node4" href="$class_screen_game_over.html#a6b6ab72c51b46b05d63c7bd2127673db" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="207,55,372,80"/>
+<area shape="rect" id="node5" href="$class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="219,104,360,129"/>
 <area shape="rect" id="node6" href="$class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="Stops playing game music. Called when main gameplay stops. " alt="" coords="197,153,382,179"/>
 <area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="430,80,523,105"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="PlayerShip::getScale" name="PlayerShip::getScale">
-<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="198,5,401,31"/>
-<area shape="rect" id="node4" href="$class_entity_controller.html#a795606fe9223180467575190e725a18a" title="Destroys all enemies of a particular type. This is useful When a game event requires all of one type ..." alt="" coords="224,55,375,93"/>
-<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="449,33,542,59"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="203,5,405,31"/>
+<area shape="rect" id="node4" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="198,55,410,80"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="458,31,551,56"/>
 </map>

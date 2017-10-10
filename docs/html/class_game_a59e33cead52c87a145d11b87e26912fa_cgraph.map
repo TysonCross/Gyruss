@@ -1,0 +1,16 @@
+<map id="Game::showGameOverScreen" name="Game::showGameOverScreen">
+<area shape="rect" id="node2" href="$class_sound_controller.html#ab531a6078abc8c84441242bf7e57a48b" title="Stops a sound from playing, based on an id. " alt="" coords="257,5,446,31"/>
+<area shape="rect" id="node3" href="$class_sound_controller.html#a9a006740b8f08a9d288800807f75626c" title="PlaySound is used whenever a sound is needed to be played, from any contex. " alt="" coords="257,55,445,80"/>
+<area shape="rect" id="node4" href="$class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24" title="Stops playing game music. Called when main gameplay stops. " alt="" coords="259,104,444,129"/>
+<area shape="rect" id="node5" href="$class_game.html#af5a80c9463229a55e065e393aa0cf2d3" title="Compares current to previous game highscores. " alt="" coords="269,153,434,179"/>
+<area shape="rect" id="node7" href="$class_screen_game_over.html#a8d3134db45758b79f115a3aaff297766" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="269,240,434,265"/>
+<area shape="rect" id="node6" href="$class_score.html#a9925b73e3f421878dbb192ab9924560b" title="Accessor to provide the current game score. " alt="" coords="529,116,646,141"/>
+<area shape="rect" id="node8" href="$class_resource_holder.html#a9980c607ba30a1cb3e8ed361d5e2ef9d" title="Returns the resource object. " alt="" coords="516,165,659,191"/>
+<area shape="rect" id="node9" href="$namespacecommon.html#a2e40ecdfb1aa22659c65654e8bea8c43" title="Converts an int to a string, with optional padding. " alt="" coords="505,215,671,240"/>
+<area shape="rect" id="node10" href="$class_score.html#ae0b88df6ae934c981425ea004dad39f9" title="Accessor to return the longest life the player achived. " alt="" coords="494,264,681,289"/>
+<area shape="rect" id="node11" href="$class_score.html#a47d57069de0d92d2f52b34bf43e481c0" title="Accessor to provide the number of bullets fired. " alt="" coords="511,313,664,339"/>
+<area shape="rect" id="node12" href="$class_score.html#a6d6310f7a4f5c4c2ad15bc62f6999fc6" title="Accessor to calculate the playerAccuracy. This is defined as the number of enemies hit/number of bull..." alt="" coords="500,363,675,388"/>
+<area shape="rect" id="node13" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="499,412,676,437"/>
+<area shape="rect" id="node14" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="729,387,886,412"/>
+<area shape="rect" id="node15" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="737,436,879,461"/>
+</map>
