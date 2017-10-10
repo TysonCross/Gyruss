@@ -23,18 +23,6 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
     sf::Time timeSinceUpdate = sf::Time::Zero;
     float timeStep = 1.f / 60.f;
 
-    //Get the Splashscreen image
-    sf::Sprite splash(textureHolder.get(textures::SplashScreen));
-    auto scaleFactor = resolution.x / splash.getGlobalBounds().width;
-    splash.setScale(scaleFactor, scaleFactor);
-    auto seedR = 497;
-    auto seedG = 537;
-    auto seedB = 127;
-    PerlinNoise rNoise(seedR);
-    PerlinNoise gNoise(seedG);
-    PerlinNoise bNoise(seedB);
-    sf::Vector3f noiseColor;
-
     // Spaceship
     sf::Sprite spaceship(textureHolder.get(textures::SplashScreenExtra));
     spaceship.setOrigin(spaceship.getGlobalBounds().width / 2, spaceship.getGlobalBounds().height / 2);
@@ -135,34 +123,20 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
 
         fadeTextInAndOut(info, Purple, 50, clock);
 
-        noise.x = float(xNoise.noise(clock.getElapsedTime().asSeconds() / 5.f));
-        noise.y = float(yNoise.noise(clock.getElapsedTime().asSeconds() / 5.f));
+        noise.x = float(xNoise.noise(clock.getElapsedTime().asSeconds() / 2.f));
+        noise.y = float(yNoise.noise(clock.getElapsedTime().asSeconds() / 2.f));
 
-        sf::Vector2f moveAmount = {spaceshipWidth + noise.x*20,
-                                   spaceshipHeight + noise.y*30};
+        sf::Vector2f moveAmount = {spaceshipWidth + noise.x*30,
+                                   spaceshipHeight + noise.y*40};
 
         spaceship.setPosition(moveAmount);
-        spaceship.setRotation(noise.y*5);
-
-        noiseColor.x = float(rNoise.noise(clock.getElapsedTime().asSeconds()) / 100.f);
-        noiseColor.y = float(gNoise.noise(clock.getElapsedTime().asSeconds()) / 200.f);
-        noiseColor.z = float(bNoise.noise(clock.getElapsedTime().asSeconds()) / 150.f);
-
-        auto colorR = sf::Uint8(255-(noiseColor.x * 128)*50);
-        auto colorG = sf::Uint8(255-(noiseColor.y * 128)*40);
-        auto colorB = sf::Uint8(255-(noiseColor.z * 128)*30);
-
-        splash.setColor(sf::Color{colorR, colorG, colorB});
-
+        spaceship.setRotation(noise.y*6);
 
         while (timeSinceUpdate.asSeconds() >= timeStep)
         {
             timeSinceUpdate = sf::Time::Zero;
-
             renderWindow.clear();
-
-            renderWindow.draw(splash);
-
+            
             if (frame == animationFPSLimit)
             {
                 frame = 1;
@@ -175,7 +149,7 @@ int ScreenSplash::draw(sf::RenderWindow &renderWindow,
 
             for (const auto &element : starField.getStarField())
                 starField.moveAndDrawStars(renderWindow, 0.001, 1);
-
+            
             renderWindow.draw(planet);
             renderWindow.draw(title);
             renderWindow.draw(spaceship);

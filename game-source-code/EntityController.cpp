@@ -89,7 +89,7 @@ void EntityController::spawnBasicEnemy(entity::ID id,
                                          movementState,
                                          movementDirection);
 
-    //SpiralIn and Wandering need to have their move set on spawn to prevent clipping. SpiralOut does not
+    // SpiralIn and Wandering need to have their move set on spawn to prevent clipping. SpiralOut does not
     // need this as it is in the centre to begin with.
     if((movementState==MovementState::Wandering)||(movementState==MovementState::SpiralIn))
     {
