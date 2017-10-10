@@ -24,8 +24,8 @@ Game::Game()
     settings.antialiasingLevel = 8;
     _mainWindow.create(sf::VideoMode(_resolution.x, _resolution.y, 32),
                        "Gyruss",
-                       sf::Style::Close,
-//                       sf::Style::Fullscreen,
+//                       sf::Style::Close,
+                       sf::Style::Fullscreen,
                        settings);
 
     _mainWindow.setMouseCursorVisible(false);

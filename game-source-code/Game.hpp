@@ -178,7 +178,7 @@ private:
     void shakeWindow();
 
     ////////////////////////////////////////////////////////////
-    /// \brief set of keys are bound to enable the developer to add extra sprites, make the PlayerShip invunreble
+    /// \brief Set of keys are bound to enable the developer to add extra sprites, make the PlayerShip invunreble
     /// or change the game speed.
     ///
     /// \param event used to read in key presses
