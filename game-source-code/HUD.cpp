@@ -80,6 +80,19 @@ void HUD::draw()
     auto lifeBlock3PositionX =  lifeBlock2PositionX + lifeBlockSpacing;
     auto lifeBlock3PositionY =  lifeBlock1PositionY;
     lifeBlock3.setPosition(lifeBlock3PositionX,lifeBlock3PositionY);
+    
+    // Enemies Killed
+    std::string enemiesKilledText = common::padIntToString(int(100 - _score.getEnemiesKilled()));
+    sf::Text enemiesKilled(enemiesKilledText,
+                       _fonts.get(fonts::Default),
+                       fontSize);
+    enemiesKilled.setFillColor(sf::Color::White);
+    enemiesKilled.setOrigin(enemiesKilled.getGlobalBounds().left,
+                        enemiesKilled.getGlobalBounds().height/2);
+    auto enemiesKilledPositionX = livesTitlePositionX;
+    auto enemiesKilledPositionY = _resolution.y - _resolution.y/8;
+    enemiesKilled.setPosition(enemiesKilledPositionX,
+                          enemiesKilledPositionY);
 
     ///////////////////////////////////
     // LEFT SIDE
@@ -115,12 +128,14 @@ void HUD::draw()
         timeAliveText = "INVULNERABLE";
     if (numberOfLivesLeft==0)
         timeAliveText = "DEAD";
+    if (_playerShip.isUpgraded())
+        timeAliveText = "UPGRADED";
     sf::Text timeAliveTitle(timeAliveText, _fonts.get(fonts::Default),
                             fontSize);
     timeAliveTitle.setFillColor(sf::Color::White);
     timeAliveTitle.setOrigin(timeAliveTitle.getGlobalBounds().width,
                          timeAliveTitle.getGlobalBounds().height/2);
-    auto timeAliveTitlePositionX = _resolution.x - _resolution.x/8;
+    auto timeAliveTitlePositionX = scoreTitlePositionX;
     auto timeAliveTitlePositionY = _resolution.y - _resolution.y/8;
 
 
@@ -153,13 +168,13 @@ void HUD::draw()
                 _renderWindow.draw(lifeBlock3);
             }
         }
-        _renderWindow.draw(scoreTitle);
-        _renderWindow.draw(score);
-
-        _renderWindow.draw(timeAliveTitle);
-        _renderWindow.draw(timeAlive);
-
-
     }
+    _renderWindow.draw(enemiesKilled);
+
+    _renderWindow.draw(scoreTitle);
+    _renderWindow.draw(score);
+
+    _renderWindow.draw(timeAliveTitle);
+    _renderWindow.draw(timeAlive);
 }
 
