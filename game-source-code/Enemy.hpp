@@ -2,8 +2,6 @@
 /// Students 1239448 & 1101946
 /// \date    14/9/17
 /// \brief   Enemy ship types
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_ENEMYSHIP_HPP

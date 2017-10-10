@@ -4,8 +4,6 @@
 /// \brief   Player ship
 ///
 /// Object for the player ship model
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_PLAYERSHIP_HPP

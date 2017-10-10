@@ -7,8 +7,6 @@
 ///
 /// Music by Eric Matyas (www.http://soundimage.org)
 /// Sounds from Freesounds (www.freesounds.org)
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "Game.hpp"

@@ -2,8 +2,6 @@
 /// Students 1239448 & 1101946
 /// \date    26/9/17
 /// \brief   Meteroid Entity (cannot be destroyed by bullets)
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_METEROID_HPP

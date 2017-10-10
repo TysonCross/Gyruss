@@ -1,11 +1,9 @@
 /////////////////////////////////////////////////////////////////////
 /// Students 1239448 & 1101946
 /// \date    27/9/17
-/// \brief   Description of file in project Project
+/// \brief   Shield object implementation
 ///
-/// Detailed description of file
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/// Used to indicate visually a state of invulnerability
 /////////////////////////////////////////////////////////////////////
 
 #include "Shield.hpp"

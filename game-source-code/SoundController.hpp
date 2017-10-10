@@ -2,8 +2,6 @@
 /// Students 1239448 & 1101946
 /// \date    21/9/17
 /// \brief   Controller for all sound events
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 
@@ -114,7 +112,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Vector used to store all game sound objects and their associated ID's
     ///
-    /// \see std::vector
+    /// \see vector
     /// \see sf::sound
     ////////////////////////////////////////////////////////////
     std::vector<sf::Sound> _soundList;

@@ -2,8 +2,6 @@
 /// Students 1239448 & 1101946
 /// \date    15/9/17
 /// \brief   Projectiles/bullets for PlayerShip and EnemyShip
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_BULLET_HPP

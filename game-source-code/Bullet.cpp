@@ -4,8 +4,6 @@
 /// \brief   Projectile bullet Class
 ///
 /// A bullet, can be an enemy or player projectile
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "Bullet.hpp"

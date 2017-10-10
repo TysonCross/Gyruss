@@ -4,8 +4,6 @@
 /// \brief   Description of file in project Project
 ///
 /// Detailed description of file
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 

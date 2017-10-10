@@ -4,9 +4,7 @@
 /// \brief   Read in the map of current keypresses
 ///
 /// Reads in the key presses during the last polled game Loop,
-/// and maps these keys to actions.
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
+/// and maps these keys to actions
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_INPUTHANDLER_HPP

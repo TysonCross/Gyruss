@@ -4,8 +4,6 @@
 /// \brief   Simple Splash Screen
 ///
 /// Class interface for showing a splash screen with information on how to play the game
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_SPLASHSCREEN_H

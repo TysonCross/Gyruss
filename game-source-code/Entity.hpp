@@ -4,8 +4,6 @@
 /// \brief   Basic entity class for game objects
 ///
 /// PlayerShip, Enemies, Bullets, Shields, and Meteoroids all inherit from this class
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #ifndef PROJECT_ENTITY_HPP

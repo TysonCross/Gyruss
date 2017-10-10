@@ -5,8 +5,6 @@
 ///
 /// The player's ship flies around the centre of the screen in a circle of fixed
 /// radius, shooting at enemies.
-///
-/// \copyright (c) 2017 Tyson Cross and Chris Maree, Wits University
 /////////////////////////////////////////////////////////////////////
 
 #include "PlayerShip.hpp"
