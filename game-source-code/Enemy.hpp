@@ -177,7 +177,7 @@ public:
     /// \return The sf::Sprite object representing the entity in the game
     /// (dimensions, position, texture)
     ///
-    /// \see sf::Sprite
+    /// \see [SFML/Sprite](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Sprite.php)
     ////////////////////////////////////////////////////////////
     const Sprite&       getSprite() const override;
 
