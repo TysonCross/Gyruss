@@ -1,5 +1,6 @@
 <map id="Meteoroid::getRadius" name="Meteoroid::getRadius">
-<area shape="rect" id="node2" href="$class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="201,5,322,31"/>
+<area shape="rect" id="node2" href="$class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="201,56,322,81"/>
+<area shape="rect" id="node5" href="$class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="551,56,690,81"/>
 <area shape="rect" id="node3" href="$class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="370,5,499,31"/>
 <area shape="rect" id="node4" href="$class_meteoroid.html#a86bf02562ce5807ccd0fbb12d8b6dcd4" title="Constructor for the Meteoroid Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="547,5,694,31"/>
 </map>

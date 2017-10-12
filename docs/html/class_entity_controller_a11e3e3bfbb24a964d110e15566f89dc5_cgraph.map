@@ -1,23 +1,24 @@
 <map id="EntityController::spawnEntities" name="EntityController::spawnEntities">
-<area shape="rect" id="node2" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="277,159,468,197"/>
-<area shape="rect" id="node3" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="542,69,688,95"/>
-<area shape="rect" id="node9" href="$class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="772,285,902,311"/>
-<area shape="rect" id="node12" href="$class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="982,120,1105,145"/>
-<area shape="rect" id="node13" href="$class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="266,221,479,247"/>
-<area shape="rect" id="node15" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="739,357,934,396"/>
-<area shape="rect" id="node16" href="$class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2" title="Spawns a meteoroid function is called from spawnEntities. " alt="" coords="264,471,482,496"/>
-<area shape="rect" id="node17" href="$class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="300,520,445,545"/>
-<area shape="rect" id="node18" href="$class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="292,569,453,595"/>
-<area shape="rect" id="node19" href="$class_score.html#a52540ac16336966a6805da3a0f88845f" title="On shooting a bullet, is called to increment the number of bullets shot. " alt="" coords="276,619,469,644"/>
-<area shape="rect" id="node20" href="$class_enemy.html#a78d732564cb0fadae19a6859b62dbee7" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="267,668,479,693"/>
-<area shape="rect" id="node21" href="$class_enemy.html#a531d6598bbdbdf24a181d9cc58bbcab1" title="Returns amount of time since the enemy last shot a bullet. " alt="" coords="255,717,490,743"/>
-<area shape="rect" id="node22" href="$class_enemy.html#a34714124192b9bfee1c743a26b1c49fd" title="Resets the object timer, measuring when the enemy last shot a bullet. " alt="" coords="289,767,457,792"/>
-<area shape="rect" id="node4" href="$class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61" title="Sets the scale of the Enemy screen object. " alt="" coords="554,168,675,193"/>
-<area shape="rect" id="node5" href="$class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="554,217,675,243"/>
-<area shape="rect" id="node6" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="563,119,666,144"/>
-<area shape="rect" id="node7" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="1160,96,1302,121"/>
-<area shape="rect" id="node8" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="757,224,917,249"/>
-<area shape="rect" id="node10" href="$class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="760,120,913,145"/>
-<area shape="rect" id="node11" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="1153,145,1310,171"/>
-<area shape="rect" id="node14" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="538,319,691,344"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="277,160,468,198"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#acfb073f06929879aa62a6baebe9e5323" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="542,70,688,96"/>
+<area shape="rect" id="node9" href="$class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="772,286,902,312"/>
+<area shape="rect" id="node12" href="$class_enemy.html#a8c29ddcd122e8abfa0cb95cebcc287ca" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="982,121,1105,146"/>
+<area shape="rect" id="node13" href="$class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="266,222,479,248"/>
+<area shape="rect" id="node15" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="739,358,934,397"/>
+<area shape="rect" id="node16" href="$class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2" title="Spawns a meteoroid function is called from spawnEntities. " alt="" coords="264,472,482,497"/>
+<area shape="rect" id="node17" href="$class_player_ship.html#aa0e837d731a3d3bac58f7ffbaac309b0" title="Returns the scale (in width/height) of the playerShip object. " alt="" coords="300,521,445,546"/>
+<area shape="rect" id="node18" href="$class_player_ship.html#a38a98009280fe3a9c74743c111bc0a7a" title="Boolean state of the playerShip upgrade status. " alt="" coords="292,570,453,596"/>
+<area shape="rect" id="node19" href="$class_score.html#a52540ac16336966a6805da3a0f88845f" title="On shooting a bullet, is called to increment the number of bullets shot. " alt="" coords="276,620,469,645"/>
+<area shape="rect" id="node20" href="$class_enemy.html#a78d732564cb0fadae19a6859b62dbee7" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="267,669,479,694"/>
+<area shape="rect" id="node21" href="$class_enemy.html#ace550df4474b17d1774e8f5abd0dcfdb" title="Returns amount of time since the enemy last shot a bullet. " alt="" coords="255,718,490,744"/>
+<area shape="rect" id="node22" href="$class_enemy.html#aeee94969ed311eb4e74bb96217db54bc" title="Resets the object timer, measuring when the enemy last shot a bullet. " alt="" coords="289,768,457,793"/>
+<area shape="rect" id="node23" href="$class_enemy.html#a9a23ac01765299ace191e92be2b366a5" title="Sets the _isShooting state of the enemy. " alt="" coords="311,817,434,842"/>
+<area shape="rect" id="node4" href="$class_enemy.html#ad1f74d7c24090c051b5ba532753b6b0c" title="Sets the scale of the Enemy screen object. " alt="" coords="554,169,675,194"/>
+<area shape="rect" id="node5" href="$class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="554,218,675,244"/>
+<area shape="rect" id="node6" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="563,120,666,145"/>
+<area shape="rect" id="node7" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="1160,97,1302,122"/>
+<area shape="rect" id="node8" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="757,225,917,250"/>
+<area shape="rect" id="node10" href="$class_enemy.html#a0f9f60244fcba6a4522ea1c7346705b9" title="Sets the orientation of the Enemy screen object. " alt="" coords="760,121,913,146"/>
+<area shape="rect" id="node11" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="1153,146,1310,172"/>
+<area shape="rect" id="node14" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="538,320,691,345"/>
 </map>

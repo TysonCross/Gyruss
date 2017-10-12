@@ -3,14 +3,14 @@
 <area shape="rect" id="node3" href="$class_player_ship.html#a0d4cc1200ed8d172c84c0013d454d0ca" title="Makes the playerShip unaffected by damage. " alt="" coords="143,68,341,93"/>
 <area shape="rect" id="node4" href="$class_player_ship.html#a903e5b1abb68fd052dbc7466db200e5d" title="Sets the boolean state of the playerShip upgrade status to true. " alt="" coords="171,117,313,143"/>
 <area shape="rect" id="node5" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="147,167,338,205"/>
-<area shape="rect" id="node6" href="$class_player_ship.html#afc3c24681cd72512aafdac84e37a8142" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="389,99,535,124"/>
-<area shape="rect" id="node7" href="$class_enemy.html#a2fba194a7e54e4172906d5f3d167ca61" title="Sets the scale of the Enemy screen object. " alt="" coords="402,148,523,173"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#acfb073f06929879aa62a6baebe9e5323" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="389,99,535,124"/>
+<area shape="rect" id="node7" href="$class_enemy.html#ad1f74d7c24090c051b5ba532753b6b0c" title="Sets the scale of the Enemy screen object. " alt="" coords="402,148,523,173"/>
 <area shape="rect" id="node8" href="$class_enemy.html#a2798f5714300fdd9c1fed1e9ea9dcb3c" title="Sets up the next frame&#39;s position for the object. " alt="" coords="402,197,523,223"/>
 <area shape="rect" id="node9" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="411,247,514,272"/>
 <area shape="rect" id="node10" href="$namespacecommon.html#a74d734dc5c34bf1938b4384806c74b63" title="Ensures that the angle is always between 0 and 360. " alt="" coords="969,245,1112,271"/>
 <area shape="rect" id="node11" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="583,221,743,247"/>
 <area shape="rect" id="node12" href="$class_enemy.html#a18b30fb59601ac04aef5d68b7740f0b6" title="Returns the distance from origin (screen space) " alt="" coords="598,271,728,296"/>
-<area shape="rect" id="node13" href="$class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="587,320,740,345"/>
+<area shape="rect" id="node13" href="$class_enemy.html#a0f9f60244fcba6a4522ea1c7346705b9" title="Sets the orientation of the Enemy screen object. " alt="" coords="587,320,740,345"/>
 <area shape="rect" id="node14" href="$namespacecommon.html#a3a591c848dd2277e863cef6d98e5264f" title="Converts an angle from radians to degrees. " alt="" coords="962,295,1119,320"/>
-<area shape="rect" id="node15" href="$class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="791,269,914,295"/>
+<area shape="rect" id="node15" href="$class_enemy.html#a8c29ddcd122e8abfa0cb95cebcc287ca" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="791,269,914,295"/>
 </map>

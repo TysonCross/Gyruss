@@ -1,0 +1,16 @@
+<map id="Bullet::setMove" name="Bullet::setMove">
+<area shape="rect" id="node2" href="$class_bullet.html#a88af6034543e11dd8e4b5539b7634838" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="417,46,512,72"/>
+<area shape="rect" id="node4" href="$class_bullet.html#af2095626beecfcd32ab0bf279afca233" title="Returns the distance from origin (screen space) " alt="" coords="579,96,701,121"/>
+<area shape="rect" id="node5" href="$class_bullet.html#a8679c9f2d7f684b2d986a8202d59e57e" title="Resets the bullet (intended to be called after a collision with the bullet) " alt="" coords="419,173,511,198"/>
+<area shape="rect" id="node6" href="$class_bullet.html#a738b3fde0d24a67ea0a922cbf9693803" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="216,46,319,72"/>
+<area shape="rect" id="node7" href="$class_bullet.html#af41843fcf97ad6cf0634b0c3e97213c8" title="Decrements the bullet lives. " alt="" coords="228,198,308,224"/>
+<area shape="rect" id="node8" href="$class_bullet.html#ac93a4d236f2fa72c51a08611bef1937c" title="Returns the Sprite object of the Class by ref. " alt="" coords="210,248,325,273"/>
+<area shape="rect" id="node9" href="$class_bullet.html#aad55ac0ba783454e986b8f2abca619ca" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="166,297,369,322"/>
+<area shape="rect" id="node10" href="$class_bullet.html#aa6d5474035886dcb098053f6a07ed53a" title="Returns the current angle of the bullet, measured from the origin( mid&#45;point screen space) ..." alt="" coords="210,346,325,372"/>
+<area shape="rect" id="node11" href="$class_bullet.html#afcb049146829050de88324ccb7e9026d" title="Returns the x,y position of the bullet on screen. " alt="" coords="204,396,332,421"/>
+<area shape="rect" id="node12" href="$class_bullet.html#a83966d7097b7c1bd296ed83def740bc5" title="Returns the scale (in width/height) of the bullet object. " alt="" coords="211,445,325,470"/>
+<area shape="rect" id="node13" href="$class_bullet.html#aa519ff26a25e40a70c596d4bab00026d" title="Returns the remaining number of lives of the bullet. " alt="" coords="212,494,324,520"/>
+<area shape="rect" id="node14" href="$class_bullet.html#a73a094dc1bdca0cec568d0d40a5daacd" title="Boolean state of the entity (alive/dead) " alt="" coords="217,544,318,569"/>
+<area shape="rect" id="node15" href="$class_bullet.html#a700d95f58d5e08e1228c0e1e767c3143" title="Returns the entity type. " alt="" coords="213,593,322,618"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="560,46,720,72"/>
+</map>

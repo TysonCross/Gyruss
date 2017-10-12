@@ -1,9 +1,17 @@
 <map id="Explosion::Explosion" name="Explosion::Explosion">
-<area shape="rect" id="node2" href="$class_explosion.html#ab10194d3a8a5b19064a36cc0fd197361" title="Sets up the next frame&#39;s position for the object. " alt="" coords="198,5,335,31"/>
-<area shape="rect" id="node3" href="$class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314" title="Performs the actual move, based on _futureMoveValue and _futureAngleValue. " alt="" coords="207,55,326,80"/>
-<area shape="rect" id="node6" href="$class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9" title="Checks and updates any movement, advances the tile for the animation. " alt="" coords="203,104,330,129"/>
-<area shape="rect" id="node4" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="383,5,543,31"/>
-<area shape="rect" id="node5" href="$class_explosion.html#a7e257ebae584c732ed61d83b3ff2d9da" title="Returns the distance from origin (screen space) " alt="" coords="389,55,536,80"/>
-<area shape="rect" id="node7" href="$class_explosion.html#a7f9691fcb02fb57725968b95f4c43590" title="Decrements the explosion lives, which will cause it to be removed on the next frame. " alt="" coords="410,104,515,129"/>
-<area shape="rect" id="node8" href="$class_explosion.html#a658e43a61e4eda49565386a388da1db8" title="Resets the explosion upon finishing the animation. " alt="" coords="591,104,707,129"/>
+<area shape="rect" id="node2" href="$class_explosion.html#a0773d7014d83d7a08055f73a0d2a95ad" title="Sets the future movement, either by change in angle or change in distance. " alt="" coords="198,279,335,304"/>
+<area shape="rect" id="node3" href="$class_explosion.html#a2887a9dd86185c9cd6a9fa268d7fc314" title="Performs the actual move, based on _futureMoveValue and _futureAngleValue. " alt="" coords="417,5,536,31"/>
+<area shape="rect" id="node7" href="$class_explosion.html#ade65a9fd4778e2fdedffbfd95a3e15a9" title="Checks and updates any movement, advances the tile for the animation. " alt="" coords="413,55,540,80"/>
+<area shape="rect" id="node5" href="$class_explosion.html#a7e257ebae584c732ed61d83b3ff2d9da" title="Returns the distance from origin (screen space) " alt="" coords="625,80,772,105"/>
+<area shape="rect" id="node6" href="$class_explosion.html#a658e43a61e4eda49565386a388da1db8" title="Resets the explosion upon finishing the animation. " alt="" coords="827,455,943,480"/>
+<area shape="rect" id="node8" href="$class_explosion.html#a7f9691fcb02fb57725968b95f4c43590" title="Decrements the explosion lives, which will cause it to be removed on the next frame. " alt="" coords="647,404,751,429"/>
+<area shape="rect" id="node9" href="$class_explosion.html#af559bec2b86828fd1fa1e8374de3719b" title="Returns the Sprite object of the Class by ref. " alt="" coords="407,556,547,581"/>
+<area shape="rect" id="node10" href="$class_explosion.html#af28f905926b5158cca7c3261f923b1cd" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="383,605,571,644"/>
+<area shape="rect" id="node11" href="$class_explosion.html#ad33a58e4311df9f12c450baee3d495c5" title="Returns the current angle of the explosion. " alt="" coords="407,156,546,181"/>
+<area shape="rect" id="node12" href="$class_explosion.html#a833e84ff268bf96f70d29f834608a307" title="Returns the x,y position of the explosion on screen. " alt="" coords="400,205,553,231"/>
+<area shape="rect" id="node13" href="$class_explosion.html#a0bba59511b24955e25e1d8d464b87038" title="Returns the scale (in width/height) of the explosion object. " alt="" coords="407,255,546,280"/>
+<area shape="rect" id="node14" href="$class_explosion.html#afd09e9490eb9b5fe7421f43f8a265660" title="Returns the remaining number of lives of the explosion. " alt="" coords="409,304,545,329"/>
+<area shape="rect" id="node15" href="$class_explosion.html#a50238db75476822dd9d76301aae2d848" title="Boolean state of the entity (alive/dead) " alt="" coords="414,353,539,379"/>
+<area shape="rect" id="node16" href="$class_explosion.html#ad7058f77dce9d81b0cc4fe573438d184" title="Returns the entity type. " alt="" coords="410,455,544,480"/>
+<area shape="rect" id="node4" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="619,5,779,31"/>
 </map>

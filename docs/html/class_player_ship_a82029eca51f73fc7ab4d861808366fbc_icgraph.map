@@ -1,0 +1,3 @@
+<map id="PlayerShip::isMoving" name="PlayerShip::isMoving">
+<area shape="rect" id="node2" href="$class_player_ship.html#a059921c7cf63dfc652eb25c82d27e698" title="Sets the future movement, by both angle and distance. " alt="" coords="199,5,343,31"/>
+</map>

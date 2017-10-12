@@ -1,16 +1,17 @@
 <map id="common::radToDegree" name="common::radToDegree">
-<area shape="rect" id="node2" href="$class_enemy.html#a1485305ad3da0007328fa7ac4ff9bb3f" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="210,54,333,79"/>
-<area shape="rect" id="node3" href="$class_enemy.html#aeb7fe4dc9b027ccc9220030f9225089c" title="Sets the orientation of the Enemy screen object. " alt="" coords="381,79,534,105"/>
-<area shape="rect" id="node12" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="751,203,928,229"/>
-<area shape="rect" id="node9" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="994,25,1196,50"/>
-<area shape="rect" id="node4" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="582,79,685,105"/>
-<area shape="rect" id="node5" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="784,135,895,161"/>
-<area shape="rect" id="node8" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="744,73,935,111"/>
-<area shape="rect" id="node11" href="$class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="733,23,946,49"/>
-<area shape="rect" id="node6" href="$class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="1015,126,1175,151"/>
-<area shape="rect" id="node7" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="1244,126,1337,151"/>
-<area shape="rect" id="node10" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="1050,77,1140,102"/>
-<area shape="rect" id="node13" href="$class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="1045,225,1145,250"/>
-<area shape="rect" id="node14" href="$class_screen_game_over.html#a6b6ab72c51b46b05d63c7bd2127673db" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="1012,274,1177,299"/>
-<area shape="rect" id="node15" href="$class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="1025,175,1165,201"/>
+<area shape="rect" id="node2" href="$class_enemy.html#a8c29ddcd122e8abfa0cb95cebcc287ca" title="Returns the current angle of the enemy from the origin(screen space) " alt="" coords="210,107,333,132"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a0f9f60244fcba6a4522ea1c7346705b9" title="Sets the orientation of the Enemy screen object. " alt="" coords="381,56,534,81"/>
+<area shape="rect" id="node13" href="$class_screen.html#a888f338f352fdb0d1de1bd67a1bd8f84" title="Loops through fading in and out a text object. " alt="" coords="751,5,928,31"/>
+<area shape="rect" id="node6" href="$class_enemy.html#a7150a84b73c4fc2964f4c0c3e0d604f4" title="Sets the future movement, either by change in angle or change in distance. " alt="" coords="1035,156,1155,181"/>
+<area shape="rect" id="node10" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="994,316,1196,341"/>
+<area shape="rect" id="node4" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="582,208,685,233"/>
+<area shape="rect" id="node5" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="784,208,895,233"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="744,257,935,296"/>
+<area shape="rect" id="node12" href="$class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593" title="Spawns a Satellite, a type of Enemy. function is called from spawnEntities. " alt="" coords="733,320,946,345"/>
+<area shape="rect" id="node7" href="$class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16" title="Updates all game objects by calling the underlying update functions. Called on every frame..." alt="" coords="1015,208,1175,233"/>
+<area shape="rect" id="node8" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="1244,208,1337,233"/>
+<area shape="rect" id="node11" href="$class_game.html#a1827c75a4b4ab4a543bf99772a55337c" title="Quits the game. " alt="" coords="1050,260,1140,285"/>
+<area shape="rect" id="node14" href="$class_screen.html#a2789ef03e5b9aaee55ae841c75a1a679" title="Overloaded Draw function that is used if a score object as well as others are presented. Used in the case of the end of game screen. " alt="" coords="1045,104,1145,129"/>
+<area shape="rect" id="node15" href="$class_screen_game_over.html#a6b6ab72c51b46b05d63c7bd2127673db" title="Draw function displays the ScreenGameOver to the current display window. " alt="" coords="1012,5,1177,31"/>
+<area shape="rect" id="node16" href="$class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="1025,55,1165,80"/>
 </map>

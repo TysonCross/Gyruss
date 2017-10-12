@@ -123,6 +123,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6def49e82426038b2478d868ee1feac8"><td class="memItemLeft" align="right" valign="top">virtual const Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">getSprite</a> () const =0</td></tr>
 <tr class="memdesc:a6def49e82426038b2478d868ee1feac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object.  <a href="#a6def49e82426038b2478d868ee1feac8">More...</a><br /></td></tr>
 <tr class="separator:a6def49e82426038b2478d868ee1feac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43be55681317eca88859644fa9c5e37a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a43be55681317eca88859644fa9c5e37a">setScale</a> (float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a43be55681317eca88859644fa9c5e37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scale of the entity screen object.  <a href="#a43be55681317eca88859644fa9c5e37a">More...</a><br /></td></tr>
+<tr class="separator:a43be55681317eca88859644fa9c5e37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c1a74e65f404258d9f13f1a7af80626"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1c1a74e65f404258d9f13f1a7af80626">setOrientation</a> ()</td></tr>
+<tr class="memdesc:a1c1a74e65f404258d9f13f1a7af80626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the orientation of the entity screen object.  <a href="#a1c1a74e65f404258d9f13f1a7af80626">More...</a><br /></td></tr>
+<tr class="separator:a1c1a74e65f404258d9f13f1a7af80626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdda6238a8484c05bc2af0b75743c15"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1fdda6238a8484c05bc2af0b75743c15">getOrientationAngle</a> () const</td></tr>
+<tr class="memdesc:a1fdda6238a8484c05bc2af0b75743c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current rotation of the enemy sprite.  <a href="#a1fdda6238a8484c05bc2af0b75743c15">More...</a><br /></td></tr>
+<tr class="separator:a1fdda6238a8484c05bc2af0b75743c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -134,12 +143,18 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a8f0c6a5d49b6d4fde06bab2ed0dd0680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1280f9cc58e0c28ad2adb64d096ef1bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1280f9cc58e0c28ad2adb64d096ef1bb">_animationFPSLimit</a></td></tr>
 <tr class="separator:a1280f9cc58e0c28ad2adb64d096ef1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c86aab69f6c1762c94493d42cbe4dd"><td class="memItemLeft" align="right" valign="top">IntRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a70c86aab69f6c1762c94493d42cbe4dd">_rectArea</a></td></tr>
+<tr class="separator:a70c86aab69f6c1762c94493d42cbe4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4ded77c039e01206256dacd2cb7fac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#aad4ded77c039e01206256dacd2cb7fac">_spriteOffset</a></td></tr>
+<tr class="separator:aad4ded77c039e01206256dacd2cb7fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31269253f9c397001360b9f59e9c042d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a31269253f9c397001360b9f59e9c042d">_angleOrientation</a></td></tr>
+<tr class="separator:a31269253f9c397001360b9f59e9c042d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A component of the main <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> class for game objects. </p>
 <p>This class provides the basic interface for texturable objects, identified by an ID type. A texture holder object provides a mechanism for loading textures (tilesets in the case of animating sprites) as a unique_ptr of type sf::Texture </p>
 
-<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00025">25</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00026">26</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2b412f2eca078966b4dfe526d86a047e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b412f2eca078966b4dfe526d86a047e">&#9670;&nbsp;</a></span>Animatable()</h2>
@@ -191,7 +206,7 @@ Protected Attributes</h2></td></tr>
 <dd>
 <a href="https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Texture.php">SFML/Texture</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00041">41</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00042">42</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -204,6 +219,38 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1fdda6238a8484c05bc2af0b75743c15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fdda6238a8484c05bc2af0b75743c15">&#9670;&nbsp;</a></span>getOrientationAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const float Animatable::getOrientationAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current rotation of the enemy sprite. </p>
+<dl class="section return"><dt>Returns</dt><dd>The angle of rotation of the sprite </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#a0ad2c68f1550cb712bd9c520472d80ea">Enemy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00077">77</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a6def49e82426038b2478d868ee1feac8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6def49e82426038b2478d868ee1feac8">&#9670;&nbsp;</a></span>getSprite()</h2>
 
@@ -243,7 +290,118 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a1c1a74e65f404258d9f13f1a7af80626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c1a74e65f404258d9f13f1a7af80626">&#9670;&nbsp;</a></span>setOrientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Animatable::setOrientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the orientation of the entity screen object. </p>
+<p>The previous and future positions are converted to vectors at the origin, and the final position is then subtracted from the initial position, to determine the new pointing vector. Then the sprite of the enemy is rotated to match this direction </p>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#a0f9f60244fcba6a4522ea1c7346705b9">Enemy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00070">70</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a43be55681317eca88859644fa9c5e37a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43be55681317eca88859644fa9c5e37a">&#9670;&nbsp;</a></span>setScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Animatable::setScale </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the scale of the entity screen object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scaleX</td><td>The X scale of the enemy sprite </td></tr>
+    <tr><td class="paramname">scaleY</td><td>The Y scale of the emeny sprite </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#ad1f74d7c24090c051b5ba532753b6b0c">Enemy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00060">60</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a31269253f9c397001360b9f59e9c042d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31269253f9c397001360b9f59e9c042d">&#9670;&nbsp;</a></span>_angleOrientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Animatable::_angleOrientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Stores</td><td>the angle of orientation of the object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00114">114</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a1280f9cc58e0c28ad2adb64d096ef1bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1280f9cc58e0c28ad2adb64d096ef1bb">&#9670;&nbsp;</a></span>_animationFPSLimit</h2>
 
@@ -270,7 +428,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00072">72</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00099">99</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +458,37 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00062">62</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00089">89</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a70c86aab69f6c1762c94493d42cbe4dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70c86aab69f6c1762c94493d42cbe4dd">&#9670;&nbsp;</a></span>_rectArea</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntRect Animatable::_rectArea</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>animatable texture's active tile area </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00104">104</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
 
 </div>
 </div>
@@ -330,7 +518,37 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00057">57</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00084">84</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aad4ded77c039e01206256dacd2cb7fac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad4ded77c039e01206256dacd2cb7fac">&#9670;&nbsp;</a></span>_spriteOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Animatable::_spriteOffset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>pixel offset of the _rectArea, moving the image from frame to frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00109">109</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
 
 </div>
 </div>
@@ -360,7 +578,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00067">67</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_animatable_8hpp_source.html#l00094">94</a> of file <a class="el" href="_animatable_8hpp_source.html">Animatable.hpp</a>.</p>
 
 </div>
 </div>

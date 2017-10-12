@@ -1,4 +1,5 @@
 <map id="PlayerShip::getLives" name="PlayerShip::getLives">
-<area shape="rect" id="node2" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="331,5,424,31"/>
-<area shape="rect" id="node3" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="196,31,283,56"/>
+<area shape="rect" id="node2" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="388,5,481,31"/>
+<area shape="rect" id="node3" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="225,31,311,56"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#a059921c7cf63dfc652eb25c82d27e698" title="Sets the future movement, by both angle and distance. " alt="" coords="196,80,340,105"/>
 </map>

@@ -1,0 +1,4 @@
+<map id="Explosion::getPosition" name="Explosion::getPosition">
+<area shape="rect" id="node2" href="$class_explosion.html#a0773d7014d83d7a08055f73a0d2a95ad" title="Sets the future movement, either by change in angle or change in distance. " alt="" coords="206,5,343,31"/>
+<area shape="rect" id="node3" href="$class_explosion.html#ad10c948b76a187156184fce4151fa0f8" title="Constructor for the Explosion Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="391,5,535,31"/>
+</map>

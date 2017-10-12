@@ -2,5 +2,6 @@
 <area shape="rect" id="node2" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="229,5,441,31"/>
 <area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="489,81,582,107"/>
 <area shape="rect" id="node4" href="$class_h_u_d.html#ace77b78644c4dae7f73ff518b39fc553" title="Appends the HUD to the current game renderWindow for the current lives and game score. " alt="" coords="291,107,378,132"/>
-<area shape="rect" id="node5" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Checks and updates the movement, calls the actual movement translation with move() ..." alt="" coords="281,156,388,181"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#a059921c7cf63dfc652eb25c82d27e698" title="Sets the future movement, by both angle and distance. " alt="" coords="263,156,407,181"/>
+<area shape="rect" id="node6" href="$class_shield.html#ac27e51621d183abc5280480b3155cfb0" title="Checks and updates the movement, calls the actual movement translation with move() ..." alt="" coords="281,205,388,231"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="Entity::getAliveTimeElapsedTime" name="Entity::getAliveTimeElapsedTime">
+<area shape="rect" id="node2" href="$class_entity.html#aad926830f4c0dcf666515e013046c8ea" title="Returns the entity type. " alt="" coords="269,5,379,31"/>
+<area shape="rect" id="node3" href="$class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Pure virtual method definition for performing an update on the entity object. " alt="" coords="273,55,376,80"/>
+<area shape="rect" id="node4" href="$class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Pure virtual method definition for resetting the entity to a default state. " alt="" coords="278,104,370,129"/>
+<area shape="rect" id="node5" href="$class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Pure virtual method definition for decrementing an entity&#39;s lives count. " alt="" coords="284,153,364,179"/>
+</map>

@@ -1,7 +1,8 @@
 <map id="PlayerShip::setMove" name="PlayerShip::setMove">
 <area shape="rect" id="node2" href="$class_input_handler.html#a9f5479da72df328129910c33589c3cf4" title="Sets up any player movement on the playerShip setMove() command, depending on the input during the po..." alt="" coords="197,5,417,31"/>
-<area shape="rect" id="node4" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="Resets the player ship (intended to be called after a player death event) " alt="" coords="245,55,368,80"/>
-<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="671,55,764,80"/>
-<area shape="rect" id="node5" href="$class_player_ship.html#a30a6a93443ac49ab5c6b021b04e3a10f" title="Creates a playerShip object. " alt="" coords="465,55,623,80"/>
-<area shape="rect" id="node6" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="Decrements the player lives. " alt="" coords="488,104,599,129"/>
+<area shape="rect" id="node4" href="$class_player_ship.html#ad81d932e4d1a3495af55da0593411e23" title="Resets the player ship (intended to be called after a player death event) " alt="" coords="245,68,368,93"/>
+<area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="696,68,789,93"/>
+<area shape="rect" id="node5" href="$class_player_ship.html#a30a6a93443ac49ab5c6b021b04e3a10f" title="Creates a playerShip object. " alt="" coords="465,43,623,68"/>
+<area shape="rect" id="node6" href="$class_player_ship.html#a10aad355fa8a2dc85f41ced25ae52c6d" title="Decrements the player lives. " alt="" coords="488,92,599,117"/>
+<area shape="rect" id="node7" href="$class_player_ship.html#a059921c7cf63dfc652eb25c82d27e698" title="Sets the future movement, by both angle and distance. " alt="" coords="671,117,814,143"/>
 </map>

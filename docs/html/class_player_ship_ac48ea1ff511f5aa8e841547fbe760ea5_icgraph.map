@@ -1,3 +1,4 @@
 <map id="PlayerShip::getFutureAngle" name="PlayerShip::getFutureAngle">
-<area shape="rect" id="node2" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="238,5,331,31"/>
+<area shape="rect" id="node2" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="263,5,356,31"/>
+<area shape="rect" id="node3" href="$class_player_ship.html#a059921c7cf63dfc652eb25c82d27e698" title="Sets the future movement, by both angle and distance. " alt="" coords="238,55,381,80"/>
 </map>

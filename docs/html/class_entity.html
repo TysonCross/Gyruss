@@ -85,6 +85,7 @@ $(document).ready(function(){initNavTree('class_entity.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_entity-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -115,8 +116,8 @@ Collaboration diagram for Entity:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_entity__coll__graph.png" border="0" usemap="#_entity_coll__map" alt="Collaboration graph"/></div>
 <map name="_entity_coll__map" id="_entity_coll__map">
-<area shape="rect" id="node2" href="class_moveable.html" title="Moveable Class. " alt="" coords="5,92,84,117"/>
-<area shape="rect" id="node3" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,92,197,117"/>
+<area shape="rect" id="node2" href="class_moveable.html" title="Moveable Class. " alt="" coords="13,132,92,157"/>
+<area shape="rect" id="node4" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="128,132,216,157"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -128,10 +129,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a55cb2ea6bcc7cdbe4c388aa01cbc48fc"><td class="memItemLeft" align="right" valign="top">virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">getLives</a> () const =0</td></tr>
 <tr class="memdesc:a55cb2ea6bcc7cdbe4c388aa01cbc48fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for returning the remaining number of lives of the entity.  <a href="#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">More...</a><br /></td></tr>
 <tr class="separator:a55cb2ea6bcc7cdbe4c388aa01cbc48fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="memItemLeft" align="right" valign="top"><a id="a624e85b5e363a70b0a7b2e04912c6cdf"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf">move</a> ()=0</td></tr>
-<tr class="memdesc:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for performing a move. <br /></td></tr>
-<tr class="separator:a624e85b5e363a70b0a7b2e04912c6cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196fc940f457826e43df7dd4cd58c800"><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a196fc940f457826e43df7dd4cd58c800">isAlive</a> () const =0</td></tr>
+<tr class="memdesc:a196fc940f457826e43df7dd4cd58c800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean state of the entity (alive/dead)  <a href="#a196fc940f457826e43df7dd4cd58c800">More...</a><br /></td></tr>
+<tr class="separator:a196fc940f457826e43df7dd4cd58c800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5614c75cb883b8b41140acc39ca1c85"><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af5614c75cb883b8b41140acc39ca1c85">isShooting</a> () const</td></tr>
+<tr class="memdesc:af5614c75cb883b8b41140acc39ca1c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shooting status of the entity.  <a href="#af5614c75cb883b8b41140acc39ca1c85">More...</a><br /></td></tr>
+<tr class="separator:af5614c75cb883b8b41140acc39ca1c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94a8ee46d304c3d70f50408fb3a2536"><td class="memItemLeft" align="right" valign="top"><a id="ab94a8ee46d304c3d70f50408fb3a2536"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab94a8ee46d304c3d70f50408fb3a2536">setShoot</a> ()</td></tr>
+<tr class="memdesc:ab94a8ee46d304c3d70f50408fb3a2536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the _isShooting state of the entity. <br /></td></tr>
+<tr class="separator:ab94a8ee46d304c3d70f50408fb3a2536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2534737d191f0ac20b190aeeaf00450c"><td class="memItemLeft" align="right" valign="top"><a id="a2534737d191f0ac20b190aeeaf00450c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a2534737d191f0ac20b190aeeaf00450c">resetShootTimer</a> ()</td></tr>
+<tr class="memdesc:a2534737d191f0ac20b190aeeaf00450c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the object timer, measuring when the entity last shot a bullet. <br /></td></tr>
+<tr class="separator:a2534737d191f0ac20b190aeeaf00450c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408ce9a5d62e5af67d5bc53a33c8e0dd"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a408ce9a5d62e5af67d5bc53a33c8e0dd">getShootTimerElapsedTime</a> () const</td></tr>
+<tr class="memdesc:a408ce9a5d62e5af67d5bc53a33c8e0dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns amount of time since the entity last shot a bullet.  <a href="#a408ce9a5d62e5af67d5bc53a33c8e0dd">More...</a><br /></td></tr>
+<tr class="separator:a408ce9a5d62e5af67d5bc53a33c8e0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22f1a6d8cd3011476942d864433d36e"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac22f1a6d8cd3011476942d864433d36e">getAliveTimeElapsedTime</a> () const</td></tr>
+<tr class="memdesc:ac22f1a6d8cd3011476942d864433d36e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of time that the entity has been alive for.  <a href="#ac22f1a6d8cd3011476942d864433d36e">More...</a><br /></td></tr>
+<tr class="separator:ac22f1a6d8cd3011476942d864433d36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad926830f4c0dcf666515e013046c8ea"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aad926830f4c0dcf666515e013046c8ea">getType</a> () const =0</td></tr>
+<tr class="memdesc:aad926830f4c0dcf666515e013046c8ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entity type.  <a href="#aad926830f4c0dcf666515e013046c8ea">More...</a><br /></td></tr>
+<tr class="separator:aad926830f4c0dcf666515e013046c8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59a29d9b7474baf13c9c76859242287d"><td class="memItemLeft" align="right" valign="top"><a id="a59a29d9b7474baf13c9c76859242287d"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">update</a> ()=0</td></tr>
 <tr class="memdesc:a59a29d9b7474baf13c9c76859242287d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for performing an update on the entity object. <br /></td></tr>
@@ -148,12 +168,28 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">Moveable</a> (float distanceFromCentre, float angle, float scale)</td></tr>
 <tr class="memdesc:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> class constructor.  <a href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">More...</a><br /></td></tr>
 <tr class="separator:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">setMove</a> (float value)</td></tr>
-<tr class="memdesc:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the future movement, either by change in angle or change in distance.  <a href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">More...</a><br /></td></tr>
-<tr class="separator:a226fc9b401e0510a5dcd95eaae039494 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">setMove</a> (float angle, float distance)</td></tr>
-<tr class="memdesc:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to set the future movement, by both angle and distance.  <a href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">More...</a><br /></td></tr>
-<tr class="separator:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed041f309a02b910f73b536d2a2c91f inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a8ed041f309a02b910f73b536d2a2c91f">setMove</a> (float value)=0</td></tr>
+<tr class="memdesc:a8ed041f309a02b910f73b536d2a2c91f inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to set the future movement, either by change in angle or change in distance.  <a href="class_moveable.html#a8ed041f309a02b910f73b536d2a2c91f">More...</a><br /></td></tr>
+<tr class="separator:a8ed041f309a02b910f73b536d2a2c91f inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84f08cce6bc7f59b6057cd28da64996b inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a84f08cce6bc7f59b6057cd28da64996b">setMove</a> (float angle, float distance)=0</td></tr>
+<tr class="memdesc:a84f08cce6bc7f59b6057cd28da64996b inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to set the future movement, by both angle and distance.  <a href="class_moveable.html#a84f08cce6bc7f59b6057cd28da64996b">More...</a><br /></td></tr>
+<tr class="separator:a84f08cce6bc7f59b6057cd28da64996b inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f0f6915d1a5f093853446c0790ab6f inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ac0f0f6915d1a5f093853446c0790ab6f">setMove</a> (float angle, float distance, Vector2f centre)</td></tr>
+<tr class="memdesc:ac0f0f6915d1a5f093853446c0790ab6f inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the next frame's position for the object, with a different screen origin.  <a href="class_moveable.html#ac0f0f6915d1a5f093853446c0790ab6f">More...</a><br /></td></tr>
+<tr class="separator:ac0f0f6915d1a5f093853446c0790ab6f inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa49bea40179c7d1a2c8933ea61459b0 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#afa49bea40179c7d1a2c8933ea61459b0">setMovementState</a> (MovementState movementState)</td></tr>
+<tr class="memdesc:afa49bea40179c7d1a2c8933ea61459b0 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the movement state of the entity.  <a href="class_moveable.html#afa49bea40179c7d1a2c8933ea61459b0">More...</a><br /></td></tr>
+<tr class="separator:afa49bea40179c7d1a2c8933ea61459b0 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaff91c405b7bace28a1d86220046d83 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="abaff91c405b7bace28a1d86220046d83"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#abaff91c405b7bace28a1d86220046d83">move</a> ()=0</td></tr>
+<tr class="memdesc:abaff91c405b7bace28a1d86220046d83 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method definition for performing a move. <br /></td></tr>
+<tr class="separator:abaff91c405b7bace28a1d86220046d83 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c004123dd486986cb321b37ec4f97b inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const MovementState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a73c004123dd486986cb321b37ec4f97b">getMovementState</a> () const</td></tr>
+<tr class="memdesc:a73c004123dd486986cb321b37ec4f97b inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current Movement state for the enemy.  <a href="class_moveable.html#a73c004123dd486986cb321b37ec4f97b">More...</a><br /></td></tr>
+<tr class="separator:a73c004123dd486986cb321b37ec4f97b inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0d9e6016204a0bf98c1c82704779e7 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#abc0d9e6016204a0bf98c1c82704779e7">getCentre</a> () const</td></tr>
+<tr class="memdesc:abc0d9e6016204a0bf98c1c82704779e7 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the x/y position of the _centre member of the entity on screen.  <a href="class_moveable.html#abc0d9e6016204a0bf98c1c82704779e7">More...</a><br /></td></tr>
+<tr class="separator:abc0d9e6016204a0bf98c1c82704779e7 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f9eb0005b9ae6b41e2b04f55a273e4c inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c">getRadius</a> () const =0</td></tr>
 <tr class="memdesc:a9f9eb0005b9ae6b41e2b04f55a273e4c inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to return the distance from origin (screen space)  <a href="class_moveable.html#a9f9eb0005b9ae6b41e2b04f55a273e4c">More...</a><br /></td></tr>
 <tr class="separator:a9f9eb0005b9ae6b41e2b04f55a273e4c inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +202,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:ab7b46138211ec0c2db78c737353d9825 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">getPosition</a> () const =0</td></tr>
 <tr class="memdesc:ab7b46138211ec0c2db78c737353d9825 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to return the x,y position of the object on screen.  <a href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">More...</a><br /></td></tr>
 <tr class="separator:ab7b46138211ec0c2db78c737353d9825 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff16604179cdd1e5a38771d76c20443 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a9ff16604179cdd1e5a38771d76c20443">getAngle</a> () const =0</td></tr>
+<tr class="memdesc:a9ff16604179cdd1e5a38771d76c20443 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current angle of the playerShip around the movement circle.  <a href="class_moveable.html#a9ff16604179cdd1e5a38771d76c20443">More...</a><br /></td></tr>
+<tr class="separator:a9ff16604179cdd1e5a38771d76c20443 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f83000db38252fee236e61080bc9c9 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ab1f83000db38252fee236e61080bc9c9">getMovementDirectionSign</a> () const</td></tr>
+<tr class="memdesc:ab1f83000db38252fee236e61080bc9c9 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently set movement direction for the entity.  <a href="class_moveable.html#ab1f83000db38252fee236e61080bc9c9">More...</a><br /></td></tr>
+<tr class="separator:ab1f83000db38252fee236e61080bc9c9 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_animatable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
 <tr class="memitem:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">Animatable</a> (const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type)</td></tr>
 <tr class="memdesc:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> class.  <a href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">More...</a><br /></td></tr>
@@ -173,6 +215,21 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a6def49e82426038b2478d868ee1feac8 inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual const Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">getSprite</a> () const =0</td></tr>
 <tr class="memdesc:a6def49e82426038b2478d868ee1feac8 inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sprite object.  <a href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">More...</a><br /></td></tr>
 <tr class="separator:a6def49e82426038b2478d868ee1feac8 inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43be55681317eca88859644fa9c5e37a inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a43be55681317eca88859644fa9c5e37a">setScale</a> (float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a43be55681317eca88859644fa9c5e37a inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scale of the entity screen object.  <a href="class_animatable.html#a43be55681317eca88859644fa9c5e37a">More...</a><br /></td></tr>
+<tr class="separator:a43be55681317eca88859644fa9c5e37a inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c1a74e65f404258d9f13f1a7af80626 inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1c1a74e65f404258d9f13f1a7af80626">setOrientation</a> ()</td></tr>
+<tr class="memdesc:a1c1a74e65f404258d9f13f1a7af80626 inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the orientation of the entity screen object.  <a href="class_animatable.html#a1c1a74e65f404258d9f13f1a7af80626">More...</a><br /></td></tr>
+<tr class="separator:a1c1a74e65f404258d9f13f1a7af80626 inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdda6238a8484c05bc2af0b75743c15 inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1fdda6238a8484c05bc2af0b75743c15">getOrientationAngle</a> () const</td></tr>
+<tr class="memdesc:a1fdda6238a8484c05bc2af0b75743c15 inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current rotation of the enemy sprite.  <a href="class_animatable.html#a1fdda6238a8484c05bc2af0b75743c15">More...</a><br /></td></tr>
+<tr class="separator:a1fdda6238a8484c05bc2af0b75743c15 inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a903a4981601efca935dec1aa983160d0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a903a4981601efca935dec1aa983160d0">stopShoot</a> ()</td></tr>
+<tr class="memdesc:a903a4981601efca935dec1aa983160d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the shooting status of the entity.  <a href="#a903a4981601efca935dec1aa983160d0">More...</a><br /></td></tr>
+<tr class="separator:a903a4981601efca935dec1aa983160d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -183,7 +240,17 @@ const Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <tr class="memitem:aa3b3d3f11c9034e91112f724203f4513"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513">_lives</a></td></tr>
 <tr class="memdesc:aa3b3d3f11c9034e91112f724203f4513"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of lives remaining of an entity.  <a href="#aa3b3d3f11c9034e91112f724203f4513">More...</a><br /></td></tr>
 <tr class="separator:aa3b3d3f11c9034e91112f724203f4513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf8a96c8862a9a78707cc840e3cdd6b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aacf8a96c8862a9a78707cc840e3cdd6b">_isAlive</a></td></tr>
+<tr class="separator:aacf8a96c8862a9a78707cc840e3cdd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae51180533153737dd7a0ab399ad5ae57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae51180533153737dd7a0ab399ad5ae57">_isShooting</a></td></tr>
+<tr class="separator:ae51180533153737dd7a0ab399ad5ae57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0651463063e8925b66c9dc160cecace8"><td class="memItemLeft" align="right" valign="top">Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0651463063e8925b66c9dc160cecace8">_timerShoot</a></td></tr>
+<tr class="separator:a0651463063e8925b66c9dc160cecace8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9256222bd1a9abf4e383f5a45d17382"><td class="memItemLeft" align="right" valign="top">Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac9256222bd1a9abf4e383f5a45d17382">_timerAlive</a></td></tr>
+<tr class="separator:ac9256222bd1a9abf4e383f5a45d17382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_moveable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
+<tr class="memitem:aea80d1a0f7dc6f34f0fe816d17b19b78 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aea80d1a0f7dc6f34f0fe816d17b19b78">_centre</a></td></tr>
+<tr class="separator:aea80d1a0f7dc6f34f0fe816d17b19b78 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">_distanceFromCentre</a></td></tr>
 <tr class="memdesc:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the distance from origin (centre of screen)  <a href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">More...</a><br /></td></tr>
 <tr class="separator:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,6 +266,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ac2a68042fa5a3847a34a14b0105efb3d">_angle</a></td></tr>
 <tr class="memdesc:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current angle. <br /></td></tr>
 <tr class="separator:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdda314dac100b91f2f1da25a663bd8e inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#afdda314dac100b91f2f1da25a663bd8e">_prevPosition</a></td></tr>
+<tr class="separator:afdda314dac100b91f2f1da25a663bd8e inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e905454eb725478943ed8a81e4abafe inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a4e905454eb725478943ed8a81e4abafe">_newPosition</a></td></tr>
+<tr class="separator:a4e905454eb725478943ed8a81e4abafe inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0888f291eb56afd02c13c90ffe7b325b inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0888f291eb56afd02c13c90ffe7b325b">_pointingPosition</a></td></tr>
+<tr class="separator:a0888f291eb56afd02c13c90ffe7b325b inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a0e49af81ec9b03149a8704c6f1bc51b1"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0e49af81ec9b03149a8704c6f1bc51b1">_scale</a></td></tr>
 <tr class="memdesc:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current scale (the same for both x and y) <br /></td></tr>
@@ -207,6 +280,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0addc6d9eee002a0750a3293cd6d673c">_isMoving</a></td></tr>
 <tr class="memdesc:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the boolean state of whether the object is moving or not. <br /></td></tr>
 <tr class="separator:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa899702655f2de534582fd62035e3640 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">MovementState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aa899702655f2de534582fd62035e3640">_movementState</a></td></tr>
+<tr class="separator:aa899702655f2de534582fd62035e3640 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d535c27547f4d4bb8d9069cd1740585 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">MovementDirection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a1d535c27547f4d4bb8d9069cd1740585">_movementDirection</a></td></tr>
+<tr class="separator:a1d535c27547f4d4bb8d9069cd1740585 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_animatable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
 <tr class="memitem:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#af157c80921e5afac531de85c1b63caef">_sprite</a></td></tr>
 <tr class="separator:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,6 +293,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a8f0c6a5d49b6d4fde06bab2ed0dd0680 inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1280f9cc58e0c28ad2adb64d096ef1bb">_animationFPSLimit</a></td></tr>
 <tr class="separator:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c86aab69f6c1762c94493d42cbe4dd inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">IntRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a70c86aab69f6c1762c94493d42cbe4dd">_rectArea</a></td></tr>
+<tr class="separator:a70c86aab69f6c1762c94493d42cbe4dd inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4ded77c039e01206256dacd2cb7fac inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#aad4ded77c039e01206256dacd2cb7fac">_spriteOffset</a></td></tr>
+<tr class="separator:aad4ded77c039e01206256dacd2cb7fac inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31269253f9c397001360b9f59e9c042d inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a31269253f9c397001360b9f59e9c042d">_angleOrientation</a></td></tr>
+<tr class="separator:a31269253f9c397001360b9f59e9c042d inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> Class, inherited from <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> and <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a>. </p>
@@ -323,16 +406,56 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph.png" border="0" usemap="#class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph" alt=""/></div>
 <map name="class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph" id="class_entity_a834847e68c24a42c83d984455b6b4ba4_cgraph">
 <area shape="rect" id="node2" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Pure virtual method definition for returning the remaining number of lives of the entity..." alt="" coords="149,5,261,31"/>
-<area shape="rect" id="node3" href="class_entity.html#a624e85b5e363a70b0a7b2e04912c6cdf" title="Pure virtual method definition for performing a move. " alt="" coords="157,55,252,80"/>
-<area shape="rect" id="node4" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Pure virtual method definition for performing an setPlayerShipMove on the entity object. " alt="" coords="153,104,256,129"/>
-<area shape="rect" id="node5" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Pure virtual method definition for resetting the entity to a default state. " alt="" coords="159,153,251,179"/>
-<area shape="rect" id="node6" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Pure virtual method definition for decrementing an entity&#39;s lives count. " alt="" coords="165,203,245,228"/>
+<area shape="rect" id="node3" href="class_entity.html#a196fc940f457826e43df7dd4cd58c800" title="Boolean state of the entity (alive/dead) " alt="" coords="154,55,255,80"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac22f1a6d8cd3011476942d864433d36e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22f1a6d8cd3011476942d864433d36e">&#9670;&nbsp;</a></span>getAliveTimeElapsedTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const float Entity::getAliveTimeElapsedTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the amount of time that the entity has been alive for. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value (in seconds) of the time the enemy object has been alive. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#a7767abadc17ca455e792aee7a6a4e81b">Enemy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00118">118</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_ac22f1a6d8cd3011476942d864433d36e_cgraph.png" border="0" usemap="#class_entity_ac22f1a6d8cd3011476942d864433d36e_cgraph" alt=""/></div>
+<map name="class_entity_ac22f1a6d8cd3011476942d864433d36e_cgraph" id="class_entity_ac22f1a6d8cd3011476942d864433d36e_cgraph">
+<area shape="rect" id="node2" href="class_entity.html#aad926830f4c0dcf666515e013046c8ea" title="Returns the entity type. " alt="" coords="269,5,379,31"/>
+<area shape="rect" id="node3" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d" title="Pure virtual method definition for performing an update on the entity object. " alt="" coords="273,55,376,80"/>
+<area shape="rect" id="node4" href="class_entity.html#a089f2a22bbd6f91cb433e0893b5a3a8d" title="Pure virtual method definition for resetting the entity to a default state. " alt="" coords="278,104,370,129"/>
+<area shape="rect" id="node5" href="class_entity.html#a2a3cf13d22d4f8a6ac5b6ffaff41205e" title="Pure virtual method definition for decrementing an entity&#39;s lives count. " alt="" coords="284,153,364,179"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a55cb2ea6bcc7cdbe4c388aa01cbc48fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">&#9670;&nbsp;</a></span>getLives()</h2>
 
@@ -372,7 +495,240 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a408ce9a5d62e5af67d5bc53a33c8e0dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408ce9a5d62e5af67d5bc53a33c8e0dd">&#9670;&nbsp;</a></span>getShootTimerElapsedTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const float Entity::getShootTimerElapsedTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns amount of time since the entity last shot a bullet. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value (in seconds) of the amount of elapsed time </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#ace550df4474b17d1774e8f5abd0dcfdb">Enemy</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00110">110</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aad926830f4c0dcf666515e013046c8ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad926830f4c0dcf666515e013046c8ea">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> Entity::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the entity type. </p>
+<dl class="section return"><dt>Returns</dt><dd>An enum value (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) of the entity type </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecommon.html" title="Common functions, aliases and global constants. ">common</a> </dd>
+<dd>
+<a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> </dd></dl>
+
+<p>Implemented in <a class="el" href="class_enemy.html#aa681a38470e97bc9d00106af8d2d7b8b">Enemy</a>, <a class="el" href="class_player_ship.html#a1afe6a1438d5b972a67f240f2ac3f204">PlayerShip</a>, <a class="el" href="class_bullet.html#a700d95f58d5e08e1228c0e1e767c3143">Bullet</a>, <a class="el" href="class_meteoroid.html#aa16bb073f6927baf5ec4f25909584b21">Meteoroid</a>, and <a class="el" href="class_explosion.html#ad7058f77dce9d81b0cc4fe573438d184">Explosion</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_aad926830f4c0dcf666515e013046c8ea_icgraph.png" border="0" usemap="#class_entity_aad926830f4c0dcf666515e013046c8ea_icgraph" alt=""/></div>
+<map name="class_entity_aad926830f4c0dcf666515e013046c8ea_icgraph" id="class_entity_aad926830f4c0dcf666515e013046c8ea_icgraph">
+<area shape="rect" id="node2" href="class_entity.html#ac22f1a6d8cd3011476942d864433d36e" title="Returns the amount of time that the entity has been alive for. " alt="" coords="163,5,379,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a196fc940f457826e43df7dd4cd58c800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a196fc940f457826e43df7dd4cd58c800">&#9670;&nbsp;</a></span>isAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const bool Entity::isAlive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean state of the entity (alive/dead) </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean value of alive(1) or dead(0) </dd></dl>
+
+<p>Implemented in <a class="el" href="class_enemy.html#aa1add54637c502289f9694a23fbcd3c7">Enemy</a>, <a class="el" href="class_player_ship.html#a3be38c497d01f6fe409abac53461cb88">PlayerShip</a>, <a class="el" href="class_bullet.html#a73a094dc1bdca0cec568d0d40a5daacd">Bullet</a>, <a class="el" href="class_meteoroid.html#a6acf60fd07dc0122e8c5b93a57f3773f">Meteoroid</a>, and <a class="el" href="class_explosion.html#a50238db75476822dd9d76301aae2d848">Explosion</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_entity_a196fc940f457826e43df7dd4cd58c800_icgraph.png" border="0" usemap="#class_entity_a196fc940f457826e43df7dd4cd58c800_icgraph" alt=""/></div>
+<map name="class_entity_a196fc940f457826e43df7dd4cd58c800_icgraph" id="class_entity_a196fc940f457826e43df7dd4cd58c800_icgraph">
+<area shape="rect" id="node2" href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4" title="The Entity class constructor Calls the Moveable and Animatable constructors, and sets the resolution..." alt="" coords="154,5,249,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af5614c75cb883b8b41140acc39ca1c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5614c75cb883b8b41140acc39ca1c85">&#9670;&nbsp;</a></span>isShooting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const bool Entity::isShooting </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the shooting status of the entity. </p>
+<dl class="section return"><dt>Returns</dt><dd>If true, then the enemy is shooting on this frame </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_enemy.html#a39263d216499d6f3d06d8d15b3805651">Enemy</a>, and <a class="el" href="class_player_ship.html#af9637e106c714e09bbdfce4e5ff59ccd">PlayerShip</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00092">92</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a903a4981601efca935dec1aa983160d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903a4981601efca935dec1aa983160d0">&#9670;&nbsp;</a></span>stopShoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Entity::stopShoot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the shooting status of the entity. </p>
+<dl class="section return"><dt>Returns</dt><dd>Resets the _isShooting member to false </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00151">151</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aacf8a96c8862a9a78707cc840e3cdd6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf8a96c8862a9a78707cc840e3cdd6b">&#9670;&nbsp;</a></span>_isAlive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Entity::_isAlive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Boolean</td><td>storing state of playerShip: alive or dead </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00167">167</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae51180533153737dd7a0ab399ad5ae57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51180533153737dd7a0ab399ad5ae57">&#9670;&nbsp;</a></span>_isShooting</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Entity::_isShooting</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Stores</td><td>the state of the entity shooting or not </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00172">172</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
 <a id="aa3b3d3f11c9034e91112f724203f4513"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3b3d3f11c9034e91112f724203f4513">&#9670;&nbsp;</a></span>_lives</h2>
 
@@ -396,7 +752,69 @@ Here is the caller graph for this function:</div>
 <p>The number of lives remaining of an entity. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc" title="Pure virtual method definition for returning the remaining number of lives of the entity...">getLives()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00110">110</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00162">162</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac9256222bd1a9abf4e383f5a45d17382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9256222bd1a9abf4e383f5a45d17382">&#9670;&nbsp;</a></span>_timerAlive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Clock Entity::_timerAlive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>timer measuring how long the entity has been alive </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity.html#ac22f1a6d8cd3011476942d864433d36e" title="Returns the amount of time that the entity has been alive for. ">getAliveTimeElapsedTime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00184">184</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0651463063e8925b66c9dc160cecace8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0651463063e8925b66c9dc160cecace8">&#9670;&nbsp;</a></span>_timerShoot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Clock Entity::_timerShoot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>timer since last bullet shooting occurred </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_entity.html#a408ce9a5d62e5af67d5bc53a33c8e0dd" title="Returns amount of time since the entity last shot a bullet. ">getShootTimerElapsedTime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_entity_8hpp_source.html#l00178">178</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>

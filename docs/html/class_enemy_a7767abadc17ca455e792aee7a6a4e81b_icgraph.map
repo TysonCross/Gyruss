@@ -1,0 +1,5 @@
+<map id="Enemy::getAliveTimeElapsedTime" name="Enemy::getAliveTimeElapsedTime">
+<area shape="rect" id="node2" href="$class_enemy.html#a7150a84b73c4fc2964f4c0c3e0d604f4" title="Sets the future movement, either by change in angle or change in distance. " alt="" coords="302,5,423,31"/>
+<area shape="rect" id="node3" href="$class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e" title="Getter to return if an bullet has been shot in the current frame. " alt="" coords="277,55,448,93"/>
+<area shape="rect" id="node4" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="496,61,589,87"/>
+</map>

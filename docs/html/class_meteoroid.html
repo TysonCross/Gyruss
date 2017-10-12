@@ -110,9 +110,9 @@ Collaboration diagram for Meteoroid:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteoroid__coll__graph.png" border="0" usemap="#_meteoroid_coll__map" alt="Collaboration graph"/></div>
 <map name="_meteoroid_coll__map" id="_meteoroid_coll__map">
-<area shape="rect" id="node2" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="126,179,180,204"/>
-<area shape="rect" id="node3" href="class_moveable.html" title="Moveable Class. " alt="" coords="5,92,84,117"/>
-<area shape="rect" id="node4" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="109,92,197,117"/>
+<area shape="rect" id="node2" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. " alt="" coords="217,232,272,257"/>
+<area shape="rect" id="node3" href="class_moveable.html" title="Moveable Class. " alt="" coords="13,132,92,157"/>
+<area shape="rect" id="node5" href="class_animatable.html" title="A component of the main Entity class for game objects. " alt="" coords="128,132,216,157"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -124,6 +124,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab5a456d497bf434b2549e0fc617eee0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#ab5a456d497bf434b2549e0fc617eee0e">setMove</a> (float distance) override</td></tr>
 <tr class="memdesc:ab5a456d497bf434b2549e0fc617eee0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the next frame's position for the object.  <a href="#ab5a456d497bf434b2549e0fc617eee0e">More...</a><br /></td></tr>
 <tr class="separator:ab5a456d497bf434b2549e0fc617eee0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addddfa1b91965fb07da4302be1b61c5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c">setMove</a> (float angle, float distance) override</td></tr>
+<tr class="memdesc:addddfa1b91965fb07da4302be1b61c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the future movement, by both angle and distance.  <a href="#addddfa1b91965fb07da4302be1b61c5c">More...</a><br /></td></tr>
+<tr class="separator:addddfa1b91965fb07da4302be1b61c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a314aa9b2be68d3959983a967e00eed97"><td class="memItemLeft" align="right" valign="top"><a id="a314aa9b2be68d3959983a967e00eed97"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97">move</a> () override</td></tr>
 <tr class="memdesc:a314aa9b2be68d3959983a967e00eed97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the actual move, based on _futureMoveValue. <br /></td></tr>
@@ -149,6 +152,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a440c2468321dec00a1b15e4f7a8bcc88"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#a440c2468321dec00a1b15e4f7a8bcc88">getDistanceFromCentre</a> () const override</td></tr>
 <tr class="memdesc:a440c2468321dec00a1b15e4f7a8bcc88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance from origin (non-linear distance)  <a href="#a440c2468321dec00a1b15e4f7a8bcc88">More...</a><br /></td></tr>
 <tr class="separator:a440c2468321dec00a1b15e4f7a8bcc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e3162ce04a2f00dfe6bbb64f34899d"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#a90e3162ce04a2f00dfe6bbb64f34899d">getAngle</a> () const override</td></tr>
+<tr class="memdesc:a90e3162ce04a2f00dfe6bbb64f34899d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current angle of the meteoroid.  <a href="#a90e3162ce04a2f00dfe6bbb64f34899d">More...</a><br /></td></tr>
+<tr class="separator:a90e3162ce04a2f00dfe6bbb64f34899d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4458558ec04c2b8f924dd9bc89b7f43e"><td class="memItemLeft" align="right" valign="top">const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#a4458558ec04c2b8f924dd9bc89b7f43e">getPosition</a> () const override</td></tr>
 <tr class="memdesc:a4458558ec04c2b8f924dd9bc89b7f43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the x,y position of the meteoroid on screen.  <a href="#a4458558ec04c2b8f924dd9bc89b7f43e">More...</a><br /></td></tr>
 <tr class="separator:a4458558ec04c2b8f924dd9bc89b7f43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,24 +164,72 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a07866040ddea66bf42f4d13394c85c93"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#a07866040ddea66bf42f4d13394c85c93">getLives</a> () const override</td></tr>
 <tr class="memdesc:a07866040ddea66bf42f4d13394c85c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remaining number of lives of the meteoroid.  <a href="#a07866040ddea66bf42f4d13394c85c93">More...</a><br /></td></tr>
 <tr class="separator:a07866040ddea66bf42f4d13394c85c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6acf60fd07dc0122e8c5b93a57f3773f"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#a6acf60fd07dc0122e8c5b93a57f3773f">isAlive</a> () const override</td></tr>
+<tr class="memdesc:a6acf60fd07dc0122e8c5b93a57f3773f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean state of the entity (alive/dead)  <a href="#a6acf60fd07dc0122e8c5b93a57f3773f">More...</a><br /></td></tr>
+<tr class="separator:a6acf60fd07dc0122e8c5b93a57f3773f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16bb073f6927baf5ec4f25909584b21"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_meteoroid.html#aa16bb073f6927baf5ec4f25909584b21">getType</a> () const override</td></tr>
+<tr class="memdesc:aa16bb073f6927baf5ec4f25909584b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entity type.  <a href="#aa16bb073f6927baf5ec4f25909584b21">More...</a><br /></td></tr>
+<tr class="separator:aa16bb073f6927baf5ec4f25909584b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a834847e68c24a42c83d984455b6b4ba4 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4">Entity</a> (const Vector2i resolution, float distanceFromCentre, float angle, float scale, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type, const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder)</td></tr>
 <tr class="memdesc:a834847e68c24a42c83d984455b6b4ba4 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> class constructor Calls the <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> and <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> constructors, and sets the resolution.  <a href="class_entity.html#a834847e68c24a42c83d984455b6b4ba4">More...</a><br /></td></tr>
 <tr class="separator:a834847e68c24a42c83d984455b6b4ba4 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5614c75cb883b8b41140acc39ca1c85 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af5614c75cb883b8b41140acc39ca1c85">isShooting</a> () const</td></tr>
+<tr class="memdesc:af5614c75cb883b8b41140acc39ca1c85 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shooting status of the entity.  <a href="class_entity.html#af5614c75cb883b8b41140acc39ca1c85">More...</a><br /></td></tr>
+<tr class="separator:af5614c75cb883b8b41140acc39ca1c85 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94a8ee46d304c3d70f50408fb3a2536 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="ab94a8ee46d304c3d70f50408fb3a2536"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab94a8ee46d304c3d70f50408fb3a2536">setShoot</a> ()</td></tr>
+<tr class="memdesc:ab94a8ee46d304c3d70f50408fb3a2536 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the _isShooting state of the entity. <br /></td></tr>
+<tr class="separator:ab94a8ee46d304c3d70f50408fb3a2536 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2534737d191f0ac20b190aeeaf00450c inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a2534737d191f0ac20b190aeeaf00450c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a2534737d191f0ac20b190aeeaf00450c">resetShootTimer</a> ()</td></tr>
+<tr class="memdesc:a2534737d191f0ac20b190aeeaf00450c inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the object timer, measuring when the entity last shot a bullet. <br /></td></tr>
+<tr class="separator:a2534737d191f0ac20b190aeeaf00450c inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408ce9a5d62e5af67d5bc53a33c8e0dd inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a408ce9a5d62e5af67d5bc53a33c8e0dd">getShootTimerElapsedTime</a> () const</td></tr>
+<tr class="memdesc:a408ce9a5d62e5af67d5bc53a33c8e0dd inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns amount of time since the entity last shot a bullet.  <a href="class_entity.html#a408ce9a5d62e5af67d5bc53a33c8e0dd">More...</a><br /></td></tr>
+<tr class="separator:a408ce9a5d62e5af67d5bc53a33c8e0dd inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22f1a6d8cd3011476942d864433d36e inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac22f1a6d8cd3011476942d864433d36e">getAliveTimeElapsedTime</a> () const</td></tr>
+<tr class="memdesc:ac22f1a6d8cd3011476942d864433d36e inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the amount of time that the entity has been alive for.  <a href="class_entity.html#ac22f1a6d8cd3011476942d864433d36e">More...</a><br /></td></tr>
+<tr class="separator:ac22f1a6d8cd3011476942d864433d36e inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_moveable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
 <tr class="memitem:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">Moveable</a> (float distanceFromCentre, float angle, float scale)</td></tr>
 <tr class="memdesc:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> class constructor.  <a href="class_moveable.html#aabfa2d91ba90f2d20ebdb0ee8a1ff3c9">More...</a><br /></td></tr>
 <tr class="separator:aabfa2d91ba90f2d20ebdb0ee8a1ff3c9 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">setMove</a> (float angle, float distance)</td></tr>
-<tr class="memdesc:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method to set the future movement, by both angle and distance.  <a href="class_moveable.html#a6f23dff32442db390d0232e10c199be1">More...</a><br /></td></tr>
-<tr class="separator:a6f23dff32442db390d0232e10c199be1 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f0f6915d1a5f093853446c0790ab6f inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ac0f0f6915d1a5f093853446c0790ab6f">setMove</a> (float angle, float distance, Vector2f centre)</td></tr>
+<tr class="memdesc:ac0f0f6915d1a5f093853446c0790ab6f inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the next frame's position for the object, with a different screen origin.  <a href="class_moveable.html#ac0f0f6915d1a5f093853446c0790ab6f">More...</a><br /></td></tr>
+<tr class="separator:ac0f0f6915d1a5f093853446c0790ab6f inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa49bea40179c7d1a2c8933ea61459b0 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#afa49bea40179c7d1a2c8933ea61459b0">setMovementState</a> (MovementState movementState)</td></tr>
+<tr class="memdesc:afa49bea40179c7d1a2c8933ea61459b0 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the movement state of the entity.  <a href="class_moveable.html#afa49bea40179c7d1a2c8933ea61459b0">More...</a><br /></td></tr>
+<tr class="separator:afa49bea40179c7d1a2c8933ea61459b0 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73c004123dd486986cb321b37ec4f97b inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const MovementState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a73c004123dd486986cb321b37ec4f97b">getMovementState</a> () const</td></tr>
+<tr class="memdesc:a73c004123dd486986cb321b37ec4f97b inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current Movement state for the enemy.  <a href="class_moveable.html#a73c004123dd486986cb321b37ec4f97b">More...</a><br /></td></tr>
+<tr class="separator:a73c004123dd486986cb321b37ec4f97b inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc0d9e6016204a0bf98c1c82704779e7 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#abc0d9e6016204a0bf98c1c82704779e7">getCentre</a> () const</td></tr>
+<tr class="memdesc:abc0d9e6016204a0bf98c1c82704779e7 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the x/y position of the _centre member of the entity on screen.  <a href="class_moveable.html#abc0d9e6016204a0bf98c1c82704779e7">More...</a><br /></td></tr>
+<tr class="separator:abc0d9e6016204a0bf98c1c82704779e7 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f83000db38252fee236e61080bc9c9 inherit pub_methods_class_moveable"><td class="memItemLeft" align="right" valign="top">virtual const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ab1f83000db38252fee236e61080bc9c9">getMovementDirectionSign</a> () const</td></tr>
+<tr class="memdesc:ab1f83000db38252fee236e61080bc9c9 inherit pub_methods_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently set movement direction for the entity.  <a href="class_moveable.html#ab1f83000db38252fee236e61080bc9c9">More...</a><br /></td></tr>
+<tr class="separator:ab1f83000db38252fee236e61080bc9c9 inherit pub_methods_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_animatable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
 <tr class="memitem:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">Animatable</a> (const <a class="el" href="class_resource_holder.html">TextureHolder</a> &amp;textureHolder, const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> type)</td></tr>
 <tr class="memdesc:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> class.  <a href="class_animatable.html#a2b412f2eca078966b4dfe526d86a047e">More...</a><br /></td></tr>
 <tr class="separator:a2b412f2eca078966b4dfe526d86a047e inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43be55681317eca88859644fa9c5e37a inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a43be55681317eca88859644fa9c5e37a">setScale</a> (float scaleX, float scaleY)</td></tr>
+<tr class="memdesc:a43be55681317eca88859644fa9c5e37a inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scale of the entity screen object.  <a href="class_animatable.html#a43be55681317eca88859644fa9c5e37a">More...</a><br /></td></tr>
+<tr class="separator:a43be55681317eca88859644fa9c5e37a inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c1a74e65f404258d9f13f1a7af80626 inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1c1a74e65f404258d9f13f1a7af80626">setOrientation</a> ()</td></tr>
+<tr class="memdesc:a1c1a74e65f404258d9f13f1a7af80626 inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the orientation of the entity screen object.  <a href="class_animatable.html#a1c1a74e65f404258d9f13f1a7af80626">More...</a><br /></td></tr>
+<tr class="separator:a1c1a74e65f404258d9f13f1a7af80626 inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdda6238a8484c05bc2af0b75743c15 inherit pub_methods_class_animatable"><td class="memItemLeft" align="right" valign="top">virtual const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1fdda6238a8484c05bc2af0b75743c15">getOrientationAngle</a> () const</td></tr>
+<tr class="memdesc:a1fdda6238a8484c05bc2af0b75743c15 inherit pub_methods_class_animatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current rotation of the enemy sprite.  <a href="class_animatable.html#a1fdda6238a8484c05bc2af0b75743c15">More...</a><br /></td></tr>
+<tr class="separator:a1fdda6238a8484c05bc2af0b75743c15 inherit pub_methods_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
+<tr class="memitem:a903a4981601efca935dec1aa983160d0 inherit pro_methods_class_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a903a4981601efca935dec1aa983160d0">stopShoot</a> ()</td></tr>
+<tr class="memdesc:a903a4981601efca935dec1aa983160d0 inherit pro_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the shooting status of the entity.  <a href="class_entity.html#a903a4981601efca935dec1aa983160d0">More...</a><br /></td></tr>
+<tr class="separator:a903a4981601efca935dec1aa983160d0 inherit pro_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:af0fd76b4690aee4a244f3f77a77854f5 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="af0fd76b4690aee4a244f3f77a77854f5"></a>
 const Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af0fd76b4690aee4a244f3f77a77854f5">_resolution</a></td></tr>
@@ -184,7 +238,17 @@ const Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <tr class="memitem:aa3b3d3f11c9034e91112f724203f4513 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513">_lives</a></td></tr>
 <tr class="memdesc:aa3b3d3f11c9034e91112f724203f4513 inherit pro_attribs_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of lives remaining of an entity.  <a href="class_entity.html#aa3b3d3f11c9034e91112f724203f4513">More...</a><br /></td></tr>
 <tr class="separator:aa3b3d3f11c9034e91112f724203f4513 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf8a96c8862a9a78707cc840e3cdd6b inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aacf8a96c8862a9a78707cc840e3cdd6b">_isAlive</a></td></tr>
+<tr class="separator:aacf8a96c8862a9a78707cc840e3cdd6b inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae51180533153737dd7a0ab399ad5ae57 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae51180533153737dd7a0ab399ad5ae57">_isShooting</a></td></tr>
+<tr class="separator:ae51180533153737dd7a0ab399ad5ae57 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0651463063e8925b66c9dc160cecace8 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0651463063e8925b66c9dc160cecace8">_timerShoot</a></td></tr>
+<tr class="separator:a0651463063e8925b66c9dc160cecace8 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9256222bd1a9abf4e383f5a45d17382 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac9256222bd1a9abf4e383f5a45d17382">_timerAlive</a></td></tr>
+<tr class="separator:ac9256222bd1a9abf4e383f5a45d17382 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_moveable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_moveable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_moveable.html">Moveable</a></td></tr>
+<tr class="memitem:aea80d1a0f7dc6f34f0fe816d17b19b78 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aea80d1a0f7dc6f34f0fe816d17b19b78">_centre</a></td></tr>
+<tr class="separator:aea80d1a0f7dc6f34f0fe816d17b19b78 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">_distanceFromCentre</a></td></tr>
 <tr class="memdesc:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the distance from origin (centre of screen)  <a href="class_moveable.html#aa239af1cdb79f0889cf3c813d70e58fd">More...</a><br /></td></tr>
 <tr class="separator:aa239af1cdb79f0889cf3c813d70e58fd inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +264,12 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#ac2a68042fa5a3847a34a14b0105efb3d">_angle</a></td></tr>
 <tr class="memdesc:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current angle. <br /></td></tr>
 <tr class="separator:ac2a68042fa5a3847a34a14b0105efb3d inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdda314dac100b91f2f1da25a663bd8e inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#afdda314dac100b91f2f1da25a663bd8e">_prevPosition</a></td></tr>
+<tr class="separator:afdda314dac100b91f2f1da25a663bd8e inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e905454eb725478943ed8a81e4abafe inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a4e905454eb725478943ed8a81e4abafe">_newPosition</a></td></tr>
+<tr class="separator:a4e905454eb725478943ed8a81e4abafe inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0888f291eb56afd02c13c90ffe7b325b inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0888f291eb56afd02c13c90ffe7b325b">_pointingPosition</a></td></tr>
+<tr class="separator:a0888f291eb56afd02c13c90ffe7b325b inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top"><a id="a0e49af81ec9b03149a8704c6f1bc51b1"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0e49af81ec9b03149a8704c6f1bc51b1">_scale</a></td></tr>
 <tr class="memdesc:a0e49af81ec9b03149a8704c6f1bc51b1 inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the current scale (the same for both x and y) <br /></td></tr>
@@ -208,6 +278,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a0addc6d9eee002a0750a3293cd6d673c">_isMoving</a></td></tr>
 <tr class="memdesc:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data member storing the boolean state of whether the object is moving or not. <br /></td></tr>
 <tr class="separator:a0addc6d9eee002a0750a3293cd6d673c inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa899702655f2de534582fd62035e3640 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">MovementState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#aa899702655f2de534582fd62035e3640">_movementState</a></td></tr>
+<tr class="separator:aa899702655f2de534582fd62035e3640 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d535c27547f4d4bb8d9069cd1740585 inherit pro_attribs_class_moveable"><td class="memItemLeft" align="right" valign="top">MovementDirection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_moveable.html#a1d535c27547f4d4bb8d9069cd1740585">_movementDirection</a></td></tr>
+<tr class="separator:a1d535c27547f4d4bb8d9069cd1740585 inherit pro_attribs_class_moveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_animatable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_animatable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_animatable.html">Animatable</a></td></tr>
 <tr class="memitem:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#af157c80921e5afac531de85c1b63caef">_sprite</a></td></tr>
 <tr class="separator:af157c80921e5afac531de85c1b63caef inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,6 +291,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a8f0c6a5d49b6d4fde06bab2ed0dd0680 inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a1280f9cc58e0c28ad2adb64d096ef1bb">_animationFPSLimit</a></td></tr>
 <tr class="separator:a1280f9cc58e0c28ad2adb64d096ef1bb inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c86aab69f6c1762c94493d42cbe4dd inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">IntRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a70c86aab69f6c1762c94493d42cbe4dd">_rectArea</a></td></tr>
+<tr class="separator:a70c86aab69f6c1762c94493d42cbe4dd inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4ded77c039e01206256dacd2cb7fac inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#aad4ded77c039e01206256dacd2cb7fac">_spriteOffset</a></td></tr>
+<tr class="separator:aad4ded77c039e01206256dacd2cb7fac inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31269253f9c397001360b9f59e9c042d inherit pro_attribs_class_animatable"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animatable.html#a31269253f9c397001360b9f59e9c042d">_angleOrientation</a></td></tr>
+<tr class="separator:a31269253f9c397001360b9f59e9c042d inherit pro_attribs_class_animatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_meteoroid.html" title="Meteoroid class. ">Meteoroid</a> class. </p>
@@ -318,6 +398,46 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a90e3162ce04a2f00dfe6bbb64f34899d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e3162ce04a2f00dfe6bbb64f34899d">&#9670;&nbsp;</a></span>getAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float Meteoroid::getAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current angle of the meteoroid. </p>
+<dl class="section return"><dt>Returns</dt><dd>A float value, the angle for mod/arg position </dd></dl>
+
+<p>Implements <a class="el" href="class_moveable.html#a9ff16604179cdd1e5a38771d76c20443">Moveable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00062">62</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_a90e3162ce04a2f00dfe6bbb64f34899d_icgraph.png" border="0" usemap="#class_meteoroid_a90e3162ce04a2f00dfe6bbb64f34899d_icgraph" alt=""/></div>
+<map name="class_meteoroid_a90e3162ce04a2f00dfe6bbb64f34899d_icgraph" id="class_meteoroid_a90e3162ce04a2f00dfe6bbb64f34899d_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="194,5,332,31"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a440c2468321dec00a1b15e4f7a8bcc88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a440c2468321dec00a1b15e4f7a8bcc88">&#9670;&nbsp;</a></span>getDistanceFromCentre()</h2>
 
@@ -346,7 +466,15 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#a724061b235c2a66939bbcc327648cb58">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00062">62</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00067">67</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_a440c2468321dec00a1b15e4f7a8bcc88_icgraph.png" border="0" usemap="#class_meteoroid_a440c2468321dec00a1b15e4f7a8bcc88_icgraph" alt=""/></div>
+<map name="class_meteoroid_a440c2468321dec00a1b15e4f7a8bcc88_icgraph" id="class_meteoroid_a440c2468321dec00a1b15e4f7a8bcc88_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="243,12,381,37"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -378,7 +506,15 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_entity.html#a55cb2ea6bcc7cdbe4c388aa01cbc48fc">Entity</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00082">82</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00087">87</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_a07866040ddea66bf42f4d13394c85c93_icgraph.png" border="0" usemap="#class_meteoroid_a07866040ddea66bf42f4d13394c85c93_icgraph" alt=""/></div>
+<map name="class_meteoroid_a07866040ddea66bf42f4d13394c85c93_icgraph" id="class_meteoroid_a07866040ddea66bf42f4d13394c85c93_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="191,5,329,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -410,7 +546,15 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#ab7b46138211ec0c2db78c737353d9825">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00067">67</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00072">72</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_a4458558ec04c2b8f924dd9bc89b7f43e_icgraph.png" border="0" usemap="#class_meteoroid_a4458558ec04c2b8f924dd9bc89b7f43e_icgraph" alt=""/></div>
+<map name="class_meteoroid_a4458558ec04c2b8f924dd9bc89b7f43e_icgraph" id="class_meteoroid_a4458558ec04c2b8f924dd9bc89b7f43e_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="207,5,346,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -448,7 +592,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_meteoroid_a9bd731b64f214e715cc3b2f66d79f072_icgraph.png" border="0" usemap="#class_meteoroid_a9bd731b64f214e715cc3b2f66d79f072_icgraph" alt=""/></div>
 <map name="class_meteoroid_a9bd731b64f214e715cc3b2f66d79f072_icgraph" id="class_meteoroid_a9bd731b64f214e715cc3b2f66d79f072_icgraph">
-<area shape="rect" id="node2" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="201,5,322,31"/>
+<area shape="rect" id="node2" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="201,56,322,81"/>
+<area shape="rect" id="node5" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="551,56,690,81"/>
 <area shape="rect" id="node3" href="class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="370,5,499,31"/>
 <area shape="rect" id="node4" href="class_meteoroid.html#a86bf02562ce5807ccd0fbb12d8b6dcd4" title="Constructor for the Meteoroid Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="547,5,694,31"/>
 </map>
@@ -484,7 +629,15 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_moveable.html#a7ab210f45d5558742196fc408d04056a">Moveable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00077">77</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00082">82</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_ad972cf0f2ade2dcc2cb56d2f1dbd602b_icgraph.png" border="0" usemap="#class_meteoroid_ad972cf0f2ade2dcc2cb56d2f1dbd602b_icgraph" alt=""/></div>
+<map name="class_meteoroid_ad972cf0f2ade2dcc2cb56d2f1dbd602b_icgraph" id="class_meteoroid_ad972cf0f2ade2dcc2cb56d2f1dbd602b_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="193,5,332,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -517,12 +670,103 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_animatable.html#a6def49e82426038b2478d868ee1feac8">Animatable</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00072">72</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00077">77</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_a73d9a0896756bab33bab0fd87d500179_icgraph.png" border="0" usemap="#class_meteoroid_a73d9a0896756bab33bab0fd87d500179_icgraph" alt=""/></div>
+<map name="class_meteoroid_a73d9a0896756bab33bab0fd87d500179_icgraph" id="class_meteoroid_a73d9a0896756bab33bab0fd87d500179_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="195,5,333,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa16bb073f6927baf5ec4f25909584b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa16bb073f6927baf5ec4f25909584b21">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespaceentity.html#aa349ee1acd461ee9c30a65288284e630">entity::ID</a> Meteoroid::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the entity type. </p>
+<dl class="section return"><dt>Returns</dt><dd>An enum value (defined in <a class="el" href="common_8hpp_source.html">common.hpp</a>) of the entity type </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecommon.html" title="Common functions, aliases and global constants. ">common</a> </dd>
+<dd>
+<a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> </dd></dl>
+
+<p>Implements <a class="el" href="class_entity.html#aad926830f4c0dcf666515e013046c8ea">Entity</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00092">92</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_aa16bb073f6927baf5ec4f25909584b21_icgraph.png" border="0" usemap="#class_meteoroid_aa16bb073f6927baf5ec4f25909584b21_icgraph" alt=""/></div>
+<map name="class_meteoroid_aa16bb073f6927baf5ec4f25909584b21_icgraph" id="class_meteoroid_aa16bb073f6927baf5ec4f25909584b21_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="189,5,327,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6acf60fd07dc0122e8c5b93a57f3773f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6acf60fd07dc0122e8c5b93a57f3773f">&#9670;&nbsp;</a></span>isAlive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool Meteoroid::isAlive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean state of the entity (alive/dead) </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean value of alive(1) or dead(0) </dd></dl>
+
+<p>Implements <a class="el" href="class_entity.html#a196fc940f457826e43df7dd4cd58c800">Entity</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00097">97</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_a6acf60fd07dc0122e8c5b93a57f3773f_icgraph.png" border="0" usemap="#class_meteoroid_a6acf60fd07dc0122e8c5b93a57f3773f_icgraph" alt=""/></div>
+<map name="class_meteoroid_a6acf60fd07dc0122e8c5b93a57f3773f_icgraph" id="class_meteoroid_a6acf60fd07dc0122e8c5b93a57f3773f_icgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#addddfa1b91965fb07da4302be1b61c5c" title="Sets the future movement, by both angle and distance. " alt="" coords="180,5,318,31"/>
+</map>
+</div>
 
 </div>
 </div>
 <a id="ab5a456d497bf434b2549e0fc617eee0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5a456d497bf434b2549e0fc617eee0e">&#9670;&nbsp;</a></span>setMove()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5a456d497bf434b2549e0fc617eee0e">&#9670;&nbsp;</a></span>setMove() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -554,7 +798,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="class_moveable.html#a226fc9b401e0510a5dcd95eaae039494">Moveable</a>.</p>
+<p>Implements <a class="el" href="class_moveable.html#a8ed041f309a02b910f73b536d2a2c91f">Moveable</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="_meteoroid_8cpp_source.html#l00031">31</a> of file <a class="el" href="_meteoroid_8cpp_source.html">Meteoroid.cpp</a>.</p>
 <div class="dynheader">
@@ -563,6 +807,77 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="class_meteoroid_ab5a456d497bf434b2549e0fc617eee0e_icgraph.png" border="0" usemap="#class_meteoroid_ab5a456d497bf434b2549e0fc617eee0e_icgraph" alt=""/></div>
 <map name="class_meteoroid_ab5a456d497bf434b2549e0fc617eee0e_icgraph" id="class_meteoroid_ab5a456d497bf434b2549e0fc617eee0e_icgraph">
 <area shape="rect" id="node2" href="class_meteoroid.html#a86bf02562ce5807ccd0fbb12d8b6dcd4" title="Constructor for the Meteoroid Class. Calls the ABC constructors for the inheritance hierarchy..." alt="" coords="192,5,339,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="addddfa1b91965fb07da4302be1b61c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addddfa1b91965fb07da4302be1b61c5c">&#9670;&nbsp;</a></span>setMove() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Meteoroid::setMove </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>distance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the future movement, by both angle and distance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>The delta change in angle (will be added to the current angle </td></tr>
+    <tr><td class="paramname">distance</td><td>The delta change in distance (will be added to the current distance</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. ">move</a> </dd></dl>
+
+<p>Implements <a class="el" href="class_moveable.html#a84f08cce6bc7f59b6057cd28da64996b">Moveable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_meteoroid_8hpp_source.html#l00087">87</a> of file <a class="el" href="_meteoroid_8hpp_source.html">Meteoroid.hpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_meteoroid_addddfa1b91965fb07da4302be1b61c5c_cgraph.png" border="0" usemap="#class_meteoroid_addddfa1b91965fb07da4302be1b61c5c_cgraph" alt=""/></div>
+<map name="class_meteoroid_addddfa1b91965fb07da4302be1b61c5c_cgraph" id="class_meteoroid_addddfa1b91965fb07da4302be1b61c5c_cgraph">
+<area shape="rect" id="node2" href="class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="429,45,550,71"/>
+<area shape="rect" id="node4" href="class_meteoroid.html#a9bd731b64f214e715cc3b2f66d79f072" title="Returns the distance from origin (screen space) " alt="" coords="604,95,752,120"/>
+<area shape="rect" id="node5" href="class_meteoroid.html#aa3dc7fa6b2b485a2e6038de5016ddbd8" title="Resets the meteoroid. " alt="" coords="431,172,548,197"/>
+<area shape="rect" id="node6" href="class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="222,45,351,71"/>
+<area shape="rect" id="node7" href="class_meteoroid.html#a84eac69f87842f7b5cc2930556c07158" title="Decrements the metroid&#39;s lives. " alt="" coords="234,197,339,223"/>
+<area shape="rect" id="node8" href="class_meteoroid.html#a73d9a0896756bab33bab0fd87d500179" title="Returns the Sprite object of the Class by ref. " alt="" coords="216,247,357,272"/>
+<area shape="rect" id="node9" href="class_meteoroid.html#a440c2468321dec00a1b15e4f7a8bcc88" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="192,296,381,335"/>
+<area shape="rect" id="node10" href="class_meteoroid.html#a90e3162ce04a2f00dfe6bbb64f34899d" title="Returns the current angle of the meteoroid. " alt="" coords="216,359,357,384"/>
+<area shape="rect" id="node11" href="class_meteoroid.html#a4458558ec04c2b8f924dd9bc89b7f43e" title="Returns the x,y position of the meteoroid on screen. " alt="" coords="210,408,364,433"/>
+<area shape="rect" id="node12" href="class_meteoroid.html#ad972cf0f2ade2dcc2cb56d2f1dbd602b" title="Returns the scale (in width/height) of the meteoroid object. " alt="" coords="217,457,356,483"/>
+<area shape="rect" id="node13" href="class_meteoroid.html#a07866040ddea66bf42f4d13394c85c93" title="Returns the remaining number of lives of the meteoroid. " alt="" coords="218,507,355,532"/>
+<area shape="rect" id="node14" href="class_meteoroid.html#a6acf60fd07dc0122e8c5b93a57f3773f" title="Boolean state of the entity (alive/dead) " alt="" coords="223,556,350,581"/>
+<area shape="rect" id="node15" href="class_meteoroid.html#aa16bb073f6927baf5ec4f25909584b21" title="Returns the entity type. " alt="" coords="219,605,354,631"/>
+<area shape="rect" id="node3" href="namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="598,45,758,71"/>
 </map>
 </div>
 

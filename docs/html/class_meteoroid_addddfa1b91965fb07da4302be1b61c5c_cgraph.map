@@ -1,0 +1,16 @@
+<map id="Meteoroid::setMove" name="Meteoroid::setMove">
+<area shape="rect" id="node2" href="$class_meteoroid.html#a314aa9b2be68d3959983a967e00eed97" title="Performs the actual move, based on _futureMoveValue. " alt="" coords="429,45,550,71"/>
+<area shape="rect" id="node4" href="$class_meteoroid.html#a9bd731b64f214e715cc3b2f66d79f072" title="Returns the distance from origin (screen space) " alt="" coords="604,95,752,120"/>
+<area shape="rect" id="node5" href="$class_meteoroid.html#aa3dc7fa6b2b485a2e6038de5016ddbd8" title="Resets the meteoroid. " alt="" coords="431,172,548,197"/>
+<area shape="rect" id="node6" href="$class_meteoroid.html#ac003835c6e4f4ee926950fad70717f92" title="Checks and updates the movement, shooting and calls the actual movement translation with move() ..." alt="" coords="222,45,351,71"/>
+<area shape="rect" id="node7" href="$class_meteoroid.html#a84eac69f87842f7b5cc2930556c07158" title="Decrements the metroid&#39;s lives. " alt="" coords="234,197,339,223"/>
+<area shape="rect" id="node8" href="$class_meteoroid.html#a73d9a0896756bab33bab0fd87d500179" title="Returns the Sprite object of the Class by ref. " alt="" coords="216,247,357,272"/>
+<area shape="rect" id="node9" href="$class_meteoroid.html#a440c2468321dec00a1b15e4f7a8bcc88" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="192,296,381,335"/>
+<area shape="rect" id="node10" href="$class_meteoroid.html#a90e3162ce04a2f00dfe6bbb64f34899d" title="Returns the current angle of the meteoroid. " alt="" coords="216,359,357,384"/>
+<area shape="rect" id="node11" href="$class_meteoroid.html#a4458558ec04c2b8f924dd9bc89b7f43e" title="Returns the x,y position of the meteoroid on screen. " alt="" coords="210,408,364,433"/>
+<area shape="rect" id="node12" href="$class_meteoroid.html#ad972cf0f2ade2dcc2cb56d2f1dbd602b" title="Returns the scale (in width/height) of the meteoroid object. " alt="" coords="217,457,356,483"/>
+<area shape="rect" id="node13" href="$class_meteoroid.html#a07866040ddea66bf42f4d13394c85c93" title="Returns the remaining number of lives of the meteoroid. " alt="" coords="218,507,355,532"/>
+<area shape="rect" id="node14" href="$class_meteoroid.html#a6acf60fd07dc0122e8c5b93a57f3773f" title="Boolean state of the entity (alive/dead) " alt="" coords="223,556,350,581"/>
+<area shape="rect" id="node15" href="$class_meteoroid.html#aa16bb073f6927baf5ec4f25909584b21" title="Returns the entity type. " alt="" coords="219,605,354,631"/>
+<area shape="rect" id="node3" href="$namespacecommon.html#a3ccc991a71e316bb738d931ce5d36cf0" title="Converts an angle from degrees to radians. " alt="" coords="598,45,758,71"/>
+</map>

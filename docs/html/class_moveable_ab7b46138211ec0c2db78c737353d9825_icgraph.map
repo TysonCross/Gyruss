@@ -1,3 +1,3 @@
 <map id="Moveable::getPosition" name="Moveable::getPosition">
-<area shape="rect" id="node2" href="$class_moveable.html#a6f23dff32442db390d0232e10c199be1" title="Virtual method to set the future movement, by both angle and distance. " alt="" coords="206,5,343,31"/>
+<area shape="rect" id="node2" href="$class_moveable.html#abc0d9e6016204a0bf98c1c82704779e7" title="Returns the x/y position of the _centre member of the entity on screen. " alt="" coords="206,5,351,31"/>
 </map>
