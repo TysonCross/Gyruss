@@ -335,7 +335,7 @@ void EntityController::setEnemyMoveState()
     }
 }
 
-void EntityController::setEnemyMove(std::unique_ptr<Enemy> &enemy,
+void EntityController::setEnemyMove(std::unique_ptr<Entity> &enemy,
                                     MovementState currentEnemyMovementState,
                                     float growShipScreenZone,
                                     float currentEnemyRadius)
@@ -644,7 +644,7 @@ void EntityController::checkEnemyToPlayerShipCollisions()
                                                          _textureHolder,
                                                          textures::Explosion);
             _explosions.push_back(move(explosion));
-            _score.incrementEnemiesKilled((*enemy)->getType());
+//            _score.incrementEnemiesKilled((*enemy)->getType());
             enemyKilled((*enemy)->getType());
             enemy = _enemies.erase(enemy);
             if (!_playerShip.isInvulnerable())
@@ -743,31 +743,26 @@ void EntityController::killAllEnemiesOfType(entity::ID type)
     }
 }
 
-//const bulletList& EntityController::getBulletsPlayer() const
 const entityList& EntityController::getBulletsPlayer() const
 {
     return _bulletsPlayer;
 }
 
-//const bulletList& EntityController::getBulletsEnemy() const
 const entityList& EntityController::getBulletsEnemy() const
 {
     return _bulletsEnemy;
 }
 
-const enemyList& EntityController::getEnemies() const
-//const entityList& EntityController::getEnemies() const
+const entityList& EntityController::getEnemies() const
 {
     return _enemies;
 }
 
 const entityList& EntityController::getMeteoroids() const
-//const meteoroidList& EntityController::getMeteoroids() const
 {
     return _meteoroids;
 }
 
-//const explosionList& EntityController::getExplosions() const
 const entityList& EntityController::getExplosions() const
 {
     return _explosions;

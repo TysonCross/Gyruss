@@ -13,6 +13,29 @@
 #include <SFML/System.hpp>
 
 using sf::Vector2f;
+using sf::Clock;
+
+////////////////////////////////////////////////////////////
+/// \brief An enum list of possible movement states for entity movement
+////////////////////////////////////////////////////////////
+enum MovementState
+{
+    SpiralOut = 0,
+    SpiralIn,
+    Wandering,
+    CircleOffsetLeft,
+    CircleOffsetRight,
+    SmallCircling,
+};
+
+////////////////////////////////////////////////////////////
+/// \brief An enum list of possible movement directions for entity movement
+////////////////////////////////////////////////////////////
+enum MovementDirection
+{
+    Clockwise = 0,
+    CounterClockwise
+};
 
 ////////////////////////////////////////////////////////////
 /// \brief Moveable Class
@@ -74,10 +97,49 @@ public:
     virtual void setMove(float angle, float distance)=0;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Sets up the next frame's position for the object, with a different screen origin
+    ///
+    /// The actual position of the entity is not altered until the move()
+    /// method is called, which performs the actual translation
+    ///
+    /// \param angle The angle the entity should move for the next frame (0-360,
+    /// with 0 being the positive horizontal x axis, with the specified centre argument as the origin)
+    /// \param distance How far the entity should move for the next frame (in screen space)
+    /// \param centre The coordinate {x,y} to be considered as the origin for this move
+    ////////////////////////////////////////////////////////////
+    virtual void setMove(float angle, float distance, Vector2f centre) {}
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the movement state of the entity
+    ///
+    /// \param movementState The enum value of the movement state.
+    ///
+    /// \see MovementDirection
+    ////////////////////////////////////////////////////////////
+    virtual void setMovementState(MovementState movementState) {}
+
+    ////////////////////////////////////////////////////////////
     /// \brief Pure virtual method definition for performing a move
     ////////////////////////////////////////////////////////////
     virtual void move()=0;
-    
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns current Movement state for the enemy
+    ///
+    /// \return An enum value of the current movement state
+    ////////////////////////////////////////////////////////////
+    virtual const MovementState getMovementState() const
+    {return _movementState;}
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the x/y position of the _centre member of the entity on screen
+    ///
+    /// \return An sf:Vector2f (two float values) of the {x,y} position
+    /// considered the current origin of the entity
+    ////////////////////////////////////////////////////////////
+    virtual const Vector2f getCentre() const
+    {return _centre;}
+
     ////////////////////////////////////////////////////////////
     /// \brief Virtual method to return the distance from origin (screen space)
     ///
@@ -113,7 +175,30 @@ public:
     ////////////////////////////////////////////////////////////
     virtual const float getAngle() const=0;
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the currently set movement direction for the entity
+    ///
+    /// \return An enum value of the current movement direction,
+    /// clockwise or counterclockwise
+    ////////////////////////////////////////////////////////////
+    virtual const int getMovementDirectionSign() const
+    {     // Swaps the direction of the angle increase
+        switch (_movementDirection)
+        {
+            case (MovementDirection::CounterClockwise) :
+                return -1;
+            case (MovementDirection::Clockwise) :
+                return 1;
+        }
+    }
+
 protected:
+    ////////////////////////////////////////////////////////////
+    /// \param The origin for the object's move commands
+    /// (default is centre of screen, {resolution.x/2,resolution.y/2}
+    ////////////////////////////////////////////////////////////
+    Vector2f _centre;
+
     ////////////////////////////////////////////////////////////
     /// \brief Data member storing the distance from origin (centre of screen)
     /// \see getDistanceFromCentre
@@ -136,6 +221,21 @@ protected:
     float _angle;
 
     ////////////////////////////////////////////////////////////
+    /// \param The last position of the entity on screen
+    ////////////////////////////////////////////////////////////
+    Vector2f _prevPosition;
+
+    ////////////////////////////////////////////////////////////
+    /// \param The (next frame) future position of the entity of screen
+    ////////////////////////////////////////////////////////////
+    Vector2f _newPosition;
+
+    ////////////////////////////////////////////////////////////
+    /// \param  The calculated new pointing position, (final - initial)
+    ////////////////////////////////////////////////////////////
+    Vector2f _pointingPosition;
+
+    ////////////////////////////////////////////////////////////
     /// \brief Data member storing the current scale (the same for both x and y)
     ////////////////////////////////////////////////////////////
     float _scale;
@@ -144,6 +244,21 @@ protected:
     /// \brief Data member storing the boolean state of whether the object is moving or not
     ////////////////////////////////////////////////////////////
     bool _isMoving;
+
+    ////////////////////////////////////////////////////////////
+    /// \param Stores the movement state of the entity
+    /// \see getMovementState
+    /// \see setMovementState
+    ////////////////////////////////////////////////////////////
+    MovementState _movementState;
+
+    ////////////////////////////////////////////////////////////
+    /// \param Stores the movement direction (clockwise or counterclockwise)
+    /// \see getMovementDirectionSign
+    /// \see setMovementDirectionSign
+    ////////////////////////////////////////////////////////////
+    MovementDirection _movementDirection;
+
 };
 
 

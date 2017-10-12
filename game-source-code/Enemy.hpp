@@ -20,28 +20,6 @@ using sf::Clock;
 using sf::Sprite;
 
 ////////////////////////////////////////////////////////////
-/// \brief An enum list of possible movement states for enemy movement
-////////////////////////////////////////////////////////////
-enum MovementState
-{
-    SpiralOut = 0,
-    SpiralIn,
-    Wandering,
-    CircleOffsetLeft,
-    CircleOffsetRight,
-    SmallCircling,
-};
-
-////////////////////////////////////////////////////////////
-/// \brief An enum list of possible movement directions for enemy movement
-////////////////////////////////////////////////////////////
-enum MovementDirection
-{
-    Clockwise = 0,
-    CounterClockwise
-};
-
-////////////////////////////////////////////////////////////
 /// \brief Abstract Base Class for enemy game objects
 ///
 /// Inherits from Entity
@@ -111,7 +89,7 @@ public:
     /// \param distance How far the enemy should move for the next frame (in screen space)
     /// \param centre The coordinate {x,y} to be considered as the origin for this move
     ////////////////////////////////////////////////////////////
-    void setMove(float angle, float distance, sf::Vector2f centre);
+    void setMove(float angle, float distance, Vector2f centre) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Sets the movement state of the enemy
@@ -120,7 +98,7 @@ public:
     ///
     /// \see MovementDirection
     ////////////////////////////////////////////////////////////
-    void setMovementState(MovementState movementState);
+    void setMovementState(MovementState movementState) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Sets the scale of the Enemy screen object
@@ -128,7 +106,7 @@ public:
     /// \param scaleX The X scale of the enemy sprite
     /// \param scaleY The Y scale of the emeny sprite
     ////////////////////////////////////////////////////////////
-    void setScale(float scaleX, float scaleY);
+    void setScale(float scaleX, float scaleY) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Sets the orientation of the Enemy screen object
@@ -138,12 +116,17 @@ public:
     /// to determine the new pointing vector. Then the sprite of the enemy is
     /// rotated to match this direction
     ////////////////////////////////////////////////////////////
-    void setOrientation();
+    void setOrientation() override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Sets the _isShooting state of the enemy
     ////////////////////////////////////////////////////////////
-    void setShoot();
+    void setShoot() override;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Resets the object timer, measuring when the enemy last shot a bullet
+    ////////////////////////////////////////////////////////////
+    void resetShootTimer() override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Moves the enemy ship around screen space (performs the planned move)
@@ -169,11 +152,6 @@ public:
     /// \brief Decrements the enemy's lives
     ////////////////////////////////////////////////////////////
     void die() override;
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Resets the object timer, measuring when the enemy last shot a bullet
-    ////////////////////////////////////////////////////////////
-    void resetShootTimer();
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the Sprite object of the Class by ref
@@ -211,7 +189,7 @@ public:
     ///
     /// \return The angle of rotation of the sprite
     ////////////////////////////////////////////////////////////
-    const float getOrientationAngle() const;
+    const float getOrientationAngle() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the current rotation of the enemy sprite
@@ -256,14 +234,14 @@ public:
     /// \return An sf:Vector2f (two float values) of the {x,y} position
     /// considered the current origin of the enemy
     ////////////////////////////////////////////////////////////
-    const Vector2f getCentre() const;
+    const Vector2f getCentre() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns current Movement state for the enemy
     ///
     /// \return An enum value of the current movement state
     ////////////////////////////////////////////////////////////
-    const MovementState getMovementState() const;
+    const MovementState getMovementState() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the currently set movement direction for the enemy
@@ -271,29 +249,28 @@ public:
     /// \return An enum value of the current movement direction,
     /// clockwise or counterclockwise
     ////////////////////////////////////////////////////////////
-    const int getMovementDirectionSign() const;
+    const int getMovementDirectionSign() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns amount of time since the enemy last shot a bullet
     ///
     /// \return A float value (in seconds) of the amount of elapsed time
     ////////////////////////////////////////////////////////////
-    const float getShootTimerElapsedTime() const;
+    const float getShootTimerElapsedTime() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the amount of time that the enemy has been alive for.
     ///
     /// \return A float value (in seconds) of the time the enemy object has been alive.
     ////////////////////////////////////////////////////////////
-    const float getAliveTimeElapsedTime() const;
+    const float getAliveTimeElapsedTime() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the shooting status of the enemy
     ///
     /// \return If true, then the enemy is shooting on this frame
     ////////////////////////////////////////////////////////////
-    const bool isShooting() const;
-
+    const bool isShooting() const override;
 
 private:
     ////////////////////////////////////////////////////////////
@@ -301,64 +278,8 @@ private:
     ///
     /// \return Resets the _isShooting member to false
     ////////////////////////////////////////////////////////////
-    void stopShoot();
+    virtual void stopShoot() override;
 
-    ////////////////////////////////////////////////////////////
-    /// \param Stores the angle of rotation of the sprite object
-    ////////////////////////////////////////////////////////////
-    float _angleOrientation;
-
-    ////////////////////////////////////////////////////////////
-    /// \param Stores the state of the enemy shooting or not
-    ////////////////////////////////////////////////////////////
-    bool _isShooting;
-
-    ////////////////////////////////////////////////////////////
-    /// \param The last position of the enemy on screen
-    ////////////////////////////////////////////////////////////
-    Vector2f _prevPosition;
-
-    ////////////////////////////////////////////////////////////
-    /// \param The (next frame) future position of the enemy of screen
-    ////////////////////////////////////////////////////////////
-    Vector2f _newPosition;
-
-    ////////////////////////////////////////////////////////////
-    /// \param  The calulated new pointing position, (final - initial)
-    ////////////////////////////////////////////////////////////
-    Vector2f _pointingPosition;
-
-    ////////////////////////////////////////////////////////////
-    /// \param The origin for the object's move commands
-    /// (default is centre of screen, {resolution.x/2,resolution.y/2}
-    ////////////////////////////////////////////////////////////
-    Vector2f _centre;
-
-    ////////////////////////////////////////////////////////////
-    /// \param A timer since last bullet shooting occurred
-    /// \see getShootTimerElapsedTime
-    ////////////////////////////////////////////////////////////
-    Clock _timerShoot;
-
-    ////////////////////////////////////////////////////////////
-    /// \param A timer measuring how long the enemy has been alive
-    /// \see getAliveTimeElapsedTime
-    ////////////////////////////////////////////////////////////
-    Clock _timerAlive;
-
-    ////////////////////////////////////////////////////////////
-    /// \param Stores the movement state of the enemy
-    /// \see getMovementState
-    /// \see setMovementState
-    ////////////////////////////////////////////////////////////
-    MovementState _movementState;
-
-    ////////////////////////////////////////////////////////////
-    /// \param Stores the movement direction (clockwise or counterclockwise)
-    /// \see getMovementDirectionSign
-    /// \see setMovementDirectionSign
-    ////////////////////////////////////////////////////////////
-    MovementDirection _movementDirection;
 };
 
 #endif //PROJECT_ENEMYSHIP_HPP

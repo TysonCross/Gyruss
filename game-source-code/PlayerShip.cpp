@@ -81,7 +81,7 @@ void PlayerShip::update()
     }
     if (_isShooting)
     {
-        endShoot();
+        stopShoot();
     }
     if (_invulnerabilityTimer.getElapsedTime().asSeconds() > _invulnerabilityTimeAmount)
     {
@@ -187,7 +187,7 @@ void PlayerShip::move()
     _sprite.setRotation(-1 * _angle);
 }
 
-void PlayerShip::endShoot()
+void PlayerShip::stopShoot()
 {
     _isShooting = false;
 }

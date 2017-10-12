@@ -19,10 +19,6 @@
 #include "PerlinNoise.hpp"
 
 using entityList = std::list<std::unique_ptr<Entity>>;
-using enemyList = std::list<std::unique_ptr<Enemy>>;
-//using bulletList = std::list<std::unique_ptr<Bullet>>;
-//using explosionList = std::list<std::unique_ptr<Explosion>>;
-//using meteoroidList = std::list<std::unique_ptr<Meteoroid>>;
 
 ////////////////////////////////////////////////////////////
 /// \brief EntityController Class
@@ -238,8 +234,8 @@ public:
     ///
     /// \return List of all enemies currently in play
     ////////////////////////////////////////////////////////////
-    const enemyList &getEnemies() const;
-//    const entityList &getEnemies() const;
+//    const enemyList &getEnemies() const;
+    const entityList &getEnemies() const;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns a list of all current meteoroid.
@@ -280,7 +276,7 @@ private:
     /// \see setMove
     /// \see Enemy
     ////////////////////////////////////////////////////////////
-    void setEnemyMove(std::unique_ptr<Enemy> &enemy,
+    void setEnemyMove(std::unique_ptr<Entity> &enemy,
                       MovementState currentEnemyMovementState,
                       float growShipScreenZone,
                       float currentEnemyRadius);
@@ -368,34 +364,30 @@ private:
     ////////////////////////////////////////////////////////////
     PlayerShip &_playerShip;
 
+
     ////////////////////////////////////////////////////////////
-    /// \brief A vector of unique_ptr of type <Bullet> to store all Enemy Bullets
+    /// \brief A list of unique_ptr of type <Entity> to store all Enemy Bullets
     ////////////////////////////////////////////////////////////
-//    bulletList _bulletsEnemy;
     entityList _bulletsEnemy;
 
     ////////////////////////////////////////////////////////////
-    /// \brief A vector of unique_ptr of type <Bullet> to store all Player Bullets
+    /// \brief A list of unique_ptr of type <Entity> to store all Player Bullets
     ////////////////////////////////////////////////////////////
-//    bulletList _bulletsPlayer;
     entityList _bulletsPlayer;
 
     ////////////////////////////////////////////////////////////
-    /// \brief A vector of unique_ptr of type <Enemy> to store all Enemy ships
+    /// \brief A list of unique_ptr of type <Entity> to store all Enemy ships
     ////////////////////////////////////////////////////////////
-    enemyList _enemies;
-//    entityList _enemies;
+    entityList _enemies;
 
     ////////////////////////////////////////////////////////////
-    /// \brief A vector of unique_ptr of type <Explosion> to store current explosion objects
+    /// \brief A list of unique_ptr of type <Entity> to store current explosion objects
     ////////////////////////////////////////////////////////////
-//    explosionList _explosions;
     entityList _explosions;
 
     ////////////////////////////////////////////////////////////
-    /// \brief A vector of unique_ptr of type <meteoroids> to store flying meteoroids
+    /// \brief A list of unique_ptr of type <Entity> to store flying meteoroids
     ////////////////////////////////////////////////////////////
-//    meteoroidList _meteoroids;
     entityList _meteoroids;
 
     ////////////////////////////////////////////////////////////

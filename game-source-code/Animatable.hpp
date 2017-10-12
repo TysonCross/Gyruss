@@ -51,6 +51,32 @@ public:
     ////////////////////////////////////////////////////////////
     virtual const Sprite &getSprite()const=0;
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the scale of the entity screen object
+    ///
+    /// \param scaleX The X scale of the enemy sprite
+    /// \param scaleY The Y scale of the emeny sprite
+    ////////////////////////////////////////////////////////////
+    virtual void setScale(float scaleX, float scaleY){}
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Sets the orientation of the entity screen object
+    ///
+    /// The previous and future positions are converted to vectors at the origin,
+    /// and the final position is then subtracted from the initial position,
+    /// to determine the new pointing vector. Then the sprite of the enemy is
+    /// rotated to match this direction
+    ////////////////////////////////////////////////////////////
+    virtual void setOrientation(){}
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the current rotation of the enemy sprite
+    ///
+    /// \return The angle of rotation of the sprite
+    ////////////////////////////////////////////////////////////
+    virtual const float getOrientationAngle() const
+    { return _angleOrientation;}
+
 protected:
     ////////////////////////////////////////////////////////////
     /// \param The sprite object for the Entity
@@ -81,6 +107,11 @@ protected:
     /// \param The pixel offset of the _rectArea, moving the image from frame to frame
     ////////////////////////////////////////////////////////////
     int _spriteOffset;
+
+    ////////////////////////////////////////////////////////////
+    /// \param Stores the angle of orientation of the object
+    ////////////////////////////////////////////////////////////
+    float _angleOrientation;
 
 };
 
