@@ -19,10 +19,10 @@ Requires Windows 7/8/10 and a display capable of 1920x1080 fullscreen <br>
 
 ---
 ##### *Free Game Art Asset Credits:*
-Royalty-free Music by Eric Matyas [www.http://soundimage.org]()
+Royalty-free music by Eric Matyas [www.http://soundimage.org](www.http://soundimage.org)
 
-Free Game Art by Kenney [www.kenney.nl]()
+Free game art by Kenney [www.kenney.nl](www.kenney.nl)
 
-Royalty-free SoundFX from [www.freesound.org]()
+Royalty-free soundFX from [www.freesound.org](www.freesound.org)
 
-All other art and assets by Tyson Cross [www.tysoncross.com]()
+All other art and assets by Tyson Cross [www.tysoncross.com](www.tysoncross.com)
