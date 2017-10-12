@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ELEN3009 Software Development II Project: Release Notes</title>
+<title>ELEN3009 Software Development II Project: Readme</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Release Notes </div>  </div>
+<div class="title">Readme </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><div class="image">
@@ -98,77 +98,24 @@ $(document).ready(function(){initNavTree('index.html','');});
 <hr/>
  <hr/>
 <p> <br />
- </p><h1><a class="el" href="class_game.html" title="The main Game class. ">Game</a> Features and Development</h1>
-<h2>*Whats New*</h2>
+ </p><h2>*Latest Release: v3.0* <br />
+</h2>
 <ul>
-<li><a class="el" href="class_game.html" title="The main Game class. ">Game</a> plays fullscreen, 1920x1080</li>
-<li>Added Perlin noise implementations</li>
-<li>Start splash screen tribute to the original game</li>
-<li>Added additional animation to splash screen</li>
-<li>Added an additional enemy variant: Wanderer, using 2D perlin noise</li>
-<li>Adjusted <a class="el" href="class_game.html" title="The main Game class. ">Game</a> speed to start slower</li>
-<li>Increased max enemies at any time</li>
-<li>Added Victory condition score to <a class="el" href="class_h_u_d.html" title="HUD class, to inform the user of remaining lives and other game information. ">HUD</a>: enemy deaths count down from 100</li>
-<li>Engine refactoring for seperation of concerns</li>
-<li>Technical documentation now included with game ( in docs/html.index.html )</li>
+<li>A space sh'mup clone, based on Taito Corporation's 1984 Gyruss</li>
+<li>Written by Tyson Cross and Chris Maree for ELEN3018 Software Engineering 2</li>
+<li>Control the ship with the <em>left</em> and <em>right</em> arrow keys</li>
+<li>Shoot bullets with the <em>space bar</em></li>
+<li><em>Ctrl-Q</em> quits (or close the window)</li>
+<li>Points are scored by killing enemies, and by surviving for as long as possible</li>
+<li>Written in C++14, using <a href="https://www.sfml-dev.org/">Simple and Fast Multimedia Library [SFML 2.4.2]</a></li>
 </ul>
-<h3>SplashScreen:</h3>
-<ul>
-<li>Player ship image now floats about (procedurally animated with Perlin noise)</li>
-</ul>
-<h3>PlayerShip/HUD:</h3>
-<ul>
-<li><a class="el" href="class_player_ship.html" title="playerShip Class, inherited from Entity ">PlayerShip</a> state in <a class="el" href="class_h_u_d.html" title="HUD class, to inform the user of remaining lives and other game information. ">HUD</a> now reflects weapon upgrade</li>
-</ul>
-<h3><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> behavior:</h3>
-<ul>
-<li>Entities no longer group horizontally.</li>
-<li>Sattelite texture changes to be more visually distinct</li>
-<li>Additional enemy variant (Wanderer) with new texture</li>
-</ul>
-<h3>Object-Oriented design:</h3>
-<ul>
-<li>All audio, including music, now the responsibility of Soundcontroller</li>
-<li>Removed player move sound from PLayerShip (No classes derived from <a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> have any sound methods at all)</li>
-<li><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> now inherits from two Base classes: <a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> and <a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a></li>
-<li><a class="el" href="class_moveable.html" title="Moveable Class. ">Moveable</a> Class: All movement and translation/dimensional members and methods</li>
-<li><a class="el" href="class_animatable.html" title="A component of the main Entity class for game objects. ">Animatable</a> Class: All texture and tile-set animation members and methods</li>
-</ul>
-<h3>Technical documentation</h3>
-<ul>
-<li>Nicer enum formatting (including entity texture images in documentation)</li>
-<li>All objects documented (complete)</li>
-</ul>
-<h3>Other Application features:</h3>
-<ul>
-<li>New Highscore!</li>
-<li>Improved <a class="el" href="class_game.html" title="The main Game class. ">Game</a> art assets and sound.</li>
-<li>Developer mode (in OSX only) has permenant ivulnerability mode</li>
-<li>Added "Spawn Enemy" developer keys</li>
-<li>Developer keys (in debug mode only) : <br />
- [ : slow down game speed <br />
- ] : speed up game speed <br />
- l : upgrade gun <br />
- k : kill (lose player life) <br />
- p : godmode (invulnerability) o : turn off invulnerability</li>
-</ul>
-<h2>*What's Fixed*</h2>
-<ul>
-<li><a class="el" href="class_explosion.html" title="Explosion class, for objects that collide. ">Explosion</a> bug (large explosion appearing at centre of screen, due to enemy spawning on player bullet) fixed. <hr/>
- <h2>*Testing*</h2>
-</li>
-</ul>
-<h3>New Unit tests</h3>
-<ul>
-<li><a class="el" href="class_entity.html" title="Entity Class, inherited from Animatable and Moveable. ">Entity</a> controller public interface tested</li>
-<li>All "common" functions tested</li>
-<li><a class="el" href="class_score.html" title="Object and methods to keep score of player actions. ">Score</a> class tested <hr/>
- <h5>*Free <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Art Asset Credits:*</h5>
-</li>
-</ul>
-<p>Royalty-free Music by Eric Matyas [www.http://soundimage.org]()</p>
-<p>Free <a class="el" href="class_game.html" title="The main Game class. ">Game</a> Art by Kenney [www.kenney.nl]()</p>
-<p>Royalty-free SoundFX from [www.freesound.org]()</p>
+<p>Run the game by opening executables/game.exe <br />
+</p>
+<p>Requires Windows 7/8/10 and a display capable of 1920x1080 fullscreen </p><hr/>
+ <h5>*Free game art asset credits:*</h5>
+<p>Royalty-free music by Eric Matyas [www.http://soundimage.org]()</p>
+<p>Free game art by Kenney [www.kenney.nl]()</p>
+<p>Royalty-free soundFX from [www.freesound.org]()</p>
 <p>All other art and assets by Tyson Cross [www.tysoncross.com]() </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

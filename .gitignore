@@ -162,6 +162,7 @@ doxygen_source
 docygen_source/**
 Doxyfile
 DoxygenWarningLog.txt
+MAINPAGE.md
 
 # Executables (Make releases work)
 !executables/game.exe

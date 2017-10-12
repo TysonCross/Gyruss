@@ -1,66 +1,21 @@
-# Release Notes
 ***
 ***
 # <center>ELEN3009 Project 2017 - Gyruss </center>
 ***
 ***
 <br>
-# Game Features and Development
-## *Whats New*
-* Game plays fullscreen, 1920x1080
-* Added Perlin noise implementations
-* Start splash screen tribute to the original game
-* Added additional animation to splash screen
-* Added an additional enemy variant: Wanderer, using 2D perlin noise
-* Adjusted Game speed to start slower
-* Increased max enemies at any time
-* Added Victory condition score to HUD: enemy deaths count down from 100
-* Engine refactoring for seperation of concerns
-* Technical documentation now included with game ( in docs/html.index.html )
+## *Latest Release: v3.0* <br>
+* A space sh'mup clone, based on Taito Corporation's 1984 Gyruss <br>
+* Written by Tyson Cross and Chris Maree for ELEN3018 Software Engineering 2 <br>
+* Control the ship with the *left* and *right* arrow keys <br>
+* Shoot bullets with the *space bar* <br>
+* *Ctrl-Q* quits (or close the window) <br>
+* Points are scored by killing enemies, and by surviving for as long as possible <br>
+* Written in C++14, using [Simple and Fast Multimedia Library \[SFML 2.4.2\]](https://www.sfml-dev.org/) <br>
 
-### SplashScreen:
-* Player ship image now floats about (procedurally animated with Perlin noise)
-
-### PlayerShip/HUD:
-* PlayerShip state in HUD now reflects weapon upgrade
-
-### Entity behavior:
-* Entities no longer group horizontally.
-* Sattelite texture changes to be more visually distinct
-* Additional enemy variant (Wanderer) with new texture
-
-### Object-Oriented design:
-* All audio, including music, now the responsibility of Soundcontroller
-* Removed player move sound from PLayerShip (No classes derived from Entity have any sound methods at all)
-* Entity now inherits from two Base classes: Moveable and Animatable
-* Moveable Class: All movement and translation/dimensional members and methods
-* Animatable Class: All texture and tile-set animation members and methods
-
-### Technical documentation
-* Nicer enum formatting (including entity texture images in documentation)
-* All objects documented (complete)
-
-### Other Application features:
-* New Highscore!
-* Improved Game art assets and sound.
-* Developer mode (in OSX only) has permenant ivulnerability mode
-* Added "Spawn Enemy" developer keys
-* Developer keys (in debug mode only) : <br>		[ : slow down game speed <br>
-		] : speed up game speed <br>
-		l : upgrade gun <br>
-		k : kill (lose player life) <br>
-		p : godmode (invulnerability)
-		o : turn off invulnerability
-
-## *What's Fixed*
-* Explosion bug (large explosion appearing at centre of screen, due to enemy spawning on player bullet) fixed.
-
----
-## *Testing*
-### New Unit tests
-* Entity controller public interface tested
-* All "common" functions tested
-* Score class tested
+Run the game by opening executables/game.exe <br>
+<br>
+Requires Windows 7/8/10 and a display capable of 1920x1080 fullscreen <br>
 
 ---
 ##### *Free Game Art Asset Credits:*

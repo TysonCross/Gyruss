@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "ELEN3009 Software Development II Project", "index.html", [
-    [ "Release Notes", "index.html", null ],
+    [ "Readme", "index.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -30,7 +30,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animatable_8hpp_source.html",
-"class_star_field.html"
+"class_star_field.html#a12b98fd26428d39c62cad82492f2b853"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
