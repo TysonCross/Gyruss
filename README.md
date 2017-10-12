@@ -18,11 +18,11 @@ Run the game by opening executables/game.exe <br>
 Requires Windows 7/8/10 and a display capable of 1920x1080 fullscreen <br>
 
 ---
-##### *Free Game Art Asset Credits:*
-Royalty-free music by Eric Matyas [www.http://soundimage.org](www.http://soundimage.org)
+##### *Free game art asset credits:*
+Royalty-free music by Eric Matyas [www.soundimage.org](http://www.soundimage.org)
 
-Free game art by Kenney [www.kenney.nl](www.kenney.nl)
+Free game art by Kenney [www.kenney.nl](http://www.kenney.nl)
 
-Royalty-free soundFX from [www.freesound.org](www.freesound.org)
+Royalty-free soundFX from [www.freesound.org](http://www.freesound.org)
 
-All other art and assets by Tyson Cross [www.tysoncross.com](www.tysoncross.com)
+All other art and assets by Tyson Cross [www.tysoncross.com](http://www.tysoncross.com)
