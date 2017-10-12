@@ -21,6 +21,8 @@ var searchData=
   ['sounds',['sounds',['../namespacesounds.html',1,'']]],
   ['spawnbasicenemy',['spawnBasicEnemy',['../class_entity_controller.html#a40483087cfb5b404792454ce5df05165',1,'EntityController']]],
   ['spawnentities',['spawnEntities',['../class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5',1,'EntityController']]],
+  ['spawnmeteoroid',['spawnMeteoroid',['../class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2',1,'EntityController']]],
+  ['spawnsatellites',['spawnSatellites',['../class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593',1,'EntityController']]],
   ['spawnsound',['SpawnSound',['../namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fea1899db6d37bc177dad20f88ace6cc8f3',1,'sounds']]],
   ['splash',['Splash',['../namespacegame.html#ade18e0427d43400c7539d36c85c87657a4b7a1f5b98bbdaa5492926aa33312bf4',1,'game']]],
   ['splashcontrols',['SplashControls',['../namespacetextures.html#a6fad82df7001b1d0cb7167752e29e683a63335d5e23cfafdbbdd0629744dd7f1f',1,'textures']]],

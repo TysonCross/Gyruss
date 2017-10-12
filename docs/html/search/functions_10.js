@@ -15,6 +15,8 @@ var searchData=
   ['soundcontroller',['SoundController',['../class_sound_controller.html#ae9d4c141022e6955993e3633263b61f2',1,'SoundController']]],
   ['spawnbasicenemy',['spawnBasicEnemy',['../class_entity_controller.html#a40483087cfb5b404792454ce5df05165',1,'EntityController']]],
   ['spawnentities',['spawnEntities',['../class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5',1,'EntityController']]],
+  ['spawnmeteoroid',['spawnMeteoroid',['../class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2',1,'EntityController']]],
+  ['spawnsatellites',['spawnSatellites',['../class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593',1,'EntityController']]],
   ['starfield',['StarField',['../class_star_field.html#a363e8939c0810b7eadd47f90552edce3',1,'StarField']]],
   ['start',['Start',['../class_game.html#adb05b20574551a26f8cf1dc664782790',1,'Game']]],
   ['stopmusic',['stopMusic',['../class_sound_controller.html#ab4149c542d65f8036ad438982b5f9e24',1,'SoundController']]],

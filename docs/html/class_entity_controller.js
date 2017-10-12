@@ -19,5 +19,7 @@ var class_entity_controller =
     [ "shootingOccurred", "class_entity_controller.html#a745f45e10249cbb831e10361a7ef161e", null ],
     [ "spawnBasicEnemy", "class_entity_controller.html#a40483087cfb5b404792454ce5df05165", null ],
     [ "spawnEntities", "class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5", null ],
+    [ "spawnMeteoroid", "class_entity_controller.html#a07015aef5ce07f74db32abb25f10ddd2", null ],
+    [ "spawnSatellites", "class_entity_controller.html#a40a37104d6dfde0f5d721d9af5218593", null ],
     [ "update", "class_entity_controller.html#a3d7a4f7f330f070be70103bd00cf0f16", null ]
 ];

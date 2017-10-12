@@ -51,7 +51,7 @@ public:
     /// \see Entity
     /// \see common
     /// \see ResourceHolder
-    /// ////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
     Bullet(const Vector2i resolution,
            float distanceFromCentre,
            float angle,
