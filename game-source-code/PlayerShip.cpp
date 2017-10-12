@@ -122,6 +122,11 @@ const int PlayerShip::getLives() const
     return _lives;
 }
 
+const entity::ID PlayerShip::getType() const
+{
+    return _type;
+}
+
 void PlayerShip::die()
 {
     _lives--;
@@ -159,7 +164,7 @@ const bool PlayerShip::isAlive() const
     return _isAlive;
 }
 
-float PlayerShip::getAngle()
+const float PlayerShip::getAngle() const
 {
     return _angle;
 }

@@ -73,6 +73,11 @@ const float Explosion::getDistanceFromCentre() const
     return _distanceFromCentre;
 }
 
+const float Explosion::getAngle() const
+{
+    return _angle;
+}
+
 const Vector2f Explosion::getPosition() const
 {
     return _sprite.getPosition();
@@ -91,6 +96,16 @@ const Vector2f Explosion::getScale() const
 const int Explosion::getLives() const
 {
     return _lives;
+}
+
+const entity::ID Explosion::getType() const
+{
+    return _type;
+}
+
+const bool Explosion::isAlive() const
+{
+    return _isAlive;
 }
 
 void Explosion::die()

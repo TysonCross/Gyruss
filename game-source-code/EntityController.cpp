@@ -256,6 +256,7 @@ void EntityController::enemyShoot()
                 || (_bulletsEnemy.size() < minNumberEnemyBullets))
             {
                 enemy->resetShootTimer();
+                enemy->setShoot();
                 auto bullet_enemy = std::make_unique<Bullet>(_resolution,
                                                              enemy->getRadius(),
                                                              enemy->getAngle(),
@@ -742,27 +743,32 @@ void EntityController::killAllEnemiesOfType(entity::ID type)
     }
 }
 
-const bulletList& EntityController::getBulletsPlayer() const
+//const bulletList& EntityController::getBulletsPlayer() const
+const entityList& EntityController::getBulletsPlayer() const
 {
     return _bulletsPlayer;
 }
 
-const bulletList& EntityController::getBulletsEnemy() const
+//const bulletList& EntityController::getBulletsEnemy() const
+const entityList& EntityController::getBulletsEnemy() const
 {
     return _bulletsEnemy;
 }
 
 const enemyList& EntityController::getEnemies() const
+//const entityList& EntityController::getEnemies() const
 {
     return _enemies;
 }
 
-const meteoroidList& EntityController::getMeteoroids() const
+const entityList& EntityController::getMeteoroids() const
+//const meteoroidList& EntityController::getMeteoroids() const
 {
     return _meteoroids;
 }
 
-const explosionList& EntityController::getExplosions() const
+//const explosionList& EntityController::getExplosions() const
+const entityList& EntityController::getExplosions() const
 {
     return _explosions;
 }

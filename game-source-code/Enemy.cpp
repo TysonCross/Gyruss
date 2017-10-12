@@ -152,6 +152,11 @@ const int Enemy::getLives() const
     return _lives;
 }
 
+const bool Enemy::isAlive() const
+{
+    return _isAlive;
+}
+
 const entity::ID Enemy::getType() const
 {
     return _type;

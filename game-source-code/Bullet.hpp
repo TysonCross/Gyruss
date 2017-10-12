@@ -72,6 +72,19 @@ public:
     void setMove(float distance) override;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Sets the future movement, by both angle and distance
+    ///
+    ///
+    /// \param angle The delta change in angle (will be added to
+    /// the current angle
+    /// \param distance The delta change in distance (will be added to
+    /// the current distance
+    ///
+    /// \see move
+    ////////////////////////////////////////////////////////////
+    void setMove(float angle, float distance) override {};
+
+    ////////////////////////////////////////////////////////////
     /// \brief Performs the actual move, based on _futureMoveValue.
     ///////////////////////////////////////////////////////////////
     void move() override;
@@ -123,7 +136,7 @@ public:
     ///
     /// \return A float value, the angle around the screen centre origin
     ////////////////////////////////////////////////////////////
-    const float getAngle() const;
+    const float getAngle() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Returns the x,y position of the bullet on screen
@@ -148,18 +161,22 @@ public:
     ////////////////////////////////////////////////////////////
     const int getLives() const override;
 
-private:
     ////////////////////////////////////////////////////////////
-    /// \param The active area of the texture (in an animated tile-set,
-    /// which will be a sub-rectangle of the total texture.
+    /// \brief Boolean state of the entity (alive/dead)
+    ///
+    /// \return A boolean value of alive(1) or dead(0)
     ////////////////////////////////////////////////////////////
-    IntRect _rectArea;
+    const bool isAlive() const override;
 
     ////////////////////////////////////////////////////////////
-    /// \param The pixel offset of the _rectArea, moving the image
-    /// from frame to frame.
+    /// \brief Returns the entity type
+    ///
+    /// \return An enum value (defined in common.hpp) of the entity type
+    /// \see common
+    /// \see Entity
     ////////////////////////////////////////////////////////////
-    int _spriteOffset;
+    const entity::ID getType() const override;
+
 };
 
 #endif //PROJECT_BULLET_HPP

@@ -80,6 +80,11 @@ const float Bullet::getDistanceFromCentre() const
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
 }
 
+const float Bullet::getAngle() const
+{
+    return _angle;
+}
+
 const Vector2f Bullet::getPosition() const
 {
     return _sprite.getPosition();
@@ -98,6 +103,16 @@ const Vector2f Bullet::getScale() const
 const int Bullet::getLives() const
 {
     return _lives;
+}
+
+const entity::ID  Bullet::getType() const
+{
+    return _type;
+}
+
+const bool Bullet::isAlive() const
+{
+    return _isAlive;
 }
 
 void Bullet::die()
@@ -129,9 +144,4 @@ void Bullet::move()
     if (getRadius() >= (_resolution.y/2))
 
     _sprite.setColor(Color(dimColor,dimColor,dimColor));
-}
-
-const float Bullet::getAngle() const
-{
-    return _angle;
 }

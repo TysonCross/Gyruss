@@ -44,7 +44,7 @@ public:
                             _scale{scale} {}
 
     ////////////////////////////////////////////////////////////
-    /// \brief Sets the future movement, either by change in angle or change in distance
+    /// \brief Virtual method to set the future movement, either by change in angle or change in distance
     ///
     /// Some entities only need a change in angle, or distance, not both.
     /// The actual position of the entity is not altered until the move()
@@ -55,7 +55,7 @@ public:
     ///
     /// \see move
     ////////////////////////////////////////////////////////////
-    virtual void setMove(float value){}
+    virtual void setMove(float value)=0;
 
     ////////////////////////////////////////////////////////////
     /// \brief Virtual method to set the future movement, by both angle and distance
@@ -71,8 +71,13 @@ public:
     ///
     /// \see move
     ////////////////////////////////////////////////////////////
-    virtual void setMove(float angle, float distance){}
+    virtual void setMove(float angle, float distance)=0;
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Pure virtual method definition for performing a move
+    ////////////////////////////////////////////////////////////
+    virtual void move()=0;
+    
     ////////////////////////////////////////////////////////////
     /// \brief Virtual method to return the distance from origin (screen space)
     ///
@@ -100,6 +105,13 @@ public:
     /// \return A Vector2f - two (float) values {x,y} of the screen space coordinates of the object
     ////////////////////////////////////////////////////////////
     virtual const Vector2f getPosition()const=0;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the current angle of the playerShip around the movement circle
+    ///
+    /// \return A float value, the angle around the perimeter circle
+    ////////////////////////////////////////////////////////////
+    virtual const float getAngle() const=0;
 
 protected:
     ////////////////////////////////////////////////////////////

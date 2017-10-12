@@ -77,6 +77,19 @@ public:
     void setMove(float angle) override;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Sets the future movement, by both angle and distance
+    ///
+    ///
+    /// \param angle The delta change in angle (will be added to
+    /// the current angle
+    /// \param distance The delta change in distance (will be added to
+    /// the current distance
+    ///
+    /// \see move
+    ////////////////////////////////////////////////////////////
+    void setMove(float angle, float distance) override {};
+
+    ////////////////////////////////////////////////////////////
     /// \brief Sets the _isShooting state of the playerShip
     ////////////////////////////////////////////////////////////
     void setShoot();
@@ -166,14 +179,23 @@ public:
     const int getLives() const override;
 
     ////////////////////////////////////////////////////////////
+    /// \brief Returns the entity type
+    ///
+    /// \return An enum value (defined in common.hpp) of the entity type
+    /// \see common
+    /// \see Entity
+    ////////////////////////////////////////////////////////////
+    const entity::ID  getType() const override;
+
+    ////////////////////////////////////////////////////////////
     /// \brief Returns the current angle of the playerShip around the movement circle
     ///
     /// \return A float value, the angle around the perimeter circle
     ////////////////////////////////////////////////////////////
-    float getAngle();
+    const float getAngle() const override;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns the future, intended angle of the playership around the movement circle,
+    /// \brief Returns the future, intended angle of the playerShip around the movement circle,
     /// which will be updated after the "update" method has completed.
     ///
     /// \return A float value of the planned angle to move by, when move() is called
@@ -185,7 +207,7 @@ public:
     ///
     /// \return A boolean value of alive(1) or dead(0)
     ////////////////////////////////////////////////////////////
-    const bool isAlive() const;
+    const bool isAlive() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Boolean movement state of the playerShip
@@ -238,26 +260,6 @@ private:
     void endShoot();
 
     ////////////////////////////////////////////////////////////
-    /// \param The animatable texture's active tile area
-    ////////////////////////////////////////////////////////////
-    IntRect _rectArea;
-
-    ////////////////////////////////////////////////////////////
-    /// \param The pixel offset of the _rectArea, moving the image from frame to frame
-    ////////////////////////////////////////////////////////////
-    int _spriteOffset;
-
-    ////////////////////////////////////////////////////////////
-    /// \param The future angle to move by
-    ////////////////////////////////////////////////////////////
-    float _futureAngleValue;
-
-    ////////////////////////////////////////////////////////////
-    /// \param Boolean storing state of playerShip: moving or stationary
-    ////////////////////////////////////////////////////////////
-    bool _isMoving;
-
-    ////////////////////////////////////////////////////////////
     /// \param Boolean storing state of playerShip: moving or stationary
     ////////////////////////////////////////////////////////////
     bool _isShooting;
@@ -271,11 +273,6 @@ private:
     /// \param Boolean storing state of playerShip: normal shoot or upgraded double shoot
     ////////////////////////////////////////////////////////////
     bool _isUpgraded;
-
-    ////////////////////////////////////////////////////////////
-    /// \param Boolean storing state of playerShip: alive or dead
-    ////////////////////////////////////////////////////////////
-    bool _isAlive;
 
     ////////////////////////////////////////////////////////////
     /// \param Timer for invulnerability

@@ -59,6 +59,11 @@ const float Meteoroid::getRadius() const
     return sqrt((length.x * length.x) + (length.y * length.y));
 }
 
+const float Meteoroid::getAngle() const
+{
+    return _angle;
+}
+
 const float Meteoroid::getDistanceFromCentre() const
 {
     return _distanceFromCentre - _sprite.getGlobalBounds().height/2;
@@ -82,6 +87,16 @@ const Vector2f Meteoroid::getScale() const
 const int Meteoroid::getLives() const
 {
     return _lives;
+}
+
+const entity::ID Meteoroid::getType() const
+{
+    return _type;
+}
+
+const bool Meteoroid::isAlive() const
+{
+    return _isAlive;
 }
 
 void Meteoroid::die()

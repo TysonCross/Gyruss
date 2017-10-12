@@ -18,11 +18,11 @@
 #include "Score.hpp"
 #include "PerlinNoise.hpp"
 
-//using entityList = std::list<std::unique_ptr<Entity>>;
-using bulletList = std::list<std::unique_ptr<Bullet>>;
+using entityList = std::list<std::unique_ptr<Entity>>;
 using enemyList = std::list<std::unique_ptr<Enemy>>;
-using explosionList = std::list<std::unique_ptr<Explosion>>;
-using meteoroidList = std::list<std::unique_ptr<Meteoroid>>;
+//using bulletList = std::list<std::unique_ptr<Bullet>>;
+//using explosionList = std::list<std::unique_ptr<Explosion>>;
+//using meteoroidList = std::list<std::unique_ptr<Meteoroid>>;
 
 ////////////////////////////////////////////////////////////
 /// \brief EntityController Class
@@ -217,39 +217,45 @@ public:
     void killAllEnemiesOfType(entity::ID type);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns a vector of all current player bullets. Used to draw in other context.
+    /// \brief Returns a list of all current player bullets.
     ///
-    /// \return Vector of all player bullets currently in play
+    /// \return List of all player bullets currently in play
     ////////////////////////////////////////////////////////////
-    const bulletList& getBulletsPlayer() const;
+//    const bulletList &getBulletsPlayer() const;
+    const entityList &getBulletsPlayer() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns a vector of all current enemy bullets. Used to draw in other context.
+    /// \brief Returns a list of all current enemy bullets.
     ///
-    /// \return Vector of all enemy bullets
+    /// \return List of all enemy bullets
     ////////////////////////////////////////////////////////////
-    const bulletList& getBulletsEnemy() const;
+//    const bulletList &getBulletsEnemy() const;
+    const entityList &getBulletsEnemy() const;
+
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns a vector of all current enemies. Used to draw in other context.
+    /// \brief Returns a list of all current enemies.
     ///
-    /// \return vector of all enemies currently in play
+    /// \return List of all enemies currently in play
     ////////////////////////////////////////////////////////////
-    const enemyList& getEnemies() const;
+    const enemyList &getEnemies() const;
+//    const entityList &getEnemies() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns a vector of all current meteoroid. Used to draw in other context.
+    /// \brief Returns a list of all current meteoroid.
     ///
-    /// \return Vector of current meteoroids in play
+    /// \return List of current meteoroids in play
     ////////////////////////////////////////////////////////////
-    const meteoroidList& getMeteoroids() const;
+//    const meteoroidList &getMeteoroids() const;
+    const entityList &getMeteoroids() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Returns a vector of all current explosions. Used to draw in other context.
+    /// \brief Returns a list of all current explosions.
     ///
-    /// \return Vector of current explosions in play
+    /// \return List of current explosions in play
     ////////////////////////////////////////////////////////////
-    const explosionList& getExplosions() const;
+//    const explosionList &getExplosions() const;
+    const entityList &getExplosions() const;
 
 private:
     ////////////////////////////////////////////////////////////
@@ -354,38 +360,43 @@ private:
     /// \brief Texture holder, to access all game assets loaded in other context.
     /// Is a reference as is not created in the EntityController
     ////////////////////////////////////////////////////////////
-    TextureHolder& _textureHolder;
+    TextureHolder &_textureHolder;
 
     ////////////////////////////////////////////////////////////
     /// \brief PlayerShip object generated from game.cpp. Is a reference
     /// as is not created in the EntityController
     ////////////////////////////////////////////////////////////
-    PlayerShip& _playerShip;
+    PlayerShip &_playerShip;
 
     ////////////////////////////////////////////////////////////
     /// \brief A vector of unique_ptr of type <Bullet> to store all Enemy Bullets
     ////////////////////////////////////////////////////////////
-    bulletList _bulletsEnemy;
+//    bulletList _bulletsEnemy;
+    entityList _bulletsEnemy;
 
     ////////////////////////////////////////////////////////////
     /// \brief A vector of unique_ptr of type <Bullet> to store all Player Bullets
     ////////////////////////////////////////////////////////////
-    bulletList _bulletsPlayer;
+//    bulletList _bulletsPlayer;
+    entityList _bulletsPlayer;
 
     ////////////////////////////////////////////////////////////
     /// \brief A vector of unique_ptr of type <Enemy> to store all Enemy ships
     ////////////////////////////////////////////////////////////
     enemyList _enemies;
+//    entityList _enemies;
 
     ////////////////////////////////////////////////////////////
     /// \brief A vector of unique_ptr of type <Explosion> to store current explosion objects
     ////////////////////////////////////////////////////////////
-    explosionList _explosions;
+//    explosionList _explosions;
+    entityList _explosions;
 
     ////////////////////////////////////////////////////////////
     /// \brief A vector of unique_ptr of type <meteoroids> to store flying meteoroids
     ////////////////////////////////////////////////////////////
-    meteoroidList _meteoroids;
+//    meteoroidList _meteoroids;
+    entityList _meteoroids;
 
     ////////////////////////////////////////////////////////////
     /// \brief A Clock to store time from last ship spawn from perimeter. Used to stagger
@@ -424,7 +435,7 @@ private:
     /// \brief A score object to store the current game score state. This is fed into
     /// the Entity controller on construction and is stored as a reference.
     ////////////////////////////////////////////////////////////
-    Score& _score;
+    Score &_score;
 
     ////////////////////////////////////////////////////////////
     /// \brief Boolean to store if an explosion has occurred on the current frame

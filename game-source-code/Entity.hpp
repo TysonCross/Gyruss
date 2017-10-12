@@ -78,9 +78,20 @@ public:
     virtual const int getLives() const=0;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Pure virtual method definition for performing a move
+    /// \brief Boolean state of the entity (alive/dead)
+    ///
+    /// \return A boolean value of alive(1) or dead(0)
     ////////////////////////////////////////////////////////////
-    virtual void move()=0;
+    virtual const bool isAlive() const=0;
+
+    ////////////////////////////////////////////////////////////
+    /// \brief Returns the entity type
+    ///
+    /// \return An enum value (defined in common.hpp) of the entity type
+    /// \see common
+    /// \see Entity
+    ////////////////////////////////////////////////////////////
+    virtual const entity::ID  getType() const=0;
 
     ////////////////////////////////////////////////////////////
     /// \brief Pure virtual method definition for performing an update on the entity object
@@ -108,6 +119,11 @@ protected:
     /// \see getLives()
     ////////////////////////////////////////////////////////////
     int _lives;
+
+    ////////////////////////////////////////////////////////////
+    /// \param Boolean storing state of playerShip: alive or dead
+    ////////////////////////////////////////////////////////////
+    bool _isAlive;
 
 };
 
