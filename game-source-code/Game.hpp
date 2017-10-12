@@ -122,7 +122,7 @@ private:
     void recordHighScore();
 
     ////////////////////////////////////////////////////////////
-    /// \brief When game sounds are generated in the main game loop(playershooting, explosions etc.)
+    /// \brief When game sounds are generated in the main game loop(player shooting, explosions etc.)
     /// this function plays the sound.
     ///
     /// \param playerShip checks for the playerShip shooting event and plays a sound accordingly
@@ -133,7 +133,7 @@ private:
     ////////////////////////////////////////////////////////////
     /// \brief Updates all game events, called on every frame.
     ///
-    /// Updates score object, playership status and all game entities
+    /// Updates score object, playerShip status and all game entities
     ///
     /// \param playerShip is updated to execute its next planned move
     /// \param entityController updates all current alive entities.
@@ -141,12 +141,12 @@ private:
     void update(PlayerShip &playerShip, EntityController &entityController);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Used to draw all game elements by looping over all vectors of entites
+    /// \brief Used to draw all game elements by looping over all vectors of entities
     /// and drawing the underlying sprite. Called on every frame.
     ///
     /// \param starField object drawn on every frame
-    /// \param playerShip current playership sprit at location is drawn
-    /// \param entityController returns all other non-playership sprites to be drawn
+    /// \param playerShip current playerShip sprite at location is drawn
+    /// \param entityController returns all other non playerShip sprites to be drawn
     /// \param shield is drawn, irrespective if its visible or not
     /// \param hud object is drawn to screen to show play statistics
     ////////////////////////////////////////////////////////////
@@ -165,9 +165,9 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \brief When the player dies, specific functions need to be called such as reducing a player
-    /// life, playing sounds, remmove all satelites from play and resetting the game speed.
+    /// life, playing sounds, remove all satellites from play and resetting the game speed.
     ///
-    /// \param playerShip object is needed to decremnt a life from the player
+    /// \param playerShip object is needed to decrement a life from the player
     /// \param entityController is needed to remove all current flying Satellites
     ////////////////////////////////////////////////////////////
     void playerDeathEvents(PlayerShip &playerShip, EntityController &entityController);
@@ -178,7 +178,7 @@ private:
     void shakeWindow();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Set of keys are bound to enable the developer to add extra sprites, make the PlayerShip invunreble
+    /// \brief Set of keys are bound to enable the developer to add extra sprites, make the PlayerShip invulnerable
     /// or change the game speed.
     ///
     /// \param event used to read in key presses

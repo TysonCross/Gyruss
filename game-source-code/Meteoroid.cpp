@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////
-/// \brief   Meteroid Entity (cannot be destroyed by bullets)
+/// \brief   Meteoroid Entity (cannot be destroyed by bullets)
 /////////////////////////////////////////////////////////////////////
 
 #include "Meteoroid.hpp"
@@ -113,7 +113,7 @@ void Meteoroid::move()
 
     auto offset = 0.f;
     if(_distanceFromCentre==0)
-        offset = _resolution.x*0.2;
+        offset = float(_resolution.x*0.2);
 
     auto depthScale = ((_distanceFromCentre + offset)/(_resolution.y/2));
     _distanceFromCentre += _futureMoveValue * depthScale;

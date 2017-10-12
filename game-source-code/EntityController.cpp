@@ -348,7 +348,7 @@ void EntityController::setEnemyMove(std::unique_ptr<Entity> &enemy,
     auto satelliteGrowIncrement = 2.0f;             // Satellites grow at a different rate, faster than other entities
     auto randomAngle = rand() % 2 + 2.0f;           // Constantly increasing random angle of rotation
     auto perlinNoiseAngleOffset = 5.0f;             // Size of angle offset used in perlinNoise movement
-    auto perlinNoiseSpeedScaler = 3.0f;             // Scales speed of perlinNoise
+    auto perlinNoiseSpeedScale = 3.0f;             // Scales speed of perlinNoise
     auto perlinRadiusOffset = 70.0f;                // Change in radius for perlinNoise
 
 
@@ -430,7 +430,7 @@ void EntityController::setEnemyMove(std::unique_ptr<Entity> &enemy,
             //calculate a angle and radius change based on the perlinNoise generator that is then scaled and offset
             auto perlinX = float(_xNoise.noise(currentEnemyTimeAlive) * perlinNoiseAngleOffset -
                              floor(perlinNoiseAngleOffset / 2));
-            auto perlinY = float((_yNoise.noise(currentEnemyTimeAlive / perlinNoiseSpeedScaler) * perlinRadiusOffset -
+            auto perlinY = float((_yNoise.noise(currentEnemyTimeAlive / perlinNoiseSpeedScale) * perlinRadiusOffset -
                                   perlinRadiusOffset / 2));
 
             enemy->setMove(perlinX * currentEnemyDirectionSign * _speedModifier,

@@ -67,7 +67,7 @@ public:
     void setMove();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Inititates the spawn event for Enemy, Satellites and Meteoroid
+    /// \brief Initiates the spawn event for Enemy, Satellites and Meteoroid
     ///
     /// Defines the spawn chances based on a combination of delay between spawns,
     /// and random event chances. There is a maximum & minimum number of enemies
@@ -494,7 +494,7 @@ private:
 
     ////////////////////////////////////////////////////////////
     /// \brief PerlinNoise object to store the perlinNoise X parameter used in wandering
-    /// playership movement
+    /// playerShip movement
     ////////////////////////////////////////////////////////////
     PerlinNoise _xNoise;
 

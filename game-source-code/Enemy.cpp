@@ -120,6 +120,7 @@ const int Enemy::getMovementDirectionSign() const
         case (MovementDirection::Clockwise) :
             return 1;
     }
+    return 1;
 }
 
 const Vector2f Enemy::getPosition() const

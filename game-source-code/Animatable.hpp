@@ -55,7 +55,7 @@ public:
     /// \brief Sets the scale of the entity screen object
     ///
     /// \param scaleX The X scale of the enemy sprite
-    /// \param scaleY The Y scale of the emeny sprite
+    /// \param scaleY The Y scale of the enemy sprite
     ////////////////////////////////////////////////////////////
     virtual void setScale(float scaleX, float scaleY){}
 

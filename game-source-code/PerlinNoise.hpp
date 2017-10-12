@@ -49,7 +49,7 @@ public:
     /// \param x Input for x coordinate
     /// \param y Input for y coordinate (optional)
     /// \param z Input for z coordinate (optional)
-    /// \return A float value between 0 and 1, which varyies smoothly around 0.5f
+    /// \return A float value between 0 and 1, which varies smoothly around 0.5f
     ////////////////////////////////////////////////////////////
     double noise(double x, double y = 0.f, double z = 0.f);
 

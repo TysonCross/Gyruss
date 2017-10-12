@@ -14,10 +14,10 @@ class Score
 {
 public:
     ////////////////////////////////////////////////////////////
-    /// \brief When the player Killes an enemy, this is called with the defined enemy type.
-    /// Based on the type of enemy, different scores are given to the player. these scores are stored.
+    /// \brief When the player kills an enemy, this methos is called with the defined entity type.
+    /// Based on the type of entity, different scores are given to the player. these scores are stored.
     ///
-    /// \param type provides the kind of enemy that was killed
+    /// \param type provides the kind of entity that was killed
     ///
     /// \see common
     /// \see addToScore

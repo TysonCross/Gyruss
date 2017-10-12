@@ -12,7 +12,7 @@
 /// \brief SoundController Class used to handle all game sounds generated through the game
 ///
 /// Whenever a game sound is made, in any form, the SoundController is responsible for playing it.
-/// The sound controler is also responsible for loading the sounds in to the game from disk
+/// The sound controller is also responsible for loading the sounds in to the game from disk
 /// Its design is very similar to that of ResourceHolder, except it has the ability to play sounds
 ///
 /// \see ResourceHolder.hpp
@@ -21,7 +21,7 @@ class SoundController
 {
 public:
     ////////////////////////////////////////////////////////////
-    /// \brief SoundController constructor. when called, calles the loadResources to load the sounds into memory
+    /// \brief SoundController constructor. when called, calls the loadResources to load the sounds into memory
     /// and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now
     /// ready to be called from any game object to be played. All the game object needs to know
     /// is the ID of the sound (i.e. its name) and it can be played without having to load the sound
@@ -33,7 +33,7 @@ public:
     SoundController();
 
     ////////////////////////////////////////////////////////////
-    /// \brief PlaySound is used whenever a sound is needed to be played, from any contex
+    /// \brief PlaySound is used whenever a sound is needed to be played, from any context
     ///
     /// \param id defines the sound ID that is to be played. these are unique. Using this ID,
     /// The caller of the function can define what sound they want to play
@@ -47,13 +47,13 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief setPitch enables the caller to change the pitch of a particular sound by ID
     ///
-    /// \param id the spesific ID of a sound to change the pitch for
+    /// \param id the specific ID of a sound to change the pitch for
     /// \param pitch the desired pitch to be set
     ////////////////////////////////////////////////////////////
     void setPitch(sounds::ID id, float pitch);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Provides a mechanism for generating "3D" sterio sound as the playership moves around the
+    /// \brief Provides a mechanism for generating "3D" stereo sound as the playerShip moves around the
     /// play circle
     /// \param id defines the sound to have position changed
     /// \param position defines the position to set for the associated sound
@@ -87,7 +87,7 @@ public:
 
 private:
     ////////////////////////////////////////////////////////////
-    /// \brief Music object to fasilitate the playing of music as a background for the game
+    /// \brief Music object to facilitate the playing of music as a background for the game
     ///
     /// \see [SFML/Music](https://www.sfml-dev.org/documentation/2.4.2/classsf_1_1Music.php)
     ////////////////////////////////////////////////////////////

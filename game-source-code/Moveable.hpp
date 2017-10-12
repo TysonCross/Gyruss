@@ -67,7 +67,7 @@ public:
                             _scale{scale} {}
 
     ////////////////////////////////////////////////////////////
-    /// \brief Virtual method to set the future movement, either by change in angle or change in distance
+    /// \brief Pure Virtual method to set the future movement, either by change in angle or change in distance
     ///
     /// Some entities only need a change in angle, or distance, not both.
     /// The actual position of the entity is not altered until the move()
@@ -81,7 +81,7 @@ public:
     virtual void setMove(float value)=0;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Virtual method to set the future movement, by both angle and distance
+    /// \brief Pure Virtual method to set the future movement, by both angle and distance
     ///
     /// Some entities only need a change in angle and distance to move.
     /// The actual position of the entity is not altered until the move()
@@ -97,7 +97,7 @@ public:
     virtual void setMove(float angle, float distance)=0;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Sets up the next frame's position for the object, with a different screen origin
+    /// \brief Virtual method to set up the next frame's position for the object, with a different screen origin
     ///
     /// The actual position of the entity is not altered until the move()
     /// method is called, which performs the actual translation
@@ -190,6 +190,7 @@ public:
             case (MovementDirection::Clockwise) :
                 return 1;
         }
+        return 1;
     }
 
 protected:

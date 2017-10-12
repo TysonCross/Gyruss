@@ -41,7 +41,7 @@ void InputHandler::pollInput(game::GameState &gameState,
             if (_previousButtonState == 0)
             {
                 playerShip.setShoot();
-                _previousButtonState = 1;
+                _previousButtonState = true;
             }
     }
 
@@ -57,7 +57,7 @@ void InputHandler::pollInput(game::GameState &gameState,
         }
         if (event.key.code == Keyboard::Space)
         {
-            _previousButtonState = 0;
+            _previousButtonState = false;
         }
     }
 }

@@ -104,7 +104,7 @@ public:
     /// \brief Sets the scale of the Enemy screen object
     ///
     /// \param scaleX The X scale of the enemy sprite
-    /// \param scaleY The Y scale of the emeny sprite
+    /// \param scaleY The Y scale of the enemy sprite
     ////////////////////////////////////////////////////////////
     void setScale(float scaleX, float scaleY) override;
 
@@ -278,7 +278,7 @@ private:
     ///
     /// \return Resets the _isShooting member to false
     ////////////////////////////////////////////////////////////
-    virtual void stopShoot() override;
+    void stopShoot() override;
 
 };
 

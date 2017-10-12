@@ -124,7 +124,7 @@ void Game::startGameLoop()
             playerShip);
 
     // Initialise the playerShip move sound
-    _soundController.playSound(sounds::PlayerMove,0,100,1);
+    _soundController.playSound(sounds::PlayerMove,0,100,true);
 
     ///-------------------------------------------
     ///  Main Game Loop (time advance)
@@ -272,11 +272,10 @@ void Game::render(StarField &starField,
     _mainWindow.draw(playerShip.getSprite());
 
     if (playerShip.isInvulnerable())
-            {
-                shield.update();
-                _mainWindow.draw(shield.getSprite());
-            }
-            else shield.reset();
+    {
+        shield.update();
+        _mainWindow.draw(shield.getSprite());
+    } else shield.reset();
 
     hud.draw();
 

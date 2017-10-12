@@ -31,7 +31,7 @@ public:
     /// \brief Constructor for the Meteoroid Class. Calls the ABC constructors
     /// for the inheritance hierarchy, Entity, Moveable and Animatable.
     ///
-    /// Meteoroid are spawned by a seperate timer (with some random threshold),
+    /// Meteoroid are spawned by a separate timer (with some random threshold),
     /// and then move at a fixed speed along radial lines away from the centre
     /// of the screen. They cannot be destroyed or stopped, and destroy the playerShip
     /// in a collision

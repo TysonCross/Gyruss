@@ -30,7 +30,7 @@ class ScreenSplash : public Screen
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Shows the Splash screen. This occures at game launch.
+    /// \brief Shows the Splash screen. This occurs at game launch.
     ///
     /// \param window The sf:Window object to draw and render to
     /// \param textureHolder stores the images needed for the splash screen,
@@ -47,7 +47,7 @@ public:
     int draw(sf::RenderWindow &window,
              const TextureHolder &textureHolder,
              const FontHolder &fontHolder,
-             const Vector2i resolution);
+             const Vector2i resolution) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Function used to animate the spinning planet on the SplashScreen

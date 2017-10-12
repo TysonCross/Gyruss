@@ -42,7 +42,7 @@ public:
     /// \brief Loads a resource from file into memory, using a key/pair
     /// relationship to map onto a pointer to the object which holds the file information.
     ///
-    /// The load() method loads the file into an object of specifed type,
+    /// The load() method loads the file into an object of specified type,
     /// transferring ownership of the resource to the private map container member _resourceMap/
     ///
     /// \param id The key (ID) to load the resource for (defined in common)

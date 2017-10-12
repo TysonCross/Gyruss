@@ -18,7 +18,7 @@ using sf::Vector2i;
 ////////////////////////////////////////////////////////////
 /// \brief ScreenGameOver, to display the end game screen
 ///
-/// Inherets from the screen base class
+/// Inherits from the screen base class
 ///
 /// \see screen
 ////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ public:
     /// \param textureHolder enables the GameOverScreen to access the end game background
     /// \param fontHolder stores the fonts needed for the end game screen
     /// \param resolution is used to calculate the game screen size, so the GameOverScreen can position content
-    /// on diffrent screen sizes more effectivly and consistently
+    /// on different screen sizes more effectively and consistently
     /// \param score is used to get the player score, longest life, bullets fired, accuracy and enemies killed.
     ///
     /// \see ResourceHolder

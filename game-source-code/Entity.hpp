@@ -67,7 +67,10 @@ public:
                                                           scale},
                                                  Animatable{textureHolder,
                                                             type},
-                                                 _resolution{resolution} {}
+                                                 _resolution{resolution},
+                                                 _lives{0},
+                                                 _isAlive{true},
+                                                 _isShooting{false} {}
 
     ////////////////////////////////////////////////////////////
     /// \brief Pure virtual method definition for returning the
