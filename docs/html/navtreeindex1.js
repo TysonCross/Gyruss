@@ -26,7 +26,7 @@ var NAVTREEINDEX1 =
 "class_screen_game_over.html#a6b6ab72c51b46b05d63c7bd2127673db":[2,0,18,1],
 "class_screen_game_over.html#ab9a7987197ca19f80d57c45c5e9ee36b":[2,0,18,0],
 "class_screen_splash.html":[2,0,19],
-"class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3":[2,0,19,1],
+"class_screen_splash.html#a9ceb07040e05462d1cfb0153cc135ea6":[2,0,19,1],
 "class_screen_splash.html#ac6a75af943a07905ad1cbdb1829aab52":[2,0,19,0],
 "class_screen_splash.html#ae869e65e3457e1eccfd51537651be4d6":[2,0,19,2],
 "class_shield.html":[2,0,20],

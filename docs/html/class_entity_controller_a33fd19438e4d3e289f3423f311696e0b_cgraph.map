@@ -1,6 +1,6 @@
 <map id="EntityController::checkCollisions" name="EntityController::checkCollisions">
 <area shape="rect" id="node2" href="$class_entity_controller.html#a0c4c7ccd010ae3ba3598fcaa623460b8" title="Used to check for collisions between two sprites. " alt="" coords="286,5,451,31"/>
-<area shape="rect" id="node3" href="$class_score.html#ab130dd02bdd3e026421ad426741637e8" title="When the player Killes an enemy, this is called with the defined enemy type. Based on the type of ene..." alt="" coords="265,55,472,80"/>
+<area shape="rect" id="node3" href="$class_score.html#ab130dd02bdd3e026421ad426741637e8" title="When the player kills an enemy, this methos is called with the defined entity type. Based on the type of entity, different scores are given to the player. these scores are stored. " alt="" coords="265,55,472,80"/>
 <area shape="rect" id="node4" href="$class_player_ship.html#a140d0da9785b423c9384c98c755d70c9" title="Returns the Sprite object of the Class by ref. " alt="" coords="295,104,442,129"/>
 <area shape="rect" id="node5" href="$class_player_ship.html#a9671688d8c1759ef3f4500482f51f119" title="Returns the distance from origin (non&#45;linear distance) " alt="" coords="271,153,466,192"/>
 <area shape="rect" id="node6" href="$class_player_ship.html#acfb073f06929879aa62a6baebe9e5323" title="Returns the current angle of the playerShip around the movement circle. " alt="" coords="295,216,441,241"/>

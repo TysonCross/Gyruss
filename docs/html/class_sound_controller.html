@@ -99,16 +99,16 @@ $(document).ready(function(){initNavTree('class_sound_controller.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9d4c141022e6955993e3633263b61f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ae9d4c141022e6955993e3633263b61f2">SoundController</a> ()</td></tr>
-<tr class="memdesc:ae9d4c141022e6955993e3633263b61f2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> constructor. when called, calles the loadResources to load the sounds into memory and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now ready to be called from any game object to be played. All the game object needs to know is the ID of the sound (i.e. its name) and it can be played without having to load the sound in from disk first.  <a href="#ae9d4c141022e6955993e3633263b61f2">More...</a><br /></td></tr>
+<tr class="memdesc:ae9d4c141022e6955993e3633263b61f2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> constructor. when called, calls the loadResources to load the sounds into memory and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now ready to be called from any game object to be played. All the game object needs to know is the ID of the sound (i.e. its name) and it can be played without having to load the sound in from disk first.  <a href="#ae9d4c141022e6955993e3633263b61f2">More...</a><br /></td></tr>
 <tr class="separator:ae9d4c141022e6955993e3633263b61f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a006740b8f08a9d288800807f75626c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#a9a006740b8f08a9d288800807f75626c">playSound</a> (<a class="el" href="namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fe">sounds::ID</a> id, float pitch=1.f, float volume=100, bool loop=0)</td></tr>
-<tr class="memdesc:a9a006740b8f08a9d288800807f75626c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PlaySound is used whenever a sound is needed to be played, from any contex.  <a href="#a9a006740b8f08a9d288800807f75626c">More...</a><br /></td></tr>
+<tr class="memdesc:a9a006740b8f08a9d288800807f75626c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PlaySound is used whenever a sound is needed to be played, from any context.  <a href="#a9a006740b8f08a9d288800807f75626c">More...</a><br /></td></tr>
 <tr class="separator:a9a006740b8f08a9d288800807f75626c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c5d0f352e0c792cf97d3bc46b634721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#a0c5d0f352e0c792cf97d3bc46b634721">setPitch</a> (<a class="el" href="namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fe">sounds::ID</a> id, float pitch)</td></tr>
 <tr class="memdesc:a0c5d0f352e0c792cf97d3bc46b634721"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPitch enables the caller to change the pitch of a particular sound by ID  <a href="#a0c5d0f352e0c792cf97d3bc46b634721">More...</a><br /></td></tr>
 <tr class="separator:a0c5d0f352e0c792cf97d3bc46b634721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5078268ad0c88dd71f18ba572165508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#af5078268ad0c88dd71f18ba572165508">setPosition</a> (<a class="el" href="namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fe">sounds::ID</a> id, <a class="el" href="structcommon_1_1position.html">common::position</a> position)</td></tr>
-<tr class="memdesc:af5078268ad0c88dd71f18ba572165508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a mechanism for generating "3D" sterio sound as the playership moves around the play circle.  <a href="#af5078268ad0c88dd71f18ba572165508">More...</a><br /></td></tr>
+<tr class="memdesc:af5078268ad0c88dd71f18ba572165508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a mechanism for generating "3D" stereo sound as the playerShip moves around the play circle.  <a href="#af5078268ad0c88dd71f18ba572165508">More...</a><br /></td></tr>
 <tr class="separator:af5078268ad0c88dd71f18ba572165508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab531a6078abc8c84441242bf7e57a48b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_controller.html#ab531a6078abc8c84441242bf7e57a48b">stopSound</a> (<a class="el" href="namespacesounds.html#aee778d41a459e8da9e5ca23a0daff2fe">sounds::ID</a> id)</td></tr>
 <tr class="memdesc:ab531a6078abc8c84441242bf7e57a48b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a sound from playing, based on an id.  <a href="#ab531a6078abc8c84441242bf7e57a48b">More...</a><br /></td></tr>
@@ -128,7 +128,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Controller for all sound events. </p>
 <p><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> Class used to handle all game sounds generated through the game</p>
-<p>Whenever a game sound is made, in any form, the <a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> is responsible for playing it. The sound controler is also responsible for loading the sounds in to the game from disk Its design is very similar to that of <a class="el" href="class_resource_holder.html" title="The ResourceType class. ">ResourceHolder</a>, except it has the ability to play sounds</p>
+<p>Whenever a game sound is made, in any form, the <a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> is responsible for playing it. The sound controller is also responsible for loading the sounds in to the game from disk Its design is very similar to that of <a class="el" href="class_resource_holder.html" title="The ResourceType class. ">ResourceHolder</a>, except it has the ability to play sounds</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="_resource_holder_8hpp_source.html">ResourceHolder.hpp</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_sound_controller_8hpp_source.html#l00020">20</a> of file <a class="el" href="_sound_controller_8hpp_source.html">SoundController.hpp</a>.</p>
@@ -148,7 +148,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> constructor. when called, calles the loadResources to load the sounds into memory and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now ready to be called from any game object to be played. All the game object needs to know is the ID of the sound (i.e. its name) and it can be played without having to load the sound in from disk first. </p>
+<p><a class="el" href="class_sound_controller.html" title="Controller for all sound events. ">SoundController</a> constructor. when called, calls the loadResources to load the sounds into memory and calls getSounds to construct a vector of all the sounds from the disk resources. These sounds are now ready to be called from any game object to be played. All the game object needs to know is the ID of the sound (i.e. its name) and it can be played without having to load the sound in from disk first. </p>
 <p>Controller for all sound events.</p>
 <dl class="section see"><dt>See also</dt><dd>loadResources </dd>
 <dd>
@@ -227,7 +227,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>PlaySound is used whenever a sound is needed to be played, from any contex. </p>
+<p>PlaySound is used whenever a sound is needed to be played, from any context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>defines the sound ID that is to be played. these are unique. Using this ID, The caller of the function can define what sound they want to play </td></tr>
@@ -279,7 +279,7 @@ Here is the caller graph for this function:</div>
 <p>setPitch enables the caller to change the pitch of a particular sound by ID </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>the spesific ID of a sound to change the pitch for </td></tr>
+    <tr><td class="paramname">id</td><td>the specific ID of a sound to change the pitch for </td></tr>
     <tr><td class="paramname">pitch</td><td>the desired pitch to be set </td></tr>
   </table>
   </dd>
@@ -323,7 +323,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Provides a mechanism for generating "3D" sterio sound as the playership moves around the play circle. </p>
+<p>Provides a mechanism for generating "3D" stereo sound as the playerShip moves around the play circle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>defines the sound to have position changed </td></tr>

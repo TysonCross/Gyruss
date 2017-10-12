@@ -1,4 +1,4 @@
 <map id="ScreenSplash::getHighScore" name="ScreenSplash::getHighScore">
-<area shape="rect" id="node2" href="$class_screen_splash.html#a7bec184b41e34ba00d1dc82d209fe7e3" title="Shows the Splash screen. This occures at game launch. " alt="" coords="246,5,387,31"/>
+<area shape="rect" id="node2" href="$class_screen_splash.html#a9ceb07040e05462d1cfb0153cc135ea6" title="Shows the Splash screen. This occurs at game launch. " alt="" coords="246,5,387,31"/>
 <area shape="rect" id="node3" href="$class_game.html#adb05b20574551a26f8cf1dc664782790" title="Starts the game. " alt="" coords="435,5,528,31"/>
 </map>

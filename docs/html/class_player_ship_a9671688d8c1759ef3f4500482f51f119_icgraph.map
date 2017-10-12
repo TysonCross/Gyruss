@@ -1,5 +1,5 @@
 <map id="PlayerShip::getDistanceFromCentre" name="PlayerShip::getDistanceFromCentre">
-<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="715,55,917,80"/>
+<area shape="rect" id="node2" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Initiates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="715,55,917,80"/>
 <area shape="rect" id="node4" href="$class_entity_controller.html#a33fd19438e4d3e289f3423f311696e0b" title="Responsible for dealing with all collision with all game objects. PlayerBullet&#45;&gt;Enemy, EnemyBullet&#45;&gt;PlayerShip, PlayerBullet&#45;&gt;EnemyBullet,. " alt="" coords="710,5,922,31"/>
 <area shape="rect" id="node5" href="$class_player_ship.html#af4b4060652f725125bc2704826ab9abe" title="Returns the distance from origin (screen space) " alt="" coords="248,105,401,131"/>
 <area shape="rect" id="node7" href="$class_player_ship.html#a059921c7cf63dfc652eb25c82d27e698" title="Sets the future movement, by both angle and distance. " alt="" coords="484,155,627,180"/>

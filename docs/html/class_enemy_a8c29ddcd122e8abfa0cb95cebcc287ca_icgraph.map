@@ -1,7 +1,7 @@
 <map id="Enemy::getAngle" name="Enemy::getAngle">
 <area shape="rect" id="node2" href="$class_enemy.html#a0f9f60244fcba6a4522ea1c7346705b9" title="Sets the orientation of the Enemy screen object. " alt="" coords="176,190,329,215"/>
 <area shape="rect" id="node5" href="$class_enemy.html#a7150a84b73c4fc2964f4c0c3e0d604f4" title="Sets the future movement, either by change in angle or change in distance. " alt="" coords="830,215,950,241"/>
-<area shape="rect" id="node9" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Inititates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="789,31,991,57"/>
+<area shape="rect" id="node9" href="$class_entity_controller.html#a11e3e3bfbb24a964d110e15566f89dc5" title="Initiates the spawn event for Enemy, Satellites and Meteoroid. " alt="" coords="789,31,991,57"/>
 <area shape="rect" id="node3" href="$class_enemy.html#a90a135c93792574d2675a670ac25b081" title="Moves the enemy ship around screen space (performs the planned move) " alt="" coords="377,139,480,165"/>
 <area shape="rect" id="node4" href="$class_enemy.html#aa70d742da02995011f1618acc9e303db" title="Checks and updates the movement, shooting and calls the actual movement translation. " alt="" coords="579,139,690,165"/>
 <area shape="rect" id="node8" href="$class_entity_controller.html#a40483087cfb5b404792454ce5df05165" title="Spawns an enemy of a defined id and variant in a spiral direction(movementState) function is called f..." alt="" coords="539,77,730,115"/>
