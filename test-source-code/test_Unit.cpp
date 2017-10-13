@@ -8,8 +8,6 @@
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "SFML/Audio.hpp"
-#include "SFML/Graphics.hpp"
 #include <chrono>
 #include <thread>
 #include "math.h"
@@ -19,20 +17,9 @@
 #include "../game-source-code/Entity.hpp"
 #include "../game-source-code/EntityController.hpp"
 #include "../game-source-code/Explosion.hpp"
-#include "../game-source-code/FPS.hpp"
 #include "../game-source-code/Game.hpp"
-#include "../game-source-code/InputHandler.hpp"
-#include "../game-source-code/PlayerShip.hpp"
-#include "../game-source-code/ResourceHolder.hpp"
-#include "../game-source-code/Screen.hpp"
-#include "../game-source-code/ScreenGameOver.hpp"
-#include "../game-source-code/ScreenSplash.hpp"
-#include "../game-source-code/SoundController.hpp"
-#include "../game-source-code/Starfield.hpp"
-#include "../game-source-code/common.hpp"
 
 
-#include <iostream>
 #include "doctest.h"
 
 ////////////////////////////////////////////////////////////
@@ -41,7 +28,6 @@
 TEST_CASE ("Loading a missing file into a resourceHandler<sf::Texture, textures::ID> throws an exception")
 {
     TextureHolder texture_holder;
-
             CHECK_THROWS(texture_holder.load(textures::testTexture, "resources/NO_IMAGE"));
 }
 
@@ -632,7 +618,7 @@ TEST_CASE ("Shooting a meteoroid fired from the centre scales up as it moves out
 }
 
 ////////////////////////////////////////////////////////////
-///  Enemey Object Movement tests
+///  Enemy Object Movement tests
 ////////////////////////////////////////////////////////////
 
 TEST_CASE ("Creating an object enemy succeeds")
@@ -1362,5 +1348,3 @@ TEST_CASE("Calling killAllEnemiesOfType removes all of that type")
     }
             CHECK(numberOfEnemiesLeft==1); //should have spawned one basic and one satellite
 }
-
-//Other entityController functions accessor and mutator spesific and dont need direct testing if the above tests pass
