@@ -1,10 +1,8 @@
 ***
-***
 # <center>ELEN3009 Project 2017 - Gyruss </center>
 ***
-***
-<br>
-## *Latest Release: v3.0* <br>
+ *Latest Release: v3.0* <br>
+---
 * A space sh'mup clone, based on Taito Corporation's 1984 Gyruss <br>
 * Written by Tyson Cross and Chris Maree for ELEN3018 Software Engineering 2 <br>
 * Control the ship with the *left* and *right* arrow keys <br>
