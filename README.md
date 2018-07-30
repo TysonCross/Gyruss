@@ -1,6 +1,5 @@
 ***
 # <center>ELEN3009 Project 2017 - Gyruss </center>
-***
  *Latest Release: v3.0* <br>
 ---
 * A space sh'mup clone, based on Taito Corporation's 1984 Gyruss <br>
